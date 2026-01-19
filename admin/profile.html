@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Mon Profil - Admin Anthony Courtin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/admin/css/admin.css">
+    <style>
+        :root {
+            --admin-bg: #0a0a0f;
+            --admin-bg-secondary: #12121a;
+            --admin-bg-tertiary: #1a1a25;
+            --admin-text: #ffffff;
+            --admin-text-secondary: #a1a1aa;
+            --admin-primary: #6366f1;
+            --admin-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--admin-bg);
+            color: var(--admin-text);
+            min-height: 100vh;
+        }
+
+        .admin-layout {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            min-height: 100vh;
+        }
+
+        .admin-sidebar {
+            background: linear-gradient(180deg, var(--admin-bg-secondary) 0%, var(--admin-bg) 100%);
+            border-right: 1px solid var(--admin-border);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+        }
+
+        .admin-logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-decoration: none;
+            padding: 0.5rem 0;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .admin-nav {
+            list-style: none;
+            flex: 1;
+        }
+
+        .admin-nav li {
+            margin-bottom: 0.5rem;
+        }
+
+        .admin-nav a {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.875rem 1rem;
+            color: var(--admin-text-secondary);
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.2s;
+            font-size: 0.9375rem;
+        }
+
+        .admin-nav a:hover {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--admin-text);
+        }
+
+        .admin-nav a.active {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2));
+            color: var(--admin-text);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .admin-nav-icon {
+            font-size: 1.125rem;
+        }
+
+        .nav-divider {
+            height: 1px;
+            background: var(--admin-border);
+            margin: 1rem 0;
+        }
+
+        .admin-user {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: var(--admin-bg-tertiary);
+            border-radius: 12px;
+            border: 1px solid var(--admin-border);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .admin-user:hover {
+            border-color: var(--admin-primary);
+        }
+
+        .admin-user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .admin-user-name {
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+
+        .admin-user-email {
+            font-size: 0.75rem;
+            color: var(--admin-text-secondary);
+        }
+
+        .admin-main {
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .page-header {
+            margin-bottom: 2rem;
+        }
+
+        .page-header h1 {
+            font-size: 1.75rem;
+            font-weight: 600;
+        }
+
+        .page-header p {
+            color: var(--admin-text-secondary);
+            margin-top: 0.25rem;
+        }
+
+        .profile-card {
+            background: var(--admin-bg-secondary);
+            border: 1px solid var(--admin-border);
+            border-radius: 16px;
+            overflow: hidden;
+            max-width: 600px;
+        }
+
+        .profile-card-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--admin-border);
+            background: linear-gradient(180deg, var(--admin-bg-tertiary) 0%, transparent 100%);
+        }
+
+        .profile-card-header h2 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .profile-card-body {
+            padding: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--admin-text-secondary);
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            background: var(--admin-bg-tertiary);
+            border: 1px solid var(--admin-border);
+            border-radius: 8px;
+            color: var(--admin-text);
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--admin-primary);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.5rem;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            border-radius: 10px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -10px rgba(99, 102, 241, 0.5);
+        }
+
+        .btn-secondary {
+            background: var(--admin-bg-tertiary);
+            border: 1px solid var(--admin-border);
+            color: var(--admin-text);
+        }
+
+        .success-message {
+            padding: 1rem;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 8px;
+            color: #22c55e;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .error-message {
+            padding: 1rem;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 8px;
+            color: #ef4444;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        .password-section {
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .admin-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .admin-sidebar {
+                display: none;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-layout">
+        <aside class="admin-sidebar">
+            <a href="/admin/index.html" class="admin-logo">Admin Panel</a>
+            <nav>
+                <ul class="admin-nav">
+                    <li><a href="/admin/index.html"><span class="admin-nav-icon">📊</span> Dashboard</a></li>
+                    <li><a href="/admin/articles.html"><span class="admin-nav-icon">📝</span> Articles</a></li>
+                    <li><a href="/admin/editor.html"><span class="admin-nav-icon">✏️</span> Nouvel article</a></li>
+                    <li><a href="/admin/pages.html"><span class="admin-nav-icon">📄</span> Pages</a></li>
+                    <li><a href="/admin/users.html"><span class="admin-nav-icon">👥</span> Utilisateurs</a></li>
+                    <li><a href="/admin/redirects.html"><span class="admin-nav-icon">🔀</span> Redirections</a></li>
+                    <li><a href="/admin/profile.html" class="active"><span class="admin-nav-icon">⚙️</span> Mon
+                            Profil</a></li>
+                    <div class="nav-divider"></div>
+                    <li><a href="/" target="_blank"><span class="admin-nav-icon">🏠</span> Voir le site</a></li>
+                    <li><a href="#" onclick="AdminAuth.logout(); return false;"><span class="admin-nav-icon">🚪</span>
+                            Déconnexion</a></li>
+                </ul>
+            </nav>
+            <a href="/admin/profile.html" class="admin-user">
+                <div class="admin-user-avatar" id="user-avatar">AC</div>
+                <div class="admin-user-info">
+                    <div class="admin-user-name" id="user-name-display">Anthony Courtin</div>
+                    <div class="admin-user-email" id="user-email-display">anthony@astrak.agency</div>
+                </div>
+            </a>
+        </aside>
+
+        <main class="admin-main">
+            <header class="page-header">
+                <h1>⚙️ Mon Profil</h1>
+                <p>Gérez vos informations personnelles et votre mot de passe</p>
+            </header>
+
+            <div class="success-message" id="success-message">
+                ✅ Vos modifications ont été enregistrées avec succès.
+            </div>
+            <div class="error-message" id="error-message"></div>
+
+            <div class="profile-card">
+                <div class="profile-card-header">
+                    <h2>👤 Informations personnelles</h2>
+                </div>
+                <div class="profile-card-body">
+                    <form id="profile-form">
+                        <div class="form-group">
+                            <label for="profile-name">Nom complet</label>
+                            <input type="text" id="profile-name" placeholder="Votre nom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="profile-email">Adresse email</label>
+                            <input type="email" id="profile-email" placeholder="votre@email.com" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="margin-top: 0.5rem;">
+                            💾 Enregistrer les modifications
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="profile-card password-section">
+                <div class="profile-card-header">
+                    <h2>🔐 Changer le mot de passe</h2>
+                </div>
+                <div class="profile-card-body">
+                    <form id="password-form">
+                        <div class="form-group">
+                            <label for="current-password">Mot de passe actuel</label>
+                            <input type="password" id="current-password" placeholder="••••••••" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="new-password">Nouveau mot de passe</label>
+                                <input type="password" id="new-password" placeholder="••••••••" required minlength="8">
+                            </div>
+                            <div class="form-group">
+                                <label for="confirm-password">Confirmer le mot de passe</label>
+                                <input type="password" id="confirm-password" placeholder="••••••••" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="margin-top: 0.5rem;">
+                            🔐 Modifier le mot de passe
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/admin/js/auth.js"></script>
+    <script>
+        AdminAuth.requireAuth();
+
+        // Load current profile
+        function loadProfile() {
+            var profile = JSON.parse(localStorage.getItem('admin_profile') || '{}');
+            var session = AdminAuth.getSession();
+
+            document.getElementById('profile-name').value = profile.name || 'Anthony Courtin';
+            document.getElementById('profile-email').value = profile.email || (session ? session.email : 'anthony@astrak.agency');
+
+            // Update display
+            var name = profile.name || 'Anthony Courtin';
+            var email = profile.email || 'anthony@astrak.agency';
+            var initials = name.split(' ').map(function (n) { return n[0]; }).join('').toUpperCase();
+
+            document.getElementById('user-name-display').textContent = name;
+            document.getElementById('user-email-display').textContent = email;
+            document.getElementById('user-avatar').textContent = initials;
+        }
+
+        loadProfile();
+
+        // Save profile
+        document.getElementById('profile-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            var name = document.getElementById('profile-name').value;
+            var email = document.getElementById('profile-email').value;
+
+            var profile = {
+                name: name,
+                email: email,
+                updatedAt: Date.now()
+            };
+
+            localStorage.setItem('admin_profile', JSON.stringify(profile));
+
+            // Update display
+            var initials = name.split(' ').map(function (n) { return n[0]; }).join('').toUpperCase();
+            document.getElementById('user-name-display').textContent = name;
+            document.getElementById('user-email-display').textContent = email;
+            document.getElementById('user-avatar').textContent = initials;
+
+            document.getElementById('success-message').classList.add('show');
+            setTimeout(function () {
+                document.getElementById('success-message').classList.remove('show');
+            }, 3000);
+        });
+
+        // Change password
+        document.getElementById('password-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            var currentPass = document.getElementById('current-password').value;
+            var newPass = document.getElementById('new-password').value;
+            var confirmPass = document.getElementById('confirm-password').value;
+            var errorDiv = document.getElementById('error-message');
+
+            // Validate
+            if (newPass !== confirmPass) {
+                errorDiv.textContent = '❌ Les mots de passe ne correspondent pas.';
+                errorDiv.classList.add('show');
+                return;
+            }
+
+            if (newPass.length < 8) {
+                errorDiv.textContent = '❌ Le mot de passe doit contenir au moins 8 caractères.';
+                errorDiv.classList.add('show');
+                return;
+            }
+
+            // Verify current password by hashing and comparing
+            crypto.subtle.digest('SHA-256', new TextEncoder().encode('anthony@astrak.agency:' + currentPass))
+                .then(function (buffer) {
+                    var hash = Array.from(new Uint8Array(buffer))
+                        .map(function (b) { return b.toString(16).padStart(2, '0'); })
+                        .join('');
+
+                    var validHash = 'e551eca147b2fb101cd5c371a1c0e36d52313d9aec232eaed790ac6dfb754057';
+
+                    if (hash !== validHash) {
+                        errorDiv.textContent = '❌ Le mot de passe actuel est incorrect.';
+                        errorDiv.classList.add('show');
+                        return;
+                    }
+
+                    // Save new password hash
+                    var profile = JSON.parse(localStorage.getItem('admin_profile') || '{}');
+                    return crypto.subtle.digest('SHA-256', new TextEncoder().encode((profile.email || 'anthony@astrak.agency') + ':' + newPass))
+                        .then(function (newBuffer) {
+                            var newHash = Array.from(new Uint8Array(newBuffer))
+                                .map(function (b) { return b.toString(16).padStart(2, '0'); })
+                                .join('');
+
+                            localStorage.setItem('admin_password_hash', newHash);
+
+                            errorDiv.classList.remove('show');
+                            document.getElementById('success-message').textContent = '✅ Mot de passe modifié avec succès.';
+                            document.getElementById('success-message').classList.add('show');
+
+                            document.getElementById('password-form').reset();
+
+                            setTimeout(function () {
+                                document.getElementById('success-message').classList.remove('show');
+                            }, 3000);
+                        });
+                });
+        });
+    </script>
+</body>
+
+</html>

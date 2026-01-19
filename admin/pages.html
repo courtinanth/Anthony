@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Pages - Admin Anthony Courtin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/admin/css/admin.css">
+    <style>
+        .pages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .page-card {
+            background: var(--admin-bg-secondary);
+            border: 1px solid var(--admin-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.2s;
+        }
+
+        .page-card:hover {
+            border-color: var(--admin-primary);
+            transform: translateY(-2px);
+        }
+
+        .page-card-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+        }
+
+        .page-card-icon {
+            font-size: 1.5rem;
+        }
+
+        .page-card-type {
+            font-size: 0.75rem;
+            background: var(--admin-bg-tertiary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            color: var(--admin-text-secondary);
+        }
+
+        .page-card-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .page-card-url {
+            font-size: 0.8125rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .page-card-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .page-card-actions a,
+        .page-card-actions button {
+            flex: 1;
+            padding: 0.5rem;
+            border-radius: 6px;
+            font-size: 0.8125rem;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+        }
+
+        .page-card-actions .edit {
+            background: var(--admin-primary);
+            color: white;
+        }
+
+        .page-card-actions .view {
+            background: var(--admin-bg-tertiary);
+            color: var(--admin-text);
+            border: 1px solid var(--admin-border);
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--admin-border);
+        }
+
+        .section-title:first-of-type {
+            margin-top: 0;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-box {
+            background: var(--admin-bg-secondary);
+            border: 1px solid var(--admin-border);
+            border-radius: 16px;
+            padding: 2rem;
+            max-width: 550px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--admin-text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .modal-form .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .modal-form label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--admin-text-secondary);
+        }
+
+        .modal-form input,
+        .modal-form textarea {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            background: var(--admin-bg-tertiary);
+            border: 1px solid var(--admin-border);
+            border-radius: 8px;
+            color: var(--admin-text);
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .modal-form textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .modal-form input:focus,
+        .modal-form textarea:focus {
+            outline: none;
+            border-color: var(--admin-primary);
+        }
+
+        .btn-full {
+            width: 100%;
+        }
+
+        .page-current-meta {
+            background: var(--admin-bg-tertiary);
+            border-radius: 8px;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            font-size: 0.8125rem;
+            color: var(--admin-text-secondary);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <a href="/admin/index.html" class="admin-logo">Admin Panel</a>
+            <nav>
+                <ul class="admin-nav">
+                    <li><a href="/admin/index.html"><span class="admin-nav-icon">📊</span> Dashboard</a></li>
+                    <li><a href="/admin/articles.html"><span class="admin-nav-icon">📝</span> Articles</a></li>
+                    <li><a href="/admin/editor.html"><span class="admin-nav-icon">✏️</span> Nouvel article</a></li>
+                    <li><a href="/admin/pages.html" class="active"><span class="admin-nav-icon">📄</span> Pages</a></li>
+                    <li><a href="/admin/cities.html"><span class="admin-nav-icon">🏙️</span> Villes</a></li>
+                    <li><a href="/admin/users.html"><span class="admin-nav-icon">👥</span> Utilisateurs</a></li>
+                    <li><a href="/admin/redirects.html"><span class="admin-nav-icon">🔀</span> Redirections</a></li>
+                    <li><a href="/admin/profile.html"><span class="admin-nav-icon">⚙️</span> Mon Profil</a></li>
+                    <li style="height:1px;background:var(--admin-border);margin:1rem 0;"></li>
+                    <li><a href="/" target="_blank"><span class="admin-nav-icon">🏠</span> Voir le site</a></li>
+                    <li><a href="#" onclick="AdminAuth.logout(); return false;"><span class="admin-nav-icon">🚪</span>
+                            Déconnexion</a></li>
+                </ul>
+            </nav>
+            <a href="/admin/profile.html" class="admin-user">
+                <div class="admin-user-avatar">AC</div>
+                <div class="admin-user-info">
+                    <div class="admin-user-name">Anthony Courtin</div>
+                    <div class="admin-user-email">anthony@astrak.agency</div>
+                </div>
+            </a>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <header class="admin-header">
+                <h1>📄 Pages du site</h1>
+            </header>
+
+            <h2 class="section-title">🏠 Pages principales</h2>
+            <div class="pages-grid">
+                <div class="page-card">
+                    <div class="page-card-header">
+                        <span class="page-card-icon">🏠</span>
+                        <span class="page-card-type">Accueil</span>
+                    </div>
+                    <div class="page-card-title">Page d'accueil</div>
+                    <div class="page-card-url">/index.html</div>
+                    <div class="page-card-actions">
+                        <a href="../index.html" target="_blank" class="view">Voir</a>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-card-header">
+                        <span class="page-card-icon">📧</span>
+                        <span class="page-card-type">Contact</span>
+                    </div>
+                    <div class="page-card-title">Contact</div>
+                    <div class="page-card-url">/contact.html</div>
+                    <div class="page-card-actions">
+                        <a href="../contact.html" target="_blank" class="view">Voir</a>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-card-header">
+                        <span class="page-card-icon">📝</span>
+                        <span class="page-card-type">Blog</span>
+                    </div>
+                    <div class="page-card-title">Blog</div>
+                    <div class="page-card-url">/blog/index.html</div>
+                    <div class="page-card-actions">
+                        <a href="../blog/index.html" target="_blank" class="view">Voir</a>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title">🔧 Services Bordeaux</h2>
+            <div class="pages-grid">
+                <div class="page-card">
+                    <div class="page-card-header">
+                        <span class="page-card-icon">🔍</span>
+                        <span class="page-card-type">Service</span>
+                    </div>
+                    <div class="page-card-title">Audit SEO Bordeaux</div>
+                    <div class="page-card-url">/audit-seo-bordeaux.html</div>
+                    <div class="page-card-actions">
+                        <a href="../audit-seo-bordeaux.html" target="_blank" class="view">Voir</a>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-card-header">
+                        <span class="page-card-icon">⚙️</span>
+                        <span class="page-card-type">Service</span>
+                    </div>
+                    <div class="page-card-title">Optimisation On-Page</div>
+                    <div class="page-card-url">/optimisation-on-page.html</div>
+                    <div class="page-card-actions">
+                        <a href="../optimisation-on-page.html" target="_blank" class="view">Voir</a>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-card-header">
+                        <span class="page-card-icon">🔗</span>
+                        <span class="page-card-type">Service</span>
+                    </div>
+                    <div class="page-card-title">Netlinking Bordeaux</div>
+                    <div class="page-card-url">/netlinking-bordeaux.html</div>
+                    <div class="page-card-actions">
+                        <a href="../netlinking-bordeaux.html" target="_blank" class="view">Voir</a>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-card-header">
+                        <span class="page-card-icon">📍</span>
+                        <span class="page-card-type">Service</span>
+                    </div>
+                    <div class="page-card-title">SEO Local Bordeaux</div>
+                    <div class="page-card-url">/seo-local-bordeaux.html</div>
+                    <div class="page-card-actions">
+                        <a href="../seo-local-bordeaux.html" target="_blank" class="view">Voir</a>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-card-header">
+                        <span class="page-card-icon">✍️</span>
+                        <span class="page-card-type">Service</span>
+                    </div>
+                    <div class="page-card-title">Rédaction SEO</div>
+                    <div class="page-card-url">/redaction-seo.html</div>
+                    <div class="page-card-actions">
+                        <a href="../redaction-seo.html" target="_blank" class="view">Voir</a>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-card-header">
+                        <span class="page-card-icon">🎩</span>
+                        <span class="page-card-type">Service</span>
+                    </div>
+                    <div class="page-card-title">Black Hat SEO</div>
+                    <div class="page-card-url">/black-hat-seo.html</div>
+                    <div class="page-card-actions">
+                        <a href="../black-hat-seo.html" target="_blank" class="view">Voir</a>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title">🏙️ Pages villes (54 pages)</h2>
+            <p style="color: var(--admin-text-secondary); margin-bottom: 1rem;">
+                Chaque ville dispose de 6 pages services. Total : 54 pages localisées.
+            </p>
+            <div class="pages-grid">
+                <div class="page-card">
+                    <div class="page-card-header">
+                        <span class="page-card-icon">🏙️</span>
+                        <span class="page-card-type">9 pages</span>
+                    </div>
+                    <div class="page-card-title">Mérignac</div>
+                    <div class="page-card-url">/villes/...-merignac.html</div>
+                    <div class="page-card-actions">
+                        <a href="../villes/audit-seo-merignac.html" target="_blank" class="view">Voir</a>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-card-header">
+                        <span class="page-card-icon">🏙️</span>
+                        <span class="page-card-type">9 pages</span>
+                    </div>
+                    <div class="page-card-title">Pessac</div>
+                    <div class="page-card-url">/villes/...-pessac.html</div>
+                    <div class="page-card-actions">
+                        <a href="../villes/audit-seo-pessac.html" target="_blank" class="view">Voir</a>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-card-header">
+                        <span class="page-card-icon">🏙️</span>
+                        <span class="page-card-type">9 pages</span>
+                    </div>
+                    <div class="page-card-title">Talence</div>
+                    <div class="page-card-url">/villes/...-talence.html</div>
+                    <div class="page-card-actions">
+                        <a href="../villes/audit-seo-talence.html" target="_blank" class="view">Voir</a>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-card-header">
+                        <span class="page-card-icon">🏙️</span>
+                        <span class="page-card-type">9 pages</span>
+                    </div>
+                    <div class="page-card-title">La Teste-de-Buch</div>
+                    <div class="page-card-url">/villes/...-la-teste-de-buch.html</div>
+                    <div class="page-card-actions">
+                        <a href="../villes/audit-seo-la-teste-de-buch.html" target="_blank" class="view">Voir</a>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-card-header">
+                        <span class="page-card-icon">🏙️</span>
+                        <span class="page-card-type">9 pages</span>
+                    </div>
+                    <div class="page-card-title">Gradignan</div>
+                    <div class="page-card-url">/villes/...-gradignan.html</div>
+                    <div class="page-card-actions">
+                        <a href="../villes/audit-seo-gradignan.html" target="_blank" class="view">Voir</a>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-card-header">
+                        <span class="page-card-icon">🏙️</span>
+                        <span class="page-card-type">9 pages</span>
+                    </div>
+                    <div class="page-card-title">+ 4 autres villes</div>
+                    <div class="page-card-url">Bègles, Cenon, St-Médard, Villenave</div>
+                    <div class="page-card-actions">
+                        <a href="../villes/audit-seo-begles.html" target="_blank" class="view">Voir Bègles</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Edit Page Modal -->
+    <div class="modal-overlay" id="edit-page-modal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h2 class="modal-title">✏️ Modifier les métadonnées</h2>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="page-current-meta" id="current-page-info">
+                Page: <strong id="modal-page-name"></strong><br>
+                URL: <code id="modal-page-url"></code>
+            </div>
+            <form class="modal-form" id="edit-page-form">
+                <input type="hidden" id="edit-page-key">
+                <div class="form-group">
+                    <label for="edit-title">Titre (balise &lt;title&gt;)</label>
+                    <input type="text" id="edit-title" placeholder="Titre de la page | Anthony Courtin" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-meta-desc">Meta Description</label>
+                    <textarea id="edit-meta-desc" placeholder="Description courte de la page (160 caractères max)..."
+                        maxlength="160"></textarea>
+                    <small style="color: var(--admin-text-secondary);"><span id="meta-char-count">0</span>/160
+                        caractères</small>
+                </div>
+                <div class="form-group">
+                    <label for="edit-h1">Titre H1</label>
+                    <input type="text" id="edit-h1" placeholder="Titre principal de la page">
+                </div>
+                <button type="submit" class="btn btn-primary btn-full" style="margin-top: 0.5rem;">
+                    💾 Enregistrer les modifications
+                </button>
+            </form>
+            <p style="margin-top: 1rem; font-size: 0.75rem; color: var(--admin-text-secondary);">
+                ⚠️ Les modifications sont enregistrées localement. Pour appliquer sur le site, exportez et remplacez les
+                fichiers HTML.
+            </p>
+        </div>
+    </div>
+
+    <script src="/admin/js/auth.js"></script>
+    <script>
+        AdminAuth.requireAuth();
+
+        // Page metadata storage
+        var pagesMeta = JSON.parse(localStorage.getItem('admin_pages_meta') || '{}');
+
+        function openEditModal(pageName, pageUrl) {
+            var modal = document.getElementById('edit-page-modal');
+            var key = pageUrl.replace(/[^a-z0-9]/gi, '_');
+            var meta = pagesMeta[key] || {};
+
+            document.getElementById('modal-page-name').textContent = pageName;
+            document.getElementById('modal-page-url').textContent = pageUrl;
+            document.getElementById('edit-page-key').value = key;
+            document.getElementById('edit-title').value = meta.title || '';
+            document.getElementById('edit-meta-desc').value = meta.metaDesc || '';
+            document.getElementById('edit-h1').value = meta.h1 || '';
+
+            updateCharCount();
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('edit-page-modal').classList.remove('active');
+        }
+
+        function updateCharCount() {
+            var count = document.getElementById('edit-meta-desc').value.length;
+            document.getElementById('meta-char-count').textContent = count;
+        }
+
+        document.getElementById('edit-meta-desc').addEventListener('input', updateCharCount);
+
+        document.getElementById('edit-page-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            var key = document.getElementById('edit-page-key').value;
+            pagesMeta[key] = {
+                title: document.getElementById('edit-title').value,
+                metaDesc: document.getElementById('edit-meta-desc').value,
+                h1: document.getElementById('edit-h1').value,
+                updatedAt: Date.now()
+            };
+
+            localStorage.setItem('admin_pages_meta', JSON.stringify(pagesMeta));
+            closeModal();
+            alert('✅ Métadonnées enregistrées !');
+        });
+
+        // Close modal on overlay click
+        document.getElementById('edit-page-modal').addEventListener('click', function (e) {
+            if (e.target === this) closeModal();
+        });
+
+        // Add edit buttons to all page cards
+        document.addEventListener('DOMContentLoaded', function () {
+            var cards = document.querySelectorAll('.page-card');
+            cards.forEach(function (card) {
+                var title = card.querySelector('.page-card-title').textContent;
+                var url = card.querySelector('.page-card-url').textContent;
+                var actionsDiv = card.querySelector('.page-card-actions');
+
+                var editBtn = document.createElement('button');
+                editBtn.className = 'edit';
+                editBtn.textContent = 'Modifier';
+                editBtn.onclick = function () {
+                    openEditModal(title, url);
+                };
+
+                actionsDiv.insertBefore(editBtn, actionsDiv.firstChild);
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Utilisateurs - Admin Anthony Courtin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/admin/css/admin.css">
+    <style>
+        .users-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+
+        .user-card {
+            background: var(--admin-bg-secondary);
+            border: 1px solid var(--admin-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            transition: all 0.2s;
+        }
+
+        .user-card:hover {
+            border-color: var(--admin-primary);
+            transform: translateY(-2px);
+        }
+
+        .user-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .user-info {
+            flex: 1;
+        }
+
+        .user-name {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .user-email {
+            color: var(--admin-text-secondary);
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .user-role {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .user-role.admin {
+            background: rgba(99, 102, 241, 0.2);
+            color: #818cf8;
+        }
+
+        .user-role.editor {
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+        }
+
+        .user-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .user-actions button {
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.8125rem;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+        }
+
+        .user-actions .edit {
+            background: var(--admin-primary);
+            color: white;
+        }
+
+        .user-actions .delete {
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+        }
+
+        .user-actions .delete:hover {
+            background: #ef4444;
+            color: white;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-box {
+            background: var(--admin-bg-secondary);
+            border: 1px solid var(--admin-border);
+            border-radius: 16px;
+            padding: 2rem;
+            max-width: 450px;
+            width: 90%;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--admin-text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .modal-form .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .modal-form label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--admin-text-secondary);
+        }
+
+        .modal-form input,
+        .modal-form select {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            background: var(--admin-bg-tertiary);
+            border: 1px solid var(--admin-border);
+            border-radius: 8px;
+            color: var(--admin-text);
+            font-size: 1rem;
+        }
+
+        .modal-form input:focus,
+        .modal-form select:focus {
+            outline: none;
+            border-color: var(--admin-primary);
+        }
+
+        .password-strength {
+            margin-top: 0.5rem;
+            font-size: 0.75rem;
+        }
+
+        .password-strength.weak {
+            color: #ef4444;
+        }
+
+        .password-strength.medium {
+            color: #f59e0b;
+        }
+
+        .password-strength.strong {
+            color: #22c55e;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-layout">
+        <aside class="admin-sidebar">
+            <a href="/admin/index.html" class="admin-logo">Admin Panel</a>
+            <nav>
+                <ul class="admin-nav">
+                    <li><a href="/admin/index.html"><span class="admin-nav-icon">📊</span> Dashboard</a></li>
+                    <li><a href="/admin/articles.html"><span class="admin-nav-icon">📝</span> Articles</a></li>
+                    <li><a href="/admin/editor.html"><span class="admin-nav-icon">✏️</span> Nouvel article</a></li>
+                    <li><a href="/admin/pages.html"><span class="admin-nav-icon">📄</span> Pages</a></li>
+                    <li><a href="/admin/cities.html"><span class="admin-nav-icon">🏙️</span> Villes</a></li>
+                    <li><a href="/admin/users.html" class="active"><span class="admin-nav-icon">👥</span>
+                            Utilisateurs</a></li>
+                    <li><a href="/admin/redirects.html"><span class="admin-nav-icon">🔀</span> Redirections</a></li>
+                    <li><a href="/admin/profile.html"><span class="admin-nav-icon">⚙️</span> Mon Profil</a></li>
+                    <li style="height:1px;background:var(--admin-border);margin:1rem 0;"></li>
+                    <li><a href="/" target="_blank"><span class="admin-nav-icon">🏠</span> Voir le site</a></li>
+                    <li><a href="#" onclick="AdminAuth.logout(); return false;"><span class="admin-nav-icon">🚪</span>
+                            Déconnexion</a></li>
+                </ul>
+            </nav>
+            <a href="/admin/profile.html" class="admin-user">
+                <div class="admin-user-avatar">AC</div>
+                <div class="admin-user-info">
+                    <div class="admin-user-name">Anthony Courtin</div>
+                    <div class="admin-user-email">anthony@astrak.agency</div>
+                </div>
+            </a>
+        </aside>
+
+        <main class="admin-main">
+            <header class="users-header">
+                <h1>👥 Utilisateurs</h1>
+                <button class="btn btn-primary" onclick="showAddUser()">+ Ajouter un utilisateur</button>
+            </header>
+
+            <div id="users-list">
+                <div class="user-card">
+                    <div class="user-avatar">AC</div>
+                    <div class="user-info">
+                        <div class="user-name">Anthony Courtin</div>
+                        <div class="user-email">anthony@astrak.agency</div>
+                        <span class="user-role admin">Administrateur</span>
+                    </div>
+                    <div class="user-actions">
+                        <button class="edit" onclick="editUser('anthony')">Modifier</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add User Modal -->
+    <div class="modal-overlay" id="add-user-modal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h2 class="modal-title">👤 Ajouter un utilisateur</h2>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <form class="modal-form" id="add-user-form">
+                <div class="form-group">
+                    <label for="user-name">Nom complet</label>
+                    <input type="text" id="user-name" placeholder="Jean Dupont" required>
+                </div>
+                <div class="form-group">
+                    <label for="user-email">Email de connexion</label>
+                    <input type="email" id="user-email" placeholder="jean@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="user-password">Mot de passe</label>
+                    <input type="password" id="user-password" placeholder="••••••••" required minlength="8">
+                    <div class="password-strength" id="password-strength"></div>
+                </div>
+                <div class="form-group">
+                    <label for="user-role">Rôle</label>
+                    <select id="user-role">
+                        <option value="editor">Éditeur</option>
+                        <option value="admin">Administrateur</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full" style="margin-top: 0.5rem;">
+                    Créer l'utilisateur
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/admin/js/auth.js"></script>
+    <script>
+        AdminAuth.requireAuth();
+
+        function showAddUser() {
+            document.getElementById('add-user-modal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('add-user-modal').classList.remove('active');
+        }
+
+        // Password strength
+        document.getElementById('user-password').addEventListener('input', function () {
+            var strength = document.getElementById('password-strength');
+            var val = this.value;
+
+            if (val.length < 6) {
+                strength.textContent = 'Faible';
+                strength.className = 'password-strength weak';
+            } else if (val.length < 10 || !/[A-Z]/.test(val) || !/[0-9]/.test(val)) {
+                strength.textContent = 'Moyen';
+                strength.className = 'password-strength medium';
+            } else {
+                strength.textContent = 'Fort';
+                strength.className = 'password-strength strong';
+            }
+        });
+
+        // Add user form
+        document.getElementById('add-user-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            var name = document.getElementById('user-name').value;
+            var email = document.getElementById('user-email').value;
+            var password = document.getElementById('user-password').value;
+            var role = document.getElementById('user-role').value;
+
+            // Note: Cette implémentation est côté client uniquement
+            // En production, cela nécessiterait un backend
+            var users = JSON.parse(localStorage.getItem('admin_users') || '[]');
+            users.push({
+                name: name,
+                email: email,
+                password: btoa(password), // Encodage basique (pas sécurisé pour production)
+                role: role,
+                createdAt: Date.now()
+            });
+            localStorage.setItem('admin_users', JSON.stringify(users));
+
+            // Add to display
+            var initials = name.split(' ').map(function (n) { return n[0]; }).join('');
+            var roleLabel = role === 'admin' ? 'Administrateur' : 'Éditeur';
+            var roleClass = role;
+
+            var html = '<div class="user-card">' +
+                '<div class="user-avatar">' + initials + '</div>' +
+                '<div class="user-info">' +
+                '<div class="user-name">' + name + '</div>' +
+                '<div class="user-email">' + email + '</div>' +
+                '<span class="user-role ' + roleClass + '">' + roleLabel + '</span>' +
+                '</div>' +
+                '<div class="user-actions">' +
+                '<button class="edit">Modifier</button>' +
+                '<button class="delete" onclick="deleteUser(\'' + email + '\', this)">Supprimer</button>' +
+                '</div></div>';
+
+            document.getElementById('users-list').insertAdjacentHTML('beforeend', html);
+
+            closeModal();
+            this.reset();
+            alert('Utilisateur créé avec succès !');
+        });
+
+        function deleteUser(email, btn) {
+            if (confirm('Supprimer cet utilisateur ?')) {
+                var users = JSON.parse(localStorage.getItem('admin_users') || '[]');
+                users = users.filter(function (u) { return u.email !== email; });
+                localStorage.setItem('admin_users', JSON.stringify(users));
+                btn.closest('.user-card').remove();
+            }
+        }
+
+        function editUser(id) {
+            alert('Fonctionnalité de modification en développement');
+        }
+
+        // Close modal on overlay click
+        document.getElementById('add-user-modal').addEventListener('click', function (e) {
+            if (e.target === this) closeModal();
+        });
+
+        // Load existing users on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            var users = JSON.parse(localStorage.getItem('admin_users') || '[]');
+            users.forEach(function (user) {
+                var initials = user.name.split(' ').map(function (n) { return n[0]; }).join('');
+                var roleLabel = user.role === 'admin' ? 'Administrateur' : 'Éditeur';
+
+                var html = '<div class="user-card">' +
+                    '<div class="user-avatar">' + initials + '</div>' +
+                    '<div class="user-info">' +
+                    '<div class="user-name">' + user.name + '</div>' +
+                    '<div class="user-email">' + user.email + '</div>' +
+                    '<span class="user-role ' + user.role + '">' + roleLabel + '</span>' +
+                    '</div>' +
+                    '<div class="user-actions">' +
+                    '<button class="edit">Modifier</button>' +
+                    '<button class="delete" onclick="deleteUser(\'' + user.email + '\', this)">Supprimer</button>' +
+                    '</div></div>';
+
+                document.getElementById('users-list').insertAdjacentHTML('beforeend', html);
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+# Fichiers à ignorer pour Git
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editeur
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Node modules (si utilisé)
+node_modules/
+
+# Fichiers temporaires
+*.tmp
+*.log
+*.bak
+
+# Fichier de hash temporaire
+hash.txt

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Articles - Admin Anthony Courtin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/admin/css/admin.css">
+    <style>
+        .articles-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+
+        .search-bar {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .search-input {
+            background: var(--admin-bg-tertiary);
+            border: 1px solid var(--admin-border);
+            border-radius: 8px;
+            padding: 0.625rem 1rem;
+            color: var(--admin-text);
+            width: 280px;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--admin-primary);
+        }
+
+        .filter-select {
+            background: var(--admin-bg-tertiary);
+            border: 1px solid var(--admin-border);
+            border-radius: 8px;
+            padding: 0.625rem 1rem;
+            color: var(--admin-text);
+        }
+
+        .article-row {
+            display: grid;
+            grid-template-columns: 1fr 120px 140px 100px 140px;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid var(--admin-border);
+            transition: background 0.2s;
+        }
+
+        .article-row:hover {
+            background: var(--admin-bg-tertiary);
+        }
+
+        .article-row:last-child {
+            border-bottom: none;
+        }
+
+        .article-title-cell {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .article-title-link {
+            color: var(--admin-text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .article-title-link:hover {
+            color: var(--admin-primary);
+        }
+
+        .article-slug {
+            font-size: 0.75rem;
+            color: #666;
+        }
+
+        .table-header {
+            display: grid;
+            grid-template-columns: 1fr 120px 140px 100px 140px;
+            gap: 1rem;
+            padding: 0.75rem 1.25rem;
+            background: var(--admin-bg-tertiary);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--admin-text-secondary);
+            border-radius: 12px 12px 0 0;
+        }
+
+        .articles-list {
+            background: var(--admin-bg-secondary);
+            border: 1px solid var(--admin-border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .status-published {
+            color: #22c55e;
+        }
+
+        .status-draft {
+            color: #f59e0b;
+        }
+
+        .action-btn {
+            padding: 0.375rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.8125rem;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+        }
+
+        .action-btn.edit {
+            background: var(--admin-primary);
+            color: white;
+        }
+
+        .action-btn.view {
+            background: var(--admin-bg-tertiary);
+            color: var(--admin-text);
+            border: 1px solid var(--admin-border);
+        }
+
+        .action-btn.delete {
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+        }
+
+        .action-btn.delete:hover {
+            background: #ef4444;
+            color: white;
+        }
+
+        .actions-cell {
+            display: flex;
+            gap: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <a href="/admin/index.html" class="admin-logo">Admin Panel</a>
+            <nav>
+                <ul class="admin-nav">
+                    <li><a href="/admin/index.html"><span class="admin-nav-icon">📊</span> Dashboard</a></li>
+                    <li><a href="/admin/articles.html" class="active"><span class="admin-nav-icon">📝</span>
+                            Articles</a></li>
+                    <li><a href="/admin/editor.html"><span class="admin-nav-icon">✏️</span> Nouvel article</a></li>
+                    <li><a href="/admin/pages.html"><span class="admin-nav-icon">📄</span> Pages</a></li>
+                    <li><a href="/admin/cities.html"><span class="admin-nav-icon">🏙️</span> Villes</a></li>
+                    <li><a href="/admin/users.html"><span class="admin-nav-icon">👥</span> Utilisateurs</a></li>
+                    <li><a href="/admin/redirects.html"><span class="admin-nav-icon">🔀</span> Redirections</a></li>
+                    <li><a href="/admin/profile.html"><span class="admin-nav-icon">⚙️</span> Mon Profil</a></li>
+                    <li style="height:1px;background:var(--admin-border);margin:1rem 0;"></li>
+                    <li><a href="/" target="_blank"><span class="admin-nav-icon">🏠</span> Voir le site</a></li>
+                    <li><a href="#" onclick="AdminAuth.logout(); return false;"><span class="admin-nav-icon">🚪</span>
+                            Déconnexion</a></li>
+                </ul>
+            </nav>
+            <a href="/admin/profile.html" class="admin-user">
+                <div class="admin-user-avatar">AC</div>
+                <div class="admin-user-info">
+                    <div class="admin-user-name">Anthony Courtin</div>
+                    <div class="admin-user-email">anthony@astrak.agency</div>
+                </div>
+            </a>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-main">
+            <header class="articles-header">
+                <h1>📝 Articles</h1>
+                <a href="editor.html" class="btn btn-primary">+ Nouvel article</a>
+            </header>
+
+            <div class="search-bar" style="margin-bottom: 1.5rem;">
+                <input type="text" class="search-input" placeholder="🔍 Rechercher un article..." id="search">
+                <select class="filter-select" id="category-filter">
+                    <option value="">Toutes les catégories</option>
+                    <option value="local">SEO Local</option>
+                    <option value="technique">Technique</option>
+                    <option value="strategie">Stratégie</option>
+                    <option value="outils">Outils</option>
+                    <option value="redaction">Rédaction</option>
+                </select>
+                <select class="filter-select" id="status-filter">
+                    <option value="">Tous les statuts</option>
+                    <option value="published">Publié</option>
+                    <option value="draft">Brouillon</option>
+                </select>
+            </div>
+
+            <div class="articles-list">
+                <div class="table-header">
+                    <span>Titre</span>
+                    <span>Catégorie</span>
+                    <span>Date</span>
+                    <span>Statut</span>
+                    <span>Actions</span>
+                </div>
+
+                <div class="article-row">
+                    <div class="article-title-cell">
+                        <a href="../blog/guide-seo-local-2026.html" class="article-title-link">Guide complet du SEO
+                            Local en 2026</a>
+                        <span class="article-slug">/blog/guide-seo-local-2026.html</span>
+                    </div>
+                    <span>SEO Local</span>
+                    <span>19 janvier 2026</span>
+                    <span class="status-published">● Publié</span>
+                    <div class="actions-cell">
+                        <a href="editor.html?slug=guide-seo-local-2026" class="action-btn edit">Modifier</a>
+                        <a href="../blog/guide-seo-local-2026.html" target="_blank" class="action-btn view">Voir</a>
+                    </div>
+                </div>
+
+                <div class="article-row">
+                    <div class="article-title-cell">
+                        <a href="../blog/audit-seo-local-guide.html" class="article-title-link">Comment réaliser un bon
+                            audit SEO Local</a>
+                        <span class="article-slug">/blog/audit-seo-local-guide.html</span>
+                    </div>
+                    <span>SEO Local</span>
+                    <span>18 janvier 2026</span>
+                    <span class="status-published">● Publié</span>
+                    <div class="actions-cell">
+                        <a href="editor.html?slug=audit-seo-local-guide" class="action-btn edit">Modifier</a>
+                        <a href="../blog/audit-seo-local-guide.html" target="_blank" class="action-btn view">Voir</a>
+                    </div>
+                </div>
+
+                <div class="article-row">
+                    <div class="article-title-cell">
+                        <a href="../blog/rediger-article-blog-2026.html" class="article-title-link">Comment rédiger un
+                            bon article de blog en 2026</a>
+                        <span class="article-slug">/blog/rediger-article-blog-2026.html</span>
+                    </div>
+                    <span>Rédaction</span>
+                    <span>17 janvier 2026</span>
+                    <span class="status-published">● Publié</span>
+                    <div class="actions-cell">
+                        <a href="editor.html?slug=rediger-article-blog-2026" class="action-btn edit">Modifier</a>
+                        <a href="../blog/rediger-article-blog-2026.html" target="_blank"
+                            class="action-btn view">Voir</a>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script>
+        AdminAuth.requireAuth();
+
+        // Search filter
+        document.getElementById('search').addEventListener('input', function () {
+            const query = this.value.toLowerCase();
+            document.querySelectorAll('.article-row').forEach(row => {
+                const title = row.querySelector('.article-title-link').textContent.toLowerCase();
+                row.style.display = title.includes(query) ? '' : 'none';
+            });
+        });
+
+        function deleteArticle(slug) {
+            if (confirm('Supprimer cet article ?')) {
+                alert('Article supprimé (demo)');
+            }
+        }
+    </script>
+</body>
+
+</html>

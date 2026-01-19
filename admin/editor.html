@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Nouvel article - Admin Anthony Courtin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/admin/css/admin.css">
+    <style>
+        .editor-sections {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 2rem;
+        }
+
+        .editor-main {
+            min-width: 0;
+        }
+
+        .editor-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .editor-card {
+            background: var(--admin-bg-secondary);
+            border: 1px solid var(--admin-border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .editor-card-header {
+            background: var(--admin-bg-tertiary);
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid var(--admin-border);
+            font-weight: 600;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .editor-card-body {
+            padding: 1.25rem;
+        }
+
+        .editor-card .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .editor-card .form-group:last-child {
+            margin-bottom: 0;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            margin-bottom: 0.375rem;
+            color: var(--admin-text-secondary);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background: var(--admin-bg-tertiary);
+            border: 1px solid var(--admin-border);
+            border-radius: 8px;
+            color: var(--admin-text);
+            font-size: 0.9375rem;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--admin-primary);
+        }
+
+        .form-group small {
+            display: block;
+            margin-top: 0.375rem;
+            font-size: 0.75rem;
+            color: #666;
+        }
+
+        .title-input {
+            font-size: 1.5rem !important;
+            font-weight: 600;
+            padding: 1rem 1.25rem !important;
+        }
+
+        .image-upload {
+            border: 2px dashed var(--admin-border);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .image-upload:hover {
+            border-color: var(--admin-primary);
+            background: rgba(99, 102, 241, 0.05);
+        }
+
+        .image-upload-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .image-upload-text {
+            color: var(--admin-text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .image-preview {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.375rem;
+            padding: 0.75rem;
+            background: var(--admin-bg-tertiary);
+            border: 1px solid var(--admin-border);
+            border-bottom: none;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .toolbar button {
+            padding: 0.5rem 0.75rem;
+            background: var(--admin-bg-secondary);
+            border: 1px solid var(--admin-border);
+            border-radius: 6px;
+            color: var(--admin-text);
+            cursor: pointer;
+            font-size: 0.8125rem;
+            transition: all 0.2s;
+        }
+
+        .toolbar button:hover {
+            background: var(--admin-primary);
+            border-color: var(--admin-primary);
+        }
+
+        .toolbar-divider {
+            width: 1px;
+            background: var(--admin-border);
+            margin: 0 0.5rem;
+        }
+
+        .content-textarea {
+            width: 100%;
+            border-radius: 0 0 12px 12px !important;
+            min-height: 500px;
+            font-family: 'Monaco', 'Menlo', 'Consolas', monospace;
+            font-size: 0.9375rem;
+            line-height: 1.7;
+            padding: 1rem !important;
+            background: var(--admin-bg-tertiary);
+            color: var(--admin-text);
+            border: 1px solid var(--admin-border);
+            border-top: none;
+            resize: vertical;
+            box-sizing: border-box;
+        }
+
+        #editor-container {
+            width: 100%;
+        }
+
+        .docx-upload {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            background: var(--admin-bg-tertiary);
+            border: 1px solid var(--admin-border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .docx-upload:hover {
+            border-color: var(--admin-primary);
+        }
+
+        .docx-upload input {
+            display: none;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .btn-icon {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .char-count {
+            text-align: right;
+            font-size: 0.75rem;
+            color: #666;
+            margin-top: 0.25rem;
+        }
+
+        .preview-frame {
+            background: var(--admin-bg);
+            border: 1px solid var(--admin-border);
+            border-radius: 12px;
+            padding: 2rem;
+            min-height: 400px;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .preview-frame h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .preview-frame h2 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #333;
+        }
+
+        .preview-frame h3 {
+            font-size: 1.25rem;
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .preview-frame p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            color: #a0a0b0;
+        }
+
+        .preview-frame ul,
+        .preview-frame ol {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            color: #a0a0b0;
+        }
+
+        .preview-frame li {
+            margin-bottom: 0.5rem;
+        }
+
+        .preview-frame .callout {
+            background: rgba(99, 102, 241, 0.1);
+            border-left: 4px solid #6366f1;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .tabs-row {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--admin-border);
+            padding-bottom: 1rem;
+        }
+
+        .tab-btn {
+            padding: 0.625rem 1.25rem;
+            background: transparent;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            color: var(--admin-text-secondary);
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .tab-btn:hover {
+            color: var(--admin-text);
+        }
+
+        .tab-btn.active {
+            background: var(--admin-primary);
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @media (max-width: 1200px) {
+            .editor-sections {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-layout">
+        <aside class="admin-sidebar">
+            <a href="/admin/index.html" class="admin-logo">Admin Panel</a>
+            <nav>
+                <ul class="admin-nav">
+                    <li><a href="/admin/index.html"><span class="admin-nav-icon">📊</span> Dashboard</a></li>
+                    <li><a href="/admin/articles.html"><span class="admin-nav-icon">📝</span> Articles</a></li>
+                    <li><a href="/admin/editor.html" class="active"><span class="admin-nav-icon">✏️</span> Nouvel
+                            article</a></li>
+                    <li><a href="/admin/pages.html"><span class="admin-nav-icon">📄</span> Pages</a></li>
+                    <li><a href="/admin/cities.html"><span class="admin-nav-icon">🏙️</span> Villes</a></li>
+                    <li><a href="/admin/users.html"><span class="admin-nav-icon">👥</span> Utilisateurs</a></li>
+                    <li><a href="/admin/redirects.html"><span class="admin-nav-icon">🔀</span> Redirections</a></li>
+                    <li><a href="/admin/profile.html"><span class="admin-nav-icon">⚙️</span> Mon Profil</a></li>
+                    <li style="height:1px;background:var(--admin-border);margin:1rem 0;"></li>
+                    <li><a href="/" target="_blank"><span class="admin-nav-icon">🏠</span> Voir le site</a></li>
+                    <li><a href="#" onclick="AdminAuth.logout(); return false;"><span class="admin-nav-icon">🚪</span>
+                            Déconnexion</a></li>
+                </ul>
+            </nav>
+            <a href="/admin/profile.html" class="admin-user">
+                <div class="admin-user-avatar">AC</div>
+                <div class="admin-user-info">
+                    <div class="admin-user-name">Anthony Courtin</div>
+                    <div class="admin-user-email">anthony@astrak.agency</div>
+                </div>
+            </a>
+        </aside>
+
+        <main class="admin-main">
+            <header class="admin-header">
+                <h1>✏️ Nouvel article</h1>
+                <div class="action-buttons">
+                    <button class="btn btn-secondary btn-icon" onclick="saveDraft()">💾 Brouillon</button>
+                    <button class="btn btn-primary btn-icon" onclick="publishArticle()">🚀 Publier</button>
+                </div>
+            </header>
+
+            <div class="tabs-row">
+                <button class="tab-btn active" onclick="showTab('editor')">✏️ Éditeur</button>
+                <button class="tab-btn" onclick="showTab('preview')">👁️ Aperçu</button>
+                <button class="tab-btn" onclick="showTab('seo')">🔍 SEO & Meta</button>
+                <button class="tab-btn" onclick="showTab('export')">📦 Export HTML</button>
+            </div>
+
+            <!-- Editor Tab -->
+            <div id="tab-editor" class="tab-content active">
+                <div class="editor-sections">
+                    <div class="editor-main">
+                        <div class="form-group" style="margin-bottom: 1.5rem;">
+                            <input type="text" id="title" class="title-input" placeholder="Titre de l'article..."
+                                required>
+                        </div>
+
+                        <div style="margin-bottom: 1.5rem;">
+                            <label class="docx-upload">
+                                <span>📄</span>
+                                <span>Importer un fichier .docx</span>
+                                <input type="file" id="docx-file" accept=".docx">
+                            </label>
+                        </div>
+
+                        <div class="editor-card">
+                            <div class="editor-card-header">📝 Contenu de l'article</div>
+                            <div class="toolbar">
+                                <button type="button" onclick="insertMarkdown('## ', '')" title="Titre H2">H2</button>
+                                <button type="button" onclick="insertMarkdown('### ', '')" title="Titre H3">H3</button>
+                                <button type="button" onclick="insertMarkdown('#### ', '')" title="Titre H4">H4</button>
+                                <div class="toolbar-divider"></div>
+                                <button type="button" onclick="insertMarkdown('**', '**')"
+                                    title="Gras"><b>B</b></button>
+                                <button type="button" onclick="insertMarkdown('*', '*')"
+                                    title="Italique"><i>I</i></button>
+                                <button type="button" onclick="insertMarkdown('<u>', '</u>')"
+                                    title="Souligné"><u>U</u></button>
+                                <button type="button" onclick="insertMarkdown('[', '](url)')" title="Lien">🔗</button>
+                                <button type="button" onclick="insertImage()" title="Image">🖼️</button>
+                                <div class="toolbar-divider"></div>
+                                <button type="button" onclick="insertMarkdown('\n- ', '')" title="Liste à puces">•
+                                    Liste</button>
+                                <button type="button" onclick="insertMarkdown('\n1. ', '')" title="Liste numérotée">1.
+                                    Liste</button>
+                                <button type="button" onclick="insertTable()" title="Insérer un tableau">📊
+                                    Tableau</button>
+                                <div class="toolbar-divider"></div>
+                                <button type="button" onclick="insertCallout('info')" title="Bloc Info">💡 Info</button>
+                                <button type="button" onclick="insertCallout('tip')" title="Bloc Conseil">✅
+                                    Conseil</button>
+                                <button type="button" onclick="insertCallout('warning')" title="Bloc Attention">⚠️
+                                    Attention</button>
+                                <div class="toolbar-divider"></div>
+                                <button type="button" onclick="insertShortcode('faq')" title="Bloc FAQ">❓ FAQ</button>
+                                <button type="button" onclick="insertShortcode('cta')" title="Call to Action">🎯
+                                    CTA</button>
+                                <button type="button" onclick="toggleHtmlMode()" title="Mode HTML" id="html-mode-btn">🔧
+                                    HTML</button>
+                            </div>
+                            <div id="editor-container">
+                                <textarea id="content" class="content-textarea"
+                                    placeholder="Rédigez votre article ici. Utilisez les boutons ci-dessus pour le formatage, les tableaux, et le code HTML."></textarea>
+                            </div>
+                            <div class="editor-tips"
+                                style="padding: 0.75rem 1rem; background: var(--admin-bg-tertiary); border-top: 1px solid var(--admin-border); font-size: 0.75rem; color: var(--admin-text-secondary);">
+                                💡 <strong>Astuce:</strong> Vous pouvez insérer du HTML directement dans le contenu.
+                                Cliquez "🔧 HTML" pour basculer en mode source.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="editor-sidebar">
+                        <!-- Publication -->
+                        <div class="editor-card">
+                            <div class="editor-card-header">📅 Publication</div>
+                            <div class="editor-card-body">
+                                <div class="form-group">
+                                    <label for="status">Statut</label>
+                                    <select id="status">
+                                        <option value="draft">Brouillon</option>
+                                        <option value="published">Publié</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="pub-date">Date de publication</label>
+                                    <input type="date" id="pub-date">
+                                </div>
+                                <div class="form-group">
+                                    <label for="read-time">Temps de lecture (min)</label>
+                                    <input type="number" id="read-time" placeholder="10" min="1" max="60">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Indexation -->
+                        <div class="editor-card">
+                            <div class="editor-card-header">🔍 Indexation</div>
+                            <div class="editor-card-body">
+                                <div class="form-group">
+                                    <label for="indexation">Robots</label>
+                                    <select id="indexation">
+                                        <option value="index,follow">Indexer (index, follow)</option>
+                                        <option value="noindex,follow">Ne pas indexer (noindex, follow)</option>
+                                        <option value="noindex,nofollow">Bloquer tout (noindex, nofollow)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Author -->
+                        <div class="editor-card">
+                            <div class="editor-card-header">👤 Auteur</div>
+                            <div class="editor-card-body">
+                                <div class="form-group">
+                                    <label for="author">Nom de l'auteur</label>
+                                    <select id="author">
+                                        <option value="anthony">Anthony Courtin</option>
+                                        <option value="invite">Auteur invité</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" id="custom-author-group" style="display: none;">
+                                    <label for="custom-author">Nom personnalisé</label>
+                                    <input type="text" id="custom-author" placeholder="Nom de l'auteur invité">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Category -->
+                        <div class="editor-card">
+                            <div class="editor-card-header">🏷️ Catégorie</div>
+                            <div class="editor-card-body">
+                                <div class="form-group">
+                                    <select id="category">
+                                        <option value="strategie">Stratégie SEO</option>
+                                        <option value="technique">Technique</option>
+                                        <option value="local">SEO Local</option>
+                                        <option value="outils">Outils</option>
+                                        <option value="redaction">Rédaction</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Featured Image -->
+                        <div class="editor-card">
+                            <div class="editor-card-header">🖼️ Image de mise en avant</div>
+                            <div class="editor-card-body">
+                                <div class="image-upload" onclick="document.getElementById('featured-image').click()">
+                                    <div class="image-upload-icon">📷</div>
+                                    <div class="image-upload-text">Cliquez pour ajouter une image</div>
+                                    <input type="file" id="featured-image" accept="image/*" style="display:none">
+                                </div>
+                                <img id="image-preview" class="image-preview" alt="Aperçu">
+                                <div class="form-group" style="margin-top: 1rem;">
+                                    <label for="image-url">Ou URL de l'image</label>
+                                    <input type="url" id="image-url" placeholder="https://...">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SEO Tab -->
+            <div id="tab-seo" class="tab-content">
+                <div class="editor-sections">
+                    <div class="editor-main">
+                        <div class="editor-card">
+                            <div class="editor-card-header">🔍 SEO & Meta Tags</div>
+                            <div class="editor-card-body">
+                                <div class="form-group">
+                                    <label for="seo-title">Title SEO (balise title)</label>
+                                    <input type="text" id="seo-title"
+                                        placeholder="Guide SEO Local 2026 | Blog - Anthony Courtin" maxlength="70">
+                                    <div class="char-count"><span id="title-count">0</span>/70 caractères</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="meta-description">Meta Description</label>
+                                    <textarea id="meta-description" rows="3"
+                                        placeholder="Description pour les résultats de recherche Google..."
+                                        maxlength="160"></textarea>
+                                    <div class="char-count"><span id="meta-count">0</span>/160 caractères</div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="slug">URL (slug)</label>
+                                    <input type="text" id="slug" placeholder="guide-seo-local-2026">
+                                    <small>L'URL sera : /blog/<span id="slug-preview">votre-article</span>.html</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="canonical">URL Canonique (optionnel)</label>
+                                    <input type="url" id="canonical" placeholder="https://anthony-courtin.com/blog/...">
+                                    <small>Laissez vide pour self-canonisation automatique</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="editor-card" style="margin-top: 1.5rem;">
+                            <div class="editor-card-header">📊 Données structurées (JSON-LD)</div>
+                            <div class="editor-card-body">
+                                <div class="form-group">
+                                    <label for="json-ld">JSON-LD personnalisé</label>
+                                    <textarea id="json-ld" rows="12"
+                                        style="font-family: monospace; font-size: 0.8125rem;"></textarea>
+                                    <small>Laissez vide pour générer automatiquement</small>
+                                </div>
+                                <button class="btn btn-secondary" onclick="generateJsonLd()">🔄 Générer
+                                    automatiquement</button>
+                            </div>
+                        </div>
+
+                        <div class="editor-card" style="margin-top: 1.5rem;">
+                            <div class="editor-card-header">📝 Extrait / Introduction</div>
+                            <div class="editor-card-body">
+                                <div class="form-group">
+                                    <label for="excerpt">Extrait (affiché sur la page blog)</label>
+                                    <textarea id="excerpt" rows="3"
+                                        placeholder="Court résumé de l'article pour la page listing..."></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="intro">Introduction mise en avant</label>
+                                    <textarea id="intro" rows="3"
+                                        placeholder="Texte qui apparaîtra dans l'encadré en haut de l'article..."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="editor-sidebar">
+                        <div class="editor-card">
+                            <div class="editor-card-header">💡 Conseils SEO</div>
+                            <div class="editor-card-body"
+                                style="font-size: 0.875rem; color: var(--admin-text-secondary); line-height: 1.6;">
+                                <p><strong>Title SEO :</strong> 50-60 caractères idéalement. Inclure le mot-clé
+                                    principal.</p>
+                                <p style="margin-top: 0.75rem;"><strong>Meta description :</strong> 150-160 caractères.
+                                    Donner envie de cliquer.</p>
+                                <p style="margin-top: 0.75rem;"><strong>URL :</strong> Courte, descriptive, avec le
+                                    mot-clé.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Preview Tab -->
+            <div id="tab-preview" class="tab-content">
+                <h2 style="margin-bottom: 1rem;">Aperçu de l'article</h2>
+                <div class="preview-frame" id="preview-content">
+                    <p style="color: #666;">Commencez à écrire pour voir l'aperçu...</p>
+                </div>
+            </div>
+
+            <!-- Export Tab -->
+            <div id="tab-export" class="tab-content">
+                <div class="editor-card">
+                    <div class="editor-card-header">📦 Code HTML à exporter</div>
+                    <div class="editor-card-body">
+                        <p style="color: var(--admin-text-secondary); margin-bottom: 1rem;">
+                            Copiez ce code et créez un fichier <code>.html</code> dans le dossier <code>blog/</code>.
+                        </p>
+                        <button class="btn btn-primary btn-icon" onclick="copyExport()" style="margin-bottom: 1rem;">
+                            📋 Copier le code HTML
+                        </button>
+                        <pre id="export-code"
+                            style="background: var(--admin-bg-tertiary); padding: 1rem; border-radius: 8px; font-size: 0.8125rem; overflow-x: auto; max-height: 500px; white-space: pre-wrap; color: #a0a0b0;"></pre>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script>
+        // Require authentication
+        AdminAuth.requireAuth();
+
+        // Set default date to today
+        document.getElementById('pub-date').valueAsDate = new Date();
+
+        // Tab switching
+        function showTab(tabName) {
+            document.querySelectorAll('.tab-btn').forEach(function (btn) { btn.classList.remove('active'); });
+            document.querySelectorAll('.tab-content').forEach(function (tab) { tab.classList.remove('active'); });
+
+            var tabBtns = document.querySelectorAll('.tab-btn');
+            for (var i = 0; i < tabBtns.length; i++) {
+                if (tabBtns[i].textContent.toLowerCase().indexOf(tabName.substring(0, 3)) !== -1 ||
+                    (tabName === 'editor' && tabBtns[i].textContent.indexOf('Éditeur') !== -1) ||
+                    (tabName === 'preview' && tabBtns[i].textContent.indexOf('Aperçu') !== -1) ||
+                    (tabName === 'seo' && tabBtns[i].textContent.indexOf('SEO') !== -1) ||
+                    (tabName === 'export' && tabBtns[i].textContent.indexOf('Export') !== -1)) {
+                    tabBtns[i].classList.add('active');
+                    break;
+                }
+            }
+            document.getElementById('tab-' + tabName).classList.add('active');
+
+            if (tabName === 'preview') updatePreview();
+            if (tabName === 'export') generateExport();
+        }
+
+        // Author toggle
+        document.getElementById('author').addEventListener('change', function () {
+            document.getElementById('custom-author-group').style.display = this.value === 'invite' ? 'block' : 'none';
+        });
+
+        // Character counters
+        document.getElementById('seo-title').addEventListener('input', function () {
+            document.getElementById('title-count').textContent = this.value.length;
+        });
+
+        document.getElementById('meta-description').addEventListener('input', function () {
+            document.getElementById('meta-count').textContent = this.value.length;
+        });
+
+        // Slug preview
+        document.getElementById('slug').addEventListener('input', function () {
+            document.getElementById('slug-preview').textContent = this.value || 'votre-article';
+        });
+
+        // Auto-generate slug from title
+        document.getElementById('title').addEventListener('input', function () {
+            var slug = this.value
+                .toLowerCase()
+                .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+                .replace(/[^a-z0-9]+/g, '-')
+                .replace(/^-|-$/g, '');
+            document.getElementById('slug').value = slug;
+            document.getElementById('slug-preview').textContent = slug || 'votre-article';
+
+            if (!document.getElementById('seo-title').value) {
+                document.getElementById('seo-title').value = this.value + ' | Blog - Anthony Courtin';
+                document.getElementById('title-count').textContent = document.getElementById('seo-title').value.length;
+            }
+        });
+
+        // Image preview
+        document.getElementById('featured-image').addEventListener('change', function (e) {
+            var file = e.target.files[0];
+            if (file) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    var preview = document.getElementById('image-preview');
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Insert markdown
+        function insertMarkdown(before, after) {
+            var textarea = document.getElementById('content');
+            var start = textarea.selectionStart;
+            var end = textarea.selectionEnd;
+            var text = textarea.value;
+            var selected = text.substring(start, end);
+
+            textarea.value = text.substring(0, start) + before + selected + after + text.substring(end);
+            textarea.focus();
+            textarea.selectionStart = textarea.selectionEnd = start + before.length + selected.length + after.length;
+        }
+
+        // Insert callout
+        function insertCallout(type) {
+            var icons = { info: '💡', tip: '✅', warning: '⚠️' };
+            var titles = { info: 'Le saviez-vous ?', tip: 'Conseil pro', warning: 'Attention' };
+            insertMarkdown('\n\n:::' + type + '\n**' + icons[type] + ' ' + titles[type] + '**\n', '\n:::\n\n');
+        }
+
+        // Insert table
+        function insertTable() {
+            var rows = prompt('Nombre de lignes (ex: 3):', '3');
+            var cols = prompt('Nombre de colonnes (ex: 3):', '3');
+
+            if (!rows || !cols) return;
+            rows = parseInt(rows) || 3;
+            cols = parseInt(cols) || 3;
+
+            var table = '\n\n<table class="article-table">\n';
+            table += '  <thead>\n    <tr>\n';
+            for (var c = 0; c < cols; c++) {
+                table += '      <th>En-tête ' + (c + 1) + '</th>\n';
+            }
+            table += '    </tr>\n  </thead>\n';
+            table += '  <tbody>\n';
+            for (var r = 0; r < rows; r++) {
+                table += '    <tr>\n';
+                for (var c = 0; c < cols; c++) {
+                    table += '      <td>Cellule</td>\n';
+                }
+                table += '    </tr>\n';
+            }
+            table += '  </tbody>\n</table>\n\n';
+
+            insertMarkdown(table, '');
+        }
+
+        // Insert image
+        function insertImage() {
+            var url = prompt('URL de l\'image:');
+            var alt = prompt('Texte alternatif (description):', 'Description de l\'image');
+
+            if (!url) return;
+
+            var img = '\n\n<figure class="article-image">\n';
+            img += '  <img src="' + url + '" alt="' + (alt || '') + '" loading="lazy">\n';
+            img += '  <figcaption>' + (alt || 'Légende de l\'image') + '</figcaption>\n';
+            img += '</figure>\n\n';
+
+            insertMarkdown(img, '');
+        }
+
+        // Insert shortcode
+        function insertShortcode(type) {
+            if (type === 'faq') {
+                var faq = '\n\n<div class="faq-block">\n';
+                faq += '  <details class="faq-item">\n';
+                faq += '    <summary class="faq-question">❓ Question 1</summary>\n';
+                faq += '    <div class="faq-answer">Réponse à la question...</div>\n';
+                faq += '  </details>\n';
+                faq += '  <details class="faq-item">\n';
+                faq += '    <summary class="faq-question">❓ Question 2</summary>\n';
+                faq += '    <div class="faq-answer">Réponse à la question...</div>\n';
+                faq += '  </details>\n';
+                faq += '</div>\n\n';
+                insertMarkdown(faq, '');
+            } else if (type === 'cta') {
+                var cta = '\n\n<div class="cta-block">\n';
+                cta += '  <h3>🎯 Besoin d\'aide pour votre SEO ?</h3>\n';
+                cta += '  <p>Contactez-moi pour un audit gratuit de votre site.</p>\n';
+                cta += '  <a href="/contact" class="cta-button">Prendre contact</a>\n';
+                cta += '</div>\n\n';
+                insertMarkdown(cta, '');
+            }
+        }
+
+        // Toggle HTML mode
+        var htmlMode = false;
+        function toggleHtmlMode() {
+            var textarea = document.getElementById('content');
+            var btn = document.getElementById('html-mode-btn');
+
+            htmlMode = !htmlMode;
+
+            if (htmlMode) {
+                btn.style.background = 'var(--admin-primary)';
+                btn.style.color = 'white';
+                textarea.style.fontFamily = 'Consolas, Monaco, monospace';
+                textarea.style.fontSize = '0.875rem';
+                textarea.style.lineHeight = '1.6';
+                textarea.placeholder = 'Mode HTML activé. Vous pouvez maintenant écrire du HTML directement...';
+            } else {
+                btn.style.background = '';
+                btn.style.color = '';
+                textarea.style.fontFamily = '';
+                textarea.style.fontSize = '';
+                textarea.style.lineHeight = '';
+                textarea.placeholder = 'Rédigez votre article ici. Utilisez les boutons ci-dessus pour le formatage, les tableaux, et le code HTML.';
+            }
+        }
+
+        // Escape HTML
+        function escapeHTML(str) {
+            if (!str) return '';
+            return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+
+        // Generate JSON-LD
+        function generateJsonLd() {
+            var title = document.getElementById('title').value || 'Article';
+            var description = document.getElementById('meta-description').value || document.getElementById('excerpt').value || '';
+            var date = document.getElementById('pub-date').value;
+            var author = document.getElementById('author').value === 'invite'
+                ? document.getElementById('custom-author').value
+                : 'Anthony Courtin';
+
+            var jsonLd = {
+                "@context": "https://schema.org",
+                "@type": "Article",
+                "headline": title,
+                "description": description,
+                "datePublished": date,
+                "dateModified": date,
+                "author": {
+                    "@type": "Person",
+                    "name": author,
+                    "url": "https://www.linkedin.com/in/anthony-courtin/"
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "Anthony Courtin",
+                    "url": "https://anthony-courtin.com"
+                }
+            };
+
+            document.getElementById('json-ld').value = JSON.stringify(jsonLd, null, 2);
+        }
+
+        // Markdown to HTML
+        function markdownToHTML(md) {
+            if (!md) return '';
+            var html = md
+                .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+                .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+                .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+                .replace(/\*\*\*(.*?)\*\*\*/gim, '<strong><em>$1</em></strong>')
+                .replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/gim, '<em>$1</em>')
+                .replace(/\[(.*?)\]\((.*?)\)/gim, '<a href="$2">$1</a>')
+                .replace(/^\s*\d+\.\s+(.*$)/gim, '<li>$1</li>')
+                .replace(/^\s*[-*]\s+(.*$)/gim, '<li>$1</li>')
+                .replace(/:::info\n([\s\S]*?):::/gim, '<div class="callout callout-info">$1</div>')
+                .replace(/:::tip\n([\s\S]*?):::/gim, '<div class="callout callout-tip">$1</div>')
+                .replace(/:::warning\n([\s\S]*?):::/gim, '<div class="callout callout-warning">$1</div>')
+                .replace(/\n\n/gim, '</p><p>')
+                .replace(/\n/gim, '<br>');
+            return '<p>' + html + '</p>';
+        }
+
+        // Update preview
+        function updatePreview() {
+            var title = document.getElementById('title').value || 'Titre de l\'article';
+            var intro = document.getElementById('intro').value;
+            var content = document.getElementById('content').value;
+
+            var html = '<h1>' + escapeHTML(title) + '</h1>';
+            if (intro) html += '<div class="callout">' + escapeHTML(intro) + '</div>';
+            html += markdownToHTML(content);
+
+            document.getElementById('preview-content').innerHTML = html;
+        }
+
+        // Generate export HTML
+        function generateExport() {
+            var title = document.getElementById('title').value || 'Article';
+            var slug = document.getElementById('slug').value || 'article';
+            var seoTitle = document.getElementById('seo-title').value || title + ' | Blog - Anthony Courtin';
+            var metaDesc = document.getElementById('meta-description').value || '';
+            var categoryEl = document.getElementById('category');
+            var category = categoryEl.options[categoryEl.selectedIndex].text;
+            var readTime = document.getElementById('read-time').value || '10';
+            var pubDate = document.getElementById('pub-date').value;
+            var dateObj = new Date(pubDate);
+            var dateFormatted = dateObj.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+            var intro = document.getElementById('intro').value;
+            var content = document.getElementById('content').value;
+            var jsonLd = document.getElementById('json-ld').value || '';
+            var indexation = document.getElementById('indexation').value;
+            var authorName = document.getElementById('author').value === 'invite'
+                ? document.getElementById('custom-author').value
+                : 'Anthony Courtin';
+            var canonicalUrl = document.getElementById('canonical').value || 'https://anthony-courtin.com/blog/' + slug + '.html';
+            var authorInitials = authorName.split(' ').map(function (n) { return n[0]; }).join('');
+
+            var template = '<!DOCTYPE html>\n' +
+                '<html lang="fr" class="no-js">\n' +
+                '<head>\n' +
+                '  <meta charset="UTF-8">\n' +
+                '  <meta name="viewport" content="width=device-width, initial-scale=1.0">\n' +
+                '  <meta name="description" content="' + escapeHTML(metaDesc) + '">\n' +
+                '  <meta name="robots" content="' + indexation + '">\n' +
+                '  <title>' + escapeHTML(seoTitle) + '</title>\n' +
+                '  <link rel="canonical" href="' + canonicalUrl + '">\n' +
+                '  <link rel="stylesheet" href="../css/style.css">\n' +
+                '  <link rel="stylesheet" href="../css/blog.css">\n' +
+                (jsonLd ? '  <script type="application/ld+json">\n' + jsonLd + '\n  <\/script>\n' : '') +
+                '</head>\n\n' +
+                '<body>\n' +
+                '  <!-- Copier le header depuis un autre article -->\n\n' +
+                '  <main id="main-content">\n' +
+                '    <article class="article-layout">\n' +
+                '      <div class="article-main">\n' +
+                '        <header class="article-header">\n' +
+                '          <nav class="article-breadcrumb">\n' +
+                '            <a href="../index.html">Accueil</a> / <a href="index.html">Blog</a> / <span>' + escapeHTML(title) + '</span>\n' +
+                '          </nav>\n' +
+                '          <span class="article-category">' + category + '</span>\n' +
+                '          <h1 class="article-title">' + escapeHTML(title) + '</h1>\n' +
+                '          <div class="article-meta">\n' +
+                '            <span>' + authorName + '</span>\n' +
+                '            <span>' + dateFormatted + '</span>\n' +
+                '            <span>' + readTime + ' min de lecture</span>\n' +
+                '          </div>\n' +
+                '        </header>\n\n' +
+                '        <div class="article-content">\n' +
+                (intro ? '          <div class="article-intro"><strong>En bref :</strong> ' + escapeHTML(intro) + '</div>\n' : '') +
+                markdownToHTML(content) + '\n' +
+                '        </div>\n' +
+                '      </div>\n\n' +
+                '      <aside class="article-sidebar">\n' +
+                '        <nav class="toc-box">\n' +
+                '          <h2 class="toc-title">Sommaire</h2>\n' +
+                '          <ul class="toc-list" id="toc-list"></ul>\n' +
+                '        </nav>\n' +
+                '        <div class="author-box">\n' +
+                '          <div class="author-avatar">' + authorInitials + '</div>\n' +
+                '          <h3 class="author-name">' + authorName + '</h3>\n' +
+                '          <p class="author-title">Consultant SEO en Gironde</p>\n' +
+                '          <a href="https://www.linkedin.com/in/anthony-courtin/" target="_blank" class="author-linkedin">Voir le profil LinkedIn</a>\n' +
+                '        </div>\n' +
+                '      </aside>\n' +
+                '    </article>\n' +
+                '  </main>\n\n' +
+                '  <!-- Copier le footer depuis un autre article -->\n\n' +
+                '  <script src="../js/main.js"><\/script>\n' +
+                '  <script src="../js/article.js"><\/script>\n' +
+                '</body>\n' +
+                '</html>';
+
+            document.getElementById('export-code').textContent = template;
+        }
+
+        // Copy export
+        function copyExport() {
+            navigator.clipboard.writeText(document.getElementById('export-code').textContent)
+                .then(function () { alert('Code HTML copié !'); });
+        }
+
+        // Save draft
+        function saveDraft() {
+            var draft = {
+                title: document.getElementById('title').value,
+                slug: document.getElementById('slug').value,
+                seoTitle: document.getElementById('seo-title').value,
+                metaDescription: document.getElementById('meta-description').value,
+                category: document.getElementById('category').value,
+                readTime: document.getElementById('read-time').value,
+                pubDate: document.getElementById('pub-date').value,
+                author: document.getElementById('author').value,
+                customAuthor: document.getElementById('custom-author').value,
+                excerpt: document.getElementById('excerpt').value,
+                intro: document.getElementById('intro').value,
+                content: document.getElementById('content').value,
+                jsonLd: document.getElementById('json-ld').value,
+                indexation: document.getElementById('indexation').value,
+                savedAt: Date.now()
+            };
+            localStorage.setItem('article_draft', JSON.stringify(draft));
+            alert('Brouillon sauvegardé !');
+        }
+
+        // Publish - auto-download HTML file
+        function publishArticle() {
+            var title = document.getElementById('title').value;
+            var slug = document.getElementById('slug').value;
+
+            if (!title || !slug) {
+                alert('Veuillez remplir au moins le titre et le slug avant de publier.');
+                return;
+            }
+
+            generateExport();
+
+            var htmlContent = document.getElementById('export-code').textContent;
+            var filename = slug + '.html';
+
+            // Create blob and download
+            var blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
+            var url = URL.createObjectURL(blob);
+            var link = document.createElement('a');
+            link.href = url;
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+
+            // Save to localStorage as published article
+            var articles = JSON.parse(localStorage.getItem('admin_articles') || '[]');
+            var existingIndex = articles.findIndex(function (a) { return a.slug === slug; });
+
+            var articleData = {
+                title: title,
+                slug: slug,
+                category: document.getElementById('category').value,
+                pubDate: document.getElementById('pub-date').value,
+                status: 'published',
+                author: document.getElementById('author').value === 'invite'
+                    ? document.getElementById('custom-author').value
+                    : 'Anthony Courtin',
+                createdAt: existingIndex >= 0 ? articles[existingIndex].createdAt : Date.now(),
+                updatedAt: Date.now()
+            };
+
+            if (existingIndex >= 0) {
+                articles[existingIndex] = articleData;
+            } else {
+                articles.push(articleData);
+            }
+
+            localStorage.setItem('admin_articles', JSON.stringify(articles));
+            localStorage.removeItem('article_draft');
+
+            alert('✅ Article publié !\\n\\nLe fichier "' + filename + '" a été téléchargé.\\nPlacez-le dans le dossier /blog/ de votre site.');
+        }
+
+        // Load draft
+        document.addEventListener('DOMContentLoaded', function () {
+            var draft = localStorage.getItem('article_draft');
+            if (draft && confirm('Un brouillon existe. Le charger ?')) {
+                var d = JSON.parse(draft);
+                document.getElementById('title').value = d.title || '';
+                document.getElementById('slug').value = d.slug || '';
+                document.getElementById('seo-title').value = d.seoTitle || '';
+                document.getElementById('meta-description').value = d.metaDescription || '';
+                document.getElementById('category').value = d.category || 'strategie';
+                document.getElementById('read-time').value = d.readTime || '';
+                document.getElementById('pub-date').value = d.pubDate || '';
+                document.getElementById('author').value = d.author || 'anthony';
+                document.getElementById('custom-author').value = d.customAuthor || '';
+                document.getElementById('excerpt').value = d.excerpt || '';
+                document.getElementById('intro').value = d.intro || '';
+                document.getElementById('content').value = d.content || '';
+                document.getElementById('json-ld').value = d.jsonLd || '';
+                if (d.indexation) document.getElementById('indexation').value = d.indexation;
+            }
+        });
+
+        // DOCX Import placeholder
+        document.getElementById('docx-file').addEventListener('change', function (e) {
+            var file = e.target.files[0];
+            if (!file) return;
+            alert('Pour importer un fichier DOCX, ajoutez mammoth.js au projet.\n\nPour l\'instant, copiez-collez le contenu depuis Word.');
+        });
+    </script>
+</body>
+
+</html>

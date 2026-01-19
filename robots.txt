@@ -1,0 +1,20 @@
+# robots.txt - Anthony Courtin SEO
+# https://anthony-courtin.com/
+
+User-agent: *
+Allow: /
+
+# Bloquer l'accès aux pages d'administration
+Disallow: /admin/
+Disallow: /admin/login.html
+Disallow: /admin/index.html
+Disallow: /admin/editor.html
+Disallow: /admin/articles.html
+Disallow: /admin/pages.html
+Disallow: /admin/users.html
+Disallow: /admin/redirects.html
+Disallow: /admin/css/
+Disallow: /admin/js/
+
+# Sitemap
+Sitemap: https://anthony-courtin.com/sitemap.xml

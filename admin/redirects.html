@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Redirections - Admin Anthony Courtin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/admin/css/admin.css">
+    <style>
+        .redirects-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+
+        .redirect-card {
+            background: var(--admin-bg-secondary);
+            border: 1px solid var(--admin-border);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-bottom: 0.75rem;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr auto auto;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.2s;
+        }
+
+        .redirect-card:hover {
+            border-color: var(--admin-primary);
+        }
+
+        .redirect-url {
+            font-family: monospace;
+            font-size: 0.875rem;
+            color: var(--admin-text-secondary);
+            background: var(--admin-bg-tertiary);
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .redirect-arrow {
+            color: var(--admin-primary);
+            font-size: 1.25rem;
+        }
+
+        .redirect-type {
+            padding: 0.375rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .redirect-type.r301 {
+            background: rgba(34, 197, 94, 0.15);
+            color: #22c55e;
+        }
+
+        .redirect-type.r302 {
+            background: rgba(245, 158, 11, 0.15);
+            color: #f59e0b;
+        }
+
+        .redirect-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .redirect-actions button {
+            padding: 0.375rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.8125rem;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+        }
+
+        .redirect-actions .delete {
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+        }
+
+        .redirect-actions .delete:hover {
+            background: #ef4444;
+            color: white;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: var(--admin-text-secondary);
+        }
+
+        .empty-state-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-box {
+            background: var(--admin-bg-secondary);
+            border: 1px solid var(--admin-border);
+            border-radius: 16px;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--admin-text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .modal-form .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .modal-form label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--admin-text-secondary);
+        }
+
+        .modal-form input,
+        .modal-form select {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            background: var(--admin-bg-tertiary);
+            border: 1px solid var(--admin-border);
+            border-radius: 8px;
+            color: var(--admin-text);
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .modal-form input:focus,
+        .modal-form select:focus {
+            outline: none;
+            border-color: var(--admin-primary);
+        }
+
+        .type-info {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: var(--admin-bg-tertiary);
+            border-radius: 8px;
+            font-size: 0.8125rem;
+            color: var(--admin-text-secondary);
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-layout">
+        <aside class="admin-sidebar">
+            <a href="/admin/index.html" class="admin-logo">Admin Panel</a>
+            <nav>
+                <ul class="admin-nav">
+                    <li><a href="/admin/index.html"><span class="admin-nav-icon">📊</span> Dashboard</a></li>
+                    <li><a href="/admin/articles.html"><span class="admin-nav-icon">📝</span> Articles</a></li>
+                    <li><a href="/admin/editor.html"><span class="admin-nav-icon">✏️</span> Nouvel article</a></li>
+                    <li><a href="/admin/pages.html"><span class="admin-nav-icon">📄</span> Pages</a></li>
+                    <li><a href="/admin/cities.html"><span class="admin-nav-icon">🏙️</span> Villes</a></li>
+                    <li><a href="/admin/users.html"><span class="admin-nav-icon">👥</span> Utilisateurs</a></li>
+                    <li><a href="/admin/redirects.html" class="active"><span class="admin-nav-icon">🔀</span>
+                            Redirections</a></li>
+                    <li><a href="/admin/profile.html"><span class="admin-nav-icon">⚙️</span> Mon Profil</a></li>
+                    <li style="height:1px;background:var(--admin-border);margin:1rem 0;"></li>
+                    <li><a href="/" target="_blank"><span class="admin-nav-icon">🏠</span> Voir le site</a></li>
+                    <li><a href="#" onclick="AdminAuth.logout(); return false;"><span class="admin-nav-icon">🚪</span>
+                            Déconnexion</a></li>
+                </ul>
+            </nav>
+            <a href="/admin/profile.html" class="admin-user">
+                <div class="admin-user-avatar">AC</div>
+                <div class="admin-user-info">
+                    <div class="admin-user-name">Anthony Courtin</div>
+                    <div class="admin-user-email">anthony@astrak.agency</div>
+                </div>
+            </a>
+        </aside>
+
+        <main class="admin-main">
+            <header class="redirects-header">
+                <h1>🔀 Redirections</h1>
+                <button class="btn btn-primary" onclick="showAddRedirect()">+ Ajouter une redirection</button>
+            </header>
+
+            <div class="type-info" style="margin-bottom: 1.5rem;">
+                <strong>301 (Permanente) :</strong> Pour les URL supprimées définitivement. Transmet le SEO.<br>
+                <strong>302 (Temporaire) :</strong> Pour les redirections temporaires. Ne transmet pas le SEO.
+            </div>
+
+            <div id="redirects-list">
+                <div class="empty-state" id="empty-state">
+                    <div class="empty-state-icon">🔀</div>
+                    <p>Aucune redirection configurée</p>
+                    <p style="font-size: 0.875rem; margin-top: 0.5rem;">Cliquez sur "Ajouter une redirection" pour
+                        commencer</p>
+                </div>
+            </div>
+
+            <div
+                style="margin-top: 2rem; padding: 1.5rem; background: var(--admin-bg-secondary); border: 1px solid var(--admin-border); border-radius: 12px;">
+                <h3 style="margin-bottom: 1rem;">📋 Générer le fichier .htaccess</h3>
+                <p
+                    style="color: var(--admin-text-secondary); font-size: 0.875rem; line-height: 1.7; margin-bottom: 1rem;">
+                    Cliquez sur le bouton ci-dessous pour télécharger le fichier <code>.htaccess</code> avec toutes vos
+                    redirections. Placez ce fichier à la racine de votre site.
+                </p>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button class="btn btn-primary" onclick="downloadHtaccess()">
+                        ⬇️ Télécharger .htaccess
+                    </button>
+                    <button class="btn btn-secondary" onclick="generateHtaccess()">
+                        👁️ Voir le code
+                    </button>
+                </div>
+                <pre id="htaccess-code"
+                    style="display: none; margin-top: 1rem; background: var(--admin-bg-tertiary); padding: 1rem; border-radius: 8px; font-size: 0.8125rem; overflow-x: auto; white-space: pre-wrap;"></pre>
+            </div>
+        </main>
+    </div>
+
+    <!-- Add Redirect Modal -->
+    <div class="modal-overlay" id="add-redirect-modal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h2 class="modal-title">🔀 Ajouter une redirection</h2>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <form class="modal-form" id="add-redirect-form">
+                <div class="form-group">
+                    <label for="redirect-from">URL source</label>
+                    <input type="text" id="redirect-from" placeholder="/ancienne-page.html" required>
+                </div>
+                <div class="form-group">
+                    <label for="redirect-to">URL destination</label>
+                    <input type="text" id="redirect-to" placeholder="/nouvelle-page.html" required>
+                </div>
+                <div class="form-group">
+                    <label for="redirect-type">Type de redirection</label>
+                    <select id="redirect-type">
+                        <option value="301">301 - Permanente (recommandé)</option>
+                        <option value="302">302 - Temporaire</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full" style="margin-top: 0.5rem;">
+                    Créer la redirection
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="/admin/js/auth.js"></script>
+    <script>
+        AdminAuth.requireAuth();
+
+        function showAddRedirect() {
+            document.getElementById('add-redirect-modal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('add-redirect-modal').classList.remove('active');
+        }
+
+        function renderRedirects() {
+            var redirects = JSON.parse(localStorage.getItem('admin_redirects') || '[]');
+            var container = document.getElementById('redirects-list');
+            var emptyState = document.getElementById('empty-state');
+
+            if (redirects.length === 0) {
+                emptyState.style.display = 'block';
+                return;
+            }
+
+            emptyState.style.display = 'none';
+
+            var html = '';
+            redirects.forEach(function (r, i) {
+                html += '<div class="redirect-card">' +
+                    '<div class="redirect-url">' + r.from + '</div>' +
+                    '<span class="redirect-arrow">→</span>' +
+                    '<div class="redirect-url">' + r.to + '</div>' +
+                    '<span class="redirect-type r' + r.type + '">' + r.type + '</span>' +
+                    '<div class="redirect-actions">' +
+                    '<button class="delete" onclick="deleteRedirect(' + i + ')">Supprimer</button>' +
+                    '</div></div>';
+            });
+
+            container.innerHTML = html + '<div class="empty-state" id="empty-state" style="display:none;"></div>';
+        }
+
+        document.getElementById('add-redirect-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            var from = document.getElementById('redirect-from').value;
+            var to = document.getElementById('redirect-to').value;
+            var type = document.getElementById('redirect-type').value;
+
+            var redirects = JSON.parse(localStorage.getItem('admin_redirects') || '[]');
+            redirects.push({ from: from, to: to, type: type });
+            localStorage.setItem('admin_redirects', JSON.stringify(redirects));
+
+            renderRedirects();
+            closeModal();
+            this.reset();
+        });
+
+        function deleteRedirect(index) {
+            // Use a custom approach instead of confirm() which can have issues
+            var redirects = JSON.parse(localStorage.getItem('admin_redirects') || '[]');
+            if (redirects[index]) {
+                var fromUrl = redirects[index].from;
+                var ok = window.confirm('Supprimer la redirection de "' + fromUrl + '" ?');
+                if (ok === true) {
+                    redirects.splice(index, 1);
+                    localStorage.setItem('admin_redirects', JSON.stringify(redirects));
+                    renderRedirects();
+                }
+            }
+        }
+
+        function getHtaccessContent() {
+            var redirects = JSON.parse(localStorage.getItem('admin_redirects') || '[]');
+
+            var content = '# =====================================================\n';
+            content += '# .htaccess généré depuis Admin Panel\n';
+            content += '# Date: ' + new Date().toLocaleDateString('fr-FR') + '\n';
+            content += '# =====================================================\n\n';
+
+            content += '# Activer le moteur de réécriture\n';
+            content += 'RewriteEngine On\n\n';
+
+            content += '# URLs propres sans extension .html\n';
+            content += 'RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\\s([^.]+)\\.html [NC]\n';
+            content += 'RewriteRule ^ %1 [R=301,L]\n\n';
+
+            content += 'RewriteCond %{REQUEST_FILENAME} !-d\n';
+            content += 'RewriteCond %{REQUEST_FILENAME} !-f\n';
+            content += 'RewriteCond %{REQUEST_FILENAME}.html -f\n';
+            content += 'RewriteRule ^(.*)$ $1.html [L]\n\n';
+
+            if (redirects.length > 0) {
+                content += '# =====================================================\n';
+                content += '# Redirections personnalisées (' + redirects.length + ' total)\n';
+                content += '# =====================================================\n\n';
+
+                redirects.forEach(function (r) {
+                    content += 'Redirect ' + r.type + ' ' + r.from + ' https://anthony-courtin.com' + r.to + '\n';
+                });
+            }
+
+            content += '\n# Page 404 personnalisée\n';
+            content += 'ErrorDocument 404 /404.html\n';
+
+            return content;
+        }
+
+        function generateHtaccess() {
+            var code = getHtaccessContent();
+            var codeEl = document.getElementById('htaccess-code');
+            codeEl.textContent = code;
+            codeEl.style.display = 'block';
+        }
+
+        function downloadHtaccess() {
+            var content = getHtaccessContent();
+
+            var blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+            var url = URL.createObjectURL(blob);
+            var link = document.createElement('a');
+            link.href = url;
+            link.download = '.htaccess';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(url);
+
+            alert('✅ Fichier .htaccess téléchargé !\\n\\nPlacez-le à la racine de votre site.');
+        }
+
+        // Close modal on overlay click
+        document.getElementById('add-redirect-modal').addEventListener('click', function (e) {
+            if (e.target === this) closeModal();
+        });
+
+        // Load on page load
+        document.addEventListener('DOMContentLoaded', renderRedirects);
+    </script>
+</body>
+
+</html>

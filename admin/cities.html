@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Gestion des Villes - Admin Anthony Courtin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/admin/css/admin.css">
+    <style>
+        :root {
+            --admin-bg: #0a0a0f;
+            --admin-bg-secondary: #12121a;
+            --admin-bg-tertiary: #1a1a25;
+            --admin-text: #ffffff;
+            --admin-text-secondary: #a1a1aa;
+            --admin-primary: #6366f1;
+            --admin-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--admin-bg);
+            color: var(--admin-text);
+            min-height: 100vh;
+        }
+
+        .admin-layout {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            min-height: 100vh;
+        }
+
+        .admin-sidebar {
+            background: linear-gradient(180deg, var(--admin-bg-secondary) 0%, var(--admin-bg) 100%);
+            border-right: 1px solid var(--admin-border);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+        }
+
+        .admin-logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-decoration: none;
+            padding: 0.5rem 0;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .admin-nav {
+            list-style: none;
+            flex: 1;
+        }
+
+        .admin-nav li {
+            margin-bottom: 0.5rem;
+        }
+
+        .admin-nav a {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.875rem 1rem;
+            color: var(--admin-text-secondary);
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.2s;
+            font-size: 0.9375rem;
+        }
+
+        .admin-nav a:hover {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--admin-text);
+        }
+
+        .admin-nav a.active {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2));
+            color: var(--admin-text);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .admin-nav-icon {
+            font-size: 1.125rem;
+        }
+
+        .admin-user {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: var(--admin-bg-tertiary);
+            border-radius: 12px;
+            border: 1px solid var(--admin-border);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .admin-user:hover {
+            border-color: var(--admin-primary);
+        }
+
+        .admin-user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: white;
+        }
+
+        .admin-user-name {
+            font-weight: 500;
+            font-size: 0.875rem;
+            color: var(--admin-text);
+        }
+
+        .admin-user-email {
+            font-size: 0.75rem;
+            color: var(--admin-text-secondary);
+        }
+
+        .admin-main {
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .admin-header h1 {
+            font-size: 1.75rem;
+            font-weight: 600;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.5rem;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            border-radius: 10px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -10px rgba(99, 102, 241, 0.5);
+        }
+
+        .stats-bar {
+            display: flex;
+            gap: 2rem;
+            padding: 1rem 1.5rem;
+            background: var(--admin-bg-secondary);
+            border: 1px solid var(--admin-border);
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--admin-primary);
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--admin-text-secondary);
+        }
+
+        .cities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .city-card {
+            background: var(--admin-bg-secondary);
+            border: 1px solid var(--admin-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.2s;
+        }
+
+        .city-card:hover {
+            border-color: var(--admin-primary);
+            transform: translateY(-2px);
+        }
+
+        .city-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .city-pages {
+            font-size: 0.8125rem;
+            color: var(--admin-text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .city-services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .city-service {
+            font-size: 0.6875rem;
+            padding: 0.25rem 0.5rem;
+            background: var(--admin-bg-tertiary);
+            border-radius: 4px;
+            color: var(--admin-text-secondary);
+        }
+
+        .city-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .city-actions button,
+        .city-actions a {
+            flex: 1;
+            padding: 0.5rem;
+            font-size: 0.8125rem;
+            border-radius: 6px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+        }
+
+        .city-actions .edit {
+            background: var(--admin-primary);
+            color: white;
+        }
+
+        .city-actions .view {
+            background: var(--admin-bg-tertiary);
+            color: var(--admin-text);
+            border: 1px solid var(--admin-border);
+        }
+
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-box {
+            background: var(--admin-bg-secondary);
+            border: 1px solid var(--admin-border);
+            border-radius: 16px;
+            width: 100%;
+            max-width: 700px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--admin-border);
+        }
+
+        .modal-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--admin-text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--admin-text-secondary);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.875rem 1rem;
+            background: var(--admin-bg-tertiary);
+            border: 1px solid var(--admin-border);
+            border-radius: 8px;
+            color: var(--admin-text);
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--admin-primary);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .services-checklist {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+        }
+
+        .service-check {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            background: var(--admin-bg-tertiary);
+            border-radius: 6px;
+        }
+
+        .service-check input {
+            width: auto;
+        }
+
+        .service-check label {
+            margin: 0;
+            font-size: 0.8125rem;
+        }
+
+        .spinning-help {
+            font-size: 0.75rem;
+            color: var(--admin-text-secondary);
+            background: var(--admin-bg-tertiary);
+            padding: 0.75rem;
+            border-radius: 6px;
+            margin-top: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .admin-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .admin-sidebar {
+                display: none;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-layout">
+        <aside class="admin-sidebar">
+            <a href="/admin/index.html" class="admin-logo">Admin Panel</a>
+            <nav>
+                <ul class="admin-nav">
+                    <li><a href="/admin/index.html"><span class="admin-nav-icon">📊</span> Dashboard</a></li>
+                    <li><a href="/admin/articles.html"><span class="admin-nav-icon">📝</span> Articles</a></li>
+                    <li><a href="/admin/editor.html"><span class="admin-nav-icon">✏️</span> Nouvel article</a></li>
+                    <li><a href="/admin/pages.html"><span class="admin-nav-icon">📄</span> Pages</a></li>
+                    <li><a href="/admin/cities.html" class="active"><span class="admin-nav-icon">🏙️</span> Villes</a>
+                    </li>
+                    <li><a href="/admin/users.html"><span class="admin-nav-icon">👥</span> Utilisateurs</a></li>
+                    <li><a href="/admin/redirects.html"><span class="admin-nav-icon">🔀</span> Redirections</a></li>
+                    <li><a href="/admin/profile.html"><span class="admin-nav-icon">⚙️</span> Mon Profil</a></li>
+                    <li style="height:1px;background:var(--admin-border);margin:1rem 0;"></li>
+                    <li><a href="/" target="_blank"><span class="admin-nav-icon">🏠</span> Voir le site</a></li>
+                    <li><a href="#" onclick="AdminAuth.logout(); return false;"><span class="admin-nav-icon">🚪</span>
+                            Déconnexion</a></li>
+                </ul>
+            </nav>
+            <a href="/admin/profile.html" class="admin-user">
+                <div class="admin-user-avatar">AC</div>
+                <div class="admin-user-info">
+                    <div class="admin-user-name">Anthony Courtin</div>
+                    <div class="admin-user-email">anthony@astrak.agency</div>
+                </div>
+            </a>
+        </aside>
+
+        <main class="admin-main">
+            <header class="admin-header">
+                <h1>🏙️ Gestion des Villes</h1>
+                <button class="btn btn-primary" onclick="openNewCityModal()">+ Nouvelle ville</button>
+            </header>
+
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <div class="stat-value" id="total-cities">9</div>
+                    <div class="stat-label">Villes</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">6</div>
+                    <div class="stat-label">Services/ville</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" id="total-pages">54</div>
+                    <div class="stat-label">Pages totales</div>
+                </div>
+            </div>
+
+            <div class="cities-grid" id="cities-grid">
+                <!-- Généré dynamiquement -->
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal Nouvelle Ville / Éditer Ville -->
+    <div class="modal-overlay" id="city-modal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modal-title">Nouvelle Ville</h2>
+                <button class="modal-close" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="city-form">
+                    <input type="hidden" id="city-key">
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city-name">Nom de la ville</label>
+                            <input type="text" id="city-name" placeholder="ex: Arcachon" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="city-slug">Slug (URL)</label>
+                            <input type="text" id="city-slug" placeholder="ex: arcachon" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="city-region">Région / Département</label>
+                        <input type="text" id="city-region" placeholder="ex: Gironde, Nouvelle-Aquitaine"
+                            value="Gironde">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Services à créer</label>
+                        <div class="services-checklist">
+                            <div class="service-check">
+                                <input type="checkbox" id="svc-audit" checked>
+                                <label for="svc-audit">Audit SEO</label>
+                            </div>
+                            <div class="service-check">
+                                <input type="checkbox" id="svc-local" checked>
+                                <label for="svc-local">SEO Local</label>
+                            </div>
+                            <div class="service-check">
+                                <input type="checkbox" id="svc-onpage" checked>
+                                <label for="svc-onpage">Optimisation On-Page</label>
+                            </div>
+                            <div class="service-check">
+                                <input type="checkbox" id="svc-netlinking" checked>
+                                <label for="svc-netlinking">Netlinking</label>
+                            </div>
+                            <div class="service-check">
+                                <input type="checkbox" id="svc-redaction" checked>
+                                <label for="svc-redaction">Rédaction SEO</label>
+                            </div>
+                            <div class="service-check">
+                                <input type="checkbox" id="svc-blackhat" checked>
+                                <label for="svc-blackhat">Black Hat SEO</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="city-meta-title">Meta Title (template)</label>
+                        <input type="text" id="city-meta-title" placeholder="[SERVICE] à [VILLE] | Anthony Courtin"
+                            value="[SERVICE] à [VILLE] - Expert SEO Freelance | Anthony Courtin">
+                        <div class="spinning-help">
+                            Variables: <code>[SERVICE]</code>, <code>[VILLE]</code>, <code>[REGION]</code>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="city-meta-desc">Meta Description (template)</label>
+                        <textarea id="city-meta-desc" rows="2"
+                            placeholder="Description SEO...">Besoin d'un [SERVICE] à [VILLE] ? Freelance SEO expert, j'accompagne les entreprises de [REGION] dans leur stratégie de référencement naturel.</textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="city-h1">H1 (template)</label>
+                        <input type="text" id="city-h1" placeholder="[SERVICE] à [VILLE]" value="[SERVICE] à [VILLE]">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">
+                        💾 Enregistrer et Générer les Pages
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="/admin/js/auth.js"></script>
+    <script>
+        AdminAuth.requireAuth();
+
+        // Liste des villes existantes
+        var cities = [
+            { name: 'Mérignac', slug: 'merignac', region: 'Gironde' },
+            { name: 'Pessac', slug: 'pessac', region: 'Gironde' },
+            { name: 'Talence', slug: 'talence', region: 'Gironde' },
+            { name: 'La Teste-de-Buch', slug: 'la-teste-de-buch', region: 'Gironde' },
+            { name: 'Gradignan', slug: 'gradignan', region: 'Gironde' },
+            { name: 'Bègles', slug: 'begles', region: 'Gironde' },
+            { name: 'Cenon', slug: 'cenon', region: 'Gironde' },
+            { name: 'Saint-Médard-en-Jalles', slug: 'saint-medard-en-jalles', region: 'Gironde' },
+            { name: 'Villenave-d\'Ornon', slug: 'villenave-d-ornon', region: 'Gironde' }
+        ];
+
+        // Services disponibles
+        var services = [
+            { id: 'audit', name: 'Audit SEO', prefix: 'audit-seo-' },
+            { id: 'local', name: 'SEO Local', prefix: 'seo-local-' },
+            { id: 'onpage', name: 'Optimisation On-Page', prefix: 'optimisation-on-page-' },
+            { id: 'netlinking', name: 'Netlinking', prefix: 'netlinking-' },
+            { id: 'redaction', name: 'Rédaction SEO', prefix: 'redaction-seo-' },
+            { id: 'blackhat', name: 'Black Hat SEO', prefix: 'black-hat-seo-' }
+        ];
+
+        // Charger les villes personnalisées du localStorage
+        var customCities = JSON.parse(localStorage.getItem('admin_cities') || '[]');
+        cities = cities.concat(customCities);
+
+        function renderCities() {
+            var grid = document.getElementById('cities-grid');
+            grid.innerHTML = '';
+
+            cities.forEach(function (city, index) {
+                var card = document.createElement('div');
+                card.className = 'city-card';
+                card.innerHTML =
+                    '<div class="city-name">' + city.name + '</div>' +
+                    '<div class="city-pages">6 pages • ' + city.region + '</div>' +
+                    '<div class="city-services">' +
+                    services.map(function (s) {
+                        return '<span class="city-service">' + s.name + '</span>';
+                    }).join('') +
+                    '</div>' +
+                    '<div class="city-actions">' +
+                    '<button class="edit" onclick="editCity(' + index + ')">Modifier</button>' +
+                    '<a href="/villes/audit-seo-' + city.slug + '.html" target="_blank" class="view">Voir</a>' +
+                    '</div>';
+                grid.appendChild(card);
+            });
+
+            document.getElementById('total-cities').textContent = cities.length;
+            document.getElementById('total-pages').textContent = cities.length * 6;
+        }
+
+        function openNewCityModal() {
+            document.getElementById('modal-title').textContent = 'Nouvelle Ville';
+            document.getElementById('city-form').reset();
+            document.getElementById('city-key').value = '';
+            document.getElementById('city-modal').classList.add('active');
+        }
+
+        function editCity(index) {
+            var city = cities[index];
+            document.getElementById('modal-title').textContent = 'Modifier ' + city.name;
+            document.getElementById('city-key').value = index;
+            document.getElementById('city-name').value = city.name;
+            document.getElementById('city-slug').value = city.slug;
+            document.getElementById('city-region').value = city.region || 'Gironde';
+            document.getElementById('city-modal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('city-modal').classList.remove('active');
+        }
+
+        // Auto-generate slug from name
+        document.getElementById('city-name').addEventListener('input', function () {
+            var name = this.value;
+            var slug = name.toLowerCase()
+                .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+                .replace(/[^a-z0-9]+/g, '-')
+                .replace(/^-|-$/g, '');
+            document.getElementById('city-slug').value = slug;
+        });
+
+        // Form submit
+        document.getElementById('city-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            var cityData = {
+                name: document.getElementById('city-name').value,
+                slug: document.getElementById('city-slug').value,
+                region: document.getElementById('city-region').value,
+                metaTitle: document.getElementById('city-meta-title').value,
+                metaDesc: document.getElementById('city-meta-desc').value,
+                h1: document.getElementById('city-h1').value
+            };
+
+            var key = document.getElementById('city-key').value;
+
+            // Determine which services to generate
+            var selectedServices = [];
+            if (document.getElementById('svc-audit').checked) selectedServices.push('audit');
+            if (document.getElementById('svc-local').checked) selectedServices.push('local');
+            if (document.getElementById('svc-onpage').checked) selectedServices.push('onpage');
+            if (document.getElementById('svc-netlinking').checked) selectedServices.push('netlinking');
+            if (document.getElementById('svc-redaction').checked) selectedServices.push('redaction');
+            if (document.getElementById('svc-blackhat').checked) selectedServices.push('blackhat');
+
+            if (key === '') {
+                // New city - add to custom cities
+                customCities.push(cityData);
+                cities.push(cityData);
+                localStorage.setItem('admin_cities', JSON.stringify(customCities));
+            } else {
+                // Update existing
+                cities[parseInt(key)] = cityData;
+                // Update localStorage if it's a custom city
+                var customIndex = parseInt(key) - 9;
+                if (customIndex >= 0) {
+                    customCities[customIndex] = cityData;
+                    localStorage.setItem('admin_cities', JSON.stringify(customCities));
+                }
+            }
+
+            // Generate HTML files for download
+            if (confirm('Voulez-vous télécharger les fichiers HTML pour ' + cityData.name + ' ?')) {
+                generateCityPages(cityData, selectedServices);
+            }
+
+            closeModal();
+            renderCities();
+        });
+
+        function generateCityPages(city, selectedServices) {
+            services.filter(function (s) {
+                return selectedServices.indexOf(s.id) !== -1;
+            }).forEach(function (service) {
+                var title = city.metaTitle
+                    .replace(/\[SERVICE\]/g, service.name)
+                    .replace(/\[VILLE\]/g, city.name)
+                    .replace(/\[REGION\]/g, city.region);
+
+                var desc = city.metaDesc
+                    .replace(/\[SERVICE\]/g, service.name.toLowerCase())
+                    .replace(/\[VILLE\]/g, city.name)
+                    .replace(/\[REGION\]/g, city.region);
+
+                var h1 = city.h1
+                    .replace(/\[SERVICE\]/g, service.name)
+                    .replace(/\[VILLE\]/g, city.name);
+
+                var filename = service.prefix + city.slug + '.html';
+
+                var html = '<!DOCTYPE html>' +
+                    '<html lang="fr">' +
+                    '<head>' +
+                    '<meta charset="UTF-8">' +
+                    '<meta name="viewport" content="width=device-width, initial-scale=1.0">' +
+                    '<meta name="description" content="' + desc + '">' +
+                    '<title>' + title + '</title>' +
+                    '<link rel="stylesheet" href="../css/style.css">' +
+                    '</head>' +
+                    '<body>' +
+                    '<!-- Header à copier depuis une autre page ville -->' +
+                    '<main><h1>' + h1 + '</h1>' +
+                    '<p>' + desc + '</p>' +
+                    '<!-- Contenu à personnaliser -->' +
+                    '</main>' +
+                    '<!-- Footer à copier -->' +
+                    '</body></html>';
+
+                // Download file
+                var blob = new Blob([html], { type: 'text/html' });
+                var url = URL.createObjectURL(blob);
+                var link = document.createElement('a');
+                link.href = url;
+                link.download = filename;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                URL.revokeObjectURL(url);
+            });
+
+            alert('✅ ' + selectedServices.length + ' fichiers générés pour ' + city.name + '\\n\\nPlacez-les dans le dossier /villes/');
+        }
+
+        // Close modal on overlay click
+        document.getElementById('city-modal').addEventListener('click', function (e) {
+            if (e.target === this) closeModal();
+        });
+
+        // Initial render
+        renderCities();
+    </script>
+</body>
+
+</html>

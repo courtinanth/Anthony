@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Connexion - Admin Anthony Courtin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/admin/css/admin.css">
+    <style>
+        .login-page {
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #16213e 100%);
+        }
+
+        .login-box {
+            background: linear-gradient(145deg, rgba(26, 26, 42, 0.9), rgba(18, 18, 26, 0.95));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .login-logo {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .login-logo-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .login-logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .form-input-wrapper {
+            position: relative;
+        }
+
+        .form-input-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.25rem;
+            opacity: 0.5;
+        }
+
+        .login-form input {
+            padding-left: 3rem;
+        }
+
+        .forgot-password {
+            display: block;
+            text-align: right;
+            margin-top: 0.5rem;
+            font-size: 0.8125rem;
+            color: var(--admin-text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .forgot-password:hover {
+            color: var(--admin-primary);
+        }
+
+        .btn-login {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            border: none;
+            margin-top: 1rem;
+        }
+
+        .btn-login:hover {
+            background: linear-gradient(135deg, #5558e8, #7c3aed);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -10px rgba(99, 102, 241, 0.5);
+        }
+
+        .login-divider {
+            display: flex;
+            align-items: center;
+            margin: 1.5rem 0;
+            color: var(--admin-text-secondary);
+            font-size: 0.8125rem;
+        }
+
+        .login-divider::before,
+        .login-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--admin-border);
+        }
+
+        .login-divider span {
+            padding: 0 1rem;
+        }
+
+        .back-to-site {
+            display: block;
+            text-align: center;
+            margin-top: 1.5rem;
+            color: var(--admin-text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+        }
+
+        .back-to-site:hover {
+            color: var(--admin-primary);
+        }
+
+        /* Modal for forgot password */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-box {
+            background: var(--admin-bg-secondary);
+            border: 1px solid var(--admin-border);
+            border-radius: 16px;
+            padding: 2rem;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--admin-text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.25rem;
+        }
+
+        .modal-close:hover {
+            color: var(--admin-text);
+        }
+    </style>
+</head>
+
+<body class="login-page">
+    <div class="login-container">
+        <div class="login-box">
+            <div class="login-logo">
+                <span class="login-logo-icon">🔐</span>
+                <span class="login-logo-text">Admin Panel</span>
+            </div>
+
+            <div class="login-header">
+                <h1>Connexion</h1>
+                <p>Accédez à votre espace d'administration</p>
+            </div>
+
+            <div id="error-message" class="error-message" style="display: none;"></div>
+
+            <form class="login-form" id="login-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <div class="form-input-wrapper">
+                        <span class="form-input-icon">📧</span>
+                        <input type="email" id="email" placeholder="votre@email.com" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <div class="form-input-wrapper">
+                        <span class="form-input-icon">🔑</span>
+                        <input type="password" id="password" placeholder="••••••••" required>
+                    </div>
+                    <a href="#" class="forgot-password" onclick="showForgotPassword(); return false;">Mot de passe
+                        oublié ?</a>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full btn-login">
+                    Se connecter
+                </button>
+            </form>
+
+            <a href="../index.html" class="back-to-site">← Retour au site</a>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div class="modal-overlay" id="forgot-modal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h2 class="modal-title">🔑 Mot de passe oublié</h2>
+                <button class="modal-close" onclick="closeForgotPassword()">&times;</button>
+            </div>
+            <p style="color: var(--admin-text-secondary); margin-bottom: 1.5rem;">
+                Entrez votre email pour recevoir les instructions de réinitialisation.
+            </p>
+            <form id="forgot-form">
+                <div class="form-group">
+                    <label for="forgot-email">Email</label>
+                    <input type="email" id="forgot-email" placeholder="votre@email.com" required
+                        style="width: 100%; padding: 0.875rem 1rem; background: var(--admin-bg-tertiary); border: 1px solid var(--admin-border); border-radius: 8px; color: var(--admin-text); font-size: 1rem;">
+                </div>
+                <button type="submit" class="btn btn-primary btn-full" style="margin-top: 1rem;">
+                    Envoyer les instructions
+                </button>
+            </form>
+            <p style="margin-top: 1rem; font-size: 0.8125rem; color: #666; text-align: center;">
+                Fonctionnalité en cours de développement.<br>
+                Contactez l'administrateur pour réinitialiser votre mot de passe.
+            </p>
+        </div>
+    </div>
+
+    <script src="/admin/js/auth.js"></script>
+    <script>
+        // Redirect if already logged in
+        if (AdminAuth.isAuthenticated()) {
+            window.location.href = '/admin/index.html';
+        }
+
+        document.getElementById('login-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var errorDiv = document.getElementById('error-message');
+            var submitBtn = e.target.querySelector('button[type="submit"]');
+
+            // Disable button during login
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Connexion...';
+            errorDiv.style.display = 'none';
+
+            AdminAuth.login(email, password).then(function (result) {
+                if (result.success) {
+                    window.location.href = '/admin/index.html';
+                } else {
+                    errorDiv.textContent = result.error;
+                    errorDiv.style.display = 'block';
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Se connecter';
+                }
+            }).catch(function (err) {
+                errorDiv.textContent = 'Erreur de connexion. Veuillez réessayer.';
+                errorDiv.style.display = 'block';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Se connecter';
+            });
+        });
+
+        function showForgotPassword() {
+            document.getElementById('forgot-modal').classList.add('active');
+        }
+
+        function closeForgotPassword() {
+            document.getElementById('forgot-modal').classList.remove('active');
+        }
+
+        document.getElementById('forgot-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            var email = document.getElementById('forgot-email').value;
+            alert('Instructions envoyées à ' + email + '\n\n(Fonctionnalité en développement - contactez l\'administrateur)');
+            closeForgotPassword();
+        });
+
+        // Close modal on overlay click
+        document.getElementById('forgot-modal').addEventListener('click', function (e) {
+            if (e.target === this) closeForgotPassword();
+        });
+    </script>
+</body>
+
+</html>
