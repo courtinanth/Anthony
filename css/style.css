@@ -143,8 +143,18 @@ h4 {
 }
 
 p {
-  color: var(--color-text-secondary);
+  color: #cbd5e1;
+  /* Increased contrast from #a1a1aa */
   margin-bottom: var(--space-4);
+}
+
+.feature-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-text-primary);
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-2);
 }
 
 a {
@@ -216,7 +226,8 @@ img {
 }
 
 .nav-link {
-  color: var(--color-text-secondary);
+  color: #cbd5e1;
+  /* Increased contrast */
   font-weight: 500;
   padding: var(--space-2) var(--space-3);
   border-radius: var(--radius-md);
