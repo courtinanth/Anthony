@@ -719,6 +719,69 @@
 
                 var filename = service.prefix + city.slug + '.html';
 
+                var jsonLd = {
+                    "@context": "https://schema.org",
+                    "@graph": [
+                        {
+                            "@type": "WebPage",
+                            "@id": "https://anthony-courtin.com/villes/" + filename + "#WebPage",
+                            "url": "https://anthony-courtin.com/villes/" + filename,
+                            "headline": title.split('|')[0].trim(),
+                            "description": desc,
+                            "primaryImageOfPage": { "@id": "https://anthony-courtin.com/villes/" + filename + "#PrimaryImage" },
+                            "author": { "@id": "https://anthony-courtin.com/villes/" + filename + "#Person" },
+                            "creator": { "@id": "https://anthony-courtin.com/villes/" + filename + "#Business" },
+                            "inLanguage": "fr-FR",
+                            "isPartOf": { "@id": "https://anthony-courtin.com/#Website" }
+                        },
+                        {
+                            "@type": "ProfessionalService",
+                            "@id": "https://anthony-courtin.com/villes/" + filename + "#Business",
+                            "additionalType": ["LocalBusiness", "Organization"],
+                            "name": "Anthony Courtin",
+                            "description": "Consultant SEO expert à " + city.name + ". Audit, Netlinking, et Stratégies sur-mesure.",
+                            "image": { "@id": "https://anthony-courtin.com/villes/" + filename + "#PrimaryImage" },
+                            "priceRange": "$$",
+                            "email": "anthony@astrak.agency",
+                            "telephone": "+33600000000",
+                            "address": {
+                                "@type": "PostalAddress",
+                                "addressLocality": city.name,
+                                "addressRegion": city.region,
+                                "addressCountry": "FR"
+                            },
+                            "areaServed": {
+                                "@type": "AdministrativeArea",
+                                "name": city.name
+                            },
+                            "founder": { "@id": "https://anthony-courtin.com/villes/" + filename + "#Person" },
+                            "makesOffer": {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Service",
+                                    "name": service.name,
+                                    "serviceType": service.name
+                                }
+                            }
+                        },
+                        {
+                            "@type": "Person",
+                            "@id": "https://anthony-courtin.com/villes/" + filename + "#Person",
+                            "name": "Anthony Courtin",
+                            "url": "https://www.linkedin.com/in/anthony-courtin/",
+                            "image": "https://anthony-courtin.com/images/anthony-consultant-seo.png",
+                            "jobTitle": "Consultant SEO",
+                            "worksFor": { "@id": "https://anthony-courtin.com/#Website" }
+                        },
+                        {
+                            "@type": "ImageObject",
+                            "@id": "https://anthony-courtin.com/villes/" + filename + "#PrimaryImage",
+                            "url": "https://anthony-courtin.com/images/anthony-consultant-seo.png",
+                            "caption": "Anthony Courtin - Consultant " + service.name + " à " + city.name
+                        }
+                    ]
+                };
+
                 var html = '<!DOCTYPE html>' +
                     '<html lang="fr">' +
                     '<head>' +
@@ -727,6 +790,7 @@
                     '<meta name="description" content="' + desc + '">' +
                     '<title>' + title + '</title>' +
                     '<link rel="stylesheet" href="../css/style.css">' +
+                    '<script type="application/ld+json">' + JSON.stringify(jsonLd) + '<\/script>' +
                     '</head>' +
                     '<body>' +
                     '<!-- Header à copier depuis une autre page ville -->' +
