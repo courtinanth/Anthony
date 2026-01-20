@@ -8,6 +8,8 @@ const cities = [...citiesTop10, ...citiesExtended];
 // Helper to normalize strings for slug (remove accents, etc.)
 function slugify(text) {
     return text.toString().toLowerCase()
+        .normalize('NFD')               // Split accented characters
+        .replace(/[\u0300-\u036f]/g, '') // Remove the accents
         .replace(/\s+/g, '-')           // Replace spaces with -
         .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
         .replace(/\-\-+/g, '-')         // Replace multiple - with single -
@@ -155,8 +157,12 @@ function generate() {
             }
 
             // 7. Write File
+            const villesDir = path.join(__dirname, 'villes');
+            if (!fs.existsSync(villesDir)) {
+                fs.mkdirSync(villesDir);
+            }
             const fileName = `${service.slug}-${citySlug}.html`;
-            fs.writeFileSync(path.join(templateDir, fileName), content);
+            fs.writeFileSync(path.join(villesDir, fileName), content);
         });
     });
     console.log("Generation complete!");

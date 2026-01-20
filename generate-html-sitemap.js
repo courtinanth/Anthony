@@ -252,6 +252,7 @@ html += `        </div>
     <!-- Placeholders for valid structure -->
   </footer>
 
+  <script src="js/main.js"></script>
 </body>
 </html>`;
 

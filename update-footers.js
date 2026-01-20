@@ -149,6 +149,22 @@ const footerVilles = footerMain
   .replace(/href="confidentialite\.html"/g, 'href="../confidentialite.html"')
   .replace(/href="plan-du-site\.html"/g, 'href="../plan-du-site.html"');
 
+// Footer specifically for BLOG pages (needs ../villes/ prefix unlike Villes pages)
+const footerBlog = footerMain
+  .replace(/href="audit-seo-bordeaux\.html"/g, 'href="../audit-seo-bordeaux.html"')
+  .replace(/href="optimisation-on-page\.html"/g, 'href="../optimisation-on-page.html"')
+  .replace(/href="netlinking-bordeaux\.html"/g, 'href="../netlinking-bordeaux.html"')
+  .replace(/href="seo-local-bordeaux\.html"/g, 'href="../seo-local-bordeaux.html"')
+  .replace(/href="redaction-seo\.html"/g, 'href="../redaction-seo.html"')
+  .replace(/href="black-hat-seo\.html"/g, 'href="../black-hat-seo.html"')
+  .replace(/href="villes\//g, 'href="../villes/') // Key change: pointing to specific sibling dir
+  .replace(/href="blog\//g, 'href="') // Sibling files in blog dir
+  .replace(/href="linkedin-posts\.html"/g, 'href="../linkedin-posts.html"')
+  .replace(/href="contact\.html"/g, 'href="../contact.html"')
+  .replace(/href="mentions-legales\.html"/g, 'href="../mentions-legales.html"')
+  .replace(/href="confidentialite\.html"/g, 'href="../confidentialite.html"')
+  .replace(/href="plan-du-site\.html"/g, 'href="../plan-du-site.html"');
+
 const noscriptBlock = `
   <noscript>
     <style>
@@ -182,12 +198,17 @@ const noscriptBlock = `
     </style>
   </noscript>`;
 
-function updatePage(filePath, isSubdir = false) {
+
+function updatePage(filePath, footerType = 'main') {
   let content = fs.readFileSync(filePath, 'utf8');
 
   // Replace footer
   const footerRegex = /<footer class="footer">[\s\S]*?<\/footer>/;
-  const newFooter = isSubdir ? footerVilles : footerMain;
+  let newFooter;
+
+  if (footerType === 'villes') newFooter = footerVilles;
+  else if (footerType === 'blog') newFooter = footerBlog;
+  else newFooter = footerMain;
 
   if (footerRegex.test(content)) {
     content = content.replace(footerRegex, newFooter);
@@ -201,8 +222,10 @@ function updatePage(filePath, isSubdir = false) {
     content = content.replace('</body>', noscriptBlock + '\n</body>');
   }
 
+  const isSubdir = footerType !== 'main';
+
   // Remove population references from city pages (only if in villes)
-  if (isSubdir && filePath.includes('villes')) {
+  if (footerType === 'villes' && filePath.includes('villes')) {
     content = content.replace(/\(\d{2,3}\s?\d{3}\s?habitants?\)/gi, '');
     content = content.replace(/\d{2}\s?\d{3}\s?habitants?/gi, '');
     content = content.replace(/Avec\s+\d+[\s\d]*habitants?,?\s*/gi, '');
@@ -224,7 +247,7 @@ function updatePage(filePath, isSubdir = false) {
   }
 
   fs.writeFileSync(filePath, content, 'utf8');
-  console.log(`Updated: ${path.basename(filePath)}`);
+  console.log(`Updated: ${path.basename(filePath)} (${footerType})`);
 }
 
 // Update main pages
@@ -248,7 +271,7 @@ console.log('Updating main pages...');
 mainPages.forEach(page => {
   const filePath = path.join(__dirname, page);
   if (fs.existsSync(filePath)) {
-    updatePage(filePath, false);
+    updatePage(filePath, 'main');
   }
 });
 
@@ -258,7 +281,7 @@ const villesDir = path.join(__dirname, 'villes');
 if (fs.existsSync(villesDir)) {
   const villesFiles = fs.readdirSync(villesDir).filter(f => f.endsWith('.html'));
   villesFiles.forEach(file => {
-    updatePage(path.join(villesDir, file), true);
+    updatePage(path.join(villesDir, file), 'villes');
   });
 }
 
@@ -268,7 +291,7 @@ const blogDir = path.join(__dirname, 'blog');
 if (fs.existsSync(blogDir)) {
   const blogFiles = fs.readdirSync(blogDir).filter(f => f.endsWith('.html'));
   blogFiles.forEach(file => {
-    updatePage(path.join(blogDir, file), true);
+    updatePage(path.join(blogDir, file), 'blog');
   });
 }
 
