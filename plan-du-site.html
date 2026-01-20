@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Plan du site Anthony Courtin. Retrouvez l'ensemble des pages, services et villes couvertes par votre consultant SEO en Gironde.">
+  <meta name="description" content="Plan du site Anthony Courtin. Retrouvez l'ensemble des pages, services et villes couvertes pour faciliter votre navigation.">
   <meta name="robots" content="index, follow">
   <title>Plan du site | Anthony Courtin - Consultant SEO</title>
   <link rel="icon" type="image/png" href="images/favicon.png">
@@ -13,20 +13,123 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <style>
-    .sitemap-section { padding: 4rem 0; }
-    .sitemap-grid { display: grid; gap: 2rem; }
-    .sitemap-group h2 { margin-bottom: 1.5rem; color: var(--text-primary); }
-    .sitemap-list { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.5rem; }
-    .sitemap-list li a { color: var(--text-secondary); text-decoration: none; transition: color 0.2s; font-size: 0.9rem; }
-    .sitemap-list li a:hover { color: var(--primary); }
-    .sitemap-main-list { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 2rem; }
-    .sitemap-main-list a { background: var(--surface); padding: 0.5rem 1rem; border-radius: 8px; border: 1px solid var(--border); color: var(--text-primary); text-decoration: none; font-weight: 500; }
-    .sitemap-main-list a:hover { border-color: var(--primary); color: var(--primary); }
+    /* Sitemap specific styles matching 'Modulink' clean aesthetic */
+    .sitemap-hero {
+        text-align: center;
+        padding: 4rem 1rem 2rem;
+        background: var(--surface);
+    }
+    .sitemap-hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        color: var(--text-primary);
+    }
+    .sitemap-hero p {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+    }
+
+    .sitemap-section { 
+        padding: 2rem 0 4rem; 
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+    .container {
+        max-width: 1400px; /* Wider container for sitemap */
+    }
+
+    .sitemap-group {
+        margin-bottom: 3rem;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 2rem;
+    }
+    .sitemap-group:last-child {
+        border-bottom: none;
+    }
+
+    .sitemap-group h2 { 
+        font-size: 1.5rem; 
+        margin-bottom: 1.5rem; 
+        color: var(--text-primary);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    .sitemap-count {
+        color: var(--text-secondary);
+        font-weight: 400;
+        font-size: 1.2rem;
+    }
+
+    /* Grid System - 4 columns for desktop */
+    .sitemap-list { 
+        list-style: none; 
+        padding: 0; 
+        display: grid; 
+        grid-template-columns: repeat(4, 1fr); 
+        gap: 1rem 2rem; 
+    }
+
+    @media (max-width: 1024px) {
+        .sitemap-list { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 768px) {
+        .sitemap-list { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+        .sitemap-list { grid-template-columns: 1fr; }
+    }
+
+    .sitemap-list li a { 
+        color: var(--text-secondary); 
+        text-decoration: none; 
+        transition: all 0.2s; 
+        font-size: 0.95rem;
+        display: flex;
+        align-items: center;
+    }
+    .sitemap-list li a::before {
+        content: "›";
+        margin-right: 8px;
+        color: var(--primary);
+        font-weight: bold;
+        font-size: 1.2em;
+        line-height: 1;
+    }
+    .sitemap-list li a:hover { 
+        color: var(--primary); 
+        transform: translateX(3px);
+    }
+    
+    /* Main pages specific styling */
+    .sitemap-main-list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem 2rem;
+    }
+    .sitemap-main-list a {
+        display: flex;
+        align-items: center;
+        color: var(--text-primary);
+        text-decoration: none;
+        font-weight: 500;
+        padding: 0.5rem 0;
+    }
+    .sitemap-main-list a::before {
+        content: "›";
+        margin-right: 8px;
+        color: var(--primary);
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+    .sitemap-main-list a:hover {
+        color: var(--primary);
+    }
   </style>
 </head>
 <body>
   
-  <!-- Header (will be replaced by update-footers.js logically, but we keep structure) -->
+  <!-- Header placeholder -->
   <header class="header">
     <div class="container">
       <a href="index.html" class="logo">Anthony COURTIN</a>
@@ -41,12 +144,10 @@
   </header>
 
   <main id="main-content">
-    <section class="page-hero">
-        <div class="container">
-             <h1>Plan du site</h1>
-             <p>Retrouvez toutes les pages du site Anthony Courtin.</p>
-        </div>
-    </section>
+    <div class="sitemap-hero">
+         <h1>Plan du site</h1>
+         <p>Retrouvez l'ensemble des pages de notre site pour naviguer facilement</p>
+    </div>
 
     <section class="sitemap-section">
       <div class="container">
@@ -71,7 +172,7 @@
 
         <!-- Blog -->
         <div class="sitemap-group">
-            <h2>Articles de Blog</h2>
+            <h2>Blog</h2>
             <ul class="sitemap-list">
                 <li><a href="blog/audit-seo-local-guide">Audit Seo Local Guide</a></li>
                 <li><a href="blog/guide-seo-local-2024">Guide Seo Local 2024</a></li>
