@@ -216,7 +216,9 @@ const mainPages = [
   'redaction-seo.html',
   'black-hat-seo.html',
   'contact.html',
-  'linkedin-posts.html'
+  'linkedin-posts.html',
+  'mentions-legales.html',
+  'confidentialite.html'
 ];
 
 console.log('Updating main pages...');
