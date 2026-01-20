@@ -1,4 +1,3 @@
-// Script to update all pages with unified footer
 const fs = require('fs');
 const path = require('path');
 
@@ -109,6 +108,7 @@ const footerMain = `<footer class="footer">
         <div class="footer-col">
           <h4>Ressources</h4>
           <ul class="footer-links">
+            <li><a href="blog/index.html">Blog</a></li>
             <li><a href="linkedin-posts.html">Posts LinkedIn</a></li>
             <li>Bordeaux, France</li>
           </ul>
@@ -141,6 +141,7 @@ const footerVilles = footerMain
   .replace(/href="redaction-seo\.html"/g, 'href="../redaction-seo.html"')
   .replace(/href="black-hat-seo\.html"/g, 'href="../black-hat-seo.html"')
   .replace(/href="villes\//g, 'href="')
+  .replace(/href="blog\/index\.html"/g, 'href="../blog/index.html"')
   .replace(/href="linkedin-posts\.html"/g, 'href="../linkedin-posts.html"')
   .replace(/href="contact\.html"/g, 'href="../contact.html"')
   .replace(/href="mentions-legales\.html"/g, 'href="../mentions-legales.html"')
@@ -179,28 +180,45 @@ const noscriptBlock = `
     </style>
   </noscript>`;
 
-function updatePage(filePath, isVilles = false) {
+function updatePage(filePath, isSubdir = false) {
   let content = fs.readFileSync(filePath, 'utf8');
 
   // Replace footer
   const footerRegex = /<footer class="footer">[\s\S]*?<\/footer>/;
-  const newFooter = isVilles ? footerVilles : footerMain;
+  const newFooter = isSubdir ? footerVilles : footerMain;
 
   if (footerRegex.test(content)) {
     content = content.replace(footerRegex, newFooter);
   }
 
-  // Replace noscript block
+  // Replace/Inject noscript block
   const noscriptRegex = /<noscript>[\s\S]*?<\/noscript>/;
   if (noscriptRegex.test(content)) {
     content = content.replace(noscriptRegex, noscriptBlock.trim());
+  } else {
+    content = content.replace('</body>', noscriptBlock + '\n</body>');
   }
 
-  // Remove population references from city pages
-  if (isVilles) {
+  // Remove population references from city pages (only if in villes)
+  if (isSubdir && filePath.includes('villes')) {
     content = content.replace(/\(\d{2,3}\s?\d{3}\s?habitants?\)/gi, '');
     content = content.replace(/\d{2}\s?\d{3}\s?habitants?/gi, '');
     content = content.replace(/Avec\s+\d+[\s\d]*habitants?,?\s*/gi, '');
+  }
+
+  // Inject Cookies
+  const cookieScript = isSubdir ? '<script src="../js/cookies.js"></script>' : '<script src="js/cookies.js"></script>';
+
+  if (!content.includes('src="js/cookies.js"') && !content.includes('src="../js/cookies.js"')) {
+    content = content.replace('</body>', '  ' + cookieScript + '\n</body>');
+  } else {
+    // Ensure path is correct based on depth
+    if (isSubdir && content.includes('src="js/cookies.js"')) {
+      content = content.replace('src="js/cookies.js"', 'src="../js/cookies.js"');
+    }
+    if (!isSubdir && content.includes('src="../js/cookies.js"')) {
+      content = content.replace('src="../js/cookies.js"', 'src="js/cookies.js"');
+    }
   }
 
   fs.writeFileSync(filePath, content, 'utf8');
@@ -219,7 +237,8 @@ const mainPages = [
   'contact.html',
   'linkedin-posts.html',
   'mentions-legales.html',
-  'confidentialite.html'
+  'confidentialite.html',
+  'admin/login.html'
 ];
 
 console.log('Updating main pages...');
@@ -233,9 +252,21 @@ mainPages.forEach(page => {
 // Update villes pages
 console.log('\nUpdating villes pages...');
 const villesDir = path.join(__dirname, 'villes');
-const villesFiles = fs.readdirSync(villesDir).filter(f => f.endsWith('.html'));
-villesFiles.forEach(file => {
-  updatePage(path.join(villesDir, file), true);
-});
+if (fs.existsSync(villesDir)) {
+  const villesFiles = fs.readdirSync(villesDir).filter(f => f.endsWith('.html'));
+  villesFiles.forEach(file => {
+    updatePage(path.join(villesDir, file), true);
+  });
+}
 
-console.log(`\nDone! Updated ${mainPages.length} main pages and ${villesFiles.length} villes pages.`);
+// Update blog pages
+console.log('\nUpdating blog pages...');
+const blogDir = path.join(__dirname, 'blog');
+if (fs.existsSync(blogDir)) {
+  const blogFiles = fs.readdirSync(blogDir).filter(f => f.endsWith('.html'));
+  blogFiles.forEach(file => {
+    updatePage(path.join(blogDir, file), true);
+  });
+}
+
+console.log(`\nDone.`);
