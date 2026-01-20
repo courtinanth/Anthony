@@ -6,13 +6,13 @@ Allow: /
 
 # Bloquer l'accès aux pages d'administration
 Disallow: /admin/
-Disallow: /admin/login
-Disallow: /admin/index
-Disallow: /admin/editor
-Disallow: /admin/articles
-Disallow: /admin/pages
-Disallow: /admin/users
-Disallow: /admin/redirects
+Disallow: /admin/login.html
+Disallow: /admin/index.html
+Disallow: /admin/editor.html
+Disallow: /admin/articles.html
+Disallow: /admin/pages.html
+Disallow: /admin/users.html
+Disallow: /admin/redirects.html
 Disallow: /admin/css/
 Disallow: /admin/js/
 Disallow: /mentions-legales
