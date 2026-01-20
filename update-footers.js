@@ -123,6 +123,10 @@ const footerMain = `<footer class="footer">
       </div>
       <div class="footer-bottom">
         <p>© <span id="current-year"></span> Anthony Courtin - Consultant SEO Bordeaux</p>
+        <div class="footer-legal">
+            <a href="mentions-legales.html">Mentions Légales</a>
+            <a href="confidentialite.html">Confidentialité</a>
+        </div>
         <p>Partenaire <a href="https://astrak.agency" target="_blank" rel="noopener">Astrak Agency</a></p>
       </div>
     </div>
@@ -130,15 +134,17 @@ const footerMain = `<footer class="footer">
 
 // Unified footer for VILLES pages (with ../ prefix)
 const footerVilles = footerMain
-    .replace(/href="audit-seo-bordeaux\.html"/g, 'href="../audit-seo-bordeaux.html"')
-    .replace(/href="optimisation-on-page\.html"/g, 'href="../optimisation-on-page.html"')
-    .replace(/href="netlinking-bordeaux\.html"/g, 'href="../netlinking-bordeaux.html"')
-    .replace(/href="seo-local-bordeaux\.html"/g, 'href="../seo-local-bordeaux.html"')
-    .replace(/href="redaction-seo\.html"/g, 'href="../redaction-seo.html"')
-    .replace(/href="black-hat-seo\.html"/g, 'href="../black-hat-seo.html"')
-    .replace(/href="villes\//g, 'href="')
-    .replace(/href="linkedin-posts\.html"/g, 'href="../linkedin-posts.html"')
-    .replace(/href="contact\.html"/g, 'href="../contact.html"');
+  .replace(/href="audit-seo-bordeaux\.html"/g, 'href="../audit-seo-bordeaux.html"')
+  .replace(/href="optimisation-on-page\.html"/g, 'href="../optimisation-on-page.html"')
+  .replace(/href="netlinking-bordeaux\.html"/g, 'href="../netlinking-bordeaux.html"')
+  .replace(/href="seo-local-bordeaux\.html"/g, 'href="../seo-local-bordeaux.html"')
+  .replace(/href="redaction-seo\.html"/g, 'href="../redaction-seo.html"')
+  .replace(/href="black-hat-seo\.html"/g, 'href="../black-hat-seo.html"')
+  .replace(/href="villes\//g, 'href="')
+  .replace(/href="linkedin-posts\.html"/g, 'href="../linkedin-posts.html"')
+  .replace(/href="contact\.html"/g, 'href="../contact.html"')
+  .replace(/href="mentions-legales\.html"/g, 'href="../mentions-legales.html"')
+  .replace(/href="confidentialite\.html"/g, 'href="../confidentialite.html"');
 
 const noscriptBlock = `
   <noscript>
@@ -174,51 +180,51 @@ const noscriptBlock = `
   </noscript>`;
 
 function updatePage(filePath, isVilles = false) {
-    let content = fs.readFileSync(filePath, 'utf8');
+  let content = fs.readFileSync(filePath, 'utf8');
 
-    // Replace footer
-    const footerRegex = /<footer class="footer">[\s\S]*?<\/footer>/;
-    const newFooter = isVilles ? footerVilles : footerMain;
+  // Replace footer
+  const footerRegex = /<footer class="footer">[\s\S]*?<\/footer>/;
+  const newFooter = isVilles ? footerVilles : footerMain;
 
-    if (footerRegex.test(content)) {
-        content = content.replace(footerRegex, newFooter);
-    }
+  if (footerRegex.test(content)) {
+    content = content.replace(footerRegex, newFooter);
+  }
 
-    // Replace noscript block
-    const noscriptRegex = /<noscript>[\s\S]*?<\/noscript>/;
-    if (noscriptRegex.test(content)) {
-        content = content.replace(noscriptRegex, noscriptBlock.trim());
-    }
+  // Replace noscript block
+  const noscriptRegex = /<noscript>[\s\S]*?<\/noscript>/;
+  if (noscriptRegex.test(content)) {
+    content = content.replace(noscriptRegex, noscriptBlock.trim());
+  }
 
-    // Remove population references from city pages
-    if (isVilles) {
-        content = content.replace(/\(\d{2,3}\s?\d{3}\s?habitants?\)/gi, '');
-        content = content.replace(/\d{2}\s?\d{3}\s?habitants?/gi, '');
-        content = content.replace(/Avec\s+\d+[\s\d]*habitants?,?\s*/gi, '');
-    }
+  // Remove population references from city pages
+  if (isVilles) {
+    content = content.replace(/\(\d{2,3}\s?\d{3}\s?habitants?\)/gi, '');
+    content = content.replace(/\d{2}\s?\d{3}\s?habitants?/gi, '');
+    content = content.replace(/Avec\s+\d+[\s\d]*habitants?,?\s*/gi, '');
+  }
 
-    fs.writeFileSync(filePath, content, 'utf8');
-    console.log(`Updated: ${path.basename(filePath)}`);
+  fs.writeFileSync(filePath, content, 'utf8');
+  console.log(`Updated: ${path.basename(filePath)}`);
 }
 
 // Update main pages
 const mainPages = [
-    'audit-seo-bordeaux.html',
-    'optimisation-on-page.html',
-    'netlinking-bordeaux.html',
-    'seo-local-bordeaux.html',
-    'redaction-seo.html',
-    'black-hat-seo.html',
-    'contact.html',
-    'linkedin-posts.html'
+  'audit-seo-bordeaux.html',
+  'optimisation-on-page.html',
+  'netlinking-bordeaux.html',
+  'seo-local-bordeaux.html',
+  'redaction-seo.html',
+  'black-hat-seo.html',
+  'contact.html',
+  'linkedin-posts.html'
 ];
 
 console.log('Updating main pages...');
 mainPages.forEach(page => {
-    const filePath = path.join(__dirname, page);
-    if (fs.existsSync(filePath)) {
-        updatePage(filePath, false);
-    }
+  const filePath = path.join(__dirname, page);
+  if (fs.existsSync(filePath)) {
+    updatePage(filePath, false);
+  }
 });
 
 // Update villes pages
@@ -226,7 +232,7 @@ console.log('\nUpdating villes pages...');
 const villesDir = path.join(__dirname, 'villes');
 const villesFiles = fs.readdirSync(villesDir).filter(f => f.endsWith('.html'));
 villesFiles.forEach(file => {
-    updatePage(path.join(villesDir, file), true);
+  updatePage(path.join(villesDir, file), true);
 });
 
 console.log(`\nDone! Updated ${mainPages.length} main pages and ${villesFiles.length} villes pages.`);

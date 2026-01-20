@@ -4,35 +4,35 @@ const path = require('path');
 
 // City data with coordinates for Google Maps
 const cities = {
-    'bordeaux': { name: 'Bordeaux', lat: 44.8378, lng: -0.5792, mairie: 'Mairie+de+Bordeaux' },
-    'merignac': { name: 'Mérignac', lat: 44.8386, lng: -0.6436, mairie: 'Mairie+de+Mérignac' },
-    'pessac': { name: 'Pessac', lat: 44.8066, lng: -0.6311, mairie: 'Mairie+de+Pessac' },
-    'talence': { name: 'Talence', lat: 44.8014, lng: -0.5859, mairie: 'Mairie+de+Talence' },
-    'villenave-d-ornon': { name: "Villenave-d'Ornon", lat: 44.7803, lng: -0.5564, mairie: 'Mairie+de+Villenave-d%27Ornon' },
-    'saint-medard-en-jalles': { name: 'Saint-Médard-en-Jalles', lat: 44.8964, lng: -0.7189, mairie: 'Mairie+de+Saint-Médard-en-Jalles' },
-    'begles': { name: 'Bègles', lat: 44.8097, lng: -0.5478, mairie: 'Mairie+de+Bègles' },
-    'la-teste-de-buch': { name: 'La Teste-de-Buch', lat: 44.6367, lng: -1.1428, mairie: 'Mairie+de+La+Teste-de-Buch' },
-    'cenon': { name: 'Cenon', lat: 44.8567, lng: -0.5297, mairie: 'Mairie+de+Cenon' },
-    'gradignan': { name: 'Gradignan', lat: 44.7725, lng: -0.6161, mairie: 'Mairie+de+Gradignan' }
+  'bordeaux': { name: 'Bordeaux', lat: 44.8378, lng: -0.5792, mairie: 'Mairie+de+Bordeaux' },
+  'merignac': { name: 'Mérignac', lat: 44.8386, lng: -0.6436, mairie: 'Mairie+de+Mérignac' },
+  'pessac': { name: 'Pessac', lat: 44.8066, lng: -0.6311, mairie: 'Mairie+de+Pessac' },
+  'talence': { name: 'Talence', lat: 44.8014, lng: -0.5859, mairie: 'Mairie+de+Talence' },
+  'villenave-d-ornon': { name: "Villenave-d'Ornon", lat: 44.7803, lng: -0.5564, mairie: 'Mairie+de+Villenave-d%27Ornon' },
+  'saint-medard-en-jalles': { name: 'Saint-Médard-en-Jalles', lat: 44.8964, lng: -0.7189, mairie: 'Mairie+de+Saint-Médard-en-Jalles' },
+  'begles': { name: 'Bègles', lat: 44.8097, lng: -0.5478, mairie: 'Mairie+de+Bègles' },
+  'la-teste-de-buch': { name: 'La Teste-de-Buch', lat: 44.6367, lng: -1.1428, mairie: 'Mairie+de+La+Teste-de-Buch' },
+  'cenon': { name: 'Cenon', lat: 44.8567, lng: -0.5297, mairie: 'Mairie+de+Cenon' },
+  'gradignan': { name: 'Gradignan', lat: 44.7725, lng: -0.6161, mairie: 'Mairie+de+Gradignan' }
 };
 
 const cityOrder = ['merignac', 'pessac', 'talence', 'villenave-d-ornon', 'saint-medard-en-jalles', 'begles', 'la-teste-de-buch', 'cenon', 'gradignan'];
 
 const services = {
-    'audit-seo': { name: 'Audit SEO', slug: 'audit-seo', bordeauxFile: 'audit-seo-bordeaux.html' },
-    'optimisation-on-page': { name: 'Optimisation', slug: 'optimisation-on-page', bordeauxFile: 'optimisation-on-page.html' },
-    'netlinking': { name: 'Netlinking', slug: 'netlinking', bordeauxFile: 'netlinking-bordeaux.html' },
-    'seo-local': { name: 'SEO Local', slug: 'seo-local', bordeauxFile: 'seo-local-bordeaux.html' },
-    'redaction-seo': { name: 'Rédaction SEO', slug: 'redaction-seo', bordeauxFile: 'redaction-seo.html' },
-    'black-hat-seo': { name: 'Black Hat SEO', slug: 'black-hat-seo', bordeauxFile: 'black-hat-seo.html' }
+  'audit-seo': { name: 'Audit SEO', slug: 'audit-seo', bordeauxFile: 'audit-seo-bordeaux.html' },
+  'optimisation-on-page': { name: 'Optimisation', slug: 'optimisation-on-page', bordeauxFile: 'optimisation-on-page.html' },
+  'netlinking': { name: 'Netlinking', slug: 'netlinking', bordeauxFile: 'netlinking-bordeaux.html' },
+  'seo-local': { name: 'SEO Local', slug: 'seo-local', bordeauxFile: 'seo-local-bordeaux.html' },
+  'redaction-seo': { name: 'Rédaction SEO', slug: 'redaction-seo', bordeauxFile: 'redaction-seo.html' },
+  'black-hat-seo': { name: 'Black Hat SEO', slug: 'black-hat-seo', bordeauxFile: 'black-hat-seo.html' }
 };
 
 // Generate Google Maps embed
 function getMapEmbed(citySlug, isVilles = false) {
-    const city = citySlug === 'bordeaux' ? cities.bordeaux : cities[citySlug];
-    if (!city) return '';
+  const city = citySlug === 'bordeaux' ? cities.bordeaux : cities[citySlug];
+  if (!city) return '';
 
-    return `
+  return `
     <!-- Google Maps -->
     <section class="section map-section">
       <div class="container">
@@ -54,38 +54,38 @@ function getMapEmbed(citySlug, isVilles = false) {
 
 // Get balanced city links for internal linking
 function getBalancedCityLinks(currentCity, serviceSlug, isVilles = false) {
-    const allCities = ['bordeaux', ...cityOrder];
-    const currentIndex = allCities.indexOf(currentCity);
+  const allCities = ['bordeaux', ...cityOrder];
+  const currentIndex = allCities.indexOf(currentCity);
 
-    // Get 4 different cities based on position for balanced linking
-    let linkedCities = [];
-    for (let i = 1; i <= 4; i++) {
-        const index = (currentIndex + i * 2) % allCities.length;
-        if (allCities[index] !== currentCity) {
-            linkedCities.push(allCities[index]);
-        }
+  // Get 4 different cities based on position for balanced linking
+  let linkedCities = [];
+  for (let i = 1; i <= 4; i++) {
+    const index = (currentIndex + i * 2) % allCities.length;
+    if (allCities[index] !== currentCity) {
+      linkedCities.push(allCities[index]);
     }
-    // Ensure we have 4 cities
-    while (linkedCities.length < 4) {
-        for (let city of allCities) {
-            if (!linkedCities.includes(city) && city !== currentCity) {
-                linkedCities.push(city);
-                if (linkedCities.length >= 4) break;
-            }
-        }
+  }
+  // Ensure we have 4 cities
+  while (linkedCities.length < 4) {
+    for (let city of allCities) {
+      if (!linkedCities.includes(city) && city !== currentCity) {
+        linkedCities.push(city);
+        if (linkedCities.length >= 4) break;
+      }
     }
+  }
 
-    const prefix = isVilles ? '' : 'villes/';
-    const parentPrefix = isVilles ? '../' : '';
+  const prefix = isVilles ? '' : 'villes/';
+  const parentPrefix = isVilles ? '../' : '';
 
-    return linkedCities.slice(0, 4).map(citySlug => {
-        const city = citySlug === 'bordeaux' ? cities.bordeaux : cities[citySlug];
-        const service = services[serviceSlug];
-        const href = citySlug === 'bordeaux'
-            ? `${parentPrefix}${service.bordeauxFile}`
-            : `${prefix}${serviceSlug}-${citySlug}.html`;
-        return `<a href="${href}" class="related-card fade-in"><h3>${service.name} ${city.name}</h3><p>Services SEO à ${city.name}</p></a>`;
-    }).join('\n          ');
+  return linkedCities.slice(0, 4).map(citySlug => {
+    const city = citySlug === 'bordeaux' ? cities.bordeaux : cities[citySlug];
+    const service = services[serviceSlug];
+    const href = citySlug === 'bordeaux'
+      ? `${parentPrefix}${service.bordeauxFile}`
+      : `${prefix}${serviceSlug}-${citySlug}.html`;
+    return `<a href="${href}" class="related-card fade-in"><h3>${service.name} ${city.name}</h3><p>Services SEO à ${city.name}</p></a>`;
+  }).join('\n          ');
 }
 
 // Social proof block for footer
@@ -103,15 +103,15 @@ const socialProofFooter = `
 
 // Update logo from "Anthony SEO" to "Anthony COURTIN"
 function updateLogo(content) {
-    return content
-        .replace(/>Anthony SEO</g, '>Anthony COURTIN<')
-        .replace(/class="logo">Anthony SEO/g, 'class="logo">Anthony COURTIN');
+  return content
+    .replace(/>Anthony SEO</g, '>Anthony COURTIN<')
+    .replace(/class="logo">Anthony SEO/g, 'class="logo">Anthony COURTIN');
 }
 
 // Add extra content for specific services
 function getExtraContent(serviceSlug) {
-    if (serviceSlug === 'netlinking') {
-        return `
+  if (serviceSlug === 'netlinking') {
+    return `
                 <div class="content-box fade-in">
                     <h2>Pourquoi le netlinking est essentiel ?</h2>
                     <div class="stats-grid">
@@ -139,9 +139,9 @@ function getExtraContent(serviceSlug) {
                         <li><strong>Relations presse</strong> - Articles sponsorisés sur médias locaux</li>
                     </ul>
                 </div>`;
-    }
-    if (serviceSlug === 'seo-local') {
-        return `
+  }
+  if (serviceSlug === 'seo-local') {
+    return `
                 <div class="content-box fade-in">
                     <h2>L'importance du SEO Local</h2>
                     <div class="stats-grid">
@@ -169,9 +169,9 @@ function getExtraContent(serviceSlug) {
                         <li><strong>Contenu local</strong> - Pages optimisées par zone géographique</li>
                     </ul>
                 </div>`;
-    }
-    if (serviceSlug === 'redaction-seo') {
-        return `
+  }
+  if (serviceSlug === 'redaction-seo') {
+    return `
                 <div class="content-box fade-in">
                     <h2>Le contenu, pilier du SEO</h2>
                     <div class="stats-grid">
@@ -199,68 +199,68 @@ function getExtraContent(serviceSlug) {
                         <li><strong>Landing pages</strong> - Copywriting orienté conversion</li>
                     </ul>
                 </div>`;
-    }
-    return '';
+  }
+  return '';
 }
 
 // Process a single file
 function processFile(filePath, isVilles = false) {
-    let content = fs.readFileSync(filePath, 'utf8');
-    const filename = path.basename(filePath);
+  let content = fs.readFileSync(filePath, 'utf8');
+  const filename = path.basename(filePath);
 
-    // Determine city and service from filename
-    let citySlug = 'bordeaux';
-    let serviceSlug = null;
+  // Determine city and service from filename
+  let citySlug = 'bordeaux';
+  let serviceSlug = null;
 
-    if (isVilles) {
-        const match = filename.match(/^(.+?)-(.+)\.html$/);
-        if (match) {
-            // Find the service slug
-            for (let sKey of Object.keys(services)) {
-                if (filename.startsWith(sKey + '-')) {
-                    serviceSlug = sKey;
-                    citySlug = filename.replace(sKey + '-', '').replace('.html', '');
-                    break;
-                }
-            }
+  if (isVilles) {
+    const match = filename.match(/^(.+?)-(.+)\.html$/);
+    if (match) {
+      // Find the service slug
+      for (let sKey of Object.keys(services)) {
+        if (filename.startsWith(sKey + '-')) {
+          serviceSlug = sKey;
+          citySlug = filename.replace(sKey + '-', '').replace('.html', '');
+          break;
         }
-    } else {
-        // Main pages
-        for (let sKey of Object.keys(services)) {
-            if (filename.includes(sKey) || filename === services[sKey].bordeauxFile) {
-                serviceSlug = sKey;
-                break;
-            }
-        }
+      }
     }
-
-    // Update logo
-    content = updateLogo(content);
-
-    // Add map before footer if service page
-    if (serviceSlug && !content.includes('map-section')) {
-        const mapHtml = getMapEmbed(citySlug, isVilles);
-        content = content.replace(/<footer class="footer">/, mapHtml + '\n\n  <footer class="footer">');
+  } else {
+    // Main pages
+    for (let sKey of Object.keys(services)) {
+      if (filename.includes(sKey) || filename === services[sKey].bordeauxFile) {
+        serviceSlug = sKey;
+        break;
+      }
     }
+  }
 
-    // Add extra content for specific services
-    if (serviceSlug && ['netlinking', 'seo-local', 'redaction-seo'].includes(serviceSlug)) {
-        const extraContent = getExtraContent(serviceSlug);
-        if (extraContent && !content.includes('stats-grid')) {
-            // Insert after first content-box
-            const firstBoxEnd = content.indexOf('</div>\n            </div>\n        </section>\n\n        <section class="related');
-            if (firstBoxEnd > -1) {
-                content = content.slice(0, firstBoxEnd) + '</div>\n' + extraContent + content.slice(firstBoxEnd);
-            }
-        }
+  // Update logo
+  content = updateLogo(content);
+
+  // Add map before footer if service page
+  if (serviceSlug && !content.includes('map-section')) {
+    const mapHtml = getMapEmbed(citySlug, isVilles);
+    content = content.replace(/<footer class="footer">/, mapHtml + '\n\n  <footer class="footer">');
+  }
+
+  // Add extra content for specific services
+  if (serviceSlug && ['netlinking', 'seo-local', 'redaction-seo'].includes(serviceSlug)) {
+    const extraContent = getExtraContent(serviceSlug);
+    if (extraContent && !content.includes('stats-grid')) {
+      // Insert after first content-box
+      const firstBoxEnd = content.indexOf('</div>\n            </div>\n        </section>\n\n        <section class="related');
+      if (firstBoxEnd > -1) {
+        content = content.slice(0, firstBoxEnd) + '</div>\n' + extraContent + content.slice(firstBoxEnd);
+      }
     }
+  }
 
-    // Update related services links - add city blocks for villes pages
-    if (isVilles && serviceSlug) {
-        const relatedCityHtml = getBalancedCityLinks(citySlug, serviceSlug, true);
-        // Check if there's already a city variation section
-        if (!content.includes('Autres villes en Gironde') && !content.includes('autres-villes')) {
-            const relatedSection = `
+  // Update related services links - add city blocks for villes pages
+  if (isVilles && serviceSlug) {
+    const relatedCityHtml = getBalancedCityLinks(citySlug, serviceSlug, true);
+    // Check if there's already a city variation section
+    if (!content.includes('Autres villes en Gironde') && !content.includes('autres-villes')) {
+      const relatedSection = `
     <section class="related-services autres-villes">
       <div class="container">
         <h2>Autres villes en Gironde</h2>
@@ -269,17 +269,17 @@ function processFile(filePath, isVilles = false) {
         </div>
       </div>
     </section>`;
-            // Insert before map or footer
-            if (content.includes('map-section')) {
-                content = content.replace(/<section class="section map-section">/, relatedSection + '\n\n    <section class="section map-section">');
-            } else {
-                content = content.replace(/<footer class="footer">/, relatedSection + '\n\n  <footer class="footer">');
-            }
-        }
+      // Insert before map or footer
+      if (content.includes('map-section')) {
+        content = content.replace(/<section class="section map-section">/, relatedSection + '\n\n    <section class="section map-section">');
+      } else {
+        content = content.replace(/<footer class="footer">/, relatedSection + '\n\n  <footer class="footer">');
+      }
     }
+  }
 
-    fs.writeFileSync(filePath, content, 'utf8');
-    console.log(`Processed: ${filename}`);
+  fs.writeFileSync(filePath, content, 'utf8');
+  console.log(`Processed: ${filename}`);
 }
 
 // Add CSS for new components
@@ -407,38 +407,68 @@ const newCSS = `
 const cssPath = path.join(__dirname, 'css', 'style.css');
 let cssContent = fs.readFileSync(cssPath, 'utf8');
 if (!cssContent.includes('stats-grid')) {
-    cssContent += newCSS;
-    fs.writeFileSync(cssPath, cssContent, 'utf8');
-    console.log('Updated style.css with new components');
+  cssContent += newCSS;
+  fs.writeFileSync(cssPath, cssContent, 'utf8');
+  console.log('Updated style.css with new components');
+}
+
+// Add CSS for footer legal links
+const legalCSS = `
+/* ===================================
+   FOOTER LEGAL
+   =================================== */
+.footer-legal {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 0.5rem 0;
+    font-size: 0.875rem;
+}
+
+.footer-legal a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-legal a:hover {
+    color: var(--color-primary);
+}
+`;
+
+if (!cssContent.includes('.footer-legal')) {
+  cssContent += legalCSS;
+  fs.writeFileSync(cssPath, cssContent, 'utf8');
+  console.log('Updated style.css with footer legal styles');
 }
 
 // Process main pages
 console.log('Processing main service pages...');
 const mainServicePages = [
-    'audit-seo-bordeaux.html',
-    'optimisation-on-page.html',
-    'netlinking-bordeaux.html',
-    'seo-local-bordeaux.html',
-    'redaction-seo.html',
-    'black-hat-seo.html'
+  'audit-seo-bordeaux.html',
+  'optimisation-on-page.html',
+  'netlinking-bordeaux.html',
+  'seo-local-bordeaux.html',
+  'redaction-seo.html',
+  'black-hat-seo.html'
 ];
 
 mainServicePages.forEach(page => {
-    const filePath = path.join(__dirname, page);
-    if (fs.existsSync(filePath)) {
-        processFile(filePath, false);
-    }
+  const filePath = path.join(__dirname, page);
+  if (fs.existsSync(filePath)) {
+    processFile(filePath, false);
+  }
 });
 
 // Process other main pages (just logo update)
 ['index.html', 'contact.html', 'linkedin-posts.html'].forEach(page => {
-    const filePath = path.join(__dirname, page);
-    if (fs.existsSync(filePath)) {
-        let content = fs.readFileSync(filePath, 'utf8');
-        content = updateLogo(content);
-        fs.writeFileSync(filePath, content, 'utf8');
-        console.log(`Updated logo: ${page}`);
-    }
+  const filePath = path.join(__dirname, page);
+  if (fs.existsSync(filePath)) {
+    let content = fs.readFileSync(filePath, 'utf8');
+    content = updateLogo(content);
+    fs.writeFileSync(filePath, content, 'utf8');
+    console.log(`Updated logo: ${page}`);
+  }
 });
 
 // Process villes pages
@@ -446,7 +476,7 @@ console.log('\nProcessing villes pages...');
 const villesDir = path.join(__dirname, 'villes');
 const villesFiles = fs.readdirSync(villesDir).filter(f => f.endsWith('.html'));
 villesFiles.forEach(file => {
-    processFile(path.join(villesDir, file), true);
+  processFile(path.join(villesDir, file), true);
 });
 
 console.log(`\nDone! Processed ${mainServicePages.length} main pages and ${villesFiles.length} villes pages.`);

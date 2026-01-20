@@ -15,6 +15,8 @@ Disallow: /admin/users.html
 Disallow: /admin/redirects.html
 Disallow: /admin/css/
 Disallow: /admin/js/
+Disallow: /mentions-legales.html
+Disallow: /confidentialite.html
 
 # Sitemap
 Sitemap: https://anthony-courtin.com/sitemap.xml
