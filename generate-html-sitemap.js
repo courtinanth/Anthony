@@ -54,123 +54,162 @@ let html = `<!DOCTYPE html>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <style>
-    /* Sitemap specific styles matching 'Modulink' clean aesthetic */
+  <style>
+    :root {
+      --bg-dark: #0a0a0f;
+      --card-bg: #13131f; /* Slightly lighter than main bg */
+      --border-color: rgba(255, 255, 255, 0.08); /* Subtle border */
+      --text-primary: #ffffff;
+      --text-secondary: #9ca3af;
+      --accent-color: #6366f1;
+      --accent-glow: rgba(99, 102, 241, 0.15);
+      --pill-bg: rgba(255, 255, 255, 0.03);
+      --pill-hover: rgba(99, 102, 241, 0.2);
+    }
+
+    body {
+        margin: 0;
+        font-family: 'Inter', sans-serif;
+        background-color: var(--bg-dark);
+        color: var(--text-primary);
+    }
+
     .sitemap-hero {
         text-align: center;
-        padding: 4rem 1rem 2rem;
-        background: var(--surface);
+        padding: 5rem 1rem 3rem;
+        background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.1), transparent 70%);
     }
     .sitemap-hero h1 {
         font-size: 2.5rem;
         margin-bottom: 0.5rem;
-        color: var(--text-primary);
+        background: linear-gradient(135deg, #fff 0%, #cbd5e1 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
     .sitemap-hero p {
         color: var(--text-secondary);
         font-size: 1.1rem;
     }
 
-    .sitemap-section { 
-        padding: 2rem 0 4rem; 
+    .container {
         max-width: 1400px;
         margin: 0 auto;
-    }
-    .container {
-        max-width: 1400px; /* Wider container for sitemap */
+        padding: 0 1.5rem;
     }
 
-    .sitemap-group {
-        margin-bottom: 3rem;
-        border-bottom: 1px solid var(--border);
-        padding-bottom: 2rem;
-    }
-    .sitemap-group:last-child {
-        border-bottom: none;
+    /* Card Grid System */
+    .sitemap-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        padding-bottom: 4rem;
     }
 
-    .sitemap-group h2 { 
-        font-size: 1.5rem; 
-        margin-bottom: 1.5rem; 
+    .sitemap-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        padding: 2rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sitemap-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+        border-color: rgba(99, 102, 241, 0.4);
+    }
+
+    .sitemap-card h3 {
+        margin-top: 0;
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
         color: var(--text-primary);
+        font-weight: 600;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 1rem;
         display: flex;
         align-items: center;
-        gap: 0.5rem;
-    }
-    .sitemap-count {
-        color: var(--text-secondary);
-        font-weight: 400;
-        font-size: 1.2rem;
-    }
-
-    /* Grid System - 4 columns for desktop */
-    .sitemap-list { 
-        list-style: none; 
-        padding: 0; 
-        display: grid; 
-        grid-template-columns: repeat(4, 1fr); 
-        gap: 1rem 2rem; 
-    }
-
-    @media (max-width: 1024px) {
-        .sitemap-list { grid-template-columns: repeat(3, 1fr); }
-    }
-    @media (max-width: 768px) {
-        .sitemap-list { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 480px) {
-        .sitemap-list { grid-template-columns: 1fr; }
-    }
-
-    .sitemap-list li a { 
-        color: var(--text-secondary); 
-        text-decoration: none; 
-        transition: all 0.2s; 
-        font-size: 0.95rem;
-        display: flex;
-        align-items: center;
-    }
-    .sitemap-list li a::before {
-        content: "›";
-        margin-right: 8px;
-        color: var(--primary);
-        font-weight: bold;
-        font-size: 1.2em;
-        line-height: 1;
-    }
-    .sitemap-list li a:hover { 
-        color: var(--primary); 
-        transform: translateX(3px);
+        gap: 0.75rem;
     }
     
-    /* Main pages specific styling */
-    .sitemap-main-list {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1rem 2rem;
+    .sitemap-card h3::before {
+        content: '';
+        display: block;
+        width: 8px;
+        height: 8px;
+        background: var(--accent-color);
+        border-radius: 50%;
+        box-shadow: 0 0 10px var(--accent-color);
     }
-    .sitemap-main-list a {
+
+    /* Pill Links */
+    .sitemap-pills {
         display: flex;
-        align-items: center;
-        color: var(--text-primary);
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        padding: 0;
+        list-style: none;
+    }
+
+    .sitemap-pills li {
+        margin: 0;
+    }
+
+    .sitemap-pills a {
+        display: inline-block;
+        padding: 0.4rem 0.9rem;
+        background-color: var(--pill-bg);
+        color: var(--text-secondary);
+        border-radius: 8px; /* Slightly rounded rect for modern look */
         text-decoration: none;
-        font-weight: 500;
-        padding: 0.5rem 0;
+        font-size: 0.85rem;
+        transition: all 0.2s ease;
+        border: 1px solid transparent;
     }
-    .sitemap-main-list a::before {
-        content: "›";
-        margin-right: 8px;
-        color: var(--primary);
-        font-weight: bold;
-        font-size: 1.2em;
+
+    .sitemap-pills a:hover {
+        background-color: var(--pill-hover);
+        color: #fff;
+        border-color: rgba(99, 102, 241, 0.3);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
     }
-    .sitemap-main-list a:hover {
-        color: var(--primary);
+    
+    /* Main Pages Section */
+    .main-pages-section {
+        margin-bottom: 3rem;
+    }
+    .main-pages-pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+    }
+    .main-pages-pills a {
+        font-size: 1rem;
+        padding: 0.6rem 1.2rem;
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.1);
+    }
+    .main-pages-pills a:hover {
+        background: var(--accent-color);
+        border-color: var(--accent-color);
+    }
+
+    @media (max-width: 768px) {
+        .sitemap-grid {
+            grid-template-columns: 1fr;
+        }
+        .sitemap-hero h1 {
+            font-size: 2rem;
+        }
     }
   </style>
 </head>
 <body>
   
-  <!-- Header placeholder -->
   <header class="header">
     <div class="container">
       <a href="index.html" class="logo">Anthony COURTIN</a>
@@ -187,52 +226,32 @@ let html = `<!DOCTYPE html>
   <main id="main-content">
     <div class="sitemap-hero">
          <h1>Plan du site</h1>
-         <p>Retrouvez l'ensemble des pages de notre site pour naviguer facilement</p>
+         <p>Exploration complète de nos services et zones d'intervention</p>
     </div>
 
     <section class="sitemap-section">
       <div class="container">
         
-        <!-- Main Pages -->
-        <div class="sitemap-group">
-            <h2>Pages Principales</h2>
-            <div class="sitemap-main-list">
+        <!-- Main Pages & Blog Combined or Separate -->
+        <div class="main-pages-section">
+            <h2 style="text-align:center; font-size:1.5rem; margin-bottom:1.5rem; color:var(--text-secondary);">Pages Principales</h2>
+            <div class="main-pages-pills">
                 ${mainPages.map(page => `<a href="${page.slug}">${page.name}</a>`).join('\n')}
+                <!-- Blog Entry -->
+                <a href="blog/index.html">Le Blog</a>
             </div>
         </div>
 
-        <!-- Blog -->
-        <div class="sitemap-group">
-            <h2>Blog</h2>
-            <ul class="sitemap-list">
-`;
+        <hr style="margin: 3rem auto; width: 50%; border: 0; border-top: 1px solid rgba(255,255,255,0.1);">
 
-// Add Blog Posts
-const blogDir = path.join(__dirname, 'blog');
-if (fs.existsSync(blogDir)) {
-  const files = fs.readdirSync(blogDir);
-  files.forEach(file => {
-    if (file.endsWith('.html') && file !== 'index.html') {
-      const slug = file.replace('.html', '');
-      // Convert slug to readable title (basic)
-      const title = slug.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
-      html += `                <li><a href="blog/${slug}">${title}</a></li>\n`;
-    }
-  });
-}
-html += `                <li><a href="blog/index.html">Index du Blog</a></li>
-            </ul>
-        </div>
-        <hr style="margin: 3rem 0; border: 0; border-top: 1px solid var(--border);">
-
-        <!-- Services by City -->
+        <!-- Services by City Cards -->
         <div class="sitemap-grid">
 `;
 
 services.forEach(service => {
-  html += `          <div class="sitemap-group">
+  html += `          <div class="sitemap-card">
             <h3>${service.name}</h3>
-            <ul class="sitemap-list">
+            <ul class="sitemap-pills">
 `;
   cities.forEach(city => {
     const citySlug = slugify(city.name);
