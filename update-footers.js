@@ -209,6 +209,7 @@ function updatePage(filePath, isVilles = false) {
 
 // Update main pages
 const mainPages = [
+  'index.html',
   'audit-seo-bordeaux.html',
   'optimisation-on-page.html',
   'netlinking-bordeaux.html',
