@@ -126,6 +126,7 @@ const footerMain = `<footer class="footer">
         <div class="footer-legal">
             <a href="mentions-legales.html">Mentions Légales</a>
             <a href="confidentialite.html">Confidentialité</a>
+            <a href="plan-du-site.html">Plan du site</a>
         </div>
         <p>Partenaire <a href="https://astrak.agency" target="_blank" rel="noopener">Astrak Agency</a></p>
       </div>
@@ -145,7 +146,8 @@ const footerVilles = footerMain
   .replace(/href="linkedin-posts\.html"/g, 'href="../linkedin-posts.html"')
   .replace(/href="contact\.html"/g, 'href="../contact.html"')
   .replace(/href="mentions-legales\.html"/g, 'href="../mentions-legales.html"')
-  .replace(/href="confidentialite\.html"/g, 'href="../confidentialite.html"');
+  .replace(/href="confidentialite\.html"/g, 'href="../confidentialite.html"')
+  .replace(/href="plan-du-site\.html"/g, 'href="../plan-du-site.html"');
 
 const noscriptBlock = `
   <noscript>
@@ -238,6 +240,7 @@ const mainPages = [
   'linkedin-posts.html',
   'mentions-legales.html',
   'confidentialite.html',
+  'plan-du-site.html',
   'admin/login.html'
 ];
 

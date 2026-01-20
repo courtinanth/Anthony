@@ -1,6 +1,9 @@
 const fs = require('fs');
 const path = require('path');
-const cities = require('./data/cities-extended.js');
+const citiesExtended = require('./data/cities-extended.js');
+const citiesTop10 = require('./data/cities-top10.js');
+
+const cities = [...citiesTop10, ...citiesExtended];
 
 // Helper to normalize strings for slug (remove accents, etc.)
 function slugify(text) {
@@ -50,14 +53,14 @@ function getZoneLinks(currentCity, allCities, currentServiceSlug) {
 }
 
 const templates = {};
-const templateDir = path.join(__dirname, 'villes');
+const templateDir = path.join(__dirname, 'templates');
 const serviceFiles = {
-    'audit-seo': 'audit-seo-merignac.html',
-    'netlinking': 'netlinking-merignac.html',
-    'optimisation-on-page': 'optimisation-on-page-merignac.html',
-    'seo-local': 'seo-local-merignac.html',
-    'redaction-seo': 'redaction-seo-merignac.html',
-    'black-hat-seo': 'black-hat-seo-merignac.html'
+    'audit-seo': 'audit-seo.html',
+    'netlinking': 'netlinking.html',
+    'optimisation-on-page': 'optimisation-on-page.html',
+    'seo-local': 'seo-local.html',
+    'redaction-seo': 'redaction-seo.html',
+    'black-hat-seo': 'black-hat-seo.html'
 };
 
 function loadTemplates() {
@@ -124,7 +127,8 @@ function generate() {
 
             // 5. MAP INJECTION
             // Look for <footer class="footer">, insert map before <section class="related-services">
-            const mapHtml = `
+            if (!content.includes('class="map-section"')) {
+                const mapHtml = `
     <section class="map-section">
       <div class="container">
         <div class="map-container fade-in">
@@ -133,7 +137,8 @@ function generate() {
       </div>
     </section>`;
 
-            content = content.replace('<section class="related-services">', mapHtml + '\n    <section class="related-services">');
+                content = content.replace('<section class="related-services">', mapHtml + '\n    <section class="related-services">');
+            }
 
             // 6. ZONE LINKING
             const zoneLinksHtml = getZoneLinks(city, cities, service.slug);
