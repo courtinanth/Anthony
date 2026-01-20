@@ -2101,3 +2101,35 @@ img {
     margin-top: 0.5rem;
   }
 }
+
+/* ===================================
+   RELATED CARDS (Fix Layout)
+   =================================== */
+.related-card {
+  display: block;
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin-bottom: var(--space-4);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.related-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-accent-primary);
+  background: rgba(99, 102, 241, 0.05);
+}
+
+.related-card h3 {
+  color: var(--color-text-primary);
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-2);
+}
+
+.related-card p {
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  margin: 0;
+}

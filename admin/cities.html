@@ -718,25 +718,26 @@
                     .replace(/\[VILLE\]/g, city.name);
 
                 var filename = service.prefix + city.slug + '.html';
+                var cleanUrl = "https://anthony-courtin.com/villes/" + service.prefix + city.slug;
 
                 var jsonLd = {
                     "@context": "https://schema.org",
                     "@graph": [
                         {
                             "@type": "WebPage",
-                            "@id": "https://anthony-courtin.com/villes/" + filename + "#WebPage",
-                            "url": "https://anthony-courtin.com/villes/" + filename,
+                            "@id": cleanUrl + "#WebPage",
+                            "url": cleanUrl,
                             "headline": title.split('|')[0].trim(),
                             "description": desc,
-                            "primaryImageOfPage": { "@id": "https://anthony-courtin.com/villes/" + filename + "#PrimaryImage" },
-                            "author": { "@id": "https://anthony-courtin.com/villes/" + filename + "#Person" },
-                            "creator": { "@id": "https://anthony-courtin.com/villes/" + filename + "#Business" },
+                            "primaryImageOfPage": { "@id": cleanUrl + "#PrimaryImage" },
+                            "author": { "@id": cleanUrl + "#Person" },
+                            "creator": { "@id": cleanUrl + "#Business" },
                             "inLanguage": "fr-FR",
                             "isPartOf": { "@id": "https://anthony-courtin.com/#Website" }
                         },
                         {
                             "@type": "ProfessionalService",
-                            "@id": "https://anthony-courtin.com/villes/" + filename + "#Business",
+                            "@id": cleanUrl + "#Business",
                             "additionalType": ["LocalBusiness", "Organization"],
                             "name": "Anthony Courtin",
                             "description": "Consultant SEO expert à " + city.name + ". Audit, Netlinking, et Stratégies sur-mesure.",
