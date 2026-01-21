@@ -45,7 +45,7 @@ function generateMeshHTML(serviceSlug) {
 
     for (const [zoneName, zoneCities] of Object.entries(zones)) {
         html += `
-          <div class="zone-block">
+          <div class="zone-card">
             <h3>${zoneName}</h3>
             <ul class="zone-list">`;
 
@@ -53,7 +53,7 @@ function generateMeshHTML(serviceSlug) {
             const citySlug = slugify(city.name);
             const link = `villes/${serviceSlug}-${citySlug}`;
             html += `
-              <li><a href="${link}">${city.name}</a></li>`;
+              <li><a href="${link}" class="zone-tag">${city.name}</a></li>`;
         });
 
         html += `
