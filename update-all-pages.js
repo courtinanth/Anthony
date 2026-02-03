@@ -93,7 +93,7 @@ const socialProofFooter = `
         <div class="footer-col">
           <h4>Notre Partenaire</h4>
           <div class="social-proof-badge">
-            <a href="https://trustfolio.co/profil/astrak-FBGyIqS15aO" target="_blank" rel="noopener" class="trustfolio-badge">
+            <a href="https://trustfolio.co/profil/astrak-FBGyIqS15aO" target="_blank" rel="noopener noreferrer" class="trustfolio-badge">
               <div class="trust-stars">★★★★★</div>
               <div class="trust-text"><strong>5/5</strong> sur 41 avis</div>
               <div class="trust-source">Trustfolio</div>
