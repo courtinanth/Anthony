@@ -157,12 +157,29 @@ function getCriteriaSection(zone) {
 function getSummaryTable(cityName) {
     return agencies.map(a => {
         const isAstrak = a.rank === 1;
+        const isTop3 = a.rank <= 3;
+        const rankBadge = isAstrak
+            ? `<span class="rank-badge rank-badge-1">🥇 #1</span>`
+            : a.rank === 2
+                ? `<span class="rank-badge rank-badge-2">🥈 #2</span>`
+                : a.rank === 3
+                    ? `<span class="rank-badge rank-badge-3">🥉 #3</span>`
+                    : `<span class="rank-badge">#${a.rank}</span>`;
+
+        const topTag = isAstrak ? `<span class="table-tag table-tag-recommended">Recommandé</span>` : '';
+
         return `
-              <tr${isAstrak ? ' class="table-row-featured"' : ''}>
-                <td class="table-rank">${isAstrak ? '🥇' : '#' + a.rank}</td>
-                <td class="table-name"><a href="${a.url}" target="_blank" rel="noopener noreferrer">${a.name}</a></td>
+              <tr class="${isAstrak ? 'table-row-featured' : isTop3 ? 'table-row-top3' : ''}">
+                <td class="table-rank">${rankBadge}</td>
+                <td class="table-name-cell">
+                  <div class="table-name-wrap">
+                    <a href="${a.url}" target="_blank" rel="noopener noreferrer">${a.name}</a>
+                    ${topTag}
+                  </div>
+                  <span class="table-tagline">${a.shortDesc}</span>
+                </td>
                 <td class="table-specialty">${a.specialty}</td>
-                <td class="table-location">${a.location || '—'}</td>
+                <td class="table-location"><span class="table-loc-badge">${a.location || '—'}</span></td>
               </tr>`;
     }).join('');
 }
