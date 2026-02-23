@@ -153,6 +153,20 @@ function getCriteriaSection(zone) {
               </div>`).join('');
 }
 
+// ── Summary table HTML ──
+function getSummaryTable(cityName) {
+    return agencies.map(a => {
+        const isAstrak = a.rank === 1;
+        return `
+              <tr${isAstrak ? ' class="table-row-featured"' : ''}>
+                <td class="table-rank">${isAstrak ? '🥇' : '#' + a.rank}</td>
+                <td class="table-name"><a href="${a.url}" target="_blank" rel="noopener noreferrer">${a.name}</a></td>
+                <td class="table-specialty">${a.specialty}</td>
+                <td class="table-location">${a.location || '—'}</td>
+              </tr>`;
+    }).join('');
+}
+
 // ── Agency card HTML ──
 function getAgencyCard(agency, cityName, zone) {
     const isAstrak = agency.rank === 1;
@@ -165,7 +179,11 @@ function getAgencyCard(agency, cityName, zone) {
         .join('');
 
     const localNote = isAstrak
-        ? `<p class="agency-local-note">Basée à Bordeaux, Astrak accompagne les entreprises de ${cityName} et de toute la Gironde avec une expertise SEO locale incomparable.</p>`
+        ? `<p class="agency-local-note">Fondée par Léo Poitevin, Astrak intervient sur l'ensemble de la Gironde et accompagne les entreprises de ${cityName} avec une expertise SEO locale incomparable.</p>`
+        : '';
+
+    const longDescHTML = agency.longDesc
+        ? `<p class="agency-long-desc">${agency.longDesc}</p>`
         : '';
 
     return `
@@ -177,6 +195,7 @@ function getAgencyCard(agency, cityName, zone) {
             </div>
             <div class="agency-card-body">
               <p class="agency-specialty"><strong>Spécialité :</strong> ${agency.specialty}</p>
+              ${longDescHTML}
               <ul class="agency-strengths">${strengthsHTML}</ul>
               ${localNote}
             </div>
@@ -223,13 +242,14 @@ function generatePage(city) {
     const zone = zoneContent[city.zone] || zoneContent["Métropole"];
     const canonicalUrl = `${baseUrl}/villes/agence-seo-${citySlug}`;
     const pageTitle = `Top 10 des Agences SEO à ${city.name} (${city.zip}) | Classement 2026`;
-    const metaDesc = `Découvrez notre classement des 10 meilleures agences SEO à ${city.name} (${city.zip}). Comparatif expert pour choisir le bon partenaire SEO en Gironde.`;
+    const metaDesc = `Top 10 agences SEO à ${city.name} (${city.zip}) : comparatif, spécialités et avis. Trouvez le partenaire SEO idéal pour votre entreprise en Gironde.`;
 
     const introText = getCityIntro(city, city.zone);
     const economicCtx = zone.economicContext(city.name);
     const whyLocal = zone.whyLocal(city.name);
     const criteriaHTML = getCriteriaSection(city.zone);
     const agencyCardsHTML = agencies.map(a => getAgencyCard(a, city.name, city.zone)).join('');
+    const summaryTableHTML = getSummaryTable(city.name);
 
     const nearbyCities = getNearbyCities(city, allCities);
     const nearbyLinksHTML = nearbyCities.map(c => {
@@ -363,6 +383,42 @@ ${criteriaHTML}
       </div>
     </section>
 
+    <section class="section">
+      <div class="container">
+        <div class="section-header fade-in">
+          <h2>Récapitulatif du <span class="text-gradient">Top 10 Agences SEO</span> à ${city.name}</h2>
+          <p>Vue d'ensemble des meilleures agences SEO pour les entreprises ${zone.geoContext}.</p>
+        </div>
+        <div class="summary-table-wrapper fade-in">
+          <table class="summary-table">
+            <thead>
+              <tr>
+                <th>Rang</th>
+                <th>Agence</th>
+                <th>Spécialité</th>
+                <th>Localisation</th>
+              </tr>
+            </thead>
+            <tbody>
+${summaryTableHTML}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header fade-in">
+          <h2>Classement des <span class="text-gradient">10 Meilleures Agences SEO</span> à ${city.name}</h2>
+          <p>Notre sélection détaillée des agences SEO les plus performantes pour les entreprises ${zone.geoContext}.</p>
+        </div>
+        <div class="agencies-grid">
+${agencyCardsHTML}
+        </div>
+      </div>
+    </section>
+
     <section class="service-content">
       <div class="container">
         <div class="content-box fade-in">
@@ -383,18 +439,6 @@ ${criteriaHTML}
           <h3>Le marché SEO à ${city.name} en 2026</h3>
           <p>${zone.seoChallenge}</p>
           <p>En 2026, les algorithmes de Google valorisent plus que jamais l'expertise locale, la qualité du contenu et l'expérience utilisateur. Les agences SEO qui excellent dans ces domaines offrent un avantage compétitif réel aux entreprises de ${city.name}.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="section-header fade-in">
-          <h2>Classement des <span class="text-gradient">10 Meilleures Agences SEO</span> à ${city.name}</h2>
-          <p>Notre sélection des agences SEO les plus performantes pour les entreprises ${zone.geoContext}.</p>
-        </div>
-        <div class="agencies-grid">
-${agencyCardsHTML}
         </div>
       </div>
     </section>
@@ -590,7 +634,7 @@ ${linksHTML}
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Classement des meilleures agences SEO en Gironde (33). Découvrez notre Top 10 par ville : Bordeaux, Mérignac, Arcachon, Libourne et 97 autres villes.">
+  <meta name="description" content="Top 10 des agences SEO en Gironde (33) : classement par ville, comparatif et spécialités. 100 villes couvertes dont Bordeaux, Mérignac et Arcachon.">
   <meta name="robots" content="index, follow">
   <title>Meilleures Agences SEO en Gironde | Top 10 par Ville - 2026</title>
   <link rel="icon" type="image/png" href="/images/favicon.png">
@@ -603,11 +647,11 @@ ${linksHTML}
   <meta property="og:type" content="website">
   <meta property="og:url" content="${baseUrl}/agences-seo">
   <meta property="og:title" content="Meilleures Agences SEO en Gironde | Top 10 par Ville">
-  <meta property="og:description" content="Classement des meilleures agences SEO en Gironde. Top 10 par ville : Bordeaux, Mérignac, Arcachon, Libourne et 97 autres.">
+  <meta property="og:description" content="Top 10 des agences SEO en Gironde (33) : classement par ville, comparatif et spécialités. 100 villes couvertes dont Bordeaux, Mérignac et Arcachon.">
   <meta property="og:image" content="${baseUrl}/images/anthony-consultant-seo.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Meilleures Agences SEO en Gironde | Top 10 par Ville">
-  <meta name="twitter:description" content="Classement des meilleures agences SEO en Gironde. Top 10 par ville.">
+  <meta name="twitter:description" content="Top 10 des agences SEO en Gironde (33) : classement par ville, comparatif et spécialités. 100 villes couvertes.">
   <meta name="twitter:image" content="${baseUrl}/images/anthony-consultant-seo.png">
 </head>
 <body>

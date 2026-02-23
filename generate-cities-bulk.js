@@ -120,7 +120,7 @@ function generate() {
             content = content.replace(/<title>.*<\/title>/, `<title>${pageTitle}</title>`);
 
             // Update Meta Description (limit 160 chars)
-            let metaDesc = `${service.name} à ${city.name} (${city.zip}) par Anthony Courtin. Expertise locale en Gironde pour booster votre visibilité. Devis gratuit.`;
+            let metaDesc = `${service.name} à ${city.name} (${city.zip}) : expert SEO en Gironde. Améliorez votre classement Google avec des résultats mesurables. Devis gratuit.`;
             content = content.replace(/<meta name="description" content=".*">/, `<meta name="description" content="${metaDesc}">`);
 
             // 4. CANONICAL & JSON-LD

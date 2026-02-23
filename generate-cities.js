@@ -157,7 +157,7 @@ const footer = `<footer class="footer">
 function generatePage(service, city) {
     const filename = `${service.slug}-${city.slug}.html`;
     const title = `${service.name} ${city.name} | Consultant SEO - Anthony`;
-    const metaDesc = `${service.name} à ${city.name} (${city.pop} hab.). Anthony Courtin, expert SEO en Gironde.`;
+    const metaDesc = `${service.name} à ${city.name} (${city.pop} hab.) par Anthony Courtin. Boostez votre visibilité Google en Gironde. Résultats concrets, devis gratuit.`;
     const canonical = `https://anthony-courtin.com/villes/${filename}`;
 
     const jsonLd = JSON.stringify({
