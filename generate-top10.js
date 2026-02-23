@@ -183,13 +183,38 @@ function getAgencyCard(agency, cityName, zone) {
           </div>`;
 }
 
-// ── Get nearby cities for internal linking ──
+// ── Get nearby cities for internal linking (same zone, rotated) ──
 function getNearbyCities(currentCity, allCities) {
     const sameZone = allCities.filter(c =>
         c.zone === currentCity.zone && c.name !== currentCity.name
     );
-    // Take up to 6 nearby cities from same zone
-    return sameZone.slice(0, 6);
+    // Rotate starting point based on rank so different cities get linked
+    const start = (currentCity.rank * 3) % Math.max(sameZone.length, 1);
+    const rotated = [...sameZone.slice(start), ...sameZone.slice(0, start)];
+    return rotated.slice(0, 5);
+}
+
+// ── Get cross-zone cities for maillage interne (different zones) ──
+function getCrossZoneCities(currentCity, allCities) {
+    const zones = ["Métropole", "Bassin d'Arcachon", "Libournais", "Médoc", "Sud-Gironde", "Entre-deux-Mers", "Haute-Gironde"];
+    const otherZones = zones.filter(z => z !== currentCity.zone);
+    const crossCities = [];
+
+    // Pick 1-2 cities from each other zone, rotating for variety
+    otherZones.forEach((zone, i) => {
+        const zoneCities = allCities.filter(c => c.zone === zone && c.name !== currentCity.name);
+        if (zoneCities.length > 0) {
+            const pickIndex = (currentCity.rank + i * 2) % zoneCities.length;
+            crossCities.push(zoneCities[pickIndex]);
+            // For small zones, add a second pick to boost their incoming links
+            if (zoneCities.length <= 8) {
+                const pickIndex2 = (currentCity.rank + i * 2 + 1) % zoneCities.length;
+                if (pickIndex2 !== pickIndex) crossCities.push(zoneCities[pickIndex2]);
+            }
+        }
+    });
+
+    return crossCities.slice(0, 8);
 }
 
 // ── Generate page for a city ──
@@ -210,6 +235,13 @@ function generatePage(city) {
     const nearbyLinksHTML = nearbyCities.map(c => {
         const s = slugify(c.name);
         return `          <a href="agence-seo-${s}" class="related-card fade-in"><h3>Agences SEO ${c.name}</h3><p>Top 10 SEO à ${c.name}</p></a>`;
+    }).join('\n');
+
+    // Cross-zone links for maillage interne (ensures 5+ incoming links per page)
+    const crossZoneCities = getCrossZoneCities(city, allCities);
+    const crossZoneLinksHTML = crossZoneCities.map(c => {
+        const s = slugify(c.name);
+        return `          <a href="agence-seo-${s}" class="related-card fade-in"><h3>Agences SEO ${c.name}</h3><p>Top 10 à ${c.name} (${c.zone})</p></a>`;
     }).join('\n');
 
     // Service links for this city
@@ -305,7 +337,7 @@ function generatePage(city) {
   <main id="main-content">
     <section class="page-hero">
       <div class="container">
-        <nav class="breadcrumb"><a href="../index.html">Accueil</a><span>/</span><span>Agences SEO ${city.name}</span></nav>
+        <nav class="breadcrumb"><a href="../index.html">Accueil</a><span>/</span><a href="../agences-seo.html">Agences SEO</a><span>/</span><span>${city.name}</span></nav>
         <div class="landing-hero">
           <div class="landing-hero-content">
             <h1>Top 10 des Agences SEO à <span class="text-gradient">${city.name}</span></h1>
@@ -393,6 +425,18 @@ ${nearbyLinksHTML}
       </div>
     </section>
 
+    <section class="related-services">
+      <div class="container">
+        <h2>Top agences SEO dans d'autres zones de Gironde</h2>
+        <div class="related-grid">
+${crossZoneLinksHTML}
+        </div>
+        <div style="text-align:center; margin-top:1.5rem;">
+          <a href="../agences-seo.html" class="btn btn-secondary">Voir toutes les villes en Gironde →</a>
+        </div>
+      </div>
+    </section>
+
     <section class="section">
       <div class="container">
         <div class="cta-section fade-in">
@@ -449,6 +493,7 @@ ${nearbyLinksHTML}
                 <a href="seo-local-talence.html">Talence</a>
               </div>
             </li>
+            <li><a href="../agences-seo.html">Top Agences SEO Gironde</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -512,3 +557,187 @@ allCities.forEach(city => {
 });
 
 console.log(`Generated ${count} Top 10 agency pages in villes/`);
+
+// ── Generate Hub Page (agences-seo.html) with correct slugs ──
+function generateHubPage() {
+    const zones = {
+        "Métropole Bordelaise": allCities.filter(c => c.zone === "Métropole"),
+        "Bassin d'Arcachon": allCities.filter(c => c.zone === "Bassin d'Arcachon"),
+        "Libournais": allCities.filter(c => c.zone === "Libournais"),
+        "Sud-Gironde": allCities.filter(c => c.zone === "Sud-Gironde"),
+        "Médoc": allCities.filter(c => c.zone === "Médoc"),
+        "Entre-deux-Mers": allCities.filter(c => c.zone === "Entre-deux-Mers"),
+        "Haute-Gironde": allCities.filter(c => c.zone === "Haute-Gironde")
+    };
+
+    let zoneCardsHTML = '';
+    Object.entries(zones).forEach(([zoneName, cities]) => {
+        const linksHTML = cities.map(c => {
+            const s = slugify(c.name);
+            return `              <li><a href="villes/agence-seo-${s}" class="zone-tag">${c.name}</a></li>`;
+        }).join('\n');
+        zoneCardsHTML += `
+          <div class="zone-card">
+            <h3>${zoneName}</h3>
+            <ul class="zone-list">
+${linksHTML}
+            </ul>
+          </div>`;
+    });
+
+    return `<!DOCTYPE html>
+<html lang="fr" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Classement des meilleures agences SEO en Gironde (33). Découvrez notre Top 10 par ville : Bordeaux, Mérignac, Arcachon, Libourne et 97 autres villes.">
+  <meta name="robots" content="index, follow">
+  <title>Meilleures Agences SEO en Gironde | Top 10 par Ville - 2026</title>
+  <link rel="icon" type="image/png" href="/images/favicon.png">
+  <link rel="canonical" href="${baseUrl}/agences-seo">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Meilleures Agences SEO en Gironde","description":"Classement des meilleures agences SEO dans 100 villes de Gironde.","url":"${baseUrl}/agences-seo","author":{"@type":"Person","name":"Anthony Courtin","url":"${baseUrl}/"},"about":{"@type":"Service","name":"SEO","serviceType":"Référencement naturel"}}</script>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="${baseUrl}/agences-seo">
+  <meta property="og:title" content="Meilleures Agences SEO en Gironde | Top 10 par Ville">
+  <meta property="og:description" content="Classement des meilleures agences SEO en Gironde. Top 10 par ville : Bordeaux, Mérignac, Arcachon, Libourne et 97 autres.">
+  <meta property="og:image" content="${baseUrl}/images/anthony-consultant-seo.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Meilleures Agences SEO en Gironde | Top 10 par Ville">
+  <meta name="twitter:description" content="Classement des meilleures agences SEO en Gironde. Top 10 par ville.">
+  <meta name="twitter:image" content="${baseUrl}/images/anthony-consultant-seo.png">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+  <header class="header">
+    <div class="container">
+      <a href="index.html" class="logo">Anthony COURTIN</a>
+      <nav class="nav" role="navigation" aria-label="Navigation principale">
+        <button class="menu-toggle" aria-expanded="false" aria-controls="nav-list" aria-label="Menu"><span></span><span></span><span></span></button>
+        <ul class="nav-list" id="nav-list">
+          <li><a href="index.html" class="nav-link">Accueil</a></li>
+          <li><a href="audit-seo-bordeaux.html" class="nav-link">Audit</a></li>
+          <li><a href="optimisation-on-page.html" class="nav-link">On-Page</a></li>
+          <li><a href="netlinking-bordeaux.html" class="nav-link">Netlinking</a></li>
+          <li><a href="seo-local-bordeaux.html" class="nav-link">Local</a></li>
+          <li><a href="redaction-seo.html" class="nav-link">Rédaction</a></li>
+          <li><a href="black-hat-seo.html" class="nav-link">Black Hat</a></li>
+        </ul>
+        <a href="https://www.linkedin.com/in/anthony-courtin/" class="nav-linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a href="contact.html" class="nav-cta">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main-content">
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb"><a href="index.html">Accueil</a><span>/</span><span>Agences SEO Gironde</span></nav>
+        <div class="section-header fade-in" style="text-align:center; max-width:800px; margin:0 auto;">
+          <h1>Top 10 des Agences SEO en <span class="text-gradient">Gironde</span></h1>
+          <p>Retrouvez notre classement des meilleures agences SEO dans chacune des 100 villes où nous intervenons en Gironde. Chaque classement est adapté aux spécificités économiques et digitales de la ville.</p>
+        </div>
+      </div>
+    </section>
+    <section class="section zone-mesh-section">
+      <div class="container">
+        <div class="zone-grid">${zoneCardsHTML}
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="content-box fade-in">
+          <h2>Comment choisir son agence SEO en Gironde ?</h2>
+          <p>Le choix d'une agence SEO est un investissement stratégique pour votre entreprise. En Gironde, le tissu économique est varié : de la métropole bordelaise aux stations balnéaires du Bassin d'Arcachon, en passant par les vignobles du Libournais et du Médoc, chaque territoire a ses spécificités.</p>
+          <p>C'est pourquoi nous avons créé un classement personnalisé pour chaque ville. Nos critères d'évaluation incluent l'expertise technique, la connaissance du marché local, la transparence des méthodes et les résultats obtenus.</p>
+          <h3>Notre méthodologie de classement</h3>
+          <ul>
+            <li><strong>Expertise technique :</strong> maîtrise des fondamentaux SEO (crawl, indexation, Core Web Vitals)</li>
+            <li><strong>Track record :</strong> résultats vérifiables et études de cas publiques</li>
+            <li><strong>Connaissance locale :</strong> compréhension du marché girondin et de ses spécificités</li>
+            <li><strong>Rapport qualité/prix :</strong> adéquation entre les prestations et le budget des entreprises locales</li>
+            <li><strong>Accompagnement :</strong> qualité du suivi, reporting et pédagogie</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="cta-section fade-in">
+          <div class="cta-content">
+            <h2>Besoin d'un accompagnement SEO personnalisé ?</h2>
+            <p>En tant que consultant SEO en Gironde et partenaire Astrak, je vous aide à choisir la meilleure stratégie pour votre entreprise.</p>
+            <a href="contact.html" class="btn">Contactez-moi</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="logo">Anthony SEO</span>
+          <p>Consultant SEO & Stratégie Digitale à Bordeaux.</p>
+          <a href="https://www.linkedin.com/in/anthony-courtin/" class="footer-linkedin" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul class="footer-links">
+            <li><a href="audit-seo-bordeaux.html">Audit SEO</a></li>
+            <li><a href="optimisation-on-page.html">Optimisation On-Page</a></li>
+            <li><a href="netlinking-bordeaux.html">Netlinking</a></li>
+            <li><a href="seo-local-bordeaux.html">SEO Local</a></li>
+            <li><a href="redaction-seo.html">Rédaction SEO</a></li>
+            <li><a href="agences-seo.html">Top Agences SEO Gironde</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Ressources</h4>
+          <ul class="footer-links">
+            <li><a href="blog/index.html">Blog</a></li>
+            <li><a href="linkedin-posts.html">Posts LinkedIn</a></li>
+            <li>Bordeaux, France</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul class="footer-links">
+            <li><a href="contact.html">Formulaire</a></li>
+            <li><a href="mailto:anthony@astrak.agency">anthony@astrak.agency</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="current-year"></span> Anthony Courtin - Consultant SEO Bordeaux</p>
+        <div class="footer-legal">
+          <a href="mentions-legales.html">Mentions Légales</a>
+          <a href="confidentialite.html">Confidentialité</a>
+          <a href="plan-du-site.html">Plan du site</a>
+        </div>
+        <p>Partenaire <a href="https://astrak.agency" target="_blank" rel="noopener noreferrer">Astrak Agency</a></p>
+      </div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+  <script>document.getElementById('current-year').textContent = new Date().getFullYear();</script>
+  <noscript>
+    <style>
+      .fade-in { opacity: 1; transform: none }
+      .nav-list { position: static; transform: none; opacity: 1; visibility: visible }
+      .menu-toggle { display: none }
+      .footer-dropdown-menu { display: block !important; position: static; padding-left: 0; margin-top: 0.25rem; }
+      .footer-dropdown-toggle::after { display: none; }
+    </style>
+  </noscript>
+  <script src="js/cookies.js"></script>
+</body>
+</html>`;
+}
+
+// Write hub page
+fs.writeFileSync(path.join(__dirname, 'agences-seo.html'), generateHubPage(), 'utf8');
+console.log('Generated agences-seo.html hub page');

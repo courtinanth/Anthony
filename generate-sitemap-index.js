@@ -53,6 +53,7 @@ const mainPages = [
     { url: 'seo-local-bordeaux', priority: '0.9', freq: 'weekly' },
     { url: 'redaction-seo', priority: '0.9', freq: 'weekly' },
     { url: 'black-hat-seo', priority: '0.9', freq: 'weekly' },
+    { url: 'agences-seo', priority: '0.8', freq: 'weekly' },
     { url: 'linkedin-posts', priority: '0.7', freq: 'monthly' },
     { url: 'contact', priority: '0.6', freq: 'monthly' },
     { url: 'plan-du-site', priority: '0.3', freq: 'monthly' }
