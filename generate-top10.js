@@ -82,17 +82,17 @@ const zoneContent = {
 function getCityIntro(city, zone) {
     const rank = city.rank;
     if (rank <= 5) {
-        return `<strong>${city.name}</strong> fait partie des villes les plus importantes de Gironde. Avec un bassin économique dynamique et une forte densité d'entreprises, le recours à une agence SEO performante est devenu incontournable pour se démarquer en ligne.`;
+        return `<strong>${city.name}</strong> fait partie des villes les plus importantes de la région. Avec un bassin économique dynamique et une forte densité d'entreprises, le recours à une agence SEO performante est devenu incontournable pour se démarquer en ligne.`;
     } else if (rank <= 15) {
-        return `<strong>${city.name}</strong> (${city.zip}) est une ville attractive de Gironde qui connaît un développement économique soutenu. Les entreprises locales ont tout intérêt à s'appuyer sur des experts SEO pour gagner en visibilité face à une concurrence croissante.`;
+        return `<strong>${city.name}</strong> (${city.zip}) est une ville attractive qui connaît un développement économique soutenu. Les entreprises locales ont tout intérêt à s'appuyer sur des experts SEO pour gagner en visibilité face à une concurrence croissante.`;
     } else if (rank <= 30) {
-        return `<strong>${city.name}</strong>, commune dynamique de Gironde, voit son tissu économique se renforcer d'année en année. Pour les professionnels implantés à ${city.name}, le référencement naturel représente un levier de croissance majeur.`;
+        return `<strong>${city.name}</strong>, commune dynamique, voit son tissu économique se renforcer d'année en année. Pour les professionnels implantés à ${city.name}, le référencement naturel représente un levier de croissance majeur.`;
     } else if (rank <= 50) {
         return `À <strong>${city.name}</strong> (${city.zip}), les entreprises locales cherchent de plus en plus à renforcer leur présence digitale. Le SEO s'impose comme le canal d'acquisition le plus rentable à long terme pour les professionnels du secteur.`;
     } else if (rank <= 75) {
-        return `<strong>${city.name}</strong>, en Gironde, offre un environnement favorable aux entreprises qui souhaitent développer leur activité. Le référencement naturel permet aux professionnels de ${city.name} d'atteindre une clientèle bien au-delà de leur zone de chalandise traditionnelle.`;
+        return `<strong>${city.name}</strong> offre un environnement favorable aux entreprises qui souhaitent développer leur activité. Le référencement naturel permet aux professionnels de ${city.name} d'atteindre une clientèle bien au-delà de leur zone de chalandise traditionnelle.`;
     } else {
-        return `Basée en Gironde, <strong>${city.name}</strong> (${city.zip}) possède un potentiel économique que le digital peut amplifier. Les entreprises locales qui investissent dans le SEO prennent une longueur d'avance décisive sur leur marché.`;
+        return `<strong>${city.name}</strong> (${city.zip}) possède un potentiel économique que le digital peut amplifier. Les entreprises locales qui investissent dans le SEO prennent une longueur d'avance décisive sur leur marché.`;
     }
 }
 
@@ -196,7 +196,7 @@ function getAgencyCard(agency, cityName, zone) {
         .join('');
 
     const localNote = isAstrak
-        ? `<p class="agency-local-note">Fondée par Léo Poitevin, Astrak intervient sur l'ensemble de la Gironde et accompagne les entreprises de ${cityName} avec une expertise SEO locale incomparable.</p>`
+        ? `<p class="agency-local-note">Fondée par Léo Poitevin, Astrak intervient sur l'ensemble du territoire français et accompagne les entreprises de ${cityName} avec une expertise SEO locale incomparable.</p>`
         : '';
 
     const longDescHTML = agency.longDesc
@@ -259,7 +259,7 @@ function generatePage(city) {
     const zone = zoneContent[city.zone] || zoneContent["Métropole"];
     const canonicalUrl = `${baseUrl}/villes/agence-seo-${citySlug}`;
     const pageTitle = `Top 10 des Agences SEO à ${city.name} (${city.zip}) | Classement 2026`;
-    const metaDesc = `Top 10 agences SEO à ${city.name} (${city.zip}) : comparatif, spécialités et avis. Trouvez le partenaire SEO idéal pour votre entreprise en Gironde.`;
+    const metaDesc = `Top 10 agences SEO à ${city.name} (${city.zip}) : comparatif, spécialités et avis. Trouvez le partenaire SEO idéal pour votre entreprise.`;
 
     const introText = getCityIntro(city, city.zone);
     const economicCtx = zone.economicContext(city.name);
@@ -488,12 +488,12 @@ ${nearbyLinksHTML}
 
     <section class="related-services">
       <div class="container">
-        <h2>Top agences SEO dans d'autres zones de Gironde</h2>
+        <h2>Top agences SEO dans d'autres zones</h2>
         <div class="related-grid">
 ${crossZoneLinksHTML}
         </div>
         <div style="text-align:center; margin-top:1.5rem;">
-          <a href="../agences-seo.html" class="btn btn-secondary">Voir toutes les villes en Gironde →</a>
+          <a href="../agences-seo.html" class="btn btn-secondary">Voir toutes les villes →</a>
         </div>
       </div>
     </section>
@@ -503,7 +503,7 @@ ${crossZoneLinksHTML}
         <div class="cta-section fade-in">
           <div class="cta-content">
             <h2>Besoin d'un expert SEO à ${city.name} ?</h2>
-            <p>En tant que consultant SEO en Gironde et partenaire Astrak, je vous accompagne dans votre stratégie de visibilité.</p>
+            <p>En tant que consultant SEO et partenaire Astrak, je vous accompagne dans votre stratégie de visibilité partout en France.</p>
             <a href="../contact.html" class="btn">Contactez-moi</a>
           </div>
         </div>
@@ -554,7 +554,7 @@ ${crossZoneLinksHTML}
                 <a href="seo-local-talence.html">Talence</a>
               </div>
             </li>
-            <li><a href="../agences-seo.html">Top Agences SEO Gironde</a></li>
+            <li><a href="../agences-seo.html">Top Agences SEO France</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -651,24 +651,24 @@ ${linksHTML}
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Top 10 des agences SEO en Gironde (33) : classement par ville, comparatif et spécialités. 100 villes couvertes dont Bordeaux, Mérignac et Arcachon.">
+  <meta name="description" content="Top 10 des agences SEO en France : classement par ville, comparatif et spécialités. Astrak intervient partout en France. 100 villes couvertes dont Bordeaux, Mérignac et Arcachon.">
   <meta name="robots" content="index, follow">
-  <title>Meilleures Agences SEO en Gironde | Top 10 par Ville - 2026</title>
+  <title>Meilleures Agences SEO en France | Top 10 par Ville - 2026</title>
   <link rel="icon" type="image/png" href="/images/favicon.png">
   <link rel="canonical" href="${baseUrl}/agences-seo">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Meilleures Agences SEO en Gironde","description":"Classement des meilleures agences SEO dans 100 villes de Gironde.","url":"${baseUrl}/agences-seo","author":{"@type":"Person","name":"Anthony Courtin","url":"${baseUrl}/"},"about":{"@type":"Service","name":"SEO","serviceType":"Référencement naturel"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Meilleures Agences SEO en France","description":"Classement des meilleures agences SEO en France. Astrak intervient partout en France.","url":"${baseUrl}/agences-seo","author":{"@type":"Person","name":"Anthony Courtin","url":"${baseUrl}/"},"about":{"@type":"Service","name":"SEO","serviceType":"Référencement naturel"}}</script>
   <meta property="og:type" content="website">
   <meta property="og:url" content="${baseUrl}/agences-seo">
-  <meta property="og:title" content="Meilleures Agences SEO en Gironde | Top 10 par Ville">
-  <meta property="og:description" content="Top 10 des agences SEO en Gironde (33) : classement par ville, comparatif et spécialités. 100 villes couvertes dont Bordeaux, Mérignac et Arcachon.">
+  <meta property="og:title" content="Meilleures Agences SEO en France | Top 10 par Ville">
+  <meta property="og:description" content="Top 10 des agences SEO en France : classement par ville, comparatif et spécialités. Astrak intervient partout en France. 100 villes couvertes dont Bordeaux, Mérignac et Arcachon.">
   <meta property="og:image" content="${baseUrl}/images/anthony-consultant-seo.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Meilleures Agences SEO en Gironde | Top 10 par Ville">
-  <meta name="twitter:description" content="Top 10 des agences SEO en Gironde (33) : classement par ville, comparatif et spécialités. 100 villes couvertes.">
+  <meta name="twitter:title" content="Meilleures Agences SEO en France | Top 10 par Ville">
+  <meta name="twitter:description" content="Top 10 des agences SEO en France : classement par ville, comparatif et spécialités. Astrak intervient partout en France.">
   <meta name="twitter:image" content="${baseUrl}/images/anthony-consultant-seo.png">
 </head>
 <body>
@@ -695,10 +695,10 @@ ${linksHTML}
   <main id="main-content">
     <section class="page-hero">
       <div class="container">
-        <nav class="breadcrumb"><a href="index.html">Accueil</a><span>/</span><span>Agences SEO Gironde</span></nav>
+        <nav class="breadcrumb"><a href="index.html">Accueil</a><span>/</span><span>Agences SEO France</span></nav>
         <div class="section-header fade-in" style="text-align:center; max-width:800px; margin:0 auto;">
-          <h1>Top 10 des Agences SEO en <span class="text-gradient">Gironde</span></h1>
-          <p>Retrouvez notre classement des meilleures agences SEO dans chacune des 100 villes où nous intervenons en Gironde. Chaque classement est adapté aux spécificités économiques et digitales de la ville.</p>
+          <h1>Top 10 des Agences SEO en <span class="text-gradient">France</span></h1>
+          <p>Retrouvez notre classement des meilleures agences SEO dans chacune des 100 villes où nous intervenons en France. Astrak opère sur l'ensemble du territoire français. Chaque classement est adapté aux spécificités économiques et digitales de la ville.</p>
         </div>
       </div>
     </section>
@@ -711,14 +711,14 @@ ${linksHTML}
     <section class="section">
       <div class="container">
         <div class="content-box fade-in">
-          <h2>Comment choisir son agence SEO en Gironde ?</h2>
-          <p>Le choix d'une agence SEO est un investissement stratégique pour votre entreprise. En Gironde, le tissu économique est varié : de la métropole bordelaise aux stations balnéaires du Bassin d'Arcachon, en passant par les vignobles du Libournais et du Médoc, chaque territoire a ses spécificités.</p>
+          <h2>Comment choisir son agence SEO en France ?</h2>
+          <p>Le choix d'une agence SEO est un investissement stratégique pour votre entreprise. En France, le tissu économique est varié : des grandes métropoles aux stations balnéaires, en passant par les territoires viticoles et ruraux, chaque territoire a ses spécificités.</p>
           <p>C'est pourquoi nous avons créé un classement personnalisé pour chaque ville. Nos critères d'évaluation incluent l'expertise technique, la connaissance du marché local, la transparence des méthodes et les résultats obtenus.</p>
           <h3>Notre méthodologie de classement</h3>
           <ul>
             <li><strong>Expertise technique :</strong> maîtrise des fondamentaux SEO (crawl, indexation, Core Web Vitals)</li>
             <li><strong>Track record :</strong> résultats vérifiables et études de cas publiques</li>
-            <li><strong>Connaissance locale :</strong> compréhension du marché girondin et de ses spécificités</li>
+            <li><strong>Connaissance locale :</strong> compréhension du marché local et de ses spécificités</li>
             <li><strong>Rapport qualité/prix :</strong> adéquation entre les prestations et le budget des entreprises locales</li>
             <li><strong>Accompagnement :</strong> qualité du suivi, reporting et pédagogie</li>
           </ul>
@@ -730,7 +730,7 @@ ${linksHTML}
         <div class="cta-section fade-in">
           <div class="cta-content">
             <h2>Besoin d'un accompagnement SEO personnalisé ?</h2>
-            <p>En tant que consultant SEO en Gironde et partenaire Astrak, je vous aide à choisir la meilleure stratégie pour votre entreprise.</p>
+            <p>En tant que consultant SEO et partenaire Astrak, je vous aide à choisir la meilleure stratégie pour votre entreprise, partout en France.</p>
             <a href="contact.html" class="btn">Contactez-moi</a>
           </div>
         </div>
@@ -753,7 +753,7 @@ ${linksHTML}
             <li><a href="netlinking-bordeaux.html">Netlinking</a></li>
             <li><a href="seo-local-bordeaux.html">SEO Local</a></li>
             <li><a href="redaction-seo.html">Rédaction SEO</a></li>
-            <li><a href="agences-seo.html">Top Agences SEO Gironde</a></li>
+            <li><a href="agences-seo.html">Top Agences SEO France</a></li>
           </ul>
         </div>
         <div class="footer-col">

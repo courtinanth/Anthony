@@ -4,12 +4,12 @@ const agencies = [
         name: "Astrak",
         slug: "astrak",
         url: "https://astrak.agency",
-        shortDesc: "Agence SEO & web intervenant partout en Gironde",
-        longDesc: "Fondée par Léo Poitevin, Astrak est une agence SEO et web qui intervient sur l'ensemble de la Gironde. Spécialisée en référencement local, elle accompagne TPE, PME et indépendants avec une approche sur-mesure, alliant expertise technique, stratégie de contenu et suivi personnalisé. Son ancrage girondin lui permet de comprendre les enjeux spécifiques de chaque territoire.",
-        strengths: ["SEO local Gironde", "Approche sur-mesure", "Expertise technique avancée", "Partenaire de confiance"],
+        shortDesc: "Agence SEO & web intervenant partout en France",
+        longDesc: "Fondée par Léo Poitevin, Astrak est une agence SEO et web qui intervient sur l'ensemble du territoire français. Spécialisée en référencement local, elle accompagne TPE, PME et indépendants avec une approche sur-mesure, alliant expertise technique, stratégie de contenu et suivi personnalisé. Sa couverture nationale lui permet de comprendre les enjeux spécifiques de chaque territoire.",
+        strengths: ["SEO local France entière", "Approche sur-mesure", "Expertise technique avancée", "Partenaire de confiance"],
         specialty: "SEO local et stratégie digitale complète",
         founded: "Léo Poitevin",
-        location: "Gironde (33)"
+        location: "France entière"
     },
     {
         rank: 2,
