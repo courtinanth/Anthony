@@ -13,6 +13,9 @@ Node natif, aucune dépendance de production. Tous acceptent `--dry-run` quand i
 | `check-redirects.js` | Teste `_redirects` contre un serveur réel. `--base` pour viser une deploy preview. |
 | `fix-internal-links.js` | Réécrit tous les liens internes en chemin absolu sans extension. |
 | `fix-og-url.js` | Aligne `og:url` et `twitter:url` sur le `rel=canonical`, ajoute le canonical manquant. |
+| `fix-iframe-titles.js` | Ajoute un `title` aux iframes qui n'en ont pas (WCAG 4.1.2). |
+| `check-similarity.js` | Jaccard sur shingles de 6 mots entre pages villes. Échoue au-delà de 0,75. |
+| `check-a11y.js` | axe-core dans Chromium, WCAG 2.1 AA. `--toutes` pour auditer tout le site. |
 | `verify.js` | Contrôle de fin de phase, à lancer avant tout déploiement. |
 
 ### Vérifier les redirections en local
@@ -26,6 +29,23 @@ puis, dans un autre terminal :
 ```bash
 node scripts/check-redirects.js
 ```
+
+### Auditer l'accessibilité
+
+Même serveur requis. La première fois seulement :
+
+```bash
+npx playwright install chromium
+```
+
+```bash
+node scripts/check-a11y.js
+```
+
+Baseline mesurée en fin de phase 0, avant refonte graphique : 4 règles en échec,
+121 éléments sur 11 pages types — dont **84 violations de contraste** (`color-contrast`,
+impact *serious*), présentes sur les 11 pages. C'est le chiffre que la phase 1 doit
+ramener à zéro.
 
 ## Générateurs de pages (racine du repo)
 

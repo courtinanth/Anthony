@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/courtinanth/Anthony#readme",
   "devDependencies": {
-    "netlify-cli": "^27.0.1"
+    "@axe-core/playwright": "^4.12.1",
+    "netlify-cli": "^27.0.1",
+    "playwright": "^1.62.0"
   }
 }
