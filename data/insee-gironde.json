@@ -1,0 +1,4212 @@
+{
+  "merignac": {
+    "nom": "Mérignac",
+    "insee": "33281",
+    "codesPostaux": [
+      "33700"
+    ],
+    "population": 78090,
+    "lat": 44.8313,
+    "lng": -0.682,
+    "etablissementsActifs": null,
+    "plafonneParApi": true,
+    "secteursDominants": [],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": null,
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "pessac": {
+    "nom": "Pessac",
+    "insee": "33318",
+    "codesPostaux": [
+      "33600"
+    ],
+    "population": 67339,
+    "lat": 44.786,
+    "lng": -0.681,
+    "etablissementsActifs": null,
+    "plafonneParApi": true,
+    "secteursDominants": [],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": null,
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "talence": {
+    "nom": "Talence",
+    "insee": "33522",
+    "codesPostaux": [
+      "33400"
+    ],
+    "population": 46338,
+    "lat": 44.8061,
+    "lng": -0.5918,
+    "etablissementsActifs": null,
+    "plafonneParApi": true,
+    "secteursDominants": [],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": null,
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "villenave-dornon": {
+    "nom": "Villenave-d'Ornon",
+    "insee": "33550",
+    "codesPostaux": [
+      "33140"
+    ],
+    "population": 42545,
+    "lat": 44.7736,
+    "lng": -0.5523,
+    "etablissementsActifs": 9414,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 1990
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 1135
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 990
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 850
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 819
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "saint-medard-en-jalles": {
+    "nom": "Saint-Médard-en-Jalles",
+    "insee": "33449",
+    "codesPostaux": [
+      "33160"
+    ],
+    "population": 32910,
+    "lat": 44.8861,
+    "lng": -0.7823,
+    "etablissementsActifs": 6601,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 1231
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 821
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 746
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 615
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 504
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "begles": {
+    "nom": "Bègles",
+    "insee": "33039",
+    "codesPostaux": [
+      "33130"
+    ],
+    "population": 31831,
+    "lat": 44.803,
+    "lng": -0.5485,
+    "etablissementsActifs": null,
+    "plafonneParApi": true,
+    "secteursDominants": [],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": null,
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "la-teste-de-buch": {
+    "nom": "La Teste-de-Buch",
+    "insee": "33529",
+    "codesPostaux": [
+      "33115",
+      "33260"
+    ],
+    "population": 27566,
+    "lat": 44.586,
+    "lng": -1.1809,
+    "etablissementsActifs": null,
+    "plafonneParApi": true,
+    "secteursDominants": [],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": null,
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "cenon": {
+    "nom": "Cenon",
+    "insee": "33119",
+    "codesPostaux": [
+      "33150"
+    ],
+    "population": 26834,
+    "lat": 44.8552,
+    "lng": -0.5223,
+    "etablissementsActifs": 8697,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 1512
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 1216
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 985
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 942
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 728
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "gradignan": {
+    "nom": "Gradignan",
+    "insee": "33192",
+    "codesPostaux": [
+      "33170"
+    ],
+    "population": 26952,
+    "lat": 44.7681,
+    "lng": -0.6163,
+    "etablissementsActifs": 6694,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 1502
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 691
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 673
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 668
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 505
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "libourne": {
+    "nom": "Libourne",
+    "insee": "33243",
+    "codesPostaux": [
+      "33500"
+    ],
+    "population": 25036,
+    "lat": 44.9125,
+    "lng": -0.2328,
+    "etablissementsActifs": 8852,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 1928
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 1300
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 722
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 718
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 558
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "eysines": {
+    "nom": "Eysines",
+    "insee": "33162",
+    "codesPostaux": [
+      "33320"
+    ],
+    "population": 24825,
+    "lat": 44.8779,
+    "lng": -0.646,
+    "etablissementsActifs": 6342,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 1137
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 804
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 682
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 587
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 578
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "le-bouscat": {
+    "nom": "Le Bouscat",
+    "insee": "33069",
+    "codesPostaux": [
+      "33110"
+    ],
+    "population": 25081,
+    "lat": 44.865,
+    "lng": -0.6033,
+    "etablissementsActifs": 8756,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 2383
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 1062
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 882
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 791
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 489
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "lormont": {
+    "nom": "Lormont",
+    "insee": "33249",
+    "codesPostaux": [
+      "33310"
+    ],
+    "population": 25769,
+    "lat": 44.8749,
+    "lng": -0.5176,
+    "etablissementsActifs": 7088,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 1169
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 1011
+      },
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 867
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 615
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 586
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "gujan-mestras": {
+    "nom": "Gujan-Mestras",
+    "insee": "33199",
+    "codesPostaux": [
+      "33470"
+    ],
+    "population": 22153,
+    "lat": 44.5758,
+    "lng": -1.0813,
+    "etablissementsActifs": 6743,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 1866
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 638
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 522
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 517
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 487
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "bruges": {
+    "nom": "Bruges",
+    "insee": "33075",
+    "codesPostaux": [
+      "33520"
+    ],
+    "population": 20020,
+    "lat": 44.8893,
+    "lng": -0.6029,
+    "etablissementsActifs": 6235,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 1276
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 690
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 636
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 563
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 516
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "floirac": {
+    "nom": "Floirac",
+    "insee": "33167",
+    "codesPostaux": [
+      "33270"
+    ],
+    "population": 18300,
+    "lat": 44.8322,
+    "lng": -0.5215,
+    "etablissementsActifs": 5032,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 798
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 660
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 630
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 511
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 493
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "cestas": {
+    "nom": "Cestas",
+    "insee": "33122",
+    "codesPostaux": [
+      "33610"
+    ],
+    "population": 16666,
+    "lat": 44.7274,
+    "lng": -0.7349,
+    "etablissementsActifs": 4408,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 918
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 512
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 425
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 406
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 356
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "ambares-et-lagrave": {
+    "nom": "Ambarès-et-Lagrave",
+    "insee": "33003",
+    "codesPostaux": [
+      "33440"
+    ],
+    "population": 17644,
+    "lat": 44.9517,
+    "lng": -0.5,
+    "etablissementsActifs": 3817,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 660
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 625
+      },
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 510
+      },
+      {
+        "code": "N",
+        "libelle": "Services administratifs et de soutien",
+        "nombre": 267
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 267
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "blanquefort": {
+    "nom": "Blanquefort",
+    "insee": "33056",
+    "codesPostaux": [
+      "33290"
+    ],
+    "population": 17215,
+    "lat": 44.9216,
+    "lng": -0.61,
+    "etablissementsActifs": 4174,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 697
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 512
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 403
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 385
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 321
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "saint-andre-de-cubzac": {
+    "nom": "Saint-André-de-Cubzac",
+    "insee": "33366",
+    "codesPostaux": [
+      "33240"
+    ],
+    "population": 12626,
+    "lat": 44.9945,
+    "lng": -0.4378,
+    "etablissementsActifs": 3392,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 611
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 542
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 358
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 289
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 262
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "andernos-les-bains": {
+    "nom": "Andernos-les-Bains",
+    "insee": "33005",
+    "codesPostaux": [
+      "33510"
+    ],
+    "population": 12710,
+    "lat": 44.7529,
+    "lng": -1.082,
+    "etablissementsActifs": 4907,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 1437
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 565
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 412
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 343
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 334
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "arcachon": {
+    "nom": "Arcachon",
+    "insee": "33009",
+    "codesPostaux": [
+      "33120"
+    ],
+    "population": 11092,
+    "lat": 44.6515,
+    "lng": -1.1718,
+    "etablissementsActifs": 7475,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 2640
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 785
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 723
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 470
+      },
+      {
+        "code": "I",
+        "libelle": "Hébergement et restauration",
+        "nombre": 454
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "le-haillan": {
+    "nom": "Le Haillan",
+    "insee": "33200",
+    "codesPostaux": [
+      "33185"
+    ],
+    "population": 11392,
+    "lat": 44.8713,
+    "lng": -0.6903,
+    "etablissementsActifs": 3429,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 582
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 497
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 401
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 355
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 247
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "mios": {
+    "nom": "Mios",
+    "insee": "33284",
+    "codesPostaux": [
+      "33380"
+    ],
+    "population": 12043,
+    "lat": 44.6105,
+    "lng": -0.8913,
+    "etablissementsActifs": 2810,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 563
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 340
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 273
+      },
+      {
+        "code": "A",
+        "libelle": "Agriculture, sylviculture et pêche",
+        "nombre": 260
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 217
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "biganos": {
+    "nom": "Biganos",
+    "insee": "33051",
+    "codesPostaux": [
+      "33380"
+    ],
+    "population": 11431,
+    "lat": 44.6599,
+    "lng": -0.9582,
+    "etablissementsActifs": 2952,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 514
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 432
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 304
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 286
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 243
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "le-taillan-medoc": {
+    "nom": "Le Taillan-Médoc",
+    "insee": "33519",
+    "codesPostaux": [
+      "33320"
+    ],
+    "population": 11073,
+    "lat": 44.9123,
+    "lng": -0.6785,
+    "etablissementsActifs": 2237,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 489
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 241
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 230
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 220
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 211
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "leognan": {
+    "nom": "Léognan",
+    "insee": "33238",
+    "codesPostaux": [
+      "33850"
+    ],
+    "population": 10670,
+    "lat": 44.7236,
+    "lng": -0.6172,
+    "etablissementsActifs": 2653,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 577
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 271
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 261
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 242
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 214
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "parempuyre": {
+    "nom": "Parempuyre",
+    "insee": "33312",
+    "codesPostaux": [
+      "33290"
+    ],
+    "population": 10672,
+    "lat": 44.9548,
+    "lng": -0.5844,
+    "etablissementsActifs": 1751,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 322
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 223
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 210
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 153
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 148
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "saint-loubes": {
+    "nom": "Saint-Loubès",
+    "insee": "33433",
+    "codesPostaux": [
+      "33450"
+    ],
+    "population": 10027,
+    "lat": 44.9223,
+    "lng": -0.4257,
+    "etablissementsActifs": 2619,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 482
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 364
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 334
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 185
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 178
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "audenge": {
+    "nom": "Audenge",
+    "insee": "33019",
+    "codesPostaux": [
+      "33980"
+    ],
+    "population": 9596,
+    "lat": 44.7133,
+    "lng": -0.9533,
+    "etablissementsActifs": 2088,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 511
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 239
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 225
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 198
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 147
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "saint-jean-dillac": {
+    "nom": "Saint-Jean-d'Illac",
+    "insee": "33422",
+    "codesPostaux": [
+      "33127"
+    ],
+    "population": 9616,
+    "lat": 44.7973,
+    "lng": -0.8156,
+    "etablissementsActifs": 2882,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 591
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 415
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 342
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 243
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 182
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "le-teich": {
+    "nom": "Le Teich",
+    "insee": "33527",
+    "codesPostaux": [
+      "33470"
+    ],
+    "population": 9180,
+    "lat": 44.5805,
+    "lng": -1.0234,
+    "etablissementsActifs": 2153,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 506
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 227
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 218
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 194
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 172
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "artigues-pres-bordeaux": {
+    "nom": "Artigues-près-Bordeaux",
+    "insee": "33013",
+    "codesPostaux": [
+      "33370"
+    ],
+    "population": 8687,
+    "lat": 44.8592,
+    "lng": -0.4878,
+    "etablissementsActifs": 2991,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 549
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 434
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 351
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 301
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 181
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "coutras": {
+    "nom": "Coutras",
+    "insee": "33138",
+    "codesPostaux": [
+      "33230"
+    ],
+    "population": 8678,
+    "lat": 45.0408,
+    "lng": -0.1003,
+    "etablissementsActifs": 2042,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 391
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 304
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 186
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 177
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 152
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "carbon-blanc": {
+    "nom": "Carbon-Blanc",
+    "insee": "33096",
+    "codesPostaux": [
+      "33560"
+    ],
+    "population": 8331,
+    "lat": 44.9019,
+    "lng": -0.5008,
+    "etablissementsActifs": 1949,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 397
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 253
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 220
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 158
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 153
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "lege-cap-ferret": {
+    "nom": "Lège-Cap-Ferret",
+    "insee": "33236",
+    "codesPostaux": [
+      "33950",
+      "33970"
+    ],
+    "population": 7909,
+    "lat": 44.7452,
+    "lng": -1.174,
+    "etablissementsActifs": 6023,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 2361
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 564
+      },
+      {
+        "code": "I",
+        "libelle": "Hébergement et restauration",
+        "nombre": 440
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 426
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 309
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "salles": {
+    "nom": "Salles",
+    "insee": "33498",
+    "codesPostaux": [
+      "33770"
+    ],
+    "population": 8208,
+    "lat": 44.536,
+    "lng": -0.8899,
+    "etablissementsActifs": 2085,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 430
+      },
+      {
+        "code": "A",
+        "libelle": "Agriculture, sylviculture et pêche",
+        "nombre": 272
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 234
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 190
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 143
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "martignas-sur-jalle": {
+    "nom": "Martignas-sur-Jalle",
+    "insee": "33273",
+    "codesPostaux": [
+      "33127"
+    ],
+    "population": 8056,
+    "lat": 44.8451,
+    "lng": -0.8006,
+    "etablissementsActifs": 1462,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 299
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 170
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 166
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 135
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 120
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "langon": {
+    "nom": "Langon",
+    "insee": "33227",
+    "codesPostaux": [
+      "33210"
+    ],
+    "population": 7674,
+    "lat": 44.5355,
+    "lng": -0.2422,
+    "etablissementsActifs": 3289,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 581
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 541
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 409
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 250
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 241
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "lanton": {
+    "nom": "Lanton",
+    "insee": "33229",
+    "codesPostaux": [
+      "33138"
+    ],
+    "population": 7337,
+    "lat": 44.7719,
+    "lng": -0.9799,
+    "etablissementsActifs": 2063,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 540
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 194
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 176
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 168
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 155
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "le-pian-medoc": {
+    "nom": "Le Pian-Médoc",
+    "insee": "33322",
+    "codesPostaux": [
+      "33290"
+    ],
+    "population": 7292,
+    "lat": 44.9555,
+    "lng": -0.6737,
+    "etablissementsActifs": 1586,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 338
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 189
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 169
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 133
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 123
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "saint-aubin-de-medoc": {
+    "nom": "Saint-Aubin-de-Médoc",
+    "insee": "33376",
+    "codesPostaux": [
+      "33160"
+    ],
+    "population": 7769,
+    "lat": 44.9343,
+    "lng": -0.7478,
+    "etablissementsActifs": 1888,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 590
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 191
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 180
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 175
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 135
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "cadaujac": {
+    "nom": "Cadaujac",
+    "insee": "33080",
+    "codesPostaux": [
+      "33140"
+    ],
+    "population": 6909,
+    "lat": 44.7468,
+    "lng": -0.5316,
+    "etablissementsActifs": 1732,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 339
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 250
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 247
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 125
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 120
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "izon": {
+    "nom": "Izon",
+    "insee": "33207",
+    "codesPostaux": [
+      "33450"
+    ],
+    "population": 6374,
+    "lat": 44.9188,
+    "lng": -0.3561,
+    "etablissementsActifs": 1374,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 264
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 201
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 147
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 102
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 102
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "bassens": {
+    "nom": "Bassens",
+    "insee": "33032",
+    "codesPostaux": [
+      "33530"
+    ],
+    "population": 8435,
+    "lat": 44.9068,
+    "lng": -0.526,
+    "etablissementsActifs": 1828,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 249
+      },
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 248
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 234
+      },
+      {
+        "code": "H",
+        "libelle": "Transports et entreposage",
+        "nombre": 203
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 136
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "canejan": {
+    "nom": "Canéjan",
+    "insee": "33090",
+    "codesPostaux": [
+      "33610"
+    ],
+    "population": 5756,
+    "lat": 44.7572,
+    "lng": -0.659,
+    "etablissementsActifs": 1891,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 302
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 241
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 233
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 170
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 131
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "saint-denis-de-pile": {
+    "nom": "Saint-Denis-de-Pile",
+    "insee": "33393",
+    "codesPostaux": [
+      "33910"
+    ],
+    "population": 5955,
+    "lat": 44.9893,
+    "lng": -0.1833,
+    "etablissementsActifs": 1206,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 219
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 189
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 162
+      },
+      {
+        "code": "A",
+        "libelle": "Agriculture, sylviculture et pêche",
+        "nombre": 104
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 77
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "le-barp": {
+    "nom": "Le Barp",
+    "insee": "33029",
+    "codesPostaux": [
+      "33114"
+    ],
+    "population": 5806,
+    "lat": 44.6297,
+    "lng": -0.7437,
+    "etablissementsActifs": 1420,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 243
+      },
+      {
+        "code": "A",
+        "libelle": "Agriculture, sylviculture et pêche",
+        "nombre": 145
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 140
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 123
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 106
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "marcheprime": {
+    "nom": "Marcheprime",
+    "insee": "33555",
+    "codesPostaux": [
+      "33380"
+    ],
+    "population": 5696,
+    "lat": 44.7033,
+    "lng": -0.8557,
+    "etablissementsActifs": 1180,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 187
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 145
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 138
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 114
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 93
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "lacanau": {
+    "nom": "Lacanau",
+    "insee": "33214",
+    "codesPostaux": [
+      "33680"
+    ],
+    "population": 5739,
+    "lat": 44.9879,
+    "lng": -1.096,
+    "etablissementsActifs": 3532,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 1157
+      },
+      {
+        "code": "I",
+        "libelle": "Hébergement et restauration",
+        "nombre": 334
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 325
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 293
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 201
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "ares": {
+    "nom": "Arès",
+    "insee": "33011",
+    "codesPostaux": [
+      "33740"
+    ],
+    "population": 6482,
+    "lat": 44.7997,
+    "lng": -1.0837,
+    "etablissementsActifs": 2400,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 631
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 286
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 243
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 195
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 152
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "la-brede": {
+    "nom": "La Brède",
+    "insee": "33213",
+    "codesPostaux": [
+      "33650"
+    ],
+    "population": 4386,
+    "lat": 44.6777,
+    "lng": -0.5396,
+    "etablissementsActifs": 1607,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 440
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 163
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 149
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 136
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 133
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "sadirac": {
+    "nom": "Sadirac",
+    "insee": "33363",
+    "codesPostaux": [
+      "33670"
+    ],
+    "population": 4769,
+    "lat": 44.787,
+    "lng": -0.3925,
+    "etablissementsActifs": 1137,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 260
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 145
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 101
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 97
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 89
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "blaye": {
+    "nom": "Blaye",
+    "insee": "33058",
+    "codesPostaux": [
+      "33390"
+    ],
+    "population": 5066,
+    "lat": 45.1311,
+    "lng": -0.667,
+    "etablissementsActifs": 1445,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 272
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 182
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 155
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 140
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 115
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "pauillac": {
+    "nom": "Pauillac",
+    "insee": "33314",
+    "codesPostaux": [
+      "33250"
+    ],
+    "population": 5190,
+    "lat": 45.1983,
+    "lng": -0.755,
+    "etablissementsActifs": 1224,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 216
+      },
+      {
+        "code": "A",
+        "libelle": "Agriculture, sylviculture et pêche",
+        "nombre": 155
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 138
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 108
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 91
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "tresses": {
+    "nom": "Tresses",
+    "insee": "33535",
+    "codesPostaux": [
+      "33370"
+    ],
+    "population": 5290,
+    "lat": 44.8455,
+    "lng": -0.4741,
+    "etablissementsActifs": 1641,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 368
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 193
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 188
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 151
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 140
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "castelnau-de-medoc": {
+    "nom": "Castelnau-de-Médoc",
+    "insee": "33104",
+    "codesPostaux": [
+      "33480"
+    ],
+    "population": 4907,
+    "lat": 45.0033,
+    "lng": -0.8162,
+    "etablissementsActifs": 1174,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 209
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 135
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 131
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 118
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 84
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "vayres": {
+    "nom": "Vayres",
+    "insee": "33539",
+    "codesPostaux": [
+      "33870"
+    ],
+    "population": 4615,
+    "lat": 44.8908,
+    "lng": -0.326,
+    "etablissementsActifs": 1012,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 161
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 115
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 105
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 83
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 79
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "saint-seurin-sur-lisle": {
+    "nom": "Saint-Seurin-sur-l'Isle",
+    "insee": "33478",
+    "codesPostaux": [
+      "33660"
+    ],
+    "population": 3167,
+    "lat": 45.0093,
+    "lng": -0.004,
+    "etablissementsActifs": 660,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 126
+      },
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 109
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 64
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 54
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 37
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "saint-caprais-de-bordeaux": {
+    "nom": "Saint-Caprais-de-Bordeaux",
+    "insee": "33381",
+    "codesPostaux": [
+      "33880"
+    ],
+    "population": 3450,
+    "lat": 44.7544,
+    "lng": -0.4262,
+    "etablissementsActifs": 787,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 168
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 92
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 82
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 71
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 69
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "latresne": {
+    "nom": "Latresne",
+    "insee": "33234",
+    "codesPostaux": [
+      "33360"
+    ],
+    "population": 3714,
+    "lat": 44.7901,
+    "lng": -0.4981,
+    "etablissementsActifs": 1926,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 509
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 231
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 183
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 179
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 161
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "belin-beliet": {
+    "nom": "Belin-Béliet",
+    "insee": "33042",
+    "codesPostaux": [
+      "33830"
+    ],
+    "population": 6275,
+    "lat": 44.4959,
+    "lng": -0.7989,
+    "etablissementsActifs": 1517,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 245
+      },
+      {
+        "code": "A",
+        "libelle": "Agriculture, sylviculture et pêche",
+        "nombre": 218
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 160
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 142
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 118
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "macau": {
+    "nom": "Macau",
+    "insee": "33262",
+    "codesPostaux": [
+      "33460"
+    ],
+    "population": 4576,
+    "lat": 45.0112,
+    "lng": -0.6086,
+    "etablissementsActifs": 894,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 162
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 144
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 115
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 67
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 67
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "sainte-eulalie": {
+    "nom": "Sainte-Eulalie",
+    "insee": "33397",
+    "codesPostaux": [
+      "33560"
+    ],
+    "population": 4915,
+    "lat": 44.9027,
+    "lng": -0.48,
+    "etablissementsActifs": 1441,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 297
+      },
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 245
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 186
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 98
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 79
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "ludon-medoc": {
+    "nom": "Ludon-Médoc",
+    "insee": "33256",
+    "codesPostaux": [
+      "33290"
+    ],
+    "population": 5578,
+    "lat": 44.9814,
+    "lng": -0.5903,
+    "etablissementsActifs": 997,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 190
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 148
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 121
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 83
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 71
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "saint-savin": {
+    "nom": "Saint-Savin",
+    "insee": "33473",
+    "codesPostaux": [
+      "33920"
+    ],
+    "population": 3582,
+    "lat": 45.1611,
+    "lng": -0.4449,
+    "etablissementsActifs": 775,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 114
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 110
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 85
+      },
+      {
+        "code": "A",
+        "libelle": "Agriculture, sylviculture et pêche",
+        "nombre": 81
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 71
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "creon": {
+    "nom": "Créon",
+    "insee": "33140",
+    "codesPostaux": [
+      "33670"
+    ],
+    "population": 4950,
+    "lat": 44.7688,
+    "lng": -0.3444,
+    "etablissementsActifs": 1379,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 219
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 182
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 162
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 141
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 127
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "montussan": {
+    "nom": "Montussan",
+    "insee": "33293",
+    "codesPostaux": [
+      "33450"
+    ],
+    "population": 3628,
+    "lat": 44.8843,
+    "lng": -0.4294,
+    "etablissementsActifs": 1165,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 232
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 180
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 174
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 83
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 73
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "hourtin": {
+    "nom": "Hourtin",
+    "insee": "33203",
+    "codesPostaux": [
+      "33990"
+    ],
+    "population": 4045,
+    "lat": 45.1831,
+    "lng": -1.0534,
+    "etablissementsActifs": 1375,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 410
+      },
+      {
+        "code": "I",
+        "libelle": "Hébergement et restauration",
+        "nombre": 127
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 126
+      },
+      {
+        "code": "A",
+        "libelle": "Agriculture, sylviculture et pêche",
+        "nombre": 115
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 94
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "bazas": {
+    "nom": "Bazas",
+    "insee": "33036",
+    "codesPostaux": [
+      "33430"
+    ],
+    "population": 4854,
+    "lat": 44.4409,
+    "lng": -0.2177,
+    "etablissementsActifs": 1607,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 291
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 182
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 152
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 149
+      },
+      {
+        "code": "A",
+        "libelle": "Agriculture, sylviculture et pêche",
+        "nombre": 141
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "saint-sulpice-et-cameyrac": {
+    "nom": "Saint-Sulpice-et-Cameyrac",
+    "insee": "33483",
+    "codesPostaux": [
+      "33450"
+    ],
+    "population": 4881,
+    "lat": 44.9053,
+    "lng": -0.3803,
+    "etablissementsActifs": 1359,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 394
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 144
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 140
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 106
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 79
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "bouliac": {
+    "nom": "Bouliac",
+    "insee": "33065",
+    "codesPostaux": [
+      "33270"
+    ],
+    "population": 3804,
+    "lat": 44.8165,
+    "lng": -0.5026,
+    "etablissementsActifs": 1444,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 500
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 156
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 142
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 102
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 91
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "cadillac": {
+    "nom": "Cadillac",
+    "erreur": "commune introuvable"
+  },
+  "podensac": {
+    "nom": "Podensac",
+    "insee": "33327",
+    "codesPostaux": [
+      "33720"
+    ],
+    "population": 3269,
+    "lat": 44.6479,
+    "lng": -0.3576,
+    "etablissementsActifs": 785,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 152
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 124
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 69
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 68
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 59
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "saint-ciers-sur-gironde": {
+    "nom": "Saint-Ciers-sur-Gironde",
+    "insee": "33389",
+    "codesPostaux": [
+      "33820"
+    ],
+    "population": 3175,
+    "lat": 45.2947,
+    "lng": -0.6648,
+    "etablissementsActifs": 714,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 140
+      },
+      {
+        "code": "A",
+        "libelle": "Agriculture, sylviculture et pêche",
+        "nombre": 98
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 98
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 64
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 48
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "cezac": {
+    "nom": "Cézac",
+    "insee": "33123",
+    "codesPostaux": [
+      "33620"
+    ],
+    "population": 2727,
+    "lat": 45.0867,
+    "lng": -0.4171,
+    "etablissementsActifs": 574,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 85
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 81
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 64
+      },
+      {
+        "code": "A",
+        "libelle": "Agriculture, sylviculture et pêche",
+        "nombre": 61
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 49
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "saint-laurent-medoc": {
+    "nom": "Saint-Laurent-Médoc",
+    "insee": "33424",
+    "codesPostaux": [
+      "33112"
+    ],
+    "population": 4914,
+    "lat": 45.1402,
+    "lng": -0.8557,
+    "etablissementsActifs": 1214,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 202
+      },
+      {
+        "code": "A",
+        "libelle": "Agriculture, sylviculture et pêche",
+        "nombre": 197
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 124
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 106
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 103
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "pineuilh": {
+    "nom": "Pineuilh",
+    "insee": "33324",
+    "codesPostaux": [
+      "33220"
+    ],
+    "population": 4490,
+    "lat": 44.8242,
+    "lng": 0.2284,
+    "etablissementsActifs": 984,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 205
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 162
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 81
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 67
+      },
+      {
+        "code": "A",
+        "libelle": "Agriculture, sylviculture et pêche",
+        "nombre": 65
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "castillon-la-bataille": {
+    "nom": "Castillon-la-Bataille",
+    "insee": "33108",
+    "codesPostaux": [
+      "33350"
+    ],
+    "population": 3344,
+    "lat": 44.8622,
+    "lng": -0.0244,
+    "etablissementsActifs": 1008,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 189
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 145
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 97
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 88
+      },
+      {
+        "code": "A",
+        "libelle": "Agriculture, sylviculture et pêche",
+        "nombre": 87
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "arsac": {
+    "nom": "Arsac",
+    "insee": "33012",
+    "codesPostaux": [
+      "33460"
+    ],
+    "population": 4124,
+    "lat": 44.9869,
+    "lng": -0.7018,
+    "etablissementsActifs": 883,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 173
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 103
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 99
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 81
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 66
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "avensan": {
+    "nom": "Avensan",
+    "insee": "33022",
+    "codesPostaux": [
+      "33480"
+    ],
+    "population": 3140,
+    "lat": 45.0033,
+    "lng": -0.7574,
+    "etablissementsActifs": 718,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 117
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 92
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 84
+      },
+      {
+        "code": "A",
+        "libelle": "Agriculture, sylviculture et pêche",
+        "nombre": 83
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 64
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "carignan-de-bordeaux": {
+    "nom": "Carignan-de-Bordeaux",
+    "insee": "33099",
+    "codesPostaux": [
+      "33360"
+    ],
+    "population": 4388,
+    "lat": 44.8093,
+    "lng": -0.4739,
+    "etablissementsActifs": 1059,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 309
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 104
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 91
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 81
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 79
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "sainte-helene": {
+    "nom": "Sainte-Hélène",
+    "insee": "33417",
+    "codesPostaux": [
+      "33480"
+    ],
+    "population": 3091,
+    "lat": 44.9653,
+    "lng": -0.9071,
+    "etablissementsActifs": 800,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "A",
+        "libelle": "Agriculture, sylviculture et pêche",
+        "nombre": 158
+      },
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 129
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 82
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 68
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 67
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "galgon": {
+    "nom": "Galgon",
+    "insee": "33179",
+    "codesPostaux": [
+      "33133"
+    ],
+    "population": 3144,
+    "lat": 44.991,
+    "lng": -0.278,
+    "etablissementsActifs": 709,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 142
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 80
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 77
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 61
+      },
+      {
+        "code": "A",
+        "libelle": "Agriculture, sylviculture et pêche",
+        "nombre": 58
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "marsas": {
+    "nom": "Marsas",
+    "insee": "33272",
+    "codesPostaux": [
+      "33620"
+    ],
+    "population": 1247,
+    "lat": 45.0628,
+    "lng": -0.3769,
+    "etablissementsActifs": 284,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 44
+      },
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 43
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 32
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 29
+      },
+      {
+        "code": "A",
+        "libelle": "Agriculture, sylviculture et pêche",
+        "nombre": 20
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "la-reole": {
+    "nom": "La Réole",
+    "insee": "33352",
+    "codesPostaux": [
+      "33190"
+    ],
+    "population": 4487,
+    "lat": 44.5869,
+    "lng": -0.0447,
+    "etablissementsActifs": 1445,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 237
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 196
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 134
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 130
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 112
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "saint-magne-de-castillon": {
+    "nom": "Saint-Magne-de-Castillon",
+    "insee": "33437",
+    "codesPostaux": [
+      "33350"
+    ],
+    "population": 2165,
+    "lat": 44.8542,
+    "lng": -0.0716,
+    "etablissementsActifs": 726,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 142
+      },
+      {
+        "code": "A",
+        "libelle": "Agriculture, sylviculture et pêche",
+        "nombre": 133
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 98
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 45
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 45
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "saint-emilion": {
+    "nom": "Saint-Émilion",
+    "insee": "33394",
+    "codesPostaux": [
+      "33330"
+    ],
+    "population": 1608,
+    "lat": 44.8947,
+    "lng": -0.1715,
+    "etablissementsActifs": 1566,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "A",
+        "libelle": "Agriculture, sylviculture et pêche",
+        "nombre": 412
+      },
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 361
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 246
+      },
+      {
+        "code": "I",
+        "libelle": "Hébergement et restauration",
+        "nombre": 87
+      },
+      {
+        "code": "K",
+        "libelle": "Activités financières et d’assurance",
+        "nombre": 68
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "ambes": {
+    "nom": "Ambès",
+    "insee": "33004",
+    "codesPostaux": [
+      "33810"
+    ],
+    "population": 3313,
+    "lat": 45.0123,
+    "lng": -0.5486,
+    "etablissementsActifs": 620,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 98
+      },
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 81
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 77
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 56
+      },
+      {
+        "code": "R",
+        "libelle": "Arts, spectacles et loisirs",
+        "nombre": 50
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "soulac-sur-mer": {
+    "nom": "Soulac-sur-Mer",
+    "insee": "33514",
+    "codesPostaux": [
+      "33780"
+    ],
+    "population": 3100,
+    "lat": 45.5057,
+    "lng": -1.0694,
+    "etablissementsActifs": 2022,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 898
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 197
+      },
+      {
+        "code": "I",
+        "libelle": "Hébergement et restauration",
+        "nombre": 186
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 104
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 89
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "vendays-montalivet": {
+    "nom": "Vendays-Montalivet",
+    "insee": "33540",
+    "codesPostaux": [
+      "33930"
+    ],
+    "population": 2838,
+    "lat": 45.3378,
+    "lng": -1.0953,
+    "etablissementsActifs": 1589,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 457
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 229
+      },
+      {
+        "code": "I",
+        "libelle": "Hébergement et restauration",
+        "nombre": 196
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 100
+      },
+      {
+        "code": "R",
+        "libelle": "Arts, spectacles et loisirs",
+        "nombre": 88
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "bourg": {
+    "nom": "Bourg",
+    "insee": "33067",
+    "codesPostaux": [
+      "33710"
+    ],
+    "population": 2244,
+    "lat": 45.0396,
+    "lng": -0.5484,
+    "etablissementsActifs": 792,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 137
+      },
+      {
+        "code": "A",
+        "libelle": "Agriculture, sylviculture et pêche",
+        "nombre": 78
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 75
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 75
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 69
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "monsegur": {
+    "nom": "Monségur",
+    "insee": "33289",
+    "codesPostaux": [
+      "33580"
+    ],
+    "population": 1579,
+    "lat": 44.647,
+    "lng": 0.0861,
+    "etablissementsActifs": 495,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 113
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 50
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 45
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 39
+      },
+      {
+        "code": "R",
+        "libelle": "Arts, spectacles et loisirs",
+        "nombre": 38
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "sainte-foy-la-grande": {
+    "nom": "Sainte-Foy-la-Grande",
+    "insee": "33402",
+    "codesPostaux": [
+      "33220"
+    ],
+    "population": 2507,
+    "lat": 44.8407,
+    "lng": 0.2171,
+    "etablissementsActifs": 1011,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 203
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 134
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 120
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 79
+      },
+      {
+        "code": "I",
+        "libelle": "Hébergement et restauration",
+        "nombre": 71
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "targon": {
+    "nom": "Targon",
+    "insee": "33523",
+    "codesPostaux": [
+      "33760"
+    ],
+    "population": 2079,
+    "lat": 44.7375,
+    "lng": -0.2691,
+    "etablissementsActifs": 592,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 97
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 73
+      },
+      {
+        "code": "A",
+        "libelle": "Agriculture, sylviculture et pêche",
+        "nombre": 67
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 55
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 54
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "sauveterre-de-guyenne": {
+    "nom": "Sauveterre-de-Guyenne",
+    "insee": "33506",
+    "codesPostaux": [
+      "33540"
+    ],
+    "population": 1885,
+    "lat": 44.701,
+    "lng": -0.0727,
+    "etablissementsActifs": 694,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 153
+      },
+      {
+        "code": "A",
+        "libelle": "Agriculture, sylviculture et pêche",
+        "nombre": 105
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 69
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 64
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 52
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "castres-gironde": {
+    "nom": "Castres-Gironde",
+    "insee": "33109",
+    "codesPostaux": [
+      "33640"
+    ],
+    "population": 2695,
+    "lat": 44.6866,
+    "lng": -0.4566,
+    "etablissementsActifs": 522,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 99
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 67
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 54
+      },
+      {
+        "code": "S",
+        "libelle": "Autres activités de services",
+        "nombre": 52
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 48
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "fargues-saint-hilaire": {
+    "nom": "Fargues-Saint-Hilaire",
+    "insee": "33165",
+    "codesPostaux": [
+      "33370"
+    ],
+    "population": 3543,
+    "lat": 44.8202,
+    "lng": -0.4399,
+    "etablissementsActifs": 1084,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 296
+      },
+      {
+        "code": "Q",
+        "libelle": "Santé humaine et action sociale",
+        "nombre": 134
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 100
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 99
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 82
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "yvrac": {
+    "nom": "Yvrac",
+    "insee": "33554",
+    "codesPostaux": [
+      "33370"
+    ],
+    "population": 2899,
+    "lat": 44.8817,
+    "lng": -0.4705,
+    "etablissementsActifs": 1159,
+    "plafonneParApi": false,
+    "secteursDominants": [
+      {
+        "code": "L",
+        "libelle": "Activités immobilières",
+        "nombre": 212
+      },
+      {
+        "code": "G",
+        "libelle": "Commerce, réparation d’automobiles",
+        "nombre": 177
+      },
+      {
+        "code": "F",
+        "libelle": "Construction",
+        "nombre": 167
+      },
+      {
+        "code": "M",
+        "libelle": "Activités spécialisées, scientifiques et techniques",
+        "nombre": 101
+      },
+      {
+        "code": "C",
+        "libelle": "Industrie manufacturière",
+        "nombre": 74
+      }
+    ],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": "recherche-entreprises.api.gouv.fr",
+      "recupereLe": "2026-07-28"
+    }
+  },
+  "bordeaux": {
+    "nom": "Bordeaux",
+    "insee": "33063",
+    "codesPostaux": [
+      "33000",
+      "33100",
+      "33200",
+      "33300",
+      "33800"
+    ],
+    "population": 267991,
+    "lat": 44.8624,
+    "lng": -0.5848,
+    "etablissementsActifs": null,
+    "plafonneParApi": true,
+    "secteursDominants": [],
+    "source": {
+      "geo": "geo.api.gouv.fr",
+      "entreprises": null,
+      "recupereLe": "2026-07-28"
+    }
+  }
+}

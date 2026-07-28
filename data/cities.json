@@ -1,0 +1,7003 @@
+[
+  {
+    "slug": "arcachon",
+    "name": "Arcachon",
+    "nameInLocative": "à Arcachon",
+    "zip": "33120",
+    "insee": "33009",
+    "zone": "Bassin d'Arcachon",
+    "tier": 1,
+    "keep": true,
+    "lat": 44.6515,
+    "lng": -1.1718,
+    "distanceBordeauxKm": 51.9,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [
+      "Biganos"
+    ],
+    "neighbourCities": [
+      "la-teste-de-buch",
+      "lege-cap-ferret",
+      "ares",
+      "cestas",
+      "lacanau"
+    ],
+    "economy": {
+      "businessCount": 7475,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 2640
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 785
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 723
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 470
+        },
+        {
+          "code": "I",
+          "libelle": "Hébergement et restauration",
+          "nombre": 454
+        }
+      ],
+      "population": 11092,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "bordeaux",
+    "name": "Bordeaux",
+    "nameInLocative": "à Bordeaux",
+    "zip": "33000",
+    "insee": "33063",
+    "zone": "Métropole",
+    "tier": 1,
+    "keep": true,
+    "lat": 44.8624,
+    "lng": -0.5848,
+    "distanceBordeauxKm": 0,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "le-bouscat",
+      "bruges",
+      "eysines",
+      "lormont",
+      "floirac"
+    ],
+    "economy": {
+      "businessCount": null,
+      "businessCountCapped": true,
+      "topSectors": [],
+      "population": 267991,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": null,
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "la-teste-de-buch",
+    "name": "La Teste-de-Buch",
+    "nameInLocative": "à La Teste-de-Buch",
+    "zip": "33260",
+    "insee": "33529",
+    "zone": "Bassin d'Arcachon",
+    "tier": 1,
+    "keep": true,
+    "lat": 44.586,
+    "lng": -1.1809,
+    "distanceBordeauxKm": 56.2,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [
+      "Gujan-Mestras",
+      "Le Teich",
+      "Salles"
+    ],
+    "neighbourCities": [
+      "arcachon",
+      "lege-cap-ferret",
+      "ares",
+      "cestas",
+      "lacanau"
+    ],
+    "economy": {
+      "businessCount": null,
+      "businessCountCapped": true,
+      "topSectors": [],
+      "population": 27566,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": null,
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "lege-cap-ferret",
+    "name": "Lège-Cap-Ferret",
+    "nameInLocative": "à Lège-Cap-Ferret",
+    "zip": "33950",
+    "insee": "33236",
+    "zone": "Bassin d'Arcachon",
+    "tier": 1,
+    "keep": true,
+    "lat": 44.7452,
+    "lng": -1.174,
+    "distanceBordeauxKm": 48.3,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "ares",
+      "arcachon",
+      "la-teste-de-buch",
+      "lacanau",
+      "saint-medard-en-jalles"
+    ],
+    "economy": {
+      "businessCount": 6023,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 2361
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 564
+        },
+        {
+          "code": "I",
+          "libelle": "Hébergement et restauration",
+          "nombre": 440
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 426
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 309
+        }
+      ],
+      "population": 7909,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "merignac",
+    "name": "Mérignac",
+    "nameInLocative": "à Mérignac",
+    "zip": "33700",
+    "insee": "33281",
+    "zone": "Métropole",
+    "tier": 1,
+    "keep": true,
+    "lat": 44.8313,
+    "lng": -0.682,
+    "distanceBordeauxKm": 8.4,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "pessac",
+      "eysines",
+      "le-bouscat",
+      "talence",
+      "bordeaux"
+    ],
+    "economy": {
+      "businessCount": null,
+      "businessCountCapped": true,
+      "topSectors": [],
+      "population": 78090,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": null,
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "pessac",
+    "name": "Pessac",
+    "nameInLocative": "à Pessac",
+    "zip": "33600",
+    "insee": "33318",
+    "zone": "Métropole",
+    "tier": 1,
+    "keep": true,
+    "lat": 44.786,
+    "lng": -0.681,
+    "distanceBordeauxKm": 11.4,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [
+      "Canéjan"
+    ],
+    "neighbourCities": [
+      "merignac",
+      "gradignan",
+      "talence",
+      "cestas",
+      "villenave-dornon"
+    ],
+    "economy": {
+      "businessCount": null,
+      "businessCountCapped": true,
+      "topSectors": [],
+      "population": 67339,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": null,
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "saint-medard-en-jalles",
+    "name": "Saint-Médard-en-Jalles",
+    "nameInLocative": "à Saint-Médard-en-Jalles",
+    "zip": "33160",
+    "insee": "33449",
+    "zone": "Métropole",
+    "tier": 1,
+    "keep": true,
+    "lat": 44.8861,
+    "lng": -0.7823,
+    "distanceBordeauxKm": 15.8,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [
+      "Martignas-sur-Jalle"
+    ],
+    "neighbourCities": [
+      "saint-aubin-de-medoc",
+      "le-taillan-medoc",
+      "merignac",
+      "eysines",
+      "pessac"
+    ],
+    "economy": {
+      "businessCount": 6601,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 1231
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 821
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 746
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 615
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 504
+        }
+      ],
+      "population": 32910,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "talence",
+    "name": "Talence",
+    "nameInLocative": "à Talence",
+    "zip": "33400",
+    "insee": "33522",
+    "zone": "Métropole",
+    "tier": 1,
+    "keep": true,
+    "lat": 44.8061,
+    "lng": -0.5918,
+    "distanceBordeauxKm": 6.3,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "begles",
+      "gradignan",
+      "villenave-dornon",
+      "floirac",
+      "bordeaux"
+    ],
+    "economy": {
+      "businessCount": null,
+      "businessCountCapped": true,
+      "topSectors": [],
+      "population": 46338,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": null,
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "ares",
+    "name": "Arès",
+    "nameInLocative": "à Arès",
+    "zip": "33740",
+    "insee": "33011",
+    "zone": "Bassin d'Arcachon",
+    "tier": 2,
+    "keep": true,
+    "lat": 44.7997,
+    "lng": -1.0837,
+    "distanceBordeauxKm": 40,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [
+      "Andernos-les-Bains",
+      "Audenge",
+      "Lanton"
+    ],
+    "neighbourCities": [
+      "lege-cap-ferret",
+      "arcachon",
+      "lacanau",
+      "la-teste-de-buch",
+      "saint-medard-en-jalles"
+    ],
+    "economy": {
+      "businessCount": 2400,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 631
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 286
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 243
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 195
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 152
+        }
+      ],
+      "population": 6482,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "begles",
+    "name": "Bègles",
+    "nameInLocative": "à Bègles",
+    "zip": "33130",
+    "insee": "33039",
+    "zone": "Métropole",
+    "tier": 2,
+    "keep": true,
+    "lat": 44.803,
+    "lng": -0.5485,
+    "distanceBordeauxKm": 7.2,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [
+      "Latresne"
+    ],
+    "neighbourCities": [
+      "villenave-dornon",
+      "talence",
+      "floirac",
+      "gradignan",
+      "bordeaux"
+    ],
+    "economy": {
+      "businessCount": null,
+      "businessCountCapped": true,
+      "topSectors": [],
+      "population": 31831,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": null,
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "coutras",
+    "name": "Coutras",
+    "nameInLocative": "à Coutras",
+    "zip": "33230",
+    "insee": "33138",
+    "zone": "Libournais",
+    "tier": 2,
+    "keep": true,
+    "lat": 45.0408,
+    "lng": -0.1003,
+    "distanceBordeauxKm": 43,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [
+      "Pineuilh",
+      "Saint-Denis-de-Pile",
+      "Saint-Savin",
+      "Saint-Seurin-sur-l'Isle",
+      "Sainte-Foy-la-Grande"
+    ],
+    "neighbourCities": [
+      "libourne",
+      "lormont",
+      "floirac",
+      "bruges",
+      "bordeaux"
+    ],
+    "economy": {
+      "businessCount": 2042,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 391
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 304
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 186
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 177
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 152
+        }
+      ],
+      "population": 8678,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "eysines",
+    "name": "Eysines",
+    "nameInLocative": "à Eysines",
+    "zip": "33320",
+    "insee": "33162",
+    "zone": "Métropole",
+    "tier": 2,
+    "keep": true,
+    "lat": 44.8779,
+    "lng": -0.646,
+    "distanceBordeauxKm": 5.1,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [
+      "Le Haillan"
+    ],
+    "neighbourCities": [
+      "bruges",
+      "le-bouscat",
+      "le-taillan-medoc",
+      "bordeaux",
+      "merignac"
+    ],
+    "economy": {
+      "businessCount": 6342,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 1137
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 804
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 682
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 587
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 578
+        }
+      ],
+      "population": 24825,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "floirac",
+    "name": "Floirac",
+    "nameInLocative": "à Floirac",
+    "zip": "33270",
+    "insee": "33167",
+    "zone": "Métropole",
+    "tier": 2,
+    "keep": true,
+    "lat": 44.8322,
+    "lng": -0.5215,
+    "distanceBordeauxKm": 6,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [
+      "Bouliac",
+      "Carignan-de-Bordeaux",
+      "Créon",
+      "Fargues-Saint-Hilaire",
+      "Sadirac",
+      "Tresses"
+    ],
+    "neighbourCities": [
+      "begles",
+      "lormont",
+      "bordeaux",
+      "talence",
+      "villenave-dornon"
+    ],
+    "economy": {
+      "businessCount": 5032,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 798
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 660
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 630
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 511
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 493
+        }
+      ],
+      "population": 18300,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "gradignan",
+    "name": "Gradignan",
+    "nameInLocative": "à Gradignan",
+    "zip": "33170",
+    "insee": "33192",
+    "zone": "Métropole",
+    "tier": 2,
+    "keep": true,
+    "lat": 44.7681,
+    "lng": -0.6163,
+    "distanceBordeauxKm": 10.8,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [
+      "Léognan"
+    ],
+    "neighbourCities": [
+      "talence",
+      "villenave-dornon",
+      "pessac",
+      "begles",
+      "merignac"
+    ],
+    "economy": {
+      "businessCount": 6694,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 1502
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 691
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 673
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 668
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 505
+        }
+      ],
+      "population": 26952,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "lacanau",
+    "name": "Lacanau",
+    "nameInLocative": "à Lacanau",
+    "zip": "33680",
+    "insee": "33214",
+    "zone": "Médoc",
+    "tier": 2,
+    "keep": true,
+    "lat": 44.9879,
+    "lng": -1.096,
+    "distanceBordeauxKm": 42.6,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [
+      "Hourtin"
+    ],
+    "neighbourCities": [
+      "ares",
+      "saint-medard-en-jalles",
+      "lege-cap-ferret",
+      "saint-aubin-de-medoc",
+      "le-taillan-medoc"
+    ],
+    "economy": {
+      "businessCount": 3532,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 1157
+        },
+        {
+          "code": "I",
+          "libelle": "Hébergement et restauration",
+          "nombre": 334
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 325
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 293
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 201
+        }
+      ],
+      "population": 5739,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "le-bouscat",
+    "name": "Le Bouscat",
+    "nameInLocative": "au Bouscat",
+    "zip": "33110",
+    "insee": "33069",
+    "zone": "Métropole",
+    "tier": 2,
+    "keep": true,
+    "lat": 44.865,
+    "lng": -0.6033,
+    "distanceBordeauxKm": 1.5,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "bordeaux",
+      "bruges",
+      "eysines",
+      "talence",
+      "lormont"
+    ],
+    "economy": {
+      "businessCount": 8756,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 2383
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 1062
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 882
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 791
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 489
+        }
+      ],
+      "population": 25081,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "libourne",
+    "name": "Libourne",
+    "nameInLocative": "à Libourne",
+    "zip": "33500",
+    "insee": "33243",
+    "zone": "Libournais",
+    "tier": 2,
+    "keep": true,
+    "lat": 44.9125,
+    "lng": -0.2328,
+    "distanceBordeauxKm": 28.3,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [
+      "Castillon-la-Bataille",
+      "Cézac",
+      "Galgon",
+      "Izon",
+      "Marsas",
+      "Saint-Emilion",
+      "Saint-Magne-de-Castillon",
+      "Targon",
+      "Vayres"
+    ],
+    "neighbourCities": [
+      "coutras",
+      "lormont",
+      "floirac",
+      "begles",
+      "bordeaux"
+    ],
+    "economy": {
+      "businessCount": 8852,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 1928
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 1300
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 722
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 718
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 558
+        }
+      ],
+      "population": 25036,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "lormont",
+    "name": "Lormont",
+    "nameInLocative": "à Lormont",
+    "zip": "33310",
+    "insee": "33249",
+    "zone": "Métropole",
+    "tier": 2,
+    "keep": true,
+    "lat": 44.8749,
+    "lng": -0.5176,
+    "distanceBordeauxKm": 5.5,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [
+      "Ambarès-et-Lagrave",
+      "Artigues-près-Bordeaux",
+      "Bassens",
+      "Carbon-Blanc",
+      "Cenon",
+      "Montussan",
+      "Saint-André-de-Cubzac",
+      "Saint-Loubès",
+      "Saint-Sulpice-et-Cameyrac",
+      "Sainte-Eulalie",
+      "Yvrac"
+    ],
+    "neighbourCities": [
+      "floirac",
+      "bordeaux",
+      "le-bouscat",
+      "bruges",
+      "begles"
+    ],
+    "economy": {
+      "businessCount": 7088,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 1169
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 1011
+        },
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 867
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 615
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 586
+        }
+      ],
+      "population": 25769,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "saint-aubin-de-medoc",
+    "name": "Saint-Aubin-de-Médoc",
+    "nameInLocative": "à Saint-Aubin-de-Médoc",
+    "zip": "33160",
+    "insee": "33376",
+    "zone": "Médoc",
+    "tier": 2,
+    "keep": true,
+    "lat": 44.9343,
+    "lng": -0.7478,
+    "distanceBordeauxKm": 15.1,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [
+      "Arsac",
+      "Avensan",
+      "Blaye",
+      "Castelnau-de-Médoc",
+      "Pauillac",
+      "Saint-Laurent-Médoc",
+      "Sainte-Hélène"
+    ],
+    "neighbourCities": [
+      "saint-medard-en-jalles",
+      "le-taillan-medoc",
+      "eysines",
+      "bruges",
+      "merignac"
+    ],
+    "economy": {
+      "businessCount": 1888,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 590
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 191
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 180
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 175
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 135
+        }
+      ],
+      "population": 7769,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "villenave-dornon",
+    "name": "Villenave-d'Ornon",
+    "nameInLocative": "à Villenave-d'Ornon",
+    "zip": "33140",
+    "insee": "33550",
+    "zone": "Métropole",
+    "tier": 2,
+    "keep": true,
+    "lat": 44.7736,
+    "lng": -0.5523,
+    "distanceBordeauxKm": 10.2,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [
+      "Cadaujac",
+      "Castres-Gironde",
+      "La Brède",
+      "Saint-Caprais-de-Bordeaux"
+    ],
+    "neighbourCities": [
+      "begles",
+      "talence",
+      "gradignan",
+      "floirac",
+      "bordeaux"
+    ],
+    "economy": {
+      "businessCount": 9414,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 1990
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 1135
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 990
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 850
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 819
+        }
+      ],
+      "population": 42545,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "bazas",
+    "name": "Bazas",
+    "nameInLocative": "à Bazas",
+    "zip": "33430",
+    "insee": "33036",
+    "zone": "Sud-Gironde",
+    "tier": 3,
+    "keep": true,
+    "lat": 44.4409,
+    "lng": -0.2177,
+    "distanceBordeauxKm": 55.1,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "langon",
+      "villenave-dornon",
+      "begles",
+      "gradignan",
+      "floirac"
+    ],
+    "economy": {
+      "businessCount": 1607,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 291
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 182
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 152
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 149
+        },
+        {
+          "code": "A",
+          "libelle": "Agriculture, sylviculture et pêche",
+          "nombre": 141
+        }
+      ],
+      "population": 4854,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "bruges",
+    "name": "Bruges",
+    "nameInLocative": "à Bruges",
+    "zip": "33520",
+    "insee": "33075",
+    "zone": "Métropole",
+    "tier": 3,
+    "keep": true,
+    "lat": 44.8893,
+    "lng": -0.6029,
+    "distanceBordeauxKm": 3.3,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [
+      "Ambès",
+      "Blanquefort",
+      "Bourg",
+      "Ludon-Médoc",
+      "Parempuyre"
+    ],
+    "neighbourCities": [
+      "le-bouscat",
+      "bordeaux",
+      "eysines",
+      "le-taillan-medoc",
+      "lormont"
+    ],
+    "economy": {
+      "businessCount": 6235,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 1276
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 690
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 636
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 563
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 516
+        }
+      ],
+      "population": 20020,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "cestas",
+    "name": "Cestas",
+    "nameInLocative": "à Cestas",
+    "zip": "33610",
+    "insee": "33122",
+    "zone": "Sud-Gironde",
+    "tier": 3,
+    "keep": true,
+    "lat": 44.7274,
+    "lng": -0.7349,
+    "distanceBordeauxKm": 19.1,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [
+      "Belin-Béliet",
+      "Le Barp",
+      "Marcheprime",
+      "Mios",
+      "Saint-Jean-d'Illac"
+    ],
+    "neighbourCities": [
+      "pessac",
+      "gradignan",
+      "merignac",
+      "talence",
+      "villenave-dornon"
+    ],
+    "economy": {
+      "businessCount": 4408,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 918
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 512
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 425
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 406
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 356
+        }
+      ],
+      "population": 16666,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "langon",
+    "name": "Langon",
+    "nameInLocative": "à Langon",
+    "zip": "33210",
+    "insee": "33227",
+    "zone": "Sud-Gironde",
+    "tier": 3,
+    "keep": true,
+    "lat": 44.5355,
+    "lng": -0.2422,
+    "distanceBordeauxKm": 45.3,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [
+      "La Réole",
+      "Monségur",
+      "Podensac",
+      "Sauveterre-de-Guyenne"
+    ],
+    "neighbourCities": [
+      "bazas",
+      "villenave-dornon",
+      "begles",
+      "gradignan",
+      "floirac"
+    ],
+    "economy": {
+      "businessCount": 3289,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 581
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 541
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 409
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 250
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 241
+        }
+      ],
+      "population": 7674,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "le-taillan-medoc",
+    "name": "Le Taillan-Médoc",
+    "nameInLocative": "au Taillan-Médoc",
+    "zip": "33320",
+    "insee": "33519",
+    "zone": "Médoc",
+    "tier": 3,
+    "keep": true,
+    "lat": 44.9123,
+    "lng": -0.6785,
+    "distanceBordeauxKm": 9.2,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [
+      "Le Pian-Médoc",
+      "Macau"
+    ],
+    "neighbourCities": [
+      "eysines",
+      "saint-aubin-de-medoc",
+      "bruges",
+      "le-bouscat",
+      "saint-medard-en-jalles"
+    ],
+    "economy": {
+      "businessCount": 2237,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 489
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 241
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 230
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 220
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 211
+        }
+      ],
+      "population": 11073,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "soulac-sur-mer",
+    "name": "Soulac-sur-Mer",
+    "nameInLocative": "à Soulac-sur-Mer",
+    "zip": "33780",
+    "insee": "33514",
+    "zone": "Médoc",
+    "tier": 3,
+    "keep": true,
+    "lat": 45.5057,
+    "lng": -1.0694,
+    "distanceBordeauxKm": 81,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [
+      "Saint-Ciers-sur-Gironde",
+      "Vendays-Montalivet"
+    ],
+    "neighbourCities": [
+      "lacanau",
+      "saint-aubin-de-medoc",
+      "saint-medard-en-jalles",
+      "le-taillan-medoc",
+      "eysines"
+    ],
+    "economy": {
+      "businessCount": 2022,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 898
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 197
+        },
+        {
+          "code": "I",
+          "libelle": "Hébergement et restauration",
+          "nombre": 186
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 104
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 89
+        }
+      ],
+      "population": 3100,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "ambares-et-lagrave",
+    "name": "Ambarès-et-Lagrave",
+    "nameInLocative": "à Ambarès-et-Lagrave",
+    "zip": "33440",
+    "insee": "33003",
+    "zone": "Métropole",
+    "tier": null,
+    "keep": false,
+    "lat": 44.9517,
+    "lng": -0.5,
+    "distanceBordeauxKm": 12,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "lormont",
+      "bruges",
+      "bordeaux",
+      "le-bouscat",
+      "floirac"
+    ],
+    "economy": {
+      "businessCount": 3817,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 660
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 625
+        },
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 510
+        },
+        {
+          "code": "N",
+          "libelle": "Services administratifs et de soutien",
+          "nombre": 267
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 267
+        }
+      ],
+      "population": 17644,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "ambes",
+    "name": "Ambès",
+    "nameInLocative": "à Ambès",
+    "zip": "33810",
+    "insee": "33004",
+    "zone": "Métropole",
+    "tier": null,
+    "keep": false,
+    "lat": 45.0123,
+    "lng": -0.5486,
+    "distanceBordeauxKm": 16.9,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "bruges",
+      "le-taillan-medoc",
+      "lormont",
+      "eysines",
+      "le-bouscat"
+    ],
+    "economy": {
+      "businessCount": 620,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 98
+        },
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 81
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 77
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 56
+        },
+        {
+          "code": "R",
+          "libelle": "Arts, spectacles et loisirs",
+          "nombre": 50
+        }
+      ],
+      "population": 3313,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "andernos-les-bains",
+    "name": "Andernos-les-Bains",
+    "nameInLocative": "à Andernos-les-Bains",
+    "zip": "33510",
+    "insee": "33005",
+    "zone": "Bassin d'Arcachon",
+    "tier": null,
+    "keep": false,
+    "lat": 44.7529,
+    "lng": -1.082,
+    "distanceBordeauxKm": 41.1,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "ares",
+      "lege-cap-ferret",
+      "arcachon",
+      "la-teste-de-buch",
+      "lacanau"
+    ],
+    "economy": {
+      "businessCount": 4907,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 1437
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 565
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 412
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 343
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 334
+        }
+      ],
+      "population": 12710,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "arsac",
+    "name": "Arsac",
+    "nameInLocative": "à Arsac",
+    "zip": "33460",
+    "insee": "33012",
+    "zone": "Médoc",
+    "tier": null,
+    "keep": false,
+    "lat": 44.9869,
+    "lng": -0.7018,
+    "distanceBordeauxKm": 16.6,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "saint-aubin-de-medoc",
+      "le-taillan-medoc",
+      "saint-medard-en-jalles",
+      "eysines",
+      "bruges"
+    ],
+    "economy": {
+      "businessCount": 883,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 173
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 103
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 99
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 81
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 66
+        }
+      ],
+      "population": 4124,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "artigues-pres-bordeaux",
+    "name": "Artigues-près-Bordeaux",
+    "nameInLocative": "à Artigues-près-Bordeaux",
+    "zip": "33370",
+    "insee": "33013",
+    "zone": "Métropole",
+    "tier": null,
+    "keep": false,
+    "lat": 44.8592,
+    "lng": -0.4878,
+    "distanceBordeauxKm": 7.7,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "lormont",
+      "floirac",
+      "bordeaux",
+      "begles",
+      "le-bouscat"
+    ],
+    "economy": {
+      "businessCount": 2991,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 549
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 434
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 351
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 301
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 181
+        }
+      ],
+      "population": 8687,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "audenge",
+    "name": "Audenge",
+    "nameInLocative": "à Audenge",
+    "zip": "33980",
+    "insee": "33019",
+    "zone": "Bassin d'Arcachon",
+    "tier": null,
+    "keep": false,
+    "lat": 44.7133,
+    "lng": -0.9533,
+    "distanceBordeauxKm": 33.5,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "ares",
+      "cestas",
+      "lege-cap-ferret",
+      "arcachon",
+      "la-teste-de-buch"
+    ],
+    "economy": {
+      "businessCount": 2088,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 511
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 239
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 225
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 198
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 147
+        }
+      ],
+      "population": 9596,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "avensan",
+    "name": "Avensan",
+    "nameInLocative": "à Avensan",
+    "zip": "33480",
+    "insee": "33022",
+    "zone": "Médoc",
+    "tier": null,
+    "keep": false,
+    "lat": 45.0033,
+    "lng": -0.7574,
+    "distanceBordeauxKm": 20.7,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "saint-aubin-de-medoc",
+      "le-taillan-medoc",
+      "saint-medard-en-jalles",
+      "eysines",
+      "bruges"
+    ],
+    "economy": {
+      "businessCount": 718,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 117
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 92
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 84
+        },
+        {
+          "code": "A",
+          "libelle": "Agriculture, sylviculture et pêche",
+          "nombre": 83
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 64
+        }
+      ],
+      "population": 3140,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "bassens",
+    "name": "Bassens",
+    "nameInLocative": "à Bassens",
+    "zip": "33530",
+    "insee": "33032",
+    "zone": "Métropole",
+    "tier": null,
+    "keep": false,
+    "lat": 44.9068,
+    "lng": -0.526,
+    "distanceBordeauxKm": 6.8,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "lormont",
+      "bruges",
+      "bordeaux",
+      "le-bouscat",
+      "floirac"
+    ],
+    "economy": {
+      "businessCount": 1828,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 249
+        },
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 248
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 234
+        },
+        {
+          "code": "H",
+          "libelle": "Transports et entreposage",
+          "nombre": 203
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 136
+        }
+      ],
+      "population": 8435,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "belin-beliet",
+    "name": "Belin-Béliet",
+    "nameInLocative": "à Belin-Béliet",
+    "zip": "33830",
+    "insee": "33042",
+    "zone": "Sud-Gironde",
+    "tier": null,
+    "keep": false,
+    "lat": 44.4959,
+    "lng": -0.7989,
+    "distanceBordeauxKm": 44.1,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "cestas",
+      "la-teste-de-buch",
+      "gradignan",
+      "pessac",
+      "arcachon"
+    ],
+    "economy": {
+      "businessCount": 1517,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 245
+        },
+        {
+          "code": "A",
+          "libelle": "Agriculture, sylviculture et pêche",
+          "nombre": 218
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 160
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 142
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 118
+        }
+      ],
+      "population": 6275,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "biganos",
+    "name": "Biganos",
+    "nameInLocative": "à Biganos",
+    "zip": "33380",
+    "insee": "33051",
+    "zone": "Bassin d'Arcachon",
+    "tier": null,
+    "keep": false,
+    "lat": 44.6599,
+    "lng": -0.9582,
+    "distanceBordeauxKm": 37.1,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "arcachon",
+      "ares",
+      "cestas",
+      "la-teste-de-buch",
+      "lege-cap-ferret"
+    ],
+    "economy": {
+      "businessCount": 2952,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 514
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 432
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 304
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 286
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 243
+        }
+      ],
+      "population": 11431,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "blanquefort",
+    "name": "Blanquefort",
+    "nameInLocative": "à Blanquefort",
+    "zip": "33290",
+    "insee": "33056",
+    "zone": "Métropole",
+    "tier": null,
+    "keep": false,
+    "lat": 44.9216,
+    "lng": -0.61,
+    "distanceBordeauxKm": 6.9,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "bruges",
+      "le-taillan-medoc",
+      "eysines",
+      "le-bouscat",
+      "bordeaux"
+    ],
+    "economy": {
+      "businessCount": 4174,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 697
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 512
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 403
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 385
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 321
+        }
+      ],
+      "population": 17215,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "blaye",
+    "name": "Blaye",
+    "nameInLocative": "à Blaye",
+    "zip": "33390",
+    "insee": "33058",
+    "zone": "Haute-Gironde",
+    "tier": null,
+    "keep": false,
+    "lat": 45.1311,
+    "lng": -0.667,
+    "distanceBordeauxKm": 30.6,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "saint-aubin-de-medoc",
+      "le-taillan-medoc",
+      "bruges",
+      "eysines",
+      "saint-medard-en-jalles"
+    ],
+    "economy": {
+      "businessCount": 1445,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 272
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 182
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 155
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 140
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 115
+        }
+      ],
+      "population": 5066,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "bouliac",
+    "name": "Bouliac",
+    "nameInLocative": "à Bouliac",
+    "zip": "33270",
+    "insee": "33065",
+    "zone": "Métropole",
+    "tier": null,
+    "keep": false,
+    "lat": 44.8165,
+    "lng": -0.5026,
+    "distanceBordeauxKm": 8.2,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "floirac",
+      "begles",
+      "villenave-dornon",
+      "lormont",
+      "talence"
+    ],
+    "economy": {
+      "businessCount": 1444,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 500
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 156
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 142
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 102
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 91
+        }
+      ],
+      "population": 3804,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "bourg",
+    "name": "Bourg",
+    "nameInLocative": "à Bourg",
+    "zip": "33710",
+    "insee": "33067",
+    "zone": "Haute-Gironde",
+    "tier": null,
+    "keep": false,
+    "lat": 45.0396,
+    "lng": -0.5484,
+    "distanceBordeauxKm": 19.9,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "bruges",
+      "le-taillan-medoc",
+      "lormont",
+      "eysines",
+      "saint-aubin-de-medoc"
+    ],
+    "economy": {
+      "businessCount": 792,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 137
+        },
+        {
+          "code": "A",
+          "libelle": "Agriculture, sylviculture et pêche",
+          "nombre": 78
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 75
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 75
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 69
+        }
+      ],
+      "population": 2244,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "cadaujac",
+    "name": "Cadaujac",
+    "nameInLocative": "à Cadaujac",
+    "zip": "33140",
+    "insee": "33080",
+    "zone": "Sud-Gironde",
+    "tier": null,
+    "keep": false,
+    "lat": 44.7468,
+    "lng": -0.5316,
+    "distanceBordeauxKm": 13.5,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "villenave-dornon",
+      "begles",
+      "gradignan",
+      "talence",
+      "floirac"
+    ],
+    "economy": {
+      "businessCount": 1732,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 339
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 250
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 247
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 125
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 120
+        }
+      ],
+      "population": 6909,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "cadillac",
+    "name": "Cadillac",
+    "nameInLocative": "à Cadillac",
+    "zip": "33410",
+    "insee": null,
+    "zone": "Entre-deux-Mers",
+    "tier": null,
+    "keep": false,
+    "lat": null,
+    "lng": null,
+    "distanceBordeauxKm": null,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [],
+    "economy": {
+      "businessCount": null,
+      "businessCountCapped": false,
+      "topSectors": [],
+      "population": null,
+      "source": null
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": "Cadillac a fusionné avec Béguey en 2024 pour former Cadillac-sur-Garonne."
+  },
+  {
+    "slug": "canejan",
+    "name": "Canéjan",
+    "nameInLocative": "à Canéjan",
+    "zip": "33610",
+    "insee": "33090",
+    "zone": "Sud-Gironde",
+    "tier": null,
+    "keep": false,
+    "lat": 44.7572,
+    "lng": -0.659,
+    "distanceBordeauxKm": 13.1,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "pessac",
+      "gradignan",
+      "cestas",
+      "talence",
+      "merignac"
+    ],
+    "economy": {
+      "businessCount": 1891,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 302
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 241
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 233
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 170
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 131
+        }
+      ],
+      "population": 5756,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "carbon-blanc",
+    "name": "Carbon-Blanc",
+    "nameInLocative": "à Carbon-Blanc",
+    "zip": "33560",
+    "insee": "33096",
+    "zone": "Métropole",
+    "tier": null,
+    "keep": false,
+    "lat": 44.9019,
+    "lng": -0.5008,
+    "distanceBordeauxKm": 7.9,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "lormont",
+      "floirac",
+      "bordeaux",
+      "bruges",
+      "le-bouscat"
+    ],
+    "economy": {
+      "businessCount": 1949,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 397
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 253
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 220
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 158
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 153
+        }
+      ],
+      "population": 8331,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "carignan-de-bordeaux",
+    "name": "Carignan-de-Bordeaux",
+    "nameInLocative": "à Carignan-de-Bordeaux",
+    "zip": "33360",
+    "insee": "33099",
+    "zone": "Entre-deux-Mers",
+    "tier": null,
+    "keep": false,
+    "lat": 44.8093,
+    "lng": -0.4739,
+    "distanceBordeauxKm": 10.6,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "floirac",
+      "begles",
+      "villenave-dornon",
+      "lormont",
+      "talence"
+    ],
+    "economy": {
+      "businessCount": 1059,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 309
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 104
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 91
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 81
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 79
+        }
+      ],
+      "population": 4388,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "castelnau-de-medoc",
+    "name": "Castelnau-de-Médoc",
+    "nameInLocative": "à Castelnau-de-Médoc",
+    "zip": "33480",
+    "insee": "33104",
+    "zone": "Médoc",
+    "tier": null,
+    "keep": false,
+    "lat": 45.0033,
+    "lng": -0.8162,
+    "distanceBordeauxKm": 24,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "saint-aubin-de-medoc",
+      "saint-medard-en-jalles",
+      "le-taillan-medoc",
+      "eysines",
+      "bruges"
+    ],
+    "economy": {
+      "businessCount": 1174,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 209
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 135
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 131
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 118
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 84
+        }
+      ],
+      "population": 4907,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "castillon-la-bataille",
+    "name": "Castillon-la-Bataille",
+    "nameInLocative": "à Castillon-la-Bataille",
+    "zip": "33350",
+    "insee": "33108",
+    "zone": "Libournais",
+    "tier": null,
+    "keep": false,
+    "lat": 44.8622,
+    "lng": -0.0244,
+    "distanceBordeauxKm": 44.2,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "libourne",
+      "coutras",
+      "lormont",
+      "floirac",
+      "langon"
+    ],
+    "economy": {
+      "businessCount": 1008,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 189
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 145
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 97
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 88
+        },
+        {
+          "code": "A",
+          "libelle": "Agriculture, sylviculture et pêche",
+          "nombre": 87
+        }
+      ],
+      "population": 3344,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "castres-gironde",
+    "name": "Castres-Gironde",
+    "nameInLocative": "à Castres-Gironde",
+    "zip": "33640",
+    "insee": "33109",
+    "zone": "Sud-Gironde",
+    "tier": null,
+    "keep": false,
+    "lat": 44.6866,
+    "lng": -0.4566,
+    "distanceBordeauxKm": 22,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "villenave-dornon",
+      "begles",
+      "gradignan",
+      "talence",
+      "floirac"
+    ],
+    "economy": {
+      "businessCount": 522,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 99
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 67
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 54
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 52
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 48
+        }
+      ],
+      "population": 2695,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "cenon",
+    "name": "Cenon",
+    "nameInLocative": "à Cenon",
+    "zip": "33150",
+    "insee": "33119",
+    "zone": "Métropole",
+    "tier": null,
+    "keep": false,
+    "lat": 44.8552,
+    "lng": -0.5223,
+    "distanceBordeauxKm": 5,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "lormont",
+      "floirac",
+      "bordeaux",
+      "begles",
+      "le-bouscat"
+    ],
+    "economy": {
+      "businessCount": 8697,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 1512
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 1216
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 985
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 942
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 728
+        }
+      ],
+      "population": 26834,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "cezac",
+    "name": "Cézac",
+    "nameInLocative": "à Cézac",
+    "zip": "33620",
+    "insee": "33123",
+    "zone": "Haute-Gironde",
+    "tier": null,
+    "keep": false,
+    "lat": 45.0867,
+    "lng": -0.4171,
+    "distanceBordeauxKm": 28.2,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "libourne",
+      "lormont",
+      "coutras",
+      "bruges",
+      "bordeaux"
+    ],
+    "economy": {
+      "businessCount": 574,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 85
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 81
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 64
+        },
+        {
+          "code": "A",
+          "libelle": "Agriculture, sylviculture et pêche",
+          "nombre": 61
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 49
+        }
+      ],
+      "population": 2727,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "creon",
+    "name": "Créon",
+    "nameInLocative": "à Créon",
+    "zip": "33670",
+    "insee": "33140",
+    "zone": "Entre-deux-Mers",
+    "tier": null,
+    "keep": false,
+    "lat": 44.7688,
+    "lng": -0.3444,
+    "distanceBordeauxKm": 21.6,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "floirac",
+      "villenave-dornon",
+      "begles",
+      "lormont",
+      "libourne"
+    ],
+    "economy": {
+      "businessCount": 1379,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 219
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 182
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 162
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 141
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 127
+        }
+      ],
+      "population": 4950,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "fargues-saint-hilaire",
+    "name": "Fargues-Saint-Hilaire",
+    "nameInLocative": "à Fargues-Saint-Hilaire",
+    "zip": "33370",
+    "insee": "33165",
+    "zone": "Entre-deux-Mers",
+    "tier": null,
+    "keep": false,
+    "lat": 44.8202,
+    "lng": -0.4399,
+    "distanceBordeauxKm": 12.4,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "floirac",
+      "lormont",
+      "begles",
+      "villenave-dornon",
+      "talence"
+    ],
+    "economy": {
+      "businessCount": 1084,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 296
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 134
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 100
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 99
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 82
+        }
+      ],
+      "population": 3543,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "galgon",
+    "name": "Galgon",
+    "nameInLocative": "à Galgon",
+    "zip": "33133",
+    "insee": "33179",
+    "zone": "Libournais",
+    "tier": null,
+    "keep": false,
+    "lat": 44.991,
+    "lng": -0.278,
+    "distanceBordeauxKm": 28.1,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "libourne",
+      "coutras",
+      "lormont",
+      "floirac",
+      "bruges"
+    ],
+    "economy": {
+      "businessCount": 709,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 142
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 80
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 77
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 61
+        },
+        {
+          "code": "A",
+          "libelle": "Agriculture, sylviculture et pêche",
+          "nombre": 58
+        }
+      ],
+      "population": 3144,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "gujan-mestras",
+    "name": "Gujan-Mestras",
+    "nameInLocative": "à Gujan-Mestras",
+    "zip": "33470",
+    "insee": "33199",
+    "zone": "Bassin d'Arcachon",
+    "tier": null,
+    "keep": false,
+    "lat": 44.5758,
+    "lng": -1.0813,
+    "distanceBordeauxKm": 50.5,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "la-teste-de-buch",
+      "arcachon",
+      "lege-cap-ferret",
+      "ares",
+      "cestas"
+    ],
+    "economy": {
+      "businessCount": 6743,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 1866
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 638
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 522
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 517
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 487
+        }
+      ],
+      "population": 22153,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "hourtin",
+    "name": "Hourtin",
+    "nameInLocative": "à Hourtin",
+    "zip": "33990",
+    "insee": "33203",
+    "zone": "Médoc",
+    "tier": null,
+    "keep": false,
+    "lat": 45.1831,
+    "lng": -1.0534,
+    "distanceBordeauxKm": 51.3,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "lacanau",
+      "soulac-sur-mer",
+      "saint-aubin-de-medoc",
+      "saint-medard-en-jalles",
+      "le-taillan-medoc"
+    ],
+    "economy": {
+      "businessCount": 1375,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 410
+        },
+        {
+          "code": "I",
+          "libelle": "Hébergement et restauration",
+          "nombre": 127
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 126
+        },
+        {
+          "code": "A",
+          "libelle": "Agriculture, sylviculture et pêche",
+          "nombre": 115
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 94
+        }
+      ],
+      "population": 4045,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "izon",
+    "name": "Izon",
+    "nameInLocative": "à Izon",
+    "zip": "33450",
+    "insee": "33207",
+    "zone": "Libournais",
+    "tier": null,
+    "keep": false,
+    "lat": 44.9188,
+    "lng": -0.3561,
+    "distanceBordeauxKm": 19.1,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "libourne",
+      "lormont",
+      "floirac",
+      "bordeaux",
+      "bruges"
+    ],
+    "economy": {
+      "businessCount": 1374,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 264
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 201
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 147
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 102
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 102
+        }
+      ],
+      "population": 6374,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "la-brede",
+    "name": "La Brède",
+    "nameInLocative": "à La Brède",
+    "zip": "33650",
+    "insee": "33213",
+    "zone": "Sud-Gironde",
+    "tier": null,
+    "keep": false,
+    "lat": 44.6777,
+    "lng": -0.5396,
+    "distanceBordeauxKm": 20.8,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "villenave-dornon",
+      "gradignan",
+      "begles",
+      "talence",
+      "pessac"
+    ],
+    "economy": {
+      "businessCount": 1607,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 440
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 163
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 149
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 136
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 133
+        }
+      ],
+      "population": 4386,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "la-reole",
+    "name": "La Réole",
+    "nameInLocative": "à La Réole",
+    "zip": "33190",
+    "insee": "33352",
+    "zone": "Sud-Gironde",
+    "tier": null,
+    "keep": false,
+    "lat": 44.5869,
+    "lng": -0.0447,
+    "distanceBordeauxKm": 52.5,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "langon",
+      "bazas",
+      "libourne",
+      "villenave-dornon",
+      "begles"
+    ],
+    "economy": {
+      "businessCount": 1445,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 237
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 196
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 134
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 130
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 112
+        }
+      ],
+      "population": 4487,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "lanton",
+    "name": "Lanton",
+    "nameInLocative": "à Lanton",
+    "zip": "33138",
+    "insee": "33229",
+    "zone": "Bassin d'Arcachon",
+    "tier": null,
+    "keep": false,
+    "lat": 44.7719,
+    "lng": -0.9799,
+    "distanceBordeauxKm": 32.7,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "ares",
+      "lege-cap-ferret",
+      "cestas",
+      "saint-medard-en-jalles",
+      "arcachon"
+    ],
+    "economy": {
+      "businessCount": 2063,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 540
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 194
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 176
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 168
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 155
+        }
+      ],
+      "population": 7337,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "latresne",
+    "name": "Latresne",
+    "nameInLocative": "à Latresne",
+    "zip": "33360",
+    "insee": "33234",
+    "zone": "Entre-deux-Mers",
+    "tier": null,
+    "keep": false,
+    "lat": 44.7901,
+    "lng": -0.4981,
+    "distanceBordeauxKm": 10.6,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "begles",
+      "villenave-dornon",
+      "floirac",
+      "talence",
+      "gradignan"
+    ],
+    "economy": {
+      "businessCount": 1926,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 509
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 231
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 183
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 179
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 161
+        }
+      ],
+      "population": 3714,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "le-barp",
+    "name": "Le Barp",
+    "nameInLocative": "au Barp",
+    "zip": "33114",
+    "insee": "33029",
+    "zone": "Sud-Gironde",
+    "tier": null,
+    "keep": false,
+    "lat": 44.6297,
+    "lng": -0.7437,
+    "distanceBordeauxKm": 28.8,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "cestas",
+      "pessac",
+      "gradignan",
+      "villenave-dornon",
+      "merignac"
+    ],
+    "economy": {
+      "businessCount": 1420,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 243
+        },
+        {
+          "code": "A",
+          "libelle": "Agriculture, sylviculture et pêche",
+          "nombre": 145
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 140
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 123
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 106
+        }
+      ],
+      "population": 5806,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "le-haillan",
+    "name": "Le Haillan",
+    "nameInLocative": "au Haillan",
+    "zip": "33185",
+    "insee": "33200",
+    "zone": "Métropole",
+    "tier": null,
+    "keep": false,
+    "lat": 44.8713,
+    "lng": -0.6903,
+    "distanceBordeauxKm": 8.4,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "eysines",
+      "merignac",
+      "le-taillan-medoc",
+      "le-bouscat",
+      "bruges"
+    ],
+    "economy": {
+      "businessCount": 3429,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 582
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 497
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 401
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 355
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 247
+        }
+      ],
+      "population": 11392,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "le-pian-medoc",
+    "name": "Le Pian-Médoc",
+    "nameInLocative": "au Pian-Médoc",
+    "zip": "33290",
+    "insee": "33322",
+    "zone": "Médoc",
+    "tier": null,
+    "keep": false,
+    "lat": 44.9555,
+    "lng": -0.6737,
+    "distanceBordeauxKm": 12.5,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "le-taillan-medoc",
+      "saint-aubin-de-medoc",
+      "eysines",
+      "bruges",
+      "saint-medard-en-jalles"
+    ],
+    "economy": {
+      "businessCount": 1586,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 338
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 189
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 169
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 133
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 123
+        }
+      ],
+      "population": 7292,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "le-teich",
+    "name": "Le Teich",
+    "nameInLocative": "au Teich",
+    "zip": "33470",
+    "insee": "33527",
+    "zone": "Bassin d'Arcachon",
+    "tier": null,
+    "keep": false,
+    "lat": 44.5805,
+    "lng": -1.0234,
+    "distanceBordeauxKm": 46.7,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "la-teste-de-buch",
+      "arcachon",
+      "lege-cap-ferret",
+      "ares",
+      "cestas"
+    ],
+    "economy": {
+      "businessCount": 2153,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 506
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 227
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 218
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 194
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 172
+        }
+      ],
+      "population": 9180,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "leognan",
+    "name": "Léognan",
+    "nameInLocative": "à Léognan",
+    "zip": "33850",
+    "insee": "33238",
+    "zone": "Sud-Gironde",
+    "tier": null,
+    "keep": false,
+    "lat": 44.7236,
+    "lng": -0.6172,
+    "distanceBordeauxKm": 15.6,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "gradignan",
+      "villenave-dornon",
+      "pessac",
+      "cestas",
+      "talence"
+    ],
+    "economy": {
+      "businessCount": 2653,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 577
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 271
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 261
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 242
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 214
+        }
+      ],
+      "population": 10670,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "ludon-medoc",
+    "name": "Ludon-Médoc",
+    "nameInLocative": "à Ludon-Médoc",
+    "zip": "33290",
+    "insee": "33256",
+    "zone": "Médoc",
+    "tier": null,
+    "keep": false,
+    "lat": 44.9814,
+    "lng": -0.5903,
+    "distanceBordeauxKm": 13.2,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "bruges",
+      "le-taillan-medoc",
+      "eysines",
+      "le-bouscat",
+      "lormont"
+    ],
+    "economy": {
+      "businessCount": 997,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 190
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 148
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 121
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 83
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 71
+        }
+      ],
+      "population": 5578,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "macau",
+    "name": "Macau",
+    "nameInLocative": "à Macau",
+    "zip": "33460",
+    "insee": "33262",
+    "zone": "Médoc",
+    "tier": null,
+    "keep": false,
+    "lat": 45.0112,
+    "lng": -0.6086,
+    "distanceBordeauxKm": 16.7,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "le-taillan-medoc",
+      "bruges",
+      "saint-aubin-de-medoc",
+      "eysines",
+      "le-bouscat"
+    ],
+    "economy": {
+      "businessCount": 894,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 162
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 144
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 115
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 67
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 67
+        }
+      ],
+      "population": 4576,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "marcheprime",
+    "name": "Marcheprime",
+    "nameInLocative": "à Marcheprime",
+    "zip": "33380",
+    "insee": "33555",
+    "zone": "Bassin d'Arcachon",
+    "tier": null,
+    "keep": false,
+    "lat": 44.7033,
+    "lng": -0.8557,
+    "distanceBordeauxKm": 27.8,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "cestas",
+      "pessac",
+      "merignac",
+      "gradignan",
+      "ares"
+    ],
+    "economy": {
+      "businessCount": 1180,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 187
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 145
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 138
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 114
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 93
+        }
+      ],
+      "population": 5696,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "marsas",
+    "name": "Marsas",
+    "nameInLocative": "à Marsas",
+    "zip": "33620",
+    "insee": "33272",
+    "zone": "Haute-Gironde",
+    "tier": null,
+    "keep": false,
+    "lat": 45.0628,
+    "lng": -0.3769,
+    "distanceBordeauxKm": 27.6,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "libourne",
+      "coutras",
+      "lormont",
+      "bruges",
+      "bordeaux"
+    ],
+    "economy": {
+      "businessCount": 284,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 44
+        },
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 43
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 32
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 29
+        },
+        {
+          "code": "A",
+          "libelle": "Agriculture, sylviculture et pêche",
+          "nombre": 20
+        }
+      ],
+      "population": 1247,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "martignas-sur-jalle",
+    "name": "Martignas-sur-Jalle",
+    "nameInLocative": "à Martignas-sur-Jalle",
+    "zip": "33127",
+    "insee": "33273",
+    "zone": "Métropole",
+    "tier": null,
+    "keep": false,
+    "lat": 44.8451,
+    "lng": -0.8006,
+    "distanceBordeauxKm": 17.1,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "saint-medard-en-jalles",
+      "merignac",
+      "saint-aubin-de-medoc",
+      "pessac",
+      "le-taillan-medoc"
+    ],
+    "economy": {
+      "businessCount": 1462,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 299
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 170
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 166
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 135
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 120
+        }
+      ],
+      "population": 8056,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "mios",
+    "name": "Mios",
+    "nameInLocative": "à Mios",
+    "zip": "33380",
+    "insee": "33284",
+    "zone": "Bassin d'Arcachon",
+    "tier": null,
+    "keep": false,
+    "lat": 44.6105,
+    "lng": -0.8913,
+    "distanceBordeauxKm": 37,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "cestas",
+      "arcachon",
+      "la-teste-de-buch",
+      "pessac",
+      "ares"
+    ],
+    "economy": {
+      "businessCount": 2810,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 563
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 340
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 273
+        },
+        {
+          "code": "A",
+          "libelle": "Agriculture, sylviculture et pêche",
+          "nombre": 260
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 217
+        }
+      ],
+      "population": 12043,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "monsegur",
+    "name": "Monségur",
+    "nameInLocative": "à Monségur",
+    "zip": "33580",
+    "insee": "33289",
+    "zone": "Sud-Gironde",
+    "tier": null,
+    "keep": false,
+    "lat": 44.647,
+    "lng": 0.0861,
+    "distanceBordeauxKm": 58.1,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "langon",
+      "bazas",
+      "libourne",
+      "coutras",
+      "floirac"
+    ],
+    "economy": {
+      "businessCount": 495,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 113
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 50
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 45
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 39
+        },
+        {
+          "code": "R",
+          "libelle": "Arts, spectacles et loisirs",
+          "nombre": 38
+        }
+      ],
+      "population": 1579,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "montussan",
+    "name": "Montussan",
+    "nameInLocative": "à Montussan",
+    "zip": "33450",
+    "insee": "33293",
+    "zone": "Libournais",
+    "tier": null,
+    "keep": false,
+    "lat": 44.8843,
+    "lng": -0.4294,
+    "distanceBordeauxKm": 12.5,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "lormont",
+      "floirac",
+      "bordeaux",
+      "begles",
+      "bruges"
+    ],
+    "economy": {
+      "businessCount": 1165,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 232
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 180
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 174
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 83
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 73
+        }
+      ],
+      "population": 3628,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "parempuyre",
+    "name": "Parempuyre",
+    "nameInLocative": "à Parempuyre",
+    "zip": "33290",
+    "insee": "33312",
+    "zone": "Médoc",
+    "tier": null,
+    "keep": false,
+    "lat": 44.9548,
+    "lng": -0.5844,
+    "distanceBordeauxKm": 10.3,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "bruges",
+      "le-taillan-medoc",
+      "eysines",
+      "le-bouscat",
+      "lormont"
+    ],
+    "economy": {
+      "businessCount": 1751,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 322
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 223
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 210
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 153
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 148
+        }
+      ],
+      "population": 10672,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "pauillac",
+    "name": "Pauillac",
+    "nameInLocative": "à Pauillac",
+    "zip": "33250",
+    "insee": "33314",
+    "zone": "Médoc",
+    "tier": null,
+    "keep": false,
+    "lat": 45.1983,
+    "lng": -0.755,
+    "distanceBordeauxKm": 39.7,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "saint-aubin-de-medoc",
+      "le-taillan-medoc",
+      "saint-medard-en-jalles",
+      "lacanau",
+      "bruges"
+    ],
+    "economy": {
+      "businessCount": 1224,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 216
+        },
+        {
+          "code": "A",
+          "libelle": "Agriculture, sylviculture et pêche",
+          "nombre": 155
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 138
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 108
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 91
+        }
+      ],
+      "population": 5190,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "pineuilh",
+    "name": "Pineuilh",
+    "nameInLocative": "à Pineuilh",
+    "zip": "33220",
+    "insee": "33324",
+    "zone": "Libournais",
+    "tier": null,
+    "keep": false,
+    "lat": 44.8242,
+    "lng": 0.2284,
+    "distanceBordeauxKm": 64.3,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "coutras",
+      "libourne",
+      "langon",
+      "bazas",
+      "lormont"
+    ],
+    "economy": {
+      "businessCount": 984,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 205
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 162
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 81
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 67
+        },
+        {
+          "code": "A",
+          "libelle": "Agriculture, sylviculture et pêche",
+          "nombre": 65
+        }
+      ],
+      "population": 4490,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "podensac",
+    "name": "Podensac",
+    "nameInLocative": "à Podensac",
+    "zip": "33720",
+    "insee": "33327",
+    "zone": "Sud-Gironde",
+    "tier": null,
+    "keep": false,
+    "lat": 44.6479,
+    "lng": -0.3576,
+    "distanceBordeauxKm": 29.8,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "langon",
+      "villenave-dornon",
+      "begles",
+      "floirac",
+      "gradignan"
+    ],
+    "economy": {
+      "businessCount": 785,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 152
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 124
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 69
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 68
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 59
+        }
+      ],
+      "population": 3269,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "sadirac",
+    "name": "Sadirac",
+    "nameInLocative": "à Sadirac",
+    "zip": "33670",
+    "insee": "33363",
+    "zone": "Entre-deux-Mers",
+    "tier": null,
+    "keep": false,
+    "lat": 44.787,
+    "lng": -0.3925,
+    "distanceBordeauxKm": 17.3,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "floirac",
+      "begles",
+      "villenave-dornon",
+      "lormont",
+      "talence"
+    ],
+    "economy": {
+      "businessCount": 1137,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 260
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 145
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 101
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 97
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 89
+        }
+      ],
+      "population": 4769,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "saint-andre-de-cubzac",
+    "name": "Saint-André-de-Cubzac",
+    "nameInLocative": "à Saint-André-de-Cubzac",
+    "zip": "33240",
+    "insee": "33366",
+    "zone": "Libournais",
+    "tier": null,
+    "keep": false,
+    "lat": 44.9945,
+    "lng": -0.4378,
+    "distanceBordeauxKm": 18.7,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "lormont",
+      "bruges",
+      "libourne",
+      "bordeaux",
+      "floirac"
+    ],
+    "economy": {
+      "businessCount": 3392,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 611
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 542
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 358
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 289
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 262
+        }
+      ],
+      "population": 12626,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "saint-caprais-de-bordeaux",
+    "name": "Saint-Caprais-de-Bordeaux",
+    "nameInLocative": "à Saint-Caprais-de-Bordeaux",
+    "zip": "33880",
+    "insee": "33381",
+    "zone": "Entre-deux-Mers",
+    "tier": null,
+    "keep": false,
+    "lat": 44.7544,
+    "lng": -0.4262,
+    "distanceBordeauxKm": 17.3,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "villenave-dornon",
+      "begles",
+      "floirac",
+      "talence",
+      "gradignan"
+    ],
+    "economy": {
+      "businessCount": 787,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 168
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 92
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 82
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 71
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 69
+        }
+      ],
+      "population": 3450,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "saint-ciers-sur-gironde",
+    "name": "Saint-Ciers-sur-Gironde",
+    "nameInLocative": "à Saint-Ciers-sur-Gironde",
+    "zip": "33820",
+    "insee": "33389",
+    "zone": "Haute-Gironde",
+    "tier": null,
+    "keep": false,
+    "lat": 45.2947,
+    "lng": -0.6648,
+    "distanceBordeauxKm": 48.5,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "soulac-sur-mer",
+      "saint-aubin-de-medoc",
+      "le-taillan-medoc",
+      "bruges",
+      "saint-medard-en-jalles"
+    ],
+    "economy": {
+      "businessCount": 714,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 140
+        },
+        {
+          "code": "A",
+          "libelle": "Agriculture, sylviculture et pêche",
+          "nombre": 98
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 98
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 64
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 48
+        }
+      ],
+      "population": 3175,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "saint-denis-de-pile",
+    "name": "Saint-Denis-de-Pile",
+    "nameInLocative": "à Saint-Denis-de-Pile",
+    "zip": "33910",
+    "insee": "33393",
+    "zone": "Libournais",
+    "tier": null,
+    "keep": false,
+    "lat": 44.9893,
+    "lng": -0.1833,
+    "distanceBordeauxKm": 34.6,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "coutras",
+      "libourne",
+      "lormont",
+      "floirac",
+      "bordeaux"
+    ],
+    "economy": {
+      "businessCount": 1206,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 219
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 189
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 162
+        },
+        {
+          "code": "A",
+          "libelle": "Agriculture, sylviculture et pêche",
+          "nombre": 104
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 77
+        }
+      ],
+      "population": 5955,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "saint-emilion",
+    "name": "Saint-Emilion",
+    "nameInLocative": "à Saint-Emilion",
+    "zip": "33330",
+    "insee": "33394",
+    "zone": "Libournais",
+    "tier": null,
+    "keep": false,
+    "lat": 44.8947,
+    "lng": -0.1715,
+    "distanceBordeauxKm": 32.8,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "libourne",
+      "coutras",
+      "lormont",
+      "floirac",
+      "begles"
+    ],
+    "economy": {
+      "businessCount": 1566,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "A",
+          "libelle": "Agriculture, sylviculture et pêche",
+          "nombre": 412
+        },
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 361
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 246
+        },
+        {
+          "code": "I",
+          "libelle": "Hébergement et restauration",
+          "nombre": 87
+        },
+        {
+          "code": "K",
+          "libelle": "Activités financières et d’assurance",
+          "nombre": 68
+        }
+      ],
+      "population": 1608,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "saint-jean-dillac",
+    "name": "Saint-Jean-d'Illac",
+    "nameInLocative": "à Saint-Jean-d'Illac",
+    "zip": "33127",
+    "insee": "33422",
+    "zone": "Métropole",
+    "tier": null,
+    "keep": false,
+    "lat": 44.7973,
+    "lng": -0.8156,
+    "distanceBordeauxKm": 19.6,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "cestas",
+      "saint-medard-en-jalles",
+      "pessac",
+      "merignac",
+      "gradignan"
+    ],
+    "economy": {
+      "businessCount": 2882,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 591
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 415
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 342
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 243
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 182
+        }
+      ],
+      "population": 9616,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "saint-laurent-medoc",
+    "name": "Saint-Laurent-Médoc",
+    "nameInLocative": "à Saint-Laurent-Médoc",
+    "zip": "33112",
+    "insee": "33424",
+    "zone": "Médoc",
+    "tier": null,
+    "keep": false,
+    "lat": 45.1402,
+    "lng": -0.8557,
+    "distanceBordeauxKm": 37.5,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "saint-aubin-de-medoc",
+      "lacanau",
+      "saint-medard-en-jalles",
+      "le-taillan-medoc",
+      "eysines"
+    ],
+    "economy": {
+      "businessCount": 1214,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 202
+        },
+        {
+          "code": "A",
+          "libelle": "Agriculture, sylviculture et pêche",
+          "nombre": 197
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 124
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 106
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 103
+        }
+      ],
+      "population": 4914,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "saint-loubes",
+    "name": "Saint-Loubès",
+    "nameInLocative": "à Saint-Loubès",
+    "zip": "33450",
+    "insee": "33433",
+    "zone": "Libournais",
+    "tier": null,
+    "keep": false,
+    "lat": 44.9223,
+    "lng": -0.4257,
+    "distanceBordeauxKm": 14.2,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "lormont",
+      "floirac",
+      "bordeaux",
+      "bruges",
+      "libourne"
+    ],
+    "economy": {
+      "businessCount": 2619,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 482
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 364
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 334
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 185
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 178
+        }
+      ],
+      "population": 10027,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "saint-magne-de-castillon",
+    "name": "Saint-Magne-de-Castillon",
+    "nameInLocative": "à Saint-Magne-de-Castillon",
+    "zip": "33350",
+    "insee": "33437",
+    "zone": "Libournais",
+    "tier": null,
+    "keep": false,
+    "lat": 44.8542,
+    "lng": -0.0716,
+    "distanceBordeauxKm": 40.5,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "libourne",
+      "coutras",
+      "lormont",
+      "floirac",
+      "langon"
+    ],
+    "economy": {
+      "businessCount": 726,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 142
+        },
+        {
+          "code": "A",
+          "libelle": "Agriculture, sylviculture et pêche",
+          "nombre": 133
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 98
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 45
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 45
+        }
+      ],
+      "population": 2165,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "saint-savin",
+    "name": "Saint-Savin",
+    "nameInLocative": "à Saint-Savin",
+    "zip": "33920",
+    "insee": "33473",
+    "zone": "Haute-Gironde",
+    "tier": null,
+    "keep": false,
+    "lat": 45.1611,
+    "lng": -0.4449,
+    "distanceBordeauxKm": 35,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "coutras",
+      "libourne",
+      "lormont",
+      "bruges",
+      "le-taillan-medoc"
+    ],
+    "economy": {
+      "businessCount": 775,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 114
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 110
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 85
+        },
+        {
+          "code": "A",
+          "libelle": "Agriculture, sylviculture et pêche",
+          "nombre": 81
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 71
+        }
+      ],
+      "population": 3582,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "saint-seurin-sur-lisle",
+    "name": "Saint-Seurin-sur-l'Isle",
+    "nameInLocative": "à Saint-Seurin-sur-l'Isle",
+    "zip": "33660",
+    "insee": "33478",
+    "zone": "Libournais",
+    "tier": null,
+    "keep": false,
+    "lat": 45.0093,
+    "lng": -0.004,
+    "distanceBordeauxKm": 48.5,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "coutras",
+      "libourne",
+      "lormont",
+      "floirac",
+      "bordeaux"
+    ],
+    "economy": {
+      "businessCount": 660,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 126
+        },
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 109
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 64
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 54
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 37
+        }
+      ],
+      "population": 3167,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "saint-sulpice-et-cameyrac",
+    "name": "Saint-Sulpice-et-Cameyrac",
+    "nameInLocative": "à Saint-Sulpice-et-Cameyrac",
+    "zip": "33450",
+    "insee": "33483",
+    "zone": "Libournais",
+    "tier": null,
+    "keep": false,
+    "lat": 44.9053,
+    "lng": -0.3803,
+    "distanceBordeauxKm": 16.8,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "lormont",
+      "libourne",
+      "floirac",
+      "bordeaux",
+      "begles"
+    ],
+    "economy": {
+      "businessCount": 1359,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 394
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 144
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 140
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 106
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 79
+        }
+      ],
+      "population": 4881,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "sainte-eulalie",
+    "name": "Sainte-Eulalie",
+    "nameInLocative": "à Sainte-Eulalie",
+    "zip": "33560",
+    "insee": "33397",
+    "zone": "Libournais",
+    "tier": null,
+    "keep": false,
+    "lat": 44.9027,
+    "lng": -0.48,
+    "distanceBordeauxKm": 9.4,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "lormont",
+      "floirac",
+      "bordeaux",
+      "bruges",
+      "le-bouscat"
+    ],
+    "economy": {
+      "businessCount": 1441,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 297
+        },
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 245
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 186
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 98
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 79
+        }
+      ],
+      "population": 4915,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "sainte-foy-la-grande",
+    "name": "Sainte-Foy-la-Grande",
+    "nameInLocative": "à Sainte-Foy-la-Grande",
+    "zip": "33220",
+    "insee": "33402",
+    "zone": "Libournais",
+    "tier": null,
+    "keep": false,
+    "lat": 44.8407,
+    "lng": 0.2171,
+    "distanceBordeauxKm": 63.3,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "coutras",
+      "libourne",
+      "langon",
+      "bazas",
+      "lormont"
+    ],
+    "economy": {
+      "businessCount": 1011,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 203
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 134
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 120
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 79
+        },
+        {
+          "code": "I",
+          "libelle": "Hébergement et restauration",
+          "nombre": 71
+        }
+      ],
+      "population": 2507,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "sainte-helene",
+    "name": "Sainte-Hélène",
+    "nameInLocative": "à Sainte-Hélène",
+    "zip": "33480",
+    "insee": "33417",
+    "zone": "Médoc",
+    "tier": null,
+    "keep": false,
+    "lat": 44.9653,
+    "lng": -0.9071,
+    "distanceBordeauxKm": 27.8,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "saint-aubin-de-medoc",
+      "saint-medard-en-jalles",
+      "lacanau",
+      "le-taillan-medoc",
+      "eysines"
+    ],
+    "economy": {
+      "businessCount": 800,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "A",
+          "libelle": "Agriculture, sylviculture et pêche",
+          "nombre": 158
+        },
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 129
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 82
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 68
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 67
+        }
+      ],
+      "population": 3091,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "salles",
+    "name": "Salles",
+    "nameInLocative": "à Salles",
+    "zip": "33770",
+    "insee": "33498",
+    "zone": "Sud-Gironde",
+    "tier": null,
+    "keep": false,
+    "lat": 44.536,
+    "lng": -0.8899,
+    "distanceBordeauxKm": 43.6,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "la-teste-de-buch",
+      "cestas",
+      "arcachon",
+      "pessac",
+      "lege-cap-ferret"
+    ],
+    "economy": {
+      "businessCount": 2085,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 430
+        },
+        {
+          "code": "A",
+          "libelle": "Agriculture, sylviculture et pêche",
+          "nombre": 272
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 234
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 190
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 143
+        }
+      ],
+      "population": 8208,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "sauveterre-de-guyenne",
+    "name": "Sauveterre-de-Guyenne",
+    "nameInLocative": "à Sauveterre-de-Guyenne",
+    "zip": "33540",
+    "insee": "33506",
+    "zone": "Entre-deux-Mers",
+    "tier": null,
+    "keep": false,
+    "lat": 44.701,
+    "lng": -0.0727,
+    "distanceBordeauxKm": 44.2,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "langon",
+      "libourne",
+      "bazas",
+      "coutras",
+      "floirac"
+    ],
+    "economy": {
+      "businessCount": 694,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 153
+        },
+        {
+          "code": "A",
+          "libelle": "Agriculture, sylviculture et pêche",
+          "nombre": 105
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 69
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 64
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 52
+        }
+      ],
+      "population": 1885,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "targon",
+    "name": "Targon",
+    "nameInLocative": "à Targon",
+    "zip": "33760",
+    "insee": "33523",
+    "zone": "Entre-deux-Mers",
+    "tier": null,
+    "keep": false,
+    "lat": 44.7375,
+    "lng": -0.2691,
+    "distanceBordeauxKm": 28.5,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "libourne",
+      "floirac",
+      "langon",
+      "villenave-dornon",
+      "begles"
+    ],
+    "economy": {
+      "businessCount": 592,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 97
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 73
+        },
+        {
+          "code": "A",
+          "libelle": "Agriculture, sylviculture et pêche",
+          "nombre": 67
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 55
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 54
+        }
+      ],
+      "population": 2079,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "tresses",
+    "name": "Tresses",
+    "nameInLocative": "à Tresses",
+    "zip": "33370",
+    "insee": "33535",
+    "zone": "Entre-deux-Mers",
+    "tier": null,
+    "keep": false,
+    "lat": 44.8455,
+    "lng": -0.4741,
+    "distanceBordeauxKm": 8.9,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "floirac",
+      "lormont",
+      "begles",
+      "bordeaux",
+      "villenave-dornon"
+    ],
+    "economy": {
+      "businessCount": 1641,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 368
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 193
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 188
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 151
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 140
+        }
+      ],
+      "population": 5290,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "vayres",
+    "name": "Vayres",
+    "nameInLocative": "à Vayres",
+    "zip": "33870",
+    "insee": "33539",
+    "zone": "Libournais",
+    "tier": null,
+    "keep": false,
+    "lat": 44.8908,
+    "lng": -0.326,
+    "distanceBordeauxKm": 20.6,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "libourne",
+      "lormont",
+      "floirac",
+      "begles",
+      "bordeaux"
+    ],
+    "economy": {
+      "businessCount": 1012,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 161
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 115
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 105
+        },
+        {
+          "code": "Q",
+          "libelle": "Santé humaine et action sociale",
+          "nombre": 83
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 79
+        }
+      ],
+      "population": 4615,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "vendays-montalivet",
+    "name": "Vendays-Montalivet",
+    "nameInLocative": "à Vendays-Montalivet",
+    "zip": "33930",
+    "insee": "33540",
+    "zone": "Médoc",
+    "tier": null,
+    "keep": false,
+    "lat": 45.3378,
+    "lng": -1.0953,
+    "distanceBordeauxKm": 66.3,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "soulac-sur-mer",
+      "lacanau",
+      "saint-aubin-de-medoc",
+      "saint-medard-en-jalles",
+      "le-taillan-medoc"
+    ],
+    "economy": {
+      "businessCount": 1589,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 457
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 229
+        },
+        {
+          "code": "I",
+          "libelle": "Hébergement et restauration",
+          "nombre": 196
+        },
+        {
+          "code": "S",
+          "libelle": "Autres activités de services",
+          "nombre": 100
+        },
+        {
+          "code": "R",
+          "libelle": "Arts, spectacles et loisirs",
+          "nombre": 88
+        }
+      ],
+      "population": 2838,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  },
+  {
+    "slug": "yvrac",
+    "name": "Yvrac",
+    "nameInLocative": "à Yvrac",
+    "zip": "33370",
+    "insee": "33554",
+    "zone": "Entre-deux-Mers",
+    "tier": null,
+    "keep": false,
+    "lat": 44.8817,
+    "lng": -0.4705,
+    "distanceBordeauxKm": 9.3,
+    "travelFromBordeaux": null,
+    "coveredCommunes": [],
+    "neighbourCities": [
+      "lormont",
+      "floirac",
+      "bordeaux",
+      "bruges",
+      "le-bouscat"
+    ],
+    "economy": {
+      "businessCount": 1159,
+      "businessCountCapped": false,
+      "topSectors": [
+        {
+          "code": "L",
+          "libelle": "Activités immobilières",
+          "nombre": 212
+        },
+        {
+          "code": "G",
+          "libelle": "Commerce, réparation d’automobiles",
+          "nombre": 177
+        },
+        {
+          "code": "F",
+          "libelle": "Construction",
+          "nombre": 167
+        },
+        {
+          "code": "M",
+          "libelle": "Activités spécialisées, scientifiques et techniques",
+          "nombre": 101
+        },
+        {
+          "code": "C",
+          "libelle": "Industrie manufacturière",
+          "nombre": 74
+        }
+      ],
+      "population": 2899,
+      "source": {
+        "geo": "geo.api.gouv.fr",
+        "entreprises": "recherche-entreprises.api.gouv.fr",
+        "recupereLe": "2026-07-28"
+      }
+    },
+    "editorial": {
+      "localAngle": "",
+      "faqLocal": [
+        {
+          "q": "",
+          "a": ""
+        }
+      ]
+    },
+    "competition": [],
+    "caseStudyId": null,
+    "notes": null
+  }
+]
