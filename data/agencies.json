@@ -1,168 +1,224 @@
 {
-  "perimetre": "national",
-  "note": "Liste unique, identique sur les 100 pages agence-seo-{ville} du site actuel. Aucune de ces agences n’est girondine : Paris, Lyon, Marseille, ou couverture France entiere. Il n’existe donc PAS de top 10 par ville a extraire, contrairement a ce que supposaient l’audit (SS5, point 8) et le brief (phase 2, point 4). Un fichier agencies-by-city.json serait 100 copies du meme tableau.",
-  "sourceOrigine": "data/top10-agencies.js",
-  "agences": [
+  "meta": {
+    "objet": "Panorama des agences SEO et consultants indépendants réellement implantés en Gironde, plus les acteurs nationaux qui y déclarent un bureau.",
+    "methode": "Chaque entrée a été vérifiée sur le site officiel de l’acteur concerné. Seules les informations qu’il publie lui-même sont reprises : adresse, année de création, spécialité déclarée. Aucune note, aucun classement, aucun chiffre d’affaires : ces éléments ne sont pas vérifiables et n’ont pas leur place ici.",
+    "cenestpasunclassement": "L’ordre est alphabétique. Publier un « top 10 » de concurrents suppose une méthodologie défendable ; à défaut, c’est une opinion présentée comme un fait.",
+    "verifieLe": "2026-07-28",
+    "peremption": "Une adresse, une ancienneté ou une spécialité changent. À revérifier tous les six mois, ou à retirer de la page.",
+    "pourquoiCeFichier": "L’ancienne liste (data/top10-agencies.js) était identique sur les 100 pages agence-seo-{ville} et ne contenait que des acteurs nationaux : Paris, Lyon, Marseille. Aucune agence girondine. Elle est conservée telle quelle dans data/top10-agencies.js."
+  },
+
+  "agencesGirondines": [
     {
-      "rank": 1,
-      "name": "Astrak",
-      "slug": "astrak",
-      "url": "https://astrak.agency",
-      "shortDesc": "Agence SEO & web intervenant partout en France",
-      "longDesc": "Fondée par Léo Poitevin, Astrak est une agence SEO et web qui intervient sur l'ensemble du territoire français. Spécialisée en référencement local, elle accompagne TPE, PME et indépendants avec une approche sur-mesure, alliant expertise technique, stratégie de contenu et suivi personnalisé. Sa couverture nationale lui permet de comprendre les enjeux spécifiques de chaque territoire.",
-      "strengths": [
-        "SEO local France entière",
-        "Approche sur-mesure",
-        "Expertise technique avancée",
-        "Partenaire de confiance"
-      ],
-      "specialty": "SEO local et stratégie digitale complète",
-      "founded": "Léo Poitevin",
-      "location": "France entière"
+      "nom": "209 Agency",
+      "url": "https://www.209-agency.com/",
+      "ville": "Bordeaux",
+      "villeSlug": "bordeaux",
+      "adresse": null,
+      "depuis": 2015,
+      "positionnement": "Agence déclarée « 100 % référencement naturel ».",
+      "specialites": ["référencement naturel"],
+      "declare": "Fondée par Laure et Guillaume. Expérience SEO revendiquée depuis 2008, agence créée en 2015.",
+      "source": "https://www.209-agency.com/",
+      "verifieLe": "2026-07-28",
+      "reserve": "Adresse postale non publiée sur la page consultée."
     },
     {
-      "rank": 2,
-      "name": "Eskimoz",
-      "slug": "eskimoz",
-      "url": "https://eskimoz.fr",
-      "shortDesc": "Agence SEO française de référence",
-      "longDesc": "Eskimoz est l'une des plus grandes agences SEO en France, avec une équipe de plus de 100 experts. Elle propose une offre complète allant du SEO technique au content marketing, en passant par le netlinking et le SEA. Sa force réside dans sa capacité à gérer des projets d'envergure nationale et internationale tout en maintenant un haut niveau de qualité.",
-      "strengths": [
-        "Grande équipe SEO",
-        "Présence nationale",
-        "Content marketing",
-        "Stratégie complète"
-      ],
-      "specialty": "SEO et content marketing à grande échelle",
-      "location": "Paris (nationale)"
+      "nom": "Agence GW",
+      "url": "https://www.agence-gw.com/",
+      "ville": "Bordeaux",
+      "villeSlug": "bordeaux",
+      "adresse": "Quartier des Chartrons, près de la place des Quinconces",
+      "depuis": null,
+      "positionnement": "Agence web généraliste. Le SEO est une prestation parmi d’autres, aux côtés de l’ERP, de l’IA et de l’ESN.",
+      "specialites": ["conseil digital", "sites et e-commerce", "SEO", "SEA", "design"],
+      "declare": "Trois pôles déclarés : ERP et IA, ESN, conseil digital.",
+      "source": "https://www.agence-gw.com/agence-digitale/seo",
+      "verifieLe": "2026-07-28",
+      "reserve": "Année de création non publiée sur le site."
     },
     {
-      "rank": 3,
-      "name": "SEMJuice",
-      "slug": "semjuice",
-      "url": "https://www.semjuice.com",
-      "shortDesc": "Plateforme de netlinking et SEO",
-      "longDesc": "SEMJuice est une plateforme spécialisée dans le netlinking qui met en relation annonceurs et éditeurs pour des campagnes de backlinks thématiques et de qualité. Grâce à son réseau de milliers de sites éditeurs vérifiés, elle garantit des liens naturels et pérennes. Idéale pour les entreprises qui veulent booster leur autorité de domaine sans risque de pénalité Google.",
-      "strengths": [
-        "Netlinking premium",
-        "Réseau de sites éditeurs",
-        "Backlinks thématiques",
-        "Transparence"
-      ],
-      "specialty": "Netlinking et acquisition de liens de qualité",
-      "location": "France"
+      "nom": "Cohérence",
+      "url": "https://www.agence-coherence.fr/",
+      "ville": "Bruges",
+      "villeSlug": "bruges",
+      "adresse": "9 avenue Raymond Manaud, bâtiment C4/3, 33520 Bruges",
+      "depuis": 2015,
+      "positionnement": "Agence SEO et digitale, adressée aux entreprises bordelaises.",
+      "specialites": ["référencement naturel", "digital"],
+      "declare": "Communique sur Bordeaux, mais son adresse est à Bruges.",
+      "source": "https://www.agence-coherence.fr/agence-seo-bordeaux/",
+      "verifieLe": "2026-07-28"
     },
     {
-      "rank": 4,
-      "name": "1ère Position",
-      "slug": "1ere-position",
-      "url": "https://www.1ere-position.fr",
-      "shortDesc": "Agence SEO historique en France",
-      "longDesc": "Avec plus de 20 ans d'expérience, 1ère Position est l'une des agences SEO les plus anciennes de France. Son approche data-driven combine SEO et SEA pour maximiser le ROI. Elle propose également des formations SEO pour rendre ses clients autonomes. Reconnue pour sa rigueur méthodologique, elle convient aux entreprises qui cherchent un partenaire fiable et expérimenté.",
-      "strengths": [
-        "+20 ans d'expérience",
-        "Approche data-driven",
-        "SEA + SEO",
-        "Formation"
-      ],
-      "specialty": "SEO et SEA avec approche data",
-      "location": "Lyon (nationale)"
+      "nom": "IBDEO",
+      "url": "https://www.ibdeo.fr/",
+      "ville": "Talence",
+      "villeSlug": "talence",
+      "adresse": "27 rue Raymond Aron, 33400 Talence",
+      "depuis": 2019,
+      "positionnement": "Agence de communication et marketing digital, avec une offre SEO structurée.",
+      "specialites": ["marketing digital", "création web", "SEO", "automatisation IA"],
+      "declare": "Dirigée par Stéphane Delgado, qui exerce aussi en consultant indépendant sous son nom.",
+      "source": "https://www.ibdeo.fr/agence-seo-bordeaux/",
+      "verifieLe": "2026-07-28",
+      "lienAvec": "Stéphane Delgado"
     },
     {
-      "rank": 5,
-      "name": "SmartKeyword",
-      "slug": "smartkeyword",
-      "url": "https://www.smartkeyword.io",
-      "shortDesc": "Plateforme SEO intelligente",
-      "longDesc": "SmartKeyword est une plateforme SaaS qui combine outil SEO et accompagnement humain. Son intelligence artificielle analyse les mots-clés, la sémantique et la concurrence pour proposer des recommandations actionnables. Parfaite pour les équipes marketing qui veulent piloter leur SEO en interne avec un outil puissant et un support expert accessible.",
-      "strengths": [
-        "Outil SaaS SEO",
-        "Automatisation",
-        "Analyse sémantique",
-        "Suivi de positions"
-      ],
-      "specialty": "Outil SEO et accompagnement stratégique",
-      "location": "Paris"
+      "nom": "Stratedge",
+      "url": "https://www.stratedge.fr/",
+      "ville": "Bordeaux",
+      "villeSlug": "bordeaux",
+      "adresse": "132 rue Fondaudège, 33000 Bordeaux",
+      "depuis": 2012,
+      "positionnement": "Agence d’acquisition dont le référencement naturel est déclaré cœur de métier.",
+      "specialites": ["référencement naturel", "acquisition"],
+      "declare": "La plus ancienne des agences girondines identifiées ici.",
+      "source": "https://www.stratedge.fr/seo-referencement-naturel/",
+      "verifieLe": "2026-07-28",
+      "note": "Même adresse qu’Eskimoz Bordeaux : le 132 rue Fondaudège est l’espace de coworking Halle Héméra, qui héberge plusieurs structures. Ce n’est pas un rapprochement capitalistique."
+    }
+  ],
+
+  "consultantsGirondins": [
+    {
+      "nom": "Antonin Bournat",
+      "marque": "La Patte Media",
+      "url": "https://www.lapattemedia.fr/",
+      "ville": "Bordeaux",
+      "villeSlug": "bordeaux",
+      "depuis": null,
+      "anciennete": "plus de deux ans en freelance",
+      "specialites": ["référencement naturel", "SEO local"],
+      "source": "https://www.lapattemedia.fr/consultant-seo-bordeaux/",
+      "verifieLe": "2026-07-28"
     },
     {
-      "rank": 6,
-      "name": "Junto",
-      "slug": "junto",
-      "url": "https://junto.fr",
-      "shortDesc": "Agence de growth marketing",
-      "longDesc": "Junto se positionne comme une agence de growth marketing orientée performance. Elle combine SEO, publicité payante et analytics pour accélérer la croissance des startups et scale-ups. Son approche ROI-first et ses méthodologies agiles en font un choix privilégié pour les entreprises en forte croissance qui cherchent des résultats rapides et mesurables.",
-      "strengths": [
-        "Growth marketing",
-        "SEO + Ads",
-        "Startups & scale-ups",
-        "Approche ROI"
-      ],
-      "specialty": "Growth marketing et acquisition digitale",
-      "location": "Paris"
+      "nom": "Carole Roche",
+      "marque": "Joti Marketing",
+      "url": "https://www.joti-marketing.fr/",
+      "ville": "Bordeaux",
+      "villeSlug": "bordeaux",
+      "depuis": null,
+      "anciennete": "plus de 4 ans en SEO",
+      "specialites": ["SEO local", "référencement naturel"],
+      "declare": "Accompagne notamment des entreprises régionales et des châteaux viticoles bordelais.",
+      "source": "https://www.joti-marketing.fr/consultant-seo-bordeaux",
+      "verifieLe": "2026-07-28"
     },
     {
-      "rank": 7,
-      "name": "Pixalione",
-      "slug": "pixalione",
-      "url": "https://www.pixalione.com",
-      "shortDesc": "Agence SEO technique et data",
-      "longDesc": "Pixalione excelle dans le SEO technique et l'analyse data grâce à ses outils propriétaires. Spécialisée dans le SXO (Search Experience Optimization), elle optimise à la fois le référencement et l'expérience utilisateur. Son expertise en data science appliquée au SEO permet des audits approfondis et des recommandations basées sur des données concrètes.",
-      "strengths": [
-        "SEO technique avancé",
-        "Data science",
-        "SXO",
-        "Outil propriétaire"
-      ],
-      "specialty": "SEO technique et optimisation data-driven",
-      "location": "Paris / Lyon"
+      "nom": "Clément Lasserre",
+      "marque": null,
+      "url": "https://clementlasserre.com/",
+      "ville": "Bordeaux",
+      "villeSlug": "bordeaux",
+      "depuis": null,
+      "anciennete": null,
+      "specialites": ["rédaction web SEO", "audit SEO", "netlinking", "SEO local"],
+      "declare": "Parcours déclaré : entreprise, puis agence, puis indépendant. Orientation contenu affirmée.",
+      "source": "https://clementlasserre.com/",
+      "verifieLe": "2026-07-28"
     },
     {
-      "rank": 8,
-      "name": "Digimood",
-      "slug": "digimood",
-      "url": "https://www.digimood.com",
-      "shortDesc": "Agence SEO et webmarketing",
-      "longDesc": "Digimood est une agence SEO spécialisée dans le contenu éditorial et le e-commerce. Elle accompagne les marques dans la création de stratégies de contenu qui génèrent du trafic qualifié et des conversions. Présente à l'international, elle maîtrise le SEO multilingue et les problématiques spécifiques aux sites marchands à fort catalogue.",
-      "strengths": [
-        "SEO éditorial",
-        "Stratégie de contenu",
-        "E-commerce",
-        "International"
-      ],
-      "specialty": "SEO éditorial et e-commerce",
-      "location": "Marseille (nationale)"
+      "nom": "Julie Alegre",
+      "marque": "Fusée Jaune",
+      "url": "https://fusee-jaune.fr/",
+      "ville": "Bordeaux",
+      "villeSlug": "bordeaux",
+      "depuis": null,
+      "anciennete": null,
+      "specialites": ["référencement naturel", "SEA", "rédaction SEO", "formation"],
+      "source": "https://fusee-jaune.fr/freelance-seo-bordeaux/",
+      "verifieLe": "2026-07-28",
+      "reserve": "Adresse précise non publiée sur la page consultée, seulement « Bordeaux (33) »."
     },
     {
-      "rank": 9,
-      "name": "SEOQuantum",
-      "slug": "seoquantum",
-      "url": "https://www.seoquantum.com",
-      "shortDesc": "Outil d'optimisation sémantique SEO",
-      "longDesc": "SEOQuantum est un outil d'optimisation sémantique propulsé par l'intelligence artificielle. Il analyse le champ lexical de chaque requête cible pour proposer des briefs rédactionnels optimisés, du clustering de mots-clés et des scores de contenu. Indispensable pour les rédacteurs et les agences qui veulent produire du contenu parfaitement calibré pour Google.",
-      "strengths": [
-        "Analyse sémantique IA",
-        "Optimisation de contenu",
-        "Clustering",
-        "Brief rédactionnel"
-      ],
-      "specialty": "Optimisation sémantique par intelligence artificielle",
-      "location": "France / Belgique"
+      "nom": "Lisa Abiven",
+      "marque": "Call Me SEO",
+      "url": "https://callmeseo.fr/",
+      "ville": "Bordeaux",
+      "villeSlug": "bordeaux",
+      "depuis": null,
+      "anciennete": "5 ans en marketing digital",
+      "specialites": ["SEO local", "commerces de proximité"],
+      "source": "https://callmeseo.fr/consultant-seo-bordeaux/",
+      "verifieLe": "2026-07-28"
     },
     {
-      "rank": 10,
-      "name": "Noiise",
-      "slug": "noiise",
-      "url": "https://www.noiise.com",
-      "shortDesc": "Agence digitale multi-services",
-      "longDesc": "Noiise est une agence digitale multi-leviers présente dans plusieurs villes de France. Elle propose une approche marketing 360 qui intègre SEO, SEA, social media et web analytics. Sa couverture nationale et sa capacité à travailler sur le SEO local en font un choix pertinent pour les entreprises multi-sites ou les franchises.",
-      "strengths": [
-        "Multi-levier",
-        "Présence nationale",
-        "SEO local",
-        "Web analytics"
-      ],
-      "specialty": "Marketing digital 360 et SEO",
-      "location": "Lyon / Paris (nationale)"
+      "nom": "Sébastien Tardieu",
+      "marque": null,
+      "url": "https://seo-bordeaux.fr/",
+      "ville": "Gironde",
+      "villeSlug": null,
+      "depuis": 2012,
+      "anciennete": "depuis 2012",
+      "specialites": ["netlinking", "SEO local"],
+      "declare": "Se décrit comme installé dans la campagne girondine.",
+      "source": "https://seo-bordeaux.fr/",
+      "verifieLe": "2026-07-28",
+      "reserve": "Commune précise non publiée."
+    },
+    {
+      "nom": "Stéphane Delgado",
+      "marque": null,
+      "url": "https://www.stephanedelgado.fr/",
+      "ville": "Bordeaux",
+      "villeSlug": "bordeaux",
+      "depuis": null,
+      "anciennete": "plus de 25 ans d’expérience déclarés",
+      "specialites": ["SEO technique", "stratégie de contenu", "netlinking", "GEO", "formation"],
+      "declare": "Dirige également l’agence IBDEO, à Talence.",
+      "source": "https://www.stephanedelgado.fr/consultant-seo-bordeaux/",
+      "verifieLe": "2026-07-28",
+      "lienAvec": "IBDEO"
+    }
+  ],
+
+  "nationalesAvecBureauBordeaux": [
+    {
+      "nom": "Eskimoz",
+      "url": "https://www.eskimoz.fr/",
+      "siege": "Paris",
+      "bureauBordeaux": "Halle Héméra, 132 rue Fondaudège, 33000 Bordeaux",
+      "depuisABordeaux": 2024,
+      "positionnement": "Agence d’acquisition digitale nationale. Bureau bordelais ouvert début 2024.",
+      "specialites": ["SEO", "SEA", "contenu", "data"],
+      "source": "https://www.eskimoz.fr/agence-seo-bordeaux/",
+      "verifieLe": "2026-07-28",
+      "note": "Implantation locale récente et réelle, dans un espace de coworking."
+    },
+    {
+      "nom": "Yumens",
+      "url": "https://www.yumens.fr/",
+      "siege": null,
+      "bureauBordeaux": "Now Coworking, 15 quai des Chartrons, 33100 Bordeaux",
+      "depuisABordeaux": null,
+      "positionnement": "Agence de référencement nationale disposant d’une antenne bordelaise.",
+      "specialites": ["SEO", "SEA"],
+      "source": "https://www.yumens.fr/agence/agences/bordeaux/seo/",
+      "verifieLe": "2026-07-28",
+      "note": "Adresse en espace de coworking, avec une ligne téléphonique dédiée."
+    }
+  ],
+
+  "revendiquentBordeauxSansYEtre": [
+    {
+      "nom": "Premiere.page",
+      "url": "https://premiere.page/",
+      "siegeReel": "SAS PREMIERE PAGE, 39 route de Pitoys, 64600 Anglet",
+      "departement": "Pyrénées-Atlantiques",
+      "constat": "Page « agence SEO Bordeaux » complète, mais siège dans les Pyrénées-Atlantiques. Le site précise que des rendez-vous physiques à Bordeaux sont possibles.",
+      "source": "https://premiere.page/agence-seo/bordeaux/",
+      "verifieLe": "2026-07-28"
+    },
+    {
+      "nom": "Paul Vengeons",
+      "url": "https://www.paulvengeons.fr/",
+      "siegeReel": null,
+      "departement": null,
+      "constat": "Page « consultant SEO Bordeaux », mais aucune ville de résidence ou de siège n’est publiée. Le site indique une intervention partout en France.",
+      "source": "https://www.paulvengeons.fr/consultant-seo-bordeaux",
+      "verifieLe": "2026-07-28"
     }
   ]
 }
