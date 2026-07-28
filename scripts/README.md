@@ -64,3 +64,45 @@ par `scripts/build-cities.js`.
 18 patches one-shot déjà appliqués, conservés pour l'historique. Ils ciblent une
 arborescence qui n'existe plus (`templates/`, `admin/`, liens relatifs en `.html`) :
 **ne pas les relancer**, ils casseraient le site.
+
+## Design system (phase 1)
+
+Les sources CSS sont dans `css/src/`, une par couche. **`css/main.css` est
+généré — ne pas l'éditer.**
+
+```bash
+node scripts/build-css.js
+```
+
+| Script | Rôle |
+|---|---|
+| `lib/contraste.js` | Calcul de luminance et de ratio WCAG 2.1. |
+| `build-css.js` | Concatène `css/src/*.css` en un `css/main.css` allégé. Échoue si le budget de 25 Ko est dépassé ou si une valeur hexadécimale traîne hors de `tokens.css`. |
+| `build-icons.js` | Assemble `img/icons.svg` depuis `lucide-static`. |
+| `check-contrast.js` | Vérifie les 46 paires texte/fond du design system, **dans les deux thèmes**, sans navigateur. |
+| `check-targets.js` | Vérifie que les cibles interactives font ≥ 44 × 44 px, dans les deux thèmes. |
+
+### Pourquoi une concaténation et pas des `@import`
+
+En CSS, `@import` est bloquant *et* sérialisé : le navigateur télécharge
+`main.css`, l'analyse, puis découvre et télécharge chaque fichier importé l'un
+après l'autre. Sur une cible LCP < 2 s, c'est un aller-retour réseau par
+fichier. Un seul fichier, une seule requête.
+
+### Le bloc de mode sombre
+
+Il est écrit **une seule fois** dans `css/src/tokens.css`, entre les marqueurs
+`@sombre:debut` et `@sombre:fin`. `build-css.js` l'émet pour les deux sélecteurs
+(`prefers-color-scheme` et `[data-theme="dark"]`), qui ne peuvent donc pas
+diverger.
+
+### Règle de token
+
+Les composants n'utilisent **que** les rôles sémantiques (`--texte`,
+`--surface-page`, `--accent`, `--accent-surface`…), jamais `--n-*` ni
+`--accent-*` en direct. C'est ce qui permet au mode sombre de tout remapper
+sans réécrire une règle.
+
+`--accent` et `--accent-surface` sont volontairement distincts : en mode sombre
+l'accent doit s'éclaircir pour rester lisible sur fond noir, ce qui le rend
+inutilisable comme fond sous du texte blanc (3,48:1).

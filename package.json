@@ -20,6 +20,7 @@
   "homepage": "https://github.com/courtinanth/Anthony#readme",
   "devDependencies": {
     "@axe-core/playwright": "^4.12.1",
+    "lucide-static": "^1.27.0",
     "netlify-cli": "^27.0.1",
     "playwright": "^1.62.0"
   }

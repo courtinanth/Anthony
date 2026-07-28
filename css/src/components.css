@@ -1,0 +1,482 @@
+@layer components {
+  /* ==========================================================================
+     Composants — BEM allégé : .c-bloc, .c-bloc__element, .c-bloc--variante
+     Aucune valeur hexadécimale ici : tout passe par les rôles de tokens.css.
+     ========================================================================== */
+
+  /* --- Boutons ----------------------------------------------------------- */
+  .c-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-2);
+    min-height: var(--cible-tactile);
+    padding: var(--sp-3) var(--sp-5);
+    border: 1px solid transparent;
+    border-radius: var(--r-md);
+    font-size: var(--fs-base);
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color var(--transition), color var(--transition),
+      border-color var(--transition);
+  }
+
+  .c-btn--primary {
+    background: var(--accent-surface);
+    color: var(--sur-accent);
+  }
+  .c-btn--primary:hover { background: var(--accent-surface-hover); color: var(--sur-accent); }
+  .c-btn--primary:active { background: var(--accent-surface-actif); }
+
+  .c-btn--ghost {
+    background: transparent;
+    color: var(--accent);
+    border-color: var(--bordure-champ);
+  }
+  .c-btn--ghost:hover { background: var(--accent-doux); }
+
+  /* Même en apparence « lien », c'est une commande : elle garde la cible
+     tactile de 44 px. Seul le padding horizontal tombe, pour qu'elle
+     s'aligne visuellement sur le texte voisin. */
+  .c-btn--link {
+    padding-inline: 0;
+    background: none;
+    color: var(--accent);
+    text-decoration: underline;
+  }
+
+  .c-btn--sm { padding: var(--sp-2) var(--sp-4); font-size: var(--fs-sm); }
+  .c-btn--lg { padding: var(--sp-4) var(--sp-6); font-size: var(--fs-lg); }
+
+  .c-btn[aria-disabled="true"],
+  .c-btn:disabled {
+    background: var(--surface-alt);
+    color: var(--texte-desactive);
+    border-color: var(--bordure);
+    cursor: not-allowed;
+  }
+
+  /* --- Cartes ------------------------------------------------------------- */
+  .c-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+    padding: var(--sp-5);
+    background: var(--surface-raised);
+    border: 1px solid var(--bordure);
+    border-radius: var(--r-lg);
+    box-shadow: var(--sh-1);
+    transition: box-shadow var(--transition), border-color var(--transition);
+  }
+  .c-card:has(.c-card__lien:hover) {
+    box-shadow: var(--sh-2);
+    border-color: var(--bordure-forte);
+  }
+
+  .c-card__titre {
+    font-size: var(--fs-xl);
+    margin: 0;
+  }
+  .c-card__texte { color: var(--texte-doux); font-size: var(--fs-sm); max-width: none; }
+  .c-card__pied { margin-block-start: auto; padding-block-start: var(--sp-3); }
+
+  /* La carte entière est cliquable par pseudo-élément, jamais par un
+     <div onclick> : le lien reste un vrai lien pour le clavier et le
+     lecteur d'écran. */
+  .c-card__lien::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+  }
+  .c-card__lien { text-decoration: none; color: inherit; }
+  .c-card:has(.c-card__lien:focus-visible) { box-shadow: var(--sh-focus); }
+  .c-card__lien:focus-visible { box-shadow: none; }
+
+  .c-card--service .c-card__icone { color: var(--accent); }
+  .c-card--stat { align-items: center; text-align: center; }
+
+  /* --- Chiffre-clé -------------------------------------------------------- */
+  .c-stat__valeur {
+    display: block;
+    font-family: var(--f-display);
+    font-size: var(--fs-2xl);
+    font-weight: 600;
+    color: var(--texte-fort);
+    line-height: var(--lh-tight);
+  }
+  .c-stat__libelle {
+    display: block;
+    font-size: var(--fs-sm);
+    color: var(--texte-doux);
+  }
+
+  /* --- Hero ---------------------------------------------------------------- */
+  .c-hero { padding-block: clamp(var(--sp-8), 9vw, var(--sp-10)); }
+  .c-hero__titre { font-size: var(--fs-3xl); }
+  .c-hero--home .c-hero__titre { font-size: var(--fs-display); }
+  .c-hero__chapo {
+    font-size: var(--fs-lg);
+    line-height: var(--lh-snug);
+    color: var(--texte-doux);
+    margin-block-start: var(--sp-4);
+  }
+  .c-hero__actions { margin-block-start: var(--sp-6); }
+
+  /* --- Bandeau de preuve --------------------------------------------------- */
+  .c-proof {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--sp-5);
+    padding-block: var(--sp-5);
+    border-block: 1px solid var(--bordure);
+  }
+  .c-proof__note { display: flex; align-items: center; gap: var(--sp-2); }
+  .c-proof__etoiles { color: var(--accent); }
+  .c-proof__logos { display: flex; flex-wrap: wrap; gap: var(--sp-5); align-items: center; }
+  .c-proof__logos img { max-height: 2rem; width: auto; }
+
+  /* --- Méthode en étapes --------------------------------------------------- */
+  .c-steps { counter-reset: etape; display: grid; gap: var(--sp-5); padding: 0; }
+  .c-steps__item {
+    counter-increment: etape;
+    position: relative;
+    padding-inline-start: var(--sp-8);
+    max-width: var(--mesure);
+  }
+  .c-steps__item::before {
+    content: counter(etape);
+    position: absolute;
+    inset-inline-start: 0;
+    inset-block-start: 0;
+    display: grid;
+    place-items: center;
+    width: var(--sp-6);
+    height: var(--sp-6);
+    background: var(--accent-doux);
+    color: var(--accent);
+    border-radius: var(--r-full);
+    font-family: var(--f-display);
+    font-weight: 600;
+  }
+  .c-steps__titre { font-size: var(--fs-lg); margin-block-end: var(--sp-1); }
+
+  /* --- FAQ ----------------------------------------------------------------- */
+  .c-faq { display: grid; gap: var(--sp-2); }
+  .c-faq__item {
+    border: 1px solid var(--bordure);
+    border-radius: var(--r-md);
+    background: var(--surface-raised);
+  }
+  .c-faq__question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--sp-4);
+    min-height: var(--cible-tactile);
+    padding: var(--sp-3) var(--sp-4);
+    font-weight: 600;
+    color: var(--texte-fort);
+    cursor: pointer;
+    list-style: none;
+  }
+  .c-faq__question::-webkit-details-marker { display: none; }
+  .c-faq__question::after {
+    content: "";
+    flex: none;
+    width: 0.6em;
+    height: 0.6em;
+    border-inline-end: 2px solid var(--accent);
+    border-block-end: 2px solid var(--accent);
+    transform: rotate(45deg) translate(-0.1em, -0.1em);
+    transition: transform var(--transition);
+  }
+  .c-faq__item[open] .c-faq__question::after { transform: rotate(-135deg); }
+  .c-faq__reponse { padding: 0 var(--sp-4) var(--sp-4); color: var(--texte-doux); }
+
+  /* --- Tableaux ------------------------------------------------------------ */
+  .c-table { font-size: var(--fs-sm); }
+  .c-table th,
+  .c-table td {
+    padding: var(--sp-3) var(--sp-4);
+    text-align: start;
+    border-block-end: 1px solid var(--bordure);
+    vertical-align: top;
+  }
+  .c-table thead th {
+    color: var(--texte-fort);
+    font-weight: 600;
+    border-block-end: 2px solid var(--bordure-forte);
+    white-space: nowrap;
+  }
+  .c-table tbody tr:hover { background: var(--surface-alt); }
+
+  /* --- Formulaires --------------------------------------------------------- */
+  .c-form { display: grid; gap: var(--sp-5); }
+  .c-form__champ { display: grid; gap: var(--sp-2); }
+  /* Label visible, jamais de placeholder seul. */
+  .c-form__label { font-size: var(--fs-sm); font-weight: 600; color: var(--texte-fort); }
+  .c-form__label[data-requis]::after { content: " *"; color: var(--danger); }
+  .c-form__input,
+  .c-form__textarea,
+  .c-form__select {
+    min-height: var(--cible-tactile);
+    padding: var(--sp-3) var(--sp-4);
+    background: var(--surface-raised);
+    color: var(--texte-fort);
+    border: 1px solid var(--bordure-champ);
+    border-radius: var(--r-md);
+    width: 100%;
+  }
+  .c-form__textarea { min-height: 8rem; resize: vertical; }
+  .c-form__input::placeholder,
+  .c-form__textarea::placeholder { color: var(--texte-desactive); }
+  .c-form__aide { font-size: var(--fs-xs); color: var(--texte-doux); }
+  /* L'erreur passe par le texte, jamais par la couleur seule. */
+  .c-form__erreur { font-size: var(--fs-sm); color: var(--danger); font-weight: 600; }
+  .c-form__input[aria-invalid="true"],
+  .c-form__textarea[aria-invalid="true"] { border-color: var(--danger); border-width: 2px; }
+
+  /* --- Fil d'Ariane -------------------------------------------------------- */
+  .c-breadcrumb { font-size: var(--fs-sm); color: var(--texte-doux); }
+  .c-breadcrumb__liste { display: flex; flex-wrap: wrap; gap: var(--sp-2); align-items: center; }
+  .c-breadcrumb__item:not(:last-child)::after {
+    content: "›";
+    margin-inline-start: var(--sp-2);
+    color: var(--texte-desactive);
+  }
+  .c-breadcrumb__item[aria-current] { color: var(--texte-fort); }
+
+  /* --- Maillage villes ------------------------------------------------------ */
+  .c-citymesh__liste {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-2);
+  }
+  .c-citymesh__lien {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--cible-tactile);
+    padding: var(--sp-2) var(--sp-4);
+    background: var(--surface-raised);
+    border: 1px solid var(--bordure);
+    border-radius: var(--r-full);
+    font-size: var(--fs-sm);
+    text-decoration: none;
+    color: var(--texte);
+  }
+  .c-citymesh__lien:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* --- Appel à l'action ----------------------------------------------------- */
+  .c-cta--band {
+    background: var(--surface-inverse);
+    color: var(--texte-inverse);
+    border-radius: var(--r-xl);
+    padding: clamp(var(--sp-6), 5vw, var(--sp-8));
+  }
+  .c-cta--band :is(h2, h3) { color: var(--texte-inverse); }
+  .c-cta--inline {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-4);
+    padding: var(--sp-5);
+    background: var(--accent-doux);
+    border: 1px solid var(--accent-bordure);
+    border-radius: var(--r-lg);
+  }
+
+  /* --- Encarts -------------------------------------------------------------- */
+  .c-callout {
+    padding: var(--sp-4) var(--sp-5);
+    border-radius: var(--r-md);
+    border-inline-start: 3px solid var(--info);
+    background: var(--surface-alt);
+  }
+  .c-callout--warning { border-inline-start-color: var(--warning); }
+  .c-callout__titre { font-weight: 600; color: var(--texte-fort); }
+
+  /* --- Sommaire ------------------------------------------------------------- */
+  .c-toc { font-size: var(--fs-sm); }
+  .c-toc__liste { display: grid; gap: var(--sp-2); }
+  .c-toc__lien { color: var(--texte-doux); text-decoration: none; }
+  .c-toc__lien:hover { color: var(--accent); }
+  @media (min-width: 64rem) {
+    .c-toc { position: sticky; inset-block-start: var(--sp-7); }
+  }
+
+  /* --- Icônes ---------------------------------------------------------------- */
+  .c-icone {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;   /* la charte impose 1,5, Lucide livre en 2 */
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex: none;
+  }
+  .c-icone--sm { width: 1.125rem; height: 1.125rem; }
+  .c-icone--lg { width: 2rem; height: 2rem; }
+  /* Le glyphe LinkedIn est plein, contrairement aux icônes Lucide au trait. */
+  .c-icone--plein { fill: currentColor; stroke: none; }
+
+  /* --- En-tête --------------------------------------------------------------- */
+  .c-header {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 50;
+    background: color-mix(in srgb, var(--surface-page) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-block-end: 1px solid var(--bordure);
+  }
+  .c-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-4);
+    min-height: 4.5rem;
+    transition: min-height var(--transition);
+  }
+  .c-header[data-reduit="true"] .c-header__inner { min-height: 3.5rem; }
+  .c-header__logo {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--cible-tactile);
+    font-family: var(--f-display);
+    font-size: var(--fs-lg);
+    font-weight: 600;
+    color: var(--texte-fort);
+    text-decoration: none;
+  }
+  .c-header__nav { display: flex; align-items: center; gap: var(--sp-2); }
+  .c-header__liste { display: flex; align-items: center; gap: var(--sp-1); }
+  .c-header__lien {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--cible-tactile);
+    padding: var(--sp-2) var(--sp-3);
+    border-radius: var(--r-md);
+    color: var(--texte);
+    text-decoration: none;
+    font-size: var(--fs-sm);
+    font-weight: 500;
+  }
+  .c-header__lien:hover { background: var(--surface-alt); color: var(--accent); }
+  .c-header__lien[aria-current="page"] { color: var(--accent); font-weight: 600; }
+
+  .c-header__burger {
+    display: inline-grid;
+    place-items: center;
+    width: var(--cible-tactile);
+    height: var(--cible-tactile);
+    background: none;
+    border: 1px solid var(--bordure);
+    border-radius: var(--r-md);
+    cursor: pointer;
+    color: var(--texte-fort);
+  }
+
+  /* Menu déroulant Services : ouvert au survol ET au focus clavier. */
+  .c-header__sousmenu {
+    position: absolute;
+    inset-block-start: 100%;
+    inset-inline-start: 0;
+    min-width: 14rem;
+    padding: var(--sp-2);
+    background: var(--surface-raised);
+    border: 1px solid var(--bordure);
+    border-radius: var(--r-md);
+    box-shadow: var(--sh-2);
+    display: grid;
+    gap: var(--sp-1);
+  }
+  .c-header__parent { position: relative; }
+  .c-header__parent > .c-header__sousmenu { display: none; }
+  .c-header__parent:hover > .c-header__sousmenu,
+  .c-header__parent:focus-within > .c-header__sousmenu { display: grid; }
+
+  /* Sous 48rem : la nav devient un panneau, ouvert par le burger. */
+  @media (max-width: 47.999rem) {
+    .c-header__burger { display: inline-grid; }
+    .c-header__nav {
+      position: fixed;
+      inset: 4.5rem 0 auto;
+      flex-direction: column;
+      align-items: stretch;
+      gap: var(--sp-2);
+      padding: var(--sp-5);
+      background: var(--surface-raised);
+      border-block-end: 1px solid var(--bordure);
+      box-shadow: var(--sh-3);
+      max-height: calc(100svh - 4.5rem);
+      overflow-y: auto;
+    }
+    .c-header__nav[hidden] { display: none; }
+    .c-header__liste { flex-direction: column; align-items: stretch; gap: var(--sp-1); }
+    .c-header__sousmenu { position: static; box-shadow: none; border: 0; padding-inline-start: var(--sp-4); }
+    .c-header__parent > .c-header__sousmenu { display: grid; }
+  }
+  @media (min-width: 48rem) {
+    .c-header__burger { display: none; }
+    .c-header__nav[hidden] { display: flex; }
+  }
+
+  /* --- Bascule de thème ------------------------------------------------------ */
+  .c-theme {
+    display: inline-grid;
+    place-items: center;
+    width: var(--cible-tactile);
+    height: var(--cible-tactile);
+    background: none;
+    border: 1px solid var(--bordure);
+    border-radius: var(--r-md);
+    color: var(--texte);
+    cursor: pointer;
+  }
+  .c-theme:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* --- Pied de page ----------------------------------------------------------- */
+  .c-footer {
+    margin-block-start: var(--sp-9);
+    padding-block: var(--sp-8) var(--sp-6);
+    background: var(--surface-alt);
+    border-block-start: 1px solid var(--bordure);
+    font-size: var(--fs-sm);
+  }
+  .c-footer__grille {
+    display: grid;
+    gap: var(--sp-6);
+    grid-template-columns: repeat(auto-fit, minmax(min(13rem, 100%), 1fr));
+  }
+  .c-footer__titre {
+    font-family: var(--f-texte);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    color: var(--texte-fort);
+    margin-block-end: var(--sp-3);
+  }
+  .c-footer__liens { display: grid; gap: var(--sp-2); }
+  .c-footer__lien { color: var(--texte-doux); text-decoration: none; }
+  .c-footer__lien:hover { color: var(--accent); text-decoration: underline; }
+  .c-footer__bas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--sp-3);
+    margin-block-start: var(--sp-7);
+    padding-block-start: var(--sp-5);
+    border-block-start: 1px solid var(--bordure);
+    color: var(--texte-doux);
+  }
+}

@@ -1,0 +1,72 @@
+@layer layout {
+  /* ==========================================================================
+     Gabarits.
+     Mobile-first, min-width uniquement, quatre breakpoints : 40 / 48 / 64 / 80rem.
+     Les grilles intrinsèques (auto-fit + minmax) suppriment le besoin de la
+     plupart des media queries.
+     ========================================================================== */
+
+  .l-container {
+    width: min(100% - var(--gouttiere) * 2, var(--container));
+    margin-inline: auto;
+  }
+
+  .l-container--etroit {
+    width: min(100% - var(--gouttiere) * 2, var(--container-etroit));
+  }
+
+  /* Rythme vertical de section, identique partout. */
+  .l-section {
+    padding-block: clamp(var(--sp-8), 8vw, var(--sp-10));
+  }
+  .l-section--serree { padding-block: clamp(var(--sp-7), 5vw, var(--sp-8)); }
+  .l-section--alt { background: var(--surface-alt); }
+
+  /* Grille intrinsèque : le nombre de colonnes se déduit de la place
+     disponible, sans media query. */
+  .l-grille {
+    display: grid;
+    gap: var(--sp-5);
+    grid-template-columns: repeat(auto-fit, minmax(min(18rem, 100%), 1fr));
+  }
+  .l-grille--large { grid-template-columns: repeat(auto-fit, minmax(min(24rem, 100%), 1fr)); }
+  .l-grille--serree { grid-template-columns: repeat(auto-fit, minmax(min(13rem, 100%), 1fr)); }
+
+  /* Empilement vertical régulier. */
+  .l-pile {
+    display: grid;
+    gap: var(--sp-4);
+    align-content: start;
+  }
+  .l-pile--lache { gap: var(--sp-6); }
+  .l-pile--serree { gap: var(--sp-2); }
+
+  /* Rangée qui passe à la ligne au lieu de déborder. */
+  .l-rangee {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-3);
+    align-items: center;
+  }
+
+  /* Deux colonnes asymétriques à partir de 64rem, empilées en dessous. */
+  .l-duo {
+    display: grid;
+    gap: var(--sp-6);
+  }
+  @media (min-width: 64rem) {
+    .l-duo {
+      grid-template-columns: 1fr 22rem;
+      gap: var(--sp-7);
+      align-items: start;
+    }
+    .l-duo--inverse { grid-template-columns: 22rem 1fr; }
+  }
+
+  /* Tout contenu large (tableau, bloc de code, diagramme) défile dans son
+     propre conteneur : le corps de page ne défile jamais horizontalement. */
+  .l-defilement {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+  }
+}

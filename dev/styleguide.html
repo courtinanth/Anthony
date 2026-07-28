@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Styleguide — design system anthony-courtin.com</title>
+
+  <script>
+    // Pose le thème AVANT le premier rendu : sans ça, une page sombre
+    // s'affiche une fraction de seconde en clair.
+    (function () {
+      try {
+        var t = localStorage.getItem('ac-theme');
+        if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) { }
+    })();
+  </script>
+
+  <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+  <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+  <header class="c-header" data-header>
+    <div class="l-container c-header__inner">
+      <a href="/dev/styleguide" class="c-header__logo">Anthony Courtin</a>
+
+      <button class="c-header__burger" data-burger type="button" aria-expanded="false" aria-controls="nav-principale"
+        aria-label="Ouvrir le menu">
+        <svg class="c-icone" aria-hidden="true"><use href="/img/icons.svg#menu"></use></svg>
+      </button>
+
+      <nav class="c-header__nav" id="nav-principale" data-nav aria-label="Navigation principale">
+        <ul class="c-header__liste">
+          <li class="c-header__parent">
+            <a href="#composants" class="c-header__lien" aria-haspopup="true">
+              Services
+              <svg class="c-icone c-icone--sm" aria-hidden="true"><use href="/img/icons.svg#chevron-bas"></use></svg>
+            </a>
+            <div class="c-header__sousmenu">
+              <a href="#composants" class="c-header__lien">Audit SEO</a>
+              <a href="#composants" class="c-header__lien">SEO local</a>
+              <a href="#composants" class="c-header__lien">SEO technique</a>
+              <a href="#composants" class="c-header__lien">Rédaction SEO</a>
+              <a href="#composants" class="c-header__lien">Netlinking</a>
+            </div>
+          </li>
+          <li><a href="#couleurs" class="c-header__lien">Zones d’intervention</a></li>
+          <li><a href="#typo" class="c-header__lien">Tarifs</a></li>
+          <li><a href="#composants" class="c-header__lien">Blog</a></li>
+          <li><a href="#a11y" class="c-header__lien">À propos</a></li>
+        </ul>
+        <button class="c-theme" data-theme-toggle type="button" aria-pressed="false" aria-label="Activer le thème sombre">
+          <svg class="c-icone" aria-hidden="true"><use href="/img/icons.svg#lune"></use></svg>
+        </button>
+        <a href="#formulaire" class="c-btn c-btn--primary c-btn--sm">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <section class="c-hero l-container">
+      <nav class="c-breadcrumb" aria-label="Fil d’Ariane">
+        <ol class="c-breadcrumb__liste">
+          <li class="c-breadcrumb__item"><a href="/">Accueil</a></li>
+          <li class="c-breadcrumb__item"><a href="#">Dev</a></li>
+          <li class="c-breadcrumb__item" aria-current="page">Styleguide</li>
+        </ol>
+      </nav>
+      <h1 class="c-hero__titre">Design system</h1>
+      <p class="c-hero__chapo">
+        Tous les composants de la charte, sur une page. Cette page n’est pas
+        déployée : <code>noindex</code>, absente du sitemap. Elle sert à valider
+        le rendu avant de toucher aux pages du site.
+      </p>
+      <div class="c-hero__actions l-rangee">
+        <a href="#composants" class="c-btn c-btn--primary">Voir les composants</a>
+        <a href="#couleurs" class="c-btn c-btn--ghost">Palette</a>
+      </div>
+    </section>
+
+    <!-- ================= COULEURS ================= -->
+    <section class="l-section l-section--alt" id="couleurs">
+      <div class="l-container l-pile l-pile--lache">
+        <div>
+          <h2>Couleurs</h2>
+          <p class="u-doux">
+            Chaque ratio est calculé par <code>scripts/check-contrast.js</code>,
+            jamais estimé. Le grenat ne dépasse jamais 10 % de la surface visible.
+          </p>
+        </div>
+
+        <div>
+          <h3>Neutres — échelle chaude</h3>
+          <div class="l-grille l-grille--serree u-mt-4" data-echantillons="neutres"></div>
+        </div>
+
+        <div>
+          <h3>Accent — grenat</h3>
+          <div class="l-grille l-grille--serree u-mt-4" data-echantillons="accent"></div>
+        </div>
+
+        <div>
+          <h3>Sémantiques</h3>
+          <div class="l-grille l-grille--serree u-mt-4" data-echantillons="semantiques"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= TYPOGRAPHIE ================= -->
+    <section class="l-section" id="typo">
+      <div class="l-container l-pile l-pile--lache">
+        <div>
+          <h2>Typographie</h2>
+          <p class="u-doux">
+            Fraunces sur les titres et les chiffres-clés, Inter sur le texte.
+            Les deux auto-hébergées en WOFF2 variable. Échelle fluide en
+            <code>clamp()</code> — redimensionnez la fenêtre pour la voir bouger.
+          </p>
+        </div>
+
+        <div class="l-pile">
+          <p class="u-display" style="font-size: var(--fs-display); line-height: var(--lh-tight);">Consultant SEO</p>
+          <h1>Titre de niveau 1</h1>
+          <h2>Titre de niveau 2</h2>
+          <h3>Titre de niveau 3</h3>
+          <h4>Titre de niveau 4</h4>
+          <p class="u-lg">
+            Chapô — sur une SERP où tes concurrents directs sont des freelances
+            en bleu et blanc, tu ne te distingues d’aucun.
+          </p>
+          <p>
+            Corps de texte. La mesure ne dépasse jamais 68 caractères, ce qui
+            reste confortable à lire sur un grand écran. Voici un
+            <a href="#typo">lien dans un paragraphe</a> et un mot en
+            <strong>gras appuyé</strong>.
+          </p>
+          <p class="u-sm u-doux">Annotation, en <code>--fs-sm</code>.</p>
+          <p class="u-xs u-doux">Légende ou méta, en <code>--fs-xs</code>.</p>
+          <blockquote>
+            Pas de promesse de position : c’est un signal d’amateurisme
+            identifié dans l’analyse SERP.
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= COMPOSANTS ================= -->
+    <section class="l-section l-section--alt" id="composants">
+      <div class="l-container l-pile l-pile--lache">
+        <h2>Composants</h2>
+
+        <div>
+          <h3>Boutons</h3>
+          <p class="u-doux u-sm">Hauteur minimale 44 px, cible tactile conforme.</p>
+          <div class="l-rangee u-mt-4">
+            <button class="c-btn c-btn--primary" type="button">Demander un audit</button>
+            <button class="c-btn c-btn--ghost" type="button">En savoir plus</button>
+            <button class="c-btn c-btn--link" type="button">Lien d’action</button>
+            <button class="c-btn c-btn--primary c-btn--sm" type="button">Petit</button>
+            <button class="c-btn c-btn--primary c-btn--lg" type="button">Grand</button>
+            <button class="c-btn c-btn--primary" type="button" disabled>Désactivé</button>
+          </div>
+          <div class="l-rangee u-mt-4">
+            <button class="c-btn c-btn--primary" type="button">
+              Me contacter
+              <svg class="c-icone c-icone--sm" aria-hidden="true"><use href="/img/icons.svg#fleche-droite"></use></svg>
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <h3>Icônes</h3>
+          <p class="u-doux u-sm">
+            Sprite unique <code>img/icons.svg</code>, Lucide au trait 1,5 px,
+            <code>currentColor</code>. Remplace les emoji 🔍 ⚙️ 🔗 📍 ✍️ 🎭 utilisés
+            aujourd’hui comme icônes de service.
+          </p>
+          <div class="l-rangee u-mt-4" data-echantillons="icones"></div>
+        </div>
+
+        <div>
+          <h3>Cartes de service</h3>
+          <div class="l-grille u-mt-4">
+            <article class="c-card c-card--service">
+              <svg class="c-icone c-icone--lg c-card__icone" aria-hidden="true"><use href="/img/icons.svg#audit"></use></svg>
+              <h4 class="c-card__titre"><a class="c-card__lien" href="#composants">Audit SEO</a></h4>
+              <p class="c-card__texte">
+                Analyse technique, sémantique et concurrentielle. Livrable
+                priorisé, chiffré, actionnable.
+              </p>
+            </article>
+            <article class="c-card c-card--service">
+              <svg class="c-icone c-icone--lg c-card__icone" aria-hidden="true"><use href="/img/icons.svg#local"></use></svg>
+              <h4 class="c-card__titre"><a class="c-card__lien" href="#composants">SEO local</a></h4>
+              <p class="c-card__texte">
+                Fiche Google Business, citations locales, pages de zone.
+                Visibilité sur votre bassin réel.
+              </p>
+            </article>
+            <article class="c-card c-card--service">
+              <svg class="c-icone c-icone--lg c-card__icone" aria-hidden="true"><use href="/img/icons.svg#netlinking"></use></svg>
+              <h4 class="c-card__titre"><a class="c-card__lien" href="#composants">Netlinking</a></h4>
+              <p class="c-card__texte">
+                Acquisition de liens éditoriaux. Sélection manuelle, aucun
+                réseau, aucun automatisme.
+              </p>
+            </article>
+          </div>
+        </div>
+
+        <div>
+          <h3>Chiffres-clés</h3>
+          <div class="l-grille l-grille--serree u-mt-4">
+            <div class="c-card c-card--stat">
+              <span class="c-stat__valeur">+150 %</span>
+              <span class="c-stat__libelle">de trafic en 8 mois</span>
+            </div>
+            <div class="c-card c-card--stat">
+              <span class="c-stat__valeur">50+</span>
+              <span class="c-stat__libelle">projets accompagnés</span>
+            </div>
+            <div class="c-card c-card--stat">
+              <span class="c-stat__valeur">5/5</span>
+              <span class="c-stat__libelle">41 avis Trustfolio</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3>Bandeau de preuve</h3>
+          <div class="c-proof u-mt-4">
+            <p class="c-proof__note" style="margin:0;">
+              <span class="c-proof__etoiles" aria-hidden="true">
+                <svg class="c-icone c-icone--sm" ><use href="/img/icons.svg#etoile"></use></svg>
+                <svg class="c-icone c-icone--sm"><use href="/img/icons.svg#etoile"></use></svg>
+                <svg class="c-icone c-icone--sm"><use href="/img/icons.svg#etoile"></use></svg>
+                <svg class="c-icone c-icone--sm"><use href="/img/icons.svg#etoile"></use></svg>
+                <svg class="c-icone c-icone--sm"><use href="/img/icons.svg#etoile"></use></svg>
+              </span>
+              <strong>5/5</strong> <span class="u-doux u-sm">— 41 avis Trustfolio</span>
+            </p>
+            <p class="u-sm u-doux" style="margin:0;">Plus de 50 projets accompagnés en Gironde</p>
+          </div>
+        </div>
+
+        <div>
+          <h3>Méthode en 4 étapes</h3>
+          <ol class="c-steps u-mt-4">
+            <li class="c-steps__item">
+              <h4 class="c-steps__titre">Audit</h4>
+              <p class="c-card__texte">On mesure l’existant avant de toucher à quoi que ce soit.</p>
+            </li>
+            <li class="c-steps__item">
+              <h4 class="c-steps__titre">Priorisation</h4>
+              <p class="c-card__texte">Ce qui rapporte le plus pour le moins d’effort passe en premier.</p>
+            </li>
+            <li class="c-steps__item">
+              <h4 class="c-steps__titre">Exécution</h4>
+              <p class="c-card__texte">Corrections techniques, contenus, liens — dans cet ordre.</p>
+            </li>
+            <li class="c-steps__item">
+              <h4 class="c-steps__titre">Mesure</h4>
+              <p class="c-card__texte">Search Console à l’appui, sur 6 à 8 semaines.</p>
+            </li>
+          </ol>
+        </div>
+
+        <div>
+          <h3>FAQ</h3>
+          <div class="c-faq u-mt-4">
+            <details class="c-faq__item">
+              <summary class="c-faq__question">Combien de temps avant de voir des résultats ?</summary>
+              <div class="c-faq__reponse">
+                <p>
+                  Entre 3 et 6 mois selon la concurrence et l’état de départ du
+                  site. Les corrections techniques produisent des effets plus
+                  rapides que le contenu.
+                </p>
+              </div>
+            </details>
+            <details class="c-faq__item">
+              <summary class="c-faq__question">Travaillez-vous avec un engagement de durée ?</summary>
+              <div class="c-faq__reponse">
+                <p>Non. Les missions sont au forfait ou en accompagnement mensuel sans engagement.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div>
+          <h3>Tableau comparatif</h3>
+          <div class="l-defilement u-mt-4">
+            <table class="c-table c-table--compare">
+              <caption class="u-vh">Comparaison entre un freelance et une agence</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Critère</th>
+                  <th scope="col">Freelance</th>
+                  <th scope="col">Agence</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Interlocuteur</th>
+                  <td>Celui qui fait le travail</td>
+                  <td>Un chef de projet</td>
+                </tr>
+                <tr>
+                  <th scope="row">Budget mensuel</th>
+                  <td>800 – 2 000 €</td>
+                  <td>2 000 – 6 000 €</td>
+                </tr>
+                <tr>
+                  <th scope="row">Délai de démarrage</th>
+                  <td>1 à 2 semaines</td>
+                  <td>3 à 6 semaines</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div>
+          <h3>Maillage villes</h3>
+          <nav class="c-citymesh u-mt-4" aria-label="Villes voisines">
+            <ul class="c-citymesh__liste">
+              <li><a class="c-citymesh__lien" href="#composants">Pessac</a></li>
+              <li><a class="c-citymesh__lien" href="#composants">Talence</a></li>
+              <li><a class="c-citymesh__lien" href="#composants">Eysines</a></li>
+              <li><a class="c-citymesh__lien" href="#composants">Le Bouscat</a></li>
+              <li><a class="c-citymesh__lien" href="#composants">Saint-Médard-en-Jalles</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div>
+          <h3>Encarts</h3>
+          <div class="l-pile u-mt-4">
+            <aside class="c-callout">
+              <p class="c-callout__titre">À noter</p>
+              <p>Une page locale légitime se distingue d’une doorway par sa navigabilité et son contenu propre.</p>
+            </aside>
+            <aside class="c-callout c-callout--warning">
+              <p class="c-callout__titre">Attention</p>
+              <p>Générer une adresse postale par ville est le signal qui accompagne les pénalités doorway.</p>
+            </aside>
+          </div>
+        </div>
+
+        <div>
+          <h3>Appels à l’action</h3>
+          <div class="l-pile u-mt-4">
+            <div class="c-cta c-cta--inline">
+              <p style="margin:0;"><strong>Un projet en tête ?</strong> Premier échange gratuit, 30 minutes.</p>
+              <a href="#formulaire" class="c-btn c-btn--primary c-btn--sm">Prendre rendez-vous</a>
+            </div>
+            <div class="c-cta c-cta--band">
+              <h3>Parlons de votre visibilité</h3>
+              <p class="u-mt-4">Audit de départ offert, sans engagement.</p>
+              <p class="u-mt-4"><a href="#formulaire" class="c-btn c-btn--primary">Me contacter</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FORMULAIRE ================= -->
+    <section class="l-section" id="formulaire">
+      <div class="l-container">
+        <div class="l-duo">
+          <div>
+            <h2>Formulaire</h2>
+            <p class="u-doux">
+              Labels visibles, jamais de placeholder seul. Les erreurs sont
+              liées par <code>aria-describedby</code> et portées par du texte,
+              jamais par la couleur seule.
+            </p>
+            <form class="c-form u-mt-6" action="#formulaire" method="post" novalidate>
+              <div class="c-form__champ">
+                <label class="c-form__label" data-requis for="sg-nom">Nom</label>
+                <input class="c-form__input" id="sg-nom" name="nom" type="text" autocomplete="name" required>
+              </div>
+              <div class="c-form__champ">
+                <label class="c-form__label" data-requis for="sg-email">Email</label>
+                <input class="c-form__input" id="sg-email" name="email" type="email" autocomplete="email"
+                  aria-describedby="sg-email-aide" required>
+                <p class="c-form__aide" id="sg-email-aide">Pour vous répondre sous 24 h ouvrées.</p>
+              </div>
+              <div class="c-form__champ">
+                <label class="c-form__label" for="sg-site">Adresse de votre site</label>
+                <input class="c-form__input" id="sg-site" name="site" type="url" autocomplete="url"
+                  aria-invalid="true" aria-describedby="sg-site-erreur">
+                <p class="c-form__erreur" id="sg-site-erreur">Cette adresse n’est pas valide — état d’erreur, à titre de démonstration.</p>
+              </div>
+              <div class="c-form__champ">
+                <label class="c-form__label" for="sg-message">Votre projet</label>
+                <textarea class="c-form__textarea" id="sg-message" name="message" rows="5"></textarea>
+              </div>
+              <div>
+                <button class="c-btn c-btn--primary" type="submit">Envoyer</button>
+              </div>
+            </form>
+          </div>
+
+          <aside class="l-pile">
+            <h3>Sommaire</h3>
+            <nav class="c-toc" aria-label="Sommaire de la page">
+              <ul class="c-toc__liste">
+                <li><a class="c-toc__lien" href="#couleurs">Couleurs</a></li>
+                <li><a class="c-toc__lien" href="#typo">Typographie</a></li>
+                <li><a class="c-toc__lien" href="#composants">Composants</a></li>
+                <li><a class="c-toc__lien" href="#formulaire">Formulaire</a></li>
+                <li><a class="c-toc__lien" href="#a11y">Accessibilité</a></li>
+              </ul>
+            </nav>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ACCESSIBILITE ================= -->
+    <section class="l-section l-section--alt" id="a11y">
+      <div class="l-container l-pile">
+        <h2>Accessibilité</h2>
+        <p class="u-doux">
+          Contrôlé par <code>node scripts/check-a11y.js</code> (axe-core dans
+          Chromium) et <code>node scripts/check-contrast.js</code>. Les deux
+          doivent être verts avant tout déploiement.
+        </p>
+        <ul>
+          <li>Contraste 4,5:1 sur le texte, 3:1 sur les bordures de champ.</li>
+          <li>Focus visible partout — parcourez cette page au clavier.</li>
+          <li>Cibles tactiles ≥ 44 × 44 px.</li>
+          <li>Un seul <code>h1</code>, aucun niveau de titre sauté.</li>
+          <li><code>prefers-reduced-motion</code> ramène toute animation à 0,01 ms.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="c-footer">
+    <div class="l-container">
+      <div class="c-footer__grille">
+        <div>
+          <p class="c-footer__titre">Anthony Courtin</p>
+          <p class="u-doux">Consultant SEO indépendant à Bordeaux.</p>
+          <p class="u-mt-4">
+            <a href="https://www.linkedin.com/in/anthony-courtin/" target="_blank" rel="noopener noreferrer"
+              aria-label="Profil LinkedIn d’Anthony Courtin">
+              <svg class="c-icone c-icone--plein" aria-hidden="true"><use href="/img/icons.svg#linkedin"></use></svg>
+            </a>
+          </p>
+        </div>
+        <div>
+          <p class="c-footer__titre">Services</p>
+          <ul class="c-footer__liens">
+            <li><a class="c-footer__lien" href="#composants">Audit SEO</a></li>
+            <li><a class="c-footer__lien" href="#composants">SEO local</a></li>
+            <li><a class="c-footer__lien" href="#composants">SEO technique</a></li>
+            <li><a class="c-footer__lien" href="#composants">Rédaction SEO</a></li>
+            <li><a class="c-footer__lien" href="#composants">Netlinking</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="c-footer__titre">Zones</p>
+          <ul class="c-footer__liens">
+            <li><a class="c-footer__lien" href="#composants">Toutes les zones</a></li>
+            <li><a class="c-footer__lien" href="#composants">Bordeaux</a></li>
+            <li><a class="c-footer__lien" href="#composants">Arcachon</a></li>
+            <li><a class="c-footer__lien" href="#composants">Mérignac</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="c-footer__titre">Contact</p>
+          <ul class="c-footer__liens">
+            <li><a class="c-footer__lien" href="#formulaire">Me contacter</a></li>
+            <li><a class="c-footer__lien" href="#a11y">Mentions légales</a></li>
+            <li><a class="c-footer__lien" href="#a11y">Confidentialité</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="c-footer__bas">
+        <p style="margin:0;">© 2026 Anthony Courtin</p>
+        <p style="margin:0;">Page de développement — non déployée</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/theme.js" defer></script>
+  <script src="/js/nav.js" defer></script>
+  <script src="/dev/styleguide.js" defer></script>
+</body>
+
+</html>

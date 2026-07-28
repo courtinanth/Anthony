@@ -48,6 +48,24 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# Les polices sont versionnées par leur nom de fichier : cache long et CORS,
+# obligatoire pour un @font-face avec crossorigin.
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Access-Control-Allow-Origin = "*"
+
+# La page de styleguide est publiée avec le site (Netlify déploie la racine du
+# repo). Elle porte déjà <meta robots="noindex">, mais l'en-tête X-Robots-Tag
+# la couvre aussi pour les ressources non-HTML et ne dépend pas du parsing.
+# On ne la bloque PAS dans robots.txt : un Disallow empêcherait Google de lire
+# le noindex.
+[[headers]]
+  for = "/dev/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
 # ---------------------------------------------------------------------------
 # Content-Security-Policy : volontairement absente en phase 0.
 #

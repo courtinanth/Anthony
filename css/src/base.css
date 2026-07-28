@@ -1,0 +1,155 @@
+@layer base {
+  /* ==========================================================================
+     Polices auto-hébergées.
+     Aucun appel à fonts.googleapis.com : c'est une requête bloquante vers un
+     tiers, un point de friction RGPD, et deux résolutions DNS de plus.
+     Sous-ensembles latin et latin-ext seulement — le reste (cyrillique, grec,
+     vietnamien) ne sert pas à un site français.
+     ========================================================================== */
+
+  @font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url("/fonts/inter-latin.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+      U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+      U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url("/fonts/inter-latin-ext.woff2") format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+      U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+      U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+
+  @font-face {
+    font-family: "Fraunces";
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url("/fonts/fraunces-latin.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+      U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+      U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: "Fraunces";
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url("/fonts/fraunces-latin-ext.woff2") format("woff2");
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+      U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+      U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+
+  /* ==========================================================================
+     Éléments
+     ========================================================================== */
+
+  body {
+    background: var(--surface-page);
+    color: var(--texte);
+    font-family: var(--f-texte);
+    font-size: var(--fs-base);
+    font-optical-sizing: auto;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--f-display);
+    color: var(--texte-fort);
+    letter-spacing: var(--ls-titre);
+    font-weight: 600;
+  }
+
+  h1 { font-size: var(--fs-3xl); }
+  h2 { font-size: var(--fs-2xl); }
+  h3 { font-size: var(--fs-xl); }
+
+  h4 {
+    font-family: var(--f-texte);
+    font-size: var(--fs-lg);
+    font-weight: 600;
+    color: var(--texte-fort);
+  }
+
+  /* La mesure ne dépasse jamais 68 caractères (charte §3). */
+  p, li { max-width: var(--mesure); }
+
+  a {
+    color: var(--accent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+    transition: color var(--transition);
+  }
+  a:hover { color: var(--accent-hover); }
+  a:active { color: var(--accent-actif); }
+
+  strong { font-weight: 600; color: var(--texte-fort); }
+
+  /* Focus visible partout. Jamais d'outline:none sans remplacement. */
+  :focus-visible {
+    outline: none;
+    box-shadow: var(--sh-focus);
+    border-radius: var(--r-sm);
+  }
+
+  ul:not([class]), ol:not([class]) {
+    padding-inline-start: var(--sp-5);
+    display: grid;
+    gap: var(--sp-2);
+  }
+
+  hr {
+    border: 0;
+    border-block-start: 1px solid var(--bordure);
+    margin-block: var(--sp-7);
+  }
+
+  code, pre, kbd {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.92em;
+  }
+
+  code {
+    background: var(--surface-alt);
+    padding: 0.15em 0.35em;
+    border-radius: var(--r-sm);
+  }
+
+  blockquote {
+    border-inline-start: 3px solid var(--accent);
+    padding-inline-start: var(--sp-5);
+    color: var(--texte-doux);
+    font-style: italic;
+  }
+
+  ::selection {
+    background: var(--accent-bordure);
+    color: var(--texte-fort);
+  }
+
+  /* Lien d'évitement : visible dès qu'il reçoit le focus. */
+  .skip-link {
+    position: absolute;
+    inset-block-start: var(--sp-2);
+    inset-inline-start: var(--sp-2);
+    z-index: 100;
+    padding: var(--sp-3) var(--sp-4);
+    background: var(--accent);
+    color: var(--sur-accent);
+    border-radius: var(--r-md);
+    text-decoration: none;
+    transform: translateY(-200%);
+  }
+  .skip-link:focus-visible {
+    transform: translateY(0);
+    color: var(--sur-accent);
+  }
+}

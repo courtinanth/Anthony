@@ -1,0 +1,67 @@
+@layer reset {
+  /* Reset minimal. Chaque règle règle un problème réel, aucune n'est là par
+     tradition. */
+
+  *,
+  *::before,
+  *::after { box-sizing: border-box; }
+
+  * { margin: 0; }
+
+  html {
+    -webkit-text-size-adjust: 100%;   /* iOS grossit le texte en paysage */
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100svh;
+    line-height: var(--lh-base);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Le texte des titres doit pouvoir revenir à la ligne proprement. */
+  h1, h2, h3, h4 {
+    text-wrap: balance;
+    line-height: var(--lh-tight);
+  }
+  p, li { text-wrap: pretty; }
+
+  img, picture, svg, video {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  input, button, textarea, select {
+    font: inherit;
+    color: inherit;
+  }
+
+  /* Un mot très long ne doit jamais forcer un scroll horizontal. */
+  p, h1, h2, h3, h4, li, td, th { overflow-wrap: break-word; }
+
+  ul[class], ol[class] {
+    list-style: none;
+    padding: 0;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  :target { scroll-margin-block-start: var(--sp-9); }
+
+  /* Respect strict de la préférence système : la charte impose 0,01ms. */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}

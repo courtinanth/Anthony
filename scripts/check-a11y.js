@@ -48,6 +48,7 @@ function echantillon() {
         return [...new Set(out)];
     }
     return [
+        '/dev/styleguide',                     // tous les composants du design system
         '/',                                   // home
         '/contact',                            // formulaire
         '/audit-seo-bordeaux',                 // page service racine
@@ -85,27 +86,35 @@ function echantillon() {
     const navigateur = await chromium.launch();
     const resultats = [];
 
-    for (const chemin of pages) {
-        const ctx = await navigateur.newContext({ viewport: { width: 1280, height: 900 } });
-        const page = await ctx.newPage();
-        try {
-            await page.goto(BASE + chemin, { waitUntil: 'domcontentloaded', timeout: 20000 });
-            const r = await new AxeBuilder({ page }).withTags(TAGS).analyze();
-            resultats.push({
-                chemin,
-                violations: r.violations.map((v) => ({
-                    regle: v.id,
-                    impact: v.impact,
-                    description: v.help,
-                    noeuds: v.nodes.length,
-                    exemple: v.nodes[0] ? v.nodes[0].html.slice(0, 120) : null,
-                    tags: v.tags.filter((t) => t.startsWith('wcag')),
-                })),
+    // Les deux thèmes sont audités : un contraste peut passer en clair et
+    // échouer en sombre. C'est exactement ce qui est arrivé au bouton primaire.
+    for (const theme of ['light', 'dark']) {
+        for (const chemin of pages) {
+            const ctx = await navigateur.newContext({
+                viewport: { width: 1280, height: 900 },
+                colorScheme: theme,
             });
-        } catch (e) {
-            resultats.push({ chemin, erreur: e.message });
+            const page = await ctx.newPage();
+            try {
+                await page.goto(BASE + chemin, { waitUntil: 'domcontentloaded', timeout: 20000 });
+                const r = await new AxeBuilder({ page }).withTags(TAGS).analyze();
+                resultats.push({
+                    chemin,
+                    theme,
+                    violations: r.violations.map((v) => ({
+                        regle: v.id,
+                        impact: v.impact,
+                        description: v.help,
+                        noeuds: v.nodes.length,
+                        exemple: v.nodes[0] ? v.nodes[0].html.slice(0, 120) : null,
+                        tags: v.tags.filter((t) => t.startsWith('wcag')),
+                    })),
+                });
+            } catch (e) {
+                resultats.push({ chemin, theme, erreur: e.message });
+            }
+            await ctx.close();
         }
-        await ctx.close();
     }
     await navigateur.close();
 
@@ -147,7 +156,7 @@ function echantillon() {
         process.stdout.write(JSON.stringify(rapport, null, 2) + '\n');
     } else {
         console.log('');
-        console.log(`pages auditées      : ${rapport.pagesAuditees}`);
+        console.log(`pages auditées      : ${rapport.pagesAuditees} × 2 thèmes`);
         console.log(`règles en échec     : ${rapport.reglesEnEchec}`);
         console.log(`éléments en faute   : ${rapport.violationsTotales}`);
         console.log('');
