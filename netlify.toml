@@ -1,28 +1,37 @@
-# Configuration Netlify pour URLs propres
-
-# Redirections - URLs propres sans .html
-[[redirects]]
-  from = "/*.html"
-  to = "/:splat"
-  status = 301
-  force = false
-
-# Servir les pages sans extension
-[[redirects]]
-  from = "/*"
-  to = "/:splat.html"
-  status = 200
-  force = false
-  conditions = { RequestPath = { Exists = false } }
+# Configuration Netlify — anthony-courtin.com
+#
+# Les redirections vivent toutes dans _redirects (généré par
+# scripts/build-redirects.js). Netlify évalue les règles de netlify.toml AVANT
+# celles de _redirects : garder des 301 ici les ferait passer devant les
+# redirections de slugs et créerait des chaînes. Ce fichier ne porte donc plus
+# que les en-têtes.
+#
+# Les URL propres sans extension sont servies nativement par Netlify
+# (un fichier /foo.html répond sur /foo) : aucune règle n'est nécessaire.
 
 # Headers de sécurité et performance
 [[headers]]
   for = "/*"
   [headers.values]
     X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+
+    # X-XSS-Protection a été retiré volontairement. L'en-tête est obsolète,
+    # tous les navigateurs modernes l'ignorent, et son filtre historique
+    # pouvait lui-même introduire des failles. La bonne protection est une CSP.
+    # Voir la note sur la CSP en bas de fichier.
+
+    # HSTS : force HTTPS pendant 2 ans, sous-domaines inclus.
+    # preload n'est pas activé — c'est une inscription difficile à annuler,
+    # à décider séparément.
+    Strict-Transport-Security = "max-age=63072000; includeSubDomains"
+
+    # Le site n'a besoin d'aucune de ces API : on les coupe toutes.
+    Permissions-Policy = "accelerometer=(), autoplay=(), camera=(), display-capture=(), encrypted-media=(), fullscreen=(self), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), usb=()"
+
+    # Isole le contexte de navigation des fenêtres ouvertes par le site.
+    Cross-Origin-Opener-Policy = "same-origin"
 
 [[headers]]
   for = "/css/*"
@@ -38,3 +47,18 @@
   for = "/images/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+# ---------------------------------------------------------------------------
+# Content-Security-Policy : volontairement absente en phase 0.
+#
+# Une CSP utile doit être stricte. Or le site charge aujourd'hui :
+#   - fonts.googleapis.com et fonts.gstatic.com (polices)
+#   - maps.google.com dans 694 iframes
+#   - widgets.sociablekit.com sur /linkedin-posts
+#   - des <style> et attributs style inline
+#
+# Une CSP couvrant tout ça serait si permissive qu'elle ne protégerait de rien,
+# et une CSP stricte casserait le site. La phase 1 supprime ces trois tiers
+# (polices auto-hébergées, Maps remplacé par une image statique) : c'est à ce
+# moment qu'une CSP stricte devient à la fois possible et utile.
+# ---------------------------------------------------------------------------
