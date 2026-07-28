@@ -76,6 +76,17 @@ function reecrire(lien, urlDuFichier) {
     if (absolu.endsWith('/index.html')) absolu = absolu.slice(0, -'index.html'.length);
     else absolu = absolu.replace(/\.html$/, '');
 
+    // Une URL qui désigne un dossier doit garder son slash final : le canonical
+    // de blog/index.html est « /blog/ », et « /blog » comme « /blog/ » répondent
+    // tous deux en 200. Sans ce rattrapage on recrée un duplicate — d'autant que
+    // path.posix.resolve() supprime le slash final de « ../blog/ ».
+    if (
+        !absolu.endsWith('/') &&
+        fs.existsSync(path.join(L.RACINE, absolu, 'index.html'))
+    ) {
+        absolu += '/';
+    }
+
     return absolu + suffixe;
 }
 
@@ -116,14 +127,14 @@ for (const abs of fichiers) {
     const avant = fs.readFileSync(abs, 'utf8');
     let compteur = 0;
 
-    let apres = avant.replace(/href="([^"]*)"/g, (entier, lien) => {
+    let apres = avant.replace(/(href|src)="([^"]*)"/g, (entier, attr, lien) => {
         const neuf = reecrire(lien, urlDuFichier);
         if (neuf === null || neuf === lien) return entier;
         compteur++;
         if (/mrignac|bgles|-mdoc|-prs-|hlne|-andr-|loubs|lge-|lognan|canjan|czac|cron|ambs|ars$|monsgur|la-brde|la-role|belin-bliet|villenave-d-ornon/.test(lien)) {
             liensRemappes++;
         }
-        return `href="${neuf}"`;
+        return `${attr}="${neuf}"`;
     });
 
     const avantAbsolues = apres;
