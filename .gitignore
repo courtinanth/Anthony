@@ -21,3 +21,7 @@ node_modules/
 
 # Fichier de hash temporaire
 hash.txt
+
+# Artefacts locaux de netlify-cli
+.netlify
+deno.lock
