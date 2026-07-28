@@ -9,6 +9,27 @@
 # Les URL propres sans extension sont servies nativement par Netlify
 # (un fichier /foo.html répond sur /foo) : aucune règle n'est nécessaire.
 
+# ---------------------------------------------------------------------------
+# Build
+#
+# Le site est statique : il n'y a rien à compiler, la racine du dépôt est
+# publiée telle quelle. Mais dès qu'un package.json est présent, Netlify lance
+# un npm install au déploiement. Or les dépendances de ce dépôt sont toutes
+# des outils de développement : netlify-cli, Playwright, axe-core, lucide.
+# Sans le garde-fou ci-dessous, chaque déploiement téléchargerait plusieurs
+# centaines de Mo, dont un navigateur Chromium, pour ne rien en faire.
+#
+# NPM_FLAGS = "--omit=dev" saute les devDependencies. Comme il n'existe aucune
+# dépendance de production, l'installation devient un no-op.
+# ---------------------------------------------------------------------------
+[build]
+  publish = "."
+  command = "echo 'Site statique : aucun build nécessaire.'"
+
+[build.environment]
+  NPM_FLAGS = "--omit=dev"
+  PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD = "1"
+
 # Headers de sécurité et performance
 [[headers]]
   for = "/*"
