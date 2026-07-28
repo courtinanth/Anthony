@@ -2,7 +2,7 @@
 'use strict';
 
 /**
- * fix-internal-links.js — réécrit tous les liens internes en chemin absolu
+ * fix-internal-links.js : réécrit tous les liens internes en chemin absolu
  * sans extension.
  *
  *   ../audit-seo-bordeaux.html   ->  /audit-seo-bordeaux
@@ -78,7 +78,7 @@ function reecrire(lien, urlDuFichier) {
 
     // Une URL qui désigne un dossier doit garder son slash final : le canonical
     // de blog/index.html est « /blog/ », et « /blog » comme « /blog/ » répondent
-    // tous deux en 200. Sans ce rattrapage on recrée un duplicate — d'autant que
+    // tous deux en 200. Sans ce rattrapage on recrée un duplicate : d'autant que
     // path.posix.resolve() supprime le slash final de « ../blog/ ».
     if (
         !absolu.endsWith('/') &&

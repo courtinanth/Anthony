@@ -2,10 +2,10 @@
 'use strict';
 
 /**
- * build-redirects.js — génère le fichier _redirects de la phase 0.
+ * build-redirects.js : génère le fichier _redirects de la phase 0.
  *
  * Contenu, dans l'ordre d'évaluation de Netlify (première règle qui matche gagne) :
- *   1. 410 sur /templates/* et /build/*  — artefacts de build, aucune valeur SEO
+ *   1. 410 sur /templates/* et /build/*  : artefacts de build, aucune valeur SEO
  *   2. 301 des slugs cassés vers leur slug canonique, en deux formes :
  *      l'URL propre ET l'URL en .html, pour qu'aucune requête ne fasse deux sauts
  *   3. 301 explicites .html -> URL propre pour les pages hors villes/
@@ -83,8 +83,8 @@ const LARGEUR = Math.max(
 const col = (s) => s.padEnd(LARGEUR);
 
 lignes.push('# ============================================================');
-lignes.push('# anthony-courtin.com — redirections, phase 0 (assainissement)');
-lignes.push('# Généré par scripts/build-redirects.js — ne pas éditer à la main.');
+lignes.push('# anthony-courtin.com : redirections, phase 0 (assainissement)');
+lignes.push('# Généré par scripts/build-redirects.js : ne pas éditer à la main.');
 lignes.push('# Remplacé en phase 4 par _refonte/04-netlify-_redirects.txt.');
 lignes.push('# ============================================================');
 lignes.push('');

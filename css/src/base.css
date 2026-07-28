@@ -3,7 +3,7 @@
      Polices auto-hébergées.
      Aucun appel à fonts.googleapis.com : c'est une requête bloquante vers un
      tiers, un point de friction RGPD, et deux résolutions DNS de plus.
-     Sous-ensembles latin et latin-ext seulement — le reste (cyrillique, grec,
+     Sous-ensembles latin et latin-ext seulement : le reste (cyrillique, grec,
      vietnamien) ne sert pas à un site français.
      ========================================================================== */
 

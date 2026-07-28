@@ -2,7 +2,7 @@
 'use strict';
 
 /**
- * fix-iframe-titles.js — ajoute un attribut title aux iframes qui n'en ont pas.
+ * fix-iframe-titles.js : ajoute un attribut title aux iframes qui n'en ont pas.
  *
  * Les 700 iframes Google Maps du site n'ont aucun title. Un lecteur d'écran
  * annonce alors « cadre », sans dire de quoi il s'agit : c'est un échec
@@ -43,7 +43,9 @@ function libelle(balise) {
         if (q) {
             let lieu = decodeURIComponent(q.replace(/\+/g, ' ')).trim();
             lieu = lieu.replace(/^Mairie de\s+/i, '');
-            return `Carte Google Maps — ${lieu}`;
+            // Pas de tiret cadratin : la ponctuation du site n'en utilise
+            // aucun, et check-typo.js le refuserait.
+            return `Carte de ${lieu} sur Google Maps`;
         }
         return 'Carte Google Maps';
     }
@@ -60,14 +62,21 @@ for (const abs of fichiersHtml()) {
 
     // [\s\S] car six iframes sont écrites sur plusieurs lignes.
     const apres = avant.replace(/<iframe\b[\s\S]*?>/g, (balise) => {
-        if (/\stitle\s*=/.test(balise)) return balise;
         const texte = libelle(balise);
         if (!texte) {
-            sansLibelle.push(path.relative(L.RACINE, abs));
+            // Iframe non reconnue : on ne touche pas à un title existant.
+            if (!/\stitle\s*=/.test(balise)) sansLibelle.push(path.relative(L.RACINE, abs));
             return balise;
         }
+        // Le title est recalculé même s'il existe déjà : le script reste
+        // idempotent et corrige au passage les libellés d'une version
+        // antérieure.
+        const existant = (balise.match(/\stitle="([^"]*)"/) || [])[1];
+        if (existant === texte) return balise;
         compteur++;
-        // Insertion juste après « <iframe », avant les autres attributs.
+        if (existant !== undefined) {
+            return balise.replace(/\stitle="[^"]*"/, ` title="${texte}"`);
+        }
         return balise.replace(/^<iframe\b/, `<iframe title="${texte}"`);
     });
 

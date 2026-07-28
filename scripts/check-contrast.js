@@ -2,7 +2,7 @@
 'use strict';
 
 /**
- * check-contrast.js — vérifie toutes les paires texte/fond du design system,
+ * check-contrast.js : vérifie toutes les paires texte/fond du design system,
  * dans les deux thèmes, par calcul.
  *
  * Ce contrôle existe parce qu'une paire peut passer en mode clair et échouer
@@ -10,7 +10,7 @@
  * dont le fond servait aussi de couleur de texte (3,48:1 en sombre).
  *
  * Le script lit les tokens directement dans css/src/tokens.css et résout les
- * var() lui-même — aucun navigateur nécessaire, il tourne en une fraction de
+ * var() lui-même : aucun navigateur nécessaire, il tourne en une fraction de
  * seconde et peut donc bloquer chaque build.
  *
  * Usage :
@@ -135,7 +135,7 @@ if (enJson) {
                 `${marque} ${String(r.ratio).padStart(5)}  ${r.niveau.padEnd(6)}  ` +
                     `--${r.avant} sur --${r.arriere}`
             );
-            if (r.niveau === 'ÉCHEC') console.log(`        ${r.libelle} — ${r.valeurs}`);
+            if (r.niveau === 'ÉCHEC') console.log(`        ${r.libelle} : ${r.valeurs}`);
         }
     }
     console.log('');
@@ -146,8 +146,8 @@ if (enJson) {
     }
     console.log(
         echecs.length === 0
-            ? `CONTRASTES VERTS — ${resultats.length - ignores.length} paires vérifiées sur les deux thèmes.`
-            : `ÉCHEC — ${echecs.length} paires sous le seuil.`
+            ? `CONTRASTES VERTS : ${resultats.length - ignores.length} paires vérifiées sur les deux thèmes.`
+            : `ÉCHEC : ${echecs.length} paires sous le seuil.`
     );
 }
 

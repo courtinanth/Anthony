@@ -2,7 +2,7 @@
 'use strict';
 
 /**
- * check-targets.js — vérifie que les cibles interactives font au moins
+ * check-targets.js : vérifie que les cibles interactives font au moins
  * 44 × 44 px, exigence de la charte §7.
  *
  * Deux exemptions, toutes deux prévues par WCAG 2.5.8 :
@@ -94,9 +94,9 @@ const PAGES = ['/dev/styleguide'];
     if (enJson) {
         process.stdout.write(JSON.stringify({ mini: MINI, petites }, null, 2) + '\n');
     } else if (petites.length === 0) {
-        console.log(`CIBLES TACTILES OK — toutes ≥ ${MINI} × ${MINI} px, sur les deux thèmes.`);
+        console.log(`CIBLES TACTILES OK : toutes ≥ ${MINI} × ${MINI} px, sur les deux thèmes.`);
     } else {
-        console.log(`ÉCHEC — ${petites.length} cibles sous ${MINI} px :`);
+        console.log(`ÉCHEC : ${petites.length} cibles sous ${MINI} px :`);
         for (const p of petites) {
             console.log(`  ${p.theme}  ${p.tag}.${p.classe}  ${p.l}×${p.h}  « ${p.texte} »`);
         }

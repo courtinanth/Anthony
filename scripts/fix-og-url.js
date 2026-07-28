@@ -2,7 +2,7 @@
 'use strict';
 
 /**
- * fix-og-url.js — aligne og:url (et twitter:url si présent) sur le canonical.
+ * fix-og-url.js : aligne og:url (et twitter:url si présent) sur le canonical.
  *
  * Sur les pages de villes/, og:url valait l'URL du SILO et non celle de la page :
  * les 99 pages audit-seo-{ville} annonçaient toutes og:url=/audit-seo.

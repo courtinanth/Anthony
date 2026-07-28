@@ -43,7 +43,7 @@ node scripts/check-a11y.js
 ```
 
 Baseline mesurée en fin de phase 0, avant refonte graphique : 4 règles en échec,
-121 éléments sur 11 pages types — dont **84 violations de contraste** (`color-contrast`,
+121 éléments sur 11 pages types : dont **84 violations de contraste** (`color-contrast`,
 impact *serious*), présentes sur les 11 pages. C'est le chiffre que la phase 1 doit
 ramener à zéro.
 
@@ -68,7 +68,7 @@ arborescence qui n'existe plus (`templates/`, `admin/`, liens relatifs en `.html
 ## Design system (phase 1)
 
 Les sources CSS sont dans `css/src/`, une par couche. **`css/main.css` est
-généré — ne pas l'éditer.**
+généré : ne pas l'éditer.**
 
 ```bash
 node scripts/build-css.js

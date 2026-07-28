@@ -179,7 +179,7 @@ function getSummaryTable(cityName) {
                   <span class="table-tagline">${a.shortDesc}</span>
                 </td>
                 <td class="table-specialty">${a.specialty}</td>
-                <td class="table-location"><span class="table-loc-badge">${a.location || '—'}</span></td>
+                <td class="table-location"><span class="table-loc-badge">${a.location || '-'}</span></td>
               </tr>`;
     }).join('');
 }

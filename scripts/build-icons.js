@@ -2,7 +2,7 @@
 'use strict';
 
 /**
- * build-icons.js — assemble img/icons.svg, sprite unique référencé par <use>.
+ * build-icons.js : assemble img/icons.svg, sprite unique référencé par <use>.
  *
  * Remplace deux choses :
  *   - les emoji utilisés comme icônes de service (🔍 ⚙️ 🔗 📍 ✍️ 🎭), qui
@@ -101,7 +101,7 @@ if (manquantes.length) {
 // régler `stroke: currentColor` sur .c-icone.
 const sprite = [
     '<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">',
-    '<!-- Généré par scripts/build-icons.js — ne pas éditer. Icônes Lucide (ISC). -->',
+    '<!-- Généré par scripts/build-icons.js : ne pas éditer. Icônes Lucide (ISC). -->',
     ...symboles,
     '</svg>',
     '',

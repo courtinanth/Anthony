@@ -2,7 +2,7 @@
 'use strict';
 
 /**
- * check-a11y.js — audit d'accessibilité réel, via axe-core dans Chromium.
+ * check-a11y.js : audit d'accessibilité réel, via axe-core dans Chromium.
  *
  * Pourquoi un vrai navigateur : les violations qui comptent (contraste calculé,
  * nom accessible, ordre de focus, cibles tactiles) dépendent du rendu. Un

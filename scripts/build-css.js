@@ -2,10 +2,10 @@
 'use strict';
 
 /**
- * build-css.js — assemble css/src/*.css en un seul css/main.css.
+ * build-css.js : assemble css/src/*.css en un seul css/main.css.
  *
  * Pourquoi concaténer plutôt que @import : en CSS, @import est bloquant ET
- * sérialisé — le navigateur doit télécharger main.css, l'analyser, puis
+ * sérialisé : le navigateur doit télécharger main.css, l'analyser, puis
  * découvrir et télécharger chaque fichier importé, l'un après l'autre. Sur une
  * cible LCP < 2 s, ça coûte un aller-retour réseau par fichier. Un seul
  * fichier = une seule requête.
@@ -73,7 +73,7 @@ function developperModeSombre(css) {
  * dépendance : le besoin tient en trente lignes, et le CSS livré doit rester
  * lisible en cas de débogage (on garde les sauts de ligne entre règles).
  * L'analyse est caractère par caractère pour ne jamais toucher au contenu
- * d'une chaîne — un « /* » dans un content: ne doit pas ouvrir un commentaire.
+ * d'une chaîne : un « /* » dans un content: ne doit pas ouvrir un commentaire.
  */
 function alleger(css) {
     let out = '';
@@ -110,8 +110,8 @@ function alleger(css) {
 
 const entete = [
     '/* =========================================================================',
-    '   anthony-courtin.com — feuille de style unique',
-    '   GÉNÉRÉ par scripts/build-css.js — ne pas éditer.',
+    '   anthony-courtin.com : feuille de style unique',
+    '   GÉNÉRÉ par scripts/build-css.js : ne pas éditer.',
     '   Les sources sont dans css/src/, une par couche.',
     '   ========================================================================= */',
     '',

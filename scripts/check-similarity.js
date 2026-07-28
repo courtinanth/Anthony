@@ -2,7 +2,7 @@
 'use strict';
 
 /**
- * check-similarity.js — mesure la duplication entre les pages de villes/.
+ * check-similarity.js : mesure la duplication entre les pages de villes/.
  *
  * Similarité de Jaccard sur des shingles de 6 mots, calculée sur le CORPS de
  * page uniquement : header, nav, footer, scripts et styles sont retirés, sinon

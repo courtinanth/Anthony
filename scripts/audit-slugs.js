@@ -2,7 +2,7 @@
 'use strict';
 
 /**
- * audit-slugs.js — inventaire des slugs non conformes de villes/
+ * audit-slugs.js : inventaire des slugs non conformes de villes/
  *
  * Un slug est conforme s'il vaut slugify(nom de la ville), c'est-à-dire avec
  * translittération des accents (normalize('NFD')). L'ancienne implémentation
@@ -70,7 +70,7 @@ for (const fichier of L.fichiersVilles()) {
 }
 
 // Les variantes cassées jamais générées : pas de fichier à supprimer, mais
-// l'URL a pu être indexée par le passé — on les redirige quand même.
+// l'URL a pu être indexée par le passé : on les redirige quand même.
 const sansFichier = [];
 for (const [casse, info] of table) {
     const presente = aCorriger.some((e) => e.slug === casse);
@@ -125,7 +125,7 @@ if (enJson) {
     }
     if (inexpliques.length) {
         console.log('');
-        console.log('INEXPLIQUÉS — à traiter à la main :');
+        console.log('INEXPLIQUÉS : à traiter à la main :');
         for (const e of inexpliques) console.log(`  ${e.fichier} : ${e.raison}`);
     }
 }

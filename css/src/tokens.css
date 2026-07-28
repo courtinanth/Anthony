@@ -1,6 +1,6 @@
 @layer tokens {
   /* ==========================================================================
-     Tokens — anthony-courtin.com
+     Tokens : anthony-courtin.com
      Source de vérité : _refonte/02-CHARTE-GRAPHIQUE.md
      Toute valeur hexadécimale du site vit ici et nulle part ailleurs.
      Les ratios en commentaire sont calculés par scripts/check-contrast.js,
@@ -16,7 +16,7 @@
     --n-300: #CBC6BC;
     --n-400: #9C958A;   /* 2,8:1 sur --n-50 : état désactivé UNIQUEMENT.
                            Jamais de texte lisible, jamais de bordure de champ. */
-    --n-500: #6E675C;   /* 5,3:1 — plancher pour le texte secondaire */
+    --n-500: #6E675C;   /* 5,3:1 : plancher pour le texte secondaire */
     --n-700: #413C34;   /* 10,4:1 */
     --n-900: #1C1A16;   /* 16,5:1 */
     --n-950: #12100D;
@@ -28,8 +28,8 @@
                                L'--accent-500 prescrit par la charte n'y donne
                                que 2,95:1, en dessous du seuil AA. */
     --accent-500: #B3234D;  /* 6,4:1 sur blanc */
-    --accent-600: #8E1F3C;  /* 8,7:1 sur blanc — couleur primaire */
-    --accent-800: #5E1428;  /* 13,1:1 — état pressé */
+    --accent-600: #8E1F3C;  /* 8,7:1 sur blanc : couleur primaire */
+    --accent-800: #5E1428;  /* 13,1:1 : état pressé */
 
     /* --- Sémantiques, mode clair (ratios mesurés sur --n-50) --------------- */
     --sem-success: #1E6F5C;  /* 5,7:1 */
@@ -97,7 +97,7 @@
 
     /* Les breakpoints ne peuvent pas servir dans une media query : une custom
        property n'y est pas évaluée. Ils sont ici pour référence et repris en
-       dur dans layout.css — 40rem / 48rem / 64rem / 80rem. */
+       dur dans layout.css : 40rem / 48rem / 64rem / 80rem. */
     --bp-sm: 40rem;
     --bp-md: 48rem;
     --bp-lg: 64rem;
@@ -109,7 +109,7 @@
   }
 
   /* ==========================================================================
-     Rôles sémantiques — mode clair
+     Rôles sémantiques : mode clair
      Les composants n'utilisent QUE ces tokens-ci, jamais --n-* ni --accent-*
      en direct. C'est ce qui permet au mode sombre de tout remapper d'un bloc,
      sans réécrire une seule règle de composant.
@@ -129,7 +129,7 @@
 
     --bordure: var(--n-200);           /* séparateur décoratif */
     --bordure-forte: var(--n-300);     /* séparateur appuyé */
-    --bordure-champ: var(--n-500);     /* 5,3:1 — WCAG 1.4.11 exige 3:1 sur
+    --bordure-champ: var(--n-500);     /* 5,3:1 : WCAG 1.4.11 exige 3:1 sur
                                           une bordure porteuse de sens */
 
     /* --accent sert au TEXTE, aux liens, aux icônes et aux bordures.
@@ -163,7 +163,7 @@
   }
 
   /* ==========================================================================
-     Rôles sémantiques — mode sombre
+     Rôles sémantiques : mode sombre
      Le bloc ci-dessous est écrit UNE fois et dupliqué par scripts/build-css.js
      pour les deux sélecteurs, afin qu'ils ne puissent pas diverger :
        - @media (prefers-color-scheme: dark) :root:not([data-theme="light"])

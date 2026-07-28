@@ -1,6 +1,6 @@
 @layer components {
   /* ==========================================================================
-     Composants — BEM allégé : .c-bloc, .c-bloc__element, .c-bloc--variante
+     Composants, en BEM allégé : .c-bloc, .c-bloc__element, .c-bloc--variante
      Aucune valeur hexadécimale ici : tout passe par les rôles de tokens.css.
      ========================================================================== */
 

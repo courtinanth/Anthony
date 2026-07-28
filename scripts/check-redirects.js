@@ -2,7 +2,7 @@
 'use strict';
 
 /**
- * check-redirects.js — vérifie le fichier _redirects contre un serveur réel.
+ * check-redirects.js : vérifie le fichier _redirects contre un serveur réel.
  *
  * Contrôles, tous bloquants :
  *   1. chaque source répond bien avec le statut annoncé (301 ou 410)

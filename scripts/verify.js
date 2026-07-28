@@ -2,7 +2,7 @@
 'use strict';
 
 /**
- * verify.js — contrôle de fin de phase 0.
+ * verify.js : contrôle de fin de phase 0.
  *
  * Les cinq contrôles du brief, tous bloquants :
  *   1. zéro href interne se terminant par .html
@@ -121,6 +121,23 @@ const pages = fichiersHtml();
     controle('4. templates/ vide, 6 sources dans build/templates/', echecs);
 }
 
+// --- 6. aucun tiret cadratin ---
+{
+    const cadratin = String.fromCharCode(0x2014);
+    const echecs = [];
+    for (const abs of pages) {
+        const contenu = fs.readFileSync(abs, 'utf8');
+        let i = -1;
+        while ((i = contenu.indexOf(cadratin, i + 1)) !== -1) {
+            echecs.push({
+                fichier: rel(abs),
+                extrait: contenu.slice(Math.max(0, i - 40), i + 40).replace(/\s+/g, ' ').trim(),
+            });
+        }
+    }
+    controle('6. aucun tiret cadratin dans les pages', echecs);
+}
+
 // --- 5. toutes les URL des sitemaps répondent en 200 ---
 (async () => {
     const urls = new Set();
@@ -168,7 +185,7 @@ const pages = fichiersHtml();
     for (const r of resultats) {
         if (r.ignore) {
             console.log(`  IGNORÉ  ${r.nom}`);
-            console.log(`          serveur injoignable sur ${BASE} — lancez netlify dev`);
+            console.log(`          serveur injoignable sur ${BASE} : lancez netlify dev`);
             if (strict) bloquants++;
             continue;
         }
@@ -176,7 +193,7 @@ const pages = fichiersHtml();
             console.log(`  OK      ${r.nom}`);
         } else {
             bloquants++;
-            console.log(`  ÉCHEC   ${r.nom} — ${r.echecs.length} cas`);
+            console.log(`  ÉCHEC   ${r.nom} : ${r.echecs.length} cas`);
             for (const e of r.echecs.slice(0, 8)) console.log(`            ${r.detail(e)}`);
             if (r.echecs.length > 8) console.log(`            … et ${r.echecs.length - 8} autres`);
         }
@@ -184,8 +201,8 @@ const pages = fichiersHtml();
     console.log('');
     console.log(
         bloquants === 0
-            ? 'RAPPORT VERT — phase 0 conforme.'
-            : `RAPPORT ROUGE — ${bloquants} contrôle(s) en échec.`
+            ? 'RAPPORT VERT : phase 0 conforme.'
+            : `RAPPORT ROUGE : ${bloquants} contrôle(s) en échec.`
     );
     process.exit(bloquants ? 1 : 0);
 })();

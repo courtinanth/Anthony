@@ -1,4 +1,4 @@
-# Configuration Netlify — anthony-courtin.com
+# Configuration Netlify : anthony-courtin.com
 #
 # Les redirections vivent toutes dans _redirects (généré par
 # scripts/build-redirects.js). Netlify évalue les règles de netlify.toml AVANT
@@ -23,7 +23,7 @@
     # Voir la note sur la CSP en bas de fichier.
 
     # HSTS : force HTTPS pendant 2 ans, sous-domaines inclus.
-    # preload n'est pas activé — c'est une inscription difficile à annuler,
+    # preload n'est pas activé : c'est une inscription difficile à annuler,
     # à décider séparément.
     Strict-Transport-Security = "max-age=63072000; includeSubDomains"
 
