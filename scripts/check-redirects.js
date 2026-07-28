@@ -28,7 +28,17 @@ const lireArg = (nom, defaut) => {
 };
 const BASE = lireArg('--base', 'http://localhost:8888').replace(/\/$/, '');
 const enJson = args.includes('--json');
-const CONCURRENCE = 24;
+
+// Contre un serveur local on peut y aller franchement. Contre un site en
+// production, non : lancé à 24 requêtes simultanées sur anthony-courtin.com,
+// ce script s'est fait répondre 403 sur 228 URL, ce qui ressemble à un échec
+// de redirection alors que c'est une limitation de débit. On ralentit donc
+// dès que la cible n'est pas localhost.
+const enLocal = /^https?:\/\/(localhost|127\.0\.0\.1)/.test(BASE);
+const CONCURRENCE = enLocal ? 24 : 3;
+const PAUSE_LOT = enLocal ? 0 : 400;
+
+const dormir = (ms) => (ms ? new Promise((r) => setTimeout(r, ms)) : Promise.resolve());
 
 /** Parse _redirects en ignorant commentaires, lignes vides et wildcards. */
 function lireRegles() {
@@ -79,6 +89,7 @@ async function parLots(items, taille, fn) {
     const out = [];
     for (let i = 0; i < items.length; i += taille) {
         out.push(...(await Promise.all(items.slice(i, i + taille).map(fn))));
+        if (i + taille < items.length) await dormir(PAUSE_LOT);
     }
     return out;
 }
@@ -103,7 +114,13 @@ async function parLots(items, taille, fn) {
         return { regle: r, rep };
     });
     for (const { regle, rep } of resSources) {
-        if (rep.statut !== regle.statut) {
+        if (rep.statut === 403) {
+            erreurs.push({
+                type: 'limitation-de-debit',
+                source: regle.source,
+                aide: '403 : le serveur limite le debit, ce n\u2019est pas un echec de redirection. Relancer avec moins de concurrence.',
+            });
+        } else if (rep.statut !== regle.statut) {
             erreurs.push({
                 type: 'statut-source',
                 source: regle.source,
