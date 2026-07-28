@@ -1,0 +1,24 @@
+{
+  "name": "anthony",
+  "version": "1.0.0",
+  "description": "",
+  "main": "add-agences-footer-link.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/courtinanth/Anthony.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/courtinanth/Anthony/issues"
+  },
+  "homepage": "https://github.com/courtinanth/Anthony#readme",
+  "devDependencies": {
+    "netlify-cli": "^27.0.1"
+  }
+}

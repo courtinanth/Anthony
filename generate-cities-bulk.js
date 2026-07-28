@@ -55,7 +55,7 @@ function getZoneLinks(currentCity, allCities, currentServiceSlug) {
 }
 
 const templates = {};
-const templateDir = path.join(__dirname, 'templates');
+const templateDir = path.join(__dirname, 'build', 'templates');
 const serviceFiles = {
     'audit-seo': 'audit-seo.html',
     'netlinking': 'netlinking.html',
@@ -126,6 +126,19 @@ function generate() {
             // 4. CANONICAL & JSON-LD
             const cleanUrl = getCleanUrl(service.slug, citySlug);
             content = content.replace(/<link rel="canonical" href=".*">/, `<link rel="canonical" href="${cleanUrl}">`);
+
+            // og:url doit suivre le canonical. Sans cette ligne, la valeur du
+            // template ("/audit-seo") était recopiée sur les 99 pages du silo :
+            // un partage social de n'importe quelle page ville pointait vers la
+            // page de service. C'est ce bug qui a produit les 594 og:url faux.
+            content = content.replace(
+                /<meta property="og:url" content=".*">/,
+                `<meta property="og:url" content="${cleanUrl}">`
+            );
+            content = content.replace(
+                /<meta (?:property|name)="twitter:url" content=".*">/,
+                `<meta property="twitter:url" content="${cleanUrl}">`
+            );
 
             // 5. MAP INJECTION
             // Look for <footer class="footer">, insert map before <section class="related-services">

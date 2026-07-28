@@ -4,19 +4,13 @@
 User-agent: *
 Allow: /
 
-# Bloquer l'accès aux pages d'administration
-Disallow: /admin/
-Disallow: /admin/login.html
-Disallow: /admin/index.html
-Disallow: /admin/editor.html
-Disallow: /admin/articles.html
-Disallow: /admin/pages.html
-Disallow: /admin/users.html
-Disallow: /admin/redirects.html
-Disallow: /admin/css/
-Disallow: /admin/js/
 Disallow: /mentions-legales
 Disallow: /confidentialite
+
+# Note : /templates/ et /build/ ne sont volontairement pas bloqués ici.
+# Ils répondent en 410 (voir _redirects) et Googlebot doit pouvoir constater
+# cette suppression pour désindexer les 594 pages fantômes. Un Disallow
+# l'en empêcherait.
 
 # Sitemap
 Sitemap: https://anthony-courtin.com/sitemap.xml

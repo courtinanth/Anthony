@@ -1,19 +1,13 @@
-# Configuration Netlify pour URLs propres
-
-# Redirections - URLs propres sans .html
-[[redirects]]
-  from = "/*.html"
-  to = "/:splat"
-  status = 301
-  force = false
-
-# Servir les pages sans extension
-[[redirects]]
-  from = "/*"
-  to = "/:splat.html"
-  status = 200
-  force = false
-  conditions = { RequestPath = { Exists = false } }
+# Configuration Netlify — anthony-courtin.com
+#
+# Les redirections vivent toutes dans _redirects (généré par
+# scripts/build-redirects.js). Netlify évalue les règles de netlify.toml AVANT
+# celles de _redirects : garder des 301 ici les ferait passer devant les
+# redirections de slugs et créerait des chaînes. Ce fichier ne porte donc plus
+# que les en-têtes.
+#
+# Les URL propres sans extension sont servies nativement par Netlify
+# (un fichier /foo.html répond sur /foo) : aucune règle n'est nécessaire.
 
 # Headers de sécurité et performance
 [[headers]]

@@ -21,3 +21,7 @@ node_modules/
 
 # Fichier de hash temporaire
 hash.txt
+
+# Local Netlify folder
+.netlify
+deno.lock
