@@ -82,9 +82,10 @@
       panels=[].slice.call(document.querySelectorAll('.panel'));
   tabs.forEach(function(t,idx){
     t.addEventListener('click',function(){
-      tabs.forEach(function(x){x.classList.remove('active')});
+      tabs.forEach(function(x){x.classList.remove('active');x.setAttribute('aria-selected','false')});
       panels.forEach(function(x){x.classList.remove('active')});
       t.classList.add('active');
+      t.setAttribute('aria-selected','true');
       if(panels[idx]) panels[idx].classList.add('active');
     });
   });

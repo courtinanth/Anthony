@@ -1,11 +1,10 @@
 # robots.txt : anthony-courtin.com
 # Site ouvert aux moteurs de recherche ET aux crawlers IA.
 
+# Les pages legales et /merci portent une meta noindex : inutile (et
+# contre-productif) de les bloquer ici, le crawler doit pouvoir lire la meta.
 User-agent: *
 Allow: /
-Disallow: /mentions-legales
-Disallow: /confidentialite
-Disallow: /merci
 
 # Crawlers IA : explicitement bienvenus
 User-agent: GPTBot

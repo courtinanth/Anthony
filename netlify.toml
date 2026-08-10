@@ -77,16 +77,16 @@
     Cache-Control = "public, max-age=31536000, immutable"
 
 # ---------------------------------------------------------------------------
-# Content-Security-Policy : volontairement absente en phase 0.
+# Content-Security-Policy : activée avec le site v2 (août 2026).
 #
-# Une CSP utile doit être stricte. Or le site charge aujourd'hui :
-#   - fonts.googleapis.com et fonts.gstatic.com (polices)
-#   - maps.google.com dans 694 iframes
-#   - widgets.sociablekit.com sur /linkedin-posts
-#   - des <style> et attributs style inline
-#
-# Une CSP couvrant tout ça serait si permissive qu'elle ne protégerait de rien,
-# et une CSP stricte casserait le site. La phase 1 supprime ces trois tiers
-# (polices auto-hébergées, Maps remplacé par une image statique) : c'est à ce
-# moment qu'une CSP stricte devient à la fois possible et utile.
+# Le site v2 n'a plus ni iframes Maps ni widget SociableKit. Tiers restants :
+#   - fonts.googleapis.com (CSS des polices) et fonts.gstatic.com (fichiers)
+#   - formsubmit.co (cible du formulaire de contact -> form-action)
+# Les scripts sont tous auto-hébergés (aucun inline exécutable : le générateur
+# S·M·T·F du blog a été externalisé dans /js/smtf-tool.js).
+# 'unsafe-inline' reste nécessaire pour style-src : attributs style inline.
 # ---------------------------------------------------------------------------
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self'; form-action 'self' https://formsubmit.co; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"

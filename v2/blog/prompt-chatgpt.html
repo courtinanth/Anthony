@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Prompt ChatGPT : arrêtez d'en écrire (faites ça à la place)</title>
-<meta name="description" content="Le prompt parfait n'existe plus. Ce qui change tout, c'est le contexte que vous donnez avant de demander. La méthode S·M·T·F, un générateur gratuit et 5 erreurs à éviter.">
+<meta name="description" content="Le prompt parfait n'existe plus : ce qui change tout, c'est le contexte. La méthode S·M·T·F, un générateur gratuit et les 5 erreurs à éviter.">
 <link rel="canonical" href="https://anthony-courtin.com/blog/prompt-chatgpt">
 <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
@@ -455,7 +455,7 @@ avant de rédiger.</code></pre>
           <h2>Votre équipe utilise l'IA à 10 % de ce qu'elle pourrait</h2>
           <p>Une journée de formation, vos vrais dossiers, vos vrais outils. On repart avec des méthodes qui tiennent le lundi matin suivant.</p>
         </div>
-        <a class="btn btn-lime" href="/formation-ia-entreprise">Voir la formation <span class="ar">→</span></a>
+        <a class="btn btn-lime" href="/contact">Discuter de votre projet <span class="ar">→</span></a>
       </div>
 
       <!-- ================= AUTEUR ================= -->
@@ -622,68 +622,7 @@ avant de rédiger.</code></pre>
 <script src="/js/blog-article.js" defer></script>
 
 <!-- Outil interactif propre à cet article -->
-<script>
-(function(){
-  var ids=['f-sit','f-mat','f-tache','f-livrable','f-long','f-interdits'];
-  var out=document.getElementById('smtf-out');
-  if(!out) return;
-  var ton='professionnel et direct';
-
-  function val(id){var e=document.getElementById(id);return e?e.value.trim():''}
-
-  function build(){
-    var s=val('f-sit'), m=val('f-mat'), t=val('f-tache'),
-        liv=val('f-livrable'), lg=val('f-long'), no=val('f-interdits');
-
-    var txt='CONTEXTE\n'+(s||'[à compléter : qui vous êtes, à qui vous parlez, pourquoi maintenant]')+
-      '\n\nMATÉRIAUX\n'+(m||'[à compléter : documents joints, exemples de votre style, ce qui a déjà été tenté]')+
-      '\n\nTÂCHE\n'+(t?t.charAt(0).toUpperCase()+t.slice(1):'[à compléter : un seul verbe d\'action]')+'.'+
-      '\n\nFORMAT\n'+liv.charAt(0).toUpperCase()+liv.slice(1)+', '+lg+'. Ton '+ton+'.'+
-      (no?' À éviter : '+no+'.':'')+
-      '\n\nSi une information te manque pour bien faire, pose-moi la question avant de rédiger.';
-
-    out.textContent=txt;
-
-    // Score de complétude : les matériaux pèsent le plus lourd, c'est le propos de l'article
-    var sc=0;
-    if(s.length>40) sc+=25; else if(s) sc+=12;
-    if(m.length>40) sc+=40; else if(m) sc+=20;
-    if(t) sc+=20;
-    if(liv&&lg) sc+=10;
-    if(no) sc+=5;
-    document.getElementById('smtf-score').textContent=sc;
-    document.getElementById('smtf-meter').style.width=sc+'%';
-
-    var enc=encodeURIComponent(txt);
-    document.getElementById('smtf-gpt').href='https://chatgpt.com/?q='+enc;
-    document.getElementById('smtf-claude').href='https://claude.ai/new?q='+enc;
-  }
-
-  ids.forEach(function(id){
-    var e=document.getElementById(id);
-    if(e) e.addEventListener('input',build);
-  });
-
-  var chips=document.getElementById('chips-ton');
-  if(chips) chips.addEventListener('click',function(e){
-    var b=e.target.closest('.chip'); if(!b) return;
-    chips.querySelectorAll('.chip').forEach(function(c){c.classList.remove('on')});
-    b.classList.add('on'); ton=b.dataset.v; build();
-  });
-
-  var copy=document.getElementById('smtf-copy');
-  if(copy) copy.addEventListener('click',function(){
-    var done=function(){
-      copy.textContent='Copié ✓'; copy.classList.add('ok');
-      setTimeout(function(){copy.textContent='Copier le contexte';copy.classList.remove('ok')},1800);
-    };
-    if(navigator.clipboard) navigator.clipboard.writeText(out.textContent).then(done,function(){});
-    else{var i=document.createElement('textarea');i.value=out.textContent;document.body.appendChild(i);i.select();document.execCommand('copy');i.remove();done()}
-  });
-
-  build();
-})();
-</script>
+<script src="/js/smtf-tool.js" defer></script>
 
 </body>
 </html>

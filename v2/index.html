@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Consultant SEO, GEO &amp; IA partout en France | Anthony Courtin</title>
 <meta name="description" content="Consultant SEO, GEO et automatisation IA partout en France. Soyez trouvé sur Google, cité par ChatGPT et Perplexity, et automatisez vos process marketing.">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <link rel="canonical" href="https://anthony-courtin.com/">
 <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
@@ -90,6 +91,7 @@
               <a class="mega-link" href="/pipeline-contenu"><span class="mega-ico">📦</span><span><b>Pipelines de contenu</b><span>De la veille à la publication.</span></span></a>
             </div>
             <a class="mega-feat" href="/realisations">
+              <img class="feat-bg" src="/images/visuels/card-realisations-800.avif" alt="" width="800" height="447" loading="lazy" decoding="async">
               <em>Cas clients</em>
               <b>Des résultats mesurés, pas des promesses</b>
               <span>Réalisations SEO, GEO &amp; IA</span>
@@ -110,6 +112,7 @@
               <a class="mega-link" href="/tarifs"><span class="mega-ico">💶</span><span><b>Tarifs</b><span>Formules claires, sans surprise.</span></span></a>
             </div>
             <a class="mega-feat" href="/blog/">
+              <img class="feat-bg" src="/images/visuels/methode-strategie-800.avif" alt="" width="800" height="447" loading="lazy" decoding="async">
               <em>Sur le blog</em>
               <b>Guides SEO, GEO et automatisation IA</b>
               <span>Retours d'expérience concrets</span>
@@ -278,14 +281,14 @@
       <div><span class="eyebrow">Méthode</span><h2>Comment je travaille avec vous</h2></div>
       <p>Un process en 4 étapes, transparent du premier appel au reporting.</p>
     </div>
-    <div class="tabs" role="tablist">
-      <button class="tab active" data-tab="0">01 · Audit</button>
-      <button class="tab" data-tab="1">02 · Stratégie</button>
-      <button class="tab" data-tab="2">03 · Exécution</button>
-      <button class="tab" data-tab="3">04 · Mesure</button>
+    <div class="tabs" role="tablist" aria-label="Étapes de la méthode">
+      <button class="tab active" data-tab="0" role="tab" id="tab-0" aria-selected="true" aria-controls="panel-0">01 · Audit</button>
+      <button class="tab" data-tab="1" role="tab" id="tab-1" aria-selected="false" aria-controls="panel-1">02 · Stratégie</button>
+      <button class="tab" data-tab="2" role="tab" id="tab-2" aria-selected="false" aria-controls="panel-2">03 · Exécution</button>
+      <button class="tab" data-tab="3" role="tab" id="tab-3" aria-selected="false" aria-controls="panel-3">04 · Mesure</button>
     </div>
     <div class="tab-panels">
-      <div class="panel active">
+      <div class="panel active" role="tabpanel" id="panel-0" aria-labelledby="tab-0">
         <div>
           <h3>Je regarde tout, je ne suppose rien.</h3>
           <p>Avant de toucher quoi que ce soit, je mesure : votre SEO, votre présence dans les réponses des IA, vos process manuels.</p>
@@ -297,7 +300,7 @@
         </div>
         <div class="panel-visual"><picture><source type="image/avif" srcset="/images/visuels/methode-audit-800.avif 800w, /images/visuels/methode-audit-1376.avif 1376w" sizes="(max-width:960px) 100vw, 50vw"><img src="/images/visuels/methode-audit-1376.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture><span class="pv-shade"></span><b>Semaine 1 à 2</b></div>
       </div>
-      <div class="panel">
+      <div class="panel" role="tabpanel" id="panel-1" aria-labelledby="tab-1">
         <div>
           <h3>Un plan priorisé par impact.</h3>
           <p>Pas de roadmap de 40 pages : des actions classées par effort et par gain attendu, validées ensemble.</p>
@@ -309,7 +312,7 @@
         </div>
         <div class="panel-visual"><picture><source type="image/avif" srcset="/images/visuels/methode-strategie-800.avif 800w, /images/visuels/methode-strategie-1376.avif 1376w" sizes="(max-width:960px) 100vw, 50vw"><img src="/images/visuels/methode-strategie-1376.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture><span class="pv-shade"></span><b>Semaine 3</b></div>
       </div>
-      <div class="panel">
+      <div class="panel" role="tabpanel" id="panel-2" aria-labelledby="tab-2">
         <div>
           <h3>J'exécute, vous suivez en temps réel.</h3>
           <p>Optimisations, contenus, netlinking, mise en place des agents IA. Vous voyez tout avancer, sans jargon.</p>
@@ -321,7 +324,7 @@
         </div>
         <div class="panel-visual"><picture><source type="image/avif" srcset="/images/visuels/methode-execution-800.avif 800w, /images/visuels/methode-execution-1376.avif 1376w" sizes="(max-width:960px) 100vw, 50vw"><img src="/images/visuels/methode-execution-1376.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture><span class="pv-shade"></span><b>En continu</b></div>
       </div>
-      <div class="panel">
+      <div class="panel" role="tabpanel" id="panel-3" aria-labelledby="tab-3">
         <div>
           <h3>Des chiffres, pas des impressions.</h3>
           <p>Trafic, positions, citations IA, heures gagnées : un reporting clair qui relie chaque action à son résultat.</p>
