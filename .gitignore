@@ -29,3 +29,5 @@ deno.lock
 # Documents de travail locaux (plan éditorial, notes) : jamais commités
 _refonte/08-PLAN-EDITORIAL-BLOG.md
 _refonte/plan-editorial-blog.html
+_refonte/programmation-40-articles.csv
+_refonte/PROMPT-PRODUCTION-ARTICLES.md

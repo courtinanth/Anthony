@@ -56,15 +56,21 @@
     # Isole le contexte de navigation des fenêtres ouvertes par le site.
     Cross-Origin-Opener-Policy = "same-origin"
 
+# CSS et JS : ces fichiers changent SANS changer de nom (main.css, site.js).
+# "immutable 1 an" ferait garder aux navigateurs l'ancienne version un an
+# apres chaque deploiement (HTML neuf + CSS vieux = site casse). On laisse
+# l'ETag faire son travail : revalidation a chaque visite, 304 si inchange.
+# En complement, les references portent un ?v=N a incrementer a chaque
+# modification de CSS/JS pour forcer le rechargement des caches existants.
 [[headers]]
   for = "/css/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=0, must-revalidate"
 
 [[headers]]
   for = "/js/*"
   [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
+    Cache-Control = "public, max-age=0, must-revalidate"
 
 [[headers]]
   for = "/images/*"
