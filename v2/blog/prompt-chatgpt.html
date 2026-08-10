@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prompt ChatGPT : arrêtez d'en écrire (faites ça à la place)</title>
+<meta name="description" content="Le prompt parfait n'existe plus. Ce qui change tout, c'est le contexte que vous donnez avant de demander. La méthode S·M·T·F, un générateur gratuit et 5 erreurs à éviter.">
+<link rel="canonical" href="https://anthony-courtin.com/blog/prompt-chatgpt">
+<link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script src="/js/favicon-anim.js" defer></script>
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Prompt ChatGPT : arrêtez d'en écrire (faites ça à la place)">
+<meta property="og:description" content="Le prompt parfait n'existe plus. Ce qui change tout, c'est le contexte. La méthode S·M·T·F et un générateur gratuit.">
+<meta property="og:url" content="https://anthony-courtin.com/blog/prompt-chatgpt">
+<meta property="og:image" content="https://anthony-courtin.com/images/blog/prompt-chatgpt.jpg">
+<meta property="og:locale" content="fr_FR">
+<meta property="article:published_time" content="2026-08-10">
+<meta property="article:modified_time" content="2026-08-10">
+<meta property="article:author" content="Anthony Courtin">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/main.css">
+<link rel="stylesheet" href="/css/blog-article.css">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"BlogPosting",
+      "@id":"https://anthony-courtin.com/blog/prompt-chatgpt#article",
+      "headline":"Prompt ChatGPT : arrêtez d'en écrire (faites ça à la place)",
+      "description":"Le prompt parfait n'existe plus. Ce qui change tout, c'est le contexte que vous donnez avant de demander. La méthode S·M·T·F, un générateur gratuit et 5 erreurs à éviter.",
+      "inLanguage":"fr-FR",
+      "datePublished":"2026-08-10",
+      "dateModified":"2026-08-10",
+      "image":"https://anthony-courtin.com/images/blog/prompt-chatgpt.jpg",
+      "wordCount":2100,
+      "mainEntityOfPage":{"@type":"WebPage","@id":"https://anthony-courtin.com/blog/prompt-chatgpt"},
+      "author":{"@id":"https://anthony-courtin.com/#anthony"},
+      "publisher":{"@id":"https://anthony-courtin.com/#anthony"},
+      "about":[{"@type":"Thing","name":"Prompt engineering"},{"@type":"Thing","name":"ChatGPT"}]
+    },
+    {
+      "@type":"Person",
+      "@id":"https://anthony-courtin.com/#anthony",
+      "name":"Anthony Courtin",
+      "jobTitle":"Consultant SEO, GEO et automatisation IA",
+      "url":"https://anthony-courtin.com/a-propos",
+      "image":"https://anthony-courtin.com/images/anthony.avif",
+      "sameAs":["https://www.linkedin.com/in/anthony-courtin/"]
+    },
+    {
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Accueil","item":"https://anthony-courtin.com/"},
+        {"@type":"ListItem","position":2,"name":"Blog","item":"https://anthony-courtin.com/blog/"},
+        {"@type":"ListItem","position":3,"name":"Utiliser l'IA","item":"https://anthony-courtin.com/blog/utiliser-lia/"},
+        {"@type":"ListItem","position":4,"name":"Prompt ChatGPT"}
+      ]
+    },
+    {
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"Le prompt engineering est-il mort ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Non, mais il a changé de nature. Les formules magiques (« agis comme un expert… ») n'apportent plus grand-chose sur les modèles récents. Ce qui fait la différence aujourd'hui, c'est le contexte fourni : documents, exemples de votre propre travail, contraintes réelles."}},
+        {"@type":"Question","name":"Quelle longueur doit faire un bon prompt ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Il n'y a pas de longueur idéale. Un prompt de trois lignes accompagné du bon document bat un prompt de deux pages sans document. Visez la complétude du contexte, pas le nombre de mots."}},
+        {"@type":"Question","name":"Faut-il donner un rôle à l'IA (« tu es un expert en… ») ?",
+         "acceptedAnswer":{"@type":"Answer","text":"L'effet est aujourd'hui marginal sur la qualité du raisonnement, mais il reste utile pour cadrer le vocabulaire et le niveau de langue. Gardez-le en une ligne, ne construisez pas votre prompt autour."}},
+        {"@type":"Question","name":"Est-ce que la méthode fonctionne avec Claude, Gemini ou Le Chat ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Oui. La méthode S·M·T·F décrit ce que vous fournissez, pas une syntaxe propriétaire. Elle fonctionne à l'identique sur ChatGPT, Claude, Gemini, Perplexity et Mistral."}},
+        {"@type":"Question","name":"Faut-il payer un abonnement pour que ça marche ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Non pour la méthode elle-même. En revanche, les versions gratuites limitent souvent la taille des documents que vous pouvez joindre, ce qui bride justement la partie « matériaux »."}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+<div id="read-progress"></div>
+
+<!-- ================= HEADER (identique au reste du site v2) ================= -->
+<header class="site">
+  <div class="nav-shell">
+    <nav class="main" aria-label="Navigation principale">
+      <a class="logo" href="/"><img src="/images/logo-transparent-cream.svg" alt="anthony courtin" width="86" height="42"></a>
+      <div class="nav-links">
+        <div class="nav-item"><a href="/seo">SEO</a></div>
+        <div class="nav-item"><a href="/geo">GEO, visibilité IA</a></div>
+        <div class="nav-item"><a href="/automatisation-ia">Automatisation IA</a></div>
+        <div class="nav-item"><a href="/blog/">Blog</a></div>
+        <div class="nav-item"><a href="/tarifs">Tarifs</a></div>
+      </div>
+      <button class="burger" id="burger" type="button" aria-label="Menu">☰</button>
+      <a class="nav-cta" href="/contact">Travailler avec moi</a>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="/seo">SEO</a>
+        <a href="/geo">GEO, visibilité IA</a>
+        <a href="/automatisation-ia">Automatisation IA</a>
+        <a href="/blog/">Blog</a>
+        <a href="/tarifs">Tarifs</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= EN-TÊTE D'ARTICLE ================= -->
+<section class="art-top">
+  <div class="wrap">
+    <nav class="crumb" aria-label="Fil d'Ariane">
+      <a href="/">Accueil</a><span aria-hidden="true">/</span>
+      <a href="/blog/">Blog</a><span aria-hidden="true">/</span>
+      <a href="/blog/utiliser-lia/">Utiliser l'IA</a><span aria-hidden="true">/</span>
+      <span>Prompt ChatGPT</span>
+    </nav>
+
+    <span class="art-cat">Utiliser l'IA</span>
+    <h1 class="art-title">Prompt ChatGPT : arrêtez d'en écrire</h1>
+    <p class="art-lede">On vous a appris à écrire des prompts. C'est déjà dépassé. Ce qui fait la différence aujourd'hui, c'est ce que vous donnez à lire à l'IA <em>avant</em> de lui demander quoi que ce soit.</p>
+
+    <div class="art-metaline">
+      <span class="who">
+        <img src="/images/anthony.avif" alt="" width="38" height="38" loading="lazy">
+        Anthony Courtin
+      </span>
+      <span class="dot" aria-hidden="true">·</span>
+      <time datetime="2026-08-10">10 août 2026</time>
+      <span class="dot" aria-hidden="true">·</span>
+      <span>9 min de lecture</span>
+      <span class="dot" aria-hidden="true">·</span>
+      <span>Mis à jour le <time datetime="2026-08-10">10 août 2026</time></span>
+    </div>
+
+    <!-- Boutons "Résumer avec" : les href sont construits par blog-article.js -->
+    <div class="ai-actions">
+      <span class="ai-actions__title">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>
+        Résumer avec
+      </span>
+      <ul class="ai-actions__list">
+        <li><a class="ai-btn" data-ai="chatgpt" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec ChatGPT">ChatGPT</a></li>
+        <li><a class="ai-btn" data-ai="claude" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Claude">Claude</a></li>
+        <li><a class="ai-btn" data-ai="perplexity" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Perplexity">Perplexity</a></li>
+        <li><a class="ai-btn" data-ai="gemini" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Gemini">Gemini</a></li>
+        <li><a class="ai-btn" data-ai="mistral" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Le Chat de Mistral">Le Chat</a></li>
+        <li><a class="ai-btn" data-ai="grok" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Grok">Grok</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GRILLE 3 COLONNES ================= -->
+<div class="art-layout">
+
+  <!-- ---------- COLONNE GAUCHE : sommaire + partage ---------- -->
+  <aside class="rail rail-left">
+    <details class="toc-box" open>
+      <summary><span class="rail-title">Sommaire</span><span class="toc-chevron" aria-hidden="true"></span></summary>
+      <nav class="toc" id="toc" aria-label="Sommaire de l'article">
+        <p class="toc-empty">Chargement…</p>
+      </nav>
+    </details>
+
+    <div class="share-box">
+      <p class="rail-title">Partager</p>
+      <ul class="share">
+        <li><a class="share-btn share-linkedin" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur LinkedIn"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56z"/></svg></a></li>
+        <li><a class="share-btn share-x" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur X"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.96 6.82H1.68l7.73-8.84L1.25 2.25h6.83l4.71 6.23zm-1.16 17.52h1.83L7.08 4.13H5.12z"/></svg></a></li>
+        <li><a class="share-btn share-whatsapp" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur WhatsApp"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m5.8 14.16c-.25.69-1.43 1.31-1.98 1.4-.53.08-1.19.11-1.92-.12-.44-.14-1.01-.33-1.74-.64-3.06-1.32-5.06-4.4-5.21-4.6-.15-.2-1.25-1.66-1.25-3.16s.79-2.25 1.07-2.55c.28-.31.61-.38.81-.38h.58c.19 0 .44-.07.69.53.25.61.86 2.11.94 2.26.08.15.13.33.02.53-.1.2-.16.33-.31.5l-.46.54c-.15.15-.31.32-.13.63.18.31.79 1.3 1.69 2.11 1.16 1.03 2.14 1.35 2.45 1.5.31.15.49.13.67-.08.18-.2.77-.9.98-1.21.2-.31.41-.26.69-.15.28.1 1.78.84 2.09.99.31.15.51.23.59.36.08.13.08.74-.17 1.44"/></svg></a></li>
+        <li><a class="share-btn share-email" href="#" rel="nofollow" aria-label="Partager par e-mail"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m0 4-8 5-8-5V6l8 5 8-5z"/></svg></a></li>
+        <li><button class="share-btn share-copy" type="button" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2m0 16H8V7h11z"/></svg></button></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- ---------- COLONNE CENTRALE : le contenu ---------- -->
+  <div class="art-main">
+
+    <!-- Résumé IA version mobile : rendu côté serveur, donc lisible par Google et les LLM -->
+    <div class="ai-box ai-box-mobile">
+      <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
+      <p class="ai-text">Les formules de prompt n'apportent presque plus rien sur les modèles récents. Ce qui change le résultat, c'est le contexte : la situation, les documents, la tâche et le format attendu. Méthode S·M·T·F, générateur intégré et cinq erreurs de contexte à corriger.</p>
+      <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
+    </div>
+
+    <article class="art-body">
+
+      <!-- Bloc « à retenir » : c'est ce que les moteurs de réponse citent le plus volontiers -->
+      <section class="takeaways">
+        <h2>À retenir</h2>
+        <ul>
+          <li>Le <strong>prompt parfait n'existe plus</strong> : les modèles récents compensent une formulation moyenne, pas un contexte absent.</li>
+          <li>Quatre briques suffisent : <strong>Situation · Matériaux · Tâche · Format</strong>.</li>
+          <li>Les <strong>matériaux</strong> (vos documents, vos anciens travaux) sont la brique la plus rentable et la plus souvent oubliée.</li>
+          <li>Un prompt de 3 lignes avec le bon document bat un prompt de 2 pages sans document.</li>
+          <li>La méthode est identique sur ChatGPT, Claude, Gemini, Perplexity et Le Chat.</li>
+        </ul>
+      </section>
+
+      <p>Vous avez sûrement croisé des listes de « 50 prompts magiques ». Vous en avez peut-être copié un, et le résultat est resté tiède. Ce n'est pas votre formulation qui pose problème, et ce n'est pas l'outil non plus : c'est qu'un modèle ne peut pas deviner ce qu'il ne voit pas.</p>
+
+      <p>Cet article explique ce qui a réellement changé, donne une méthode en quatre briques, et vous laisse un générateur pour la mettre en pratique tout de suite.</p>
+
+      <h2>Pourquoi vos prompts ne fonctionnent pas</h2>
+
+      <p>Entre 2023 et 2024, la formulation comptait vraiment. Les modèles étaient fragiles : changer « rédige » en « agis comme un rédacteur expérimenté et rédige » modifiait la sortie. C'est de là que vient le mot « prompt engineering ».</p>
+
+      <p>Les modèles actuels ont largement absorbé cette fragilité. Ils reformulent votre demande maladroite tout seuls. En revanche, ils n'ont toujours aucun moyen de connaître :</p>
+
+      <ul>
+        <li>ce que fait votre entreprise et à qui elle parle ;</li>
+        <li>l'historique de la relation avec le client dont vous parlez ;</li>
+        <li>votre façon d'écrire, votre vocabulaire maison, vos interdits ;</li>
+        <li>les contraintes réelles : budget, délai, ce qui a déjà été essayé.</li>
+      </ul>
+
+      <p>Quand ces éléments manquent, le modèle produit la moyenne statistique de tout ce qu'il a lu. Vous appelez ça du « texte creux ». C'est exactement ce que c'est : une réponse valable pour tout le monde, donc utile à personne.</p>
+
+      <div class="callout callout--info">
+        <p class="callout-t">Le test qui tranche</p>
+        <p>Relisez votre demande et posez-vous cette question : <strong>un nouveau stagiaire compétent mais qui vient d'arriver pourrait-il faire le travail avec ces seules informations ?</strong> Si la réponse est non, ce n'est pas la formulation qu'il faut retravailler, ce sont les informations.</p>
+      </div>
+
+      <h2>La méthode S·M·T·F</h2>
+
+      <p>Quatre briques, dans cet ordre. Aucune n'est facultative, mais elles n'ont pas le même poids.</p>
+
+      <h3>S — Situation</h3>
+      <p>Où l'on est, qui parle, à qui, et pourquoi maintenant. Deux à quatre phrases suffisent. C'est ce qui empêche la réponse générique.</p>
+      <blockquote>Je suis responsable commercial dans une PME de 40 personnes qui vend des logiciels de gestion aux collectivités. J'écris à un client qui n'a pas répondu à deux relances depuis six semaines, alors que le devis était validé oralement.</blockquote>
+
+      <h3>M — Matériaux</h3>
+      <p>C'est la brique décisive, et celle qu'on saute presque toujours. Joignez le document, collez l'échange précédent, donnez trois exemples de ce que vous avez déjà écrit. Une IA sans matériaux invente ; avec matériaux, elle reformule et raisonne sur du réel.</p>
+      <ul>
+        <li>Le devis, le cahier des charges, le compte rendu, le PDF.</li>
+        <li>Deux ou trois de vos propres productions, pour le style.</li>
+        <li>Ce qui a déjà été tenté et n'a pas marché.</li>
+      </ul>
+
+      <h3>T — Tâche</h3>
+      <p>Une seule tâche par demande, formulée avec un verbe d'action précis. « Aide-moi avec ce dossier » n'est pas une tâche. « Rédige une relance de 8 lignes qui propose deux créneaux » en est une.</p>
+
+      <h3>F — Format</h3>
+      <p>Longueur, structure, niveau de langue, ce qu'il ne faut pas faire. C'est la brique qui coûte trois secondes et vous évite trois allers-retours.</p>
+
+      <div class="callout callout--tip">
+        <p class="callout-t">Le raccourci qui marche</p>
+        <p>Si vous n'avez le temps que d'une seule brique, faites <strong>M</strong>. Joindre le bon document améliore davantage le résultat que toutes les instructions du monde.</p>
+      </div>
+
+      <!-- ================= OUTIL INTERACTIF ================= -->
+      <div class="tool" id="outil-smtf">
+        <div class="tool-head">
+          <span class="tool-ico" aria-hidden="true">✦</span>
+          <span>
+            <em>Outil interactif</em>
+            <b>Générateur de contexte S·M·T·F</b>
+          </span>
+        </div>
+        <div class="tool-body">
+          <div class="field">
+            <label for="f-sit">Situation <span class="hint">— qui vous êtes, à qui vous parlez, pourquoi maintenant</span></label>
+            <textarea id="f-sit" placeholder="Ex. : responsable commercial dans une PME de 40 personnes qui vend des logiciels aux collectivités. J'écris à un client silencieux depuis six semaines."></textarea>
+          </div>
+
+          <div class="field">
+            <label for="f-mat">Matériaux <span class="hint">— ce que vous joignez ou collez à la conversation</span></label>
+            <textarea id="f-mat" placeholder="Ex. : le devis validé en pièce jointe, les deux relances déjà envoyées, trois mails que j'ai écrits pour le ton."></textarea>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="f-tache">Tâche <span class="hint">— un seul verbe d'action</span></label>
+              <input id="f-tache" type="text" placeholder="Ex. : rédiger une relance">
+            </div>
+            <div class="field">
+              <label for="f-livrable">Livrable attendu</label>
+              <select id="f-livrable">
+                <option>un e-mail</option>
+                <option>un texte structuré en titres</option>
+                <option>un tableau comparatif</option>
+                <option>une liste à puces</option>
+                <option>un plan détaillé</option>
+                <option>un compte rendu</option>
+                <option>un script</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <span class="rail-title" style="margin-bottom:8px">Ton</span>
+            <div class="chips" id="chips-ton" role="group" aria-label="Ton du livrable">
+              <button type="button" class="chip on" data-v="professionnel et direct">Professionnel et direct</button>
+              <button type="button" class="chip" data-v="chaleureux">Chaleureux</button>
+              <button type="button" class="chip" data-v="factuel, sans superlatif">Factuel</button>
+              <button type="button" class="chip" data-v="pédagogique, pour un non-initié">Pédagogique</button>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="f-long">Longueur</label>
+              <select id="f-long">
+                <option>très court (moins de 100 mots)</option>
+                <option selected>court (100 à 250 mots)</option>
+                <option>moyen (250 à 600 mots)</option>
+                <option>long (plus de 600 mots)</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-interdits">À éviter absolument</label>
+              <input id="f-interdits" type="text" value="jargon, emojis, formules creuses">
+            </div>
+          </div>
+
+          <div class="field">
+            <span class="rail-title" style="margin-bottom:8px">Votre contexte, prêt à coller</span>
+            <div class="tool-out" id="smtf-out" aria-live="polite"></div>
+          </div>
+
+          <div class="score">
+            <b id="smtf-score">0</b><span>/ 100 — complétude du contexte</span>
+          </div>
+          <div class="meter"><i id="smtf-meter" style="width:0%"></i></div>
+
+          <div class="tool-actions">
+            <button type="button" class="btn-sm primary" id="smtf-copy">Copier le contexte</button>
+            <a class="btn-sm ghost" id="smtf-gpt" href="#" target="_blank" rel="noopener nofollow">Ouvrir dans ChatGPT</a>
+            <a class="btn-sm ghost" id="smtf-claude" href="#" target="_blank" rel="noopener nofollow">Ouvrir dans Claude</a>
+          </div>
+        </div>
+        <div class="tool-foot">
+          <span>Rien n'est envoyé nulle part : tout se passe dans votre navigateur.</span>
+          <span>Modèle S·M·T·F — Anthony Courtin</span>
+        </div>
+      </div>
+
+      <h2>Avant / après, sur la même demande</h2>
+
+      <p>Voici la même intention, formulée de deux façons. Les deux ont été passées dans le même modèle, dans deux conversations neuves.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Version</th><th scope="col">Ce qu'on écrit</th><th scope="col">Ce qu'on obtient</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Sans contexte</strong></td>
+              <td>« Écris un mail de relance client. »</td>
+              <td>Un mail passe-partout, deux paragraphes, « je me permets de revenir vers vous », aucune date, aucune référence au dossier. Inutilisable tel quel.</td>
+            </tr>
+            <tr>
+              <td><strong>Avec S·M·T·F</strong></td>
+              <td>Situation + devis joint + les deux relances déjà envoyées + « rédige une relance de 8 lignes proposant deux créneaux ».</td>
+              <td>Un mail qui reprend le montant, rappelle l'accord oral, propose deux créneaux précis et ferme poliment la boucle. Deux mots à changer.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>La différence de temps de rédaction entre les deux versions est d'environ quarante secondes. La différence d'utilisabilité est totale.</p>
+
+      <h2>Les cinq erreurs de contexte les plus fréquentes</h2>
+
+      <ol>
+        <li><strong>Donner une instruction au lieu d'une situation.</strong> « Fais un plan de communication » sans dire pour qui, pour quoi, avec quel budget.</li>
+        <li><strong>Ne pas joindre les documents.</strong> Vous résumez de mémoire ce que le fichier contient, l'IA travaille sur votre résumé approximatif.</li>
+        <li><strong>Empiler plusieurs tâches.</strong> « Résume, puis traduis, puis fais-en un post LinkedIn » : vous obtenez trois demi-résultats.</li>
+        <li><strong>Ne jamais donner d'exemples de votre travail.</strong> C'est le seul moyen fiable de récupérer votre style plutôt qu'un style moyen.</li>
+        <li><strong>Repartir d'une conversation neuve à chaque insatisfaction.</strong> Corriger dans la conversation en cours est presque toujours plus rapide, parce que le contexte y est déjà.</li>
+      </ol>
+
+      <div class="callout callout--warn">
+        <p class="callout-t">Une limite à connaître</p>
+        <p>Donner du contexte veut dire transmettre de l'information à un service tiers. Avant de coller un contrat ou un fichier client, vérifiez le type de compte que vous utilisez et ce qu'il autorise. Le sujet est traité en détail dans <a href="/blog/chatgpt-donnees-personnelles">ce que l'IA fait vraiment de vos données</a>.</p>
+      </div>
+
+      <h2>Quand un vrai prompt reste utile</h2>
+
+      <p>La formulation garde de la valeur dans trois cas précis :</p>
+
+      <ul>
+        <li><strong>Les tâches répétitives.</strong> Si vous refaites la même chose chaque semaine, écrivez le prompt une fois proprement et rangez-le. C'est l'objet des <a href="/blog/claude-projects">projets et instructions permanentes</a>.</li>
+        <li><strong>La génération d'images.</strong> Là, la formulation compte encore énormément — le modèle n'a rien d'autre que vos mots.</li>
+        <li><strong>Les appels automatisés.</strong> Dans un scénario Make ou n8n, le prompt est du code : il doit être stable et testé.</li>
+      </ul>
+
+      <h2>Le modèle à copier</h2>
+
+      <p>Gardez cette structure sous la main. Elle tient en cinq lignes et couvre 90 % des demandes professionnelles.</p>
+
+      <pre><code>CONTEXTE
+[Qui je suis, pour qui je travaille, à qui s'adresse le livrable, pourquoi maintenant.]
+
+MATÉRIAUX
+[Documents joints. Exemples de mon style. Ce qui a déjà été tenté.]
+
+TÂCHE
+[Un seul verbe d'action, un seul livrable.]
+
+FORMAT
+[Longueur. Structure. Ton. Ce qu'il ne faut surtout pas faire.]
+
+Si une information te manque pour bien faire, pose-moi la question
+avant de rédiger.</code></pre>
+
+      <p>La dernière ligne vaut le détour : elle transforme une commande en conversation, et c'est souvent elle qui fait remonter l'information que vous aviez oublié de donner.</p>
+
+      <!-- ================= FAQ ================= -->
+      <section class="faq">
+        <h2>Questions fréquentes</h2>
+
+        <details>
+          <summary>Le prompt engineering est-il mort ?</summary>
+          <div class="faq-a"><p>Non, mais il a changé de nature. Les formules magiques n'apportent plus grand-chose sur les modèles récents. Ce qui fait la différence, c'est le contexte fourni : documents, exemples de votre propre travail, contraintes réelles.</p></div>
+        </details>
+
+        <details>
+          <summary>Quelle longueur doit faire un bon prompt ?</summary>
+          <div class="faq-a"><p>Il n'y a pas de longueur idéale. Un prompt de trois lignes accompagné du bon document bat un prompt de deux pages sans document. Visez la complétude du contexte, pas le nombre de mots.</p></div>
+        </details>
+
+        <details>
+          <summary>Faut-il donner un rôle à l'IA (« tu es un expert en… ») ?</summary>
+          <div class="faq-a"><p>L'effet est aujourd'hui marginal sur la qualité du raisonnement, mais il reste utile pour cadrer le vocabulaire et le niveau de langue. Gardez-le en une ligne, ne construisez pas votre demande autour.</p></div>
+        </details>
+
+        <details>
+          <summary>Est-ce que la méthode fonctionne avec Claude, Gemini ou Le Chat ?</summary>
+          <div class="faq-a"><p>Oui. S·M·T·F décrit ce que vous fournissez, pas une syntaxe propriétaire. Elle fonctionne à l'identique sur ChatGPT, Claude, Gemini, Perplexity et Mistral.</p></div>
+        </details>
+
+        <details>
+          <summary>Faut-il payer un abonnement pour que ça marche ?</summary>
+          <div class="faq-a"><p>Non pour la méthode elle-même. En revanche, les versions gratuites limitent souvent la taille des documents que vous pouvez joindre, ce qui bride justement la partie « matériaux ». Le détail est dans <a href="/blog/chatgpt-plus">ChatGPT Plus : est-ce que ça vaut 20 € par mois ?</a></p></div>
+        </details>
+      </section>
+
+      <!-- ================= CTA ================= -->
+      <div class="cta-band">
+        <div>
+          <h2>Votre équipe utilise l'IA à 10 % de ce qu'elle pourrait</h2>
+          <p>Une journée de formation, vos vrais dossiers, vos vrais outils. On repart avec des méthodes qui tiennent le lundi matin suivant.</p>
+        </div>
+        <a class="btn btn-lime" href="/formation-ia-entreprise">Voir la formation <span class="ar">→</span></a>
+      </div>
+
+      <!-- ================= AUTEUR ================= -->
+      <div class="author-box">
+        <img src="/images/anthony.avif" alt="Anthony Courtin" width="88" height="88" loading="lazy">
+        <div>
+          <p class="eyebrow">Écrit par</p>
+          <h3>Anthony Courtin</h3>
+          <p class="author-role">Consultant SEO, GEO &amp; automatisation IA</p>
+          <p class="author-bio">J'accompagne des PME et des indépendants sur la visibilité (Google, ChatGPT, Perplexity) et sur l'usage réel de l'IA au travail. J'interviens en entreprise pour former les équipes et repenser les process. Tout ce que j'écris ici, je l'utilise en mission.</p>
+          <div class="author-links">
+            <a class="li" href="https://www.linkedin.com/in/anthony-courtin/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56z"/></svg>
+              Me suivre sur LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= AVIS LECTEURS ================= -->
+      <section class="reviews" data-slug="prompt-chatgpt" data-reviews="[]">
+        <h2>Avis des lecteurs</h2>
+        <p class="rv-sub">Cet article vous a servi ? Dites-le, ça aide les suivants.</p>
+
+        <div class="rv-summary">
+          <span class="rv-avg" id="rv-avg">—</span>
+          <span class="stars" id="rv-stars" aria-hidden="true"></span>
+          <span class="rv-count" id="rv-count">Aucun avis pour le moment.</span>
+        </div>
+
+        <div class="rv-list" id="rv-list"></div>
+        <p class="rv-empty" id="rv-empty">Soyez le premier à donner votre avis.</p>
+
+        <!-- Envoi via Netlify Forms : aucun back-end à maintenir, modération manuelle -->
+        <form class="rv-form" name="avis" method="POST" data-netlify="true" netlify-honeypot="societe" action="/merci">
+          <input type="hidden" name="form-name" value="avis">
+          <input type="hidden" name="article" value="prompt-chatgpt">
+          <p class="rv-hp"><label>Ne remplissez pas ce champ : <input name="societe" tabindex="-1" autocomplete="off"></label></p>
+
+          <h3>Laisser un avis</h3>
+
+          <fieldset class="rating-field">
+            <legend>Votre note</legend>
+            <div class="rating">
+              <input type="radio" id="n5" name="note" value="5"><label for="n5" aria-label="5 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n4" name="note" value="4"><label for="n4" aria-label="4 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n3" name="note" value="3"><label for="n3" aria-label="3 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n2" name="note" value="2"><label for="n2" aria-label="2 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n1" name="note" value="1"><label for="n1" aria-label="1 étoile"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="rv-nom">Prénom <span class="hint">(facultatif)</span></label>
+            <input type="text" id="rv-nom" name="nom" maxlength="60" autocomplete="given-name">
+          </div>
+
+          <div class="field">
+            <label for="rv-texte">Votre commentaire <span class="hint">(facultatif)</span></label>
+            <textarea id="rv-texte" name="texte" rows="4" maxlength="2000"></textarea>
+          </div>
+
+          <div class="rv-msg" id="rv-msg" role="status"></div>
+          <div><button type="submit" class="btn-sm primary">Publier mon avis</button></div>
+        </form>
+      </section>
+
+    </article>
+  </div>
+
+  <!-- ---------- COLONNE DROITE : résumé IA + articles liés ---------- -->
+  <aside class="rail rail-right">
+    <div class="ai-box">
+      <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
+      <p class="ai-text">Les formules de prompt n'apportent presque plus rien sur les modèles récents. Ce qui change le résultat, c'est le contexte : la situation, les documents, la tâche et le format attendu. Méthode S·M·T·F, générateur intégré et cinq erreurs de contexte à corriger.</p>
+      <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
+    </div>
+
+    <div class="rail-recent">
+      <p class="rail-title">Dans la même catégorie</p>
+      <div class="mini-list">
+        <a class="mini" href="/blog/comment-utiliser-chatgpt">
+          <span class="mini-thumb"><img src="/images/blog/thumb-erreurs.jpg" alt="" width="52" height="52" loading="lazy"></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Les 7 erreurs que tout le monde fait en parlant à une IA</span></span>
+        </a>
+        <a class="mini" href="/blog/hallucination-ia">
+          <span class="mini-thumb"><img src="/images/blog/thumb-hallucination.jpg" alt="" width="52" height="52" loading="lazy"></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Hallucination IA : comprendre et ne plus se faire avoir</span></span>
+        </a>
+        <a class="mini" href="/blog/claude-vs-chatgpt">
+          <span class="mini-thumb"><img src="/images/blog/thumb-comparatif.jpg" alt="" width="52" height="52" loading="lazy"></span>
+          <span><span class="mini-cat">Comparatif</span><span class="mini-ttl">Claude vs ChatGPT : lequel pour quel travail ?</span></span>
+        </a>
+        <a class="mini" href="/blog/claude-projects">
+          <span class="mini-thumb"><img src="/images/blog/thumb-projets.jpg" alt="" width="52" height="52" loading="lazy"></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Arrêter de réexpliquer son contexte à chaque conversation</span></span>
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- ================= ARTICLES LIÉS ================= -->
+<section class="related">
+  <div class="wrap">
+    <h2>À lire ensuite</h2>
+    <p class="sub">La suite logique du parcours.</p>
+    <div class="rel-grid">
+      <a class="rel-card" href="/blog/claude-projects">
+        <img src="/images/blog/thumb-projets.jpg" alt="" width="640" height="360" loading="lazy">
+        <div class="rel-body">
+          <span class="rel-cat">Utiliser l'IA</span>
+          <h3>Arrêter de réexpliquer son contexte à chaque conversation</h3>
+          <p>Projets, GPT personnalisés, instructions permanentes : la configuration qu'on fait une fois pour toutes.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="/blog/rag-ia">
+        <img src="/images/blog/thumb-rag.jpg" alt="" width="640" height="360" loading="lazy">
+        <div class="rel-body">
+          <span class="rel-cat">Utiliser l'IA</span>
+          <h3>Donner ses propres documents à l'IA</h3>
+          <p>Procédures, catalogue, historique client : le RAG expliqué sans le mot RAG.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="/blog/meilleure-ia">
+        <img src="/images/blog/thumb-comparatif.jpg" alt="" width="640" height="360" loading="lazy">
+        <div class="rel-body">
+          <span class="rel-cat">Comparatif</span>
+          <h3>Meilleure IA : laquelle ouvrir selon ce que vous avez à faire</h3>
+          <p>Cinq IA, la même tâche, cinq résultats. Le tableau de décision.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="foot-logo" href="/"><img src="/images/logo-transparent-pine.svg" alt="anthony courtin" width="98" height="48"></a>
+        <p style="color:var(--ink-2);font-size:.95rem;margin-top:12px;max-width:280px">Consultant SEO, GEO &amp; automatisation IA. Interventions partout en France.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul><li><a href="/seo">SEO</a></li><li><a href="/geo">GEO, visibilité IA</a></li><li><a href="/automatisation-ia">Automatisation IA</a></li><li><a href="/tarifs">Tarifs</a></li></ul>
+      </div>
+      <div>
+        <h4>Ressources</h4>
+        <ul><li><a href="/blog/">Blog</a></li><li><a href="/realisations">Réalisations</a></li><li><a href="/a-propos">À propos</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul><li><a href="/contact">Formulaire</a></li><li><a href="mailto:anthony@astrak.agency">anthony@astrak.agency</a></li><li><a href="https://www.linkedin.com/in/anthony-courtin/" rel="noopener">LinkedIn</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Anthony Courtin</span>
+      <span><a href="/mentions-legales">Mentions légales</a> · <a href="/confidentialite">Confidentialité</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/site.js" defer></script>
+<script src="/js/blog-article.js" defer></script>
+
+<!-- Outil interactif propre à cet article -->
+<script>
+(function(){
+  var ids=['f-sit','f-mat','f-tache','f-livrable','f-long','f-interdits'];
+  var out=document.getElementById('smtf-out');
+  if(!out) return;
+  var ton='professionnel et direct';
+
+  function val(id){var e=document.getElementById(id);return e?e.value.trim():''}
+
+  function build(){
+    var s=val('f-sit'), m=val('f-mat'), t=val('f-tache'),
+        liv=val('f-livrable'), lg=val('f-long'), no=val('f-interdits');
+
+    var txt='CONTEXTE\n'+(s||'[à compléter : qui vous êtes, à qui vous parlez, pourquoi maintenant]')+
+      '\n\nMATÉRIAUX\n'+(m||'[à compléter : documents joints, exemples de votre style, ce qui a déjà été tenté]')+
+      '\n\nTÂCHE\n'+(t?t.charAt(0).toUpperCase()+t.slice(1):'[à compléter : un seul verbe d\'action]')+'.'+
+      '\n\nFORMAT\n'+liv.charAt(0).toUpperCase()+liv.slice(1)+', '+lg+'. Ton '+ton+'.'+
+      (no?' À éviter : '+no+'.':'')+
+      '\n\nSi une information te manque pour bien faire, pose-moi la question avant de rédiger.';
+
+    out.textContent=txt;
+
+    // Score de complétude : les matériaux pèsent le plus lourd, c'est le propos de l'article
+    var sc=0;
+    if(s.length>40) sc+=25; else if(s) sc+=12;
+    if(m.length>40) sc+=40; else if(m) sc+=20;
+    if(t) sc+=20;
+    if(liv&&lg) sc+=10;
+    if(no) sc+=5;
+    document.getElementById('smtf-score').textContent=sc;
+    document.getElementById('smtf-meter').style.width=sc+'%';
+
+    var enc=encodeURIComponent(txt);
+    document.getElementById('smtf-gpt').href='https://chatgpt.com/?q='+enc;
+    document.getElementById('smtf-claude').href='https://claude.ai/new?q='+enc;
+  }
+
+  ids.forEach(function(id){
+    var e=document.getElementById(id);
+    if(e) e.addEventListener('input',build);
+  });
+
+  var chips=document.getElementById('chips-ton');
+  if(chips) chips.addEventListener('click',function(e){
+    var b=e.target.closest('.chip'); if(!b) return;
+    chips.querySelectorAll('.chip').forEach(function(c){c.classList.remove('on')});
+    b.classList.add('on'); ton=b.dataset.v; build();
+  });
+
+  var copy=document.getElementById('smtf-copy');
+  if(copy) copy.addEventListener('click',function(){
+    var done=function(){
+      copy.textContent='Copié ✓'; copy.classList.add('ok');
+      setTimeout(function(){copy.textContent='Copier le contexte';copy.classList.remove('ok')},1800);
+    };
+    if(navigator.clipboard) navigator.clipboard.writeText(out.textContent).then(done,function(){});
+    else{var i=document.createElement('textarea');i.value=out.textContent;document.body.appendChild(i);i.select();document.execCommand('copy');i.remove();done()}
+  });
+
+  build();
+})();
+</script>
+
+</body>
+</html>

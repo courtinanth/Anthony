@@ -1,0 +1,66 @@
+# anthony-courtin.com v2 : redirections exhaustives de l'ancien site
+# Regle Netlify : premiere regle qui matche gagne. Les plus specifiques d'abord.
+
+# --- /videos : page retiree tant que la chaine YouTube n'a pas de contenu.
+#     302 = temporaire, a SUPPRIMER au lancement de la chaine.
+/videos                    /                302
+/videos.html               /                302
+
+# --- Fichiers de travail presents dans v2/ mais a ne pas servir en prod
+/_fragments/*              /404.html        404
+/DEPLOIEMENT.md            /404.html        404
+
+# --- Anciennes pages services (Bordeaux) -> nouvelles pages services nationales
+/audit-seo-bordeaux        /audit-seo       301!
+/optimisation-on-page      /seo-technique   301!
+/netlinking-bordeaux       /netlinking      301!
+/seo-local-bordeaux        /seo-local       301!
+/redaction-seo             /contenu-citable 301!
+/black-hat-seo             /blog/           301!
+/agences-seo               /seo             301!
+/linkedin-posts            /a-propos        301!
+/plan-du-site              /                301!
+
+# --- Variantes .html des anciennes pages racine
+/index.html                /                301!
+/contact.html              /contact         301!
+/mentions-legales.html     /mentions-legales 301!
+/confidentialite.html      /confidentialite 301!
+/audit-seo-bordeaux.html   /audit-seo       301!
+/optimisation-on-page.html /seo-technique   301!
+/netlinking-bordeaux.html  /netlinking      301!
+/seo-local-bordeaux.html   /seo-local       301!
+/redaction-seo.html        /contenu-citable 301!
+/black-hat-seo.html        /blog/           301!
+/agences-seo.html          /seo             301!
+/linkedin-posts.html       /a-propos        301!
+/plan-du-site.html         /                301!
+/404.html                  /404             301!
+
+# --- 694 pages villes : redirection par silo de service
+/villes/audit-seo-*             /audit-seo       301!
+/villes/optimisation-on-page-*  /seo-technique   301!
+/villes/netlinking-*            /netlinking      301!
+/villes/seo-local-*             /seo-local       301!
+/villes/redaction-seo-*         /contenu-citable 301!
+/villes/black-hat-seo-*         /seo             301!
+/villes/agence-seo-*            /seo             301!
+# filet de securite (slugs nus type /villes/gujan-mestras)
+/villes/*                       /seo             301!
+
+# --- Artefacts de build fantomes -> 410 Gone
+/templates/*               /404.html  410
+/build/*                   /404.html  410
+/admin/*                   /404.html  410
+
+# --- Anciens sitemaps -> sitemap unique
+/sitemap-main.xml          /sitemap.xml 301!
+/sitemap-blog.xml          /sitemap.xml 301!
+/sitemap-audit-seo.xml     /sitemap.xml 301!
+/sitemap-black-hat-seo.xml /sitemap.xml 301!
+/sitemap-agences-seo.xml   /sitemap.xml 301!
+/sitemap-optimisation-on-page.xml /sitemap.xml 301!
+/sitemap-netlinking.xml    /sitemap.xml 301!
+/sitemap-seo-local.xml     /sitemap.xml 301!
+/sitemap-redaction-seo.xml /sitemap.xml 301!
+/sitemap-villes.xml        /sitemap.xml 301!

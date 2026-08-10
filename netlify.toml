@@ -23,7 +23,9 @@
 # dépendance de production, l'installation devient un no-op.
 # ---------------------------------------------------------------------------
 [build]
-  publish = "."
+  # v2 : le site refondu vit dans /v2 (SEO + GEO + IA, charte vert sapin).
+  # L'ancien site reste dans la racine du repo mais n'est plus publié.
+  publish = "v2"
   command = "echo 'Site statique : aucun build nécessaire.'"
 
 [build.environment]

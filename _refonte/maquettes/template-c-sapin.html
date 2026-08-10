@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anthony Courtin | Consultant SEO, GEO &amp; Automatisation IA</title>
+<meta name="description" content="Consultant SEO, GEO et automatisation IA partout en France. Visibilité sur Google et dans les moteurs de réponse IA, workflows automatisés.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<script src="assets/favicon-anim.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pine-950:#06201A;
+  --pine-900:#0A2C23;
+  --pine-800:#0E3A2E;
+  --pine-700:#155040;
+  --pine-600:#1D6B54;
+  --lime:#C6F76F;
+  --lime-dark:#A8DD4E;
+  --mint:#9BEBC3;
+  --cream:#F4F1E8;
+  --cream-2:#EBE7DA;
+  --ink:#0B1F1A;
+  --ink-2:#4C5F58;
+  --white:#FFFFFF;
+  --display:'Bricolage Grotesque',sans-serif;
+  --body:'Instrument Sans',sans-serif;
+  --maxw:1240px;
+  --r-lg:28px; --r-md:20px; --r-sm:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--cream);color:var(--ink);line-height:1.6;font-size:1.0625rem;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.05;letter-spacing:-.02em}
+h2{font-size:clamp(2.1rem,1.5rem+2.6vw,3.4rem)}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--lime)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 30px;border-radius:999px;font-weight:600;font-size:.95rem;transition:transform .25s cubic-bezier(.2,.8,.2,1),background .2s,color .2s;will-change:transform}
+.btn:hover{transform:translateY(-3px) scale(1.02)}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn-lime{background:var(--lime);color:var(--pine-950)}
+.btn-lime:hover{background:var(--lime-dark)}
+.btn-dark{background:var(--pine-950);color:var(--cream)}
+.btn-outline{border:1.5px solid rgba(244,241,232,.35);color:var(--cream)}
+.btn-outline:hover{border-color:var(--lime);color:var(--lime)}
+.btn .ar{transition:transform .25s}
+.btn:hover .ar{transform:translateX(4px)}
+
+/* scroll progress */
+#progress{position:fixed;top:0;left:0;height:3px;background:var(--lime);width:0;z-index:200;border-radius:0 3px 3px 0}
+
+/* reveal animations */
+.rv{opacity:0;transform:translateY(36px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+.rv-d1{transition-delay:.08s}.rv-d2{transition-delay:.16s}.rv-d3{transition-delay:.24s}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+/* ============ NAV + MEGA MENU ============ */
+header{position:fixed;top:16px;left:0;right:0;z-index:100}
+.nav-shell{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative}
+nav{padding:0 12px 0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(6,32,26,.78);backdrop-filter:blur(16px);border:1px solid rgba(244,241,232,.08);border-radius:999px;color:var(--cream)}
+.logo{font-family:var(--display);font-weight:700;font-size:1.05rem;letter-spacing:-.02em}
+.logo span{color:var(--lime)}
+.nav-links{display:flex;gap:4px;align-items:center;height:100%}
+.nav-item{height:100%;display:flex;align-items:center}
+.nav-item>a,.nav-item>button{padding:9px 16px;border-radius:999px;font-size:.9rem;font-weight:500;color:rgba(244,241,232,.78);transition:all .2s;display:flex;align-items:center;gap:7px}
+.nav-item>a:hover,.nav-item>button:hover,.nav-item.open>button{color:var(--pine-950);background:var(--lime)}
+.nav-item>button .chev{font-size:.55rem;transition:transform .25s}
+.nav-item.open>button .chev{transform:rotate(180deg)}
+.nav-cta{background:var(--lime);color:var(--pine-950);padding:10px 20px;border-radius:999px;font-weight:600;font-size:.9rem;transition:transform .2s,background .2s}
+.nav-cta:hover{transform:scale(1.05);background:var(--lime-dark)}
+
+/* mega panel : clair, massif */
+.mega{position:absolute;top:calc(100% + 12px);left:24px;right:24px;background:var(--white);border:1px solid var(--cream-2);border-radius:var(--r-lg);padding:16px;color:var(--ink);display:grid;grid-template-columns:1fr 1fr 1fr 1.15fr;gap:8px;opacity:0;visibility:hidden;transform:translateY(-10px) scale(.985);transform-origin:top center;transition:opacity .28s ease,transform .28s cubic-bezier(.2,.8,.2,1),visibility .28s;box-shadow:0 40px 100px rgba(6,32,26,.28)}
+.nav-item.open .mega,.nav-item.has-mega:hover .mega,.nav-item.has-mega:focus-within .mega{opacity:1;visibility:visible;transform:none}
+.mega-col{display:flex;flex-direction:column;gap:2px;padding:14px 8px}
+.mega-label{font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--pine-600);padding:0 14px;margin-bottom:10px}
+.mega-link{display:flex;gap:14px;align-items:flex-start;padding:12px 14px;border-radius:var(--r-sm);transition:background .18s,transform .18s}
+.mega-link:hover{background:var(--cream);transform:translateX(4px)}
+.mega-ico{flex-shrink:0;width:38px;height:38px;border-radius:12px;background:var(--pine-950);color:var(--lime);display:flex;align-items:center;justify-content:center;font-size:1.05rem;transition:transform .2s}
+.mega-link:hover .mega-ico{transform:rotate(-6deg) scale(1.08)}
+.mega-link b{font-family:var(--display);font-weight:600;font-size:.96rem;display:block}
+.mega-link span{font-size:.8rem;color:var(--ink-2);line-height:1.4;display:block}
+.mega-feat{background:linear-gradient(155deg,var(--pine-800),var(--pine-950));color:var(--cream);border-radius:var(--r-md);padding:24px;display:flex;flex-direction:column;justify-content:flex-end;min-height:250px;position:relative;overflow:hidden;transition:transform .25s}
+.mega-feat:hover{transform:scale(1.02)}
+.mega-feat::after{content:"";position:absolute;inset:0;background:radial-gradient(320px 220px at 80% 0%,rgba(198,247,111,.22),transparent 60%)}
+.mega-feat .play{position:absolute;top:20px;right:20px;width:44px;height:44px;background:var(--lime);color:var(--pine-950);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.85rem;z-index:1}
+.mega-feat em{font-style:normal;font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mint);position:relative;z-index:1}
+.mega-feat b{font-family:var(--display);font-size:1.2rem;font-weight:600;margin:8px 0 4px;position:relative;z-index:1}
+.mega-feat span{font-size:.82rem;color:rgba(244,241,232,.65);position:relative;z-index:1}
+@media(max-width:960px){.nav-links{display:none}}
+
+/* ============ HERO ============ */
+.hero{position:relative;background:var(--pine-950);color:var(--cream);padding:150px 0 0;overflow:hidden}
+.hero-media{position:absolute;inset:0;pointer-events:none}
+.hero-media img,.hero-media video{width:100%;height:100%;object-fit:cover;opacity:.5;animation:heroZoom 22s ease-in-out infinite alternate}
+@keyframes heroZoom{from{transform:scale(1)}to{transform:scale(1.08)}}
+.hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,32,26,.85) 0%,rgba(6,32,26,.6) 45%,var(--pine-950) 96%)}
+@media(prefers-reduced-motion:reduce){.hero-media img,.hero-media video{animation:none}}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;padding-bottom:70px}
+.hero .eyebrow{color:var(--mint);margin-bottom:24px}
+.hero h1{font-size:clamp(2.7rem,1.4rem+4.8vw,5rem);letter-spacing:-.035em}
+.hero h1 .swap-wrap{display:inline-grid;vertical-align:top;overflow:hidden;height:1.05em}
+.hero h1 .swap{grid-area:1/1;color:var(--lime);white-space:nowrap;opacity:0;transform:translateY(100%);transition:transform .55s cubic-bezier(.2,.8,.2,1),opacity .4s}
+.hero h1 .swap.on{opacity:1;transform:none}
+.hero h1 .swap.out{opacity:0;transform:translateY(-100%)}
+.hero-lede{font-size:1.15rem;color:rgba(244,241,232,.72);max-width:520px;margin:24px 0 34px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px}
+.hero-clients{display:flex;align-items:center;gap:14px}
+.avatars{display:flex}
+.avatars i{width:38px;height:38px;border-radius:50%;border:2px solid var(--pine-950);background:linear-gradient(135deg,var(--pine-600),var(--pine-800));display:flex;align-items:center;justify-content:center;font-style:normal;font-size:.75rem;font-weight:600;color:var(--mint);margin-left:-10px}
+.avatars i:first-child{margin-left:0}
+.hero-clients b{font-family:var(--display);font-size:1rem}
+.hero-clients small{display:block;font-size:.82rem;color:rgba(244,241,232,.55)}
+@media(max-width:960px){.hero-grid{grid-template-columns:1fr}}
+
+/* audit express widget */
+.audit{background:var(--white);color:var(--ink);border-radius:var(--r-lg);padding:30px;box-shadow:0 40px 100px rgba(0,0,0,.4);position:relative}
+.audit .demo-tag{position:absolute;top:-13px;right:22px;background:var(--pine-950);color:var(--lime);font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:5px 14px}
+.audit h3{font-size:1.35rem;margin-bottom:6px}
+.audit>p{font-size:.9rem;color:var(--ink-2);margin-bottom:18px}
+.audit-form{display:flex;gap:10px}
+.audit-form input{flex:1;border:1.5px solid var(--cream-2);border-radius:999px;padding:13px 20px;font-family:inherit;font-size:.95rem;outline:none;transition:border-color .2s;min-width:0}
+.audit-form input:focus{border-color:var(--pine-600)}
+.audit-form button{background:var(--pine-950);color:var(--lime);border-radius:999px;padding:13px 24px;font-weight:600;font-size:.92rem;transition:transform .2s,background .2s;white-space:nowrap}
+.audit-form button:hover{transform:scale(1.04);background:var(--pine-800)}
+@keyframes pop{from{opacity:0;transform:translateY(14px)}to{opacity:1}}
+.tool-fields{display:grid;gap:10px;margin-bottom:18px}
+.tool-fields label{font-size:.78rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2);display:block;margin-bottom:5px}
+.tool-fields input,.tool-fields textarea{width:100%;border:1.5px solid var(--cream-2);border-radius:var(--r-sm);padding:11px 15px;font-family:inherit;font-size:.93rem;outline:none;transition:border-color .2s;resize:none}
+.tool-fields input:focus,.tool-fields textarea:focus{border-color:var(--pine-600)}
+.llms-out{display:none;background:var(--pine-950);color:var(--mint);font-family:'SF Mono',Menlo,Consolas,monospace;font-size:.78rem;line-height:1.55;border-radius:var(--r-sm);padding:16px 18px;max-height:190px;overflow:auto;white-space:pre-wrap;word-break:break-word;margin-bottom:12px}
+.llms-out.show{display:block;animation:pop .4s cubic-bezier(.2,.8,.2,1)}
+.tool-actions{display:none;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+.tool-actions.show{display:flex}
+.tool-actions button{border-radius:999px;padding:10px 20px;font-weight:600;font-size:.85rem;background:var(--cream);color:var(--ink);transition:transform .2s,background .2s}
+.tool-actions button:hover{transform:scale(1.04);background:var(--cream-2)}
+.tool-actions .primary{background:var(--pine-950);color:var(--lime)}
+.tool-actions .primary:hover{background:var(--pine-800)}
+.tool-gen{width:100%;border-radius:999px;padding:13px;font-weight:600;font-size:.95rem;background:var(--lime);color:var(--pine-950);transition:transform .2s,background .2s;margin-bottom:14px}
+.tool-gen:hover{transform:scale(1.02);background:var(--lime-dark)}
+.audit-cta{display:flex;justify-content:center}
+
+/* dashboard SaaS */
+.dash-zone{position:relative;max-width:1020px;margin:0 auto;padding:0 24px}
+.dash{position:relative;background:linear-gradient(180deg,#FDFCF9,#F6F3EA);border-radius:24px 24px 0 0;border:1px solid rgba(244,241,232,.2);border-bottom:none;box-shadow:0 -20px 80px rgba(198,247,111,.08),0 40px 120px rgba(0,0,0,.45);color:var(--ink);overflow:hidden}
+.dash-bar{display:flex;align-items:center;gap:8px;padding:14px 20px;border-bottom:1px solid var(--cream-2);background:var(--white)}
+.dash-bar i{width:11px;height:11px;border-radius:50%;background:var(--cream-2)}
+.dash-bar i:nth-child(1){background:#F4A69D}.dash-bar i:nth-child(2){background:#F4D58D}.dash-bar i:nth-child(3){background:#A8DD9C}
+.dash-bar span{margin-left:12px;font-size:.8rem;color:var(--ink-2);background:var(--cream);border-radius:8px;padding:4px 14px}
+.dash-body{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:24px}
+.kpi{background:var(--white);border:1px solid var(--cream-2);border-radius:16px;padding:18px 20px;text-align:left}
+.kpi small{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.kpi .v{font-family:var(--display);font-size:1.9rem;font-weight:700;letter-spacing:-.02em;line-height:1.15;margin:6px 0 2px}
+.kpi .d{font-size:.8rem;font-weight:600;color:var(--pine-600);background:rgba(29,107,84,.1);border-radius:999px;padding:3px 10px;display:inline-block}
+.dash-chart{grid-column:span 3;background:var(--white);border:1px solid var(--cream-2);border-radius:16px;padding:20px 20px 10px;text-align:left}
+.dash-chart small{font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.dash-chart svg{width:100%;height:130px;margin-top:8px}
+.chart-line{fill:none;stroke:var(--pine-600);stroke-width:2.5;stroke-linecap:round;stroke-dasharray:1200;stroke-dashoffset:1200}
+.dash.in .chart-line{animation:draw 2s cubic-bezier(.4,0,.2,1) .3s forwards}
+.chart-fill{fill:url(#gfill);opacity:0}
+.dash.in .chart-fill{animation:fadein .8s ease 1.6s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fadein{to{opacity:1}}
+.chip{position:absolute;z-index:5;background:var(--white);border-radius:999px;padding:10px 18px;font-size:.85rem;font-weight:600;color:var(--ink);box-shadow:0 14px 40px rgba(6,32,26,.25);display:flex;align-items:center;gap:8px;animation:float 5s ease-in-out infinite;white-space:nowrap}
+.chip .ok{width:20px;height:20px;border-radius:50%;background:var(--lime);color:var(--pine-950);display:flex;align-items:center;justify-content:center;font-size:.7rem;flex-shrink:0}
+.chip-1{top:-20px;left:44px}
+.chip-2{top:-20px;right:44px;animation-delay:1.6s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@media(prefers-reduced-motion:reduce){.chip{animation:none}.chart-line{stroke-dashoffset:0;animation:none}.chart-fill{opacity:1;animation:none}}
+@media(max-width:960px){.dash-body{grid-template-columns:1fr}.dash-chart{grid-column:span 1}.chip{display:none}}
+
+/* engines logos */
+.engines{position:relative;padding:64px 24px 56px;text-align:center}
+.engines>span{display:block;font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(244,241,232,.45);margin-bottom:28px}
+.engine-logos{display:flex;justify-content:center;align-items:center;gap:44px;flex-wrap:wrap}
+.engine{display:flex;align-items:center;gap:10px;opacity:.55;filter:grayscale(1);transition:opacity .25s,transform .25s,filter .25s}
+.engine:hover{opacity:1;filter:none;transform:translateY(-3px)}
+.engine img{width:26px;height:26px}
+.engine b{font-family:var(--display);font-weight:600;font-size:1rem;color:var(--cream)}
+@media(max-width:960px){.engine-logos{gap:26px}.engine b{font-size:.9rem}}
+
+/* marquee */
+.marquee{position:relative;border-top:1px solid rgba(244,241,232,.12);padding:22px 0;overflow:hidden;background:rgba(244,241,232,.03)}
+.marquee-track{display:flex;gap:56px;white-space:nowrap;animation:scroll 28s linear infinite;width:max-content}
+.marquee span{font-family:var(--display);font-weight:500;font-size:1.05rem;color:rgba(244,241,232,.55);display:flex;align-items:center;gap:56px}
+.marquee b{color:var(--lime);font-weight:500}
+@keyframes scroll{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
+
+/* SECTIONS */
+.section{padding:110px 0}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:60px;flex-wrap:wrap}
+.section-head p{color:var(--ink-2);max-width:440px;font-size:1.05rem}
+.section-head .eyebrow{color:var(--pine-700);margin-bottom:14px}
+
+/* BENTO SERVICES */
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+.bento .card{border-radius:var(--r-lg);padding:40px;position:relative;overflow:hidden;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s;will-change:transform}
+.bento .card:hover{transform:translateY(-6px);box-shadow:0 24px 60px rgba(6,32,26,.14)}
+.card-seo{grid-column:span 7;background:var(--pine-950);color:var(--cream);min-height:360px;display:flex;flex-direction:column;justify-content:flex-end}
+.card-seo::before{content:"";position:absolute;inset:0;background:radial-gradient(500px 300px at 85% 0%,rgba(198,247,111,.16),transparent 60%)}
+.card-geo{grid-column:span 5;background:var(--lime);color:var(--pine-950);min-height:360px;display:flex;flex-direction:column;justify-content:flex-end}
+.card-ia{grid-column:span 5;background:var(--white);min-height:300px;display:flex;flex-direction:column;justify-content:flex-end;border:1px solid var(--cream-2)}
+.card-yt{grid-column:span 7;background:var(--pine-700);color:var(--cream);min-height:300px;display:flex;flex-direction:column;justify-content:flex-end}
+.card-yt::before{content:"";position:absolute;inset:0;background:radial-gradient(400px 260px at 10% 10%,rgba(155,235,195,.18),transparent 60%)}
+.card .tag-num{position:absolute;top:32px;left:40px;font-family:var(--display);font-size:.9rem;opacity:.55}
+.card .big-ico{position:absolute;top:28px;right:36px;font-size:2rem;transition:transform .35s}
+.card:hover .big-ico{transform:rotate(-8deg) scale(1.15)}
+.card h3{font-size:1.9rem;margin-bottom:10px;position:relative}
+.card p{position:relative;opacity:.78;font-size:.98rem;max-width:420px;margin-bottom:22px}
+.card .go{position:relative;font-weight:600;font-size:.92rem;display:inline-flex;align-items:center;gap:8px}
+.card .go .ar{transition:transform .25s}
+.card:hover .go .ar{transform:translateX(5px)}
+.card-geo .go{color:var(--pine-800)}
+@media(max-width:960px){.bento .card{grid-column:span 12;min-height:260px}}
+
+/* METHODE TABS */
+.method{background:var(--white);border-radius:48px;margin:0 24px}
+.method-inner{max-width:var(--maxw);margin:0 auto;padding:100px 24px}
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:44px}
+.tab{padding:12px 24px;border-radius:999px;font-weight:600;font-size:.92rem;background:var(--cream);color:var(--ink-2);transition:all .25s}
+.tab:hover{color:var(--ink)}
+.tab.active{background:var(--pine-950);color:var(--lime)}
+.tab-panels{position:relative}
+.panel{display:none;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.panel.active{display:grid;animation:pop .45s cubic-bezier(.2,.8,.2,1)}
+.panel h3{font-size:1.8rem;margin-bottom:14px}
+.panel p{color:var(--ink-2);margin-bottom:20px}
+.panel ul{list-style:none;display:grid;gap:12px}
+.panel li{display:flex;gap:12px;align-items:flex-start;font-size:.98rem}
+.panel li::before{content:"✓";flex-shrink:0;width:22px;height:22px;border-radius:50%;background:var(--lime);color:var(--pine-950);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;margin-top:2px}
+.panel-visual{background:var(--pine-950);border-radius:var(--r-lg);min-height:300px;display:flex;align-items:center;justify-content:center;font-size:4rem;position:relative;overflow:hidden}
+.panel-visual::before{content:"";position:absolute;inset:0;background:radial-gradient(400px 280px at 70% 20%,rgba(198,247,111,.2),transparent 60%)}
+.panel-visual b{font-family:var(--display);position:absolute;bottom:24px;left:28px;color:var(--mint);font-size:.85rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+@media(max-width:960px){.panel{grid-template-columns:1fr}}
+
+/* RESULTS */
+.results{background:var(--pine-950);color:var(--cream);border-radius:48px 48px 0 0;margin-top:100px}
+.results .section-head .eyebrow{color:var(--mint)}
+.results .section-head p{color:rgba(244,241,232,.65)}
+.res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.res-card{background:rgba(244,241,232,.05);border:1px solid rgba(244,241,232,.1);border-radius:var(--r-lg);padding:38px 34px;transition:transform .35s cubic-bezier(.2,.8,.2,1),background .3s,border-color .3s}
+.res-card:hover{transform:translateY(-6px);background:rgba(244,241,232,.08);border-color:rgba(198,247,111,.4)}
+.res-card .cat{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mint);font-weight:600}
+.res-num{font-family:var(--display);font-size:clamp(2.8rem,2rem+2.4vw,4rem);font-weight:700;letter-spacing:-.03em;color:var(--lime);margin:20px 0 4px;line-height:1}
+.res-card h3{font-size:1.15rem;margin-bottom:8px}
+.res-card p{color:rgba(244,241,232,.6);font-size:.95rem}
+@media(max-width:960px){.res-grid{grid-template-columns:1fr}}
+
+/* YOUTUBE */
+.yt-sec{background:var(--pine-950);color:var(--cream);padding-top:0}
+.yt-sec .section-head .eyebrow{color:var(--mint)}
+.yt-sec .section-head p{color:rgba(244,241,232,.65)}
+.yt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.yt-card{border-radius:var(--r-md);overflow:hidden;background:rgba(244,241,232,.05);border:1px solid rgba(244,241,232,.1);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
+.yt-card:hover{transform:translateY(-6px)}
+.yt-thumb{aspect-ratio:16/9;background:linear-gradient(135deg,var(--pine-700),var(--pine-900));position:relative;overflow:hidden}
+.yt-thumb::after{content:"▶";position:absolute;inset:0;margin:auto;width:58px;height:58px;background:var(--lime);color:var(--pine-950);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.yt-card:hover .yt-thumb::after{transform:scale(1.18)}
+.yt-body{padding:20px 22px 26px}
+.yt-body h4{font-family:var(--display);font-size:1.08rem;font-weight:600;margin-bottom:6px}
+.yt-body span{font-size:.85rem;color:rgba(244,241,232,.5)}
+.yt-footer{margin-top:44px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.yt-footer span{color:rgba(244,241,232,.5);font-size:.9rem}
+@media(max-width:960px){.yt-grid{grid-template-columns:1fr}}
+
+/* BLOG */
+.blog-sec{background:var(--cream);border-radius:48px 48px 0 0;margin-top:-48px;position:relative}
+.post-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.post-card{background:var(--white);border:1px solid var(--cream-2);border-radius:var(--r-md);padding:32px;display:flex;flex-direction:column;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.post-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(6,32,26,.1)}
+.post-card .cat{align-self:flex-start;font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:var(--pine-950);color:var(--lime);border-radius:999px;padding:6px 14px;margin-bottom:20px}
+.post-card h3{font-size:1.3rem;margin-bottom:10px;flex:1}
+.post-card:hover h3{color:var(--pine-700)}
+.post-card p{color:var(--ink-2);font-size:.95rem;margin-bottom:18px}
+.post-card time{font-size:.85rem;color:var(--ink-2);opacity:.7}
+@media(max-width:960px){.post-grid{grid-template-columns:1fr}}
+
+/* ABOUT */
+.about{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:center}
+.about-visual{position:relative}
+.about-visual img{border-radius:var(--r-lg);aspect-ratio:4/5;object-fit:cover;background:var(--cream-2)}
+.about-badge{position:absolute;bottom:24px;right:-20px;background:var(--lime);color:var(--pine-950);border-radius:var(--r-sm);padding:16px 22px;font-family:var(--display);font-weight:700;font-size:1.05rem;box-shadow:0 16px 40px rgba(6,32,26,.18);transform:rotate(3deg)}
+.about-badge small{display:block;font-family:var(--body);font-weight:500;font-size:.78rem}
+.about .eyebrow{color:var(--pine-700);margin-bottom:16px}
+.about h2{margin-bottom:22px}
+.about h2 em{font-style:normal;color:var(--pine-600)}
+.about p{color:var(--ink-2);margin-bottom:18px}
+@media(max-width:960px){.about{grid-template-columns:1fr}.about-badge{right:12px}}
+
+/* FAQ */
+.faq{max-width:840px;margin:0 auto}
+.faq-item{background:var(--white);border:1px solid var(--cream-2);border-radius:var(--r-md);margin-bottom:12px;overflow:hidden;transition:box-shadow .25s}
+.faq-item.open{box-shadow:0 16px 44px rgba(6,32,26,.08)}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 26px;font-family:var(--display);font-weight:600;font-size:1.08rem;text-align:left;color:var(--ink)}
+.faq-q .plus{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:var(--cream);display:flex;align-items:center;justify-content:center;font-size:1rem;transition:transform .3s,background .3s;color:var(--ink)}
+.faq-item.open .plus{transform:rotate(45deg);background:var(--lime)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.2,.8,.2,1)}
+.faq-a p{padding:0 26px 24px;color:var(--ink-2);font-size:.98rem}
+
+/* CTA FINAL */
+.final{padding:40px 24px 120px}
+.final-box{max-width:var(--maxw);margin:0 auto;background:var(--pine-950);color:var(--cream);border-radius:var(--r-lg);padding:clamp(48px,8vw,96px);text-align:center;position:relative;overflow:hidden}
+.final-box::before{content:"";position:absolute;inset:0;background:radial-gradient(640px 420px at 50% 120%,rgba(198,247,111,.18),transparent 65%)}
+.final-box .eyebrow{color:var(--mint);justify-content:center;display:inline-flex}
+.final-box h2{font-size:clamp(2.4rem,1.6rem+3.6vw,4.4rem);max-width:760px;margin:18px auto 20px;position:relative}
+.final-box h2 em{font-style:normal;color:var(--lime)}
+.final-box p{color:rgba(244,241,232,.65);margin-bottom:38px;position:relative}
+.final-box .btn{position:relative}
+
+/* FOOTER */
+footer{background:var(--cream);padding:0 0 40px}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding:56px 0 48px;border-top:1px solid var(--cream-2)}
+.foot-grid h4{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);margin-bottom:16px}
+.foot-grid ul{list-style:none;display:grid;gap:10px;font-size:.95rem;color:var(--ink-2)}
+.foot-grid a:hover{color:var(--pine-600)}
+.foot-logo{font-family:var(--display);font-weight:700;font-size:1.2rem}
+.foot-logo span{color:var(--pine-600)}
+.foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.85rem;color:var(--ink-2);opacity:.8}
+@media(max-width:960px){.foot-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<header>
+  <div class="nav-shell">
+    <nav>
+      <a class="logo" href="/"><img src="assets/logo-transparent-cream.svg" alt="anthony courtin" height="42" style="display:block"></a>
+      <div class="nav-links">
+        <div class="nav-item has-mega" data-mega>
+          <button type="button">Services <span class="chev">▼</span></button>
+          <div class="mega">
+            <div class="mega-col">
+              <span class="mega-label">SEO</span>
+              <a class="mega-link" href="/audit-seo"><span class="mega-ico">🔍</span><span><b>Audit SEO</b><span>Analyse technique et sémantique complète.</span></span></a>
+              <a class="mega-link" href="/seo-technique"><span class="mega-ico">⚙️</span><span><b>SEO technique</b><span>Crawl, indexation, performance, structure.</span></span></a>
+              <a class="mega-link" href="/netlinking"><span class="mega-ico">🔗</span><span><b>Netlinking</b><span>Backlinks de qualité, autorité durable.</span></span></a>
+              <a class="mega-link" href="/seo-local"><span class="mega-ico">📍</span><span><b>SEO local</b><span>Recherches locales et Google Maps.</span></span></a>
+            </div>
+            <div class="mega-col">
+              <span class="mega-label">GEO, visibilité IA</span>
+              <a class="mega-link" href="/geo"><span class="mega-ico">✦</span><span><b>Stratégie GEO</b><span>Être cité par ChatGPT, Perplexity, AI Overviews.</span></span></a>
+              <a class="mega-link" href="/geo-audit"><span class="mega-ico">📊</span><span><b>Audit de visibilité IA</b><span>Mesurer comment les IA parlent de vous.</span></span></a>
+              <a class="mega-link" href="/geo-contenu"><span class="mega-ico">📝</span><span><b>Contenu citable</b><span>Structurer pour les moteurs de réponse.</span></span></a>
+            </div>
+            <div class="mega-col">
+              <span class="mega-label">Automatisation IA</span>
+              <a class="mega-link" href="/agents-ia"><span class="mega-ico">🤖</span><span><b>Agents IA</b><span>Des agents qui bossent pour vous 24h/24.</span></span></a>
+              <a class="mega-link" href="/workflows"><span class="mega-ico">🔀</span><span><b>Workflows</b><span>n8n, Make, Zapier : pilote automatique.</span></span></a>
+              <a class="mega-link" href="/pipeline-contenu"><span class="mega-ico">📦</span><span><b>Pipelines de contenu</b><span>De la veille à la publication.</span></span></a>
+            </div>
+            <a class="mega-feat" href="#videos">
+              <span class="play">▶</span>
+              <em>Sur la chaîne YouTube</em>
+              <b>GEO : comment être cité par ChatGPT en 2026</b>
+              <span>12 min, nouvelle vidéo</span>
+            </a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="#resultats">Résultats</a></div>
+        <div class="nav-item has-mega" data-mega>
+          <button type="button">Ressources <span class="chev">▼</span></button>
+          <div class="mega" style="grid-template-columns:1fr 1fr 1.15fr">
+            <div class="mega-col">
+              <span class="mega-label">Apprendre</span>
+              <a class="mega-link" href="/blog/"><span class="mega-ico">📚</span><span><b>Blog</b><span>Guides et retours d'expérience SEO, GEO, IA.</span></span></a>
+              <a class="mega-link" href="#videos"><span class="mega-ico">▶</span><span><b>Vidéos YouTube</b><span>Tutos concrets chaque semaine.</span></span></a>
+            </div>
+            <div class="mega-col">
+              <span class="mega-label">Explorer</span>
+              <a class="mega-link" href="/realisations"><span class="mega-ico">🏆</span><span><b>Réalisations</b><span>Cas clients, résultats chiffrés.</span></span></a>
+              <a class="mega-link" href="/zones-d-intervention"><span class="mega-ico">🗺️</span><span><b>Zones d'intervention</b><span>Partout en France.</span></span></a>
+            </div>
+            <a class="mega-feat" href="/blog/">
+              <em>Dernier article</em>
+              <b>Guide complet du GEO : référencer sa marque dans les IA</b>
+              <span>Lecture 14 min</span>
+            </a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="#a-propos">À propos</a></div>
+      </div>
+      <a class="nav-cta" href="/contact">Travailler avec moi</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-media">
+    <!-- Pour passer en vidéo : remplacer <img> par <video autoplay muted loop playsinline poster="..."><source src="hero-bg.mp4" type="video/mp4"></video> -->
+    <img id="hero-bg" src="../../images/hero-bg-sapin.png" alt="">
+  </div>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Consultant indépendant, partout en France</span>
+      <h1>Votre visibilité,<br>version <span class="swap-wrap"><span class="swap on">SEO.</span><span class="swap">GEO.</span><span class="swap">IA.</span></span></h1>
+      <p class="hero-lede">Être trouvé sur Google, être cité par ChatGPT et Perplexity, et automatiser tout le reste. Qu'on vous trouve partout où l'on cherche.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-lime" href="/contact">Discutons de votre projet <span class="ar">→</span></a>
+        <a class="btn btn-outline" href="#services">Explorer <span class="ar">↓</span></a>
+      </div>
+      <div class="hero-clients">
+        <div class="avatars"><i>EC</i><i>SB</i><i>ML</i><i>+</i></div>
+        <div><b>+ de 50 clients accompagnés</b><small>TPE, PME, e-commerce et SaaS</small></div>
+      </div>
+    </div>
+    <div class="audit rv">
+      <span class="demo-tag">Outil gratuit</span>
+      <h3>Générateur de llms.txt</h3>
+      <p>Le fichier que ChatGPT, Perplexity et les autres IA lisent pour comprendre votre site. Générez le vôtre en 30 secondes.</p>
+      <div class="tool-fields">
+        <div>
+          <label for="llmsName">Nom du site ou de la marque</label>
+          <input type="text" id="llmsName" placeholder="Ma Marque" autocomplete="off">
+        </div>
+        <div>
+          <label for="llmsUrl">URL du site</label>
+          <input type="text" id="llmsUrl" placeholder="https://mamarque.fr" autocomplete="off">
+        </div>
+        <div>
+          <label for="llmsDesc">Que fait votre entreprise ? (1 phrase)</label>
+          <input type="text" id="llmsDesc" placeholder="Boutique de mobilier design fabriqué en France" autocomplete="off">
+        </div>
+        <div>
+          <label for="llmsPages">Pages clés (une par ligne : Titre | /url)</label>
+          <textarea id="llmsPages" rows="3" placeholder="Nos produits | /produits&#10;Tarifs | /tarifs&#10;Contact | /contact"></textarea>
+        </div>
+      </div>
+      <button class="tool-gen" id="llmsGen" type="button">Générer mon llms.txt ✦</button>
+      <pre class="llms-out" id="llmsOut"></pre>
+      <div class="tool-actions" id="llmsActions">
+        <button class="primary" id="llmsCopy" type="button">Copier</button>
+        <button id="llmsDl" type="button">Télécharger llms.txt</button>
+      </div>
+      <div class="audit-cta"><a class="btn btn-dark" href="/contact">Envie d'une vraie stratégie GEO ? <span class="ar">→</span></a></div>
+    </div>
+  </div>
+  <div class="dash-zone">
+    <div class="chip chip-1"><span class="ok">✓</span> Cité par ChatGPT</div>
+    <div class="chip chip-2"><span class="ok">#1</span> Position Google</div>
+    <div class="dash rv" id="dash">
+      <div class="dash-bar"><i></i><i></i><i></i><span>app.votre-visibilite.fr</span></div>
+      <div class="dash-body">
+        <div class="kpi"><small>Trafic organique</small><div class="v" data-count="184" data-prefix="+" data-suffix="%">+184%</div><span class="d">↑ 12 mois</span></div>
+        <div class="kpi"><small>Citations IA / mois</small><div class="v" data-count="127">127</div><span class="d">↑ ChatGPT · Perplexity</span></div>
+        <div class="kpi"><small>Heures automatisées</small><div class="v" data-count="30" data-suffix=" h">30 h</div><span class="d">↑ par mois</span></div>
+        <div class="dash-chart">
+          <small>Visibilité globale, 12 derniers mois</small>
+          <svg viewBox="0 0 800 130" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="gfill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#1D6B54" stop-opacity=".25"/>
+                <stop offset="100%" stop-color="#1D6B54" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <path class="chart-fill" d="M0,110 C80,104 120,96 180,92 C250,87 300,78 370,70 C440,62 500,52 570,40 C640,28 720,18 800,10 L800,130 L0,130 Z"/>
+            <path class="chart-line" d="M0,110 C80,104 120,96 180,92 C250,87 300,78 370,70 C440,62 500,52 570,40 C640,28 720,18 800,10"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="engines">
+    <span>Votre marque, visible sur</span>
+    <div class="engine-logos">
+      <div class="engine"><img src="https://cdn.simpleicons.org/google/F4F1E8" alt="Google" loading="lazy"><b>Google</b></div>
+      <div class="engine"><svg width="26" height="26" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="OpenAI"><path fill="#F4F1E8" d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.073zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.8956zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg><b>ChatGPT</b></div>
+      <div class="engine"><img src="https://cdn.simpleicons.org/claude/F4F1E8" alt="Claude" loading="lazy"><b>Claude</b></div>
+      <div class="engine"><img src="https://cdn.simpleicons.org/perplexity/F4F1E8" alt="Perplexity" loading="lazy"><b>Perplexity</b></div>
+      <div class="engine"><img src="https://cdn.simpleicons.org/googlegemini/F4F1E8" alt="Gemini" loading="lazy"><b>Gemini</b></div>
+      <div class="engine"><img src="https://cdn.simpleicons.org/mistralai/F4F1E8" alt="Mistral" loading="lazy"><b>Mistral</b></div>
+    </div>
+  </div>
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>SEO technique <b>✦</b> GEO &amp; visibilité IA <b>✦</b> Automatisation <b>✦</b> + de 50 clients accompagnés <b>✦</b> 8 ans d'expérience <b>✦</b> Partout en France <b>✦</b></span>
+      <span>SEO technique <b>✦</b> GEO &amp; visibilité IA <b>✦</b> Automatisation <b>✦</b> + de 50 clients accompagnés <b>✦</b> 8 ans d'expérience <b>✦</b> Partout en France <b>✦</b></span>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section-head rv">
+      <div><span class="eyebrow">Services</span><h2>Trois leviers,<br>zéro angle mort.</h2></div>
+      <p>Du référencement classique aux moteurs de réponse IA, jusqu'à l'automatisation de vos process marketing.</p>
+    </div>
+    <div class="bento">
+      <a class="card card-seo rv" href="/seo">
+        <span class="tag-num">01</span><span class="big-ico">🔍</span>
+        <h3>SEO</h3>
+        <p>Audit technique, on-page, netlinking, SEO local. Le socle : être trouvé par ceux qui vous cherchent sur Google.</p>
+        <span class="go">Explorer le SEO <span class="ar">→</span></span>
+      </a>
+      <a class="card card-geo rv rv-d1" href="/geo">
+        <span class="tag-num">02</span><span class="big-ico">✦</span>
+        <h3>GEO, visibilité IA</h3>
+        <p>Faire citer votre marque par ChatGPT, Perplexity et les AI Overviews. Le nouveau terrain du référencement.</p>
+        <span class="go">Explorer le GEO <span class="ar">→</span></span>
+      </a>
+      <a class="card card-ia rv" href="/automatisation-ia">
+        <span class="tag-num">03</span><span class="big-ico">⚙️</span>
+        <h3>Automatisation IA</h3>
+        <p>Agents, workflows et pipelines de contenu qui font gagner des dizaines d'heures par mois.</p>
+        <span class="go">Explorer l'automatisation <span class="ar">→</span></span>
+      </a>
+      <a class="card card-yt rv rv-d1" href="#videos">
+        <span class="tag-num">04</span><span class="big-ico">▶</span>
+        <h3>La chaîne YouTube</h3>
+        <p>SEO, GEO et IA expliqués chaque semaine. Tutos concrets, coulisses de projets, zéro blabla.</p>
+        <span class="go">Voir les vidéos <span class="ar">→</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="method rv" id="methode">
+  <div class="method-inner">
+    <div class="section-head">
+      <div><span class="eyebrow">Méthode</span><h2>Comment on travaille ensemble</h2></div>
+      <p>Un process en 4 étapes, transparent du premier appel au reporting.</p>
+    </div>
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-tab="0">01 · Audit</button>
+      <button class="tab" data-tab="1">02 · Stratégie</button>
+      <button class="tab" data-tab="2">03 · Exécution</button>
+      <button class="tab" data-tab="3">04 · Mesure</button>
+    </div>
+    <div class="tab-panels">
+      <div class="panel active">
+        <div>
+          <h3>On regarde tout, on ne suppose rien.</h3>
+          <p>Avant de toucher quoi que ce soit, on mesure : votre SEO, votre présence dans les réponses des IA, vos process manuels.</p>
+          <ul>
+            <li>Crawl technique complet et analyse sémantique</li>
+            <li>Audit de visibilité IA : que disent ChatGPT et Perplexity de vous ?</li>
+            <li>Cartographie des tâches automatisables</li>
+          </ul>
+        </div>
+        <div class="panel-visual">🔍<b>Semaine 1 à 2</b></div>
+      </div>
+      <div class="panel">
+        <div>
+          <h3>Un plan priorisé par impact.</h3>
+          <p>Pas de roadmap de 40 pages : des actions classées par effort et par gain attendu, validées ensemble.</p>
+          <ul>
+            <li>Quick wins identifiés et chiffrés</li>
+            <li>Feuille de route SEO + GEO unifiée</li>
+            <li>Choix des automatisations à plus fort ROI</li>
+          </ul>
+        </div>
+        <div class="panel-visual">🎯<b>Semaine 3</b></div>
+      </div>
+      <div class="panel">
+        <div>
+          <h3>J'exécute, vous suivez en temps réel.</h3>
+          <p>Optimisations, contenus, netlinking, mise en place des agents IA. Vous voyez tout avancer, sans jargon.</p>
+          <ul>
+            <li>Implémentation technique et éditoriale</li>
+            <li>Déploiement des workflows d'automatisation</li>
+            <li>Point d'avancement chaque semaine</li>
+          </ul>
+        </div>
+        <div class="panel-visual">⚡<b>En continu</b></div>
+      </div>
+      <div class="panel">
+        <div>
+          <h3>Des chiffres, pas des impressions.</h3>
+          <p>Trafic, positions, citations IA, heures gagnées : un reporting clair qui relie chaque action à son résultat.</p>
+          <ul>
+            <li>Dashboard de visibilité Google + IA</li>
+            <li>Suivi des citations dans les moteurs de réponse</li>
+            <li>Bilan mensuel et ajustements</li>
+          </ul>
+        </div>
+        <div class="panel-visual">📈<b>Chaque mois</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section results" id="resultats">
+  <div class="wrap">
+    <div class="section-head rv">
+      <div><span class="eyebrow">Résultats</span><h2>Des chiffres,<br>pas des promesses.</h2></div>
+      <p>Une sélection de projets récents. Chiffres réels, périodes indiquées.</p>
+    </div>
+    <div class="res-grid">
+      <article class="res-card rv">
+        <span class="cat">SEO · E-commerce</span>
+        <div class="res-num" data-count="184" data-prefix="+" data-suffix="%">+184%</div>
+        <h3>Trafic organique en 12 mois</h3>
+        <p>Refonte technique, maillage interne et netlinking pour un e-commerce national.</p>
+      </article>
+      <article class="res-card rv rv-d1">
+        <span class="cat">GEO · SaaS B2B</span>
+        <div class="res-num">Top 3</div>
+        <h3>Des marques citées par les IA</h3>
+        <p>Stratégie de citations dans ChatGPT et Perplexity sur les requêtes métier cibles.</p>
+      </article>
+      <article class="res-card rv rv-d2">
+        <span class="cat">Automatisation · Média</span>
+        <div class="res-num" data-count="30" data-prefix="−" data-suffix=" h">−30 h</div>
+        <h3>De production par mois</h3>
+        <p>Veille, briefs, rédaction assistée et publication orchestrées en un pipeline.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section yt-sec" id="videos">
+  <div class="wrap">
+    <div class="section-head rv">
+      <div><span class="eyebrow">YouTube</span><h2>Le SEO à l'ère de l'IA,<br>en vidéo.</h2></div>
+      <p>Chaque semaine : SEO, GEO, automatisation et coulisses de mes projets.</p>
+    </div>
+    <div class="yt-grid">
+      <a class="yt-card rv" href="#"><div class="yt-thumb"></div><div class="yt-body"><h4>GEO : comment être cité par ChatGPT en 2026</h4><span>12 min · Nouveau</span></div></a>
+      <a class="yt-card rv rv-d1" href="#"><div class="yt-thumb"></div><div class="yt-body"><h4>J'ai automatisé mon SEO avec des agents IA</h4><span>18 min</span></div></a>
+      <a class="yt-card rv rv-d2" href="#"><div class="yt-thumb"></div><div class="yt-body"><h4>AI Overviews : la fin du SEO classique ?</h4><span>15 min</span></div></a>
+    </div>
+    <div class="yt-footer rv">
+      <a class="btn btn-lime" href="https://youtube.com/@anthonycourtin" target="_blank" rel="noopener">S'abonner à la chaîne <span class="ar">→</span></a>
+      <span>Nouvelle vidéo chaque semaine</span>
+    </div>
+  </div>
+</section>
+
+<section class="section blog-sec" id="blog">
+  <div class="wrap">
+    <div class="section-head rv">
+      <div><span class="eyebrow">Blog</span><h2>Derniers articles</h2></div>
+      <a class="btn btn-dark" href="/blog/">Tous les articles <span class="ar">→</span></a>
+    </div>
+    <div class="post-grid">
+      <a class="post-card rv" href="#">
+        <span class="cat">GEO</span>
+        <h3>Guide complet du GEO : référencer sa marque dans les IA</h3>
+        <p>Méthodologie, outils et métriques pour exister dans les moteurs de réponse.</p>
+        <time>19 juillet 2026</time>
+      </a>
+      <a class="post-card rv rv-d1" href="#">
+        <span class="cat">Automatisation</span>
+        <h3>10 workflows IA que tout marketeur devrait avoir</h3>
+        <p>De la veille concurrentielle au reporting, les automatisations qui changent tout.</p>
+        <time>11 juillet 2026</time>
+      </a>
+      <a class="post-card rv rv-d2" href="#">
+        <span class="cat">SEO</span>
+        <h3>Audit SEO en 2026 : ma checklist complète</h3>
+        <p>La méthode que j'applique sur chaque projet, étape par étape.</p>
+        <time>3 juillet 2026</time>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="a-propos">
+  <div class="wrap about">
+    <div class="about-visual rv">
+      <img src="../../images/anthony.avif" alt="Anthony Courtin">
+      <div class="about-badge">+50 clients<small>accompagnés partout en France</small></div>
+    </div>
+    <div class="rv rv-d1">
+      <span class="eyebrow">À propos</span>
+      <h2>Le SEO ne meurt pas,<br>il change de <em>moteur</em>.</h2>
+      <p>Consultant indépendant, j'accompagne des entreprises partout en France, à distance comme sur site. 8 ans de SEO, une transition assumée vers le GEO et l'automatisation IA, et un partenariat avec l'agence Astrak pour les projets d'envergure.</p>
+      <p>Mon métier : que vous soyez visible partout où l'on cherche. Google, ChatGPT, Perplexity, et ce qui viendra après.</p>
+      <a class="btn btn-dark" href="/a-propos">Mon parcours <span class="ar">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head rv" style="justify-content:center;text-align:center"><div><span class="eyebrow">FAQ</span><h2>Les questions qu'on me pose</h2></div></div>
+    <div class="faq rv">
+      <div class="faq-item">
+        <button class="faq-q" type="button">C'est quoi exactement le GEO ?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Le GEO (Generative Engine Optimization) consiste à optimiser votre présence dans les réponses des IA : ChatGPT, Perplexity, Gemini, les AI Overviews de Google. Concrètement : faire en sorte que quand un prospect pose une question de votre domaine à une IA, c'est votre marque qui est citée en source ou en recommandation.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Combien de temps avant de voir des résultats ?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Les premiers quick wins techniques se voient en 4 à 8 semaines. Le SEO et le GEO de fond, c'est 3 à 6 mois pour une progression solide et durable. L'automatisation IA, elle, produit ses gains dès la mise en place des premiers workflows.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Vous travaillez avec quels types d'entreprises ?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Plus de 50 clients accompagnés : TPE, PME, e-commerce et SaaS, partout en France. L'essentiel n'est pas votre taille mais votre marché : s'il y a des recherches Google ou des questions posées aux IA dans votre secteur, il y a un levier à activer.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Tout se passe à distance ?<span class="plus">+</span></button>
+        <div class="faq-a"><p>Oui, l'accompagnement est 100 % compatible distanciel : visios, reporting partagé, points hebdomadaires. Des déplacements sur site sont possibles pour les ateliers de lancement ou les projets d'envergure.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="final">
+  <div class="final-box rv">
+    <span class="eyebrow">Contact</span>
+    <h2>Un projet SEO, GEO ou IA ?<br><em>Parlons-en.</em></h2>
+    <p>Réponse sous 24 h. Premier échange gratuit et sans engagement.</p>
+    <a class="btn btn-lime" href="/contact">Me contacter <span class="ar">→</span></a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="foot-logo" href="/"><img src="assets/logo-transparent-pine.svg" alt="anthony courtin" height="48" style="display:block"></a>
+        <p style="color:var(--ink-2);font-size:.95rem;margin-top:12px;max-width:280px">Consultant SEO, GEO &amp; automatisation IA. Interventions partout en France.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul><li><a href="/seo">SEO</a></li><li><a href="/geo">GEO, visibilité IA</a></li><li><a href="/automatisation-ia">Automatisation IA</a></li><li><a href="/tarifs">Tarifs</a></li></ul>
+      </div>
+      <div>
+        <h4>Ressources</h4>
+        <ul><li><a href="/blog/">Blog</a></li><li><a href="#videos">YouTube</a></li><li><a href="/realisations">Réalisations</a></li><li><a href="/zones-d-intervention">Zones d'intervention</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul><li><a href="/contact">Formulaire</a></li><li><a href="mailto:anthony@astrak.agency">anthony@astrak.agency</a></li><li><a href="https://www.linkedin.com/in/anthony-courtin/">LinkedIn</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Anthony Courtin</span>
+      <span><a href="/mentions-legales">Mentions légales</a> · <a href="/confidentialite">Confidentialité</a> · <a href="/plan-du-site">Plan du site</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Barre de progression de scroll
+(function(){
+  const bar=document.getElementById('progress');
+  addEventListener('scroll',()=>{
+    const h=document.documentElement;
+    bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%';
+  },{passive:true});
+})();
+
+// Mega menu : clic + fermeture extérieure (le hover CSS reste actif)
+(function(){
+  const items=[...document.querySelectorAll('[data-mega]')];
+  items.forEach(it=>{
+    it.querySelector('button').addEventListener('click',e=>{
+      e.stopPropagation();
+      const was=it.classList.contains('open');
+      items.forEach(o=>o.classList.remove('open'));
+      if(!was) it.classList.add('open');
+    });
+  });
+  document.addEventListener('click',()=>items.forEach(o=>o.classList.remove('open')));
+})();
+
+// Rotation des mots du hero
+(function(){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const swaps=[...document.querySelectorAll('.hero .swap')];
+  let i=0;
+  setInterval(()=>{
+    swaps[i].classList.remove('on');swaps[i].classList.add('out');
+    const prev=i; i=(i+1)%swaps.length;
+    swaps[i].classList.remove('out');
+    requestAnimationFrame(()=>requestAnimationFrame(()=>swaps[i].classList.add('on')));
+    setTimeout(()=>swaps[prev].classList.remove('out'),600);
+  },2600);
+})();
+
+// Générateur de llms.txt (réel : génère, copie, télécharge)
+(function(){
+  const $=id=>document.getElementById(id);
+  const out=$('llmsOut'), actions=$('llmsActions');
+  let content='';
+  function normUrl(u){
+    u=u.trim(); if(!u) return 'https://votresite.fr';
+    if(!/^https?:\/\//.test(u)) u='https://'+u;
+    return u.replace(/\/+$/,'');
+  }
+  $('llmsGen').addEventListener('click',()=>{
+    const name=$('llmsName').value.trim()||'Votre marque';
+    const base=normUrl($('llmsUrl').value);
+    const desc=$('llmsDesc').value.trim()||'Description de votre activité.';
+    const pages=$('llmsPages').value.split('\n').map(l=>l.trim()).filter(Boolean).map(l=>{
+      const parts=l.split('|').map(p=>p.trim());
+      const title=parts[0]||'Page';
+      let url=parts[1]||'/';
+      if(!/^https?:\/\//.test(url)) url=base+(url.startsWith('/')?url:'/'+url);
+      return '- ['+title+']('+url+')';
+    });
+    content='# '+name+'\n\n> '+desc+'\n\nSite : '+base+'\n\n## Pages principales\n\n'+
+      (pages.length?pages.join('\n'):'- [Accueil]('+base+')')+
+      '\n\n## À propos\n\n'+name+'. '+desc+'\nContenu librement citable par les assistants IA avec attribution et lien vers '+base+'.\n';
+    out.textContent=content;
+    out.classList.add('show');
+    actions.classList.add('show');
+  });
+  $('llmsCopy').addEventListener('click',async e=>{
+    try{await navigator.clipboard.writeText(content)}catch(_){
+      const t=document.createElement('textarea');t.value=content;document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();
+    }
+    e.target.textContent='Copié ✓';setTimeout(()=>e.target.textContent='Copier',1600);
+  });
+  $('llmsDl').addEventListener('click',()=>{
+    const blob=new Blob([content],{type:'text/plain;charset=utf-8'});
+    const a=document.createElement('a');
+    a.href=URL.createObjectURL(blob);a.download='llms.txt';a.click();
+    URL.revokeObjectURL(a.href);
+  });
+})();
+
+// Tabs méthode
+(function(){
+  const tabs=[...document.querySelectorAll('.tab')];
+  const panels=[...document.querySelectorAll('.panel')];
+  tabs.forEach((t,idx)=>t.addEventListener('click',()=>{
+    tabs.forEach(x=>x.classList.remove('active'));
+    panels.forEach(x=>x.classList.remove('active'));
+    t.classList.add('active');panels[idx].classList.add('active');
+  }));
+})();
+
+// FAQ accordéon
+(function(){
+  document.querySelectorAll('.faq-item').forEach(item=>{
+    const q=item.querySelector('.faq-q'), a=item.querySelector('.faq-a');
+    q.addEventListener('click',()=>{
+      const open=item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(o=>{o.classList.remove('open');o.querySelector('.faq-a').style.maxHeight=0});
+      if(!open){item.classList.add('open');a.style.maxHeight=a.scrollHeight+'px'}
+    });
+  });
+})();
+
+// Reveal au scroll
+(function(){
+  const els=document.querySelectorAll('.rv');
+  if(!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('in'));return}
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target)}});
+  },{threshold:.15,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(e=>io.observe(e));
+})();
+
+// Compteurs animés
+(function(){
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const nums=document.querySelectorAll('[data-count]');
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(en=>{
+      if(!en.isIntersecting) return;
+      const el=en.target, target=+el.dataset.count, pre=el.dataset.prefix||'', suf=el.dataset.suffix||'';
+      const t0=performance.now(), dur=1400;
+      (function tick(t){
+        const p=Math.min((t-t0)/dur,1), ease=1-Math.pow(1-p,3);
+        el.textContent=pre+Math.round(target*ease)+suf;
+        if(p<1) requestAnimationFrame(tick);
+      })(t0);
+      io.unobserve(el);
+    });
+  },{threshold:.5});
+  nums.forEach(n=>io.observe(n));
+})();
+</script>
+
+</body>
+</html>

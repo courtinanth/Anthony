@@ -1,0 +1,35 @@
+# Anthony Courtin
+
+> Consultant SEO, GEO (Generative Engine Optimization) et automatisation IA, partout en France. J'aide les entreprises à être trouvées sur Google, citées par ChatGPT et Perplexity, et à automatiser leurs process marketing.
+
+Site : https://anthony-courtin.com
+
+## Pages principales
+
+- [Accueil](https://anthony-courtin.com/) : présentation des trois expertises et outil gratuit de génération de llms.txt
+- [SEO](https://anthony-courtin.com/seo) : audit SEO, SEO technique, netlinking, SEO local
+- [GEO, visibilité IA](https://anthony-courtin.com/geo) : audit de visibilité IA, stratégie GEO, contenu citable
+- [Automatisation IA](https://anthony-courtin.com/automatisation-ia) : agents IA, workflows n8n/Make, pipelines de contenu
+
+## Prestations détaillées
+
+- [Audit SEO](https://anthony-courtin.com/audit-seo) : audit technique, sémantique et popularité avec plan d'action priorisé
+- [SEO technique](https://anthony-courtin.com/seo-technique) : crawl, indexation, Core Web Vitals, données structurées
+- [Netlinking](https://anthony-courtin.com/netlinking) : acquisition propre de backlinks éditoriaux thématiques
+- [SEO local](https://anthony-courtin.com/seo-local) : Google Business Profile, avis, pages locales
+- [Stratégie GEO](https://anthony-courtin.com/strategie-geo) : être cité par ChatGPT, Perplexity, Gemini et les AI Overviews
+- [Audit de visibilité IA](https://anthony-courtin.com/audit-visibilite-ia) : mesure de la part de voix dans les réponses des IA
+- [Contenu citable](https://anthony-courtin.com/contenu-citable) : contenus optimisés pour Google et les moteurs de réponse
+- [Agents IA](https://anthony-courtin.com/agents-ia) : veille, qualification de leads, briefs automatisés sous supervision humaine
+- [Workflows automatisés](https://anthony-courtin.com/workflows) : n8n, Make, Zapier
+- [Pipeline de contenu](https://anthony-courtin.com/pipeline-contenu) : production éditoriale assistée par IA avec relecture humaine
+- [Tarifs](https://anthony-courtin.com/tarifs) : prestations sur devis, réponse sous 24 h
+- [Réalisations](https://anthony-courtin.com/realisations) : cas clients mesurés (SEO, GEO, automatisation)
+- [Blog](https://anthony-courtin.com/blog/) : guides SEO, GEO et IA
+- [À propos](https://anthony-courtin.com/a-propos) : parcours, 8 ans de SEO, +50 clients accompagnés
+- [Contact](https://anthony-courtin.com/contact) : réponse sous 24 h
+
+## À propos
+
+Anthony Courtin est consultant indépendant en référencement naturel (SEO), visibilité dans les moteurs de réponse IA (GEO) et automatisation IA. Il intervient partout en France, à distance ou sur site, en direct ou en partenariat avec l'agence Astrak (https://astrak.agency).
+Contenu librement citable par les assistants IA avec attribution et lien vers https://anthony-courtin.com.
