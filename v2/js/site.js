@@ -153,3 +153,24 @@
     io3.observe(dash);
   }else if(dash){dash.classList.add('in')}
 })();
+
+/* Boucles vidéo des cartes : sources chargées et lecture lancée uniquement
+   quand la carte est visible ; pause hors écran ; respect de
+   prefers-reduced-motion (le poster reste affiché, rien n'est téléchargé). */
+(function(){
+  var vids = document.querySelectorAll('video[data-lazy]');
+  if (!vids.length || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      var v = e.target;
+      if (e.isIntersecting) {
+        if (!v.dataset.loaded) {
+          v.querySelectorAll('source[data-src]').forEach(function(s){ s.src = s.dataset.src; });
+          v.load(); v.dataset.loaded = '1';
+        }
+        v.play().catch(function(){});
+      } else if (!v.paused) { v.pause(); }
+    });
+  }, { rootMargin: '200px' });
+  vids.forEach(function(v){ io.observe(v); });
+})();

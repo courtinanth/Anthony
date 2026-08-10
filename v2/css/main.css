@@ -403,3 +403,20 @@ footer.site{background:var(--cream);padding:0 0 40px}
 .err .wrap{max-width:640px}
 .err h1{font-size:clamp(4rem,10vw,8rem);color:var(--lime)}
 .err p{color:rgba(244,241,232,.7);margin:16px 0 32px}
+
+/* ---- Visuels de marque (cartes accueil + panneaux méthode) ---- */
+.card .card-media{position:absolute;inset:0;z-index:0;display:block;overflow:hidden}
+.card .card-media video{width:100%;height:100%;object-fit:cover;object-position:center right;display:block}
+.card .card-media::after{content:"";position:absolute;inset:0;background:linear-gradient(to right,rgba(6,32,26,.82),rgba(6,32,26,.28) 48%,rgba(6,32,26,0) 72%),linear-gradient(to top,rgba(6,32,26,.72),rgba(6,32,26,0) 55%)}
+.card.has-media h3,.card.has-media p,.card.has-media .go{position:relative;z-index:1}
+.card.has-media .tag-num{z-index:1}
+.card.has-media{color:var(--cream);border:none}
+.card.has-media p{color:rgba(244,241,232,.85)}
+.card.has-media .go{color:var(--lime)}
+.card.has-media .tag-num{color:rgba(244,241,232,.55)}
+.panel-visual picture{position:absolute;inset:0}
+.panel-visual img{width:100%;height:100%;object-fit:cover;display:block}
+.panel-visual .pv-shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(6,32,26,.68),rgba(6,32,26,0) 45%)}
+.panel-visual b{z-index:2}
+/* ---- Icônes Lucide (remplacent les emojis des pages) ---- */
+.ico svg{width:24px;height:24px}
