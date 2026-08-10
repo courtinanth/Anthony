@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent IA : définition, 7 exemples et comment en créer un</title>
+<meta name="description" content="Un agent IA poursuit un objectif de façon autonome. Ce qui le distingue d'un chatbot, 7 exemples en production, les 3 voies pour en créer un.">
+<link rel="canonical" href="https://anthony-courtin.com/blog/agent-ia">
+<link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script src="/js/favicon-anim.js?v=2" defer></script>
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Agent IA : définition, 7 exemples et comment en créer un">
+<meta property="og:description" content="Ce qui distingue un vrai agent d'un chatbot, sept exemples mis en production, et la méthode pour en construire un.">
+<meta property="og:url" content="https://anthony-courtin.com/blog/agent-ia">
+<meta property="og:image" content="https://anthony-courtin.com/images/blog/agent-ia-cover.webp">
+<meta property="og:locale" content="fr_FR">
+<meta property="article:published_time" content="2026-09-14">
+<meta property="article:modified_time" content="2026-09-14">
+<meta property="article:author" content="Anthony Courtin">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/main.css?v=2">
+<link rel="stylesheet" href="/css/blog-article.css?v=3">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"BlogPosting",
+      "@id":"https://anthony-courtin.com/blog/agent-ia#article",
+      "headline":"Agent IA : 7 exemples concrets et comment créer le vôtre",
+      "description":"Un agent IA est un programme qui poursuit un objectif de façon autonome : il décide des étapes, utilise des outils, vérifie son résultat et recommence si nécessaire.",
+      "inLanguage":"fr-FR",
+      "datePublished":"2026-09-14",
+      "dateModified":"2026-09-14",
+      "image":"https://anthony-courtin.com/images/blog/agent-ia-cover.webp",
+      "wordCount":3900,
+      "mainEntityOfPage":{"@type":"WebPage","@id":"https://anthony-courtin.com/blog/agent-ia"},
+      "author":{"@id":"https://anthony-courtin.com/#anthony"},
+      "publisher":{"@id":"https://anthony-courtin.com/#anthony"},
+      "about":[{"@type":"Thing","name":"Agent IA"},{"@type":"Thing","name":"Automatisation"},{"@type":"Thing","name":"Intelligence artificielle"}]
+    },
+    {
+      "@type":"Person",
+      "@id":"https://anthony-courtin.com/#anthony",
+      "name":"Anthony Courtin",
+      "jobTitle":"Consultant SEO, GEO et automatisation IA",
+      "url":"https://anthony-courtin.com/a-propos",
+      "image":"https://anthony-courtin.com/images/anthony.avif",
+      "sameAs":["https://www.linkedin.com/in/anthony-courtin/"]
+    },
+    {
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Accueil","item":"https://anthony-courtin.com/"},
+        {"@type":"ListItem","position":2,"name":"Blog","item":"https://anthony-courtin.com/blog/"},
+        {"@type":"ListItem","position":3,"name":"Agent IA"}
+      ]
+    },
+    {
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"Qu'est-ce qu'un agent IA ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Un agent IA est un programme qui poursuit un objectif de façon autonome : il décide lui-même des étapes, se sert d'outils pour agir, vérifie son résultat et recommence si nécessaire. Ce qui le distingue d'un assistant classique, c'est qu'on lui donne un but à atteindre plutôt qu'une consigne à exécuter."}},
+        {"@type":"Question","name":"Comment fonctionne un agent IA ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Il répète une boucle : percevoir l'état actuel, décider de la prochaine action et de l'outil à employer, agir, puis vérifier si l'objectif est atteint. Si ce n'est pas le cas, il recommence. Cette boucle explique son coût plus élevé qu'un simple appel à un modèle, et sa capacité à rattraper ses erreurs seul."}},
+        {"@type":"Question","name":"Comment créer un agent IA ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Trois voies : sans code avec une plateforme d'automatisation visuelle, avec un cadre de développement pour une équipe technique, ou sur mesure pour un process critique. Quelle que soit la voie, commencez par écrire le process à la main, définissez le critère de réussite, vérifiez que les outils ont une interface programmable, puis construisez une version minimale."}},
+        {"@type":"Question","name":"Quels sont les meilleurs agents IA ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Trois familles se distinguent : les agents de développement, catégorie la plus mûre et la plus fiable ; les agents de bureau qui manipulent documents et tableurs ; et les agents métier intégrés dans un logiciel existant. Les agents génériques déçoivent souvent : les plus utiles sont spécialisés sur un process précis d'une entreprise précise."}},
+        {"@type":"Question","name":"Quels types d'agents IA existent ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Six types principaux : l'agent de collecte qui va chercher de l'information, l'agent de traitement qui transforme des données, l'agent de contrôle qui vérifie et alerte, l'agent de production qui crée un livrable, l'agent conversationnel outillé qui dialogue et agit, et les systèmes multi-agents où plusieurs agents spécialisés se coordonnent."}},
+        {"@type":"Question","name":"Quels sont les enjeux et risques des agents IA ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Quatre points à traiter : la confidentialité des données que l'agent transmet au modèle, la traçabilité de chaque action pour pouvoir auditer, la dépendance créée envers un fournisseur, et l'acceptation par les équipes. Une règle absolue : aucune action irréversible sans validation humaine."}},
+        {"@type":"Question","name":"Comment utiliser un agent IA en entreprise ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Commencez par noter pendant une semaine tout ce que vous faites plus de trois fois, évaluez chaque candidat sur sa fréquence, la vérifiabilité du résultat et le risque en cas d'erreur, puis choisissez le plus simple et non le plus rentable. Faites-le tourner en observation deux semaines avant de lui laisser des actions définitives."}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+<div id="read-progress"></div>
+
+<!-- ================= HEADER (identique au reste du site v2) ================= -->
+<header class="site">
+  <div class="nav-shell">
+    <nav class="main" aria-label="Navigation principale">
+      <a class="logo" href="/"><img src="/images/logo-transparent-cream.svg" alt="anthony courtin" width="86" height="42"></a>
+      <div class="nav-links">
+        <div class="nav-item"><a href="/seo">SEO</a></div>
+        <div class="nav-item"><a href="/geo">GEO, visibilité IA</a></div>
+        <div class="nav-item"><a href="/automatisation-ia">Automatisation IA</a></div>
+        <div class="nav-item"><a href="/blog/">Blog</a></div>
+        <div class="nav-item"><a href="/tarifs">Tarifs</a></div>
+      </div>
+      <button class="burger" id="burger" type="button" aria-label="Menu">☰</button>
+      <a class="nav-cta" href="/contact">Travailler avec moi</a>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="/seo">SEO</a>
+        <a href="/geo">GEO, visibilité IA</a>
+        <a href="/automatisation-ia">Automatisation IA</a>
+        <a href="/blog/">Blog</a>
+        <a href="/tarifs">Tarifs</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= EN-TÊTE D'ARTICLE ================= -->
+<section class="art-top">
+  <div class="wrap">
+    <nav class="crumb" aria-label="Fil d'Ariane">
+      <a href="/">Accueil</a><span aria-hidden="true">/</span>
+      <a href="/blog/">Blog</a><span aria-hidden="true">/</span>
+      <span>Agent IA</span>
+    </nav>
+
+    <span class="art-cat">Automatisation IA</span>
+    <h1 class="art-title">Agent IA : 7 exemples concrets et comment créer le vôtre</h1>
+    <p class="art-lede">Le mot est employé pour tout et n'importe quoi. Voici la définition qui sert à quelque chose, sept agents que j'ai mis en production, et la méthode pour construire le vôtre.</p>
+
+    <div class="art-metaline">
+      <span class="who">
+        <img src="/images/anthony.avif" alt="" width="38" height="38" loading="lazy">
+        Anthony Courtin
+      </span>
+      <span class="dot" aria-hidden="true">·</span>
+      <time datetime="2026-09-14">14 septembre 2026</time>
+      <span class="dot" aria-hidden="true">·</span>
+      <span>15 min de lecture</span>
+      <span class="dot" aria-hidden="true">·</span>
+      <span>Mis à jour le <time datetime="2026-09-14">14 septembre 2026</time></span>
+    </div>
+
+    <!-- Boutons "Résumer avec" : les href sont construits par blog-article.js -->
+    <div class="ai-actions">
+      <span class="ai-actions__title">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>
+        Résumer avec
+      </span>
+      <ul class="ai-actions__list">
+        <li><a class="ai-btn" data-ai="chatgpt" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec ChatGPT">ChatGPT</a></li>
+        <li><a class="ai-btn" data-ai="claude" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Claude">Claude</a></li>
+        <li><a class="ai-btn" data-ai="perplexity" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Perplexity">Perplexity</a></li>
+        <li><a class="ai-btn" data-ai="gemini" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Gemini">Gemini</a></li>
+        <li><a class="ai-btn" data-ai="mistral" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Le Chat de Mistral">Le Chat</a></li>
+        <li><a class="ai-btn" data-ai="grok" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Grok">Grok</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GRILLE 3 COLONNES ================= -->
+<div class="art-layout">
+
+  <!-- ---------- COLONNE GAUCHE : sommaire + partage ---------- -->
+  <aside class="rail rail-left">
+    <details class="toc-box" open>
+      <summary><span class="rail-title">Sommaire</span><span class="toc-chevron" aria-hidden="true"></span></summary>
+      <nav class="toc" id="toc" aria-label="Sommaire de l'article">
+        <p class="toc-empty">Chargement…</p>
+      </nav>
+    </details>
+
+    <div class="share-box">
+      <p class="rail-title">Partager</p>
+      <ul class="share">
+        <li><a class="share-btn share-linkedin" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur LinkedIn"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56z"/></svg></a></li>
+        <li><a class="share-btn share-x" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur X"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.96 6.82H1.68l7.73-8.84L1.25 2.25h6.83l4.71 6.23zm-1.16 17.52h1.83L7.08 4.13H5.12z"/></svg></a></li>
+        <li><a class="share-btn share-whatsapp" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur WhatsApp"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m5.8 14.16c-.25.69-1.43 1.31-1.98 1.4-.53.08-1.19.11-1.92-.12-.44-.14-1.01-.33-1.74-.64-3.06-1.32-5.06-4.4-5.21-4.6-.15-.2-1.25-1.66-1.25-3.16s.79-2.25 1.07-2.55c.28-.31.61-.38.81-.38h.58c.19 0 .44-.07.69.53.25.61.86 2.11.94 2.26.08.15.13.33.02.53-.1.2-.16.33-.31.5l-.46.54c-.15.15-.31.32-.13.63.18.31.79 1.3 1.69 2.11 1.16 1.03 2.14 1.35 2.45 1.5.31.15.49.13.67-.08.18-.2.77-.9.98-1.21.2-.31.41-.26.69-.15.28.1 1.78.84 2.09.99.31.15.51.23.59.36.08.13.08.74-.17 1.44"/></svg></a></li>
+        <li><a class="share-btn share-email" href="#" rel="nofollow" aria-label="Partager par e-mail"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m0 4-8 5-8-5V6l8 5 8-5z"/></svg></a></li>
+        <li><button class="share-btn share-copy" type="button" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2m0 16H8V7h11z"/></svg></button></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- ---------- COLONNE CENTRALE : le contenu ---------- -->
+  <div class="art-main">
+
+    <!-- Résumé IA version mobile : rendu côté serveur, donc lisible par Google et les LLM -->
+    <div class="ai-box ai-box-mobile">
+      <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
+      <p class="ai-text">Un agent IA est un programme qui poursuit un objectif de façon autonome : il décide des étapes, utilise des outils, vérifie son résultat et recommence si besoin. Il se distingue d'un chatbot, qui répond, et d'une automatisation classique, qui exécute des étapes définies à l'avance. Les agents fiables sont ceux dont le résultat est vérifiable automatiquement.</p>
+      <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
+    </div>
+
+    <article class="art-body">
+
+      <figure>
+        <picture>
+          <source srcset="/images/blog/agent-ia-cover.avif" type="image/avif">
+          <img src="/images/blog/agent-ia-cover.webp" alt="Forme de verre translucide en mouvement laissant une traînée lumineuse verte, illustration abstraite d'un agent autonome" width="1376" height="768" fetchpriority="high" decoding="async">
+        </picture>
+      </figure>
+
+      <p><strong>Un agent IA est un programme qui poursuit un objectif de façon autonome : il décide des étapes, se sert d'outils, vérifie son résultat et recommence si nécessaire.</strong> Ce qui le distingue d'un assistant classique, c'est qu'on ne lui donne pas une consigne à exécuter mais un but à atteindre. Il choisit lui-même comment y parvenir.</p>
+
+      <p>Le mot est employé à tort et à travers depuis deux ans, souvent pour désigner un simple robot conversationnel. Voici la définition utile, sept exemples que j'ai réellement mis en production, et la méthode pour en construire un.</p>
+
+      <div class="verdict">
+        <div class="verdict-note">
+          <b>3</b>
+          <span>conditions</span>
+        </div>
+        <div class="verdict-body">
+          <h2>Ce qui fait un vrai agent</h2>
+          <p>Sans ces trois éléments, vous avez un assistant ou une automatisation, pas un agent. La distinction n'est pas théorique : elle détermine ce que vous pouvez lui confier.</p>
+          <div class="verdict-lists">
+            <ul class="verdict-pros">
+              <li>Un objectif, pas une liste d'instructions</li>
+              <li>Des outils qu'il peut décider d'utiliser</li>
+              <li>Une boucle de vérification de son propre travail</li>
+            </ul>
+            <ul class="verdict-cons">
+              <li>Un robot conversationnel scripté n'est pas un agent</li>
+              <li>Un enchaînement de tâches figé non plus</li>
+            </ul>
+          </div>
+        </div>
+        <p class="verdict-foot">
+          <span class="verdict-price">Premier agent utile : 2 à 5 jours de mise en place</span>
+          <span>Pour qui : PME avec des process répétitifs et documentés</span>
+        </p>
+      </div>
+
+      <section class="takeaways">
+        <h2>À retenir</h2>
+        <ul>
+          <li>Un agent reçoit <strong>un objectif</strong>, pas une suite d'étapes : c'est ce qui le différencie d'une automatisation classique.</li>
+          <li>Il a besoin <strong>d'outils</strong> pour agir : lire des fichiers, appeler une API, écrire dans une base.</li>
+          <li>Les agents fiables sont ceux dont <strong>le résultat est vérifiable automatiquement</strong>.</li>
+          <li><strong>Commencez par une tâche à faible enjeu</strong> : un agent qui se trompe sur de la facturation coûte cher.</li>
+          <li>Le protocole <strong>MCP est devenu le standard</strong> pour brancher un agent sur vos outils métier.</li>
+        </ul>
+      </section>
+
+      <p>Avant de vous lancer, vérifiez que votre besoin s'y prête. Tous les process ne conviennent pas, et se tromper de candidat est la première cause d'échec.</p>
+
+      <div class="tool" id="outil-agent">
+        <div class="tool-head">
+          <span class="tool-ico" aria-hidden="true">✦</span>
+          <span>
+            <em>Outil interactif</em>
+            <b>Votre process est-il fait pour un agent IA ?</b>
+          </span>
+        </div>
+        <div class="tool-body">
+          <div class="field">
+            <span class="rail-title" id="ag-f-label">1. Fréquence de la tâche</span>
+            <div class="chips" id="ag-freq" role="group" aria-labelledby="ag-f-label">
+              <button type="button" class="chip on" data-v="0">Quelques fois par an</button>
+              <button type="button" class="chip" data-v="1">Chaque mois</button>
+              <button type="button" class="chip" data-v="2">Chaque semaine ou plus</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <span class="rail-title" id="ag-v-label">2. Peut-on vérifier automatiquement le résultat ?</span>
+            <div class="chips" id="ag-verif" role="group" aria-labelledby="ag-v-label">
+              <button type="button" class="chip on" data-v="0">Non, ça demande un jugement humain</button>
+              <button type="button" class="chip" data-v="1">En partie</button>
+              <button type="button" class="chip" data-v="2">Oui, une règle claire suffit</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <span class="rail-title" id="ag-r-label">3. Conséquence d'une erreur</span>
+            <div class="chips" id="ag-risque" role="group" aria-labelledby="ag-r-label">
+              <button type="button" class="chip on" data-v="2">Faible, on corrige et on repart</button>
+              <button type="button" class="chip" data-v="1">Gênante mais rattrapable</button>
+              <button type="button" class="chip" data-v="0">Grave : client, argent, conformité</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <span class="rail-title" id="ag-d-label">4. Le process est-il écrit quelque part ?</span>
+            <div class="chips" id="ag-doc" role="group" aria-labelledby="ag-d-label">
+              <button type="button" class="chip on" data-v="0">Non, c'est dans la tête des gens</button>
+              <button type="button" class="chip" data-v="1">Partiellement</button>
+              <button type="button" class="chip" data-v="2">Oui, une procédure existe</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <span class="rail-title" id="ag-o-label">5. Les outils concernés ont-ils une API ?</span>
+            <div class="chips" id="ag-api" role="group" aria-labelledby="ag-o-label">
+              <button type="button" class="chip on" data-v="0">Je ne sais pas ou non</button>
+              <button type="button" class="chip" data-v="1">Certains</button>
+              <button type="button" class="chip" data-v="2">Oui, tous</button>
+            </div>
+          </div>
+
+          <div class="score">
+            <b id="ag-score">0</b><span>/ 100 <span id="ag-label">à évaluer</span></span>
+          </div>
+          <div class="meter"><i id="ag-meter" style="width:0%"></i></div>
+
+          <div class="field">
+            <span class="rail-title" style="margin-bottom:8px">Verdict</span>
+            <div class="tool-out" id="ag-out" aria-live="polite"></div>
+          </div>
+
+          <div class="tool-actions">
+            <button type="button" class="btn-sm primary" id="ag-copy">Copier le verdict</button>
+            <a class="btn-sm ghost" href="/automatisation-ia">Faire construire mon agent</a>
+          </div>
+        </div>
+        <div class="tool-foot">
+          <span>Rien n'est envoyé nulle part : tout se calcule dans votre navigateur.</span>
+          <span>Grille d'éligibilité, Anthony Courtin</span>
+        </div>
+      </div>
+
+      <h2>Qu'est-ce qu'un agent IA, précisément</h2>
+
+      <p>La confusion vient de ce que trois choses très différentes portent le même nom dans le commerce. Séparons-les une bonne fois.</p>
+
+      <h3>Ce n'est pas un robot conversationnel</h3>
+
+      <p>Un robot conversationnel répond à des questions. Il peut être excellent, il reste réactif : vous parlez, il répond, et rien ne se passe si vous ne dites rien. Un agent, lui, poursuit un objectif même quand personne ne lui parle.</p>
+
+      <h3>Ce n'est pas une automatisation classique</h3>
+
+      <p>Une automatisation exécute une suite d'étapes définies à l'avance : si ceci, alors cela. Elle est parfaitement prévisible, et c'est sa force. Mais elle s'arrête dès qu'apparaît un cas non prévu.</p>
+
+      <p>Un agent reçoit l'objectif et décide des étapes. Confronté à un cas nouveau, il essaie autre chose. C'est sa force et sa faiblesse : il est plus souple, et moins prévisible. Cette distinction est au cœur du choix entre <a href="/blog/n8n">un outil de workflow comme n8n</a> et un agent sur mesure.</p>
+
+      <h3>Les quatre composants d'un agent</h3>
+
+      <ul>
+        <li><strong>Un modèle de langage</strong>, qui joue le rôle de cerveau : il raisonne, décide, formule.</li>
+        <li><strong>Des outils</strong>, qui lui permettent d'agir sur le monde : lire un fichier, interroger une base, envoyer un message, appeler un service.</li>
+        <li><strong>Une mémoire</strong>, pour garder le contexte de la tâche en cours et parfois d'une tâche à l'autre.</li>
+        <li><strong>Une boucle de contrôle</strong>, qui vérifie le résultat et décide s'il faut recommencer.</li>
+      </ul>
+
+      <p>Retirez les outils, il ne reste qu'un assistant qui parle. Retirez la boucle de contrôle, vous obtenez un exécutant qui ne sait pas qu'il s'est trompé. C'est cette dernière brique qui fait la différence entre une démonstration et un système utilisable.</p>
+
+      <h2>Comment fonctionne un agent IA</h2>
+
+      <h3>La boucle percevoir, décider, agir</h3>
+
+      <p>Le fonctionnement se résume à un cycle qui se répète jusqu'à l'atteinte de l'objectif.</p>
+
+      <ol>
+        <li><strong>Percevoir.</strong> L'agent examine l'état actuel : les données disponibles, ce qui a déjà été fait, les résultats des étapes précédentes.</li>
+        <li><strong>Décider.</strong> Il choisit la prochaine action et l'outil à employer.</li>
+        <li><strong>Agir.</strong> Il exécute, et récupère le résultat.</li>
+        <li><strong>Vérifier.</strong> Il compare le résultat à l'objectif. Si c'est atteint, il s'arrête. Sinon, il recommence.</li>
+      </ol>
+
+      <p>Cette boucle explique pourquoi un agent coûte plus cher qu'un simple appel à un modèle : il fait dix, vingt, parfois cent allers-retours pour une seule tâche. C'est aussi ce qui lui permet de rattraper ses erreurs sans intervention humaine.</p>
+
+      <h3>Les outils, et le protocole MCP</h3>
+
+      <p>Un agent sans outil ne peut rien faire. Historiquement, brancher un modèle sur un service demandait un développement spécifique pour chaque connexion, ce qui rendait les projets longs et fragiles.</p>
+
+      <p>Le <strong>Model Context Protocol</strong>, publié par Anthropic et adopté largement depuis, a standardisé cette couche. Un outil exposé selon ce protocole devient utilisable par n'importe quel agent compatible. C'est ce qui a fait passer les projets d'agents de plusieurs semaines à quelques jours, et c'est aujourd'hui la base technique de tout ce que je livre.</p>
+
+      <h3>La mémoire</h3>
+
+      <p>Deux mémoires coexistent. La mémoire de travail contient le contexte de la tâche en cours : ce qui a été fait, ce qui reste. Elle disparaît à la fin. La mémoire persistante conserve d'une exécution à l'autre les préférences, les cas particuliers rencontrés, les décisions validées par un humain.</p>
+
+      <p>La seconde est ce qui fait qu'un agent s'améliore avec l'usage plutôt que de recommencer à zéro chaque matin.</p>
+
+      <h3>Les garde-fous</h3>
+
+      <p>C'est la partie que les démonstrations omettent et que la production impose. Un agent utilisable en entreprise comporte au minimum : une limite au nombre d'itérations pour éviter les boucles infinies, une validation humaine avant les actions irréversibles, une trace de chaque action pour pouvoir auditer, et un périmètre strict de ce qu'il a le droit de toucher.</p>
+
+      <div class="callout callout--warn">
+        <p class="callout-t">La règle que je n'enfreins jamais</p>
+        <p>Un agent ne réalise jamais une action irréversible sans validation humaine. Envoyer un message à un client, supprimer des données, engager une dépense : ces actions sont préparées par l'agent et confirmées par une personne. Cette règle coûte quelques secondes par jour et évite des incidents qui coûtent des semaines.</p>
+      </div>
+
+      <h2>Les types d'agents</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Type</th><th scope="col">Ce qu'il fait</th><th scope="col">Exemple</th><th scope="col">Difficulté</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Agent de collecte</strong></td><td>Va chercher et structure de l'information</td><td>Veille concurrentielle quotidienne</td><td>Faible</td></tr>
+            <tr><td><strong>Agent de traitement</strong></td><td>Transforme des données d'un format à un autre</td><td>Extraction de factures vers un tableur</td><td>Faible</td></tr>
+            <tr><td><strong>Agent de contrôle</strong></td><td>Vérifie la conformité et alerte</td><td>Contrôle des fiches produit avant mise en ligne</td><td>Moyenne</td></tr>
+            <tr><td><strong>Agent de production</strong></td><td>Crée un livrable de bout en bout</td><td>Rédaction d'un rapport mensuel commenté</td><td>Moyenne</td></tr>
+            <tr><td><strong>Agent conversationnel outillé</strong></td><td>Dialogue et agit sur les systèmes</td><td>Support qui consulte et modifie un dossier</td><td>Élevée</td></tr>
+            <tr><td><strong>Système multi-agents</strong></td><td>Plusieurs agents spécialisés qui se coordonnent</td><td>Chaîne éditoriale complète</td><td>Élevée</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Mon conseil : commencez par les deux premières lignes. Ce sont celles où le résultat se vérifie facilement, donc celles où un agent devient fiable rapidement.</p>
+
+      <h2>Sept exemples concrets, mis en production</h2>
+
+      <p>Voici des agents que j'ai réellement livrés, avec ce qu'ils remplacent et le temps gagné.</p>
+
+      <h3>1. La veille concurrentielle</h3>
+
+      <p>Il parcourt chaque matin une liste de sources, repère ce qui est nouveau, écarte le bruit, et envoie une synthèse de dix lignes. Remplace une heure de lecture quotidienne. C'est l'agent le plus simple à construire et celui qui est adopté le plus vite, parce que le résultat se juge immédiatement.</p>
+
+      <h3>2. Le suivi des citations dans les IA</h3>
+
+      <p>Il pose chaque semaine un panel de questions aux moteurs de réponse, note qui est cité et avec quelles sources, et alimente un tableau de bord. C'est l'automatisation de la méthode que je décris dans mon article sur <a href="/blog/audit-visibilite-ia-methode">l'audit de visibilité IA</a>, et elle est impossible à tenir à la main au-delà de vingt questions.</p>
+
+      <h3>3. Le traitement des demandes entrantes</h3>
+
+      <p>Il lit les formulaires reçus, identifie la nature de la demande, complète la fiche dans le CRM, et prépare une réponse que le commercial valide avant envoi. Deux à quatre heures par semaine récupérées.</p>
+
+      <h3>4. Le contrôle avant publication</h3>
+
+      <p>Il vérifie chaque page avant mise en ligne : balises, liens cassés, images non compressées, données structurées valides. Il rend un tableau des anomalies. Deux minutes au lieu d'une heure, et surtout aucun oubli.</p>
+
+      <h3>5. L'extraction documentaire</h3>
+
+      <p>Il lit des documents non structurés, factures, devis, comptes rendus, et en extrait les données vers un tableur ou une base. C'est le cas d'usage au meilleur retour sur investissement quand le volume est important.</p>
+
+      <h3>6. Le rapport mensuel commenté</h3>
+
+      <p>Il assemble les chiffres de plusieurs sources, repère les variations notables et rédige un premier commentaire. L'analyse de fond reste humaine, mais la mise en forme et le repérage sont faits.</p>
+
+      <h3>7. L'agent de recherche interne</h3>
+
+      <p>Il répond aux questions des équipes en s'appuyant uniquement sur les documents de l'entreprise, en citant ses sources. Très utile dès que la documentation interne dépasse ce qu'une personne peut connaître.</p>
+
+      <h2>Comment créer un agent IA</h2>
+
+      <p>Trois voies, selon vos compétences et vos enjeux.</p>
+
+      <h3>Voie 1 : sans écrire de code</h3>
+
+      <p>Les plateformes d'automatisation visuelle ont toutes ajouté des briques d'agent. Vous assemblez un déclencheur, un modèle, des outils, et vous obtenez un agent simple en quelques heures.</p>
+
+      <p><strong>Pour qui :</strong> une équipe non technique qui veut garder la main. <strong>Limite :</strong> la logique complexe devient vite illisible, et le débogage est pénible.</p>
+
+      <h3>Voie 2 : avec un cadre de développement</h3>
+
+      <p>Plusieurs bibliothèques permettent de construire des agents en quelques dizaines de lignes, en gérant pour vous la boucle, les outils et la mémoire.</p>
+
+      <p><strong>Pour qui :</strong> une équipe avec un profil technique. <strong>Limite :</strong> ces cadres évoluent vite, et la dépendance à leurs choix d'architecture est réelle.</p>
+
+      <h3>Voie 3 : sur mesure</h3>
+
+      <p>C'est la voie que je privilégie pour ce qui va en production. Un programme écrit pour le besoin, versionné, testé, avec ses propres garde-fous. Avec <a href="/blog/claude-code">Claude Code</a>, écrire ce programme prend aujourd'hui quelques jours et non quelques semaines.</p>
+
+      <p><strong>Pour qui :</strong> un process critique ou volumineux. <strong>Limite :</strong> il faut quelqu'un pour le faire vivre.</p>
+
+      <h3>La méthode, quelle que soit la voie</h3>
+
+      <ol>
+        <li><strong>Écrivez le process à la main d'abord.</strong> Si vous ne savez pas décrire les étapes, l'agent ne les devinera pas.</li>
+        <li><strong>Définissez le critère de réussite.</strong> Comment saura-t-on que le travail est bien fait ? Sans réponse claire, arrêtez-vous là.</li>
+        <li><strong>Listez les outils nécessaires</strong> et vérifiez qu'ils ont une interface programmable.</li>
+        <li><strong>Construisez la version minimale</strong> sur un cas simple, et faites-la tourner en observation pendant une semaine.</li>
+        <li><strong>Ajoutez les cas particuliers</strong> au fur et à mesure qu'ils apparaissent, plutôt que de tout prévoir.</li>
+        <li><strong>Posez les garde-fous</strong> avant de laisser l'agent travailler sans surveillance.</li>
+      </ol>
+
+      <h2>Les meilleurs agents IA du marché</h2>
+
+      <p>La question revient toujours, et la réponse dépend de ce que vous cherchez. Trois familles se distinguent.</p>
+
+      <ul>
+        <li><strong>Les agents de développement.</strong> Ils travaillent sur du code et des fichiers. C'est la catégorie la plus mûre, avec les résultats les plus fiables.</li>
+        <li><strong>Les agents de bureau.</strong> Ils manipulent des documents, des tableurs, des dossiers, pour des usages non techniques. Catégorie plus récente, en progression rapide.</li>
+        <li><strong>Les agents métier.</strong> Intégrés dans un logiciel existant, CRM ou support client. Ils sont simples à activer mais limités au périmètre de l'éditeur.</li>
+      </ul>
+
+      <p>Mon avis après deux ans de pratique : les agents génériques déçoivent souvent, parce qu'ils ne connaissent ni vos données ni vos règles. Les agents utiles sont presque toujours spécialisés sur un process précis d'une entreprise précise. C'est moins spectaculaire qu'une démonstration, et beaucoup plus rentable.</p>
+
+      <h2>Ce qui marche, ce qui ne marche pas</h2>
+
+      <p>Le bilan honnête de mes propres projets, réussites comme échecs.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Ce qui marche bien</th><th scope="col">Ce qui échoue</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Les tâches à résultat vérifiable</td><td>Les tâches qui demandent un jugement de goût</td></tr>
+            <tr><td>Les process déjà écrits quelque part</td><td>Les process qui vivent dans la tête des gens</td></tr>
+            <tr><td>Les volumes réguliers et importants</td><td>Les cas exceptionnels, chaque fois différents</td></tr>
+            <tr><td>Les outils avec une interface programmable</td><td>Les logiciels fermés sans accès extérieur</td></tr>
+            <tr><td>Un périmètre étroit et bien défini</td><td>Un agent censé tout faire</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>La cause d'échec numéro un n'est pas technique : c'est de vouloir automatiser un process que personne n'a jamais formalisé. L'agent révèle alors que le process n'existait pas vraiment, et le projet s'arrête là. Ce n'est pas une perte : cette clarification vaut souvent le prix du projet à elle seule.</p>
+
+      <h2>Combien coûte un agent IA</h2>
+
+      <p>La question arrive toujours en fin de rendez-vous, et les réponses du marché vont de « c'est gratuit » à « c'est un projet à six chiffres ». Voici les vrais postes de dépense.</p>
+
+      <h3>Le coût de construction</h3>
+
+      <p>Pour un agent sur un process bien délimité et déjà écrit, comptez deux à cinq jours de travail. Sur un process flou ou qui touche plusieurs systèmes, on passe facilement à trois semaines, et l'essentiel de ce temps n'est pas du développement : c'est de la clarification du process avec les équipes.</p>
+
+      <p>C'est le poste que les devis sous-estiment systématiquement. Quand un prestataire annonce deux jours sans avoir vu votre process, il chiffre la partie technique et découvrira le reste en cours de route.</p>
+
+      <h3>Le coût de fonctionnement</h3>
+
+      <p>Un agent consomme à chaque exécution, puisqu'il fait plusieurs allers-retours avec le modèle. L'ordre de grandeur, pour un agent qui tourne quotidiennement sur une tâche moyenne, se situe entre quelques euros et quelques dizaines d'euros par mois. Ce n'est presque jamais le poste principal.</p>
+
+      <p>Deux réglages font varier ce coût du simple au décuple : le modèle choisi, un modèle rapide suffisant largement pour du tri ou de l'extraction, et la quantité de contexte envoyée à chaque appel. Un agent bien conçu ne renvoie pas tout l'historique à chaque étape.</p>
+
+      <h3>Le coût de maintenance</h3>
+
+      <p>C'est le poste oublié, et c'est celui qui décide de la rentabilité sur deux ans. Les interfaces des services changent, les formats de fichiers évoluent, les cas particuliers apparaissent. Comptez une demi-journée par trimestre et par agent en régime normal.</p>
+
+      <div class="callout callout--tip">
+        <p class="callout-t">Le calcul qui tranche</p>
+        <p>Prenez le temps réellement passé sur la tâche chaque mois, multipliez par le coût horaire chargé, et comparez au coût total sur vingt-quatre mois, construction comprise. Si le retour sur investissement dépasse dix-huit mois, c'est que la tâche n'est pas assez fréquente : passez au candidat suivant de votre liste.</p>
+      </div>
+
+      <h2>Agent ou automatisation classique : comment trancher</h2>
+
+      <p>C'est l'arbitrage le plus fréquent, et le plus mal fait. Beaucoup d'entreprises construisent un agent là où trois conditions suffisaient, et paient dix fois le prix pour un résultat moins prévisible.</p>
+
+      <p>Ma règle tient en une question : <strong>les étapes sont-elles toujours les mêmes ?</strong></p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Situation</th><th scope="col">La bonne solution</th><th scope="col">Pourquoi</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Les étapes ne changent jamais</td><td>Automatisation classique</td><td>Prévisible, moins cher, plus rapide</td></tr>
+            <tr><td>Quelques variantes prévisibles</td><td>Automatisation avec conditions</td><td>Suffit largement, reste lisible</td></tr>
+            <tr><td>Les données d'entrée sont désordonnées</td><td>Agent</td><td>Il s'adapte à ce qu'il trouve</td></tr>
+            <tr><td>La tâche demande de comprendre du texte</td><td>Agent</td><td>Aucune règle ne remplace la compréhension</td></tr>
+            <tr><td>Le chemin dépend du résultat des étapes</td><td>Agent</td><td>C'est exactement sa raison d'être</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Un exemple concret pour illustrer. Récupérer les nouvelles lignes d'un tableur et les envoyer par message : automatisation, cinq minutes de configuration. Lire cent factures aux formats différents, en extraire les montants et repérer les anomalies : agent, parce qu'aucune règle fixe ne couvrira la variété des documents.</p>
+
+      <p>Le plus souvent, la meilleure architecture combine les deux : une automatisation classique orchestre le déclenchement et les étapes stables, et appelle un agent uniquement sur le passage qui demande de la compréhension. On garde ainsi la prévisibilité là où elle est possible, et on paie l'intelligence seulement là où elle est nécessaire.</p>
+
+      <h2>Les enjeux et les risques</h2>
+
+      <p>Quatre points à traiter avant de mettre un agent en production, et je les vois régulièrement négligés.</p>
+
+      <ul>
+        <li><strong>La confidentialité des données.</strong> Un agent qui lit vos dossiers envoie leur contenu à un modèle. Vérifiez les conditions du service, et privilégiez les offres professionnelles qui excluent l'usage de vos données pour l'entraînement.</li>
+        <li><strong>La traçabilité.</strong> Chaque action doit laisser une trace. En cas de problème, vous devez pouvoir dire ce qui s'est passé et pourquoi.</li>
+        <li><strong>La dépendance.</strong> Un agent qui devient central dans un process crée une dépendance à un fournisseur. Prévoyez ce qui se passe si le service change ses conditions.</li>
+        <li><strong>L'acceptation par les équipes.</strong> Un agent perçu comme une menace sera contourné. Présentez-le sur ce qu'il retire de pénible, pas sur ce qu'il remplace.</li>
+      </ul>
+
+      <p>Sur le plan réglementaire, gardez en tête que l'automatisation d'une décision affectant une personne, un recrutement ou un refus de dossier par exemple, relève d'un encadrement spécifique. En cas de doute, gardez l'humain dans la boucle de décision.</p>
+
+      <h2>Par où commencer</h2>
+
+      <p>La séquence que je recommande à une PME qui n'a jamais rien automatisé.</p>
+
+      <ol>
+        <li><strong>Notez pendant une semaine</strong> tout ce que vous faites plus de trois fois. Cette liste vaut mieux que n'importe quel catalogue d'outils.</li>
+        <li><strong>Passez chaque candidat dans la grille</strong> en haut de cet article. Gardez ceux qui dépassent 60.</li>
+        <li><strong>Prenez le plus simple, pas le plus rentable.</strong> Le premier agent doit réussir : c'est lui qui décidera de la suite.</li>
+        <li><strong>Faites-le tourner en observation</strong> pendant deux semaines, sans lui laisser d'action définitive.</li>
+        <li><strong>Mesurez le temps réellement gagné</strong>, pas le temps théorique. C'est ce chiffre qui justifiera le suivant.</li>
+      </ol>
+
+      <p>Comptez deux à cinq jours pour un premier agent utile sur un process bien délimité. Si on vous annonce trois mois pour une veille automatisée, ce n'est pas le sujet qui est complexe, c'est l'approche.</p>
+
+
+      <!-- MAILLAGE À AJOUTER APRÈS PUBLICATION DES CIBLES :
+           - /blog/creer-agent-ia-sans-code (C3-09) : section « Comment créer un agent »
+           - /blog/agent-ia-gratuit (C3-10) : section « Les meilleurs agents »
+           - /blog/mcp-model-context-protocol (C3-11, 21/10/2026) : section « Les outils et le protocole MCP »
+           - /blog/agent-veille-automatisee (C3-07) : section « La veille concurrentielle »
+           - /blog/agent-ia-entreprise (C3-19) : section « Les enjeux et les risques »
+           - /blog/automatisations-gain-temps (C3-22, 18/09/2026) : section « Par où commencer »
+      -->
+
+      <!-- ================= FAQ ================= -->
+      <section class="faq">
+        <h2>Questions fréquentes</h2>
+
+        <details>
+          <summary>Qu'est-ce qu'un agent IA ?</summary>
+          <div class="faq-a"><p>Un agent IA est un programme qui poursuit un objectif de façon autonome : il décide lui-même des étapes, se sert d'outils pour agir, vérifie son résultat et recommence si nécessaire. Ce qui le distingue d'un assistant classique, c'est qu'on lui donne un but à atteindre plutôt qu'une consigne à exécuter.</p></div>
+        </details>
+
+        <details>
+          <summary>Comment fonctionne un agent IA ?</summary>
+          <div class="faq-a"><p>Il répète une boucle : percevoir l'état actuel, décider de la prochaine action et de l'outil à employer, agir, puis vérifier si l'objectif est atteint. Si ce n'est pas le cas, il recommence. Cette boucle explique son coût plus élevé qu'un simple appel à un modèle, et sa capacité à rattraper ses erreurs seul.</p></div>
+        </details>
+
+        <details>
+          <summary>Comment créer un agent IA ?</summary>
+          <div class="faq-a"><p>Trois voies : sans code avec une plateforme d'automatisation visuelle, avec un cadre de développement pour une équipe technique, ou sur mesure pour un process critique. Quelle que soit la voie, commencez par écrire le process à la main, définissez le critère de réussite, vérifiez que les outils ont une interface programmable, puis construisez une version minimale.</p></div>
+        </details>
+
+        <details>
+          <summary>Quels sont les meilleurs agents IA ?</summary>
+          <div class="faq-a"><p>Trois familles se distinguent : les agents de développement, catégorie la plus mûre et la plus fiable ; les agents de bureau qui manipulent documents et tableurs ; et les agents métier intégrés dans un logiciel existant. Les agents génériques déçoivent souvent : les plus utiles sont spécialisés sur un process précis d'une entreprise précise.</p></div>
+        </details>
+
+        <details>
+          <summary>Quels types d'agents IA existent ?</summary>
+          <div class="faq-a"><p>Six types principaux : l'agent de collecte qui va chercher de l'information, l'agent de traitement qui transforme des données, l'agent de contrôle qui vérifie et alerte, l'agent de production qui crée un livrable, l'agent conversationnel outillé qui dialogue et agit, et les systèmes multi-agents où plusieurs agents spécialisés se coordonnent.</p></div>
+        </details>
+
+        <details>
+          <summary>Quels sont les enjeux et risques des agents IA ?</summary>
+          <div class="faq-a"><p>Quatre points à traiter : la confidentialité des données que l'agent transmet au modèle, la traçabilité de chaque action pour pouvoir auditer, la dépendance créée envers un fournisseur, et l'acceptation par les équipes. Une règle absolue : aucune action irréversible sans validation humaine.</p></div>
+        </details>
+
+        <details>
+          <summary>Comment utiliser un agent IA en entreprise ?</summary>
+          <div class="faq-a"><p>Commencez par noter pendant une semaine tout ce que vous faites plus de trois fois, évaluez chaque candidat sur sa fréquence, la vérifiabilité du résultat et le risque en cas d'erreur, puis choisissez le plus simple et non le plus rentable. Faites-le tourner en observation deux semaines avant de lui laisser des actions définitives.</p></div>
+        </details>
+      </section>
+
+      <!-- ================= CTA ================= -->
+      <div class="cta-band">
+        <div>
+          <h2>Un agent qui travaille pendant que vous dormez</h2>
+          <p>Veille, contrôles, rapports, traitement de documents : je construis des agents sur mesure pour vos process. Premier échange gratuit.</p>
+        </div>
+        <a class="btn btn-lime" href="/automatisation-ia">Parler de mon projet <span class="ar">→</span></a>
+      </div>
+
+      <!-- ================= AUTEUR ================= -->
+      <div class="author-box">
+        <img src="/images/anthony.avif" alt="Anthony Courtin" width="88" height="88" loading="lazy">
+        <div>
+          <p class="eyebrow">Écrit par</p>
+          <h3>Anthony Courtin</h3>
+          <p class="author-role">Consultant SEO, GEO &amp; automatisation IA</p>
+          <p class="author-bio">J'accompagne des PME et des indépendants sur la visibilité (Google, ChatGPT, Perplexity) et sur l'usage réel de l'IA au travail. J'interviens en entreprise pour former les équipes et repenser les process. Tout ce que j'écris ici, je l'utilise en mission.</p>
+          <div class="author-links">
+            <a class="li" href="https://www.linkedin.com/in/anthony-courtin/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56z"/></svg>
+              Me suivre sur LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= AVIS LECTEURS ================= -->
+      <section class="reviews" data-slug="agent-ia" data-reviews="[]">
+        <h2>Avis des lecteurs</h2>
+        <p class="rv-sub">Cet article vous a servi ? Dites-le, ça aide les suivants.</p>
+
+        <form class="rv-form" name="avis" method="POST" data-netlify="true" netlify-honeypot="societe" action="/merci">
+          <input type="hidden" name="form-name" value="avis">
+          <input type="hidden" name="article" value="agent-ia">
+          <p class="rv-hp"><label>Ne remplissez pas ce champ : <input name="societe" tabindex="-1" autocomplete="off"></label></p>
+
+          <h3>Notez cet article</h3>
+
+          <fieldset class="rating-field">
+            <legend>Votre note</legend>
+            <div class="rating">
+              <input type="radio" id="n5" name="note" value="5"><label for="n5" aria-label="5 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n4" name="note" value="4"><label for="n4" aria-label="4 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n3" name="note" value="3"><label for="n3" aria-label="3 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n2" name="note" value="2"><label for="n2" aria-label="2 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n1" name="note" value="1"><label for="n1" aria-label="1 étoile"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="rv-nom">Prénom <span class="hint">(facultatif)</span></label>
+            <input type="text" id="rv-nom" name="nom" maxlength="60" autocomplete="given-name">
+          </div>
+
+          <div class="field">
+            <label for="rv-texte">Votre commentaire <span class="hint">(facultatif)</span></label>
+            <textarea id="rv-texte" name="texte" rows="4" maxlength="2000"></textarea>
+          </div>
+
+          <div class="rv-msg" id="rv-msg" role="status"></div>
+          <div><button type="submit" class="btn-sm primary">Publier mon avis</button></div>
+        </form>
+
+        <div class="rv-published">
+          <h3 class="rv-published-title">Ce qu'en disent les lecteurs</h3>
+          <div class="rv-summary">
+            <span class="rv-avg" id="rv-avg"></span>
+            <span class="stars" id="rv-stars" aria-hidden="true"></span>
+            <span class="rv-count" id="rv-count">Aucun avis pour le moment.</span>
+          </div>
+          <div class="rv-list" id="rv-list"></div>
+          <p class="rv-empty" id="rv-empty">Soyez le premier à donner votre avis.</p>
+        </div>
+      </section>
+
+    </article>
+  </div>
+
+  <!-- ---------- COLONNE DROITE : résumé IA + articles liés ---------- -->
+  <aside class="rail rail-right">
+    <div class="ai-box">
+      <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
+      <p class="ai-text">Un agent IA est un programme qui poursuit un objectif de façon autonome : il décide des étapes, utilise des outils, vérifie son résultat et recommence si besoin. Il se distingue d'un chatbot, qui répond, et d'une automatisation classique, qui exécute des étapes définies à l'avance. Les agents fiables sont ceux dont le résultat est vérifiable automatiquement.</p>
+      <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
+    </div>
+
+    <div class="rail-recent">
+      <p class="rail-title">Dans la même catégorie</p>
+      <div class="mini-list">
+        <a class="mini" href="/blog/n8n">
+          <span class="mini-thumb"><!-- TODO: visuel article --></span>
+          <span><span class="mini-cat">Automatisation IA</span><span class="mini-ttl">n8n : ce que l'outil fait vraiment</span></span>
+        </a>
+        <a class="mini" href="/blog/claude-code">
+          <span class="mini-thumb"><!-- TODO: visuel article --></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Claude Code : démarrer en 30 minutes, même sans coder</span></span>
+        </a>
+        <a class="mini" href="/blog/claude-ai">
+          <span class="mini-thumb"><!-- TODO: visuel article --></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Claude AI : ce que vaut vraiment l'IA d'Anthropic</span></span>
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- ================= ARTICLES LIÉS ================= -->
+<section class="related">
+  <div class="wrap">
+    <h2>À lire ensuite</h2>
+    <p class="sub">La suite logique du parcours.</p>
+    <div class="rel-grid">
+      <a class="rel-card" href="/blog/n8n">
+        <!-- TODO: visuel article -->
+        <div class="rel-body">
+          <span class="rel-cat">Automatisation IA</span>
+          <h3>n8n : ce que l'outil fait vraiment</h3>
+          <p>Automatisation open source : ses forces, ses limites, et quand le code sur mesure reprend l'avantage.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="/blog/claude-code">
+        <!-- TODO: visuel article -->
+        <div class="rel-body">
+          <span class="rel-cat">Utiliser l'IA</span>
+          <h3>Claude Code : démarrer en 30 minutes, même sans coder</h3>
+          <p>L'agent qui travaille dans votre terminal, expliqué même si vous ne programmez pas.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="/blog/claude-ai">
+        <!-- TODO: visuel article -->
+        <div class="rel-body">
+          <span class="rel-cat">Utiliser l'IA</span>
+          <h3>Claude AI : ce que vaut vraiment l'IA d'Anthropic</h3>
+          <p>Le test complet : ce qu'il fait mieux que ChatGPT, ses limites, les prix et la version gratuite.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="foot-logo" href="/"><img src="/images/logo-transparent-pine.svg" alt="anthony courtin" width="98" height="48"></a>
+        <p style="color:var(--ink-2);font-size:.95rem;margin-top:12px;max-width:280px">Consultant SEO, GEO &amp; automatisation IA. Interventions partout en France.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul><li><a href="/seo">SEO</a></li><li><a href="/geo">GEO, visibilité IA</a></li><li><a href="/automatisation-ia">Automatisation IA</a></li><li><a href="/tarifs">Tarifs</a></li></ul>
+      </div>
+      <div>
+        <h4>Ressources</h4>
+        <ul><li><a href="/blog/">Blog</a></li><li><a href="/realisations">Réalisations</a></li><li><a href="/a-propos">À propos</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul><li><a href="/contact">Formulaire</a></li><li><a href="mailto:anthony@astrak.agency">anthony@astrak.agency</a></li><li><a href="https://www.linkedin.com/in/anthony-courtin/" rel="noopener">LinkedIn</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Anthony Courtin</span>
+      <span><a href="/mentions-legales">Mentions légales</a> · <a href="/confidentialite">Confidentialité</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/site.js?v=2" defer></script>
+<script src="/js/blog-article.js?v=3" defer></script>
+
+<!-- Outil interactif propre à cet article -->
+<script src="/js/agent-ia-tool.js?v=1" defer></script>
+
+</body>
+</html>

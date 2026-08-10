@@ -103,7 +103,10 @@
 .art-body strong{font-weight:600;color:var(--pine-950)}
 .art-body blockquote{margin:1.6em 0;padding:4px 0 4px 22px;border-left:3px solid var(--lime);font-size:1.1rem;line-height:1.55;color:var(--pine-800)}
 .art-body figure{margin:1.8em 0}
-.art-body figure img{border-radius:var(--r-sm);width:100%}
+/* height:auto est indispensable : les images portent width/height en attributs
+   (réservation de place, anti-CLS). Sans lui, width:100% réduit la largeur mais
+   laisse la hauteur de l'attribut, ce qui étire l'image en hauteur. */
+.art-body figure img{border-radius:var(--r-sm);width:100%;height:auto;display:block}
 .art-body figcaption{font-size:.83rem;color:var(--ink-2);margin-top:9px}
 .art-body code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.88em;background:var(--cream-2);padding:.14em .42em;border-radius:6px}
 .art-body pre{background:var(--pine-950);color:var(--cream);border-radius:var(--r-sm);padding:20px;overflow-x:auto;font-size:.88rem;line-height:1.6}
@@ -168,10 +171,40 @@
 .btn-sm.primary{background:var(--pine-950);color:var(--lime)}
 .btn-sm.ghost{background:var(--cream);color:var(--pine-800);border:1.5px solid var(--cream-2)}
 .btn-sm.ok{background:var(--lime);color:var(--pine-950)}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{padding:8px 14px;border-radius:999px;background:var(--cream);border:1.5px solid var(--cream-2);font-size:.85rem;font-weight:500;color:var(--pine-800);cursor:pointer;transition:all .18s}
-.chip:hover{border-color:var(--pine-600)}
-.chip.on{background:var(--pine-950);color:var(--lime);border-color:var(--pine-950)}
+/* Les chips des outils sont préfixées par .tool : main.css réserve `.chip` aux
+   pastilles flottantes décoratives de l'accueil (position:absolute, animation
+   float, et display:none sous 960 px). Sans ce préfixe et ces remises à zéro,
+   les boutons de l'outil se superposent et disparaissent sur mobile. */
+.tool .chips{display:flex;flex-wrap:wrap;gap:8px}
+.tool .chip{
+  position:static;z-index:auto;box-shadow:none;animation:none;white-space:normal;
+  display:inline-flex;align-items:center;
+  padding:8px 14px;border-radius:999px;background:var(--cream);
+  border:1.5px solid var(--cream-2);font-family:inherit;font-size:.85rem;
+  font-weight:500;color:var(--pine-800);cursor:pointer;transition:all .18s
+}
+.tool .chip:hover{border-color:var(--pine-600)}
+.tool .chip.on{background:var(--pine-950);color:var(--lime);border-color:var(--pine-950)}
+.tool .chip:focus-visible{outline:2px solid var(--pine-600);outline-offset:2px}
+@media(max-width:960px){.tool .chip{display:inline-flex}}
+/* Checklist cochable des outils (audit GEO et suivants). Préfixée par .tool
+   pour ne pas hériter des puces de liste du corps d'article. */
+.tool .geo-check{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+.tool .geo-check li{margin:0;padding:0}
+.tool .geo-check li::before{content:none}
+.tool .geo-check label{
+  display:flex;gap:11px;align-items:flex-start;cursor:pointer;
+  padding:9px 10px;border-radius:10px;font-size:.93rem;line-height:1.45;
+  color:var(--pine-900);transition:background .16s
+}
+.tool .geo-check label:hover{background:var(--cream)}
+.tool .geo-check input{
+  flex:0 0 auto;width:18px;height:18px;margin:2px 0 0;accent-color:var(--pine-700);cursor:pointer
+}
+.tool .geo-check input:focus-visible{outline:2px solid var(--pine-600);outline-offset:2px}
+.tool .geo-check input:checked+*,
+.tool .geo-check label:has(input:checked){color:var(--pine-600)}
+
 .score{display:flex;align-items:baseline;gap:10px}
 .score b{font-family:var(--display);font-size:2.6rem;line-height:1;color:var(--pine-950)}
 .score span{font-size:.9rem;color:var(--ink-2)}
@@ -186,8 +219,16 @@
 .faq summary::after{content:"+";font-size:1.4rem;font-weight:400;color:var(--pine-600);flex:0 0 auto;line-height:1}
 .faq details[open] summary::after{content:"−"}
 .faq details[open] summary{border-bottom:1px solid var(--cream-2)}
-.faq .faq-a{padding:16px 20px;font-size:.98rem;line-height:1.68;color:var(--ink-2)}
-.faq .faq-a>*+*{margin-top:.7em}
+/* max-height:none et overflow:visible sont obligatoires : main.css réserve
+   `.faq-a` à l'accordéon JavaScript des pages services, où la classe est
+   repliée par max-height:0. Le blog utilise des <details> natifs, qui restent
+   sinon écrasés à la hauteur de leurs seuls paddings. */
+.faq details .faq-a{
+  max-height:none;overflow:visible;
+  padding:16px 20px;font-size:.98rem;line-height:1.68;color:var(--ink-2)
+}
+.faq details .faq-a>p{padding:0;font-size:inherit;color:inherit}
+.faq details .faq-a>*+*{margin-top:.7em}
 
 /* ---------- Bandeau CTA ---------- */
 .cta-band{background:linear-gradient(150deg,var(--pine-800),var(--pine-950));color:var(--cream);border-radius:var(--r-md);padding:34px 36px;margin:2.6em 0 0;display:grid;grid-template-columns:1fr auto;gap:26px;align-items:center;position:relative;overflow:hidden}
@@ -227,7 +268,11 @@
 .rv-date{font-size:.8rem;color:var(--ink-2)}
 .rv-text{font-size:.95rem;line-height:1.62;color:var(--ink-2);margin:0}
 .rv-empty{font-size:.94rem;color:var(--ink-2);margin:0}
-.rv-form{border-top:1px solid var(--cream-2);padding-top:22px;display:flex;flex-direction:column;gap:15px}
+/* Le formulaire vient en premier (on note, puis on lit les avis) : la ligne de
+   séparation est donc portée par le bloc des avis publiés, pas par le formulaire. */
+.rv-form{display:flex;flex-direction:column;gap:15px;margin-top:20px}
+.rv-published{border-top:1px solid var(--cream-2);margin-top:26px;padding-top:22px}
+.rv-published-title{font-family:var(--display);font-size:1.08rem;margin:0 0 14px;color:var(--pine-900)}
 .rv-form h3{font-family:var(--display);font-size:1.08rem;margin:0;color:var(--pine-900)}
 .rating-field{border:none;padding:0;margin:0}
 .rating-field legend{font-size:.83rem;font-weight:600;color:var(--pine-800);padding:0;margin-bottom:7px}
@@ -285,6 +330,60 @@
   .ai-btn:hover,.share-btn:hover,.btn-sm:hover,.rel-card:hover{transform:none}
 }
 
+/* ---------- Verdict ----------
+   Bloc de tête des articles de test et de comparatif : la conclusion AVANT
+   l'argumentaire. C'est le bloc que les moteurs de réponse reprennent en
+   premier, il doit donc être autoportant et rendu côté serveur. */
+.verdict{
+  margin:0 0 34px;padding:26px 28px;border-radius:var(--r-md);
+  background:var(--pine-900);color:var(--cream);
+  border:1px solid rgba(198,247,111,.22);
+  display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:start
+}
+.verdict-note{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  min-width:104px;padding:16px 10px;border-radius:var(--r-sm);
+  background:linear-gradient(160deg,rgba(198,247,111,.16),rgba(155,235,195,.06))
+}
+.verdict-note b{font-family:var(--display);font-size:2.4rem;line-height:1;color:var(--lime)}
+.verdict-note span{font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;color:var(--mint);margin-top:6px}
+.art-body .verdict-body h2{
+  font-family:var(--display);font-size:1.35rem;line-height:1.2;margin:0 0 6px;
+  color:var(--cream);border:0;padding:0
+}
+.art-body .verdict-body>p{margin:0 0 14px;color:var(--cream);opacity:.92;font-size:.98rem}
+/* auto-fit : deux colonnes quand la largeur le permet, une seule dans la
+   colonne d'article standard (environ 560 px), sans dépendre du viewport. */
+.verdict-lists{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px 24px}
+/* Les sélecteurs sont préfixés par .art-body : sans cela, les règles
+   génériques de liste et de paragraphe du corps d'article l'emportent. */
+.art-body .verdict-lists ul{list-style:none;margin:0;padding:0;gap:0}
+.art-body .verdict-lists li{
+  position:relative;padding-left:22px;margin-bottom:7px;
+  font-size:.93rem;line-height:1.5;color:var(--cream);opacity:.9
+}
+.art-body .verdict-lists li::before{
+  content:"";position:absolute;left:0;top:0;
+  width:auto;height:auto;border:0;border-radius:0;background:none;
+  font-weight:700;font-size:.95em;line-height:1.5
+}
+.art-body .verdict-pros li::before{content:"\2714";color:var(--lime)}
+.art-body .verdict-cons li::before{content:"\2718";color:#F2A65A}
+.art-body .verdict-foot{
+  grid-column:1/-1;display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;
+  padding-top:16px;margin-top:2px;border-top:1px solid rgba(244,241,232,.12);
+  font-size:.9rem;color:var(--mint)
+}
+.art-body .verdict-foot .verdict-price{
+  color:var(--cream);font-weight:600;font-size:.9rem;font-family:var(--body)
+}
+@media(max-width:720px){
+  .verdict{grid-template-columns:1fr;gap:18px;padding:22px 20px}
+  .verdict-note{flex-direction:row;gap:10px;min-width:0}
+  .verdict-note span{margin-top:0}
+  .verdict-lists{grid-template-columns:1fr}
+}
+
 /* ---------- Impression ---------- */
 @media print{
   .rail,.ai-actions,.cta-band,.reviews,.related,#read-progress,header.site,footer.site{display:none !important}
@@ -292,3 +391,12 @@
   .art-top{background:none;color:#000;padding:0}
   .art-title,.art-lede,.art-metaline{color:#000}
 }
+
+/* Étiquettes de verdict des tableaux filtrables (tâches SEO, comparatifs). */
+.art-body .tag-ia,.art-body .tag-mixte,.art-body .tag-humain{
+  display:inline-block;padding:3px 10px;border-radius:999px;
+  font-size:.78rem;font-weight:600;white-space:nowrap
+}
+.art-body .tag-ia{background:rgba(198,247,111,.34);color:var(--pine-900)}
+.art-body .tag-mixte{background:rgba(155,235,195,.38);color:var(--pine-900)}
+.art-body .tag-humain{background:var(--cream-2);color:var(--pine-800)}

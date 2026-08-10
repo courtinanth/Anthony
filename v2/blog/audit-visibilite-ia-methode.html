@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audit de visibilité IA : la méthode pas à pas</title>
+<meta name="description" content="Mesurer ce que ChatGPT, Perplexity et Gemini disent de votre marque : la méthode en 5 étapes, le protocole de mesure et comment le faire gratuitement.">
+<link rel="canonical" href="https://anthony-courtin.com/blog/audit-visibilite-ia-methode">
+<link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script src="/js/favicon-anim.js?v=2" defer></script>
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Audit de visibilité IA : la méthode pas à pas">
+<meta property="og:description" content="Ce que les IA répondent sur votre secteur : la méthode d'audit en 5 étapes, le protocole de mesure et le plan d'action.">
+<meta property="og:url" content="https://anthony-courtin.com/blog/audit-visibilite-ia-methode">
+<meta property="og:image" content="https://anthony-courtin.com/images/blog/audit-visibilite-ia-cover.webp">
+<meta property="og:locale" content="fr_FR">
+<meta property="article:published_time" content="2026-08-28">
+<meta property="article:modified_time" content="2026-08-28">
+<meta property="article:author" content="Anthony Courtin">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/main.css?v=2">
+<link rel="stylesheet" href="/css/blog-article.css?v=3">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"BlogPosting",
+      "@id":"https://anthony-courtin.com/blog/audit-visibilite-ia-methode#article",
+      "headline":"Audit de visibilité IA : la méthode pas à pas",
+      "description":"Un audit de visibilité IA mesure les citations d'une marque dans les réponses de ChatGPT, Perplexity, Gemini et Claude, à partir d'un panel de questions métier posées de façon répétée.",
+      "inLanguage":"fr-FR",
+      "datePublished":"2026-08-28",
+      "dateModified":"2026-08-28",
+      "image":"https://anthony-courtin.com/images/blog/audit-visibilite-ia-cover.webp",
+      "wordCount":1950,
+      "mainEntityOfPage":{"@type":"WebPage","@id":"https://anthony-courtin.com/blog/audit-visibilite-ia-methode"},
+      "author":{"@id":"https://anthony-courtin.com/#anthony"},
+      "publisher":{"@id":"https://anthony-courtin.com/#anthony"},
+      "about":[{"@type":"Thing","name":"Audit de visibilité IA"},{"@type":"Thing","name":"Generative engine optimization"},{"@type":"Thing","name":"Intelligence artificielle"}]
+    },
+    {
+      "@type":"Person",
+      "@id":"https://anthony-courtin.com/#anthony",
+      "name":"Anthony Courtin",
+      "jobTitle":"Consultant SEO, GEO et automatisation IA",
+      "url":"https://anthony-courtin.com/a-propos",
+      "image":"https://anthony-courtin.com/images/anthony.avif",
+      "sameAs":["https://www.linkedin.com/in/anthony-courtin/"]
+    },
+    {
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Accueil","item":"https://anthony-courtin.com/"},
+        {"@type":"ListItem","position":2,"name":"Blog","item":"https://anthony-courtin.com/blog/"},
+        {"@type":"ListItem","position":3,"name":"Audit de visibilité IA"}
+      ]
+    },
+    {
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"Qu'est-ce qu'un audit de visibilité IA ?",
+         "acceptedAnswer":{"@type":"Answer","text":"C'est la mesure de ce que ChatGPT, Perplexity, Gemini et Claude répondent quand on les interroge sur votre métier. Il répond à trois questions : votre marque est-elle citée, quels concurrents le sont à votre place, et quelles sources les moteurs utilisent pour répondre. La méthode repose sur un panel de questions posées de façon répétée."}},
+        {"@type":"Question","name":"Comment auditer la visibilité IA de mon entreprise ?",
+         "acceptedAnswer":{"@type":"Answer","text":"En cinq étapes : construire un panel de 30 à 50 questions métier, les poser en session déconnectée et plusieurs fois, calculer votre taux de citation et votre part de voix, analyser les sources citées quand vous ne l'êtes pas, puis en déduire un plan de contenus à partir des questions restées sans réponse."}},
+        {"@type":"Question","name":"Comment vérifier ma présence sur ChatGPT gratuitement ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Ouvrez une fenêtre de navigation privée, posez vingt questions métier à ChatGPT, Perplexity et Gemini, et notez dans un tableur si votre marque est citée, quels concurrents apparaissent et quelles sources sont liées. Votre taux de citation est le nombre de citations divisé par le nombre de questions. Comptez une demi-journée."}},
+        {"@type":"Question","name":"Quels outils pour mesurer la visibilité IA ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Un tableur et de la rigueur suffisent pour un premier audit. Au-delà de quelques dizaines de questions, l'automatisation devient nécessaire : plusieurs plateformes SEO ont ajouté un module de suivi des citations. Complétez avec l'analyse des journaux serveur pour vérifier le passage de GPTBot, ClaudeBot et PerplexityBot."}},
+        {"@type":"Question","name":"Comment améliorer ma visibilité sur les IA ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Dans cet ordre : corriger les informations fausses vous concernant et harmoniser vos coordonnées partout, entrer dans les sources que les moteurs citent déjà comme les annuaires et comparatifs de votre secteur, puis produire les contenus qui répondent aux questions restées sans réponse dans votre panel."}},
+        {"@type":"Question","name":"Quels sont les bénéfices d'un audit de visibilité IA ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Trois bénéfices : remplacer l'impression par une mesure, identifier les concurrents que les moteurs citent à votre place et qui ne sont pas toujours ceux que vous surveillez, et obtenir un calendrier éditorial fondé sur des demandes réelles plutôt que sur des idées de sujets."}},
+        {"@type":"Question","name":"Un audit de visibilité IA est-il utile pour un commerce local ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Oui, et il rejoint largement le référencement local. Quand on demande à une IA un professionnel dans une ville, elle s'appuie sur les mêmes signaux que le pack local de Google : la fiche Google Business, les avis et la cohérence des coordonnées dans les annuaires. Pour une TPE locale, les deux audits se recoupent à quatre-vingts pour cent."}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+<div id="read-progress"></div>
+
+<!-- ================= HEADER (identique au reste du site v2) ================= -->
+<header class="site">
+  <div class="nav-shell">
+    <nav class="main" aria-label="Navigation principale">
+      <a class="logo" href="/"><img src="/images/logo-transparent-cream.svg" alt="anthony courtin" width="86" height="42"></a>
+      <div class="nav-links">
+        <div class="nav-item"><a href="/seo">SEO</a></div>
+        <div class="nav-item"><a href="/geo">GEO, visibilité IA</a></div>
+        <div class="nav-item"><a href="/automatisation-ia">Automatisation IA</a></div>
+        <div class="nav-item"><a href="/blog/">Blog</a></div>
+        <div class="nav-item"><a href="/tarifs">Tarifs</a></div>
+      </div>
+      <button class="burger" id="burger" type="button" aria-label="Menu">☰</button>
+      <a class="nav-cta" href="/contact">Travailler avec moi</a>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="/seo">SEO</a>
+        <a href="/geo">GEO, visibilité IA</a>
+        <a href="/automatisation-ia">Automatisation IA</a>
+        <a href="/blog/">Blog</a>
+        <a href="/tarifs">Tarifs</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= EN-TÊTE D'ARTICLE ================= -->
+<section class="art-top">
+  <div class="wrap">
+    <nav class="crumb" aria-label="Fil d'Ariane">
+      <a href="/">Accueil</a><span aria-hidden="true">/</span>
+      <a href="/blog/">Blog</a><span aria-hidden="true">/</span>
+      <span>Audit de visibilité IA</span>
+    </nav>
+
+    <span class="art-cat">GEO, visibilité IA</span>
+    <h1 class="art-title">Audit de visibilité IA : la méthode pas à pas</h1>
+    <p class="art-lede">Vous avez demandé à ChatGPT de recommander un prestataire de votre secteur, et vous n'êtes pas apparu. Voici comment mesurer précisément l'écart, et quoi faire ensuite.</p>
+
+    <div class="art-metaline">
+      <span class="who">
+        <img src="/images/anthony.avif" alt="" width="38" height="38" loading="lazy">
+        Anthony Courtin
+      </span>
+      <span class="dot" aria-hidden="true">·</span>
+      <time datetime="2026-08-28">28 août 2026</time>
+      <span class="dot" aria-hidden="true">·</span>
+      <span>11 min de lecture</span>
+      <span class="dot" aria-hidden="true">·</span>
+      <span>Mis à jour le <time datetime="2026-08-28">28 août 2026</time></span>
+    </div>
+
+    <!-- Boutons "Résumer avec" : les href sont construits par blog-article.js -->
+    <div class="ai-actions">
+      <span class="ai-actions__title">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>
+        Résumer avec
+      </span>
+      <ul class="ai-actions__list">
+        <li><a class="ai-btn" data-ai="chatgpt" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec ChatGPT">ChatGPT</a></li>
+        <li><a class="ai-btn" data-ai="claude" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Claude">Claude</a></li>
+        <li><a class="ai-btn" data-ai="perplexity" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Perplexity">Perplexity</a></li>
+        <li><a class="ai-btn" data-ai="gemini" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Gemini">Gemini</a></li>
+        <li><a class="ai-btn" data-ai="mistral" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Le Chat de Mistral">Le Chat</a></li>
+        <li><a class="ai-btn" data-ai="grok" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Grok">Grok</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GRILLE 3 COLONNES ================= -->
+<div class="art-layout">
+
+  <!-- ---------- COLONNE GAUCHE : sommaire + partage ---------- -->
+  <aside class="rail rail-left">
+    <details class="toc-box" open>
+      <summary><span class="rail-title">Sommaire</span><span class="toc-chevron" aria-hidden="true"></span></summary>
+      <nav class="toc" id="toc" aria-label="Sommaire de l'article">
+        <p class="toc-empty">Chargement…</p>
+      </nav>
+    </details>
+
+    <div class="share-box">
+      <p class="rail-title">Partager</p>
+      <ul class="share">
+        <li><a class="share-btn share-linkedin" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur LinkedIn"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56z"/></svg></a></li>
+        <li><a class="share-btn share-x" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur X"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.96 6.82H1.68l7.73-8.84L1.25 2.25h6.83l4.71 6.23zm-1.16 17.52h1.83L7.08 4.13H5.12z"/></svg></a></li>
+        <li><a class="share-btn share-whatsapp" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur WhatsApp"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m5.8 14.16c-.25.69-1.43 1.31-1.98 1.4-.53.08-1.19.11-1.92-.12-.44-.14-1.01-.33-1.74-.64-3.06-1.32-5.06-4.4-5.21-4.6-.15-.2-1.25-1.66-1.25-3.16s.79-2.25 1.07-2.55c.28-.31.61-.38.81-.38h.58c.19 0 .44-.07.69.53.25.61.86 2.11.94 2.26.08.15.13.33.02.53-.1.2-.16.33-.31.5l-.46.54c-.15.15-.31.32-.13.63.18.31.79 1.3 1.69 2.11 1.16 1.03 2.14 1.35 2.45 1.5.31.15.49.13.67-.08.18-.2.77-.9.98-1.21.2-.31.41-.26.69-.15.28.1 1.78.84 2.09.99.31.15.51.23.59.36.08.13.08.74-.17 1.44"/></svg></a></li>
+        <li><a class="share-btn share-email" href="#" rel="nofollow" aria-label="Partager par e-mail"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m0 4-8 5-8-5V6l8 5 8-5z"/></svg></a></li>
+        <li><button class="share-btn share-copy" type="button" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2m0 16H8V7h11z"/></svg></button></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- ---------- COLONNE CENTRALE : le contenu ---------- -->
+  <div class="art-main">
+
+    <!-- Résumé IA version mobile : rendu côté serveur, donc lisible par Google et les LLM -->
+    <div class="ai-box ai-box-mobile">
+      <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
+      <p class="ai-text">Un audit de visibilité IA mesure ce que ChatGPT, Perplexity, Gemini et Claude répondent sur votre métier, à partir d'un panel de 30 à 50 questions posées en session déconnectée et répétées dans le temps. Il livre une part de voix, la liste des sources concurrentes citées et un plan de contenus.</p>
+      <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
+    </div>
+
+    <article class="art-body">
+
+      <figure>
+        <picture>
+          <source srcset="/images/blog/audit-visibilite-ia-cover.avif" type="image/avif">
+          <img src="/images/blog/audit-visibilite-ia-cover.webp" alt="Anneaux de verre concentriques s'écartant d'un cœur lumineux vert lime, illustration abstraite d'une mesure par balayage" width="1376" height="768" fetchpriority="high" decoding="async">
+        </picture>
+      </figure>
+
+      <p><strong>Un audit de visibilité IA mesure ce que ChatGPT, Perplexity, Gemini et Claude répondent quand on les interroge sur votre métier.</strong> Il répond à trois questions : votre marque est-elle citée, vos concurrents le sont-ils à votre place, et quelles sources les moteurs utilisent-ils pour répondre. Sa méthode repose sur un panel de questions posées de façon répétée, pas sur un outil unique.</p>
+
+      <p>C'est l'audit que je fais le plus souvent depuis un an, et presque toujours pour la même raison : un dirigeant a demandé à ChatGPT de recommander un prestataire de son secteur, il n'est pas apparu, et il veut comprendre pourquoi.</p>
+
+      <div class="verdict">
+        <div class="verdict-note">
+          <b>3</b>
+          <span>questions</span>
+        </div>
+        <div class="verdict-body">
+          <h2>Ce que l'audit doit vous dire</h2>
+          <p>Un audit de visibilité IA sérieux tient en trois réponses chiffrées : votre part de voix face à vos concurrents, les sources que les moteurs citent à votre place, et la liste des contenus à produire pour entrer dans ces réponses.</p>
+          <div class="verdict-lists">
+            <ul class="verdict-pros">
+              <li>Une part de voix mesurée, pas une impression</li>
+              <li>Les sources concurrentes identifiées une par une</li>
+              <li>Un plan de contenus déduit des questions réelles</li>
+            </ul>
+            <ul class="verdict-cons">
+              <li>Une capture d'écran isolée, non reproductible</li>
+              <li>Un score global sans détail par question</li>
+            </ul>
+          </div>
+        </div>
+        <p class="verdict-foot">
+          <span class="verdict-price">Durée type : 2 à 3 jours pour un panel de 40 questions</span>
+          <span>Pour qui : dirigeants de TPE et PME, responsables marketing</span>
+        </p>
+      </div>
+
+      <section class="takeaways">
+        <h2>À retenir</h2>
+        <ul>
+          <li>Un audit de visibilité IA se construit sur un <strong>panel de 30 à 50 questions métier</strong>, posées plusieurs fois.</li>
+          <li><strong>Interrogez toujours en session déconnectée</strong> : sinon vous mesurez la mémoire de votre compte, pas la réponse servie aux autres.</li>
+          <li>Le livrable central est la <strong>part de voix</strong> : combien de fois vous apparaissez, face à combien de fois vos concurrents apparaissent.</li>
+          <li>Les <strong>sources citées par les moteurs</strong> valent autant que le classement : ce sont vos cibles de netlinking et de présence.</li>
+          <li>On peut faire un <strong>premier audit gratuitement</strong> en une demi-journée, avec un tableur et de la rigueur.</li>
+        </ul>
+      </section>
+
+      <p>Commencez par le plus simple : votre panel de questions. Renseignez votre activité, l'outil compose les questions que vos clients posent réellement aux IA, prêtes à copier.</p>
+
+      <div class="tool" id="outil-panel-ia">
+        <div class="tool-head">
+          <span class="tool-ico" aria-hidden="true">✦</span>
+          <span>
+            <em>Outil interactif</em>
+            <b>Générateur de panel de questions</b>
+          </span>
+        </div>
+        <div class="tool-body">
+          <div class="field-row">
+            <div class="field">
+              <label for="pi-metier">Votre activité <span class="hint">: telle qu'un client la nommerait</span></label>
+              <input id="pi-metier" type="text" placeholder="Ex. : plombier chauffagiste">
+            </div>
+            <div class="field">
+              <label for="pi-zone">Votre zone <span class="hint">: ville, département ou « France »</span></label>
+              <input id="pi-zone" type="text" placeholder="Ex. : Nantes">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="pi-marque">Le nom de votre marque</label>
+            <input id="pi-marque" type="text" placeholder="Ex. : Dupont Énergie">
+          </div>
+
+          <div class="field">
+            <span class="rail-title" id="pi-t-label">Type d'activité</span>
+            <div class="chips" id="pi-type" role="group" aria-labelledby="pi-t-label">
+              <button type="button" class="chip on" data-v="service">Prestataire de services</button>
+              <button type="button" class="chip" data-v="produit">Vente de produits</button>
+              <button type="button" class="chip" data-v="local">Commerce local</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <span class="rail-title" style="margin-bottom:8px">Votre panel, prêt à poser aux IA</span>
+            <div class="tool-out" id="pi-out" aria-live="polite"></div>
+          </div>
+
+          <div class="score">
+            <b id="pi-nb">0</b><span>questions générées</span>
+          </div>
+          <div class="meter"><i id="pi-meter" style="width:0%"></i></div>
+
+          <div class="tool-actions">
+            <button type="button" class="btn-sm primary" id="pi-copy">Copier mon panel</button>
+            <a class="btn-sm ghost" href="/audit-visibilite-ia">Faire auditer ma visibilité</a>
+          </div>
+        </div>
+        <div class="tool-foot">
+          <span>Rien n'est envoyé nulle part : tout est généré dans votre navigateur.</span>
+          <span>Panel type, Anthony Courtin</span>
+        </div>
+      </div>
+
+      <h2>Qu'est-ce qu'un audit de visibilité IA</h2>
+
+      <p>C'est la transposition, aux moteurs de réponse, de ce qu'on fait depuis vingt ans sur les moteurs de recherche. En référencement classique, on relève ses positions sur une liste de mots-clés. Ici, on relève ses citations sur une liste de questions.</p>
+
+      <p>La différence tient à trois choses. D'abord, il n'y a pas de position : soit vous êtes cité, soit vous ne l'êtes pas. Ensuite, la réponse varie d'une session à l'autre, ce qui oblige à répéter la mesure. Enfin, aucun outil officiel ne fournit ces données : il n'existe pas de Search Console des IA.</p>
+
+      <p>C'est pour cette raison qu'un audit de visibilité IA est d'abord une méthode, et seulement ensuite un outil.</p>
+
+      <h2>La méthode, étape par étape</h2>
+
+      <h3>Étape 1 : construire le panel de questions</h3>
+
+      <p>C'est l'étape qui détermine la qualité de tout le reste. Le panel doit refléter ce que vos clients demandent réellement, pas ce que vous aimeriez qu'ils demandent.</p>
+
+      <p>Je constitue toujours quatre familles de questions, en proportions à peu près égales.</p>
+
+      <ul>
+        <li><strong>Les questions de recommandation.</strong> « Quel prestataire pour telle chose à tel endroit ». Ce sont celles qui comptent le plus commercialement.</li>
+        <li><strong>Les questions de comparaison.</strong> « Quelle différence entre telle solution et telle autre ». Elles révèlent qui les moteurs considèrent comme votre concurrent.</li>
+        <li><strong>Les questions d'expertise.</strong> Les problèmes techniques de votre métier. Ce sont elles qui construisent l'autorité de la marque à moyen terme.</li>
+        <li><strong>Les questions de marque.</strong> « Que vaut telle entreprise ». Elles montrent ce que le moteur sait de vous, et parfois ce qu'il invente.</li>
+      </ul>
+
+      <p>Quarante questions constituent un bon équilibre entre représentativité et charge de travail. En dessous de vingt, les résultats ne veulent pas dire grand-chose.</p>
+
+      <h3>Étape 2 : poser les questions, proprement</h3>
+
+      <p>La rigueur du protocole fait la valeur de la mesure. Trois règles, et elles ne se négocient pas.</p>
+
+      <ol>
+        <li><strong>Toujours en session déconnectée.</strong> Une fenêtre de navigation privée, sans compte connecté, sans historique. Sinon, vous mesurez ce que le moteur a appris de vous, pas ce qu'il répond à un inconnu.</li>
+        <li><strong>Toujours les mêmes formulations.</strong> Une question reformulée donne une réponse différente : vous ne compareriez plus rien d'une semaine à l'autre.</li>
+        <li><strong>Toujours plusieurs fois.</strong> Deux ou trois passages par question, sur des jours différents. Une réponse unique n'est pas une donnée, c'est une anecdote.</li>
+      </ol>
+
+      <p>Pour chaque réponse, je note trois choses seulement : la marque est-elle citée, quels concurrents sont cités, et quelles sources sont liées. Le reste est du commentaire.</p>
+
+      <h3>Étape 3 : calculer la part de voix</h3>
+
+      <p>La part de voix est le rapport entre le nombre de fois où vous êtes cité et le nombre total de citations de marques dans votre panel. C'est le seul indicateur qui permette de suivre une progression.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Indicateur</th><th scope="col">Ce qu'il mesure</th><th scope="col">Repère</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Taux de citation</strong></td><td>Part des questions où vous apparaissez</td><td>Le chiffre à faire monter</td></tr>
+            <tr><td><strong>Part de voix</strong></td><td>Vos citations rapportées à toutes les marques citées</td><td>Position face au marché</td></tr>
+            <tr><td><strong>Sources citées</strong></td><td>Les sites que les moteurs utilisent pour répondre</td><td>Vos cibles de présence</td></tr>
+            <tr><td><strong>Exactitude</strong></td><td>Ce que le moteur dit de vous est-il juste</td><td>Zéro erreur tolérée</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Ce dernier point surprend souvent mes clients. Il arrive régulièrement qu'un moteur attribue à une entreprise une activité qu'elle n'exerce pas, une ville où elle n'est pas, ou des tarifs inventés. Corriger cela est prioritaire sur tout le reste, parce qu'une information fausse circule plus vite qu'une absence.</p>
+
+      <h3>Étape 4 : analyser les sources concurrentes</h3>
+
+      <p>C'est l'étape la plus rentable, et la plus négligée. Quand le moteur ne vous cite pas, il cite quelqu'un. Listez ces sources : annuaires, comparatifs, articles de blog, forums, sites institutionnels.</p>
+
+      <p>Cette liste devient votre plan d'action de présence. Si trois comparatifs de votre secteur reviennent systématiquement, y figurer vaut plus que dix articles sur votre propre blog.</p>
+
+      <h3>Étape 5 : en déduire un plan de contenus</h3>
+
+      <p>Les questions de votre panel auxquelles vous ne répondez nulle part sont, littéralement, votre calendrier éditorial. C'est la façon la plus simple et la plus fiable de choisir ses sujets : ils viennent des vraies demandes, pas d'un outil de volumes.</p>
+
+      <h2>Comment vérifier sa présence sur ChatGPT gratuitement</h2>
+
+      <p>Vous pouvez faire un premier audit sérieux sans dépenser un euro. Voici la version condensée, en une demi-journée.</p>
+
+      <ol>
+        <li>Générez vingt questions avec l'outil ci-dessus, ou écrivez-les à la main.</li>
+        <li>Ouvrez une fenêtre de navigation privée et posez-les à ChatGPT, puis à Perplexity, puis à Gemini.</li>
+        <li>Notez dans un tableur : question, moteur, marque citée oui ou non, concurrents cités, sources liées.</li>
+        <li>Comptez. Votre taux de citation est le nombre de oui divisé par le nombre de questions.</li>
+        <li>Recommencez dans un mois, après vos premières corrections.</li>
+      </ol>
+
+      <p>Un outil gratuit fait la mesure ponctuelle ; c'est la répétition qui en fait un audit. La seule chose que l'argent achète ici, c'est du temps et de l'automatisation, pas une donnée que vous ne pourriez pas obtenir.</p>
+
+      <div class="callout callout--tip">
+        <p class="callout-t">Le raccourci qui donne le plus d'information</p>
+        <p>Posez cette question aux trois moteurs : « quels sont les meilleurs [votre métier] à [votre ville] ». La réponse vous donne d'un coup vos vrais concurrents aux yeux des IA, les sources qu'elles jugent fiables sur votre marché, et le vocabulaire qu'elles emploient pour décrire votre métier. En une question, vous avez déjà la moitié de l'audit.</p>
+      </div>
+
+      <h2>Comment améliorer sa visibilité après l'audit</h2>
+
+      <p>Les corrections se répartissent en trois familles, dans cet ordre d'efficacité.</p>
+
+      <ul>
+        <li><strong>Corriger ce qui est faux.</strong> Informations erronées sur votre entreprise, cohérence du nom, de l'adresse et de l'activité partout sur le web, fiche Google Business à jour. C'est rapide et l'effet est immédiat.</li>
+        <li><strong>Entrer dans les sources citées.</strong> Les annuaires et comparatifs identifiés à l'étape 4. Beaucoup acceptent une inscription gratuite ou peu coûteuse.</li>
+        <li><strong>Produire les contenus manquants.</strong> Une page par question importante restée sans réponse, écrite pour être citée : réponse dès les deux premières phrases, chiffres datés, structure claire.</li>
+      </ul>
+
+      <p>Ce dernier point renvoie directement à la méthode que je détaille dans mon guide sur <a href="/blog/generative-engine-optimization">le generative engine optimization</a>. L'audit dit où vous en êtes, le GEO dit quoi faire ensuite.</p>
+
+      <h2>Le cas particulier des activités locales</h2>
+
+      <p>Pour un commerce ou un artisan, la visibilité IA rejoint très vite le référencement local. Quand on demande à une IA un professionnel dans une ville, elle s'appuie massivement sur les mêmes signaux que le pack local de Google : la fiche Google Business, les avis, et la cohérence des coordonnées dans les annuaires.</p>
+
+      <p>Concrètement, pour une TPE locale, un audit de visibilité IA se confond à quatre-vingts pour cent avec un <a href="/blog/audit-seo-local-guide">audit SEO local</a> bien fait. C'est une bonne nouvelle : les chantiers sont connus, éprouvés, et ils servent les deux canaux à la fois.</p>
+
+      <h2>Les erreurs de méthode qui faussent tout</h2>
+
+      <p>J'ai vu passer beaucoup d'audits de visibilité IA depuis un an, y compris facturés cher. Voici les défauts qui reviennent, et qui rendent les conclusions inutilisables.</p>
+
+      <ul>
+        <li><strong>Mesurer depuis un compte connecté.</strong> C'est l'erreur numéro un. Le moteur a mémorisé vos échanges précédents et vous cite parce qu'il vous connaît, pas parce que vous méritez d'être cité.</li>
+        <li><strong>Une seule mesure.</strong> Les réponses varient d'un jour à l'autre. Un audit sans répétition documente un instant, pas une position.</li>
+        <li><strong>Un panel écrit par l'entreprise seule.</strong> On formule spontanément les questions avec son propre vocabulaire métier, qui n'est pas celui des clients. Relisez toujours le panel avec quelqu'un d'extérieur.</li>
+        <li><strong>Ignorer l'exactitude.</strong> Beaucoup d'audits comptent les citations sans vérifier ce qui est dit. Une citation qui contient une erreur sur vos tarifs vous coûte plus qu'une absence.</li>
+        <li><strong>Confondre le trafic et la citation.</strong> Être cité ne génère pas forcément une visite. Ce sont deux indicateurs distincts, à suivre séparément.</li>
+      </ul>
+
+      <h2>À quelle fréquence refaire la mesure</h2>
+
+      <p>Un audit complet deux fois par an suffit pour la plupart des entreprises. Entre les deux, un suivi allégé sur dix questions prioritaires, une fois par mois, détecte les mouvements sans mobiliser une journée.</p>
+
+      <p>Deux événements imposent en revanche une mesure immédiate : la sortie d'un nouveau modèle chez l'un des grands acteurs, qui rebat souvent les cartes en quelques jours, et une refonte de votre site, qui peut faire disparaître des pages que les moteurs citaient.</p>
+
+      <h2>Les bénéfices concrets d'un audit</h2>
+
+      <p>Au-delà du chiffre, trois bénéfices reviennent systématiquement chez mes clients.</p>
+
+      <p>Le premier est de <strong>sortir de l'impression</strong>. Beaucoup de dirigeants pensent être invisibles alors qu'ils sont cités sur les questions d'expertise, ou l'inverse. La mesure remplace l'intuition.</p>
+
+      <p>Le deuxième est d'<strong>identifier ses vrais concurrents</strong>. Les entreprises que les moteurs citent à votre place ne sont pas toujours celles que vous surveillez. C'est souvent la découverte la plus utile de l'audit.</p>
+
+      <p>Le troisième est d'<strong>obtenir un calendrier éditorial fondé sur des demandes réelles</strong>. Plus besoin d'arbitrer entre des idées de sujets : la liste des questions sans réponse fait le travail.</p>
+
+
+      <!-- MAILLAGE À AJOUTER APRÈS PUBLICATION DES CIBLES :
+           - /blog/mesurer-visibilite-ia (C1-10) : section « Calculer la part de voix »
+           - /blog/etre-cite-par-chatgpt (C1-04, 09/09/2026) : section « Comment améliorer sa visibilité »
+           - /blog/geo-local (C1-22) : section « Le cas des activités locales »
+           - /blog/contenu-citable-guide (C1-15, 23/09/2026) : section « Produire les contenus manquants »
+      -->
+
+      <!-- ================= FAQ ================= -->
+      <section class="faq">
+        <h2>Questions fréquentes</h2>
+
+        <details>
+          <summary>Qu'est-ce qu'un audit de visibilité IA ?</summary>
+          <div class="faq-a"><p>C'est la mesure de ce que ChatGPT, Perplexity, Gemini et Claude répondent quand on les interroge sur votre métier. Il répond à trois questions : votre marque est-elle citée, quels concurrents le sont à votre place, et quelles sources les moteurs utilisent pour répondre. La méthode repose sur un panel de questions posées de façon répétée.</p></div>
+        </details>
+
+        <details>
+          <summary>Comment auditer la visibilité IA de mon entreprise ?</summary>
+          <div class="faq-a"><p>En cinq étapes : construire un panel de 30 à 50 questions métier, les poser en session déconnectée et plusieurs fois, calculer votre taux de citation et votre part de voix, analyser les sources citées quand vous ne l'êtes pas, puis en déduire un plan de contenus à partir des questions restées sans réponse.</p></div>
+        </details>
+
+        <details>
+          <summary>Comment vérifier ma présence sur ChatGPT gratuitement ?</summary>
+          <div class="faq-a"><p>Ouvrez une fenêtre de navigation privée, posez vingt questions métier à ChatGPT, Perplexity et Gemini, et notez dans un tableur si votre marque est citée, quels concurrents apparaissent et quelles sources sont liées. Votre taux de citation est le nombre de citations divisé par le nombre de questions. Comptez une demi-journée.</p></div>
+        </details>
+
+        <details>
+          <summary>Quels outils pour mesurer la visibilité IA ?</summary>
+          <div class="faq-a"><p>Un tableur et de la rigueur suffisent pour un premier audit. Au-delà de quelques dizaines de questions, l'automatisation devient nécessaire : plusieurs plateformes SEO ont ajouté un module de suivi des citations. Complétez avec l'analyse des journaux serveur pour vérifier le passage de GPTBot, ClaudeBot et PerplexityBot.</p></div>
+        </details>
+
+        <details>
+          <summary>Comment améliorer ma visibilité sur les IA ?</summary>
+          <div class="faq-a"><p>Dans cet ordre : corriger les informations fausses vous concernant et harmoniser vos coordonnées partout, entrer dans les sources que les moteurs citent déjà comme les annuaires et comparatifs de votre secteur, puis produire les contenus qui répondent aux questions restées sans réponse dans votre panel.</p></div>
+        </details>
+
+        <details>
+          <summary>Quels sont les bénéfices d'un audit de visibilité IA ?</summary>
+          <div class="faq-a"><p>Trois bénéfices : remplacer l'impression par une mesure, identifier les concurrents que les moteurs citent à votre place et qui ne sont pas toujours ceux que vous surveillez, et obtenir un calendrier éditorial fondé sur des demandes réelles plutôt que sur des idées de sujets.</p></div>
+        </details>
+
+        <details>
+          <summary>Un audit de visibilité IA est-il utile pour un commerce local ?</summary>
+          <div class="faq-a"><p>Oui, et il rejoint largement le référencement local. Quand on demande à une IA un professionnel dans une ville, elle s'appuie sur les mêmes signaux que le pack local de Google : la fiche Google Business, les avis et la cohérence des coordonnées dans les annuaires. Pour une TPE locale, les deux audits se recoupent à quatre-vingts pour cent.</p></div>
+        </details>
+      </section>
+
+      <!-- ================= CTA ================= -->
+      <div class="cta-band">
+        <div>
+          <h2>Savoir exactement ce que les IA disent de vous</h2>
+          <p>Panel de questions métier, part de voix face à vos concurrents et plan d'action GEO priorisé. Restitution en visio.</p>
+        </div>
+        <a class="btn btn-lime" href="/audit-visibilite-ia">Demander un audit <span class="ar">→</span></a>
+      </div>
+
+      <!-- ================= AUTEUR ================= -->
+      <div class="author-box">
+        <img src="/images/anthony.avif" alt="Anthony Courtin" width="88" height="88" loading="lazy">
+        <div>
+          <p class="eyebrow">Écrit par</p>
+          <h3>Anthony Courtin</h3>
+          <p class="author-role">Consultant SEO, GEO &amp; automatisation IA</p>
+          <p class="author-bio">J'accompagne des PME et des indépendants sur la visibilité (Google, ChatGPT, Perplexity) et sur l'usage réel de l'IA au travail. J'interviens en entreprise pour former les équipes et repenser les process. Tout ce que j'écris ici, je l'utilise en mission.</p>
+          <div class="author-links">
+            <a class="li" href="https://www.linkedin.com/in/anthony-courtin/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56z"/></svg>
+              Me suivre sur LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= AVIS LECTEURS ================= -->
+      <section class="reviews" data-slug="audit-visibilite-ia-methode" data-reviews="[]">
+        <h2>Avis des lecteurs</h2>
+        <p class="rv-sub">Cet article vous a servi ? Dites-le, ça aide les suivants.</p>
+
+        <form class="rv-form" name="avis" method="POST" data-netlify="true" netlify-honeypot="societe" action="/merci">
+          <input type="hidden" name="form-name" value="avis">
+          <input type="hidden" name="article" value="audit-visibilite-ia-methode">
+          <p class="rv-hp"><label>Ne remplissez pas ce champ : <input name="societe" tabindex="-1" autocomplete="off"></label></p>
+
+          <h3>Notez cet article</h3>
+
+          <fieldset class="rating-field">
+            <legend>Votre note</legend>
+            <div class="rating">
+              <input type="radio" id="n5" name="note" value="5"><label for="n5" aria-label="5 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n4" name="note" value="4"><label for="n4" aria-label="4 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n3" name="note" value="3"><label for="n3" aria-label="3 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n2" name="note" value="2"><label for="n2" aria-label="2 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n1" name="note" value="1"><label for="n1" aria-label="1 étoile"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="rv-nom">Prénom <span class="hint">(facultatif)</span></label>
+            <input type="text" id="rv-nom" name="nom" maxlength="60" autocomplete="given-name">
+          </div>
+
+          <div class="field">
+            <label for="rv-texte">Votre commentaire <span class="hint">(facultatif)</span></label>
+            <textarea id="rv-texte" name="texte" rows="4" maxlength="2000"></textarea>
+          </div>
+
+          <div class="rv-msg" id="rv-msg" role="status"></div>
+          <div><button type="submit" class="btn-sm primary">Publier mon avis</button></div>
+        </form>
+
+        <div class="rv-published">
+          <h3 class="rv-published-title">Ce qu'en disent les lecteurs</h3>
+          <div class="rv-summary">
+            <span class="rv-avg" id="rv-avg"></span>
+            <span class="stars" id="rv-stars" aria-hidden="true"></span>
+            <span class="rv-count" id="rv-count">Aucun avis pour le moment.</span>
+          </div>
+          <div class="rv-list" id="rv-list"></div>
+          <p class="rv-empty" id="rv-empty">Soyez le premier à donner votre avis.</p>
+        </div>
+      </section>
+
+    </article>
+  </div>
+
+  <!-- ---------- COLONNE DROITE : résumé IA + articles liés ---------- -->
+  <aside class="rail rail-right">
+    <div class="ai-box">
+      <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
+      <p class="ai-text">Un audit de visibilité IA mesure ce que ChatGPT, Perplexity, Gemini et Claude répondent sur votre métier, à partir d'un panel de 30 à 50 questions posées en session déconnectée et répétées dans le temps. Il livre une part de voix, la liste des sources concurrentes citées et un plan de contenus.</p>
+      <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
+    </div>
+
+    <div class="rail-recent">
+      <p class="rail-title">Dans la même catégorie</p>
+      <div class="mini-list">
+        <a class="mini" href="/blog/generative-engine-optimization">
+          <span class="mini-thumb"><!-- TODO: visuel article --></span>
+          <span><span class="mini-cat">GEO, visibilité IA</span><span class="mini-ttl">Generative Engine Optimization : comment être cité par les IA</span></span>
+        </a>
+        <a class="mini" href="/blog/llms-txt">
+          <span class="mini-thumb"><!-- TODO: visuel article --></span>
+          <span><span class="mini-cat">GEO, visibilité IA</span><span class="mini-ttl">llms.txt : le fichier que les IA sont censées lire</span></span>
+        </a>
+        <a class="mini" href="/blog/audit-seo-methode">
+          <span class="mini-thumb"><!-- TODO: visuel article --></span>
+          <span><span class="mini-cat">SEO</span><span class="mini-ttl">Audit SEO : la méthode et la checklist complète</span></span>
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- ================= ARTICLES LIÉS ================= -->
+<section class="related">
+  <div class="wrap">
+    <h2>À lire ensuite</h2>
+    <p class="sub">La suite logique du parcours.</p>
+    <div class="rel-grid">
+      <a class="rel-card" href="/blog/generative-engine-optimization">
+        <!-- TODO: visuel article -->
+        <div class="rel-body">
+          <span class="rel-cat">GEO, visibilité IA</span>
+          <h3>Generative Engine Optimization : comment être cité par les IA</h3>
+          <p>La méthode en 7 points pour être repris comme source par ChatGPT, Perplexity et les AI Overviews.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="/blog/llms-txt">
+        <!-- TODO: visuel article -->
+        <div class="rel-body">
+          <span class="rel-cat">GEO, visibilité IA</span>
+          <h3>llms.txt : le fichier que les IA sont censées lire</h3>
+          <p>À quoi il sert vraiment, comment le créer en dix minutes, et pourquoi son effet n'est pas démontré.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="/blog/audit-seo-methode">
+        <!-- TODO: visuel article -->
+        <div class="rel-body">
+          <span class="rel-cat">SEO</span>
+          <h3>Audit SEO : la méthode et la checklist complète</h3>
+          <p>Les 47 points que je vérifie, et les trois corrections qui changent vraiment les positions.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="foot-logo" href="/"><img src="/images/logo-transparent-pine.svg" alt="anthony courtin" width="98" height="48"></a>
+        <p style="color:var(--ink-2);font-size:.95rem;margin-top:12px;max-width:280px">Consultant SEO, GEO &amp; automatisation IA. Interventions partout en France.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul><li><a href="/seo">SEO</a></li><li><a href="/geo">GEO, visibilité IA</a></li><li><a href="/automatisation-ia">Automatisation IA</a></li><li><a href="/tarifs">Tarifs</a></li></ul>
+      </div>
+      <div>
+        <h4>Ressources</h4>
+        <ul><li><a href="/blog/">Blog</a></li><li><a href="/realisations">Réalisations</a></li><li><a href="/a-propos">À propos</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul><li><a href="/contact">Formulaire</a></li><li><a href="mailto:anthony@astrak.agency">anthony@astrak.agency</a></li><li><a href="https://www.linkedin.com/in/anthony-courtin/" rel="noopener">LinkedIn</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Anthony Courtin</span>
+      <span><a href="/mentions-legales">Mentions légales</a> · <a href="/confidentialite">Confidentialité</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/site.js?v=2" defer></script>
+<script src="/js/blog-article.js?v=3" defer></script>
+
+<!-- Outil interactif propre à cet article -->
+<script src="/js/panel-ia-tool.js?v=1" defer></script>
+
+</body>
+</html>

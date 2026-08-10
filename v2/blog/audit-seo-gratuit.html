@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audit SEO gratuit : le faire soi-même en 2 heures</title>
+<meta name="description" content="Un audit SEO sérieux se fait gratuitement en 2 heures avec la Search Console et deux outils libres. Le parcours en 6 étapes, et ce qu'il détecte vraiment.">
+<link rel="canonical" href="https://anthony-courtin.com/blog/audit-seo-gratuit">
+<link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script src="/js/favicon-anim.js?v=2" defer></script>
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Audit SEO gratuit : le faire soi-même en 2 heures">
+<meta property="og:description" content="Le parcours complet pour auditer son site gratuitement en deux heures, avec les outils et l'ordre exact des étapes.">
+<meta property="og:url" content="https://anthony-courtin.com/blog/audit-seo-gratuit">
+<meta property="og:image" content="https://anthony-courtin.com/images/blog/audit-seo-gratuit-cover.webp">
+<meta property="og:locale" content="fr_FR">
+<meta property="article:published_time" content="2026-09-25">
+<meta property="article:modified_time" content="2026-09-25">
+<meta property="article:author" content="Anthony Courtin">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/main.css?v=2">
+<link rel="stylesheet" href="/css/blog-article.css?v=3">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"BlogPosting",
+      "@id":"https://anthony-courtin.com/blog/audit-seo-gratuit#article",
+      "headline":"Audit SEO gratuit : le faire soi-même en deux heures",
+      "description":"Un audit SEO gratuit se réalise en deux heures avec la Search Console, un crawler et un outil de performance. Il détecte les blocages d'indexation, les balises manquantes et les pages orphelines.",
+      "inLanguage":"fr-FR",
+      "datePublished":"2026-09-25",
+      "dateModified":"2026-09-25",
+      "image":"https://anthony-courtin.com/images/blog/audit-seo-gratuit-cover.webp",
+      "wordCount":1400,
+      "mainEntityOfPage":{"@type":"WebPage","@id":"https://anthony-courtin.com/blog/audit-seo-gratuit"},
+      "author":{"@id":"https://anthony-courtin.com/#anthony"},
+      "publisher":{"@id":"https://anthony-courtin.com/#anthony"},
+      "about":[{"@type":"Thing","name":"Audit SEO"},{"@type":"Thing","name":"Référencement naturel"},{"@type":"Thing","name":"Search Console"}]
+    },
+    {
+      "@type":"Person",
+      "@id":"https://anthony-courtin.com/#anthony",
+      "name":"Anthony Courtin",
+      "jobTitle":"Consultant SEO, GEO et automatisation IA",
+      "url":"https://anthony-courtin.com/a-propos",
+      "image":"https://anthony-courtin.com/images/anthony.avif",
+      "sameAs":["https://www.linkedin.com/in/anthony-courtin/"]
+    },
+    {
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Accueil","item":"https://anthony-courtin.com/"},
+        {"@type":"ListItem","position":2,"name":"Blog","item":"https://anthony-courtin.com/blog/"},
+        {"@type":"ListItem","position":3,"name":"Audit SEO gratuit"}
+      ]
+    },
+    {
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"Comment réaliser un audit SEO gratuit ?",
+         "acceptedAnswer":{"@type":"Answer","text":"En six étapes et deux heures : relever la situation de départ, vérifier l'indexation dans la Search Console, passer un crawler sur le site, croiser les pages explorées avec celles qui reçoivent des impressions, mesurer la vitesse et l'affichage mobile, puis classer les problèmes trouvés par impact."}},
+        {"@type":"Question","name":"Quels outils d'audit SEO gratuits utiliser ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Trois suffisent : la Search Console, seule source officielle qui montre ce que Google voit de votre site ; un crawler en version gratuite, qui parcourt le site comme un robot et plafonne en général à cinq cents URL ; et un outil de mesure de performance pour la vitesse et l'affichage mobile."}},
+        {"@type":"Question","name":"Quels critères vérifier lors d'un audit SEO ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Dans l'ordre : l'indexation des pages et les motifs d'exclusion, les codes de réponse autres que 200, les balises title manquantes ou dupliquées, les pages sans H1, la profondeur des pages importantes, les liens cassés, la vitesse d'affichage et le rendu sur mobile."}},
+        {"@type":"Question","name":"Quels problèmes SEO peuvent être détectés gratuitement ?",
+         "acceptedAnswer":{"@type":"Answer","text":"L'essentiel de ce qui plafonne un site : pages bloquées par une balise noindex, pages explorées mais non indexées, balises manquantes ou recopiées, pages orphelines sans lien interne entrant, liens cassés, images non compressées et redirections en chaîne."}},
+        {"@type":"Question","name":"Combien de temps prend un audit SEO gratuit ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Comptez deux heures pour un site de taille moyenne, réparties ainsi : dix minutes pour la situation de départ, vingt pour l'indexation, trente pour le crawl, vingt pour le croisement des listes, vingt pour la performance et vingt pour la hiérarchisation des problèmes."}},
+        {"@type":"Question","name":"Comment interpréter un rapport d'audit SEO automatique ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Regardez la liste des problèmes, jamais la note globale. Ces outils comptent ce qui est comptable : balises, liens cassés, temps de chargement. Ils ne détectent pas si deux pages se font concurrence sur la même requête ni si votre page la plus rentable est mal reliée au reste du site."}},
+        {"@type":"Question","name":"Quand un audit gratuit ne suffit-il plus ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Trois signaux : tout est au vert et le trafic stagne, ce qui déplace le problème vers le sémantique ou le concurrentiel ; le trafic a chuté sans cause visible ; ou vous ne savez pas par où commencer. Dans ces cas, ce que vous achetez n'est pas une donnée mais un jugement."}},
+        {"@type":"Question","name":"Comment améliorer son référencement après l'audit ?",
+         "acceptedAnswer":{"@type":"Answer","text":"En traitant les corrections dans cet ordre : d'abord ce qui bloque l'indexation, puis ce qui touche beaucoup de pages d'un coup comme un gabarit, puis vos pages les plus rentables, et le reste ensuite. Relevez toujours votre situation de départ avant de corriger."}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+<div id="read-progress"></div>
+
+<!-- ================= HEADER (identique au reste du site v2) ================= -->
+<header class="site">
+  <div class="nav-shell">
+    <nav class="main" aria-label="Navigation principale">
+      <a class="logo" href="/"><img src="/images/logo-transparent-cream.svg" alt="anthony courtin" width="86" height="42"></a>
+      <div class="nav-links">
+        <div class="nav-item"><a href="/seo">SEO</a></div>
+        <div class="nav-item"><a href="/geo">GEO, visibilité IA</a></div>
+        <div class="nav-item"><a href="/automatisation-ia">Automatisation IA</a></div>
+        <div class="nav-item"><a href="/blog/">Blog</a></div>
+        <div class="nav-item"><a href="/tarifs">Tarifs</a></div>
+      </div>
+      <button class="burger" id="burger" type="button" aria-label="Menu">☰</button>
+      <a class="nav-cta" href="/contact">Travailler avec moi</a>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="/seo">SEO</a>
+        <a href="/geo">GEO, visibilité IA</a>
+        <a href="/automatisation-ia">Automatisation IA</a>
+        <a href="/blog/">Blog</a>
+        <a href="/tarifs">Tarifs</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= EN-TÊTE D'ARTICLE ================= -->
+<section class="art-top">
+  <div class="wrap">
+    <nav class="crumb" aria-label="Fil d'Ariane">
+      <a href="/">Accueil</a><span aria-hidden="true">/</span>
+      <a href="/blog/">Blog</a><span aria-hidden="true">/</span>
+      <span>Audit SEO gratuit</span>
+    </nav>
+
+    <span class="art-cat">SEO</span>
+    <h1 class="art-title">Audit SEO gratuit : le faire soi-même en deux heures</h1>
+    <p class="art-lede">La quasi-totalité de ce qui bloque un site se détecte sans dépenser un euro. Voici le parcours exact, dans l'ordre, avec ce qu'il faut regarder à chaque étape.</p>
+
+    <div class="art-metaline">
+      <span class="who">
+        <img src="/images/anthony.avif" alt="" width="38" height="38" loading="lazy">
+        Anthony Courtin
+      </span>
+      <span class="dot" aria-hidden="true">·</span>
+      <time datetime="2026-09-25">25 septembre 2026</time>
+      <span class="dot" aria-hidden="true">·</span>
+      <span>8 min de lecture</span>
+      <span class="dot" aria-hidden="true">·</span>
+      <span>Mis à jour le <time datetime="2026-09-25">25 septembre 2026</time></span>
+    </div>
+
+    <!-- Boutons "Résumer avec" : les href sont construits par blog-article.js -->
+    <div class="ai-actions">
+      <span class="ai-actions__title">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>
+        Résumer avec
+      </span>
+      <ul class="ai-actions__list">
+        <li><a class="ai-btn" data-ai="chatgpt" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec ChatGPT">ChatGPT</a></li>
+        <li><a class="ai-btn" data-ai="claude" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Claude">Claude</a></li>
+        <li><a class="ai-btn" data-ai="perplexity" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Perplexity">Perplexity</a></li>
+        <li><a class="ai-btn" data-ai="gemini" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Gemini">Gemini</a></li>
+        <li><a class="ai-btn" data-ai="mistral" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Le Chat de Mistral">Le Chat</a></li>
+        <li><a class="ai-btn" data-ai="grok" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Grok">Grok</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GRILLE 3 COLONNES ================= -->
+<div class="art-layout">
+
+  <!-- ---------- COLONNE GAUCHE : sommaire + partage ---------- -->
+  <aside class="rail rail-left">
+    <details class="toc-box" open>
+      <summary><span class="rail-title">Sommaire</span><span class="toc-chevron" aria-hidden="true"></span></summary>
+      <nav class="toc" id="toc" aria-label="Sommaire de l'article">
+        <p class="toc-empty">Chargement…</p>
+      </nav>
+    </details>
+
+    <div class="share-box">
+      <p class="rail-title">Partager</p>
+      <ul class="share">
+        <li><a class="share-btn share-linkedin" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur LinkedIn"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56z"/></svg></a></li>
+        <li><a class="share-btn share-x" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur X"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.96 6.82H1.68l7.73-8.84L1.25 2.25h6.83l4.71 6.23zm-1.16 17.52h1.83L7.08 4.13H5.12z"/></svg></a></li>
+        <li><a class="share-btn share-whatsapp" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur WhatsApp"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m5.8 14.16c-.25.69-1.43 1.31-1.98 1.4-.53.08-1.19.11-1.92-.12-.44-.14-1.01-.33-1.74-.64-3.06-1.32-5.06-4.4-5.21-4.6-.15-.2-1.25-1.66-1.25-3.16s.79-2.25 1.07-2.55c.28-.31.61-.38.81-.38h.58c.19 0 .44-.07.69.53.25.61.86 2.11.94 2.26.08.15.13.33.02.53-.1.2-.16.33-.31.5l-.46.54c-.15.15-.31.32-.13.63.18.31.79 1.3 1.69 2.11 1.16 1.03 2.14 1.35 2.45 1.5.31.15.49.13.67-.08.18-.2.77-.9.98-1.21.2-.31.41-.26.69-.15.28.1 1.78.84 2.09.99.31.15.51.23.59.36.08.13.08.74-.17 1.44"/></svg></a></li>
+        <li><a class="share-btn share-email" href="#" rel="nofollow" aria-label="Partager par e-mail"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m0 4-8 5-8-5V6l8 5 8-5z"/></svg></a></li>
+        <li><button class="share-btn share-copy" type="button" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2m0 16H8V7h11z"/></svg></button></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- ---------- COLONNE CENTRALE : le contenu ---------- -->
+  <div class="art-main">
+
+    <!-- Résumé IA version mobile : rendu côté serveur, donc lisible par Google et les LLM -->
+    <div class="ai-box ai-box-mobile">
+      <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
+      <p class="ai-text">Un audit SEO gratuit se réalise en deux heures avec la Search Console, un crawler en version gratuite et un outil de mesure de performance. Il détecte les blocages d'indexation, les balises manquantes ou dupliquées, les pages orphelines et les liens cassés. Ce que l'argent achète ensuite, c'est du temps d'analyse et de l'expérience.</p>
+      <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
+    </div>
+
+    <article class="art-body">
+
+      <figure>
+        <picture>
+          <source srcset="/images/blog/audit-seo-gratuit-cover.avif" type="image/avif">
+          <img src="/images/blog/audit-seo-gratuit-cover.webp" alt="Lentille de verre translucide grossissant une zone de lumière verte, illustration abstraite d'une inspection gratuite" width="1376" height="768" fetchpriority="high" decoding="async">
+        </picture>
+      </figure>
+
+      <p><strong>Vous pouvez réaliser un audit SEO sérieux gratuitement, en deux heures, avec la Search Console et deux outils libres.</strong> Ce que l'argent achète ensuite, c'est du temps d'analyse et de l'expérience, pas des données inaccessibles. La quasi-totalité de ce qui bloque un site se détecte sans dépenser un euro.</p>
+
+      <p>Voici le parcours exact que je fais faire à mes clients avant tout devis, avec les outils, l'ordre, et ce qu'il faut regarder à chaque étape.</p>
+
+      <div class="verdict">
+        <div class="verdict-note">
+          <b>2 h</b>
+          <span>chrono</span>
+        </div>
+        <div class="verdict-body">
+          <h2>Ce qu'un audit gratuit détecte vraiment</h2>
+          <p>Les problèmes les plus coûteux sont aussi les plus faciles à repérer. Un audit gratuit bien mené trouve l'essentiel de ce qui plafonne un site, et vous dit si vous avez besoin d'aller plus loin.</p>
+          <div class="verdict-lists">
+            <ul class="verdict-pros">
+              <li>Les blocages d'indexation, qui rendent tout le reste inutile</li>
+              <li>Les balises manquantes ou dupliquées</li>
+              <li>Les pages orphelines et les liens cassés</li>
+            </ul>
+            <ul class="verdict-cons">
+              <li>L'analyse sémantique fine face aux concurrents</li>
+              <li>La priorisation par impact commercial</li>
+            </ul>
+          </div>
+        </div>
+        <p class="verdict-foot">
+          <span class="verdict-price">Coût : 0 €, hors votre temps</span>
+          <span>Pour qui : tout site avant d'engager un budget</span>
+        </p>
+      </div>
+
+      <section class="takeaways">
+        <h2>À retenir</h2>
+        <ul>
+          <li>La <strong>Search Console suffit</strong> pour l'essentiel : c'est la seule source qui dit ce que Google voit vraiment.</li>
+          <li>Commencez par <strong>l'indexation</strong> : une page non indexée rend tout autre travail théorique.</li>
+          <li>Le croisement <strong>pages explorées contre pages qui reçoivent des impressions</strong> révèle la plupart des problèmes en dix minutes.</li>
+          <li>Un rapport d'outil gratuit <strong>note ce qu'il sait mesurer</strong>, pas ce qui compte pour votre activité.</li>
+          <li>Relevez votre <strong>situation de départ</strong> avant toute correction, sinon vous ne pourrez rien démontrer.</li>
+        </ul>
+      </section>
+
+      <p>Suivez le parcours étape par étape. Cochez au fur et à mesure : l'outil vous indique le temps restant et le détail de l'étape en cours.</p>
+
+      <div class="tool" id="outil-audit-gratuit">
+        <div class="tool-head">
+          <span class="tool-ico" aria-hidden="true">✦</span>
+          <span>
+            <em>Outil interactif</em>
+            <b>Votre audit gratuit en 6 étapes</b>
+          </span>
+        </div>
+        <div class="tool-body">
+          <div class="field">
+            <span class="rail-title" id="ag2-label">Cochez à mesure que vous avancez</span>
+            <ul class="geo-check" id="ag2-check" aria-labelledby="ag2-label">
+              <li><label><input type="checkbox" data-m="10" data-k="depart"> 1. Relever la situation de départ (trafic, positions, pages indexées)</label></li>
+              <li><label><input type="checkbox" data-m="20" data-k="index"> 2. Vérifier l'indexation dans la Search Console</label></li>
+              <li><label><input type="checkbox" data-m="30" data-k="crawl"> 3. Passer un crawler sur le site</label></li>
+              <li><label><input type="checkbox" data-m="20" data-k="croise"> 4. Croiser pages explorées et pages avec impressions</label></li>
+              <li><label><input type="checkbox" data-m="20" data-k="perf"> 5. Mesurer la vitesse et l'affichage mobile</label></li>
+              <li><label><input type="checkbox" data-m="20" data-k="plan"> 6. Classer les problèmes trouvés par impact</label></li>
+            </ul>
+          </div>
+
+          <div class="score">
+            <b id="ag2-reste">120</b><span>minutes restantes <span id="ag2-label2"></span></span>
+          </div>
+          <div class="meter"><i id="ag2-meter" style="width:0%"></i></div>
+
+          <div class="field">
+            <span class="rail-title" style="margin-bottom:8px">Étape en cours</span>
+            <div class="tool-out" id="ag2-out" aria-live="polite"></div>
+          </div>
+
+          <div class="tool-actions">
+            <button type="button" class="btn-sm primary" id="ag2-copy">Copier la marche à suivre</button>
+            <a class="btn-sm ghost" href="/audit-seo">Faire auditer mon site</a>
+          </div>
+        </div>
+        <div class="tool-foot">
+          <span>Rien n'est envoyé nulle part : votre progression reste dans votre navigateur.</span>
+          <span>Parcours d'audit, Anthony Courtin</span>
+        </div>
+      </div>
+
+      <h2>Les outils gratuits qui suffisent</h2>
+
+      <p>Trois outils couvrent l'essentiel, et le premier fait à lui seul la moitié du travail.</p>
+
+      <ul>
+        <li><strong>La Search Console.</strong> Gratuite, officielle, et la seule source qui montre ce que Google voit réellement de votre site : couverture d'indexation, requêtes, pages exclues et pourquoi elles le sont.</li>
+        <li><strong>Un crawler en version gratuite.</strong> Il parcourt votre site comme un robot et remonte les codes de réponse, les balises, la profondeur des pages et les liens cassés. Les versions gratuites plafonnent en général à cinq cents URL, ce qui couvre la majorité des sites de PME.</li>
+        <li><strong>Un outil de mesure de performance.</strong> Pour la vitesse et l'affichage mobile, avec des données de laboratoire et parfois des données réelles.</li>
+      </ul>
+
+      <p>Vous pouvez y ajouter votre outil de statistiques et, si vous en avez un, un accès gratuit limité à une plateforme SEO pour la partie liens entrants. Ce n'est pas indispensable pour un premier diagnostic.</p>
+
+      <h2>Les six étapes, en détail</h2>
+
+      <h3>1. Relever la situation de départ</h3>
+
+      <p>Avant de chercher les problèmes, notez où vous en êtes : trafic organique des trois derniers mois, nombre de pages indexées, positions sur vos dix requêtes prioritaires. Dix minutes, et c'est ce qui vous permettra de prouver l'effet des corrections.</p>
+
+      <p>C'est l'étape que tout le monde saute, et celle qui manque le plus quand il faut justifier un budget six mois plus tard.</p>
+
+      <h3>2. Vérifier l'indexation</h3>
+
+      <p>Dans la Search Console, ouvrez le rapport d'indexation des pages. Regardez le nombre de pages indexées, puis surtout la liste des pages non indexées et le motif d'exclusion associé.</p>
+
+      <p>Les motifs à traiter en priorité : les pages exclues par une balise noindex alors qu'elles devraient être visibles, les pages explorées mais non indexées, et les pages en erreur. Une page non indexée ne peut pas se classer, quelle que soit la qualité de son contenu.</p>
+
+      <h3>3. Passer un crawler</h3>
+
+      <p>Lancez le crawler sur votre domaine et laissez-le terminer. Regardez ensuite quatre choses : les codes de réponse autres que 200, les balises title manquantes ou dupliquées, les pages sans balise H1, et la profondeur des pages importantes.</p>
+
+      <p>Une page stratégique à cinq clics de l'accueil est une page que les moteurs jugent secondaire. C'est un problème de structure, gratuit à corriger.</p>
+
+      <h3>4. Croiser les deux listes</h3>
+
+      <p>C'est l'étape la plus rentable de tout l'audit, et elle prend vingt minutes.</p>
+
+      <p>Exportez d'un côté les pages trouvées par le crawler, de l'autre les pages qui reçoivent des impressions dans la Search Console. Comparez. Les pages présentes chez le crawler mais absentes des impressions sont vos pages invisibles : soit elles ne sont pas indexées, soit elles ne répondent à aucune requête. Dans les deux cas, vous venez de trouver où se cache votre potentiel.</p>
+
+      <h3>5. Mesurer la vitesse et le mobile</h3>
+
+      <p>Testez vos trois pages les plus importantes, pas seulement l'accueil. Regardez le temps d'affichage du plus grand élément, la stabilité visuelle pendant le chargement, et l'affichage sur téléphone.</p>
+
+      <p>Les gains les plus fréquents et les plus faciles : compresser les images, différer les scripts non essentiels, et déclarer les dimensions des images pour éviter que la page ne bouge pendant le chargement.</p>
+
+      <h3>6. Classer par impact</h3>
+
+      <p>Vous avez maintenant une liste de problèmes. Ne les corrigez pas dans l'ordre où vous les avez trouvés. Classez-les ainsi :</p>
+
+      <ol>
+        <li>Ce qui bloque l'indexation.</li>
+        <li>Ce qui touche beaucoup de pages d'un coup, typiquement un gabarit.</li>
+        <li>Ce qui concerne vos pages les plus rentables.</li>
+        <li>Le reste.</li>
+      </ol>
+
+      <p>C'est cette hiérarchisation qui transforme une liste d'alertes en plan d'action, et c'est exactement ce que je détaille dans ma <a href="/blog/audit-seo-methode">méthode d'audit complète</a>.</p>
+
+      <h2>Comment lire un rapport d'audit automatique</h2>
+
+      <p>Les outils en ligne qui notent un site sur cent sont utiles pour dégrossir, à condition de savoir ce qu'ils mesurent.</p>
+
+      <p>Ils comptent ce qui est comptable : balises manquantes, images sans attribut alt, liens cassés, temps de chargement. Ils ne savent pas dire si deux de vos pages se font concurrence sur la même requête, si votre page la plus rentable est mal reliée, ou si votre secteur a basculé vers des recherches que vous ne traitez pas.</p>
+
+      <div class="callout callout--warn">
+        <p class="callout-t">La note sur cent ne veut rien dire</p>
+        <p>Un site peut afficher 92 sur 100 et ne recevoir aucun trafic, parce qu'il est techniquement irréprochable sur des sujets que personne ne cherche. À l'inverse, un site à 60 peut très bien performer. Regardez la liste des problèmes, jamais la note globale.</p>
+      </div>
+
+      <h2>Quand l'audit gratuit ne suffit plus</h2>
+
+      <p>Trois signaux indiquent qu'il faut passer à autre chose.</p>
+
+      <ul>
+        <li><strong>Tout est vert et le trafic stagne.</strong> Le problème n'est plus technique : il est sémantique ou concurrentiel, et cela demande une analyse comparative.</li>
+        <li><strong>Le trafic a chuté sans cause visible.</strong> Il faut alors croiser historiques, mises à jour d'algorithme et évolutions du marché.</li>
+        <li><strong>Vous ne savez pas par où commencer.</strong> C'est le cas le plus fréquent : le diagnostic est fait, mais la priorisation demande de l'expérience.</li>
+      </ul>
+
+      <p>Dans ces trois cas, ce que vous achetez n'est pas une donnée mais un jugement. Et si vous hésitez à confier ce travail, les critères de choix sont dans mon article sur <a href="/blog/choisir-consultant-seo">le choix d'un consultant SEO</a>.</p>
+
+
+      <!-- MAILLAGE À AJOUTER APRÈS PUBLICATION DES CIBLES :
+           - /blog/audit-technique-seo (C5-03, 16/10/2026) : section « Passer un crawler »
+           - /blog/indexation-google (C5-14) : section « Vérifier l'indexation »
+           - /blog/core-web-vitals (C5-12) : section « Mesurer la vitesse »
+           - /blog/screaming-frog-guide (C7-13) : section « Les outils gratuits »
+      -->
+
+      <!-- ================= FAQ ================= -->
+      <section class="faq">
+        <h2>Questions fréquentes</h2>
+
+        <details>
+          <summary>Comment réaliser un audit SEO gratuit ?</summary>
+          <div class="faq-a"><p>En six étapes et deux heures : relever la situation de départ, vérifier l'indexation dans la Search Console, passer un crawler sur le site, croiser les pages explorées avec celles qui reçoivent des impressions, mesurer la vitesse et l'affichage mobile, puis classer les problèmes trouvés par impact.</p></div>
+        </details>
+
+        <details>
+          <summary>Quels outils d'audit SEO gratuits utiliser ?</summary>
+          <div class="faq-a"><p>Trois suffisent : la Search Console, seule source officielle qui montre ce que Google voit de votre site ; un crawler en version gratuite, qui parcourt le site comme un robot et plafonne en général à cinq cents URL ; et un outil de mesure de performance pour la vitesse et l'affichage mobile.</p></div>
+        </details>
+
+        <details>
+          <summary>Quels critères vérifier lors d'un audit SEO ?</summary>
+          <div class="faq-a"><p>Dans l'ordre : l'indexation des pages et les motifs d'exclusion, les codes de réponse autres que 200, les balises title manquantes ou dupliquées, les pages sans H1, la profondeur des pages importantes, les liens cassés, la vitesse d'affichage et le rendu sur mobile.</p></div>
+        </details>
+
+        <details>
+          <summary>Quels problèmes SEO peuvent être détectés gratuitement ?</summary>
+          <div class="faq-a"><p>L'essentiel de ce qui plafonne un site : pages bloquées par une balise noindex, pages explorées mais non indexées, balises manquantes ou recopiées, pages orphelines sans lien interne entrant, liens cassés, images non compressées et redirections en chaîne.</p></div>
+        </details>
+
+        <details>
+          <summary>Combien de temps prend un audit SEO gratuit ?</summary>
+          <div class="faq-a"><p>Comptez deux heures pour un site de taille moyenne, réparties ainsi : dix minutes pour la situation de départ, vingt pour l'indexation, trente pour le crawl, vingt pour le croisement des listes, vingt pour la performance et vingt pour la hiérarchisation des problèmes.</p></div>
+        </details>
+
+        <details>
+          <summary>Comment interpréter un rapport d'audit SEO automatique ?</summary>
+          <div class="faq-a"><p>Regardez la liste des problèmes, jamais la note globale. Ces outils comptent ce qui est comptable : balises, liens cassés, temps de chargement. Ils ne détectent pas si deux pages se font concurrence sur la même requête ni si votre page la plus rentable est mal reliée au reste du site.</p></div>
+        </details>
+
+        <details>
+          <summary>Quand un audit gratuit ne suffit-il plus ?</summary>
+          <div class="faq-a"><p>Trois signaux : tout est au vert et le trafic stagne, ce qui déplace le problème vers le sémantique ou le concurrentiel ; le trafic a chuté sans cause visible ; ou vous ne savez pas par où commencer. Dans ces cas, ce que vous achetez n'est pas une donnée mais un jugement.</p></div>
+        </details>
+
+        <details>
+          <summary>Comment améliorer son référencement après l'audit ?</summary>
+          <div class="faq-a"><p>En traitant les corrections dans cet ordre : d'abord ce qui bloque l'indexation, puis ce qui touche beaucoup de pages d'un coup comme un gabarit, puis vos pages les plus rentables, et le reste ensuite. Relevez toujours votre situation de départ avant de corriger.</p></div>
+        </details>
+      </section>
+
+      <!-- ================= CTA ================= -->
+      <div class="cta-band">
+        <div>
+          <h2>L'audit gratuit ne suffit plus ?</h2>
+          <p>Audit technique, sémantique et popularité, avec un plan d'action priorisé par impact. Restitution en visio, devis gratuit.</p>
+        </div>
+        <a class="btn btn-lime" href="/audit-seo">Demander un audit <span class="ar">→</span></a>
+      </div>
+
+      <!-- ================= AUTEUR ================= -->
+      <div class="author-box">
+        <img src="/images/anthony.avif" alt="Anthony Courtin" width="88" height="88" loading="lazy">
+        <div>
+          <p class="eyebrow">Écrit par</p>
+          <h3>Anthony Courtin</h3>
+          <p class="author-role">Consultant SEO, GEO &amp; automatisation IA</p>
+          <p class="author-bio">J'accompagne des PME et des indépendants sur la visibilité (Google, ChatGPT, Perplexity) et sur l'usage réel de l'IA au travail. J'interviens en entreprise pour former les équipes et repenser les process. Tout ce que j'écris ici, je l'utilise en mission.</p>
+          <div class="author-links">
+            <a class="li" href="https://www.linkedin.com/in/anthony-courtin/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56z"/></svg>
+              Me suivre sur LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= AVIS LECTEURS ================= -->
+      <section class="reviews" data-slug="audit-seo-gratuit" data-reviews="[]">
+        <h2>Avis des lecteurs</h2>
+        <p class="rv-sub">Cet article vous a servi ? Dites-le, ça aide les suivants.</p>
+
+        <form class="rv-form" name="avis" method="POST" data-netlify="true" netlify-honeypot="societe" action="/merci">
+          <input type="hidden" name="form-name" value="avis">
+          <input type="hidden" name="article" value="audit-seo-gratuit">
+          <p class="rv-hp"><label>Ne remplissez pas ce champ : <input name="societe" tabindex="-1" autocomplete="off"></label></p>
+
+          <h3>Notez cet article</h3>
+
+          <fieldset class="rating-field">
+            <legend>Votre note</legend>
+            <div class="rating">
+              <input type="radio" id="n5" name="note" value="5"><label for="n5" aria-label="5 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n4" name="note" value="4"><label for="n4" aria-label="4 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n3" name="note" value="3"><label for="n3" aria-label="3 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n2" name="note" value="2"><label for="n2" aria-label="2 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n1" name="note" value="1"><label for="n1" aria-label="1 étoile"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="rv-nom">Prénom <span class="hint">(facultatif)</span></label>
+            <input type="text" id="rv-nom" name="nom" maxlength="60" autocomplete="given-name">
+          </div>
+
+          <div class="field">
+            <label for="rv-texte">Votre commentaire <span class="hint">(facultatif)</span></label>
+            <textarea id="rv-texte" name="texte" rows="4" maxlength="2000"></textarea>
+          </div>
+
+          <div class="rv-msg" id="rv-msg" role="status"></div>
+          <div><button type="submit" class="btn-sm primary">Publier mon avis</button></div>
+        </form>
+
+        <div class="rv-published">
+          <h3 class="rv-published-title">Ce qu'en disent les lecteurs</h3>
+          <div class="rv-summary">
+            <span class="rv-avg" id="rv-avg"></span>
+            <span class="stars" id="rv-stars" aria-hidden="true"></span>
+            <span class="rv-count" id="rv-count">Aucun avis pour le moment.</span>
+          </div>
+          <div class="rv-list" id="rv-list"></div>
+          <p class="rv-empty" id="rv-empty">Soyez le premier à donner votre avis.</p>
+        </div>
+      </section>
+
+    </article>
+  </div>
+
+  <!-- ---------- COLONNE DROITE : résumé IA + articles liés ---------- -->
+  <aside class="rail rail-right">
+    <div class="ai-box">
+      <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
+      <p class="ai-text">Un audit SEO gratuit se réalise en deux heures avec la Search Console, un crawler en version gratuite et un outil de mesure de performance. Il détecte les blocages d'indexation, les balises manquantes ou dupliquées, les pages orphelines et les liens cassés. Ce que l'argent achète ensuite, c'est du temps d'analyse et de l'expérience.</p>
+      <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
+    </div>
+
+    <div class="rail-recent">
+      <p class="rail-title">Dans la même catégorie</p>
+      <div class="mini-list">
+        <a class="mini" href="/blog/audit-seo-methode">
+          <span class="mini-thumb"><!-- TODO: visuel article --></span>
+          <span><span class="mini-cat">SEO</span><span class="mini-ttl">Audit SEO : la méthode et la checklist complète</span></span>
+        </a>
+        <a class="mini" href="/blog/choisir-consultant-seo">
+          <span class="mini-thumb"><!-- TODO: visuel article --></span>
+          <span><span class="mini-cat">SEO</span><span class="mini-ttl">Consultant SEO : le métier, les tarifs et comment le choisir</span></span>
+        </a>
+        <a class="mini" href="/blog/netlinking-guide">
+          <span class="mini-thumb"><!-- TODO: visuel article --></span>
+          <span><span class="mini-cat">SEO</span><span class="mini-ttl">Netlinking : des backlinks qui font ranker</span></span>
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- ================= ARTICLES LIÉS ================= -->
+<section class="related">
+  <div class="wrap">
+    <h2>À lire ensuite</h2>
+    <p class="sub">La suite logique du parcours.</p>
+    <div class="rel-grid">
+      <a class="rel-card" href="/blog/audit-seo-methode">
+        <!-- TODO: visuel article -->
+        <div class="rel-body">
+          <span class="rel-cat">SEO</span>
+          <h3>Audit SEO : la méthode et la checklist complète</h3>
+          <p>Les 47 points que je vérifie, et les trois corrections qui changent vraiment les positions.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="/blog/netlinking-guide">
+        <!-- TODO: visuel article -->
+        <div class="rel-body">
+          <span class="rel-cat">SEO</span>
+          <h3>Netlinking : des backlinks qui font ranker</h3>
+          <p>Les cinq critères d'un lien utile, et comment mesurer une campagne.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="/blog/choisir-consultant-seo">
+        <!-- TODO: visuel article -->
+        <div class="rel-body">
+          <span class="rel-cat">SEO</span>
+          <h3>Consultant SEO : le métier, les tarifs et comment le choisir</h3>
+          <p>Missions, salaires, tarifs, et les cinq questions à poser avant de signer.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="foot-logo" href="/"><img src="/images/logo-transparent-pine.svg" alt="anthony courtin" width="98" height="48"></a>
+        <p style="color:var(--ink-2);font-size:.95rem;margin-top:12px;max-width:280px">Consultant SEO, GEO &amp; automatisation IA. Interventions partout en France.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul><li><a href="/seo">SEO</a></li><li><a href="/geo">GEO, visibilité IA</a></li><li><a href="/automatisation-ia">Automatisation IA</a></li><li><a href="/tarifs">Tarifs</a></li></ul>
+      </div>
+      <div>
+        <h4>Ressources</h4>
+        <ul><li><a href="/blog/">Blog</a></li><li><a href="/realisations">Réalisations</a></li><li><a href="/a-propos">À propos</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul><li><a href="/contact">Formulaire</a></li><li><a href="mailto:anthony@astrak.agency">anthony@astrak.agency</a></li><li><a href="https://www.linkedin.com/in/anthony-courtin/" rel="noopener">LinkedIn</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Anthony Courtin</span>
+      <span><a href="/mentions-legales">Mentions légales</a> · <a href="/confidentialite">Confidentialité</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/site.js?v=2" defer></script>
+<script src="/js/blog-article.js?v=3" defer></script>
+
+<!-- Outil interactif propre à cet article -->
+<script src="/js/audit-gratuit-tool.js?v=1" defer></script>
+
+</body>
+</html>

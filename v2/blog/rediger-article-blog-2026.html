@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/main.css?v=2">
-<link rel="stylesheet" href="/css/blog-article.css?v=2">
+<link rel="stylesheet" href="/css/blog-article.css?v=3">
 
 <script type="application/ld+json">
 {
@@ -343,23 +343,12 @@
       <section class="reviews" data-slug="rediger-article-blog-2026" data-reviews="[]">
         <h2>Avis des lecteurs</h2>
         <p class="rv-sub">Cet article vous a servi ? Dites-le, ça aide les suivants.</p>
-
-        <div class="rv-summary">
-          <span class="rv-avg" id="rv-avg">—</span>
-          <span class="stars" id="rv-stars" aria-hidden="true"></span>
-          <span class="rv-count" id="rv-count">Aucun avis pour le moment.</span>
-        </div>
-
-        <div class="rv-list" id="rv-list"></div>
-        <p class="rv-empty" id="rv-empty">Soyez le premier à donner votre avis.</p>
-
-        <!-- Envoi via Netlify Forms : aucun back-end à maintenir, modération manuelle -->
         <form class="rv-form" name="avis" method="POST" data-netlify="true" netlify-honeypot="societe" action="/merci">
           <input type="hidden" name="form-name" value="avis">
           <input type="hidden" name="article" value="rediger-article-blog-2026">
           <p class="rv-hp"><label>Ne remplissez pas ce champ : <input name="societe" tabindex="-1" autocomplete="off"></label></p>
 
-          <h3>Laisser un avis</h3>
+          <h3>Notez cet article</h3>
 
           <fieldset class="rating-field">
             <legend>Votre note</legend>
@@ -385,6 +374,22 @@
           <div class="rv-msg" id="rv-msg" role="status"></div>
           <div><button type="submit" class="btn-sm primary">Publier mon avis</button></div>
         </form>
+
+        <div class="rv-published">
+          <h3 class="rv-published-title">Ce qu'en disent les lecteurs</h3>
+
+          <div class="rv-summary">
+            <span class="rv-avg" id="rv-avg"></span>
+            <span class="stars" id="rv-stars" aria-hidden="true"></span>
+            <span class="rv-count" id="rv-count">Aucun avis pour le moment.</span>
+          </div>
+
+          
+
+          <div class="rv-list" id="rv-list"></div>
+          <p class="rv-empty" id="rv-empty">Soyez le premier à donner votre avis.</p>
+        </div>
+
       </section>
 
     </article>
@@ -483,7 +488,7 @@
 </footer>
 
 <script src="/js/site.js?v=2" defer></script>
-<script src="/js/blog-article.js?v=2" defer></script>
+<script src="/js/blog-article.js?v=3" defer></script>
 
 </body>
 </html>

@@ -16,10 +16,10 @@
 <meta property="og:title" content="Prompt ChatGPT : arrêtez d'en écrire (faites ça à la place)">
 <meta property="og:description" content="Le prompt parfait n'existe plus. Ce qui change tout, c'est le contexte. La méthode S·M·T·F et un générateur gratuit.">
 <meta property="og:url" content="https://anthony-courtin.com/blog/prompt-chatgpt">
-<meta property="og:image" content="https://anthony-courtin.com/images/anthony-consultant-seo.png">
+<meta property="og:image" content="https://anthony-courtin.com/images/blog/prompt-chatgpt-cover.webp">
 <meta property="og:locale" content="fr_FR">
 <meta property="article:published_time" content="2026-08-10">
-<meta property="article:modified_time" content="2026-08-10">
+<meta property="article:modified_time" content="2026-09-21">
 <meta property="article:author" content="Anthony Courtin">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/main.css?v=2">
-<link rel="stylesheet" href="/css/blog-article.css?v=2">
+<link rel="stylesheet" href="/css/blog-article.css?v=3">
 
 <script type="application/ld+json">
 {
@@ -40,9 +40,9 @@
       "description":"Le prompt parfait n'existe plus. Ce qui change tout, c'est le contexte que vous donnez avant de demander. La méthode S·M·T·F, un générateur gratuit et 5 erreurs à éviter.",
       "inLanguage":"fr-FR",
       "datePublished":"2026-08-10",
-      "dateModified":"2026-08-10",
-      "image":"https://anthony-courtin.com/images/anthony-consultant-seo.png",
-      "wordCount":2100,
+      "dateModified":"2026-09-21",
+      "image":"https://anthony-courtin.com/images/blog/prompt-chatgpt-cover.webp",
+      "wordCount":2600,
       "mainEntityOfPage":{"@type":"WebPage","@id":"https://anthony-courtin.com/blog/prompt-chatgpt"},
       "author":{"@id":"https://anthony-courtin.com/#anthony"},
       "publisher":{"@id":"https://anthony-courtin.com/#anthony"},
@@ -68,14 +68,18 @@
     {
       "@type":"FAQPage",
       "mainEntity":[
+        {"@type":"Question","name":"Comment créer un prompt efficace pour ChatGPT ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Donnez quatre choses dans cet ordre : la situation (qui vous êtes, à qui s'adresse le résultat), les matériaux (documents joints, exemples de votre travail), la tâche (un seul verbe d'action) et le format attendu. La brique décisive est la deuxième : joindre le bon document améliore davantage le résultat que toutes les instructions."}},
+        {"@type":"Question","name":"Comment générer des images avec ChatGPT ?",
+         "acceptedAnswer":{"@type":"Answer","text":"La logique est inverse de celle du texte : sur une image, le modèle n'a que vos mots, donc la formulation redevient décisive. Décrivez le sujet, puis le cadrage, puis la lumière, puis le style, puis ce qu'il ne faut pas, en termes concrets. Claude, lui, ne génère pas d'images : il sait seulement les lire."}},
         {"@type":"Question","name":"Le prompt engineering est-il mort ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Non, mais il a changé de nature. Les formules magiques (« agis comme un expert… ») n'apportent plus grand-chose sur les modèles récents. Ce qui fait la différence aujourd'hui, c'est le contexte fourni : documents, exemples de votre propre travail, contraintes réelles."}},
+         "acceptedAnswer":{"@type":"Answer","text":"Non, mais il a changé de nature. Les formules magiques n'apportent plus grand-chose sur les modèles récents. Ce qui fait la différence, c'est le contexte fourni : documents, exemples de votre propre travail, contraintes réelles."}},
         {"@type":"Question","name":"Quelle longueur doit faire un bon prompt ?",
          "acceptedAnswer":{"@type":"Answer","text":"Il n'y a pas de longueur idéale. Un prompt de trois lignes accompagné du bon document bat un prompt de deux pages sans document. Visez la complétude du contexte, pas le nombre de mots."}},
         {"@type":"Question","name":"Faut-il donner un rôle à l'IA (« tu es un expert en… ») ?",
-         "acceptedAnswer":{"@type":"Answer","text":"L'effet est aujourd'hui marginal sur la qualité du raisonnement, mais il reste utile pour cadrer le vocabulaire et le niveau de langue. Gardez-le en une ligne, ne construisez pas votre prompt autour."}},
+         "acceptedAnswer":{"@type":"Answer","text":"L'effet est aujourd'hui marginal sur la qualité du raisonnement, mais il reste utile pour cadrer le vocabulaire et le niveau de langue. Gardez-le en une ligne, ne construisez pas votre demande autour."}},
         {"@type":"Question","name":"Est-ce que la méthode fonctionne avec Claude, Gemini ou Le Chat ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Oui. La méthode S·M·T·F décrit ce que vous fournissez, pas une syntaxe propriétaire. Elle fonctionne à l'identique sur ChatGPT, Claude, Gemini, Perplexity et Mistral."}},
+         "acceptedAnswer":{"@type":"Answer","text":"Oui. S·M·T·F décrit ce que vous fournissez, pas une syntaxe propriétaire. Elle fonctionne à l'identique sur ChatGPT, Claude, Gemini, Perplexity et Mistral."}},
         {"@type":"Question","name":"Faut-il payer un abonnement pour que ça marche ?",
          "acceptedAnswer":{"@type":"Answer","text":"Non pour la méthode elle-même. En revanche, les versions gratuites limitent souvent la taille des documents que vous pouvez joindre, ce qui bride justement la partie « matériaux »."}}
       ]
@@ -140,7 +144,7 @@
       <span class="dot" aria-hidden="true">·</span>
       <span>9 min de lecture</span>
       <span class="dot" aria-hidden="true">·</span>
-      <span>Mis à jour le <time datetime="2026-08-10">10 août 2026</time></span>
+      <span>Mis à jour le <time datetime="2026-09-21">21 septembre 2026</time></span>
     </div>
 
     <!-- Boutons "Résumer avec" : les href sont construits par blog-article.js -->
@@ -197,6 +201,39 @@
 
     <article class="art-body">
 
+      <figure>
+        <picture>
+          <source srcset="/images/blog/prompt-chatgpt-cover.avif" type="image/avif">
+          <img src="/images/blog/prompt-chatgpt-cover.webp" alt="Deux bulles de dialogue en verre translucide face à face, l'une petite et l'autre grande, illustration abstraite du poids du contexte" width="1376" height="768" fetchpriority="high" decoding="async">
+        </picture>
+      </figure>
+
+      <div class="verdict">
+        <div class="verdict-note">
+          <b>4</b>
+          <span>briques</span>
+        </div>
+        <div class="verdict-body">
+          <h2>Ce qui change vraiment le résultat</h2>
+          <p>Ce n'est pas la formulation de votre demande, c'est ce que le modèle a sous les yeux au moment de répondre. Quatre briques suffisent, et la deuxième fait à elle seule la moitié du travail.</p>
+          <div class="verdict-lists">
+            <ul class="verdict-pros">
+              <li>Joindre les documents plutôt que les résumer</li>
+              <li>Donner des exemples de votre propre travail</li>
+              <li>Une seule tâche par demande</li>
+            </ul>
+            <ul class="verdict-cons">
+              <li>Empiler les formules magiques</li>
+              <li>Recommencer une conversation neuve à chaque insatisfaction</li>
+            </ul>
+          </div>
+        </div>
+        <p class="verdict-foot">
+          <span class="verdict-price">Temps d'apprentissage : une demi-heure</span>
+          <span>Fonctionne à l'identique sur ChatGPT, Claude, Gemini et Le Chat</span>
+        </p>
+      </div>
+
       <!-- Bloc « à retenir » : c'est ce que les moteurs de réponse citent le plus volontiers -->
       <section class="takeaways">
         <h2>À retenir</h2>
@@ -237,11 +274,11 @@
 
       <p>Quatre briques, dans cet ordre. Aucune n'est facultative, mais elles n'ont pas le même poids.</p>
 
-      <h3>S — Situation</h3>
+      <h3>S comme Situation</h3>
       <p>Où l'on est, qui parle, à qui, et pourquoi maintenant. Deux à quatre phrases suffisent. C'est ce qui empêche la réponse générique.</p>
       <blockquote>Je suis responsable commercial dans une PME de 40 personnes qui vend des logiciels de gestion aux collectivités. J'écris à un client qui n'a pas répondu à deux relances depuis six semaines, alors que le devis était validé oralement.</blockquote>
 
-      <h3>M — Matériaux</h3>
+      <h3>M comme Matériaux</h3>
       <p>C'est la brique décisive, et celle qu'on saute presque toujours. Joignez le document, collez l'échange précédent, donnez trois exemples de ce que vous avez déjà écrit. Une IA sans matériaux invente ; avec matériaux, elle reformule et raisonne sur du réel.</p>
       <ul>
         <li>Le devis, le cahier des charges, le compte rendu, le PDF.</li>
@@ -249,10 +286,10 @@
         <li>Ce qui a déjà été tenté et n'a pas marché.</li>
       </ul>
 
-      <h3>T — Tâche</h3>
+      <h3>T comme Tâche</h3>
       <p>Une seule tâche par demande, formulée avec un verbe d'action précis. « Aide-moi avec ce dossier » n'est pas une tâche. « Rédige une relance de 8 lignes qui propose deux créneaux » en est une.</p>
 
-      <h3>F — Format</h3>
+      <h3>F comme Format</h3>
       <p>Longueur, structure, niveau de langue, ce qu'il ne faut pas faire. C'est la brique qui coûte trois secondes et vous évite trois allers-retours.</p>
 
       <div class="callout callout--tip">
@@ -271,18 +308,18 @@
         </div>
         <div class="tool-body">
           <div class="field">
-            <label for="f-sit">Situation <span class="hint">— qui vous êtes, à qui vous parlez, pourquoi maintenant</span></label>
+            <label for="f-sit">Situation <span class="hint">: qui vous êtes, à qui vous parlez, pourquoi maintenant</span></label>
             <textarea id="f-sit" placeholder="Ex. : responsable commercial dans une PME de 40 personnes qui vend des logiciels aux collectivités. J'écris à un client silencieux depuis six semaines."></textarea>
           </div>
 
           <div class="field">
-            <label for="f-mat">Matériaux <span class="hint">— ce que vous joignez ou collez à la conversation</span></label>
+            <label for="f-mat">Matériaux <span class="hint">: ce que vous joignez ou collez à la conversation</span></label>
             <textarea id="f-mat" placeholder="Ex. : le devis validé en pièce jointe, les deux relances déjà envoyées, trois mails que j'ai écrits pour le ton."></textarea>
           </div>
 
           <div class="field-row">
             <div class="field">
-              <label for="f-tache">Tâche <span class="hint">— un seul verbe d'action</span></label>
+              <label for="f-tache">Tâche <span class="hint">: un seul verbe d'action</span></label>
               <input id="f-tache" type="text" placeholder="Ex. : rédiger une relance">
             </div>
             <div class="field">
@@ -331,7 +368,7 @@
           </div>
 
           <div class="score">
-            <b id="smtf-score">0</b><span>/ 100 — complétude du contexte</span>
+            <b id="smtf-score">0</b><span>/ 100 de complétude du contexte</span>
           </div>
           <div class="meter"><i id="smtf-meter" style="width:0%"></i></div>
 
@@ -343,7 +380,7 @@
         </div>
         <div class="tool-foot">
           <span>Rien n'est envoyé nulle part : tout se passe dans votre navigateur.</span>
-          <span>Modèle S·M·T·F — Anthony Courtin</span>
+          <span>Modèle S·M·T·F · Anthony Courtin</span>
         </div>
       </div>
 
@@ -394,7 +431,7 @@
 
       <ul>
         <li><strong>Les tâches répétitives.</strong> Si vous refaites la même chose chaque semaine, écrivez le prompt une fois proprement et rangez-le : c'est l'objet des projets et instructions permanentes.</li>
-        <li><strong>La génération d'images.</strong> Là, la formulation compte encore énormément — le modèle n'a rien d'autre que vos mots.</li>
+        <li><strong>La génération d'images.</strong> Là, la formulation compte encore énormément : le modèle n'a rien d'autre que vos mots.</li>
         <li><strong>Les appels automatisés.</strong> Dans un programme ou un agent automatisé, le prompt est du code : il doit être stable et testé.</li>
       </ul>
 
@@ -419,9 +456,70 @@ avant de rédiger.</code></pre>
 
       <p>La dernière ligne vaut le détour : elle transforme une commande en conversation, et c'est souvent elle qui fait remonter l'information que vous aviez oublié de donner.</p>
 
+      <h2>Les prompts qui servent vraiment, par usage</h2>
+
+      <p>On me demande souvent une bibliothèque de prompts. Je n'y crois pas beaucoup, parce qu'un prompt recopié sans votre contexte produit un résultat générique. En revanche, il existe des <em>tournures</em> qui fonctionnent, quel que soit le sujet. Voici celles que j'utilise réellement.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Besoin</th><th scope="col">La tournure qui marche</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Obtenir un vrai avis</strong></td><td>« Critique ce texte comme si tu devais le refuser. Donne-moi les trois raisons les plus solides. »</td></tr>
+            <tr><td><strong>Éviter le texte creux</strong></td><td>« N'écris rien que tu ne puisses justifier par un élément du document joint. »</td></tr>
+            <tr><td><strong>Récupérer votre style</strong></td><td>« Voici trois textes que j'ai écrits. Analyse ma façon d'écrire, puis rédige dans ce style. »</td></tr>
+            <tr><td><strong>Débloquer une décision</strong></td><td>« Donne-moi les deux options les plus opposées, avec ce qui les fait échouer. »</td></tr>
+            <tr><td><strong>Vérifier une réponse</strong></td><td>« Quelles parties de ta réponse sont incertaines ? Que faudrait-il vérifier ? »</td></tr>
+            <tr><td><strong>Gagner un aller-retour</strong></td><td>« Si une information te manque, pose-moi la question avant de rédiger. »</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Le point commun de ces six formules : aucune ne décrit un rôle ni ne flatte le modèle. Elles cadrent ce qu'il doit faire du contexte que vous lui avez donné. C'est là que se joue la qualité.</p>
+
+      <h2>Comment utiliser ChatGPT au quotidien</h2>
+
+      <p>La méthode ne sert à rien si l'outil reste une curiosité qu'on ouvre une fois par semaine. Voici les usages qui s'installent le plus durablement chez les personnes que je forme.</p>
+
+      <ul>
+        <li><strong>Le brouillon difficile.</strong> Le message délicat, la relance, la réponse à une réclamation. Vous donnez le contexte, vous obtenez trois versions, vous choisissez.</li>
+        <li><strong>La préparation de réunion.</strong> Les objections probables, les questions à poser, l'ordre du jour. Excellent rapport entre l'effort et le gain.</li>
+        <li><strong>La compréhension d'un document.</strong> Un contrat, une notice, un texte réglementaire : coller le passage qui coince et demander une explication en français courant.</li>
+        <li><strong>La mise en forme.</strong> Transformer des notes en vrac en tableau, en compte rendu ou en liste d'actions.</li>
+        <li><strong>Le second regard.</strong> Faire relire ce que vous avez écrit, en demandant explicitement une critique et non des compliments.</li>
+      </ul>
+
+      <p>Le basculement se produit quand vous cessez de vous demander « est-ce que l'IA sait faire ça » et que vous ouvrez une conversation par réflexe. Comptez deux semaines d'usage quotidien pour que le réflexe s'installe.</p>
+
+      <div class="callout callout--tip">
+        <p class="callout-t">Le geste qui fait gagner le plus de temps</p>
+        <p>Créez un projet, ou une conversation permanente, contenant vos documents de référence : présentation de votre activité, exemples de vos écrits, vos contraintes. Vous n'aurez plus jamais à réexpliquer qui vous êtes. C'est la brique « matériaux » rendue permanente, et c'est ce qui distingue un usage occasionnel d'un usage professionnel.</p>
+      </div>
+
+      <h2>Et pour générer des images ?</h2>
+
+      <p>Une précision utile, parce que la question revient sans cesse : <strong>tout ce que je viens d'écrire ne s'applique pas à la génération d'images.</strong></p>
+
+      <p>Sur du texte, le contexte prime sur la formulation. Sur une image, le modèle n'a rien d'autre que vos mots : il n'existe pas de document à joindre, pas d'historique à exploiter. La formulation redevient donc décisive, et les recettes ont un vrai sens.</p>
+
+      <p>Ce qui fonctionne pour une image : décrire le sujet, puis le cadrage, puis la lumière, puis le style, puis ce qu'il ne faut pas. Dans cet ordre, et en termes concrets. « Photo d'un atelier de menuiserie, vue de trois quarts, lumière naturelle du matin par une grande fenêtre, ambiance chaleureuse, sans texte ni logo » donnera un résultat exploitable ; « une belle image d'atelier » ne donnera rien de précis.</p>
+
+      <p>Deux différences pratiques à connaître : ChatGPT génère des images, Claude non, il sait seulement les lire et les analyser. Et sur la génération visuelle, l'itération est la règle : on ajuste par petites touches plutôt que de tout réécrire.</p>
+
       <!-- ================= FAQ ================= -->
       <section class="faq">
         <h2>Questions fréquentes</h2>
+
+        <details>
+          <summary>Comment créer un prompt efficace pour ChatGPT ?</summary>
+          <div class="faq-a"><p>Donnez quatre choses dans cet ordre : la situation (qui vous êtes, à qui s'adresse le résultat), les matériaux (documents joints, exemples de votre travail), la tâche (un seul verbe d'action) et le format attendu. La brique décisive est la deuxième : joindre le bon document améliore davantage le résultat que toutes les instructions.</p></div>
+        </details>
+
+        <details>
+          <summary>Comment générer des images avec ChatGPT ?</summary>
+          <div class="faq-a"><p>La logique est inverse de celle du texte : sur une image, le modèle n'a que vos mots, donc la formulation redevient décisive. Décrivez le sujet, puis le cadrage, puis la lumière, puis le style, puis ce qu'il ne faut pas, en termes concrets. Claude, lui, ne génère pas d'images : il sait seulement les lire.</p></div>
+        </details>
 
         <details>
           <summary>Le prompt engineering est-il mort ?</summary>
@@ -447,6 +545,7 @@ avant de rédiger.</code></pre>
           <summary>Faut-il payer un abonnement pour que ça marche ?</summary>
           <div class="faq-a"><p>Non pour la méthode elle-même. En revanche, les versions gratuites limitent souvent la taille des documents que vous pouvez joindre, ce qui bride justement la partie « matériaux ».</p></div>
         </details>
+
       </section>
 
       <!-- ================= CTA ================= -->
@@ -479,23 +578,12 @@ avant de rédiger.</code></pre>
       <section class="reviews" data-slug="prompt-chatgpt" data-reviews="[]">
         <h2>Avis des lecteurs</h2>
         <p class="rv-sub">Cet article vous a servi ? Dites-le, ça aide les suivants.</p>
-
-        <div class="rv-summary">
-          <span class="rv-avg" id="rv-avg">—</span>
-          <span class="stars" id="rv-stars" aria-hidden="true"></span>
-          <span class="rv-count" id="rv-count">Aucun avis pour le moment.</span>
-        </div>
-
-        <div class="rv-list" id="rv-list"></div>
-        <p class="rv-empty" id="rv-empty">Soyez le premier à donner votre avis.</p>
-
-        <!-- Envoi via Netlify Forms : aucun back-end à maintenir, modération manuelle -->
         <form class="rv-form" name="avis" method="POST" data-netlify="true" netlify-honeypot="societe" action="/merci">
           <input type="hidden" name="form-name" value="avis">
           <input type="hidden" name="article" value="prompt-chatgpt">
           <p class="rv-hp"><label>Ne remplissez pas ce champ : <input name="societe" tabindex="-1" autocomplete="off"></label></p>
 
-          <h3>Laisser un avis</h3>
+          <h3>Notez cet article</h3>
 
           <fieldset class="rating-field">
             <legend>Votre note</legend>
@@ -521,6 +609,22 @@ avant de rédiger.</code></pre>
           <div class="rv-msg" id="rv-msg" role="status"></div>
           <div><button type="submit" class="btn-sm primary">Publier mon avis</button></div>
         </form>
+
+        <div class="rv-published">
+          <h3 class="rv-published-title">Ce qu'en disent les lecteurs</h3>
+
+          <div class="rv-summary">
+            <span class="rv-avg" id="rv-avg"></span>
+            <span class="stars" id="rv-stars" aria-hidden="true"></span>
+            <span class="rv-count" id="rv-count">Aucun avis pour le moment.</span>
+          </div>
+
+          
+
+          <div class="rv-list" id="rv-list"></div>
+          <p class="rv-empty" id="rv-empty">Soyez le premier à donner votre avis.</p>
+        </div>
+
       </section>
 
     </article>
@@ -619,7 +723,7 @@ avant de rédiger.</code></pre>
 </footer>
 
 <script src="/js/site.js?v=2" defer></script>
-<script src="/js/blog-article.js?v=2" defer></script>
+<script src="/js/blog-article.js?v=3" defer></script>
 
 <!-- Outil interactif propre à cet article -->
 <script src="/js/smtf-tool.js?v=2" defer></script>

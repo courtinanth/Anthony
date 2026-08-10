@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>n8n : ce que l'outil fait vraiment (avis 2026)</title>
+<meta name="description" content="n8n est un outil d'automatisation open source et auto-hébergeable. Ce qu'il fait vraiment, ses prix, la comparaison avec Zapier et Make, et ses limites.">
+<link rel="canonical" href="https://anthony-courtin.com/blog/n8n">
+<link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script src="/js/favicon-anim.js?v=2" defer></script>
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="n8n : ce que l'outil fait vraiment (avis 2026)">
+<meta property="og:description" content="Automatisation open source : ce que n8n fait vraiment, sa comparaison avec Zapier et Make, et pourquoi je code la plupart de mes automatisations.">
+<meta property="og:url" content="https://anthony-courtin.com/blog/n8n">
+<meta property="og:image" content="https://anthony-courtin.com/images/blog/n8n-cover.webp">
+<meta property="og:locale" content="fr_FR">
+<meta property="article:published_time" content="2026-08-24">
+<meta property="article:modified_time" content="2026-08-24">
+<meta property="article:author" content="Anthony Courtin">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/main.css?v=2">
+<link rel="stylesheet" href="/css/blog-article.css?v=3">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"BlogPosting",
+      "@id":"https://anthony-courtin.com/blog/n8n#article",
+      "headline":"n8n : ce que l'outil fait vraiment",
+      "description":"n8n est une plateforme d'automatisation de workflows open source et auto-hébergeable, qui relie des applications entre elles sans écrire de code. Avis complet, prix, comparaison avec Zapier et Make.",
+      "inLanguage":"fr-FR",
+      "datePublished":"2026-08-24",
+      "dateModified":"2026-08-24",
+      "image":"https://anthony-courtin.com/images/blog/n8n-cover.webp",
+      "wordCount":2100,
+      "mainEntityOfPage":{"@type":"WebPage","@id":"https://anthony-courtin.com/blog/n8n"},
+      "author":{"@id":"https://anthony-courtin.com/#anthony"},
+      "publisher":{"@id":"https://anthony-courtin.com/#anthony"},
+      "about":[{"@type":"Thing","name":"n8n"},{"@type":"Thing","name":"Automatisation"},{"@type":"Thing","name":"Workflow"}]
+    },
+    {
+      "@type":"Person",
+      "@id":"https://anthony-courtin.com/#anthony",
+      "name":"Anthony Courtin",
+      "jobTitle":"Consultant SEO, GEO et automatisation IA",
+      "url":"https://anthony-courtin.com/a-propos",
+      "image":"https://anthony-courtin.com/images/anthony.avif",
+      "sameAs":["https://www.linkedin.com/in/anthony-courtin/"]
+    },
+    {
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Accueil","item":"https://anthony-courtin.com/"},
+        {"@type":"ListItem","position":2,"name":"Blog","item":"https://anthony-courtin.com/blog/"},
+        {"@type":"ListItem","position":3,"name":"n8n"}
+      ]
+    },
+    {
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"Qu'est-ce que n8n ?",
+         "acceptedAnswer":{"@type":"Answer","text":"n8n est un outil d'automatisation open source qui permet de relier des applications entre elles et de faire circuler des données sans écrire de code. On y construit des workflows en assemblant des nœuds sur une interface visuelle : un déclencheur, des étapes de traitement, une action finale. Il s'utilise en ligne ou hébergé sur votre propre serveur."}},
+        {"@type":"Question","name":"Comment utiliser n8n ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Choisissez d'abord votre hébergement, l'offre cloud pour démarrer vite ou l'auto-hébergement avec Docker. Créez ensuite un workflow simple avec un déclencheur et une action, ajoutez la logique conditionnelle, connectez vos applications métier en préparant les authentifications, puis surveillez l'historique des exécutions. Comptez une demi-journée pour la prise en main."}},
+        {"@type":"Question","name":"Quels sont les avantages de n8n ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Trois avantages le distinguent : son code source ouvert qui permet de l'héberger sur votre propre serveur et de garder vos données, sa facturation à l'exécution du workflow plutôt qu'à la tâche, ce qui divise le coût des scénarios longs, et la possibilité d'écrire du JavaScript ou du Python dans un nœud dédié quand aucune intégration ne suffit."}},
+        {"@type":"Question","name":"n8n, Zapier ou Make : lequel choisir ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Si vos automatisations manipulent des données personnelles ou sensibles, n8n auto-hébergé est le seul des trois à régler la question à la racine. Si vous cherchez la simplicité maximale avec de faibles volumes, Zapier reste le plus simple à prendre en main. Make se situe entre les deux. Le choix se joue sur le modèle de facturation et la souveraineté des données."}},
+        {"@type":"Question","name":"Comment intégrer n8n avec d'autres outils ?",
+         "acceptedAnswer":{"@type":"Answer","text":"n8n propose plusieurs centaines de connecteurs prêts à l'emploi pour les applications courantes, ainsi qu'un nœud générique qui interroge n'importe quelle API. Chaque intégration demande une authentification à préparer en amont. Pour les outils sans connecteur, le nœud de code permet d'écrire l'appel directement."}},
+        {"@type":"Question","name":"Quels sont les prix de n8n ?",
+         "acceptedAnswer":{"@type":"Answer","text":"La version auto-hébergée est gratuite : vous ne payez que votre serveur. Les offres cloud sont facturées selon le nombre d'exécutions mensuelles. Les tarifs évoluant régulièrement, consultez le site officiel. Retenez surtout que l'abonnement représente rarement plus d'un quart du coût réel d'un projet d'automatisation, le reste étant du temps humain."}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+<div id="read-progress"></div>
+
+<!-- ================= HEADER (identique au reste du site v2) ================= -->
+<header class="site">
+  <div class="nav-shell">
+    <nav class="main" aria-label="Navigation principale">
+      <a class="logo" href="/"><img src="/images/logo-transparent-cream.svg" alt="anthony courtin" width="86" height="42"></a>
+      <div class="nav-links">
+        <div class="nav-item"><a href="/seo">SEO</a></div>
+        <div class="nav-item"><a href="/geo">GEO, visibilité IA</a></div>
+        <div class="nav-item"><a href="/automatisation-ia">Automatisation IA</a></div>
+        <div class="nav-item"><a href="/blog/">Blog</a></div>
+        <div class="nav-item"><a href="/tarifs">Tarifs</a></div>
+      </div>
+      <button class="burger" id="burger" type="button" aria-label="Menu">☰</button>
+      <a class="nav-cta" href="/contact">Travailler avec moi</a>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="/seo">SEO</a>
+        <a href="/geo">GEO, visibilité IA</a>
+        <a href="/automatisation-ia">Automatisation IA</a>
+        <a href="/blog/">Blog</a>
+        <a href="/tarifs">Tarifs</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= EN-TÊTE D'ARTICLE ================= -->
+<section class="art-top">
+  <div class="wrap">
+    <nav class="crumb" aria-label="Fil d'Ariane">
+      <a href="/">Accueil</a><span aria-hidden="true">/</span>
+      <a href="/blog/">Blog</a><span aria-hidden="true">/</span>
+      <span>n8n</span>
+    </nav>
+
+    <span class="art-cat">Automatisation IA</span>
+    <h1 class="art-title">n8n : ce que l'outil fait vraiment</h1>
+    <p class="art-lede">Un excellent outil d'automatisation, que je recommande dans la moitié des cas seulement. Voici ce qu'il sait faire, ce qu'il coûte réellement, et quand le code sur mesure reprend l'avantage.</p>
+
+    <div class="art-metaline">
+      <span class="who">
+        <img src="/images/anthony.avif" alt="" width="38" height="38" loading="lazy">
+        Anthony Courtin
+      </span>
+      <span class="dot" aria-hidden="true">·</span>
+      <time datetime="2026-08-24">24 août 2026</time>
+      <span class="dot" aria-hidden="true">·</span>
+      <span>11 min de lecture</span>
+      <span class="dot" aria-hidden="true">·</span>
+      <span>Mis à jour le <time datetime="2026-08-24">24 août 2026</time></span>
+    </div>
+
+    <!-- Boutons "Résumer avec" : les href sont construits par blog-article.js -->
+    <div class="ai-actions">
+      <span class="ai-actions__title">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>
+        Résumer avec
+      </span>
+      <ul class="ai-actions__list">
+        <li><a class="ai-btn" data-ai="chatgpt" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec ChatGPT">ChatGPT</a></li>
+        <li><a class="ai-btn" data-ai="claude" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Claude">Claude</a></li>
+        <li><a class="ai-btn" data-ai="perplexity" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Perplexity">Perplexity</a></li>
+        <li><a class="ai-btn" data-ai="gemini" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Gemini">Gemini</a></li>
+        <li><a class="ai-btn" data-ai="mistral" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Le Chat de Mistral">Le Chat</a></li>
+        <li><a class="ai-btn" data-ai="grok" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Grok">Grok</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GRILLE 3 COLONNES ================= -->
+<div class="art-layout">
+
+  <!-- ---------- COLONNE GAUCHE : sommaire + partage ---------- -->
+  <aside class="rail rail-left">
+    <details class="toc-box" open>
+      <summary><span class="rail-title">Sommaire</span><span class="toc-chevron" aria-hidden="true"></span></summary>
+      <nav class="toc" id="toc" aria-label="Sommaire de l'article">
+        <p class="toc-empty">Chargement…</p>
+      </nav>
+    </details>
+
+    <div class="share-box">
+      <p class="rail-title">Partager</p>
+      <ul class="share">
+        <li><a class="share-btn share-linkedin" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur LinkedIn"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56z"/></svg></a></li>
+        <li><a class="share-btn share-x" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur X"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.96 6.82H1.68l7.73-8.84L1.25 2.25h6.83l4.71 6.23zm-1.16 17.52h1.83L7.08 4.13H5.12z"/></svg></a></li>
+        <li><a class="share-btn share-whatsapp" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur WhatsApp"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m5.8 14.16c-.25.69-1.43 1.31-1.98 1.4-.53.08-1.19.11-1.92-.12-.44-.14-1.01-.33-1.74-.64-3.06-1.32-5.06-4.4-5.21-4.6-.15-.2-1.25-1.66-1.25-3.16s.79-2.25 1.07-2.55c.28-.31.61-.38.81-.38h.58c.19 0 .44-.07.69.53.25.61.86 2.11.94 2.26.08.15.13.33.02.53-.1.2-.16.33-.31.5l-.46.54c-.15.15-.31.32-.13.63.18.31.79 1.3 1.69 2.11 1.16 1.03 2.14 1.35 2.45 1.5.31.15.49.13.67-.08.18-.2.77-.9.98-1.21.2-.31.41-.26.69-.15.28.1 1.78.84 2.09.99.31.15.51.23.59.36.08.13.08.74-.17 1.44"/></svg></a></li>
+        <li><a class="share-btn share-email" href="#" rel="nofollow" aria-label="Partager par e-mail"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m0 4-8 5-8-5V6l8 5 8-5z"/></svg></a></li>
+        <li><button class="share-btn share-copy" type="button" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2m0 16H8V7h11z"/></svg></button></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- ---------- COLONNE CENTRALE : le contenu ---------- -->
+  <div class="art-main">
+
+    <!-- Résumé IA version mobile : rendu côté serveur, donc lisible par Google et les LLM -->
+    <div class="ai-box ai-box-mobile">
+      <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
+      <p class="ai-text">n8n est un outil d'automatisation open source qui relie des applications entre elles via des workflows visuels, sans écrire de code. Son atout principal est l'auto-hébergement, qui garde les données chez vous, et sa facturation à l'exécution plutôt qu'à la tâche. Il atteint ses limites sur la logique métier complexe.</p>
+      <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
+    </div>
+
+    <article class="art-body">
+
+      <figure>
+        <picture>
+          <source srcset="/images/blog/n8n-cover.avif" type="image/avif">
+          <img src="/images/blog/n8n-cover.webp" alt="Nœuds de verre translucide reliés par des tubes fluides, illustration abstraite d'un workflow automatisé" width="1376" height="768" fetchpriority="high" decoding="async">
+        </picture>
+      </figure>
+
+      <p><strong>n8n est un outil d'automatisation open source qui permet de relier des applications entre elles et de faire circuler des données sans écrire de code.</strong> On y construit des workflows en assemblant des nœuds sur une interface visuelle : un déclencheur, des étapes de traitement, une action finale. Il s'utilise en ligne ou hébergé sur votre propre serveur.</p>
+
+      <p>C'est un très bon produit, et je le dis d'autant plus volontiers que je ne l'utilise presque plus. Cet article explique ce que n8n fait réellement, quand il est le bon choix, et pourquoi je code la plupart des automatisations que je livre à mes clients.</p>
+
+      <div class="verdict">
+        <div class="verdict-note">
+          <b>8</b>
+          <span>sur 10</span>
+        </div>
+        <div class="verdict-body">
+          <h2>Mon verdict en une minute</h2>
+          <p>Le meilleur outil d'automatisation visuelle du marché, surtout dans sa version auto-hébergée où vos données ne sortent pas de chez vous. Il devient limitant dès que la logique métier se complique, et c'est à ce moment précis que le code sur mesure reprend l'avantage.</p>
+          <div class="verdict-lists">
+            <ul class="verdict-pros">
+              <li>Open source et auto-hébergeable, donc souverain</li>
+              <li>Plus de 400 intégrations prêtes à l'emploi</li>
+              <li>Facturation à l'exécution, pas à la tâche</li>
+            </ul>
+            <ul class="verdict-cons">
+              <li>Devient illisible au-delà de 30 ou 40 nœuds</li>
+              <li>Le versionnage et les tests restent rudimentaires</li>
+            </ul>
+          </div>
+        </div>
+        <p class="verdict-foot">
+          <span class="verdict-price">Gratuit en auto-hébergement, offre cloud payante</span>
+          <span>Pour qui : équipes techniques, PME avec un besoin d'intégration</span>
+        </p>
+      </div>
+
+      <section class="takeaways">
+        <h2>À retenir</h2>
+        <ul>
+          <li><strong>n8n est open source</strong> et peut tourner sur votre serveur : c'est son principal avantage sur Zapier et Make.</li>
+          <li>La facturation se fait <strong>à l'exécution du workflow</strong>, pas à l'étape, ce qui change tout sur les scénarios longs.</li>
+          <li>Il excelle sur <strong>l'intégration d'applications</strong>, moins sur la logique métier complexe.</li>
+          <li>Le <strong>coût réel n'est pas l'abonnement</strong>, c'est le temps de maintenance quand les workflows se multiplient.</li>
+          <li>Au-delà d'une certaine complexité, <strong>un script versionné coûte moins cher à faire vivre</strong> qu'un workflow visuel.</li>
+        </ul>
+      </section>
+
+      <p>Avant d'aller plus loin : combien vous coûterait réellement chaque approche sur trois ans ? Le calcul ci-dessous prend en compte ce que les comparatifs oublient, à savoir le temps humain.</p>
+
+      <div class="tool" id="outil-cout-auto">
+        <div class="tool-head">
+          <span class="tool-ico" aria-hidden="true">✦</span>
+          <span>
+            <em>Outil interactif</em>
+            <b>No-code ou code sur mesure : le calcul sur 3 ans</b>
+          </span>
+        </div>
+        <div class="tool-body">
+          <div class="field">
+            <span class="rail-title" id="nc-nb-label">Nombre d'automatisations à faire tourner</span>
+            <div class="chips" id="nc-nb" role="group" aria-labelledby="nc-nb-label">
+              <button type="button" class="chip on" data-v="3">2 à 5</button>
+              <button type="button" class="chip" data-v="10">6 à 15</button>
+              <button type="button" class="chip" data-v="25">plus de 15</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <span class="rail-title" id="nc-ex-label">Exécutions par mois, toutes automatisations confondues</span>
+            <div class="chips" id="nc-ex" role="group" aria-labelledby="nc-ex-label">
+              <button type="button" class="chip on" data-v="2000">moins de 5 000</button>
+              <button type="button" class="chip" data-v="20000">5 000 à 50 000</button>
+              <button type="button" class="chip" data-v="120000">plus de 50 000</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <span class="rail-title" id="nc-cx-label">Complexité de la logique métier</span>
+            <div class="chips" id="nc-cx" role="group" aria-labelledby="nc-cx-label">
+              <button type="button" class="chip on" data-v="1">Simple : je déplace des données</button>
+              <button type="button" class="chip" data-v="2">Moyenne : conditions et exceptions</button>
+              <button type="button" class="chip" data-v="3">Forte : règles métier, gros volumes</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <span class="rail-title" id="nc-eq-label">Compétence technique en interne</span>
+            <div class="chips" id="nc-eq" role="group" aria-labelledby="nc-eq-label">
+              <button type="button" class="chip on" data-v="0">Aucune</button>
+              <button type="button" class="chip" data-v="1">Quelqu'un de curieux</button>
+              <button type="button" class="chip" data-v="2">Un profil technique</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <span class="rail-title" style="margin-bottom:8px">Estimation sur 36 mois</span>
+            <div class="tool-out" id="nc-out" aria-live="polite"></div>
+          </div>
+
+          <div class="score">
+            <b id="nc-reco">n8n cloud</b><span id="nc-sub">, le meilleur rapport pour votre cas</span>
+          </div>
+          <div class="meter"><i id="nc-meter" style="width:33%"></i></div>
+
+          <div class="tool-actions">
+            <button type="button" class="btn-sm primary" id="nc-copy">Copier l'estimation</button>
+            <a class="btn-sm ghost" href="/automatisation-ia">Voir mon offre d'automatisation</a>
+          </div>
+        </div>
+        <div class="tool-foot">
+          <span>Estimation indicative, calculée dans votre navigateur. Aucune donnée ne sort.</span>
+          <span>Hypothèses affichées avec le résultat</span>
+        </div>
+      </div>
+
+      <h2>Qu'est-ce que n8n exactement</h2>
+
+      <p>n8n est une plateforme d'automatisation de workflows. Le principe : au lieu d'écrire un programme, vous dessinez un enchaînement. Chaque étape est un nœud, et chaque nœud sait parler à une application : une messagerie, un tableur Google, une base de données, une interface de paiement, un modèle d'intelligence artificielle.</p>
+
+      <p>Un workflow type ressemble à ceci : quand un formulaire est rempli, récupérer les données, vérifier qu'elles sont complètes, créer une fiche dans le CRM, envoyer un message à l'équipe commerciale, puis inscrire une ligne dans un tableur de suivi. Cinq nœuds, aucune ligne de code.</p>
+
+      <h3>Ce qui distingue n8n de ses concurrents</h3>
+
+      <p>Trois choses, et elles comptent réellement.</p>
+
+      <ul>
+        <li><strong>Le code source est ouvert.</strong> Vous pouvez installer n8n sur votre propre serveur, avec Docker par exemple. Vos données ne transitent alors par aucun service tiers, ce qui règle beaucoup de questions de confidentialité et de conformité.</li>
+        <li><strong>La facturation se fait à l'exécution.</strong> Un workflow de trente étapes compte pour une exécution. Chez les concurrents facturés à la tâche, le même scénario coûte trente fois plus cher.</li>
+        <li><strong>On peut y écrire du code.</strong> Un nœud dédié accepte du JavaScript ou du Python. C'est la soupape qui évite de rester bloqué quand aucun nœud ne fait exactement ce qu'il faut.</li>
+      </ul>
+
+      <div class="callout callout--info">
+        <p class="callout-t">Attention à la licence</p>
+        <p>n8n est distribué sous une licence de code source disponible, pas sous une licence libre classique. Vous pouvez l'utiliser gratuitement en interne, y compris en entreprise, mais pas le revendre comme service d'automatisation à vos propres clients. Pour un usage interne, cette nuance ne change rien ; pour une agence, elle mérite une lecture attentive.</p>
+      </div>
+
+      <h2>Comment utiliser n8n concrètement</h2>
+
+      <p>La prise en main demande une demi-journée pour quelqu'un d'à l'aise avec les outils numériques. Voici le chemin le plus court.</p>
+
+      <ol>
+        <li><strong>Choisissez votre hébergement.</strong> L'offre cloud pour démarrer sans rien installer, ou l'auto-hébergement avec Docker si vous avez un serveur et un souci de confidentialité des données.</li>
+        <li><strong>Créez un premier workflow simple.</strong> Un déclencheur, une action. Par exemple : chaque matin à huit heures, m'envoyer un message avec les nouvelles lignes d'un tableur.</li>
+        <li><strong>Ajoutez la logique.</strong> Conditions, filtres, boucles. C'est ici qu'on commence à faire des choses utiles.</li>
+        <li><strong>Connectez vos applications métier.</strong> Chaque intégration demande une authentification, à préparer avant de commencer.</li>
+        <li><strong>Surveillez les exécutions.</strong> L'historique montre ce qui a échoué et pourquoi. C'est la partie que tout le monde néglige, et c'est celle qui coûte le plus cher ensuite.</li>
+      </ol>
+
+      <p>Un mot sur la formation : la documentation officielle est bonne, et la communauté partage des modèles de workflows prêts à importer. Pour un usage interne classique, une formation payante n'est pas nécessaire.</p>
+
+      <h2>Les automatisations qui rapportent le plus</h2>
+
+      <p>Quel que soit l'outil, ce sont toujours les mêmes process qui reviennent, parce que ce sont eux qui font perdre le plus de temps. Voici ceux que je mets en place le plus souvent, avec le gain constaté chez mes clients.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Automatisation</th><th scope="col">Ce qu'elle remplace</th><th scope="col">Gain type</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Traitement des demandes entrantes</strong></td><td>Recopier un formulaire dans le CRM et prévenir un commercial</td><td>2 à 4 h par semaine</td></tr>
+            <tr><td><strong>Relances de facturation</strong></td><td>Vérifier les impayés et écrire les relances à la main</td><td>1 jour par mois</td></tr>
+            <tr><td><strong>Veille sectorielle</strong></td><td>Parcourir des sources et faire circuler l'information</td><td>3 h par semaine</td></tr>
+            <tr><td><strong>Rapports récurrents</strong></td><td>Assembler des exports dans un tableur chaque lundi</td><td>2 h par semaine</td></tr>
+            <tr><td><strong>Publication de contenu</strong></td><td>Reformater et publier sur plusieurs canaux</td><td>4 h par semaine</td></tr>
+            <tr><td><strong>Contrôles de cohérence</strong></td><td>Vérifier des données entre deux systèmes</td><td>Variable, souvent le plus rentable</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Ces gains ne sont pas des promesses commerciales, ce sont des ordres de grandeur que je constate. Ils dépendent surtout d'un facteur : la fréquence. Une tâche pénible mais trimestrielle ne mérite pas d'être automatisée ; une tâche banale mais quotidienne se rembourse en quelques semaines.</p>
+
+      <p>Le bon réflexe avant de choisir un outil : notez pendant une semaine tout ce que vous faites plus de trois fois. Cette liste vaut mieux que n'importe quel comparatif de plateformes, parce qu'elle vous dit ce que vous devez automatiser avant de vous demander avec quoi.</p>
+
+      <h2>n8n, Zapier ou Make : lequel choisir</h2>
+
+      <p>Les trois font globalement la même chose. Le choix se joue sur le modèle économique, la souveraineté des données et le niveau technique de l'équipe.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Critère</th><th scope="col">n8n</th><th scope="col">Zapier</th><th scope="col">Make</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Auto-hébergement</strong></td><td>Oui</td><td>Non</td><td>Non</td></tr>
+            <tr><td><strong>Facturation</strong></td><td>À l'exécution</td><td>À la tâche</td><td>À l'opération</td></tr>
+            <tr><td><strong>Nombre d'intégrations</strong></td><td>Plusieurs centaines</td><td>Le plus large du marché</td><td>Très large</td></tr>
+            <tr><td><strong>Prise en main</strong></td><td>Moyenne</td><td>La plus simple</td><td>Moyenne</td></tr>
+            <tr><td><strong>Code possible</strong></td><td>Oui, natif</td><td>Limité</td><td>Limité</td></tr>
+            <tr><td><strong>Confidentialité des données</strong></td><td>Totale en auto-hébergé</td><td>Serveurs du prestataire</td><td>Serveurs du prestataire</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Ma règle : si vos automatisations manipulent des données personnelles ou sensibles, n8n auto-hébergé est le seul des trois qui règle la question à la racine. Si vous cherchez la simplicité maximale et que vos volumes sont faibles, Zapier reste imbattable sur la prise en main.</p>
+
+      <h2>Les prix : ce que ça coûte vraiment</h2>
+
+      <p>n8n propose une version auto-hébergée gratuite et des offres cloud payantes facturées selon le nombre d'exécutions. Les tarifs évoluant régulièrement, je renvoie au site officiel plutôt que d'afficher un chiffre qui sera faux dans six mois.</p>
+
+      <p>Ce qui compte davantage, c'est la structure du coût. Sur un projet d'automatisation, l'abonnement représente rarement plus d'un quart de la dépense réelle. Le reste, c'est le temps : concevoir les workflows, les corriger quand une application change son interface, et former les personnes qui les utilisent.</p>
+
+      <p>C'est ce coût invisible que mon calculateur ci-dessus essaie de rendre visible, et c'est lui qui fait basculer la décision dans un sens ou dans l'autre.</p>
+
+      <h2>Pourquoi j'automatise autrement</h2>
+
+      <p>Voici la partie honnête. J'ai utilisé n8n, je l'ai installé chez des clients, et il rend de vrais services. Aujourd'hui, je livre la plupart de mes automatisations sous forme de programmes écrits avec <a href="/blog/claude-ai">Claude</a>, et voici pourquoi.</p>
+
+      <h3>La complexité ne se dessine pas</h3>
+
+      <p>Un workflow de dix nœuds est plus clair qu'un script. Un workflow de cinquante nœuds, avec des branches conditionnelles imbriquées, devient illisible pour tout le monde, y compris pour celui qui l'a construit. La même logique en code tient en deux cents lignes commentées que n'importe qui peut relire.</p>
+
+      <h3>Le versionnage et les tests</h3>
+
+      <p>Avec du code, j'ai l'historique des modifications, je peux revenir en arrière, comparer deux versions et faire tourner des tests automatiques. Sur une plateforme visuelle, ces pratiques existent mais restent bien plus rudimentaires. Quand une automatisation touche à la facturation d'un client, ce n'est pas un détail de confort.</p>
+
+      <h3>Le coût à l'échelle</h3>
+
+      <p>Un script qui tourne sur un petit serveur coûte quelques euros par mois, quel que soit le nombre d'exécutions. Les plateformes facturées à l'usage deviennent chères exactement au moment où l'automatisation commence à être rentable, ce qui est un mauvais signal envoyé à l'entreprise.</p>
+
+      <h3>Écrire du code n'est plus réservé aux développeurs</h3>
+
+      <p>C'est le vrai basculement. Décrire un besoin en français et obtenir un programme fonctionnel est devenu accessible. L'argument principal du no-code, à savoir se passer de compétences techniques, s'est considérablement affaibli en deux ans.</p>
+
+      <div class="callout callout--tip">
+        <p class="callout-t">Ma règle de décision, en une phrase</p>
+        <p>Si l'automatisation consiste à déplacer des données entre deux applications qui ont déjà un connecteur, n8n est plus rapide à mettre en place. Dès qu'il y a des règles métier, des exceptions et un besoin de fiabilité dans la durée, le code sur mesure coûte moins cher sur trois ans.</p>
+      </div>
+
+      <h2>Les cas où je recommande n8n sans hésiter</h2>
+
+      <ul>
+        <li><strong>Une équipe non technique qui veut garder la main.</strong> Modifier un workflow visuel est à la portée de tous, modifier un script non.</li>
+        <li><strong>Un besoin d'intégration pur.</strong> Relier un formulaire, un CRM et une messagerie ne mérite pas un développement.</li>
+        <li><strong>Une contrainte forte de confidentialité.</strong> L'auto-hébergement est un argument décisif que peu de concurrents offrent.</li>
+        <li><strong>Un prototype.</strong> Valider qu'un process automatisé apporte de la valeur avant d'investir dans du sur-mesure.</li>
+      </ul>
+
+      <p>Sur ce dernier point, l'approche mixte est souvent la meilleure : prototyper dans n8n, mesurer le gain réel, puis réécrire en code ce qui devient critique. C'est ce que je propose le plus souvent dans mes missions d'<a href="/automatisation-ia">automatisation sur mesure</a>.</p>
+
+      <p>Une dernière chose sur les offres d'emploi liées à n8n, sujet qui revient souvent dans les recherches : le marché cherche surtout des profils capables de concevoir des process, pas de cliquer dans une interface. La compétence qui a de la valeur n'est pas l'outil, c'est la capacité à modéliser un flux métier et à le rendre fiable.</p>
+
+
+      <!-- MAILLAGE À AJOUTER APRÈS PUBLICATION DES CIBLES :
+           - /blog/alternative-n8n (C3-04) : section « Pourquoi j'automatise autrement »
+           - /blog/zapier-vs-n8n-vs-make (C3-13) : section « n8n, Zapier ou Make »
+           - /blog/cout-no-code-vs-code (C3-05) : section « Les prix »
+           - /blog/agent-ia (C3-02, 14/09/2026) : section « Qu'est-ce que n8n »
+           - /blog/mcp-model-context-protocol (C3-11, 21/10/2026) : section « Connecter vos outils »
+           - /blog/claude-code (C2-03, 31/08/2026) : section « Pourquoi j'automatise autrement »
+      -->
+
+      <!-- ================= FAQ ================= -->
+      <section class="faq">
+        <h2>Questions fréquentes</h2>
+
+        <details>
+          <summary>Qu'est-ce que n8n ?</summary>
+          <div class="faq-a"><p>n8n est un outil d'automatisation open source qui permet de relier des applications entre elles et de faire circuler des données sans écrire de code. On y construit des workflows en assemblant des nœuds sur une interface visuelle : un déclencheur, des étapes de traitement, une action finale. Il s'utilise en ligne ou hébergé sur votre propre serveur.</p></div>
+        </details>
+
+        <details>
+          <summary>Comment utiliser n8n ?</summary>
+          <div class="faq-a"><p>Choisissez d'abord votre hébergement, l'offre cloud pour démarrer vite ou l'auto-hébergement avec Docker. Créez ensuite un workflow simple avec un déclencheur et une action, ajoutez la logique conditionnelle, connectez vos applications métier en préparant les authentifications, puis surveillez l'historique des exécutions. Comptez une demi-journée pour la prise en main.</p></div>
+        </details>
+
+        <details>
+          <summary>Quels sont les avantages de n8n ?</summary>
+          <div class="faq-a"><p>Trois avantages le distinguent : son code source ouvert qui permet de l'héberger sur votre propre serveur et de garder vos données, sa facturation à l'exécution du workflow plutôt qu'à la tâche, ce qui divise le coût des scénarios longs, et la possibilité d'écrire du JavaScript ou du Python dans un nœud dédié quand aucune intégration ne suffit.</p></div>
+        </details>
+
+        <details>
+          <summary>n8n, Zapier ou Make : lequel choisir ?</summary>
+          <div class="faq-a"><p>Si vos automatisations manipulent des données personnelles ou sensibles, n8n auto-hébergé est le seul des trois à régler la question à la racine. Si vous cherchez la simplicité maximale avec de faibles volumes, Zapier reste le plus simple à prendre en main. Make se situe entre les deux. Le choix se joue sur le modèle de facturation et la souveraineté des données.</p></div>
+        </details>
+
+        <details>
+          <summary>Comment intégrer n8n avec d'autres outils ?</summary>
+          <div class="faq-a"><p>n8n propose plusieurs centaines de connecteurs prêts à l'emploi pour les applications courantes, ainsi qu'un nœud générique qui interroge n'importe quelle API. Chaque intégration demande une authentification à préparer en amont. Pour les outils sans connecteur, le nœud de code permet d'écrire l'appel directement.</p></div>
+        </details>
+
+        <details>
+          <summary>Quels sont les prix de n8n ?</summary>
+          <div class="faq-a"><p>La version auto-hébergée est gratuite : vous ne payez que votre serveur. Les offres cloud sont facturées selon le nombre d'exécutions mensuelles. Les tarifs évoluant régulièrement, consultez le site officiel. Retenez surtout que l'abonnement représente rarement plus d'un quart du coût réel d'un projet d'automatisation, le reste étant du temps humain.</p></div>
+        </details>
+      </section>
+
+      <!-- ================= CTA ================= -->
+      <div class="cta-band">
+        <div>
+          <h2>Vos process méritent mieux qu'un tableur</h2>
+          <p>Agents IA, programmes sur mesure, pipelines de contenu : j'automatise ce qui vous prend des heures chaque semaine. Premier échange gratuit.</p>
+        </div>
+        <a class="btn btn-lime" href="/automatisation-ia">Parler de mon projet <span class="ar">→</span></a>
+      </div>
+
+      <!-- ================= AUTEUR ================= -->
+      <div class="author-box">
+        <img src="/images/anthony.avif" alt="Anthony Courtin" width="88" height="88" loading="lazy">
+        <div>
+          <p class="eyebrow">Écrit par</p>
+          <h3>Anthony Courtin</h3>
+          <p class="author-role">Consultant SEO, GEO &amp; automatisation IA</p>
+          <p class="author-bio">J'accompagne des PME et des indépendants sur la visibilité (Google, ChatGPT, Perplexity) et sur l'usage réel de l'IA au travail. J'interviens en entreprise pour former les équipes et repenser les process. Tout ce que j'écris ici, je l'utilise en mission.</p>
+          <div class="author-links">
+            <a class="li" href="https://www.linkedin.com/in/anthony-courtin/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56z"/></svg>
+              Me suivre sur LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= AVIS LECTEURS ================= -->
+      <section class="reviews" data-slug="n8n" data-reviews="[]">
+        <h2>Avis des lecteurs</h2>
+        <p class="rv-sub">Cet article vous a servi ? Dites-le, ça aide les suivants.</p>
+
+        <form class="rv-form" name="avis" method="POST" data-netlify="true" netlify-honeypot="societe" action="/merci">
+          <input type="hidden" name="form-name" value="avis">
+          <input type="hidden" name="article" value="n8n">
+          <p class="rv-hp"><label>Ne remplissez pas ce champ : <input name="societe" tabindex="-1" autocomplete="off"></label></p>
+
+          <h3>Notez cet article</h3>
+
+          <fieldset class="rating-field">
+            <legend>Votre note</legend>
+            <div class="rating">
+              <input type="radio" id="n5" name="note" value="5"><label for="n5" aria-label="5 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n4" name="note" value="4"><label for="n4" aria-label="4 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n3" name="note" value="3"><label for="n3" aria-label="3 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n2" name="note" value="2"><label for="n2" aria-label="2 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n1" name="note" value="1"><label for="n1" aria-label="1 étoile"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="rv-nom">Prénom <span class="hint">(facultatif)</span></label>
+            <input type="text" id="rv-nom" name="nom" maxlength="60" autocomplete="given-name">
+          </div>
+
+          <div class="field">
+            <label for="rv-texte">Votre commentaire <span class="hint">(facultatif)</span></label>
+            <textarea id="rv-texte" name="texte" rows="4" maxlength="2000"></textarea>
+          </div>
+
+          <div class="rv-msg" id="rv-msg" role="status"></div>
+          <div><button type="submit" class="btn-sm primary">Publier mon avis</button></div>
+        </form>
+
+        <div class="rv-published">
+          <h3 class="rv-published-title">Ce qu'en disent les lecteurs</h3>
+          <div class="rv-summary">
+            <span class="rv-avg" id="rv-avg"></span>
+            <span class="stars" id="rv-stars" aria-hidden="true"></span>
+            <span class="rv-count" id="rv-count">Aucun avis pour le moment.</span>
+          </div>
+          <div class="rv-list" id="rv-list"></div>
+          <p class="rv-empty" id="rv-empty">Soyez le premier à donner votre avis.</p>
+        </div>
+      </section>
+
+    </article>
+  </div>
+
+  <!-- ---------- COLONNE DROITE : résumé IA + articles liés ---------- -->
+  <aside class="rail rail-right">
+    <div class="ai-box">
+      <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
+      <p class="ai-text">n8n est un outil d'automatisation open source qui relie des applications entre elles via des workflows visuels, sans écrire de code. Son atout principal est l'auto-hébergement, qui garde les données chez vous, et sa facturation à l'exécution plutôt qu'à la tâche. Il atteint ses limites sur la logique métier complexe.</p>
+      <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
+    </div>
+
+    <div class="rail-recent">
+      <p class="rail-title">Dans la même catégorie</p>
+      <div class="mini-list">
+        <a class="mini" href="/blog/claude-ai">
+          <span class="mini-thumb"><!-- TODO: visuel article --></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Claude AI : ce que vaut vraiment l'IA d'Anthropic</span></span>
+        </a>
+        <a class="mini" href="/blog/generative-engine-optimization">
+          <span class="mini-thumb"><!-- TODO: visuel article --></span>
+          <span><span class="mini-cat">GEO, visibilité IA</span><span class="mini-ttl">Generative Engine Optimization : comment être cité par les IA</span></span>
+        </a>
+        <a class="mini" href="/blog/prompt-chatgpt">
+          <span class="mini-thumb"><!-- TODO: visuel article --></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Prompt ChatGPT : arrêtez d'en écrire</span></span>
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- ================= ARTICLES LIÉS ================= -->
+<section class="related">
+  <div class="wrap">
+    <h2>À lire ensuite</h2>
+    <p class="sub">La suite logique du parcours.</p>
+    <div class="rel-grid">
+      <a class="rel-card" href="/blog/claude-ai">
+        <!-- TODO: visuel article -->
+        <div class="rel-body">
+          <span class="rel-cat">Utiliser l'IA</span>
+          <h3>Claude AI : ce que vaut vraiment l'IA d'Anthropic</h3>
+          <p>Le test complet : ce qu'il fait mieux que ChatGPT, ses limites, les prix et la version gratuite.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="/blog/audit-seo-methode">
+        <!-- TODO: visuel article -->
+        <div class="rel-body">
+          <span class="rel-cat">SEO</span>
+          <h3>Audit SEO : la méthode et la checklist complète</h3>
+          <p>Les 47 points que je vérifie, et les trois corrections qui changent vraiment les positions.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="/blog/generative-engine-optimization">
+        <!-- TODO: visuel article -->
+        <div class="rel-body">
+          <span class="rel-cat">GEO, visibilité IA</span>
+          <h3>Generative Engine Optimization : comment être cité par les IA</h3>
+          <p>La méthode en 7 points pour être repris comme source par ChatGPT, Perplexity et les AI Overviews.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="foot-logo" href="/"><img src="/images/logo-transparent-pine.svg" alt="anthony courtin" width="98" height="48"></a>
+        <p style="color:var(--ink-2);font-size:.95rem;margin-top:12px;max-width:280px">Consultant SEO, GEO &amp; automatisation IA. Interventions partout en France.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul><li><a href="/seo">SEO</a></li><li><a href="/geo">GEO, visibilité IA</a></li><li><a href="/automatisation-ia">Automatisation IA</a></li><li><a href="/tarifs">Tarifs</a></li></ul>
+      </div>
+      <div>
+        <h4>Ressources</h4>
+        <ul><li><a href="/blog/">Blog</a></li><li><a href="/realisations">Réalisations</a></li><li><a href="/a-propos">À propos</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul><li><a href="/contact">Formulaire</a></li><li><a href="mailto:anthony@astrak.agency">anthony@astrak.agency</a></li><li><a href="https://www.linkedin.com/in/anthony-courtin/" rel="noopener">LinkedIn</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Anthony Courtin</span>
+      <span><a href="/mentions-legales">Mentions légales</a> · <a href="/confidentialite">Confidentialité</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/site.js?v=2" defer></script>
+<script src="/js/blog-article.js?v=3" defer></script>
+
+<!-- Outil interactif propre à cet article -->
+<script src="/js/cout-automatisation-tool.js?v=1" defer></script>
+
+</body>
+</html>

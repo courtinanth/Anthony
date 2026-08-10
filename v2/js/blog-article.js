@@ -213,15 +213,20 @@
       var all = published.slice();
       if (mine) all.unshift(Object.assign({ pending: true }, mine));
 
+      // Sans aucun avis, le bandeau de moyenne n'a rien à montrer : on le masque
+      // et on ne laisse que la phrase d'invitation.
+      var summaryEl = box.querySelector('.rv-summary');
       if (!all.length) {
         if (emptyEl) emptyEl.style.display = '';
         if (listEl) listEl.innerHTML = '';
-        if (avgEl) avgEl.textContent = '—';
+        if (summaryEl) summaryEl.style.display = 'none';
+        if (avgEl) avgEl.textContent = '';
         if (countEl) countEl.textContent = 'Aucun avis pour le moment.';
         if (starsEl) renderStars(starsEl, 0);
         return;
       }
       if (emptyEl) emptyEl.style.display = 'none';
+      if (summaryEl) summaryEl.style.display = '';
 
       var sum = all.reduce(function (a, r) { return a + (+r.note || 0); }, 0);
       var avg = sum / all.length;

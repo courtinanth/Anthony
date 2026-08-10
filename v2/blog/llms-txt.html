@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>llms.txt : à quoi ça sert vraiment (guide 2026)</title>
+<meta name="description" content="llms.txt est un sommaire en markdown pour les IA. À quoi il sert vraiment, comment le créer en 10 minutes, et pourquoi son effet SEO n'est pas démontré.">
+<link rel="canonical" href="https://anthony-courtin.com/blog/llms-txt">
+<link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script src="/js/favicon-anim.js?v=2" defer></script>
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="llms.txt : à quoi ça sert vraiment (guide 2026)">
+<meta property="og:description" content="Le fichier que les IA sont censées lire : à quoi il sert vraiment, comment le créer, et ce qu'il ne fera jamais.">
+<meta property="og:url" content="https://anthony-courtin.com/blog/llms-txt">
+<meta property="og:image" content="https://anthony-courtin.com/images/blog/llms-txt-cover.webp">
+<meta property="og:locale" content="fr_FR">
+<meta property="article:published_time" content="2026-08-26">
+<meta property="article:modified_time" content="2026-08-26">
+<meta property="article:author" content="Anthony Courtin">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/main.css?v=2">
+<link rel="stylesheet" href="/css/blog-article.css?v=3">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"BlogPosting",
+      "@id":"https://anthony-courtin.com/blog/llms-txt#article",
+      "headline":"llms.txt : le fichier que les IA sont censées lire",
+      "description":"llms.txt est un fichier markdown placé à la racine d'un site qui liste ses contenus importants pour les modèles de langage. Guide de création, différences avec robots.txt et sitemap.xml, et impact SEO réel.",
+      "inLanguage":"fr-FR",
+      "datePublished":"2026-08-26",
+      "dateModified":"2026-08-26",
+      "image":"https://anthony-courtin.com/images/blog/llms-txt-cover.webp",
+      "wordCount":2200,
+      "mainEntityOfPage":{"@type":"WebPage","@id":"https://anthony-courtin.com/blog/llms-txt"},
+      "author":{"@id":"https://anthony-courtin.com/#anthony"},
+      "publisher":{"@id":"https://anthony-courtin.com/#anthony"},
+      "about":[{"@type":"Thing","name":"llms.txt"},{"@type":"Thing","name":"Generative engine optimization"},{"@type":"Thing","name":"Référencement naturel"}]
+    },
+    {
+      "@type":"Person",
+      "@id":"https://anthony-courtin.com/#anthony",
+      "name":"Anthony Courtin",
+      "jobTitle":"Consultant SEO, GEO et automatisation IA",
+      "url":"https://anthony-courtin.com/a-propos",
+      "image":"https://anthony-courtin.com/images/anthony.avif",
+      "sameAs":["https://www.linkedin.com/in/anthony-courtin/"]
+    },
+    {
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Accueil","item":"https://anthony-courtin.com/"},
+        {"@type":"ListItem","position":2,"name":"Blog","item":"https://anthony-courtin.com/blog/"},
+        {"@type":"ListItem","position":3,"name":"llms.txt"}
+      ]
+    },
+    {
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"Qu'est-ce que le fichier llms.txt ?",
+         "acceptedAnswer":{"@type":"Answer","text":"llms.txt est un fichier texte placé à la racine d'un site, qui liste ses contenus les plus importants dans un format markdown lisible par les modèles de langage. Il contient un titre, un résumé du site en citation, des sections thématiques et des liens commentés. C'est une convention proposée en septembre 2024, pas un standard officiel."}},
+        {"@type":"Question","name":"Comment créer un fichier llms.txt ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Listez entre dix et trente pages essentielles, rédigez un résumé de deux phrases sur votre activité, groupez les liens par sections thématiques, décrivez chaque lien en une ligne utile, puis déposez le fichier à la racine du domaine à l'adresse votre-domaine.fr/llms.txt. Comptez dix minutes : la difficulté est de choisir les pages, pas de créer le fichier."}},
+        {"@type":"Question","name":"Quelle est la différence entre llms.txt et robots.txt ?",
+         "acceptedAnswer":{"@type":"Answer","text":"robots.txt indique aux robots ce qu'ils n'ont pas le droit d'explorer : c'est une interdiction, et c'est un standard respecté depuis trente ans. llms.txt recommande au contraire les contenus qui comptent, dans un format lisible par les modèles de langage. L'un protège, l'autre met en avant. Ils sont complémentaires et ne se remplacent pas."}},
+        {"@type":"Question","name":"Quel est l'impact de llms.txt sur le SEO ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Aucun impact démontré à ce jour. Aucun moteur de recherche ni moteur de réponse n'a annoncé utiliser ce fichier comme signal de classement, et Google a indiqué publiquement ne pas s'en servir. Les analyses publiées par Ahrefs et Semrush concluent à l'absence d'effet mesurable sur la visibilité."}},
+        {"@type":"Question","name":"Comment intégrer llms.txt sur WordPress ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Trois méthodes : déposer le fichier à la racine par FTP ou via le gestionnaire de fichiers de l'hébergeur, ce qui est le plus direct ; utiliser une extension dédiée qui le génère depuis vos contenus ; ou créer une règle de réécriture dans un thème enfant. Attention aux extensions qui listent automatiquement tous vos articles sans description : elles annulent l'intérêt du fichier."}},
+        {"@type":"Question","name":"Pourquoi utiliser llms.txt si son effet n'est pas prouvé ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Pour trois raisons indépendantes du classement : orienter les assistants qui lisent votre documentation vers les bonnes pages, anticiper les outils qui commencent à s'y intéresser comme la navigation agentique de Chrome, et parce que choisir vingt pages parmi trois cents est un excellent audit éditorial. Le coût est de dix minutes et le risque est nul."}},
+        {"@type":"Question","name":"llms.txt remplace-t-il le sitemap.xml ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Non. Le sitemap.xml liste de façon exhaustive toutes les pages à indexer et s'adresse aux moteurs de recherche : c'est un inventaire. llms.txt sélectionne au contraire une poignée de contenus et explique ce que chacun apporte : c'est une hiérarchisation éditoriale. Un site doit avoir un sitemap correct avant de se poser la question du llms.txt."}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+<div id="read-progress"></div>
+
+<!-- ================= HEADER (identique au reste du site v2) ================= -->
+<header class="site">
+  <div class="nav-shell">
+    <nav class="main" aria-label="Navigation principale">
+      <a class="logo" href="/"><img src="/images/logo-transparent-cream.svg" alt="anthony courtin" width="86" height="42"></a>
+      <div class="nav-links">
+        <div class="nav-item"><a href="/seo">SEO</a></div>
+        <div class="nav-item"><a href="/geo">GEO, visibilité IA</a></div>
+        <div class="nav-item"><a href="/automatisation-ia">Automatisation IA</a></div>
+        <div class="nav-item"><a href="/blog/">Blog</a></div>
+        <div class="nav-item"><a href="/tarifs">Tarifs</a></div>
+      </div>
+      <button class="burger" id="burger" type="button" aria-label="Menu">☰</button>
+      <a class="nav-cta" href="/contact">Travailler avec moi</a>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="/seo">SEO</a>
+        <a href="/geo">GEO, visibilité IA</a>
+        <a href="/automatisation-ia">Automatisation IA</a>
+        <a href="/blog/">Blog</a>
+        <a href="/tarifs">Tarifs</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= EN-TÊTE D'ARTICLE ================= -->
+<section class="art-top">
+  <div class="wrap">
+    <nav class="crumb" aria-label="Fil d'Ariane">
+      <a href="/">Accueil</a><span aria-hidden="true">/</span>
+      <a href="/blog/">Blog</a><span aria-hidden="true">/</span>
+      <span>llms.txt</span>
+    </nav>
+
+    <span class="art-cat">GEO, visibilité IA</span>
+    <h1 class="art-title">llms.txt : le fichier que les IA sont censées lire</h1>
+    <p class="art-lede">Dix minutes de travail, un risque nul, et un bénéfice que personne n'a encore démontré. Voici ce que ce fichier fait réellement, et la place exacte qu'il mérite dans vos priorités.</p>
+
+    <div class="art-metaline">
+      <span class="who">
+        <img src="/images/anthony.avif" alt="" width="38" height="38" loading="lazy">
+        Anthony Courtin
+      </span>
+      <span class="dot" aria-hidden="true">·</span>
+      <time datetime="2026-08-26">26 août 2026</time>
+      <span class="dot" aria-hidden="true">·</span>
+      <span>10 min de lecture</span>
+      <span class="dot" aria-hidden="true">·</span>
+      <span>Mis à jour le <time datetime="2026-08-26">26 août 2026</time></span>
+    </div>
+
+    <!-- Boutons "Résumer avec" : les href sont construits par blog-article.js -->
+    <div class="ai-actions">
+      <span class="ai-actions__title">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>
+        Résumer avec
+      </span>
+      <ul class="ai-actions__list">
+        <li><a class="ai-btn" data-ai="chatgpt" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec ChatGPT">ChatGPT</a></li>
+        <li><a class="ai-btn" data-ai="claude" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Claude">Claude</a></li>
+        <li><a class="ai-btn" data-ai="perplexity" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Perplexity">Perplexity</a></li>
+        <li><a class="ai-btn" data-ai="gemini" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Gemini">Gemini</a></li>
+        <li><a class="ai-btn" data-ai="mistral" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Le Chat de Mistral">Le Chat</a></li>
+        <li><a class="ai-btn" data-ai="grok" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Grok">Grok</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GRILLE 3 COLONNES ================= -->
+<div class="art-layout">
+
+  <!-- ---------- COLONNE GAUCHE : sommaire + partage ---------- -->
+  <aside class="rail rail-left">
+    <details class="toc-box" open>
+      <summary><span class="rail-title">Sommaire</span><span class="toc-chevron" aria-hidden="true"></span></summary>
+      <nav class="toc" id="toc" aria-label="Sommaire de l'article">
+        <p class="toc-empty">Chargement…</p>
+      </nav>
+    </details>
+
+    <div class="share-box">
+      <p class="rail-title">Partager</p>
+      <ul class="share">
+        <li><a class="share-btn share-linkedin" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur LinkedIn"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56z"/></svg></a></li>
+        <li><a class="share-btn share-x" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur X"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.96 6.82H1.68l7.73-8.84L1.25 2.25h6.83l4.71 6.23zm-1.16 17.52h1.83L7.08 4.13H5.12z"/></svg></a></li>
+        <li><a class="share-btn share-whatsapp" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur WhatsApp"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m5.8 14.16c-.25.69-1.43 1.31-1.98 1.4-.53.08-1.19.11-1.92-.12-.44-.14-1.01-.33-1.74-.64-3.06-1.32-5.06-4.4-5.21-4.6-.15-.2-1.25-1.66-1.25-3.16s.79-2.25 1.07-2.55c.28-.31.61-.38.81-.38h.58c.19 0 .44-.07.69.53.25.61.86 2.11.94 2.26.08.15.13.33.02.53-.1.2-.16.33-.31.5l-.46.54c-.15.15-.31.32-.13.63.18.31.79 1.3 1.69 2.11 1.16 1.03 2.14 1.35 2.45 1.5.31.15.49.13.67-.08.18-.2.77-.9.98-1.21.2-.31.41-.26.69-.15.28.1 1.78.84 2.09.99.31.15.51.23.59.36.08.13.08.74-.17 1.44"/></svg></a></li>
+        <li><a class="share-btn share-email" href="#" rel="nofollow" aria-label="Partager par e-mail"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m0 4-8 5-8-5V6l8 5 8-5z"/></svg></a></li>
+        <li><button class="share-btn share-copy" type="button" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2m0 16H8V7h11z"/></svg></button></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- ---------- COLONNE CENTRALE : le contenu ---------- -->
+  <div class="art-main">
+
+    <!-- Résumé IA version mobile : rendu côté serveur, donc lisible par Google et les LLM -->
+    <div class="ai-box ai-box-mobile">
+      <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
+      <p class="ai-text">llms.txt est un fichier markdown placé à la racine d'un site, qui liste ses contenus les plus importants pour les modèles de langage. Il ne remplace ni le sitemap ni le robots.txt : il hiérarchise là où le sitemap inventorie. Aucun moteur de réponse n'a confirmé l'utiliser pour classer les sources.</p>
+      <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
+    </div>
+
+    <article class="art-body">
+
+      <figure>
+        <picture>
+          <source srcset="/images/blog/llms-txt-cover.avif" type="image/avif">
+          <img src="/images/blog/llms-txt-cover.webp" alt="Fine plaque de verre translucide gravée de sillons parallèles, illustration abstraite d'un fichier texte simple" width="1376" height="768" fetchpriority="high" decoding="async">
+        </picture>
+      </figure>
+
+      <p><strong>llms.txt est un fichier texte placé à la racine d'un site, qui liste ses contenus les plus importants dans un format lisible par les modèles de langage.</strong> Il ressemble à un sommaire écrit en markdown : un titre, un résumé du site, puis des sections de liens commentés. C'est une convention proposée en septembre 2024 par Jeremy Howard, pas un standard officiel.</p>
+
+      <p>Je vais être direct sur un point que beaucoup d'articles évitent : à ce jour, aucun des grands moteurs de réponse n'a annoncé utiliser ce fichier pour son classement. Ce n'est pas une raison pour l'ignorer, mais c'en est une pour ne pas en attendre des miracles.</p>
+
+      <div class="verdict">
+        <div class="verdict-note">
+          <b>10</b>
+          <span>minutes</span>
+        </div>
+        <div class="verdict-body">
+          <h2>Faut-il en mettre un ? Oui, mais</h2>
+          <p>Le coût est de dix minutes et le risque est nul. Le bénéfice, lui, n'est pas démontré à ce jour. C'est un pari asymétrique raisonnable : à faire, mais après les optimisations dont l'effet est certain.</p>
+          <div class="verdict-lists">
+            <ul class="verdict-pros">
+              <li>Dix minutes de travail, aucun risque technique</li>
+              <li>Adopté par des plateformes de documentation sérieuses</li>
+              <li>Force à clarifier quelles pages comptent vraiment</li>
+            </ul>
+            <ul class="verdict-cons">
+              <li>Aucun moteur n'a confirmé l'utiliser pour classer</li>
+              <li>Ne remplace ni le sitemap ni un contenu de qualité</li>
+            </ul>
+          </div>
+        </div>
+        <p class="verdict-foot">
+          <span class="verdict-price">Priorité : après la structure de vos pages</span>
+          <span>Pour qui : documentation, éditeurs, sites de contenu</span>
+        </p>
+      </div>
+
+      <section class="takeaways">
+        <h2>À retenir</h2>
+        <ul>
+          <li><strong>llms.txt est un sommaire en markdown</strong> placé à la racine du domaine, à l'adresse /llms.txt.</li>
+          <li>Il ne remplace pas le sitemap.xml : <strong>le sitemap liste tout, llms.txt hiérarchise</strong>.</li>
+          <li><strong>Rien à voir avec robots.txt</strong> : l'un interdit l'accès, l'autre recommande des contenus.</li>
+          <li>Aucun moteur de réponse n'a officiellement confirmé s'en servir pour classer les sources.</li>
+          <li>Son vrai bénéfice immédiat est <strong>pour les assistants qui lisent votre documentation</strong>.</li>
+        </ul>
+      </section>
+
+      <p>Si vous avez déjà un fichier, vérifiez d'abord qu'il est valide. Collez-le ci-dessous : l'outil contrôle la structure attendue et signale ce qui manque.</p>
+
+      <div class="tool" id="outil-llmstxt">
+        <div class="tool-head">
+          <span class="tool-ico" aria-hidden="true">✦</span>
+          <span>
+            <em>Outil interactif</em>
+            <b>Validateur de fichier llms.txt</b>
+          </span>
+        </div>
+        <div class="tool-body">
+          <div class="field">
+            <label for="lt-in">Collez le contenu de votre fichier llms.txt</label>
+            <textarea id="lt-in" rows="8" placeholder="# Nom du site&#10;&#10;&gt; Résumé du site en une ou deux phrases.&#10;&#10;## Documentation&#10;&#10;- [Guide de démarrage](https://exemple.fr/guide) : comment installer et configurer.&#10;- [Référence API](https://exemple.fr/api) : tous les points d'entrée."></textarea>
+          </div>
+
+          <div class="score">
+            <b id="lt-score">0</b><span>/ 100 <span id="lt-label">en attente</span></span>
+          </div>
+          <div class="meter"><i id="lt-meter" style="width:0%"></i></div>
+
+          <div class="field">
+            <span class="rail-title" style="margin-bottom:8px">Analyse</span>
+            <div class="tool-out" id="lt-out" aria-live="polite"></div>
+          </div>
+
+          <div class="tool-actions">
+            <button type="button" class="btn-sm primary" id="lt-copy">Copier l'analyse</button>
+            <a class="btn-sm ghost" href="/#llms">Générer un llms.txt</a>
+          </div>
+        </div>
+        <div class="tool-foot">
+          <span>Rien n'est envoyé nulle part : la validation se fait dans votre navigateur.</span>
+          <span>Basé sur la spécification llmstxt.org</span>
+        </div>
+      </div>
+
+      <h2>Qu'est-ce que le fichier llms.txt exactement</h2>
+
+      <p>L'idée de départ est simple. Un modèle de langage qui arrive sur votre site doit deviner ce qui est important au milieu du menu, des bandeaux de cookies, des pieds de page et des trois cents articles. Le fichier llms.txt lui donne directement la réponse : voici qui nous sommes, et voici les pages qui comptent.</p>
+
+      <p>Le format est du markdown, volontairement minimal. La spécification publiée sur llmstxt.org demande quatre éléments.</p>
+
+      <ul>
+        <li>Un <strong>titre de niveau 1</strong> avec le nom du site ou du projet.</li>
+        <li>Un <strong>résumé en citation</strong>, introduit par un chevron, qui décrit le site en une ou deux phrases.</li>
+        <li>Des <strong>sections de niveau 2</strong> qui regroupent les contenus par thème.</li>
+        <li>Sous chaque section, des <strong>liens markdown commentés</strong>, avec une courte description après le lien.</li>
+      </ul>
+
+      <p>Voici à quoi ressemble un fichier correct, réduit à l'essentiel.</p>
+
+      <pre><code># Ma Société
+
+&gt; Cabinet de conseil en efficacité énergétique pour les bâtiments tertiaires,
+&gt; basé à Nantes et intervenant partout en France.
+
+## Nos services
+
+- [Audit énergétique](https://exemple.fr/audit) : diagnostic réglementaire et plan de travaux chiffré.
+- [Suivi de consommation](https://exemple.fr/suivi) : pilotage mensuel des consommations.
+
+## Ressources
+
+- [Guide du décret tertiaire](https://exemple.fr/guide-decret) : obligations et échéances expliquées.
+
+## À propos
+
+- [Notre équipe](https://exemple.fr/equipe) : les consultants et leurs certifications.</code></pre>
+
+      <p>Il existe une variante appelée llms-full.txt, qui ne contient pas des liens mais le texte intégral des pages, concaténé dans un seul fichier. Elle vise les assistants capables d'avaler un gros document d'un coup. Elle a du sens pour une documentation technique, beaucoup moins pour un site vitrine.</p>
+
+      <h2>llms.txt, robots.txt et sitemap.xml : ne pas confondre</h2>
+
+      <p>La confusion est constante, alors posons les choses. Ces trois fichiers vivent au même endroit et ne font pas du tout la même chose.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Fichier</th><th scope="col">Ce qu'il dit</th><th scope="col">À qui</th><th scope="col">Statut</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>robots.txt</strong></td><td>Ce que vous n'avez pas le droit d'explorer</td><td>Tous les robots</td><td>Standard respecté depuis 30 ans</td></tr>
+            <tr><td><strong>sitemap.xml</strong></td><td>La liste exhaustive de mes pages</td><td>Moteurs de recherche</td><td>Standard officiel</td></tr>
+            <tr><td><strong>llms.txt</strong></td><td>Voici ce qui compte vraiment, et pourquoi</td><td>Modèles de langage</td><td>Convention proposée, non officielle</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>La différence de nature est importante : robots.txt est une interdiction, sitemap.xml un inventaire, llms.txt une recommandation éditoriale. Le premier protège, le deuxième expose tout, le troisième hiérarchise. Aucun ne remplace les autres, et publier un llms.txt sans avoir un sitemap correct serait mettre la charrue avant les bœufs.</p>
+
+      <h2>Comment créer un fichier llms.txt</h2>
+
+      <p>Comptez dix minutes pour un site de taille normale. La partie longue n'est pas technique, c'est de décider quelles pages méritent d'y figurer.</p>
+
+      <ol>
+        <li><strong>Listez vos pages essentielles.</strong> Entre dix et trente liens, pas davantage. Un fichier qui liste trois cents pages ne hiérarchise plus rien et perd tout son intérêt.</li>
+        <li><strong>Rédigez le résumé.</strong> Deux phrases qui disent ce que vous faites, pour qui, et où. C'est la partie la plus susceptible d'être reprise telle quelle.</li>
+        <li><strong>Groupez par sections.</strong> Services, ressources, documentation, à propos. Des intitulés explicites, pas des noms de rubriques internes.</li>
+        <li><strong>Décrivez chaque lien.</strong> Une ligne après le lien, qui explique ce qu'on trouve sur la page. C'est ce commentaire qui fait la valeur du fichier.</li>
+        <li><strong>Déposez le fichier à la racine</strong>, accessible à l'adresse votre-domaine.fr/llms.txt, servi en text/plain.</li>
+      </ol>
+
+      <p>J'ai mis un <a href="/#llms">générateur de llms.txt</a> en libre accès sur ma page d'accueil : vous renseignez votre nom de site, votre description et vos pages, il produit le fichier au bon format, prêt à téléverser.</p>
+
+      <div class="callout callout--tip">
+        <p class="callout-t">L'erreur qui rend le fichier inutile</p>
+        <p>Écrire des descriptions creuses du type « notre page services ». La valeur du fichier tient entièrement dans les commentaires : ce sont eux qui disent au modèle à quelle question chaque page répond. Une description utile ressemble à « tarifs et durées de nos trois formules d'audit », pas à « nos offres ».</p>
+      </div>
+
+      <h3>Sur WordPress</h3>
+
+      <p>Trois méthodes, de la plus simple à la plus propre. Vous pouvez déposer le fichier à la racine par FTP ou via le gestionnaire de fichiers de votre hébergeur, ce qui est le plus direct. Vous pouvez utiliser une extension dédiée, plusieurs en proposent la génération automatique depuis vos contenus. Vous pouvez enfin créer une règle de réécriture dans votre thème enfant, solution plus technique mais qui survit aux mises à jour.</p>
+
+      <p>Attention avec les extensions qui génèrent le fichier automatiquement à partir de tous vos articles : elles produisent souvent des listes de deux cents liens sans description, ce qui va exactement à l'encontre du but recherché.</p>
+
+      <h3>Sur les autres plateformes</h3>
+
+      <p>Sur Webflow et Shopify, il faut passer par les réglages de fichiers personnalisés ou par une page dédiée avec une redirection. Sur un site statique comme le mien, c'est un simple fichier déposé à la racine du dossier publié. Sur une documentation technique, plusieurs plateformes le génèrent nativement, Mintlify et GitBook notamment.</p>
+
+      <h2>Quel est l'impact réel sur le SEO</h2>
+
+      <p>Voici la partie où je dois être honnête, parce que c'est là que beaucoup d'articles vendent du rêve.</p>
+
+      <p><strong>Aucun moteur de recherche ni moteur de réponse n'a annoncé utiliser llms.txt comme signal de classement.</strong> Google a même indiqué publiquement ne pas s'en servir. Les analyses publiées par Ahrefs et par Semrush concluent toutes les deux à l'absence d'effet mesurable sur la visibilité à ce jour.</p>
+
+      <p>Alors pourquoi en mettre un ? Pour trois raisons qui n'ont rien à voir avec le classement.</p>
+
+      <ul>
+        <li><strong>Les assistants qui lisent votre documentation.</strong> Quand un développeur demande à un assistant comment utiliser votre produit, un fichier bien fait l'oriente vers les bonnes pages. C'est le cas d'usage le plus concret aujourd'hui.</li>
+        <li><strong>Les outils qui commencent à le lire.</strong> La documentation de Chrome pour la navigation agentique mentionne llms.txt, et Lighthouse s'y intéresse. Le signal est faible mais il existe.</li>
+        <li><strong>L'exercice lui-même.</strong> Choisir vingt pages parmi trois cents et écrire ce que chacune apporte est un excellent audit éditorial déguisé. Je fais l'exercice avec mes clients pour cette raison au moins autant que pour le fichier.</li>
+      </ul>
+
+      <div class="callout callout--warn">
+        <p class="callout-t">Ce que llms.txt ne fera jamais</p>
+        <p>Il ne compensera pas un site invisible dans les résultats de recherche. Les moteurs de réponse vont chercher leurs sources dans un index classique : si vous n'y êtes pas, aucun fichier texte ne vous y mettra. Les vrais leviers sont détaillés dans mon guide sur <a href="/blog/generative-engine-optimization">le generative engine optimization</a>, et llms.txt y occupe la dernière place de la liste, pas la première.</p>
+      </div>
+
+      <h2>Qui l'utilise déjà</h2>
+
+      <p>L'adoption dit souvent plus long qu'un débat théorique. Aujourd'hui, le fichier s'est surtout imposé dans un domaine précis : la documentation technique.</p>
+
+      <p>Les plateformes de documentation ont été les premières à le générer automatiquement, parce que leur cas d'usage est évident : leurs clients veulent que les assistants sachent répondre aux questions sur leur produit. Mintlify et GitBook le proposent nativement, et de nombreux éditeurs de logiciels publient désormais le leur.</p>
+
+      <p>Du côté des navigateurs, la documentation de Chrome consacre une page à llms.txt dans le contexte de la navigation agentique, c'est-à-dire des agents qui parcourent le web pour le compte d'un utilisateur. C'est le signal le plus sérieux à ce jour, même s'il ne concerne pas le classement dans les résultats de recherche.</p>
+
+      <p>En revanche, l'adoption reste très faible sur les sites vitrines et les sites de commerce en ligne. Ce n'est pas illogique : le bénéfice y est plus théorique, et un catalogue produit se décrit mieux avec des données structurées qu'avec un fichier texte.</p>
+
+      <h3>Et llms-full.txt, faut-il le faire aussi</h3>
+
+      <p>La variante llms-full.txt contient le texte intégral de vos contenus, concaténé dans un seul fichier. L'intérêt est de permettre à un assistant d'ingérer toute votre documentation d'un coup, sans avoir à visiter trente pages.</p>
+
+      <p>Mon avis : utile pour une documentation technique, inutile pour un site classique. Le fichier peut atteindre plusieurs mégaoctets, il devient obsolète dès la première mise à jour non répercutée, et il duplique intégralement un contenu déjà accessible. Si vous éditez une documentation produit, faites-le et automatisez sa génération. Sinon, contentez-vous du llms.txt classique.</p>
+
+      <h2>Les erreurs que je vois le plus souvent</h2>
+
+      <ul>
+        <li><strong>Lister toutes les pages du site.</strong> Un fichier de trois cents liens ne hiérarchise plus rien : c'est un sitemap déguisé, en moins bien.</li>
+        <li><strong>Oublier les descriptions.</strong> Sans le commentaire après chaque lien, le fichier perd l'essentiel de sa valeur.</li>
+        <li><strong>Servir le fichier en HTML.</strong> Il doit être renvoyé en text/plain. Certains hébergements l'enveloppent dans un gabarit, ce qui le rend inexploitable.</li>
+        <li><strong>Le laisser vieillir.</strong> Un sommaire qui pointe vers des pages supprimées est pire que pas de sommaire du tout.</li>
+        <li><strong>Le publier en bloquant les robots.</strong> L'incohérence est fréquente, et elle annule tout l'effort.</li>
+      </ul>
+
+      <h2>Faut-il aussi autoriser les robots des IA</h2>
+
+      <p>C'est la question qui accompagne toujours celle du llms.txt, et elle est bien plus importante. Publier un sommaire pour des robots que vous bloquez par ailleurs n'a évidemment aucun sens.</p>
+
+      <p>Les principaux agents à connaître sont GPTBot pour OpenAI, ClaudeBot pour Anthropic, PerplexityBot pour Perplexity, et Google-Extended pour la partie générative de Google. Chacun se pilote dans votre robots.txt.</p>
+
+      <p>La décision vous appartient, et elle est légitime dans les deux sens. Un éditeur dont le contenu est le produit peut vouloir se protéger. Une entreprise qui cherche de la visibilité a tout intérêt à ouvrir. Ce qu'il ne faut pas, c'est subir ce réglage sans l'avoir choisi, ce qui est le cas de la majorité des sites que j'audite.</p>
+
+      <h2>Ma recommandation en une phrase</h2>
+
+      <p>Faites-le, mais mettez-le à sa place : après avoir vérifié que vos pages sont indexables, que vos contenus répondent aux questions dès les premières lignes, et que les robots des IA ont le droit de passer. Dans cet ordre, llms.txt est un bon dernier geste. Dans l'ordre inverse, c'est un fichier décoratif à la racine d'un site que personne ne cite.</p>
+
+
+      <!-- MAILLAGE À AJOUTER APRÈS PUBLICATION DES CIBLES :
+           - /blog/fichier-llms-txt (C1-06) : section « Comment créer un fichier »
+           - /blog/robots-ia-crawl (C1-18) : section « Faut-il autoriser les robots des IA »
+           - /blog/audit-visibilite-ia-methode (C1-11, 28/08/2026) : section « Impact réel sur le SEO »
+           - /blog/donnees-structurees-ia (C1-16) : section « Ma recommandation »
+      -->
+
+      <!-- ================= FAQ ================= -->
+      <section class="faq">
+        <h2>Questions fréquentes</h2>
+
+        <details>
+          <summary>Qu'est-ce que le fichier llms.txt ?</summary>
+          <div class="faq-a"><p>llms.txt est un fichier texte placé à la racine d'un site, qui liste ses contenus les plus importants dans un format markdown lisible par les modèles de langage. Il contient un titre, un résumé du site en citation, des sections thématiques et des liens commentés. C'est une convention proposée en septembre 2024, pas un standard officiel.</p></div>
+        </details>
+
+        <details>
+          <summary>Comment créer un fichier llms.txt ?</summary>
+          <div class="faq-a"><p>Listez entre dix et trente pages essentielles, rédigez un résumé de deux phrases sur votre activité, groupez les liens par sections thématiques, décrivez chaque lien en une ligne utile, puis déposez le fichier à la racine du domaine à l'adresse votre-domaine.fr/llms.txt. Comptez dix minutes : la difficulté est de choisir les pages, pas de créer le fichier.</p></div>
+        </details>
+
+        <details>
+          <summary>Quelle est la différence entre llms.txt et robots.txt ?</summary>
+          <div class="faq-a"><p>robots.txt indique aux robots ce qu'ils n'ont pas le droit d'explorer : c'est une interdiction, et c'est un standard respecté depuis trente ans. llms.txt recommande au contraire les contenus qui comptent, dans un format lisible par les modèles de langage. L'un protège, l'autre met en avant. Ils sont complémentaires et ne se remplacent pas.</p></div>
+        </details>
+
+        <details>
+          <summary>Quel est l'impact de llms.txt sur le SEO ?</summary>
+          <div class="faq-a"><p>Aucun impact démontré à ce jour. Aucun moteur de recherche ni moteur de réponse n'a annoncé utiliser ce fichier comme signal de classement, et Google a indiqué publiquement ne pas s'en servir. Les analyses publiées par Ahrefs et Semrush concluent à l'absence d'effet mesurable sur la visibilité.</p></div>
+        </details>
+
+        <details>
+          <summary>Comment intégrer llms.txt sur WordPress ?</summary>
+          <div class="faq-a"><p>Trois méthodes : déposer le fichier à la racine par FTP ou via le gestionnaire de fichiers de l'hébergeur, ce qui est le plus direct ; utiliser une extension dédiée qui le génère depuis vos contenus ; ou créer une règle de réécriture dans un thème enfant. Attention aux extensions qui listent automatiquement tous vos articles sans description : elles annulent l'intérêt du fichier.</p></div>
+        </details>
+
+        <details>
+          <summary>Pourquoi utiliser llms.txt si son effet n'est pas prouvé ?</summary>
+          <div class="faq-a"><p>Pour trois raisons indépendantes du classement : orienter les assistants qui lisent votre documentation vers les bonnes pages, anticiper les outils qui commencent à s'y intéresser comme la navigation agentique de Chrome, et parce que choisir vingt pages parmi trois cents est un excellent audit éditorial. Le coût est de dix minutes et le risque est nul.</p></div>
+        </details>
+
+        <details>
+          <summary>llms.txt remplace-t-il le sitemap.xml ?</summary>
+          <div class="faq-a"><p>Non. Le sitemap.xml liste de façon exhaustive toutes les pages à indexer et s'adresse aux moteurs de recherche : c'est un inventaire. llms.txt sélectionne au contraire une poignée de contenus et explique ce que chacun apporte : c'est une hiérarchisation éditoriale. Un site doit avoir un sitemap correct avant de se poser la question du llms.txt.</p></div>
+        </details>
+      </section>
+
+      <!-- ================= CTA ================= -->
+      <div class="cta-band">
+        <div>
+          <h2>Vos contenus sont-ils lisibles par les IA ?</h2>
+          <p>Audit de visibilité IA : ce que ChatGPT, Perplexity et Gemini répondent sur votre secteur, et le plan pour y entrer.</p>
+        </div>
+        <a class="btn btn-lime" href="/audit-visibilite-ia">Auditer ma visibilité IA <span class="ar">→</span></a>
+      </div>
+
+      <!-- ================= AUTEUR ================= -->
+      <div class="author-box">
+        <img src="/images/anthony.avif" alt="Anthony Courtin" width="88" height="88" loading="lazy">
+        <div>
+          <p class="eyebrow">Écrit par</p>
+          <h3>Anthony Courtin</h3>
+          <p class="author-role">Consultant SEO, GEO &amp; automatisation IA</p>
+          <p class="author-bio">J'accompagne des PME et des indépendants sur la visibilité (Google, ChatGPT, Perplexity) et sur l'usage réel de l'IA au travail. J'interviens en entreprise pour former les équipes et repenser les process. Tout ce que j'écris ici, je l'utilise en mission.</p>
+          <div class="author-links">
+            <a class="li" href="https://www.linkedin.com/in/anthony-courtin/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56z"/></svg>
+              Me suivre sur LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= AVIS LECTEURS ================= -->
+      <section class="reviews" data-slug="llms-txt" data-reviews="[]">
+        <h2>Avis des lecteurs</h2>
+        <p class="rv-sub">Cet article vous a servi ? Dites-le, ça aide les suivants.</p>
+
+        <form class="rv-form" name="avis" method="POST" data-netlify="true" netlify-honeypot="societe" action="/merci">
+          <input type="hidden" name="form-name" value="avis">
+          <input type="hidden" name="article" value="llms-txt">
+          <p class="rv-hp"><label>Ne remplissez pas ce champ : <input name="societe" tabindex="-1" autocomplete="off"></label></p>
+
+          <h3>Notez cet article</h3>
+
+          <fieldset class="rating-field">
+            <legend>Votre note</legend>
+            <div class="rating">
+              <input type="radio" id="n5" name="note" value="5"><label for="n5" aria-label="5 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n4" name="note" value="4"><label for="n4" aria-label="4 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n3" name="note" value="3"><label for="n3" aria-label="3 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n2" name="note" value="2"><label for="n2" aria-label="2 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n1" name="note" value="1"><label for="n1" aria-label="1 étoile"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="rv-nom">Prénom <span class="hint">(facultatif)</span></label>
+            <input type="text" id="rv-nom" name="nom" maxlength="60" autocomplete="given-name">
+          </div>
+
+          <div class="field">
+            <label for="rv-texte">Votre commentaire <span class="hint">(facultatif)</span></label>
+            <textarea id="rv-texte" name="texte" rows="4" maxlength="2000"></textarea>
+          </div>
+
+          <div class="rv-msg" id="rv-msg" role="status"></div>
+          <div><button type="submit" class="btn-sm primary">Publier mon avis</button></div>
+        </form>
+
+        <div class="rv-published">
+          <h3 class="rv-published-title">Ce qu'en disent les lecteurs</h3>
+          <div class="rv-summary">
+            <span class="rv-avg" id="rv-avg"></span>
+            <span class="stars" id="rv-stars" aria-hidden="true"></span>
+            <span class="rv-count" id="rv-count">Aucun avis pour le moment.</span>
+          </div>
+          <div class="rv-list" id="rv-list"></div>
+          <p class="rv-empty" id="rv-empty">Soyez le premier à donner votre avis.</p>
+        </div>
+      </section>
+
+    </article>
+  </div>
+
+  <!-- ---------- COLONNE DROITE : résumé IA + articles liés ---------- -->
+  <aside class="rail rail-right">
+    <div class="ai-box">
+      <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
+      <p class="ai-text">llms.txt est un fichier markdown placé à la racine d'un site, qui liste ses contenus les plus importants pour les modèles de langage. Il ne remplace ni le sitemap ni le robots.txt : il hiérarchise là où le sitemap inventorie. Aucun moteur de réponse n'a confirmé l'utiliser pour classer les sources.</p>
+      <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
+    </div>
+
+    <div class="rail-recent">
+      <p class="rail-title">Dans la même catégorie</p>
+      <div class="mini-list">
+        <a class="mini" href="/blog/generative-engine-optimization">
+          <span class="mini-thumb"><!-- TODO: visuel article --></span>
+          <span><span class="mini-cat">GEO, visibilité IA</span><span class="mini-ttl">Generative Engine Optimization : comment être cité par les IA</span></span>
+        </a>
+        <a class="mini" href="/blog/claude-ai">
+          <span class="mini-thumb"><!-- TODO: visuel article --></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Claude AI : ce que vaut vraiment l'IA d'Anthropic</span></span>
+        </a>
+        <a class="mini" href="/blog/audit-seo-methode">
+          <span class="mini-thumb"><!-- TODO: visuel article --></span>
+          <span><span class="mini-cat">SEO</span><span class="mini-ttl">Audit SEO : la méthode et la checklist complète</span></span>
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- ================= ARTICLES LIÉS ================= -->
+<section class="related">
+  <div class="wrap">
+    <h2>À lire ensuite</h2>
+    <p class="sub">La suite logique du parcours.</p>
+    <div class="rel-grid">
+      <a class="rel-card" href="/blog/generative-engine-optimization">
+        <!-- TODO: visuel article -->
+        <div class="rel-body">
+          <span class="rel-cat">GEO, visibilité IA</span>
+          <h3>Generative Engine Optimization : comment être cité par les IA</h3>
+          <p>La méthode en 7 points pour être repris comme source par ChatGPT, Perplexity et les AI Overviews.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="/blog/audit-seo-methode">
+        <!-- TODO: visuel article -->
+        <div class="rel-body">
+          <span class="rel-cat">SEO</span>
+          <h3>Audit SEO : la méthode et la checklist complète</h3>
+          <p>Les 47 points que je vérifie, et les trois corrections qui changent vraiment les positions.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="/blog/claude-ai">
+        <!-- TODO: visuel article -->
+        <div class="rel-body">
+          <span class="rel-cat">Utiliser l'IA</span>
+          <h3>Claude AI : ce que vaut vraiment l'IA d'Anthropic</h3>
+          <p>Le test complet : ce qu'il fait mieux que ChatGPT, ses limites, les prix et la version gratuite.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="foot-logo" href="/"><img src="/images/logo-transparent-pine.svg" alt="anthony courtin" width="98" height="48"></a>
+        <p style="color:var(--ink-2);font-size:.95rem;margin-top:12px;max-width:280px">Consultant SEO, GEO &amp; automatisation IA. Interventions partout en France.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul><li><a href="/seo">SEO</a></li><li><a href="/geo">GEO, visibilité IA</a></li><li><a href="/automatisation-ia">Automatisation IA</a></li><li><a href="/tarifs">Tarifs</a></li></ul>
+      </div>
+      <div>
+        <h4>Ressources</h4>
+        <ul><li><a href="/blog/">Blog</a></li><li><a href="/realisations">Réalisations</a></li><li><a href="/a-propos">À propos</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul><li><a href="/contact">Formulaire</a></li><li><a href="mailto:anthony@astrak.agency">anthony@astrak.agency</a></li><li><a href="https://www.linkedin.com/in/anthony-courtin/" rel="noopener">LinkedIn</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Anthony Courtin</span>
+      <span><a href="/mentions-legales">Mentions légales</a> · <a href="/confidentialite">Confidentialité</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/site.js?v=2" defer></script>
+<script src="/js/blog-article.js?v=3" defer></script>
+
+<!-- Outil interactif propre à cet article -->
+<script src="/js/llmstxt-tool.js?v=1" defer></script>
+
+</body>
+</html>

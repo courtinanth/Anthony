@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generative Engine Optimization : la méthode GEO 2026</title>
+<meta name="description" content="Le GEO, c'est l'art d'être cité par ChatGPT, Perplexity et les AI Overviews. Ma méthode en 7 points, les outils de mesure et les erreurs à éviter.">
+<link rel="canonical" href="https://anthony-courtin.com/blog/generative-engine-optimization">
+<link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script src="/js/favicon-anim.js?v=2" defer></script>
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Generative Engine Optimization : la méthode GEO 2026">
+<meta property="og:description" content="Être cité par ChatGPT, Perplexity et les AI Overviews : la méthode en 7 points, les outils de mesure et les erreurs à éviter.">
+<meta property="og:url" content="https://anthony-courtin.com/blog/generative-engine-optimization">
+<meta property="og:image" content="https://anthony-courtin.com/images/blog/geo-cover.webp">
+<meta property="og:locale" content="fr_FR">
+<meta property="article:published_time" content="2026-08-19">
+<meta property="article:modified_time" content="2026-08-19">
+<meta property="article:author" content="Anthony Courtin">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/main.css?v=2">
+<link rel="stylesheet" href="/css/blog-article.css?v=3">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"BlogPosting",
+      "@id":"https://anthony-courtin.com/blog/generative-engine-optimization#article",
+      "headline":"Generative Engine Optimization : comment être cité par les IA",
+      "description":"Le generative engine optimization consiste à faire citer sa marque par ChatGPT, Perplexity, Gemini et les AI Overviews. Méthode en 7 points, outils de mesure et erreurs fréquentes.",
+      "inLanguage":"fr-FR",
+      "datePublished":"2026-08-19",
+      "dateModified":"2026-08-19",
+      "image":"https://anthony-courtin.com/images/blog/geo-cover.webp",
+      "wordCount":3800,
+      "mainEntityOfPage":{"@type":"WebPage","@id":"https://anthony-courtin.com/blog/generative-engine-optimization"},
+      "author":{"@id":"https://anthony-courtin.com/#anthony"},
+      "publisher":{"@id":"https://anthony-courtin.com/#anthony"},
+      "about":[
+        {"@type":"Thing","name":"Generative engine optimization"},
+        {"@type":"Thing","name":"Référencement naturel"},
+        {"@type":"Thing","name":"Intelligence artificielle générative"}
+      ]
+    },
+    {
+      "@type":"Person",
+      "@id":"https://anthony-courtin.com/#anthony",
+      "name":"Anthony Courtin",
+      "jobTitle":"Consultant SEO, GEO et automatisation IA",
+      "url":"https://anthony-courtin.com/a-propos",
+      "image":"https://anthony-courtin.com/images/anthony.avif",
+      "sameAs":["https://www.linkedin.com/in/anthony-courtin/"]
+    },
+    {
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Accueil","item":"https://anthony-courtin.com/"},
+        {"@type":"ListItem","position":2,"name":"Blog","item":"https://anthony-courtin.com/blog/"},
+        {"@type":"ListItem","position":3,"name":"Generative Engine Optimization"}
+      ]
+    },
+    {
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"Qu'est-ce que le Generative Engine Optimization ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Le generative engine optimization, ou GEO, désigne l'ensemble des techniques qui visent à faire citer un site par les moteurs de réponse fondés sur l'intelligence artificielle : ChatGPT, Perplexity, Gemini, Claude et les AI Overviews de Google. L'objectif n'est plus seulement d'être classé dans une liste de liens, mais d'être repris comme source dans une réponse rédigée."}},
+        {"@type":"Question","name":"Le GEO remplace-t-il le SEO traditionnel ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Non. Les moteurs génératifs s'appuient très largement sur l'index de recherche classique pour aller chercher leurs sources. Un site invisible dans Google a peu de chances d'être cité par une IA. Le GEO est une couche supplémentaire posée sur un SEO qui fonctionne, pas un remplacement."}},
+        {"@type":"Question","name":"Comment optimiser son site pour le GEO ?",
+         "acceptedAnswer":{"@type":"Answer","text":"En répondant à la question dès les deux premières phrases, en structurant le contenu en blocs autoportants faciles à extraire, en datant et en sourçant chaque chiffre, en balisant les pages en schema.org, et en travaillant les mentions de la marque en dehors du site. Un contenu citable est un contenu qu'une machine peut découper sans le trahir."}},
+        {"@type":"Question","name":"Quels sont les avantages du GEO ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Une citation dans une réponse d'IA arrive à un moment de décision, avec la caution implicite du moteur. Le volume est plus faible qu'en SEO classique, mais l'intention est bien plus avancée. C'est aussi un terrain où la concurrence reste faible en français, ce qui rend les positions plus accessibles qu'en référencement traditionnel."}},
+        {"@type":"Question","name":"Quels outils utiliser pour le generative engine optimization ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Il faut un outil de suivi de citations qui interroge régulièrement les moteurs de réponse sur un panel de questions métier, l'analyse des journaux serveur pour vérifier le passage de GPTBot, ClaudeBot et PerplexityBot, et la Search Console pour la partie AI Overviews. Beaucoup de plateformes SEO ont ajouté un module de visibilité IA."}},
+        {"@type":"Question","name":"Comment le GEO impacte le marketing digital ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Il déplace la mesure du clic vers la mention. Une partie des recherches se termine désormais sans visite de site, ce qui fait baisser le trafic à notoriété constante. Les indicateurs doivent donc intégrer la part de voix dans les réponses générées, au même titre que les positions dans les résultats classiques."}},
+        {"@type":"Question","name":"Quelles sont les meilleures pratiques GEO ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Répondre avant d'argumenter, préférer les phrases courtes et factuelles aux formules commerciales, dater les mises à jour, citer ses propres sources, publier des données originales, et rendre l'entité de marque cohérente partout sur le web. Les contenus creux et non sourcés sont ceux que les moteurs de réponse écartent en premier."}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+<div id="read-progress"></div>
+
+<!-- ================= HEADER (identique au reste du site v2) ================= -->
+<header class="site">
+  <div class="nav-shell">
+    <nav class="main" aria-label="Navigation principale">
+      <a class="logo" href="/"><img src="/images/logo-transparent-cream.svg" alt="anthony courtin" width="86" height="42"></a>
+      <div class="nav-links">
+        <div class="nav-item"><a href="/seo">SEO</a></div>
+        <div class="nav-item"><a href="/geo">GEO, visibilité IA</a></div>
+        <div class="nav-item"><a href="/automatisation-ia">Automatisation IA</a></div>
+        <div class="nav-item"><a href="/blog/">Blog</a></div>
+        <div class="nav-item"><a href="/tarifs">Tarifs</a></div>
+      </div>
+      <button class="burger" id="burger" type="button" aria-label="Menu">☰</button>
+      <a class="nav-cta" href="/contact">Travailler avec moi</a>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="/seo">SEO</a>
+        <a href="/geo">GEO, visibilité IA</a>
+        <a href="/automatisation-ia">Automatisation IA</a>
+        <a href="/blog/">Blog</a>
+        <a href="/tarifs">Tarifs</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= EN-TÊTE D'ARTICLE ================= -->
+<section class="art-top">
+  <div class="wrap">
+    <nav class="crumb" aria-label="Fil d'Ariane">
+      <a href="/">Accueil</a><span aria-hidden="true">/</span>
+      <a href="/blog/">Blog</a><span aria-hidden="true">/</span>
+      <span>Generative Engine Optimization</span>
+    </nav>
+
+    <span class="art-cat">GEO, visibilité IA</span>
+    <h1 class="art-title">Generative Engine Optimization : comment être cité par les IA</h1>
+    <p class="art-lede">Vos clients posent leurs questions à ChatGPT et à Perplexity avant d'ouvrir Google. Voici comment faire en sorte que la réponse parle de vous, avec la méthode que j'applique en mission.</p>
+
+    <div class="art-metaline">
+      <span class="who">
+        <img src="/images/anthony.avif" alt="" width="38" height="38" loading="lazy">
+        Anthony Courtin
+      </span>
+      <span class="dot" aria-hidden="true">·</span>
+      <time datetime="2026-08-19">19 août 2026</time>
+      <span class="dot" aria-hidden="true">·</span>
+      <span>15 min de lecture</span>
+      <span class="dot" aria-hidden="true">·</span>
+      <span>Mis à jour le <time datetime="2026-08-19">19 août 2026</time></span>
+    </div>
+
+    <!-- Boutons "Résumer avec" : les href sont construits par blog-article.js -->
+    <div class="ai-actions">
+      <span class="ai-actions__title">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>
+        Résumer avec
+      </span>
+      <ul class="ai-actions__list">
+        <li><a class="ai-btn" data-ai="chatgpt" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec ChatGPT">ChatGPT</a></li>
+        <li><a class="ai-btn" data-ai="claude" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Claude">Claude</a></li>
+        <li><a class="ai-btn" data-ai="perplexity" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Perplexity">Perplexity</a></li>
+        <li><a class="ai-btn" data-ai="gemini" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Gemini">Gemini</a></li>
+        <li><a class="ai-btn" data-ai="mistral" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Le Chat de Mistral">Le Chat</a></li>
+        <li><a class="ai-btn" data-ai="grok" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Grok">Grok</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GRILLE 3 COLONNES ================= -->
+<div class="art-layout">
+
+  <!-- ---------- COLONNE GAUCHE : sommaire + partage ---------- -->
+  <aside class="rail rail-left">
+    <details class="toc-box" open>
+      <summary><span class="rail-title">Sommaire</span><span class="toc-chevron" aria-hidden="true"></span></summary>
+      <nav class="toc" id="toc" aria-label="Sommaire de l'article">
+        <p class="toc-empty">Chargement…</p>
+      </nav>
+    </details>
+
+    <div class="share-box">
+      <p class="rail-title">Partager</p>
+      <ul class="share">
+        <li><a class="share-btn share-linkedin" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur LinkedIn"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56z"/></svg></a></li>
+        <li><a class="share-btn share-x" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur X"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.96 6.82H1.68l7.73-8.84L1.25 2.25h6.83l4.71 6.23zm-1.16 17.52h1.83L7.08 4.13H5.12z"/></svg></a></li>
+        <li><a class="share-btn share-whatsapp" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur WhatsApp"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m5.8 14.16c-.25.69-1.43 1.31-1.98 1.4-.53.08-1.19.11-1.92-.12-.44-.14-1.01-.33-1.74-.64-3.06-1.32-5.06-4.4-5.21-4.6-.15-.2-1.25-1.66-1.25-3.16s.79-2.25 1.07-2.55c.28-.31.61-.38.81-.38h.58c.19 0 .44-.07.69.53.25.61.86 2.11.94 2.26.08.15.13.33.02.53-.1.2-.16.33-.31.5l-.46.54c-.15.15-.31.32-.13.63.18.31.79 1.3 1.69 2.11 1.16 1.03 2.14 1.35 2.45 1.5.31.15.49.13.67-.08.18-.2.77-.9.98-1.21.2-.31.41-.26.69-.15.28.1 1.78.84 2.09.99.31.15.51.23.59.36.08.13.08.74-.17 1.44"/></svg></a></li>
+        <li><a class="share-btn share-email" href="#" rel="nofollow" aria-label="Partager par e-mail"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m0 4-8 5-8-5V6l8 5 8-5z"/></svg></a></li>
+        <li><button class="share-btn share-copy" type="button" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2m0 16H8V7h11z"/></svg></button></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- ---------- COLONNE CENTRALE : le contenu ---------- -->
+  <div class="art-main">
+
+    <!-- Résumé IA version mobile : rendu côté serveur, donc lisible par Google et les LLM -->
+    <div class="ai-box ai-box-mobile">
+      <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
+      <p class="ai-text">Le generative engine optimization consiste à faire citer un site par les moteurs de réponse comme ChatGPT, Perplexity et les AI Overviews. Il repose sur un contenu qui répond avant d'argumenter, structuré pour être extrait, daté et sourcé. Il complète le référencement naturel, il ne le remplace pas.</p>
+      <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
+    </div>
+
+    <article class="art-body">
+
+      <figure>
+        <picture>
+          <source srcset="/images/blog/geo-cover.avif" type="image/avif">
+          <img src="/images/blog/geo-cover.webp" alt="Sphère de verre translucide entourée d'éclats convergents, illustration abstraite de la sélection des sources par les moteurs de réponse" width="1376" height="768" fetchpriority="high" decoding="async">
+        </picture>
+      </figure>
+
+      <p><strong>Le generative engine optimization, ou GEO, désigne l'ensemble des techniques qui visent à faire citer un site par les moteurs de réponse fondés sur l'intelligence artificielle</strong> : ChatGPT, Perplexity, Gemini, Claude et les AI Overviews de Google. L'objectif n'est plus seulement d'être classé dans une liste de liens, mais d'être repris comme source dans une réponse rédigée.</p>
+
+      <p>Le terme vient d'un travail de recherche publié en 2023 par des équipes de Princeton, de Georgia Tech, de l'Allen Institute for AI et de l'IIT Delhi. Il est passé du papier académique au vocabulaire courant du marketing digital en moins de deux ans, ce qui donne une idée de la vitesse à laquelle le sujet s'est imposé.</p>
+
+      <p>Cet article n'est pas une définition de plus. C'est la méthode que j'applique chez mes clients, avec ce qui marche, ce qui ne sert à rien, et ce que je n'ai pas encore réussi à faire bouger.</p>
+
+      <!-- ================= VERDICT (avant l'argumentaire) ================= -->
+      <div class="verdict">
+        <div class="verdict-note">
+          <b>7</b>
+          <span>points</span>
+        </div>
+        <div class="verdict-body">
+          <h2>La réponse courte</h2>
+          <p>Le GEO n'est pas une discipline séparée du référencement naturel : c'est une couche posée dessus. Un site que Google ignore ne sera pas cité par une IA, parce que les moteurs de réponse puisent dans l'index de recherche classique.</p>
+          <div class="verdict-lists">
+            <ul class="verdict-pros">
+              <li>Concurrence encore faible en français, donc positions accessibles</li>
+              <li>Une citation arrive au moment de la décision d'achat</li>
+              <li>Les optimisations servent aussi le référencement classique</li>
+            </ul>
+            <ul class="verdict-cons">
+              <li>Mesure difficile : pas d'équivalent de la Search Console</li>
+              <li>Résultats instables, une réponse change d'une semaine à l'autre</li>
+            </ul>
+          </div>
+        </div>
+        <p class="verdict-foot">
+          <span class="verdict-price">Premier chantier : la structure de vos pages</span>
+          <span>Pour qui : marques, éditeurs, prestataires de services</span>
+        </p>
+      </div>
+
+      <!-- Bloc « à retenir » : c'est ce que les moteurs de réponse citent le plus volontiers -->
+      <section class="takeaways">
+        <h2>À retenir</h2>
+        <ul>
+          <li>Le <strong>GEO vise la citation</strong>, le SEO vise le classement. Les deux se nourrissent du même travail de fond.</li>
+          <li>Un moteur génératif <strong>découpe votre page en fragments</strong> : chaque bloc doit se suffire à lui-même.</li>
+          <li><strong>Répondre dans les deux premières phrases</strong> est l'optimisation la plus rentable, et la moins pratiquée.</li>
+          <li>Les <strong>mentions en dehors de votre site</strong> pèsent autant que le site lui-même.</li>
+          <li>La <strong>mesure passe par un panel de questions</strong> interrogées régulièrement, pas par un outil unique.</li>
+        </ul>
+      </section>
+
+      <!-- ================= OUTIL INTERACTIF ================= -->
+      <p>Avant d'entrer dans le détail, voici où vous en êtes. Douze critères, deux minutes, et un score que vous pouvez emporter.</p>
+
+      <div class="tool" id="outil-audit-geo">
+        <div class="tool-head">
+          <span class="tool-ico" aria-hidden="true">✦</span>
+          <span>
+            <em>Outil interactif</em>
+            <b>Votre score GEO en 12 critères</b>
+          </span>
+        </div>
+        <div class="tool-body">
+          <div class="field">
+            <span class="rail-title" id="geo-c-label">Cochez ce qui est déjà vrai pour votre site</span>
+            <ul class="geo-check" id="geo-check" aria-labelledby="geo-c-label">
+              <li><label><input type="checkbox" data-p="12"> Mes pages répondent à la question posée dès les deux premières phrases</label></li>
+              <li><label><input type="checkbox" data-p="10"> Mes titres Hn sont des questions ou des affirmations claires, pas des jeux de mots</label></li>
+              <li><label><input type="checkbox" data-p="10"> Chaque chiffre que je publie est daté et attribué à une source</label></li>
+              <li><label><input type="checkbox" data-p="9"> Mes pages importantes ont une FAQ balisée en schema.org</label></li>
+              <li><label><input type="checkbox" data-p="9"> J'ai une page « à propos » qui décrit précisément qui nous sommes</label></li>
+              <li><label><input type="checkbox" data-p="8"> Mes contenus portent une date de mise à jour visible</label></li>
+              <li><label><input type="checkbox" data-p="8"> Ma marque est mentionnée sur des sites tiers que je ne contrôle pas</label></li>
+              <li><label><input type="checkbox" data-p="7"> J'autorise le passage des robots des IA dans mon robots.txt</label></li>
+              <li><label><input type="checkbox" data-p="7"> Mes pages se chargent sans JavaScript pour afficher le texte principal</label></li>
+              <li><label><input type="checkbox" data-p="7"> Je publie des données ou des retours d'expérience qu'on ne trouve pas ailleurs</label></li>
+              <li><label><input type="checkbox" data-p="7"> Je vérifie régulièrement ce que les IA répondent sur mon secteur</label></li>
+              <li><label><input type="checkbox" data-p="6"> J'ai un fichier llms.txt à la racine du domaine</label></li>
+            </ul>
+          </div>
+
+          <div class="score">
+            <b id="geo-score">0</b><span>/ 100 <span id="geo-label">à construire</span></span>
+          </div>
+          <div class="meter"><i id="geo-meter" style="width:0%"></i></div>
+
+          <div class="field">
+            <span class="rail-title" style="margin-bottom:8px">Vos trois prochains chantiers</span>
+            <div class="tool-out" id="geo-out" aria-live="polite"></div>
+          </div>
+
+          <div class="tool-actions">
+            <button type="button" class="btn-sm primary" id="geo-copy">Copier mon plan d'action</button>
+            <a class="btn-sm ghost" href="/audit-visibilite-ia">Faire auditer ma visibilité IA</a>
+          </div>
+        </div>
+        <div class="tool-foot">
+          <span>Rien n'est envoyé nulle part : tout se passe dans votre navigateur.</span>
+          <span>Grille GEO, Anthony Courtin</span>
+        </div>
+      </div>
+
+      <h2>Le generative engine optimization, c'est quoi exactement</h2>
+
+      <p>Quand vous interrogez un moteur de recherche classique, il vous rend une liste de liens et vous laisse choisir. Quand vous interrogez un moteur génératif, il lit à votre place et vous rend une réponse rédigée, avec quelques sources citées en dessous ou en note.</p>
+
+      <p>Ce changement déplace le terrain de jeu. Être en première position d'une liste que plus personne ne lit ne sert à rien. Ce qui compte, c'est de faire partie des trois ou quatre sources que le modèle a jugées utiles pour construire sa réponse.</p>
+
+      <h3>Comment une IA choisit ses sources</h3>
+
+      <p>Le mécanisme le plus répandu s'appelle la récupération augmentée. Le modèle reformule votre question en plusieurs requêtes, les envoie à un index de recherche, récupère une poignée de pages, en extrait les passages qui semblent répondre, puis rédige une synthèse à partir de ces extraits.</p>
+
+      <p>Trois conséquences pratiques découlent de ce fonctionnement.</p>
+
+      <ul>
+        <li><strong>Votre page n'est jamais lue en entier.</strong> Le système en prélève des fragments. Un paragraphe qui ne se comprend qu'à la lumière du précédent a peu de chances d'être retenu.</li>
+        <li><strong>La requête réellement posée n'est pas celle de l'utilisateur.</strong> Le modèle la décompose. Il faut donc couvrir les formulations satellites, pas seulement le mot-clé principal.</li>
+        <li><strong>La sélection passe par un moteur de recherche.</strong> Si vous n'êtes pas dans l'index, vous n'existez pas pour l'IA.</li>
+      </ul>
+
+      <div class="callout callout--info">
+        <p class="callout-t">Le test en trente secondes</p>
+        <p>Prenez un paragraphe au hasard sur votre site, sortez-le de son contexte et lisez-le seul. S'il reste compréhensible et utile, il est citable. Si la première phrase commence par « c'est pourquoi » ou « en effet », il ne l'est pas.</p>
+      </div>
+
+      <h3>GEO, AEO, AIO, SEO IA : le point sur les sigles</h3>
+
+      <p>Le vocabulaire n'est pas stabilisé, et chaque agence pousse son acronyme. Voici comment je les distingue, sans y attacher plus d'importance qu'ils n'en méritent.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Sigle</th><th scope="col">Ce qu'il désigne</th><th scope="col">Mon avis</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>SEO</strong></td><td>Le référencement classique, être classé dans une liste de résultats</td><td>Toujours la base de tout</td></tr>
+            <tr><td><strong>GEO</strong></td><td>Être cité comme source dans une réponse générée</td><td>Le terme qui s'impose, issu de la recherche</td></tr>
+            <tr><td><strong>AEO</strong></td><td>L'optimisation pour les moteurs de réponse, incluant les extraits enrichis</td><td>Largement recouvert par le GEO</td></tr>
+            <tr><td><strong>AIO</strong></td><td>L'optimisation spécifique aux AI Overviews de Google</td><td>Un sous-ensemble, pas une discipline</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Vous croiserez aussi les formes longues : <em>answer engine optimization</em> pour l'AEO, et <em>large language model</em> pour désigner les modèles eux-mêmes. Retenez le mot GEO, ignorez le reste. Le travail derrière est le même, quel que soit le sigle que votre prestataire met sur la facture. Une agence GEO qui vous vend une méthode radicalement différente du SEO traditionnel vend surtout du vocabulaire.</p>
+
+      <h2>GEO et SEO : ce qui change, ce qui ne change pas</h2>
+
+      <p>C'est la question qui revient à chaque premier rendez-vous : faut-il tout refaire ? Non. Voici la répartition honnête.</p>
+
+      <h3>Ce que le GEO reprend au référencement classique</h3>
+
+      <p>La qualité technique du site, la vitesse, l'accessibilité du contenu sans exécution de JavaScript, la structure des titres, le maillage interne, l'autorité acquise par les liens entrants. Tout cela reste valable, parce que les moteurs génératifs s'appuient sur des index construits selon les mêmes logiques.</p>
+
+      <p>Un site lent, mal structuré et sans backlink ne devient pas visible dans ChatGPT parce qu'on lui a ajouté un fichier llms.txt. Je le dis parce que je vois passer des prestations vendues sur ce raccourci.</p>
+
+      <h3>Ce que le GEO ajoute vraiment</h3>
+
+      <ul>
+        <li><strong>L'écriture par blocs autoportants</strong>, pensée pour l'extraction plutôt que pour la lecture linéaire.</li>
+        <li><strong>La preuve.</strong> Un chiffre daté et attribué a beaucoup plus de chances d'être repris qu'une affirmation générale.</li>
+        <li><strong>L'entité de marque.</strong> Les modèles raisonnent sur des entités, pas sur des chaînes de caractères. Votre nom, votre activité et votre localisation doivent être cohérents partout.</li>
+        <li><strong>Les mentions hors site.</strong> Un modèle qui a lu votre nom dans dix contextes différents vous cite plus volontiers.</li>
+      </ul>
+
+      <h3>Le GEO ne remplace pas le SEO</h3>
+
+      <p>Sur les missions que je mène, la quasi-totalité des pages citées par les moteurs de réponse étaient déjà bien positionnées dans les résultats classiques. L'inverse est rare. Le GEO amplifie une visibilité existante, il ne la crée pas à partir de rien.</p>
+
+      <p>La bonne façon de présenter les choses à une direction : le référencement naturel reste le socle, le GEO est la couche qui capte la part de la recherche qui ne passe plus par le clic. Si le sujet vous intéresse dans le détail, j'ai consacré une page complète au <a href="/geo">conseil en GEO et visibilité IA</a>.</p>
+
+      <h2>La méthode en 7 points</h2>
+
+      <p>Voici ce que j'applique, dans l'ordre où je l'applique. Les trois premiers points font l'essentiel du résultat.</p>
+
+      <h3>1. Répondre dans les deux premières phrases</h3>
+
+      <p>C'est la règle la plus rentable et la plus ignorée. Avant toute mise en contexte, écrivez la réponse. Sujet, verbe, définition. Le reste de l'article développe, nuance et prouve, mais la réponse est déjà là.</p>
+
+      <p>La raison est mécanique : le système d'extraction cherche un passage qui répond à la requête. Si votre réponse arrive au sixième paragraphe, après une introduction sur « l'évolution du monde digital », elle ne sera pas trouvée.</p>
+
+      <blockquote>Une bonne page GEO se lit comme une dépêche d'agence : l'information d'abord, le contexte ensuite.</blockquote>
+
+      <h3>2. Structurer pour être découpé</h3>
+
+      <figure>
+        <picture>
+          <source srcset="/images/blog/geo-structure.avif" type="image/avif">
+          <img src="/images/blog/geo-structure.webp" alt="Couches de verre translucide empilées, illustration abstraite d'un contenu structuré en blocs extractibles" width="1376" height="768" loading="lazy" decoding="async">
+        </picture>
+        <figcaption>Un contenu citable s'empile en blocs autonomes, chacun compréhensible sans les autres.</figcaption>
+      </figure>
+
+      <p>Chaque section doit pouvoir être extraite seule. Concrètement, cela veut dire des titres explicites qui contiennent la question, des paragraphes courts qui traitent une seule idée, des listes quand l'information est énumérable, et des tableaux quand elle est comparable.</p>
+
+      <p>Bannissez les titres créatifs. « Le nerf de la guerre » ne dit rien à une machine. « Combien coûte un audit SEO » lui dit tout.</p>
+
+      <h3>3. Chiffrer, dater, sourcer</h3>
+
+      <p>Les moteurs de réponse privilégient ce qu'ils peuvent vérifier. Un contenu qui affirme sans preuve est écarté au profit d'un contenu qui affirme et qui montre.</p>
+
+      <ul>
+        <li>Donnez le chiffre, sa date de mesure et son origine.</li>
+        <li>Préférez vos propres données à une statistique recopiée partout.</li>
+        <li>Affichez une date de mise à jour, et mettez réellement à jour.</li>
+      </ul>
+
+      <div class="callout callout--tip">
+        <p class="callout-t">L'atout dont personne ne se sert</p>
+        <p>Publiez vos propres mesures, même modestes. Une étude sur trente clients de votre secteur, avec la méthode expliquée, devient la source que les modèles citent, parce qu'elle n'existe nulle part ailleurs. C'est aussi le meilleur aimant à liens entrants.</p>
+      </div>
+
+      <h3>4. Travailler l'entité de marque</h3>
+
+      <p>Un modèle ne manipule pas votre nom comme une suite de lettres, mais comme une entité reliée à des attributs : un métier, une zone, des personnes, des sujets. Votre travail consiste à rendre ces liens évidents et cohérents.</p>
+
+      <p>En pratique : une page « à propos » précise et datée, un balisage <code>Organization</code> ou <code>Person</code> cohérent, les mêmes coordonnées partout, et un auteur identifiable derrière chaque contenu. C'est le pendant moderne de ce que le référencement appelle l'autorité.</p>
+
+      <h3>5. Aller chercher les mentions hors site</h3>
+
+      <p>C'est le point que les équipes marketing sous-estiment le plus. Ce que les autres disent de vous pèse autant que ce que vous dites de vous.</p>
+
+      <ul>
+        <li>Les comparatifs et annuaires de votre secteur.</li>
+        <li>Les forums et communautés où votre métier se discute.</li>
+        <li>Les articles invités, les interventions, les podcasts.</li>
+        <li>Les pages de référence collaboratives quand votre notoriété le justifie.</li>
+      </ul>
+
+      <p>Une marque citée dans dix sources indépendantes devient une réponse plausible pour un modèle. Une marque qui ne parle que d'elle-même sur son propre site reste une brochure.</p>
+
+      <h3>6. Baliser proprement</h3>
+
+      <p>Le balisage en données structurées ne garantit pas la citation, mais il lève les ambiguïtés. Les types les plus utiles dans mon expérience : <code>FAQPage</code> quand la page contient de vraies questions, <code>Article</code> avec un auteur et des dates, <code>Organization</code> ou <code>LocalBusiness</code> sur les pages institutionnelles, et <code>BreadcrumbList</code> pour situer la page.</p>
+
+      <p>Une règle absolue : ne balisez que ce qui est visible à l'écran. Une FAQ déclarée mais absente de la page est une pénalité, pas un bonus.</p>
+
+      <h3>7. Ouvrir la porte aux robots</h3>
+
+      <p>Vérifiez ce que votre <code>robots.txt</code> autorise. Les moteurs de réponse envoient leurs propres agents : GPTBot pour OpenAI, ClaudeBot pour Anthropic, PerplexityBot pour Perplexity, Google-Extended pour la partie générative de Google. Bloquer ces agents revient à sortir du jeu.</p>
+
+      <p>Vous pouvez aussi ajouter un fichier <code>llms.txt</code> à la racine, qui liste vos contenus de référence en texte simple. C'est une convention encore jeune, dont l'effet reste à démontrer, mais dont le coût est de dix minutes. Je détaille sa mise en place dans un article dédié cette semaine.</p>
+
+      <h2>Ce que dit la documentation officielle de Google</h2>
+
+      <p>Sur un sujet où chaque agence vend sa recette, la documentation de Google Search Central reste la source la plus fiable. Google y a publié un guide dédié à l'optimisation des sites web pour les fonctionnalités d'IA générative dans la recherche. Sa lecture évite beaucoup de dépenses inutiles.</p>
+
+      <p>Le message principal de cette documentation tient en une phrase : il n'existe aucune technique propre à l'IA générative. Les bonnes pratiques annoncées sont celles du référencement classique, à savoir un contenu unique et utile, une expérience de lecture correcte, une page accessible aux robots, et des données structurées propres.</p>
+
+      <p>Trois précisions de cette documentation méritent d'être retenues.</p>
+
+      <ul>
+        <li><strong>Le contenu original prime.</strong> Google indique préférer les pages qui apportent une information de première main plutôt qu'une synthèse de ce qui existe déjà. C'est cohérent avec ce que j'observe : les retours d'expérience sont repris, les compilations sont ignorées.</li>
+        <li><strong>La qualité de l'expérience compte.</strong> Une page lente, encombrée de fenêtres surgissantes ou dont le texte principal n'apparaît qu'après exécution de scripts est pénalisée deux fois : pour le classement et pour la citation.</li>
+        <li><strong>Les données structurées aident sans suffire.</strong> Elles décrivent votre page à la machine, elles ne créent pas la valeur qui manque.</li>
+      </ul>
+
+      <p>Un mot sur le vocabulaire : la fonctionnalité aujourd'hui appelée AI Overviews a été annoncée sous le nom de Search Generative Experience, souvent abrégée en SGE. Vous croiserez encore ce sigle dans des guides datés de 2024. C'est la même chose, sous un autre nom.</p>
+
+      <h2>Un exemple concret, secteur par secteur</h2>
+
+      <p>La théorie se comprend mieux appliquée. Voici la manière dont je décline la méthode selon le type d'entreprise, parce que le levier prioritaire n'est pas le même partout.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Type d'entreprise</th><th scope="col">Le levier prioritaire</th><th scope="col">Le format qui fonctionne</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Prestataire de services B2B</strong></td><td>La preuve d'expertise et l'identité de l'expert</td><td>Retours de mission chiffrés, page de tarifs claire</td></tr>
+            <tr><td><strong>Éditeur de produit</strong></td><td>La documentation produit, publique et à jour</td><td>Guides d'usage, comparatifs honnêtes avec les alternatives</td></tr>
+            <tr><td><strong>Commerce local</strong></td><td>La cohérence des informations et la fiche Google Business</td><td>Pages locales, horaires et coordonnées identiques partout</td></tr>
+            <tr><td><strong>Média ou blog</strong></td><td>La fraîcheur et la fiabilité des sources</td><td>Articles datés, sources citées, auteur identifié</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Pour un éditeur de logiciel, la documentation publique est de loin le meilleur investissement. C'est elle que les modèles vont chercher quand un utilisateur demande comment faire telle chose avec tel produit. Une documentation fermée derrière une authentification est une documentation invisible, et c'est une erreur de stratégie que je vois régulièrement.</p>
+
+      <p>Pour un prestataire de services, le levier est la fiabilité perçue : un expert nommé, une photo, un parcours vérifiable, des exemples de missions décrits avec assez de détail pour qu'on comprenne le contexte. Une image et une courte vidéo de présentation renforcent la page pour les humains, même si les modèles ne les lisent pas directement.</p>
+
+      <p>Pour un commerce local en France, tout commence par la cohérence : le même nom, la même adresse et le même numéro partout, sur le site comme sur la fiche Google Business et les annuaires. Les modèles recoupent ces informations, et la moindre divergence affaiblit la présence de l'entité.</p>
+
+      <h2>Chaque moteur de réponse a ses habitudes</h2>
+
+      <p>Parler « des IA » au singulier est commode mais trompeur. Les quatre systèmes que rencontrent vos clients ne sélectionnent pas les mêmes sources, et ne les affichent pas de la même manière. Voici ce que j'observe en interrogeant les mêmes questions sur chacun.</p>
+
+      <h3>ChatGPT</h3>
+
+      <p>Il cite peu de sources, souvent trois à cinq, et privilégie les pages qui répondent frontalement. Sa recherche web se déclenche selon la question : sur un sujet stable, il répond de mémoire, sans aller chercher quoi que ce soit. Sur un sujet daté, un prix ou une actualité, il va chercher et cite. C'est là que se joue votre visibilité.</p>
+
+      <p>Conséquence pratique : les pages qui contiennent des éléments datés, des tarifs ou des chiffres récents déclenchent la recherche et gagnent la citation. Une page intemporelle et générale a moins de chances d'être appelée.</p>
+
+      <h3>Perplexity</h3>
+
+      <p>C'est le moteur le plus généreux en sources : il en affiche couramment une dizaine, numérotées dans le texte. Il fonctionne davantage comme un moteur de recherche augmenté que comme un assistant, et sa sélection ressemble beaucoup au classement des résultats classiques.</p>
+
+      <p>C'est donc le terrain le plus accessible quand on part de zéro : un bon positionnement dans les résultats de recherche s'y traduit assez directement en citations. C'est aussi le meilleur endroit pour tester une optimisation, parce que l'effet s'y voit plus vite qu'ailleurs.</p>
+
+      <h3>Gemini et les AI Overviews de Google</h3>
+
+      <p>Les résumés générés qui apparaissent en tête des résultats de Google sont ceux qui touchent le plus de monde, et de loin. Ils s'appuient sur l'index classique et favorisent les pages déjà bien classées, avec une préférence marquée pour les contenus structurés en questions et réponses.</p>
+
+      <p>Point de vigilance : c'est aussi le format qui capte le plus de clics. Quand un résumé répond complètement à la question, le trafic vers les sources baisse, y compris pour celles qui sont citées. Il faut l'anticiper dans les prévisions plutôt que le découvrir dans les statistiques.</p>
+
+      <h3>Claude</h3>
+
+      <p>Il cite volontiers et de manière très fidèle, en signalant explicitement quand une information ne figure pas dans les sources trouvées. Son public est plus professionnel que grand public, ce qui en fait un moteur intéressant pour les activités B2B, même si les volumes restent inférieurs à ceux de ChatGPT.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Moteur</th><th scope="col">Sources citées</th><th scope="col">Ce qu'il favorise</th><th scope="col">Priorité</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>AI Overviews</strong></td><td>3 à 8, en encart</td><td>Pages déjà classées, format questions et réponses</td><td>Volume maximal</td></tr>
+            <tr><td><strong>ChatGPT</strong></td><td>3 à 5</td><td>Réponses frontales, contenus datés et chiffrés</td><td>Notoriété</td></tr>
+            <tr><td><strong>Perplexity</strong></td><td>8 à 12, numérotées</td><td>Proximité avec le classement de recherche</td><td>Gains rapides</td></tr>
+            <tr><td><strong>Claude</strong></td><td>Variable, très fidèle</td><td>Sources précises et vérifiables</td><td>Audience B2B</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Ma recommandation : commencez par Perplexity pour valider que votre méthode fonctionne, puis élargissez. C'est le moteur où le retour arrive le plus vite, donc celui qui permet d'ajuster avant d'investir plus largement.</p>
+
+      <h2>Mesurer sa visibilité dans les réponses générées</h2>
+
+      <p>C'est le point faible de la discipline : il n'existe pas d'équivalent de la Search Console pour les moteurs de réponse. La mesure se construit, elle ne se consulte pas.</p>
+
+      <h3>La méthode du panel de questions</h3>
+
+      <p>Je constitue une liste de trente à cinquante questions que se posent réellement les clients de mon client. Je les pose chaque semaine aux principaux moteurs, et je note trois choses : la marque est-elle citée, à quel rang, et avec quel lien.</p>
+
+      <p>Cette mesure répétée donne une part de voix, ce que les outils anglophones appellent le <em>share of voice</em>, comparable à celle qu'on suit en référencement classique. Elle demande de l'automatisation dès qu'on dépasse quelques dizaines de questions, ce qui est exactement le genre de programme que je construis avec <a href="/blog/claude-ai">Claude</a> pour mes clients.</p>
+
+      <p>Un mot sur la fiabilité de cette mesure : interrogez toujours depuis une session déconnectée et sans historique, sinon vous mesurez la mémoire de votre propre compte plutôt que la réponse servie à un inconnu. C'est l'erreur de méthode la plus courante, et elle fausse complètement les résultats.</p>
+
+      <h3>Les autres signaux à surveiller</h3>
+
+      <ul>
+        <li><strong>Les journaux du serveur.</strong> Ils disent si GPTBot, ClaudeBot et PerplexityBot passent chez vous, et sur quelles pages.</li>
+        <li><strong>Le trafic de référence.</strong> Les visites en provenance des interfaces de chat sont identifiables dans les statistiques.</li>
+        <li><strong>La Search Console.</strong> Elle ne sépare pas les AI Overviews du reste, mais une chute d'impressions à positions stables est un signal.</li>
+      </ul>
+
+      <div class="callout callout--warn">
+        <p class="callout-t">Attention aux promesses chiffrées</p>
+        <p>Les réponses des moteurs génératifs varient d'un jour à l'autre, d'un utilisateur à l'autre et d'un pays à l'autre. Un prestataire qui vous garantit une position dans ChatGPT vend quelque chose qu'il ne contrôle pas. La bonne unité de mesure est une tendance sur plusieurs semaines, pas une capture d'écran.</p>
+      </div>
+
+      <h2>Ce que le GEO change pour le marketing digital</h2>
+
+      <p>Le déplacement le plus important n'est pas technique, il est comptable. Une partie des recherches se termine désormais sans visite : l'utilisateur a sa réponse, il ne clique pas. Le trafic baisse à notoriété constante, et parfois même à notoriété croissante.</p>
+
+      <p>Trois conséquences pour un responsable marketing.</p>
+
+      <ol>
+        <li><strong>Les indicateurs doivent évoluer.</strong> Suivre uniquement les sessions revient à mesurer un thermomètre cassé. La part de voix dans les réponses générées devient un indicateur à part entière.</li>
+        <li><strong>La valeur par visite augmente.</strong> Les curieux se contentent de la réponse de l'IA. Ceux qui cliquent sont plus avancés dans leur décision.</li>
+        <li><strong>Le contenu de milieu de tunnel reprend de l'importance.</strong> Les comparatifs, les études de cas et les pages de prix sont ce que les modèles vont chercher pour répondre à une question d'achat.</li>
+      </ol>
+
+      <h2>Combien de temps avant de voir des résultats</h2>
+
+      <p>C'est la question que pose toute direction avant de signer, et elle mérite une réponse honnête plutôt qu'une promesse.</p>
+
+      <p>Sur les chantiers que j'ai menés, la première évolution mesurable arrive entre quatre et huit semaines. Ce délai n'a rien de magique : il correspond au temps qu'il faut aux robots pour repasser sur les pages modifiées et aux index de recommencer à servir la nouvelle version. Un site sur lequel les agents passent tous les jours bouge plus vite qu'un site visité une fois par mois.</p>
+
+      <p>Trois facteurs accélèrent nettement le mouvement.</p>
+
+      <ul>
+        <li><strong>La fréquence de passage des robots.</strong> Elle se lit dans les journaux du serveur et dépend directement de l'autorité du domaine.</li>
+        <li><strong>La densité concurrentielle du sujet.</strong> Sur une question métier précise, une seule bonne page suffit à apparaître. Sur une requête générique, il faut un ensemble cohérent de contenus.</li>
+        <li><strong>L'existence de mentions extérieures.</strong> Une marque déjà citée ailleurs sur le web devient citable beaucoup plus vite.</li>
+      </ul>
+
+      <p>Ce qui ne s'accélère pas, en revanche, c'est la construction de l'entité de marque. Faire exister un nom dans l'esprit statistique d'un modèle prend des mois, parce que cela suppose que d'autres sites parlent de vous. C'est le travail de fond, et c'est celui qui protège le mieux une position une fois qu'elle est prise.</p>
+
+      <h2>Les erreurs que je vois le plus souvent</h2>
+
+      <ul>
+        <li><strong>Croire que le GEO se résume à un fichier.</strong> llms.txt ne compense pas un site sans contenu ni autorité.</li>
+        <li><strong>Écrire pour la machine.</strong> Les textes bourrés de formulations artificielles se repèrent et se font écarter. Le contenu citable est d'abord un contenu utile.</li>
+        <li><strong>Bloquer les robots par prudence.</strong> Décision légitime pour certains éditeurs, mais elle doit être prise en connaissance de cause, pas par recopie d'un modèle de robots.txt.</li>
+        <li><strong>Baliser une FAQ invisible.</strong> Le balisage doit décrire la page, pas l'inventer.</li>
+        <li><strong>Mesurer une seule fois.</strong> Une réponse à un instant donné ne prouve rien. Seule la répétition fait une donnée.</li>
+        <li><strong>Négliger l'anglais.</strong> Sur les sujets techniques, les modèles s'appuient massivement sur des sources anglophones. Une version anglaise de vos contenus de référence élargit franchement la surface de citation.</li>
+      </ul>
+
+      <h2>Par où commencer concrètement</h2>
+
+      <p>Si vous ne devez faire que quatre choses ce mois-ci, faites celles-là, dans cet ordre.</p>
+
+      <ol>
+        <li><strong>Listez vingt questions</strong> que vos clients posent vraiment, et regardez ce que répondent ChatGPT et Perplexity aujourd'hui. C'est votre point zéro.</li>
+        <li><strong>Réécrivez l'introduction de vos dix pages stratégiques</strong> pour que la réponse arrive dans les deux premières phrases.</li>
+        <li><strong>Datez et sourcez</strong> tous les chiffres de ces pages.</li>
+        <li><strong>Vérifiez votre robots.txt</strong> et ajoutez une FAQ balisée là où elle a du sens.</li>
+      </ol>
+
+      <p>Ces quatre chantiers ne demandent aucun développement, aucun outil payant, et produisent l'essentiel du résultat. Le reste vient après, quand la mesure est en place. La méthode complète pour écrire des contenus repris par les IA fait l'objet d'un guide séparé, et pour ce qui est de la rédaction elle-même, ma méthode est détaillée dans mon article sur <a href="/blog/rediger-article-blog-2026">la rédaction d'un article de blog en 2026</a>.</p>
+
+      <p>Une stratégie GEO qui tient dans la durée ressemble beaucoup à une bonne stratégie éditoriale : améliorer les pages existantes avant d'en créer de nouvelles, améliorer la fiabilité avant d'améliorer le volume, et accepter que la présence d'une entreprise dans les réponses générées se construit sur plusieurs trimestres. Les entreprises qui progressent le plus vite ne sont pas celles qui publient le plus, mais celles dont chaque page apporte une information que personne d'autre n'a publiée.</p>
+
+      <p>Si vous voulez un guide de démarrage encore plus court : prenez vos cinq pages de service les plus rentables, et réécrivez-en l'introduction cet après-midi. C'est le meilleur rapport entre l'effort et le résultat de toute cette liste.</p>
+
+      <!-- ================= FAQ ================= -->
+      <section class="faq">
+        <h2>Questions fréquentes</h2>
+
+        <details>
+          <summary>Qu'est-ce que le Generative Engine Optimization ?</summary>
+          <div class="faq-a"><p>Le generative engine optimization, ou GEO, désigne l'ensemble des techniques qui visent à faire citer un site par les moteurs de réponse fondés sur l'intelligence artificielle : ChatGPT, Perplexity, Gemini, Claude et les AI Overviews de Google. L'objectif n'est plus seulement d'être classé dans une liste de liens, mais d'être repris comme source dans une réponse rédigée.</p></div>
+        </details>
+
+        <details>
+          <summary>Le GEO remplace-t-il le SEO traditionnel ?</summary>
+          <div class="faq-a"><p>Non. Les moteurs génératifs s'appuient très largement sur l'index de recherche classique pour aller chercher leurs sources. Un site invisible dans Google a peu de chances d'être cité par une IA. Le GEO est une couche supplémentaire posée sur un SEO qui fonctionne, pas un remplacement.</p></div>
+        </details>
+
+        <details>
+          <summary>Comment optimiser son site pour le GEO ?</summary>
+          <div class="faq-a"><p>En répondant à la question dès les deux premières phrases, en structurant le contenu en blocs autoportants faciles à extraire, en datant et en sourçant chaque chiffre, en balisant les pages en schema.org, et en travaillant les mentions de la marque en dehors du site. Un contenu citable est un contenu qu'une machine peut découper sans le trahir.</p></div>
+        </details>
+
+        <details>
+          <summary>Quels sont les avantages du GEO ?</summary>
+          <div class="faq-a"><p>Une citation dans une réponse d'IA arrive à un moment de décision, avec la caution implicite du moteur. Le volume est plus faible qu'en SEO classique, mais l'intention est bien plus avancée. C'est aussi un terrain où la concurrence reste faible en français, ce qui rend les positions plus accessibles qu'en référencement traditionnel.</p></div>
+        </details>
+
+        <details>
+          <summary>Quels outils utiliser pour le generative engine optimization ?</summary>
+          <div class="faq-a"><p>Il faut un outil de suivi de citations qui interroge régulièrement les moteurs de réponse sur un panel de questions métier, l'analyse des journaux serveur pour vérifier le passage de GPTBot, ClaudeBot et PerplexityBot, et la Search Console pour la partie AI Overviews. Beaucoup de plateformes SEO ont ajouté un module de visibilité IA.</p></div>
+        </details>
+
+        <details>
+          <summary>Comment le GEO impacte le marketing digital ?</summary>
+          <div class="faq-a"><p>Il déplace la mesure du clic vers la mention. Une partie des recherches se termine désormais sans visite de site, ce qui fait baisser le trafic à notoriété constante. Les indicateurs doivent donc intégrer la part de voix dans les réponses générées, au même titre que les positions dans les résultats classiques.</p></div>
+        </details>
+
+        <details>
+          <summary>Quelles sont les meilleures pratiques GEO ?</summary>
+          <div class="faq-a"><p>Répondre avant d'argumenter, préférer les phrases courtes et factuelles aux formules commerciales, dater les mises à jour, citer ses propres sources, publier des données originales, et rendre l'entité de marque cohérente partout sur le web. Les contenus creux et non sourcés sont ceux que les moteurs de réponse écartent en premier.</p></div>
+        </details>
+      </section>
+
+      <!-- MAILLAGE À AJOUTER APRÈS PUBLICATION DES CIBLES :
+           - /blog/llms-txt (C1-05, 26/08/2026) : section « Ouvrir la porte aux robots »
+           - /blog/audit-visibilite-ia-methode (C1-11, 28/08/2026) : section « Mesurer sa visibilité »
+           - /blog/seo-ia (C1-02, 02/09/2026) : section « GEO et SEO »
+           - /blog/etre-cite-par-chatgpt (C1-04, 09/09/2026) : section « La méthode en 7 points »
+           - /blog/ai-overview-france (C1-03, 16/09/2026) : section « Les sigles »
+           - /blog/contenu-citable-guide (C1-15, 23/09/2026) : section « Par où commencer »
+      -->
+
+      <!-- ================= CTA ================= -->
+      <div class="cta-band">
+        <div>
+          <h2>Que disent les IA de votre marque aujourd'hui ?</h2>
+          <p>Un panel de questions métier, votre part de voix face à vos concurrents, et un plan d'action priorisé. Restitution en visio.</p>
+        </div>
+        <a class="btn btn-lime" href="/audit-visibilite-ia">Auditer ma visibilité IA <span class="ar">→</span></a>
+      </div>
+
+      <!-- ================= AUTEUR ================= -->
+      <div class="author-box">
+        <img src="/images/anthony.avif" alt="Anthony Courtin" width="88" height="88" loading="lazy">
+        <div>
+          <p class="eyebrow">Écrit par</p>
+          <h3>Anthony Courtin</h3>
+          <p class="author-role">Consultant SEO, GEO &amp; automatisation IA</p>
+          <p class="author-bio">J'accompagne des PME et des indépendants sur la visibilité (Google, ChatGPT, Perplexity) et sur l'usage réel de l'IA au travail. J'interviens en entreprise pour former les équipes et repenser les process. Tout ce que j'écris ici, je l'utilise en mission.</p>
+          <div class="author-links">
+            <a class="li" href="https://www.linkedin.com/in/anthony-courtin/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56z"/></svg>
+              Me suivre sur LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= AVIS LECTEURS ================= -->
+      <section class="reviews" data-slug="generative-engine-optimization" data-reviews="[]">
+        <h2>Avis des lecteurs</h2>
+        <p class="rv-sub">Cet article vous a servi ? Dites-le, ça aide les suivants.</p>
+
+        <form class="rv-form" name="avis" method="POST" data-netlify="true" netlify-honeypot="societe" action="/merci">
+          <input type="hidden" name="form-name" value="avis">
+          <input type="hidden" name="article" value="generative-engine-optimization">
+          <p class="rv-hp"><label>Ne remplissez pas ce champ : <input name="societe" tabindex="-1" autocomplete="off"></label></p>
+
+          <h3>Notez cet article</h3>
+
+          <fieldset class="rating-field">
+            <legend>Votre note</legend>
+            <div class="rating">
+              <input type="radio" id="n5" name="note" value="5"><label for="n5" aria-label="5 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n4" name="note" value="4"><label for="n4" aria-label="4 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n3" name="note" value="3"><label for="n3" aria-label="3 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n2" name="note" value="2"><label for="n2" aria-label="2 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n1" name="note" value="1"><label for="n1" aria-label="1 étoile"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="rv-nom">Prénom <span class="hint">(facultatif)</span></label>
+            <input type="text" id="rv-nom" name="nom" maxlength="60" autocomplete="given-name">
+          </div>
+
+          <div class="field">
+            <label for="rv-texte">Votre commentaire <span class="hint">(facultatif)</span></label>
+            <textarea id="rv-texte" name="texte" rows="4" maxlength="2000"></textarea>
+          </div>
+
+          <div class="rv-msg" id="rv-msg" role="status"></div>
+          <div><button type="submit" class="btn-sm primary">Publier mon avis</button></div>
+        </form>
+
+        <div class="rv-published">
+          <h3 class="rv-published-title">Ce qu'en disent les lecteurs</h3>
+          <div class="rv-summary">
+            <span class="rv-avg" id="rv-avg"></span>
+            <span class="stars" id="rv-stars" aria-hidden="true"></span>
+            <span class="rv-count" id="rv-count">Aucun avis pour le moment.</span>
+          </div>
+          <div class="rv-list" id="rv-list"></div>
+          <p class="rv-empty" id="rv-empty">Soyez le premier à donner votre avis.</p>
+        </div>
+      </section>
+
+    </article>
+  </div>
+
+  <!-- ---------- COLONNE DROITE : résumé IA + articles liés ---------- -->
+  <aside class="rail rail-right">
+    <div class="ai-box">
+      <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
+      <p class="ai-text">Le generative engine optimization consiste à faire citer un site par les moteurs de réponse comme ChatGPT, Perplexity et les AI Overviews. Il repose sur un contenu qui répond avant d'argumenter, structuré pour être extrait, daté et sourcé. Il complète le référencement naturel, il ne le remplace pas.</p>
+      <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
+    </div>
+
+    <div class="rail-recent">
+      <p class="rail-title">Dans la même catégorie</p>
+      <div class="mini-list">
+        <a class="mini" href="/blog/claude-ai">
+          <span class="mini-thumb"><!-- TODO: visuel article --></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Claude AI : ce que vaut vraiment l'IA d'Anthropic</span></span>
+        </a>
+        <a class="mini" href="/blog/prompt-chatgpt">
+          <span class="mini-thumb"><!-- TODO: visuel article --></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Prompt ChatGPT : arrêtez d'en écrire</span></span>
+        </a>
+        <a class="mini" href="/blog/rediger-article-blog-2026">
+          <span class="mini-thumb"><!-- TODO: visuel article --></span>
+          <span><span class="mini-cat">Rédaction</span><span class="mini-ttl">Comment rédiger un bon article de blog en 2026</span></span>
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- ================= ARTICLES LIÉS ================= -->
+<section class="related">
+  <div class="wrap">
+    <h2>À lire ensuite</h2>
+    <p class="sub">La suite logique du parcours.</p>
+    <div class="rel-grid">
+      <a class="rel-card" href="/blog/claude-ai">
+        <!-- TODO: visuel article -->
+        <div class="rel-body">
+          <span class="rel-cat">Utiliser l'IA</span>
+          <h3>Claude AI : ce que vaut vraiment l'IA d'Anthropic</h3>
+          <p>Le test complet : ce qu'il fait mieux que ChatGPT, ses limites, les prix et la version gratuite.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="/blog/prompt-chatgpt">
+        <!-- TODO: visuel article -->
+        <div class="rel-body">
+          <span class="rel-cat">Utiliser l'IA</span>
+          <h3>Prompt ChatGPT : arrêtez d'en écrire</h3>
+          <p>Le prompt parfait n'existe plus. Ce qui change tout, c'est le contexte que vous donnez avant de demander.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="/blog/rediger-article-blog-2026">
+        <!-- TODO: visuel article -->
+        <div class="rel-body">
+          <span class="rel-cat">Rédaction</span>
+          <h3>Comment rédiger un bon article de blog en 2026</h3>
+          <p>Structure, SEO, engagement : créer du contenu qui performe sur Google et que les IA citent.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="foot-logo" href="/"><img src="/images/logo-transparent-pine.svg" alt="anthony courtin" width="98" height="48"></a>
+        <p style="color:var(--ink-2);font-size:.95rem;margin-top:12px;max-width:280px">Consultant SEO, GEO &amp; automatisation IA. Interventions partout en France.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul><li><a href="/seo">SEO</a></li><li><a href="/geo">GEO, visibilité IA</a></li><li><a href="/automatisation-ia">Automatisation IA</a></li><li><a href="/tarifs">Tarifs</a></li></ul>
+      </div>
+      <div>
+        <h4>Ressources</h4>
+        <ul><li><a href="/blog/">Blog</a></li><li><a href="/realisations">Réalisations</a></li><li><a href="/a-propos">À propos</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul><li><a href="/contact">Formulaire</a></li><li><a href="mailto:anthony@astrak.agency">anthony@astrak.agency</a></li><li><a href="https://www.linkedin.com/in/anthony-courtin/" rel="noopener">LinkedIn</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Anthony Courtin</span>
+      <span><a href="/mentions-legales">Mentions légales</a> · <a href="/confidentialite">Confidentialité</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/site.js?v=2" defer></script>
+<script src="/js/blog-article.js?v=3" defer></script>
+
+<!-- Outil interactif propre à cet article -->
+<script src="/js/geo-tool.js?v=1" defer></script>
+
+</body>
+</html>
