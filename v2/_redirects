@@ -10,12 +10,21 @@
 /_fragments/*              /404.html        404
 /DEPLOIEMENT.md            /404.html        404
 
+# --- Consolidation services (aout 2026) : 13 pages -> 6, 301 vers la page mere
+/seo-technique             /seo               301!
+/netlinking                /seo               301!
+/strategie-geo             /geo               301!
+/contenu-citable           /geo               301!
+/agents-ia                 /automatisation-ia 301!
+/workflows                 /automatisation-ia 301!
+/pipeline-contenu          /automatisation-ia 301!
+
 # --- Anciennes pages services (Bordeaux) -> nouvelles pages services nationales
 /audit-seo-bordeaux        /audit-seo       301!
-/optimisation-on-page      /seo-technique   301!
-/netlinking-bordeaux       /netlinking      301!
+/optimisation-on-page      /seo             301!
+/netlinking-bordeaux       /seo             301!
 /seo-local-bordeaux        /seo-local       301!
-/redaction-seo             /contenu-citable 301!
+/redaction-seo             /geo             301!
 /black-hat-seo             /blog/           301!
 /agences-seo               /seo             301!
 /linkedin-posts            /a-propos        301!
@@ -27,10 +36,10 @@
 /mentions-legales.html     /mentions-legales 301!
 /confidentialite.html      /confidentialite 301!
 /audit-seo-bordeaux.html   /audit-seo       301!
-/optimisation-on-page.html /seo-technique   301!
-/netlinking-bordeaux.html  /netlinking      301!
+/optimisation-on-page.html /seo             301!
+/netlinking-bordeaux.html  /seo             301!
 /seo-local-bordeaux.html   /seo-local       301!
-/redaction-seo.html        /contenu-citable 301!
+/redaction-seo.html        /geo             301!
 /black-hat-seo.html        /blog/           301!
 /agences-seo.html          /seo             301!
 /linkedin-posts.html       /a-propos        301!
@@ -39,10 +48,10 @@
 
 # --- 694 pages villes : redirection par silo de service
 /villes/audit-seo-*             /audit-seo       301!
-/villes/optimisation-on-page-*  /seo-technique   301!
-/villes/netlinking-*            /netlinking      301!
+/villes/optimisation-on-page-*  /seo             301!
+/villes/netlinking-*            /seo             301!
 /villes/seo-local-*             /seo-local       301!
-/villes/redaction-seo-*         /contenu-citable 301!
+/villes/redaction-seo-*         /geo             301!
 /villes/black-hat-seo-*         /seo             301!
 /villes/agence-seo-*            /seo             301!
 # filet de securite (slugs nus type /villes/gujan-mestras)
