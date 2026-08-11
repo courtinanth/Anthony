@@ -29,7 +29,14 @@ const ORIGIN = 'https://anthony-courtin.com';
 const args = process.argv.slice(2);
 const dry = args.includes('--dry');
 const dateArg = (args.find(a => a.startsWith('--date=')) || '').slice(7);
-const today = dateArg || new Date().toISOString().slice(0, 10);
+
+/* Date de Paris, pas d'UTC. Un article daté du 17 doit sortir le 17 heure française :
+   toISOString() renverrait encore le 16 entre minuit et 2 h. */
+const dateParis = () => new Intl.DateTimeFormat('en-CA', {
+  timeZone: 'Europe/Paris', year: 'numeric', month: '2-digit', day: '2-digit'
+}).format(new Date());
+
+const today = dateArg || dateParis();
 
 if (!/^\d{4}-\d{2}-\d{2}$/.test(today)) {
   console.error(`Date invalide : ${today}. Format attendu : YYYY-MM-DD.`);
@@ -184,6 +191,16 @@ if (changeIndex) fs.writeFileSync(INDEX_FRAG, frag);
 if (changeSitemap) fs.writeFileSync(SITEMAP, sitemap);
 
 execFileSync('node', ['build-pages.js'], { cwd: FRAGMENTS, stdio: 'inherit' });
+
+/* Les articles qui n'avaient pas encore de carte : c'est la nouveauté du jour.
+   Repris par la CI pour écrire un message de commit qui dise quelque chose. */
+const nouveaux = publies.filter(a => !accroches.has(a.slug)).map(a => a.slug);
+console.log(`\nnouveaux: ${nouveaux.join(', ') || '(aucun, mise à jour de l\'existant)'}`);
+
+if (process.env.GITHUB_OUTPUT) {
+  fs.appendFileSync(process.env.GITHUB_OUTPUT,
+    `nouveaux=${nouveaux.join(' ')}\nmodifie=1\n`);
+}
 
 console.log('\nFichiers mis à jour. Relisez le diff, puis committez si tout est bon :');
 console.log('  git diff v2/_fragments/blog-index.html v2/sitemap.xml v2/blog/index.html');

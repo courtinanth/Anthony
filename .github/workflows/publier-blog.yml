@@ -1,0 +1,90 @@
+# Publication programmée du blog.
+#
+# Chaque matin, ce job regarde la datePublished de chaque article de v2/blog/.
+# Dès qu'une date est atteinte, il ajoute la carte dans l'index du blog et
+# l'entrée dans le sitemap, puis il committe et pousse. Netlify déploie sur le
+# push : l'article devient visible sans intervention.
+#
+# Le job ne touche jamais aux articles eux-mêmes, seulement à l'index, au
+# sitemap et aux pages régénérées par build-pages.js. S'il n'y a rien à
+# publier, il ne committe rien et Netlify ne redéploie pas.
+#
+# Pour publier à la main sans attendre le lendemain, ou pour rejouer une date :
+# onglet Actions du dépôt, « Publier le blog », Run workflow.
+
+name: Publier le blog
+
+on:
+  schedule:
+    # 05:00 UTC, soit 07:00 à Paris en été et 06:00 en hiver.
+    # GitHub peut décaler un cron de quelques dizaines de minutes en cas de
+    # charge : sans importance ici, la granularité utile est la journée.
+    - cron: '0 5 * * *'
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Forcer une date de référence (YYYY-MM-DD), vide = aujourd'hui"
+        required: false
+        default: ''
+
+# Deux exécutions simultanées se marcheraient dessus au moment du push.
+concurrency:
+  group: publier-blog
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  publier:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+
+      - name: Installer Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Publier ce qui est dû
+        id: publication
+        working-directory: v2/_fragments
+        run: |
+          if [ -n "${{ inputs.date }}" ]; then
+            node publish-blog.js --date="${{ inputs.date }}"
+          else
+            node publish-blog.js
+          fi
+
+      - name: Vérifier que rien ne déborde de v2/
+        run: |
+          hors_v2=$(git diff --name-only | grep -v '^v2/' || true)
+          if [ -n "$hors_v2" ]; then
+            echo "Le script a modifié des fichiers hors de v2/, ce qu'il ne devrait jamais faire :"
+            echo "$hors_v2"
+            exit 1
+          fi
+
+      - name: Committer et pousser
+        run: |
+          if git diff --quiet; then
+            echo "Rien à publier aujourd'hui, aucun commit."
+            exit 0
+          fi
+
+          nouveaux="${{ steps.publication.outputs.nouveaux }}"
+          if [ -n "$nouveaux" ]; then
+            sujet="Publication du blog : $(echo $nouveaux | tr ' ' ',' | sed 's/,/, /g')"
+          else
+            sujet="Blog : mise à jour de l'index et du sitemap"
+          fi
+
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add v2/
+          git commit -m "$sujet"
+          git push
+
+          echo "Poussé. Netlify prend le relais pour le déploiement."
+          git show --stat --oneline HEAD
