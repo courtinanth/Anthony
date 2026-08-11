@@ -74,6 +74,10 @@ for (const file of fs.readdirSync(BLOG).sort()) {
     desc: grab(html, /<meta\s+name="description"\s+content="([^"]+)"/)
   };
 
+  /* Visuel de couverture, pour la vignette de la carte. Le nom du fichier ne suit
+     pas toujours le slug, on le lit donc dans la page plutôt que de le déduire. */
+  art.img = grab(html, /\/images\/blog\/([\w-]+)\.webp/);
+
   const manquants = Object.entries(art)
     .filter(([, v]) => !v).map(([k]) => k);
   if (manquants.length) { incomplets.push({ slug, manquants }); continue; }
@@ -120,7 +124,15 @@ for (const m of frag.matchAll(/<a class="post-card[^"]*" href="\/blog\/([^"]+)">
 const carte = (a, i) => {
   const delai = i === 0 ? '' : ` rv-d${((i - 1) % 2) + 1}`;
   const accroche = accroches.get(a.slug) || escape(a.desc);
-  return `      <a class="post-card rv${delai}" href="/blog/${a.slug}">
+  /* Les deux premières cartes sont visibles d'emblée : pas de chargement différé,
+     sinon on retarde le plus gros élément affiché de la page. */
+  const chargement = i < 2 ? 'eager' : 'lazy';
+  const visuel = a.img ? `
+        <picture>
+          <source srcset="/images/blog/${a.img}.avif" type="image/avif">
+          <img src="/images/blog/${a.img}.webp" alt="" width="1376" height="768" loading="${chargement}" decoding="async">
+        </picture>` : '';
+  return `      <a class="post-card rv${delai}" href="/blog/${a.slug}">${visuel}
         <span class="cat">${escape(a.cat)}</span>
         <h3>${escape(a.titre)}</h3>
         <p>${accroche}</p>
