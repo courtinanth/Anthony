@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Étude de cas GEO : comment la lire et la monter</title>
+<meta name="description" content="La plupart des études de cas GEO ne démontrent rien. Les huit critères de crédibilité et la méthode pour mesurer sa visibilité dans les moteurs de réponse.">
+<link rel="canonical" href="https://anthony-courtin.com/blog/etude-cas-geo">
+<link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script src="/js/favicon-anim.js?v=2" defer></script>
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Étude de cas GEO : comment la lire et la monter">
+<meta property="og:description" content="Un chiffre de progression sans point de départ ni méthode n'est pas un résultat. Comment juger une étude de cas GEO, et comment monter la vôtre correctement.">
+<meta property="og:url" content="https://anthony-courtin.com/blog/etude-cas-geo">
+<meta property="og:image" content="https://anthony-courtin.com/images/blog/etude-cas-geo-cover.webp">
+<meta property="og:locale" content="fr_FR">
+<meta property="article:published_time" content="2026-10-30">
+<meta property="article:modified_time" content="2026-10-30">
+<meta property="article:author" content="Anthony Courtin">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/main.css?v=2">
+<link rel="stylesheet" href="/css/blog-article.css?v=3">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"BlogPosting",
+      "@id":"https://anthony-courtin.com/blog/etude-cas-geo#article",
+      "headline":"Étude de cas GEO : la lire, et la monter",
+      "description":"Méthode d'évaluation et de construction d'une étude de cas en Generative Engine Optimization : critères de crédibilité, mesure manuelle des citations dans les moteurs de réponse, protocole de relevé et délais réalistes.",
+      "inLanguage":"fr-FR",
+      "datePublished":"2026-10-30",
+      "dateModified":"2026-10-30",
+      "image":"https://anthony-courtin.com/images/blog/etude-cas-geo-cover.webp",
+      "wordCount":1050,
+      "mainEntityOfPage":{"@type":"WebPage","@id":"https://anthony-courtin.com/blog/etude-cas-geo"},
+      "author":{"@id":"https://anthony-courtin.com/#anthony"},
+      "publisher":{"@id":"https://anthony-courtin.com/#anthony"},
+      "about":[{"@type":"Thing","name":"GEO"},{"@type":"Thing","name":"Étude de cas"},{"@type":"Thing","name":"Mesure"},{"@type":"Thing","name":"Moteurs de réponse"},{"@type":"Thing","name":"Méthodologie"}]
+    },
+    {
+      "@type":"Person",
+      "@id":"https://anthony-courtin.com/#anthony",
+      "name":"Anthony Courtin",
+      "jobTitle":"Consultant SEO, GEO et automatisation IA",
+      "url":"https://anthony-courtin.com/a-propos",
+      "image":"https://anthony-courtin.com/images/anthony.avif",
+      "sameAs":["https://www.linkedin.com/in/anthony-courtin/"]
+    },
+    {
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Accueil","item":"https://anthony-courtin.com/"},
+        {"@type":"ListItem","position":2,"name":"Blog","item":"https://anthony-courtin.com/blog/"},
+        {"@type":"ListItem","position":3,"name":"Étude de cas GEO"}
+      ]
+    },
+    {
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"Pourquoi les études de cas GEO sont-elles souvent peu fiables ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Parce que la donnée n'existe dans aucun outil. Une citation dans une réponse générée n'apparaît sur aucun tableau de bord, contrairement aux positions et aux clics du référencement classique. Beaucoup de publications contournent cette difficulté en présentant une progression de trafic comme une preuve de visibilité, ce qui est un raccourci trompeur : le trafic a pu monter pour dix autres raisons."}},
+        {"@type":"Question","name":"Que doit contenir une étude de cas GEO crédible ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Huit éléments : un état initial chiffré et daté, les valeurs absolues et pas seulement des pourcentages, la liste exacte des questions posées, les moteurs testés nommés un par un, une période d'au moins trois mois, plusieurs relevés plutôt qu'une mesure unique, la liste de tout ce qui a changé y compris hors GEO, et la mention de ce qui n'a pas fonctionné."}},
+        {"@type":"Question","name":"Comment mesurer sa visibilité dans les moteurs de réponse ?",
+         "acceptedAnswer":{"@type":"Answer","text":"À la main, faute d'outil complet. Constituez un panel de vingt à quarante questions que vos clients posent réellement, posez-les à chaque moteur visé, et relevez qui est cité et si vous apparaissez. Datez chaque relevé et recommencez tous les mois avec le même panel et les mêmes moteurs."}},
+        {"@type":"Question","name":"Pourquoi un pourcentage de progression ne suffit-il pas ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Parce qu'il masque l'ordre de grandeur. Une progression de deux cents pour cent peut signifier que l'on est passé de deux citations à six. C'est un vrai progrès, mais il doit être annoncé en valeur absolue plutôt que par un pourcentage qui gonfle l'impression du résultat."}},
+        {"@type":"Question","name":"Combien de temps avant de voir un résultat en GEO ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Trois à six mois entre une modification de citabilité et son apparition dans les réponses générées. Ce délai correspond au rythme auquel ces systèmes réévaluent leurs sources. Une mesure prise quelques semaines après un changement ne dit rien d'utile."}},
+        {"@type":"Question","name":"Faut-il changer plusieurs choses à la fois ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Non, et c'est la principale cause d'études de cas inexploitables. Si vous modifiez la structure des réponses, le balisage et la stratégie de contenu en même temps, vous saurez que quelque chose a fonctionné sans savoir quoi. Changez un élément, mesurez, puis passez au suivant."}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+<div id="read-progress"></div>
+
+<!-- ================= HEADER (identique au reste du site v2) ================= -->
+<header class="site">
+  <div class="nav-shell">
+    <nav class="main" aria-label="Navigation principale">
+      <a class="logo" href="/"><img src="/images/logo-transparent-cream.svg" alt="anthony courtin" width="86" height="42"></a>
+      <div class="nav-links">
+        <div class="nav-item"><a href="/seo">SEO</a></div>
+        <div class="nav-item"><a href="/geo">GEO, visibilité IA</a></div>
+        <div class="nav-item"><a href="/automatisation-ia">Automatisation IA</a></div>
+        <div class="nav-item"><a href="/blog/">Blog</a></div>
+        <div class="nav-item"><a href="/tarifs">Tarifs</a></div>
+      </div>
+      <button class="burger" id="burger" type="button" aria-label="Menu">☰</button>
+      <a class="nav-cta" href="/contact">Travailler avec moi</a>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="/seo">SEO</a>
+        <a href="/geo">GEO, visibilité IA</a>
+        <a href="/automatisation-ia">Automatisation IA</a>
+        <a href="/blog/">Blog</a>
+        <a href="/tarifs">Tarifs</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= EN-TÊTE D'ARTICLE ================= -->
+<section class="art-top">
+  <div class="wrap">
+    <nav class="crumb" aria-label="Fil d'Ariane">
+      <a href="/">Accueil</a><span aria-hidden="true">/</span>
+      <a href="/blog/">Blog</a><span aria-hidden="true">/</span>
+      <span>Étude de cas GEO</span>
+    </nav>
+
+    <span class="art-cat">GEO</span>
+    <h1 class="art-title">Étude de cas GEO : la lire, et la monter</h1>
+    <p class="art-lede">Un chiffre de progression sans point de départ, sans période et sans méthode n'est pas un résultat. Voici les huit critères qui séparent une preuve d'un argument.</p>
+
+    <div class="art-metaline">
+      <span class="who">
+        <img src="/images/anthony.avif" alt="" width="38" height="38" loading="lazy">
+        Anthony Courtin
+      </span>
+      <span class="dot" aria-hidden="true">·</span>
+      <time datetime="2026-10-30">30 octobre 2026</time>
+      <span class="dot" aria-hidden="true">·</span>
+      <span>5 min de lecture</span>
+      <span class="dot" aria-hidden="true">·</span>
+      <span>Mis à jour le <time datetime="2026-10-30">30 octobre 2026</time></span>
+    </div>
+
+    <!-- Boutons "Résumer avec" : les href sont construits par blog-article.js -->
+    <div class="ai-actions">
+      <span class="ai-actions__title">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>
+        Résumer avec
+      </span>
+      <ul class="ai-actions__list">
+        <li><a class="ai-btn" data-ai="chatgpt" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec ChatGPT">ChatGPT</a></li>
+        <li><a class="ai-btn" data-ai="claude" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Claude">Claude</a></li>
+        <li><a class="ai-btn" data-ai="perplexity" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Perplexity">Perplexity</a></li>
+        <li><a class="ai-btn" data-ai="gemini" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Gemini">Gemini</a></li>
+        <li><a class="ai-btn" data-ai="mistral" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Le Chat de Mistral">Le Chat</a></li>
+        <li><a class="ai-btn" data-ai="grok" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Grok">Grok</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GRILLE 3 COLONNES ================= -->
+<div class="art-layout">
+
+  <!-- ---------- COLONNE GAUCHE : sommaire + partage ---------- -->
+  <aside class="rail rail-left">
+    <details class="toc-box" open>
+      <summary><span class="rail-title">Sommaire</span><span class="toc-chevron" aria-hidden="true"></span></summary>
+      <nav class="toc" id="toc" aria-label="Sommaire de l'article">
+        <p class="toc-empty">Chargement…</p>
+      </nav>
+    </details>
+
+    <div class="share-box">
+      <p class="rail-title">Partager</p>
+      <ul class="share">
+        <li><a class="share-btn share-linkedin" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur LinkedIn"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56z"/></svg></a></li>
+        <li><a class="share-btn share-x" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur X"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.96 6.82H1.68l7.73-8.84L1.25 2.25h6.83l4.71 6.23zm-1.16 17.52h1.83L7.08 4.13H5.12z"/></svg></a></li>
+        <li><a class="share-btn share-whatsapp" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur WhatsApp"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m5.8 14.16c-.25.69-1.43 1.31-1.98 1.4-.53.08-1.19.11-1.92-.12-.44-.14-1.01-.33-1.74-.64-3.06-1.32-5.06-4.4-5.21-4.6-.15-.2-1.25-1.66-1.25-3.16s.79-2.25 1.07-2.55c.28-.31.61-.38.81-.38h.58c.19 0 .44-.07.69.53.25.61.86 2.11.94 2.26.08.15.13.33.02.53-.1.2-.16.33-.31.5l-.46.54c-.15.15-.31.32-.13.63.18.31.79 1.3 1.69 2.11 1.16 1.03 2.14 1.35 2.45 1.5.31.15.49.13.67-.08.18-.2.77-.9.98-1.21.2-.31.41-.26.69-.15.28.1 1.78.84 2.09.99.31.15.51.23.59.36.08.13.08.74-.17 1.44"/></svg></a></li>
+        <li><a class="share-btn share-email" href="#" rel="nofollow" aria-label="Partager par e-mail"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m0 4-8 5-8-5V6l8 5 8-5z"/></svg></a></li>
+        <li><button class="share-btn share-copy" type="button" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2m0 16H8V7h11z"/></svg></button></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- ---------- COLONNE CENTRALE : le contenu ---------- -->
+  <div class="art-main">
+
+    <!-- Résumé IA version mobile : rendu côté serveur, donc lisible par Google et les LLM -->
+    <div class="ai-box ai-box-mobile">
+      <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
+      <p class="ai-text">La plupart des études de cas publiées sur le GEO ne démontrent rien, faute d'état initial mesuré, de période suffisante et de méthode explicite. La difficulté est structurelle : une citation dans une réponse générée n'apparaît dans aucun outil, la mesure est donc artisanale et repose sur un panel de questions posées manuellement aux moteurs. Une étude crédible fournit huit éléments, dont le panel publié, les valeurs absolues plutôt que les seuls pourcentages, et la liste de tout ce qui a changé par ailleurs. Pour monter la sienne : mesurer avant de toucher à quoi que ce soit, changer une chose à la fois, remesurer chaque mois et publier aussi les échecs.</p>
+      <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
+    </div>
+
+    <article class="art-body">
+
+      <figure>
+        <picture>
+          <source srcset="/images/blog/etude-cas-geo-cover.avif" type="image/avif">
+          <img src="/images/blog/etude-cas-geo-cover.webp" alt="Illustration abstraite d'une courbe de verre s'élevant au-dessus d'une ligne de base" width="1376" height="768" fetchpriority="high" decoding="async">
+        </picture>
+      </figure>
+
+      <p><strong>La plupart des études de cas publiées sur le GEO ne démontrent rien.</strong> Elles annoncent une progression sans dire d'où l'on partait, sur quelle période, ni ce qui a changé par ailleurs. Une étude de cas utile se reconnaît à sa méthode, pas à son chiffre.</p>
+
+      <p>Voici ce qu'une étude de cas doit contenir pour valoir quelque chose, et comment lire celles que l'on vous présente.</p>
+
+      <div class="verdict">
+        <div class="verdict-note">
+          <b>8</b>
+          <span>critères de crédibilité</span>
+        </div>
+        <div class="verdict-body">
+          <h2>Ce qui sépare une preuve d'un argument</h2>
+          <p>Un chiffre de progression sans point de départ, sans période et sans méthode n'est pas un résultat : c'est une affirmation.</p>
+          <div class="verdict-lists">
+            <ul class="verdict-pros">
+              <li>Un état initial mesuré et daté</li>
+              <li>Une période de comparaison suffisante</li>
+              <li>La liste de ce qui a changé, y compris hors GEO</li>
+            </ul>
+            <ul class="verdict-cons">
+              <li>Le pourcentage sans valeur absolue</li>
+              <li>La mesure faite une seule fois, un seul jour</li>
+            </ul>
+          </div>
+        </div>
+        <p class="verdict-foot">
+          <span class="verdict-price">Mesurer, c'est interroger les moteurs</span>
+          <span>Aucun outil ne le fait complètement</span>
+        </p>
+      </div>
+
+      <section class="takeaways">
+        <h2>À retenir</h2>
+        <ul>
+          <li><strong>Sans point de départ mesuré, aucun résultat n'est démontrable.</strong> C'est l'erreur qui rend inutilisables la majorité des cas publiés.</li>
+          <li><strong>Une citation ne se mesure pas dans un outil</strong> : il faut poser les questions aux moteurs et relever les réponses, à la main.</li>
+          <li><strong>Un pourcentage sans valeur absolue ne dit rien.</strong> Passer de deux à six citations fait plus deux cents pour cent.</li>
+          <li><strong>Le GEO ne s'isole pas du reste.</strong> Une étude honnête liste aussi ce qui a changé côté technique, contenu et notoriété.</li>
+          <li><strong>Comptez trois à six mois</strong> avant qu'un changement de citabilité se voie dans les réponses générées.</li>
+        </ul>
+      </section>
+
+      <p>Passez au crible l'étude de cas qu'on vous présente, ou celle que vous vous apprêtez à publier.</p>
+
+      <div class="tool" id="outil-etude-cas-geo">
+        <div class="tool-head">
+          <span class="tool-ico" aria-hidden="true">✦</span>
+          <span>
+            <em>Outil interactif</em>
+            <b>Cette étude de cas est-elle crédible ?</b>
+          </span>
+        </div>
+        <div class="tool-body">
+          <div class="field">
+            <span class="rail-title" id="ecg-label">Cochez ce que l'étude fournit réellement</span>
+            <ul class="geo-check" id="ecg-check" aria-labelledby="ecg-label">
+              <li><label><input type="checkbox"> Un état initial chiffré et daté</label></li>
+              <li><label><input type="checkbox"> Les valeurs absolues, pas seulement des pourcentages</label></li>
+              <li><label><input type="checkbox"> La liste exacte des questions posées aux moteurs</label></li>
+              <li><label><input type="checkbox"> Les moteurs testés, nommés un par un</label></li>
+              <li><label><input type="checkbox"> Une période de mesure d'au moins trois mois</label></li>
+              <li><label><input type="checkbox"> Plusieurs relevés, pas une mesure unique</label></li>
+              <li><label><input type="checkbox"> La liste de tout ce qui a changé, y compris hors GEO</label></li>
+              <li><label><input type="checkbox"> Ce qui n'a pas fonctionné, mentionné aussi</label></li>
+            </ul>
+          </div>
+
+          <div class="score">
+            <b id="ecg-score">0 / 8</b><span>critères remplis</span>
+          </div>
+          <div class="meter"><i id="ecg-meter" style="width:0%"></i></div>
+
+          <div class="field">
+            <span class="rail-title" style="margin-bottom:8px">Verdict</span>
+            <div class="tool-out" id="ecg-out" aria-live="polite"></div>
+          </div>
+
+          <div class="tool-actions">
+            <button type="button" class="btn-sm primary" id="ecg-copy">Copier le verdict</button>
+            <a class="btn-sm ghost" href="/audit-visibilite-ia">Mesurer ma visibilité IA</a>
+          </div>
+        </div>
+        <div class="tool-foot">
+          <span>Calcul local, rien n'est envoyé.</span>
+          <span>Grille de lecture, Anthony Courtin</span>
+        </div>
+      </div>
+
+      <h2>Pourquoi les études de cas GEO sont si faibles</h2>
+
+      <p>Pour une raison structurelle : <strong>la donnée n'existe pas dans un outil.</strong> En référencement classique, on dispose des positions, des impressions et des clics, mesurés en continu par des sources indépendantes. Dans les moteurs de réponse, rien de tel : une citation dans une réponse générée n'apparaît dans aucun tableau de bord.</p>
+
+      <p>Conséquence, la mesure est artisanale. Il faut poser soi-même une série de questions aux moteurs, relever qui est cité, sous quelle forme, et recommencer régulièrement. C'est long, c'est imparfait, et c'est la seule méthode honnête aujourd'hui.</p>
+
+      <p>Beaucoup de publications contournent cette difficulté en présentant une progression de trafic comme une preuve de visibilité dans les moteurs de réponse. C'est un raccourci trompeur : le trafic a pu monter pour dix autres raisons.</p>
+
+      <h2>Ce qu'une étude de cas doit contenir</h2>
+
+      <p>Huit éléments, ceux du crible ci-dessus. Trois méritent un mot.</p>
+
+      <p><strong>Le panel de questions, publié.</strong> Sans lui, impossible de savoir si le périmètre a été choisi après coup pour flatter le résultat. Trente questions représentatives d'un marché valent mieux que trois questions bien choisies.</p>
+
+      <p><strong>Les valeurs absolues.</strong> Une progression de deux cents pour cent peut signifier deux citations devenues six. C'est un vrai progrès, et il faut le dire ainsi plutôt que par un pourcentage qui gonfle l'impression.</p>
+
+      <p><strong>Ce qui a changé par ailleurs.</strong> Une refonte technique, une campagne de presse, un nouveau produit. Si ces éléments ne sont pas listés, l'étude attribue au GEO un résultat qui peut venir d'ailleurs.</p>
+
+      <h2>Comment monter la vôtre</h2>
+
+      <p>La méthode tient en quatre gestes, et le premier est le seul irrattrapable.</p>
+
+      <p><strong>Mesurez avant de toucher à quoi que ce soit.</strong> Constituez un panel de vingt à quarante questions que vos clients posent réellement. Posez-les à chaque moteur de réponse que vous visez. Relevez, pour chacune, qui est cité et si vous apparaissez. Datez le relevé.</p>
+
+      <p><strong>Changez une chose à la fois.</strong> Structuration des réponses, ajout de données vérifiables, balisage, page d'expertise. Si vous modifiez tout en même temps, vous saurez que ça a marché sans savoir pourquoi.</p>
+
+      <p><strong>Remesurez tous les mois</strong>, avec le même panel et les mêmes moteurs. Une mesure unique ne distingue pas un progrès d'une variation.</p>
+
+      <p><strong>Publiez aussi les échecs.</strong> Les sujets sur lesquels rien n'a bougé sont l'information la plus utile pour un lecteur, et la plus rare.</p>
+
+      <p>Comptez trois à six mois avant qu'un changement se voie. C'est le délai que j'observe, et il correspond au rythme auquel ces systèmes réévaluent leurs sources.</p>
+
+
+      <!-- MAILLAGE À AJOUTER APRÈS PUBLICATION DES CIBLES :
+           - /blog/glossaire-geo (04/11/2026)
+           - /blog/etude-cas-automatisation-pme (13/11/2026)
+           - MES CHIFFRES : insérer ici un relevé réel (panel, moteurs, dates, valeurs absolues avant et après) quand une mission le permettra
+      -->
+
+      <!-- ================= FAQ ================= -->
+      <section class="faq">
+        <h2>Questions fréquentes</h2>
+
+        <details>
+          <summary>Pourquoi les études de cas GEO sont-elles souvent peu fiables ?</summary>
+          <div class="faq-a"><p>Parce que la donnée n'existe dans aucun outil. Une citation dans une réponse générée n'apparaît sur aucun tableau de bord, contrairement aux positions et aux clics du référencement classique. Beaucoup de publications contournent cette difficulté en présentant une progression de trafic comme une preuve de visibilité, ce qui est un raccourci trompeur : le trafic a pu monter pour dix autres raisons.</p></div>
+        </details>
+
+        <details>
+          <summary>Que doit contenir une étude de cas GEO crédible ?</summary>
+          <div class="faq-a"><p>Huit éléments : un état initial chiffré et daté, les valeurs absolues et pas seulement des pourcentages, la liste exacte des questions posées, les moteurs testés nommés un par un, une période d'au moins trois mois, plusieurs relevés plutôt qu'une mesure unique, la liste de tout ce qui a changé y compris hors GEO, et la mention de ce qui n'a pas fonctionné.</p></div>
+        </details>
+
+        <details>
+          <summary>Comment mesurer sa visibilité dans les moteurs de réponse ?</summary>
+          <div class="faq-a"><p>À la main, faute d'outil complet. Constituez un panel de vingt à quarante questions que vos clients posent réellement, posez-les à chaque moteur visé, et relevez qui est cité et si vous apparaissez. Datez chaque relevé et recommencez tous les mois avec le même panel et les mêmes moteurs.</p></div>
+        </details>
+
+        <details>
+          <summary>Pourquoi un pourcentage de progression ne suffit-il pas ?</summary>
+          <div class="faq-a"><p>Parce qu'il masque l'ordre de grandeur. Une progression de deux cents pour cent peut signifier que l'on est passé de deux citations à six. C'est un vrai progrès, mais il doit être annoncé en valeur absolue plutôt que par un pourcentage qui gonfle l'impression du résultat.</p></div>
+        </details>
+
+        <details>
+          <summary>Combien de temps avant de voir un résultat en GEO ?</summary>
+          <div class="faq-a"><p>Trois à six mois entre une modification de citabilité et son apparition dans les réponses générées. Ce délai correspond au rythme auquel ces systèmes réévaluent leurs sources. Une mesure prise quelques semaines après un changement ne dit rien d'utile.</p></div>
+        </details>
+
+        <details>
+          <summary>Faut-il changer plusieurs choses à la fois ?</summary>
+          <div class="faq-a"><p>Non, et c'est la principale cause d'études de cas inexploitables. Si vous modifiez la structure des réponses, le balisage et la stratégie de contenu en même temps, vous saurez que quelque chose a fonctionné sans savoir quoi. Changez un élément, mesurez, puis passez au suivant.</p></div>
+        </details>
+      </section>
+
+      <!-- ================= CTA ================= -->
+      <div class="cta-band">
+        <div>
+          <h2>Mesurer votre visibilité dans les IA</h2>
+          <p>Je constitue votre panel de questions, je relève qui est cité sur votre marché et je vous dis ce qui vous en sépare.</p>
+        </div>
+        <a class="btn btn-lime" href="/audit-visibilite-ia">Voir l'audit de visibilité IA <span class="ar">→</span></a>
+      </div>
+
+      <!-- ================= AUTEUR ================= -->
+      <div class="author-box">
+        <img src="/images/anthony.avif" alt="Anthony Courtin" width="88" height="88" loading="lazy">
+        <div>
+          <p class="eyebrow">Écrit par</p>
+          <h3>Anthony Courtin</h3>
+          <p class="author-role">Consultant SEO, GEO &amp; automatisation IA</p>
+          <p class="author-bio">J'accompagne des PME et des indépendants sur la visibilité (Google, ChatGPT, Perplexity) et sur l'usage réel de l'IA au travail. J'interviens en entreprise pour former les équipes et repenser les process. Tout ce que j'écris ici, je l'utilise en mission.</p>
+          <div class="author-links">
+            <a class="li" href="https://www.linkedin.com/in/anthony-courtin/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56z"/></svg>
+              Me suivre sur LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= AVIS LECTEURS ================= -->
+      <section class="reviews" data-slug="etude-cas-geo" data-reviews="[]">
+        <h2>Avis des lecteurs</h2>
+        <p class="rv-sub">Cet article vous a servi ? Dites-le, ça aide les suivants.</p>
+
+        <form class="rv-form" name="avis" method="POST" data-netlify="true" netlify-honeypot="societe" action="/merci">
+          <input type="hidden" name="form-name" value="avis">
+          <input type="hidden" name="article" value="etude-cas-geo">
+          <p class="rv-hp"><label>Ne remplissez pas ce champ : <input name="societe" tabindex="-1" autocomplete="off"></label></p>
+
+          <h3>Notez cet article</h3>
+
+          <fieldset class="rating-field">
+            <legend>Votre note</legend>
+            <div class="rating">
+              <input type="radio" id="n5" name="note" value="5"><label for="n5" aria-label="5 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n4" name="note" value="4"><label for="n4" aria-label="4 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n3" name="note" value="3"><label for="n3" aria-label="3 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n2" name="note" value="2"><label for="n2" aria-label="2 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n1" name="note" value="1"><label for="n1" aria-label="1 étoile"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="rv-nom">Prénom <span class="hint">(facultatif)</span></label>
+            <input type="text" id="rv-nom" name="nom" maxlength="60" autocomplete="given-name">
+          </div>
+
+          <div class="field">
+            <label for="rv-texte">Votre commentaire <span class="hint">(facultatif)</span></label>
+            <textarea id="rv-texte" name="texte" rows="4" maxlength="2000"></textarea>
+          </div>
+
+          <div class="rv-msg" id="rv-msg" role="status"></div>
+          <div><button type="submit" class="btn-sm primary">Publier mon avis</button></div>
+        </form>
+
+        <div class="rv-published">
+          <h3 class="rv-published-title">Ce qu'en disent les lecteurs</h3>
+          <div class="rv-summary">
+            <span class="rv-avg" id="rv-avg"></span>
+            <span class="stars" id="rv-stars" aria-hidden="true"></span>
+            <span class="rv-count" id="rv-count">Aucun avis pour le moment.</span>
+          </div>
+          <div class="rv-list" id="rv-list"></div>
+          <p class="rv-empty" id="rv-empty">Soyez le premier à donner votre avis.</p>
+        </div>
+      </section>
+
+    </article>
+  </div>
+
+  <!-- ---------- COLONNE DROITE : résumé IA + articles liés ---------- -->
+  <aside class="rail rail-right">
+    <div class="ai-box">
+      <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
+      <p class="ai-text">La plupart des études de cas publiées sur le GEO ne démontrent rien, faute d'état initial mesuré, de période suffisante et de méthode explicite. La difficulté est structurelle : une citation dans une réponse générée n'apparaît dans aucun outil, la mesure est donc artisanale et repose sur un panel de questions posées manuellement aux moteurs. Une étude crédible fournit huit éléments, dont le panel publié, les valeurs absolues plutôt que les seuls pourcentages, et la liste de tout ce qui a changé par ailleurs. Pour monter la sienne : mesurer avant de toucher à quoi que ce soit, changer une chose à la fois, remesurer chaque mois et publier aussi les échecs.</p>
+      <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
+    </div>
+
+    <div class="rail-recent">
+      <p class="rail-title">Dans la même catégorie</p>
+      <div class="mini-list">
+        <a class="mini" href="/blog/generative-engine-optimization">
+          <span class="mini-thumb"><!-- TODO: visuel article --></span>
+          <span><span class="mini-cat">GEO</span><span class="mini-ttl">Le GEO expliqué</span></span>
+        </a>
+        <a class="mini" href="/blog/audit-visibilite-ia-methode">
+          <span class="mini-thumb"><!-- TODO: visuel article --></span>
+          <span><span class="mini-cat">GEO</span><span class="mini-ttl">Auditer sa visibilité IA</span></span>
+        </a>
+        <a class="mini" href="/blog/etre-cite-par-chatgpt">
+          <span class="mini-thumb"><!-- TODO: visuel article --></span>
+          <span><span class="mini-cat">GEO</span><span class="mini-ttl">Être cité par ChatGPT</span></span>
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- ================= ARTICLES LIÉS ================= -->
+<section class="related">
+  <div class="wrap">
+    <h2>À lire ensuite</h2>
+    <p class="sub">La suite logique du parcours.</p>
+    <div class="rel-grid">
+      <a class="rel-card" href="/blog/audit-visibilite-ia-methode">
+        <!-- TODO: visuel article -->
+        <div class="rel-body">
+          <span class="rel-cat">GEO</span>
+          <h3>Auditer sa visibilité dans les IA : la méthode</h3>
+          <p>Comment constituer le panel de questions et relever ce que répondent réellement les moteurs.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="/blog/generative-engine-optimization">
+        <!-- TODO: visuel article -->
+        <div class="rel-body">
+          <span class="rel-cat">GEO</span>
+          <h3>Generative Engine Optimization : le guide</h3>
+          <p>Les 12 critères que j'audite pour rendre un site visible dans les moteurs de réponse.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="/blog/contenu-citable-guide">
+        <!-- TODO: visuel article -->
+        <div class="rel-body">
+          <span class="rel-cat">GEO</span>
+          <h3>Écrire un contenu que les IA citent</h3>
+          <p>Ce qui rend un paragraphe reprenable par un moteur de réponse, et comment le composer.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="foot-logo" href="/"><img src="/images/logo-transparent-pine.svg" alt="anthony courtin" width="98" height="48"></a>
+        <p style="color:var(--ink-2);font-size:.95rem;margin-top:12px;max-width:280px">Consultant SEO, GEO &amp; automatisation IA. Interventions partout en France.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul><li><a href="/seo">SEO</a></li><li><a href="/geo">GEO, visibilité IA</a></li><li><a href="/automatisation-ia">Automatisation IA</a></li><li><a href="/tarifs">Tarifs</a></li></ul>
+      </div>
+      <div>
+        <h4>Ressources</h4>
+        <ul><li><a href="/blog/">Blog</a></li><li><a href="/realisations">Réalisations</a></li><li><a href="/a-propos">À propos</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul><li><a href="/contact">Formulaire</a></li><li><a href="mailto:anthony@astrak.agency">anthony@astrak.agency</a></li><li><a href="https://www.linkedin.com/in/anthony-courtin/" rel="noopener">LinkedIn</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Anthony Courtin</span>
+      <span><a href="/mentions-legales">Mentions légales</a> · <a href="/confidentialite">Confidentialité</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/site.js?v=2" defer></script>
+<script src="/js/blog-article.js?v=3" defer></script>
+
+<!-- Outil interactif propre à cet article -->
+<script src="/js/etude-cas-geo-tool.js?v=1" defer></script>
+
+</body>
+</html>

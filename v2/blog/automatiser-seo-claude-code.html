@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Automatiser son SEO avec Claude Code</title>
+<meta name="description" content="Balises, maillage, données structurées, redirections : les six chaînes SEO qui s'automatisent vraiment, ce qu'il faut brancher et les garde-fous à poser.">
+<link rel="canonical" href="https://anthony-courtin.com/blog/automatiser-seo-claude-code">
+<link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script src="/js/favicon-anim.js?v=2" defer></script>
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Automatiser son SEO avec Claude Code">
+<meta property="og:description" content="Ce que je fais tourner chaque semaine sur mes missions : six pipelines SEO automatisés, leur enchaînement exact, et les quatre règles apprises en cassant des choses.">
+<meta property="og:url" content="https://anthony-courtin.com/blog/automatiser-seo-claude-code">
+<meta property="og:image" content="https://anthony-courtin.com/images/blog/automatiser-seo-claude-code-cover.webp">
+<meta property="og:locale" content="fr_FR">
+<meta property="article:published_time" content="2026-10-28">
+<meta property="article:modified_time" content="2026-10-28">
+<meta property="article:author" content="Anthony Courtin">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/main.css?v=2">
+<link rel="stylesheet" href="/css/blog-article.css?v=3">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"BlogPosting",
+      "@id":"https://anthony-courtin.com/blog/automatiser-seo-claude-code#article",
+      "headline":"Automatiser son SEO avec Claude Code",
+      "description":"Guide d'automatisation du SEO avec Claude Code : distinction entre assistance et automatisation, outils à brancher via MCP, fichier de consignes du projet, six pipelines détaillés et règles de sécurité.",
+      "inLanguage":"fr-FR",
+      "datePublished":"2026-10-28",
+      "dateModified":"2026-10-28",
+      "image":"https://anthony-courtin.com/images/blog/automatiser-seo-claude-code-cover.webp",
+      "wordCount":2000,
+      "mainEntityOfPage":{"@type":"WebPage","@id":"https://anthony-courtin.com/blog/automatiser-seo-claude-code"},
+      "author":{"@id":"https://anthony-courtin.com/#anthony"},
+      "publisher":{"@id":"https://anthony-courtin.com/#anthony"},
+      "about":[{"@type":"Thing","name":"Claude Code"},{"@type":"Thing","name":"SEO"},{"@type":"Thing","name":"Automatisation"},{"@type":"Thing","name":"MCP"},{"@type":"Thing","name":"Audit SEO"}]
+    },
+    {
+      "@type":"Person",
+      "@id":"https://anthony-courtin.com/#anthony",
+      "name":"Anthony Courtin",
+      "jobTitle":"Consultant SEO, GEO et automatisation IA",
+      "url":"https://anthony-courtin.com/a-propos",
+      "image":"https://anthony-courtin.com/images/anthony.avif",
+      "sameAs":["https://www.linkedin.com/in/anthony-courtin/"]
+    },
+    {
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Accueil","item":"https://anthony-courtin.com/"},
+        {"@type":"ListItem","position":2,"name":"Blog","item":"https://anthony-courtin.com/blog/"},
+        {"@type":"ListItem","position":3,"name":"Automatiser le SEO"}
+      ]
+    },
+    {
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"Que peut-on automatiser en SEO avec Claude Code ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Les tâches où la donnée d'entrée est propre, la règle explicite et le résultat vérifiable : contrôle et correction des balises, audit du maillage interne, génération des données structurées, plan de redirections, rapports de suivi et contrôle avant publication. En revanche, le choix des sujets, la priorisation et tout ce qui sera publié sans relecture restent humains."}},
+        {"@type":"Question","name":"Quelle est la différence entre assistance et automatisation ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Le test tient en une question : si je relance cette tâche dans un mois avec des données différentes, le résultat sera-t-il correct sans que j'aie à réfléchir ? Si oui, c'est automatisable. Si le résultat dépend d'un jugement que vous seul pouvez porter, c'est de l'assistance, et vouloir l'automatiser produit des dégâts silencieux."}},
+        {"@type":"Question","name":"Quels outils faut-il brancher ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Trois accès suffisent et se mettent en place en une soirée. Les fichiers du site, pour que le modèle lise et modifie le code réel. Un crawler, pour la vue exhaustive de la structure. La Search Console, pour les impressions, les clics et les positions. Ces accès passent par des serveurs qui parlent le protocole MCP."}},
+        {"@type":"Question","name":"À quoi sert le fichier de consignes du projet ?",
+         "acceptedAnswer":{"@type":"Answer","text":"À écrire une fois ce que vous répéteriez à chaque session : conventions de nommage, longueurs maximales, ton des meta descriptions, pages à ne jamais toucher, manière de valider une modification. C'est le geste qui fait le plus de différence entre un agent utile et un agent pénible. Commencez par dix lignes et ajoutez une règle chaque fois que vous corrigez deux fois la même chose."}},
+        {"@type":"Question","name":"Quels sont les risques à connaître ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Quatre règles les couvrent. Une modification par page plutôt qu'un traitement de masse, pour que la première erreur s'arrête à une page. Le versionnage en place avant tout, seul moyen de revenir en arrière. Une relecture humaine avant toute mise en production. Et le principe selon lequel le modèle signale les cas ambigus au lieu de trancher seul."}},
+        {"@type":"Question","name":"Combien de temps ça fait gagner ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Cela dépend de la tâche et de sa fréquence, et le sélecteur en haut de page le chiffre. Sur mes propres missions, un contrôle mensuel des balises et du maillage représente une vingtaine d'heures par an chacun. Le gain le plus important n'est pourtant pas là : il est dans les contrôles qui finissent par être faits parce qu'ils ne coûtent plus rien."}},
+        {"@type":"Question","name":"Par où commencer sans rien avoir monté ?",
+         "acceptedAnswer":{"@type":"Answer","text":"En trois soirées. La première, mettez le versionnage en place et branchez l'accès aux fichiers, puis demandez simplement au modèle de décrire la structure du site. La deuxième, écrivez dix lignes de consignes et lancez la chaîne des balises sur dix pages, en relisant tout. La troisième, passez le site entier par lots."}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+<div id="read-progress"></div>
+
+<!-- ================= HEADER (identique au reste du site v2) ================= -->
+<header class="site">
+  <div class="nav-shell">
+    <nav class="main" aria-label="Navigation principale">
+      <a class="logo" href="/"><img src="/images/logo-transparent-cream.svg" alt="anthony courtin" width="86" height="42"></a>
+      <div class="nav-links">
+        <div class="nav-item"><a href="/seo">SEO</a></div>
+        <div class="nav-item"><a href="/geo">GEO, visibilité IA</a></div>
+        <div class="nav-item"><a href="/automatisation-ia">Automatisation IA</a></div>
+        <div class="nav-item"><a href="/blog/">Blog</a></div>
+        <div class="nav-item"><a href="/tarifs">Tarifs</a></div>
+      </div>
+      <button class="burger" id="burger" type="button" aria-label="Menu">☰</button>
+      <a class="nav-cta" href="/contact">Travailler avec moi</a>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="/seo">SEO</a>
+        <a href="/geo">GEO, visibilité IA</a>
+        <a href="/automatisation-ia">Automatisation IA</a>
+        <a href="/blog/">Blog</a>
+        <a href="/tarifs">Tarifs</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= EN-TÊTE D'ARTICLE ================= -->
+<section class="art-top">
+  <div class="wrap">
+    <nav class="crumb" aria-label="Fil d'Ariane">
+      <a href="/">Accueil</a><span aria-hidden="true">/</span>
+      <a href="/blog/">Blog</a><span aria-hidden="true">/</span>
+      <span>Automatiser le SEO</span>
+    </nav>
+
+    <span class="art-cat">Automatisation</span>
+    <h1 class="art-title">Automatiser son SEO avec Claude Code</h1>
+    <p class="art-lede">Six chaînes tiennent dans le temps : balises, maillage, données structurées, redirections, rapports, contrôle avant publication. Voici comment je les monte.</p>
+
+    <div class="art-metaline">
+      <span class="who">
+        <img src="/images/anthony.avif" alt="" width="38" height="38" loading="lazy">
+        Anthony Courtin
+      </span>
+      <span class="dot" aria-hidden="true">·</span>
+      <time datetime="2026-10-28">28 octobre 2026</time>
+      <span class="dot" aria-hidden="true">·</span>
+      <span>10 min de lecture</span>
+      <span class="dot" aria-hidden="true">·</span>
+      <span>Mis à jour le <time datetime="2026-10-28">28 octobre 2026</time></span>
+    </div>
+
+    <!-- Boutons "Résumer avec" : les href sont construits par blog-article.js -->
+    <div class="ai-actions">
+      <span class="ai-actions__title">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>
+        Résumer avec
+      </span>
+      <ul class="ai-actions__list">
+        <li><a class="ai-btn" data-ai="chatgpt" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec ChatGPT">ChatGPT</a></li>
+        <li><a class="ai-btn" data-ai="claude" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Claude">Claude</a></li>
+        <li><a class="ai-btn" data-ai="perplexity" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Perplexity">Perplexity</a></li>
+        <li><a class="ai-btn" data-ai="gemini" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Gemini">Gemini</a></li>
+        <li><a class="ai-btn" data-ai="mistral" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Le Chat de Mistral">Le Chat</a></li>
+        <li><a class="ai-btn" data-ai="grok" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Grok">Grok</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GRILLE 3 COLONNES ================= -->
+<div class="art-layout">
+
+  <!-- ---------- COLONNE GAUCHE : sommaire + partage ---------- -->
+  <aside class="rail rail-left">
+    <details class="toc-box" open>
+      <summary><span class="rail-title">Sommaire</span><span class="toc-chevron" aria-hidden="true"></span></summary>
+      <nav class="toc" id="toc" aria-label="Sommaire de l'article">
+        <p class="toc-empty">Chargement…</p>
+      </nav>
+    </details>
+
+    <div class="share-box">
+      <p class="rail-title">Partager</p>
+      <ul class="share">
+        <li><a class="share-btn share-linkedin" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur LinkedIn"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56z"/></svg></a></li>
+        <li><a class="share-btn share-x" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur X"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.96 6.82H1.68l7.73-8.84L1.25 2.25h6.83l4.71 6.23zm-1.16 17.52h1.83L7.08 4.13H5.12z"/></svg></a></li>
+        <li><a class="share-btn share-whatsapp" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur WhatsApp"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m5.8 14.16c-.25.69-1.43 1.31-1.98 1.4-.53.08-1.19.11-1.92-.12-.44-.14-1.01-.33-1.74-.64-3.06-1.32-5.06-4.4-5.21-4.6-.15-.2-1.25-1.66-1.25-3.16s.79-2.25 1.07-2.55c.28-.31.61-.38.81-.38h.58c.19 0 .44-.07.69.53.25.61.86 2.11.94 2.26.08.15.13.33.02.53-.1.2-.16.33-.31.5l-.46.54c-.15.15-.31.32-.13.63.18.31.79 1.3 1.69 2.11 1.16 1.03 2.14 1.35 2.45 1.5.31.15.49.13.67-.08.18-.2.77-.9.98-1.21.2-.31.41-.26.69-.15.28.1 1.78.84 2.09.99.31.15.51.23.59.36.08.13.08.74-.17 1.44"/></svg></a></li>
+        <li><a class="share-btn share-email" href="#" rel="nofollow" aria-label="Partager par e-mail"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m0 4-8 5-8-5V6l8 5 8-5z"/></svg></a></li>
+        <li><button class="share-btn share-copy" type="button" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2m0 16H8V7h11z"/></svg></button></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- ---------- COLONNE CENTRALE : le contenu ---------- -->
+  <div class="art-main">
+
+    <!-- Résumé IA version mobile : rendu côté serveur, donc lisible par Google et les LLM -->
+    <div class="ai-box ai-box-mobile">
+      <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
+      <p class="ai-text">Automatiser le SEO avec Claude Code consiste à confier au modèle les tâches répétitives dont le résultat se vérifie, et à garder l'arbitrage humain. Trois conditions décident de ce qui est automatisable : une donnée d'entrée propre, une règle explicite et un résultat contrôlable. Trois accès suffisent, branchés via le protocole MCP : les fichiers du site, un crawler et la Search Console. Un fichier de consignes du projet évite de redonner le contexte à chaque session. Six chaînes tiennent dans la durée, et quatre règles les encadrent : une modification par page, le versionnage en place, la relecture avant production, et un modèle qui signale au lieu de trancher.</p>
+      <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
+    </div>
+
+    <article class="art-body">
+
+      <figure>
+        <picture>
+          <source srcset="/images/blog/automatiser-seo-claude-code-cover.avif" type="image/avif">
+          <img src="/images/blog/automatiser-seo-claude-code-cover.webp" alt="Illustration abstraite d'un mécanisme de verre entraînant un ruban, image d'un pipeline SEO automatisé" width="1376" height="768" fetchpriority="high" decoding="async">
+        </picture>
+      </figure>
+
+      <p><strong>Automatiser le SEO avec Claude Code consiste à confier au modèle les tâches répétitives qui se vérifient : balises, maillage, données structurées, redirections, rapports.</strong> Pas la stratégie, pas l'arbitrage, pas la rédaction finale. La frontière est nette et elle passe par une question : le résultat est-il contrôlable ?</p>
+
+      <p>Je fais tourner ces enchaînements toutes les semaines sur mes propres missions. Voici lesquels, comment les monter, et ce que j'ai appris en les cassant.</p>
+
+      <div class="verdict">
+        <div class="verdict-note">
+          <b>6</b>
+          <span>chaînes qui tiennent</span>
+        </div>
+        <div class="verdict-body">
+          <h2>Ce qui s'automatise vraiment</h2>
+          <p>Les tâches où la donnée d'entrée est propre, la règle explicite et le résultat vérifiable. Tout le reste demande un humain, et le savoir évite beaucoup de déceptions.</p>
+          <div class="verdict-lists">
+            <ul class="verdict-pros">
+              <li>Contrôles en masse sur des centaines de pages</li>
+              <li>Transformations mécaniques : balises, redirections, balisage</li>
+              <li>Rapports périodiques à partir de données existantes</li>
+            </ul>
+            <ul class="verdict-cons">
+              <li>Le choix des sujets et la priorisation</li>
+              <li>Tout ce qui sera publié sous votre nom sans relecture</li>
+            </ul>
+          </div>
+        </div>
+        <p class="verdict-foot">
+          <span class="verdict-price">Le gain se compte en dizaines d'heures par an</span>
+          <span>À condition de brancher les bons outils</span>
+        </p>
+      </div>
+
+      <section class="takeaways">
+        <h2>À retenir</h2>
+        <ul>
+          <li><strong>Automatisez ce qui se vérifie.</strong> Une tâche dont vous ne pouvez pas contrôler le résultat en un coup d'œil n'est pas automatisable.</li>
+          <li><strong>Branchez les outils plutôt que de copier-coller</strong> : crawler, Search Console et fichiers du site, via le protocole MCP.</li>
+          <li><strong>Écrivez les règles une fois</strong> dans un fichier de consignes du projet, plutôt que de les redonner à chaque session.</li>
+          <li><strong>Une modification par page</strong>, jamais un traitement de masse en un seul geste. C'est ce qui rend le retour en arrière possible.</li>
+          <li><strong>Le versionnage n'est pas optionnel.</strong> Un agent qui modifie deux cents fichiers sans historique est une catastrophe en attente.</li>
+        </ul>
+      </section>
+
+      <p>Choisissez la tâche que vous voulez automatiser. L'outil vous donne l'enchaînement exact, ce qu'il faut brancher et le garde-fou à poser.</p>
+
+      <div class="tool" id="outil-automatiser-seo">
+        <div class="tool-head">
+          <span class="tool-ico" aria-hidden="true">✦</span>
+          <span>
+            <em>Outil interactif</em>
+            <b>Votre pipeline SEO automatisé</b>
+          </span>
+        </div>
+        <div class="tool-body">
+          <div class="field">
+            <label for="asc-tache">Quelle tâche voulez-vous automatiser ?</label>
+            <select id="asc-tache">
+              <option value="balises">Contrôle et correction des balises</option>
+              <option value="maillage">Audit et renforcement du maillage interne</option>
+              <option value="donnees">Génération des données structurées</option>
+              <option value="redirections">Plan de redirections pour une migration</option>
+              <option value="veille">Rapport de suivi des positions</option>
+              <option value="contenu">Contrôle avant publication</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="asc-freq">À quelle fréquence</label>
+            <select id="asc-freq">
+              <option value="52">Chaque semaine</option>
+              <option value="12" selected>Chaque mois</option>
+              <option value="4">Chaque trimestre</option>
+              <option value="1">Une fois par an</option>
+            </select>
+          </div>
+
+          <div class="score">
+            <b id="asc-gain">18 h par an</b><span>de travail manuel évité</span>
+          </div>
+          <div class="meter"><i id="asc-meter" style="width:0%"></i></div>
+
+          <div class="field">
+            <span class="rail-title" style="margin-bottom:8px">Votre enchaînement</span>
+            <div class="tool-out" id="asc-out" aria-live="polite"></div>
+          </div>
+
+          <div class="tool-actions">
+            <button type="button" class="btn-sm primary" id="asc-copy">Copier le pipeline</button>
+            <a class="btn-sm ghost" href="/automatisation-ia">Faire monter mes automatisations</a>
+          </div>
+        </div>
+        <div class="tool-foot">
+          <span>Calcul local, rien n'est envoyé. Durées observées sur mes missions.</span>
+          <span>Pipelines, Anthony Courtin</span>
+        </div>
+      </div>
+
+      <h2>Ce qui distingue l'automatisation de l'assistance</h2>
+
+      <p>Utiliser un modèle pour réfléchir avec vous, c'est de l'assistance. Lui confier une chaîne de gestes qui se répète à l'identique, c'est de l'automatisation. Les deux sont utiles, elles ne se montent pas de la même façon.</p>
+
+      <p>Le test qui tranche tient en une question : <strong>si je relance cette tâche dans un mois avec des données différentes, le résultat sera-t-il correct sans que j'aie à réfléchir ?</strong> Si oui, c'est automatisable. Si le résultat dépend d'un jugement que vous seul pouvez porter, c'est de l'assistance, et vouloir l'automatiser produira des dégâts silencieux.</p>
+
+      <p>Concrètement, trois conditions doivent être réunies. La <strong>donnée d'entrée est propre et régulière</strong> : un export au même format, un dossier de fichiers, une API. La <strong>règle est explicite</strong> : vous pouvez l'écrire en trois phrases sans employer les mots « selon le contexte ». Le <strong>résultat est vérifiable</strong> : vous pouvez contrôler un échantillon en une minute et savoir si c'est juste.</p>
+
+      <p>Les six chaînes du sélecteur plus haut remplissent ces trois conditions. C'est pour cela qu'elles tiennent dans le temps.</p>
+
+      <h2>Ce qu'il faut brancher avant de commencer</h2>
+
+      <p>Un agent qui n'a accès à rien ne fait rien d'utile. Le travail préparatoire consiste à lui donner les bons accès, et il se fait une fois.</p>
+
+      <p><strong>Les fichiers du site.</strong> C'est l'accès le plus important. Le modèle lit le code réel, les gabarits, les contenus, et peut les modifier. Sans lui, vous en êtes réduit à décrire ce que vous voyez.</p>
+
+      <p><strong>Un crawler.</strong> Pour explorer le site comme un robot et obtenir la vue exhaustive : profondeur, statuts, redirections, duplications. Branché en direct, il évite l'aller-retour par un export.</p>
+
+      <p><strong>La Search Console.</strong> Impressions, clics, positions, pages. C'est la seule source qui dit ce que Google voit et ce qu'il envoie.</p>
+
+      <p>Ces trois accès passent par des serveurs qui parlent le protocole MCP, et leur mise en place demande une soirée. C'est le seul investissement initial réel, et il est amorti au deuxième pipeline.</p>
+
+      <h3>Le fichier de consignes, votre vrai levier</h3>
+
+      <p>Un projet bien monté contient un fichier de consignes que le modèle lit à chaque session. C'est là que vous écrivez une fois ce que vous répéteriez cent fois : la convention de nommage de vos URL, la longueur maximale des balises, le ton des meta descriptions, les pages à ne jamais toucher, la manière de valider une modification.</p>
+
+      <p>C'est le geste qui fait le plus de différence entre un agent utile et un agent pénible. Sans ce fichier, vous passez la moitié de vos sessions à redonner un contexte que vous avez déjà donné.</p>
+
+      <p>Ma recommandation : commencez court, dix lignes, et ajoutez une règle chaque fois que vous vous surprenez à corriger la même chose deux fois. Le fichier grossit tout seul, dans la bonne direction.</p>
+
+      <h2>Les six chaînes que je fais tourner</h2>
+
+      <p>Le sélecteur en haut de page donne l'enchaînement de chacune. Voici pourquoi je les ai retenues, et ce qu'elles rapportent réellement.</p>
+
+      <h3>Les balises, le point de départ évident</h3>
+
+      <p>Contrôler et corriger les titles et meta descriptions est la tâche la plus rentable pour commencer. Elle est mécanique, elle se vérifie en un coup d'œil, et sur un site de plusieurs centaines de pages elle est humainement impossible à tenir à jour.</p>
+
+      <p>Le seul vrai piège est de laisser le modèle réécrire sans relecture. Une balise est ce que voit un visiteur dans les résultats de recherche : c'est de la copie commerciale, pas une donnée technique. Je fais produire, je relis, je pousse.</p>
+
+      <h3>Le maillage interne, le plus sous-estimé</h3>
+
+      <p>Extraire la structure des liens, repérer les pages orphelines et les pages trop profondes, proposer des liens entrants pertinents avec leurs ancres. Le modèle fait ce travail en quelques minutes là où il demandait une demi-journée de tableur.</p>
+
+      <p>La règle que j'impose dans mon fichier de consignes : aucune ancre générique. Si l'ancre proposée ne décrit pas la page cible, elle est refusée. C'est une règle simple qui élimine les trois quarts des mauvaises suggestions.</p>
+
+      <h3>Les données structurées, le meilleur rapport effort sur résultat</h3>
+
+      <p>Générer le balisage d'un catalogue ou d'un ensemble d'articles est un travail long, sans intérêt et à fort risque d'erreur de saisie. Exactement le profil qu'il faut automatiser.</p>
+
+      <p>Un garde-fou absolu : le balisage doit refléter ce qui est visible sur la page. Un modèle qui complète une information manquante par une valeur plausible crée un décalage entre ce que la page affirme aux robots et ce qu'elle montre aux humains. C'est le genre de problème qui ne se voit qu'une fois qu'il coûte cher.</p>
+
+      <h3>Les redirections, le jour de la migration</h3>
+
+      <p>C'est la chaîne la plus rentable en valeur absolue, parce qu'une migration mal redirigée coûte des mois de trafic. Le modèle rapproche chaque ancienne adresse de son équivalent, signale les cas ambigus au lieu de trancher seul, et génère le fichier.</p>
+
+      <p>Ce que je refuse systématiquement : les règles globales qui envoient un dossier entier vers une page de catégorie. Elles sont commodes et elles détruisent la valeur accumulée par chaque page. Une ancienne URL, une destination précise, une seule redirection.</p>
+
+      <h3>Le rapport de suivi, la régularité retrouvée</h3>
+
+      <p>Comparer deux périodes, isoler les décrochages, croiser avec les modifications faites entre-temps. Rien de sorcier, mais un travail qu'on ne fait jamais quand il coûte deux heures et qu'on fait tous les mois quand il en coûte dix minutes.</p>
+
+      <p>Une précaution de méthode : comparez des périodes d'au moins vingt-huit jours. Une variation hebdomadaire ne veut rien dire et produit des conclusions fausses avec beaucoup d'assurance.</p>
+
+      <h3>Le contrôle avant publication</h3>
+
+      <p>Longueur des balises, hiérarchie des titres, liens internes valides, attributs alt, affirmations sans source. C'est une relecture technique, systématique, en quarante-cinq secondes.</p>
+
+      <p>Elle ne remplace pas la relecture éditoriale, et il faut le dire clairement à ceux qui l'utilisent. Un texte peut passer tous les contrôles techniques et rester mauvais.</p>
+
+      <h2>Les règles que je me suis données</h2>
+
+      <p>Quatre, toutes apprises en cassant quelque chose.</p>
+
+      <p><strong>Une modification par page, jamais un traitement de masse en un geste.</strong> Un agent qui réécrit deux cents fichiers d'un coup produit deux cents erreurs identiques si sa règle était mauvaise. En procédant page par page, la première erreur se voit et on arrête.</p>
+
+      <p><strong>Le versionnage avant tout le reste.</strong> Aucun agent ne touche à un projet qui n'a pas d'historique. C'est la seule façon de revenir en arrière sans négocier, et ça prend deux minutes à mettre en place.</p>
+
+      <p><strong>Rien ne part en production sans relecture humaine.</strong> Y compris sur les tâches mécaniques. Le coût de la relecture est très inférieur au coût d'une correction publique.</p>
+
+      <p><strong>Le modèle signale, il ne tranche pas.</strong> Quand un cas est ambigu, la bonne réponse est de le mettre dans une liste à arbitrer, pas de choisir. Cette règle-là, je l'écris dans chaque consigne.</p>
+
+      <h2>Ce que je n'automatise pas, et pourquoi</h2>
+
+      <p>La liste des refus dit plus sur la méthode que la liste des réussites.</p>
+
+      <p><strong>Le choix des sujets à traiter.</strong> Quelle page mérite un investissement dépend de votre marge, de votre saisonnalité et de votre capacité de production. Un modèle produira un classement d'apparence rationnelle, déconnecté de votre réalité, et il aura l'air convaincant. C'est précisément ce qui le rend dangereux ici.</p>
+
+      <p><strong>La rédaction publiée sans relecture.</strong> J'automatise la structure, le contrôle, la vérification. Pas le texte final. Une erreur dans une balise se corrige en trente secondes ; une affirmation fausse publiée sous mon nom engage ma crédibilité auprès d'un client.</p>
+
+      <p><strong>Les suppressions.</strong> Aucun de mes enchaînements ne supprime quoi que ce soit. Désindexer une page, retirer un contenu, effacer une redirection : ces gestes se prennent à la main, après réflexion. Un agent qui supprime en série est le scénario qui coûte le plus cher à réparer.</p>
+
+      <p><strong>Tout ce qui touche à un site que je ne maîtrise pas entièrement.</strong> Sur un site client où d'autres interviennent, une modification automatisée peut entrer en collision avec un travail en cours. Je préfère produire la liste des corrections et laisser l'équipe les appliquer.</p>
+
+      <h2>Ce que ça coûte à faire tourner</h2>
+
+      <p>La question mérite une réponse chiffrée plutôt qu'un ordre de grandeur vague.</p>
+
+      <p>Le coût se compose de deux postes. L'<strong>abonnement ou la consommation</strong> du modèle : pour un usage individuel régulier, un abonnement mensuel couvre largement ces pipelines, qui ne représentent que quelques heures de travail par mois. Le <strong>temps de mise au point</strong> : comptez une soirée pour le socle, puis une à deux heures par chaîne, une seule fois.</p>
+
+      <p>La comparaison qui compte n'est pas entre ce coût et zéro, mais entre ce coût et le temps que vous passez aujourd'hui. Un contrôle mensuel des balises qui vous prend quatre-vingt-dix minutes représente dix-huit heures par an. À ce niveau, la question n'est plus de savoir si l'automatisation est rentable, mais pourquoi elle n'est pas encore montée.</p>
+
+      <p>Un dernier point, moins évident : ces chaînes ont un coût de maintenance. Un site qui change de gabarit, un outil dont l'accès évolue, une consigne devenue fausse. Comptez une révision par semestre. Ce n'est pas gratuit, et c'est très largement inférieur au travail évité.</p>
+
+      <h2>Par où commencer si vous n'avez rien monté</h2>
+
+      <p>Le chemin le plus court en trois soirées.</p>
+
+      <p><strong>Première soirée</strong> : mettez le versionnage en place et branchez l'accès aux fichiers du site. Ne faites rien d'autre. Demandez simplement au modèle de vous décrire la structure du site : vous verrez immédiatement s'il voit ce qu'il faut.</p>
+
+      <p><strong>Deuxième soirée</strong> : écrivez dix lignes de consignes et lancez la chaîne des balises sur dix pages seulement. Relisez tout. Corrigez vos consignes en fonction de ce qui vous a déplu.</p>
+
+      <p><strong>Troisième soirée</strong> : passez le site entier, page par page, en relisant par lots. À la fin de cette soirée, vous aurez un pipeline qui tourne et vous saurez si la suite vous intéresse.</p>
+
+      <p>Ce qui se passe ensuite est presque toujours le même : on ajoute une chaîne par mois, en commençant par celle qui agace le plus. Et au bout de six mois, on a récupéré plusieurs dizaines d'heures par an sans jamais avoir mené de projet.</p>
+
+
+      <!-- MAILLAGE À AJOUTER APRÈS PUBLICATION DES CIBLES :
+           - /blog/etude-cas-automatisation-pme (13/11/2026)
+      -->
+
+      <!-- ================= FAQ ================= -->
+      <section class="faq">
+        <h2>Questions fréquentes</h2>
+
+        <details>
+          <summary>Que peut-on automatiser en SEO avec Claude Code ?</summary>
+          <div class="faq-a"><p>Les tâches où la donnée d'entrée est propre, la règle explicite et le résultat vérifiable : contrôle et correction des balises, audit du maillage interne, génération des données structurées, plan de redirections, rapports de suivi et contrôle avant publication. En revanche, le choix des sujets, la priorisation et tout ce qui sera publié sans relecture restent humains.</p></div>
+        </details>
+
+        <details>
+          <summary>Quelle est la différence entre assistance et automatisation ?</summary>
+          <div class="faq-a"><p>Le test tient en une question : si je relance cette tâche dans un mois avec des données différentes, le résultat sera-t-il correct sans que j'aie à réfléchir ? Si oui, c'est automatisable. Si le résultat dépend d'un jugement que vous seul pouvez porter, c'est de l'assistance, et vouloir l'automatiser produit des dégâts silencieux.</p></div>
+        </details>
+
+        <details>
+          <summary>Quels outils faut-il brancher ?</summary>
+          <div class="faq-a"><p>Trois accès suffisent et se mettent en place en une soirée. Les fichiers du site, pour que le modèle lise et modifie le code réel. Un crawler, pour la vue exhaustive de la structure. La Search Console, pour les impressions, les clics et les positions. Ces accès passent par des serveurs qui parlent le protocole MCP.</p></div>
+        </details>
+
+        <details>
+          <summary>À quoi sert le fichier de consignes du projet ?</summary>
+          <div class="faq-a"><p>À écrire une fois ce que vous répéteriez à chaque session : conventions de nommage, longueurs maximales, ton des meta descriptions, pages à ne jamais toucher, manière de valider une modification. C'est le geste qui fait le plus de différence entre un agent utile et un agent pénible. Commencez par dix lignes et ajoutez une règle chaque fois que vous corrigez deux fois la même chose.</p></div>
+        </details>
+
+        <details>
+          <summary>Quels sont les risques à connaître ?</summary>
+          <div class="faq-a"><p>Quatre règles les couvrent. Une modification par page plutôt qu'un traitement de masse, pour que la première erreur s'arrête à une page. Le versionnage en place avant tout, seul moyen de revenir en arrière. Une relecture humaine avant toute mise en production. Et le principe selon lequel le modèle signale les cas ambigus au lieu de trancher seul.</p></div>
+        </details>
+
+        <details>
+          <summary>Combien de temps ça fait gagner ?</summary>
+          <div class="faq-a"><p>Cela dépend de la tâche et de sa fréquence, et le sélecteur en haut de page le chiffre. Sur mes propres missions, un contrôle mensuel des balises et du maillage représente une vingtaine d'heures par an chacun. Le gain le plus important n'est pourtant pas là : il est dans les contrôles qui finissent par être faits parce qu'ils ne coûtent plus rien.</p></div>
+        </details>
+
+        <details>
+          <summary>Par où commencer sans rien avoir monté ?</summary>
+          <div class="faq-a"><p>En trois soirées. La première, mettez le versionnage en place et branchez l'accès aux fichiers, puis demandez simplement au modèle de décrire la structure du site. La deuxième, écrivez dix lignes de consignes et lancez la chaîne des balises sur dix pages, en relisant tout. La troisième, passez le site entier par lots.</p></div>
+        </details>
+      </section>
+
+      <!-- ================= CTA ================= -->
+      <div class="cta-band">
+        <div>
+          <h2>Monter vos automatisations SEO</h2>
+          <p>Je branche les outils, j'écris les consignes et je vous livre des chaînes qui tournent seules, avec les garde-fous qui vont avec.</p>
+        </div>
+        <a class="btn btn-lime" href="/automatisation-ia">Voir comment je travaille <span class="ar">→</span></a>
+      </div>
+
+      <!-- ================= AUTEUR ================= -->
+      <div class="author-box">
+        <img src="/images/anthony.avif" alt="Anthony Courtin" width="88" height="88" loading="lazy">
+        <div>
+          <p class="eyebrow">Écrit par</p>
+          <h3>Anthony Courtin</h3>
+          <p class="author-role">Consultant SEO, GEO &amp; automatisation IA</p>
+          <p class="author-bio">J'accompagne des PME et des indépendants sur la visibilité (Google, ChatGPT, Perplexity) et sur l'usage réel de l'IA au travail. J'interviens en entreprise pour former les équipes et repenser les process. Tout ce que j'écris ici, je l'utilise en mission.</p>
+          <div class="author-links">
+            <a class="li" href="https://www.linkedin.com/in/anthony-courtin/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56z"/></svg>
+              Me suivre sur LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= AVIS LECTEURS ================= -->
+      <section class="reviews" data-slug="automatiser-seo-claude-code" data-reviews="[]">
+        <h2>Avis des lecteurs</h2>
+        <p class="rv-sub">Cet article vous a servi ? Dites-le, ça aide les suivants.</p>
+
+        <form class="rv-form" name="avis" method="POST" data-netlify="true" netlify-honeypot="societe" action="/merci">
+          <input type="hidden" name="form-name" value="avis">
+          <input type="hidden" name="article" value="automatiser-seo-claude-code">
+          <p class="rv-hp"><label>Ne remplissez pas ce champ : <input name="societe" tabindex="-1" autocomplete="off"></label></p>
+
+          <h3>Notez cet article</h3>
+
+          <fieldset class="rating-field">
+            <legend>Votre note</legend>
+            <div class="rating">
+              <input type="radio" id="n5" name="note" value="5"><label for="n5" aria-label="5 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n4" name="note" value="4"><label for="n4" aria-label="4 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n3" name="note" value="3"><label for="n3" aria-label="3 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n2" name="note" value="2"><label for="n2" aria-label="2 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n1" name="note" value="1"><label for="n1" aria-label="1 étoile"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="rv-nom">Prénom <span class="hint">(facultatif)</span></label>
+            <input type="text" id="rv-nom" name="nom" maxlength="60" autocomplete="given-name">
+          </div>
+
+          <div class="field">
+            <label for="rv-texte">Votre commentaire <span class="hint">(facultatif)</span></label>
+            <textarea id="rv-texte" name="texte" rows="4" maxlength="2000"></textarea>
+          </div>
+
+          <div class="rv-msg" id="rv-msg" role="status"></div>
+          <div><button type="submit" class="btn-sm primary">Publier mon avis</button></div>
+        </form>
+
+        <div class="rv-published">
+          <h3 class="rv-published-title">Ce qu'en disent les lecteurs</h3>
+          <div class="rv-summary">
+            <span class="rv-avg" id="rv-avg"></span>
+            <span class="stars" id="rv-stars" aria-hidden="true"></span>
+            <span class="rv-count" id="rv-count">Aucun avis pour le moment.</span>
+          </div>
+          <div class="rv-list" id="rv-list"></div>
+          <p class="rv-empty" id="rv-empty">Soyez le premier à donner votre avis.</p>
+        </div>
+      </section>
+
+    </article>
+  </div>
+
+  <!-- ---------- COLONNE DROITE : résumé IA + articles liés ---------- -->
+  <aside class="rail rail-right">
+    <div class="ai-box">
+      <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
+      <p class="ai-text">Automatiser le SEO avec Claude Code consiste à confier au modèle les tâches répétitives dont le résultat se vérifie, et à garder l'arbitrage humain. Trois conditions décident de ce qui est automatisable : une donnée d'entrée propre, une règle explicite et un résultat contrôlable. Trois accès suffisent, branchés via le protocole MCP : les fichiers du site, un crawler et la Search Console. Un fichier de consignes du projet évite de redonner le contexte à chaque session. Six chaînes tiennent dans la durée, et quatre règles les encadrent : une modification par page, le versionnage en place, la relecture avant production, et un modèle qui signale au lieu de trancher.</p>
+      <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
+    </div>
+
+    <div class="rail-recent">
+      <p class="rail-title">Dans la même catégorie</p>
+      <div class="mini-list">
+        <a class="mini" href="/blog/claude-pour-seo">
+          <span class="mini-thumb"><!-- TODO: visuel article --></span>
+          <span><span class="mini-cat">SEO</span><span class="mini-ttl">Claude pour le SEO</span></span>
+        </a>
+        <a class="mini" href="/blog/mcp-model-context-protocol">
+          <span class="mini-thumb"><!-- TODO: visuel article --></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">MCP expliqué</span></span>
+        </a>
+        <a class="mini" href="/blog/audit-technique-seo">
+          <span class="mini-thumb"><!-- TODO: visuel article --></span>
+          <span><span class="mini-cat">SEO</span><span class="mini-ttl">Audit technique SEO</span></span>
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- ================= ARTICLES LIÉS ================= -->
+<section class="related">
+  <div class="wrap">
+    <h2>À lire ensuite</h2>
+    <p class="sub">La suite logique du parcours.</p>
+    <div class="rel-grid">
+      <a class="rel-card" href="/blog/claude-pour-seo">
+        <!-- TODO: visuel article -->
+        <div class="rel-body">
+          <span class="rel-cat">SEO</span>
+          <h3>Claude pour le SEO : mes cas d'usage en mission</h3>
+          <p>Ce que je délègue vraiment en audit et en production, avec les prompts que j'utilise.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="/blog/mcp-model-context-protocol">
+        <!-- TODO: visuel article -->
+        <div class="rel-body">
+          <span class="rel-cat">Utiliser l'IA</span>
+          <h3>MCP : le protocole qui branche l'IA sur vos outils</h3>
+          <p>Comment fonctionne la norme qui permet à un modèle d'interroger vos outils directement.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="/blog/audit-technique-seo">
+        <!-- TODO: visuel article -->
+        <div class="rel-body">
+          <span class="rel-cat">SEO</span>
+          <h3>Audit technique SEO : la checklist complète</h3>
+          <p>Les quatre blocs à contrôler et la règle de priorisation par impact réel.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="foot-logo" href="/"><img src="/images/logo-transparent-pine.svg" alt="anthony courtin" width="98" height="48"></a>
+        <p style="color:var(--ink-2);font-size:.95rem;margin-top:12px;max-width:280px">Consultant SEO, GEO &amp; automatisation IA. Interventions partout en France.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul><li><a href="/seo">SEO</a></li><li><a href="/geo">GEO, visibilité IA</a></li><li><a href="/automatisation-ia">Automatisation IA</a></li><li><a href="/tarifs">Tarifs</a></li></ul>
+      </div>
+      <div>
+        <h4>Ressources</h4>
+        <ul><li><a href="/blog/">Blog</a></li><li><a href="/realisations">Réalisations</a></li><li><a href="/a-propos">À propos</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul><li><a href="/contact">Formulaire</a></li><li><a href="mailto:anthony@astrak.agency">anthony@astrak.agency</a></li><li><a href="https://www.linkedin.com/in/anthony-courtin/" rel="noopener">LinkedIn</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Anthony Courtin</span>
+      <span><a href="/mentions-legales">Mentions légales</a> · <a href="/confidentialite">Confidentialité</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/site.js?v=2" defer></script>
+<script src="/js/blog-article.js?v=3" defer></script>
+
+<!-- Outil interactif propre à cet article -->
+<script src="/js/automatiser-seo-claude-code-tool.js?v=1" defer></script>
+
+</body>
+</html>
