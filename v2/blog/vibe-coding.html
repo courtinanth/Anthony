@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vibe coding : créer des outils sans savoir coder</title>
+<meta name="description" content="Décrire un programme et laisser l'IA l'écrire : ce que le vibe coding permet vraiment, où il casse, quels outils choisir et comment commencer sans risque.">
+<link rel="canonical" href="https://anthony-courtin.com/blog/vibe-coding">
+<link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script src="/js/favicon-anim.js?v=2" defer></script>
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vibe coding : créer des outils sans savoir coder">
+<meta property="og:description" content="Ce que j'ai livré en vibe coding, ce que j'ai jeté, et la ligne exacte entre les deux. Outils, méthode, limites et évaluation de votre projet.">
+<meta property="og:url" content="https://anthony-courtin.com/blog/vibe-coding">
+<meta property="og:image" content="https://anthony-courtin.com/images/blog/vibe-coding-cover.webp">
+<meta property="og:locale" content="fr_FR">
+<meta property="article:published_time" content="2026-10-05">
+<meta property="article:modified_time" content="2026-10-05">
+<meta property="article:author" content="Anthony Courtin">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/main.css?v=2">
+<link rel="stylesheet" href="/css/blog-article.css?v=3">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"BlogPosting",
+      "@id":"https://anthony-courtin.com/blog/vibe-coding#article",
+      "headline":"Vibe coding : ce que ça permet vraiment",
+      "description":"Guide complet du vibe coding : définition, fonctionnement de la boucle décrire, générer, tester, familles d'outils, avantages réels, limites de sécurité et de dette technique, méthode pour débuter et impact sur les métiers.",
+      "inLanguage":"fr-FR",
+      "datePublished":"2026-10-05",
+      "dateModified":"2026-10-05",
+      "image":"https://anthony-courtin.com/images/blog/vibe-coding-cover.webp",
+      "wordCount":4000,
+      "mainEntityOfPage":{"@type":"WebPage","@id":"https://anthony-courtin.com/blog/vibe-coding"},
+      "author":{"@id":"https://anthony-courtin.com/#anthony"},
+      "publisher":{"@id":"https://anthony-courtin.com/#anthony"},
+      "about":[{"@type":"Thing","name":"Vibe coding"},{"@type":"Thing","name":"Développement logiciel"},{"@type":"Thing","name":"Intelligence artificielle"},{"@type":"Thing","name":"Claude Code"},{"@type":"Thing","name":"Programmation"}]
+    },
+    {
+      "@type":"Person",
+      "@id":"https://anthony-courtin.com/#anthony",
+      "name":"Anthony Courtin",
+      "jobTitle":"Consultant SEO, GEO et automatisation IA",
+      "url":"https://anthony-courtin.com/a-propos",
+      "image":"https://anthony-courtin.com/images/anthony.avif",
+      "sameAs":["https://www.linkedin.com/in/anthony-courtin/"]
+    },
+    {
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Accueil","item":"https://anthony-courtin.com/"},
+        {"@type":"ListItem","position":2,"name":"Blog","item":"https://anthony-courtin.com/blog/"},
+        {"@type":"ListItem","position":3,"name":"Vibe coding"}
+      ]
+    },
+    {
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"Qu'est-ce que le vibe coding ?",
+         "acceptedAnswer":{"@type":"Answer","text":"C'est une manière de programmer où l'on décrit en langage naturel ce qu'un programme doit faire, et où un modèle écrit le code correspondant. La différence avec l'autocomplétion classique est que vous ne lisez plus forcément le code produit : vous exécutez, vous constatez le résultat et vous corrigez en reformulant. Le programme est jugé par son comportement plutôt que par sa lecture."}},
+        {"@type":"Question","name":"Comment fonctionne le vibe coding ?",
+         "acceptedAnswer":{"@type":"Answer","text":"En une boucle de quatre temps répétée des dizaines de fois. Vous décrivez le résultat attendu, le modèle produit les fichiers et lance souvent le programme lui-même, vous testez en utilisant l'outil plutôt qu'en lisant son code, puis vous corrigez en décrivant ce qui ne va pas. La qualité du résultat dépend surtout du sérieux des tests : des données réelles et bancales donnent un outil solide."}},
+        {"@type":"Question","name":"Quels outils de vibe coding utiliser ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Trois familles existent. Les agents en terminal, comme Claude Code, sont les plus puissants et les plus autonomes mais supposent d'être à l'aise en ligne de commande. Les éditeurs augmentés offrent le bon compromis, avec la visibilité sur les fichiers modifiés. Les plateformes tout-en-un génèrent et hébergent l'application sans que vous voyiez un fichier, au prix d'une dépendance au prestataire."}},
+        {"@type":"Question","name":"Quels sont les avantages du vibe coding ?",
+         "acceptedAnswer":{"@type":"Answer","text":"La vitesse d'abord : un outil interne d'une semaine se livre en une soirée. L'accessibilité ensuite, puisque des personnes qui ne programmeront jamais peuvent fabriquer leurs propres outils. Le prototype comme langage commun, qui remplace des pages de spécifications. Et le droit d'essayer : quand un essai coûte deux heures au lieu de deux semaines, on tente des choses qu'on n'aurait jamais budgétées."}},
+        {"@type":"Question","name":"Vibe coding pour débutants, comment commencer ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Choisissez un projet qui vous sert personnellement, que vous seul utilisez, sans données sensibles et que vous pouvez jeter sans conséquence. Décrivez-le en trois phrases, laissez produire une première version et utilisez-la immédiatement. Puis appliquez cinq règles : décrire le résultat plutôt que la méthode, une demande à la fois, tester avec des données réelles et sales, demander des tests automatisés dès le début, et garder un historique des versions."}},
+        {"@type":"Question","name":"Comment apprendre le vibe coding ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Par la pratique sur un projet réel, pas par un cours. La compétence porte sur trois choses : savoir spécifier, c'est-à-dire décomposer un besoin flou en comportements précis ; savoir juger, c'est-à-dire reconnaître un résultat faux ; et comprendre une dizaine de concepts fondamentaux comme la raison pour laquelle un mot de passe ne se stocke pas en clair. La syntaxe, elle, n'est plus nécessaire."}},
+        {"@type":"Question","name":"Quelles sont les limites du vibe coding ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Trois limites sérieuses. La dette invisible, puisqu'un code que vous ne lisez pas est un code dont vous ignorez la qualité. Le mur des un à deux mille lignes, au-delà duquel le modèle répare un endroit en cassant un autre. Et la sécurité, car un modèle produit du code qui fonctionne, pas nécessairement du code sûr : les données non validées et les secrets en clair ne se voient pas à l'usage."}},
+        {"@type":"Question","name":"Quels sont les emplois liés au vibe coding ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Le métier de développeur ne disparaît pas, il se déplace vers la conception, la relecture et la garantie de sécurité. Les développeurs expérimentés voient leur jugement devenir la ressource rare, et les experts métier peuvent désormais fabriquer leurs propres outils. Le profil fragilisé est celui du développeur junior cantonné aux tâches répétitives, précisément celles que ces outils font le mieux."}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+<div id="read-progress"></div>
+
+<!-- ================= HEADER (identique au reste du site v2) ================= -->
+<header class="site">
+  <div class="nav-shell">
+    <nav class="main" aria-label="Navigation principale">
+      <a class="logo" href="/"><img src="/images/logo-transparent-cream.svg" alt="anthony courtin" width="86" height="42"></a>
+      <div class="nav-links">
+        <div class="nav-item"><a href="/seo">SEO</a></div>
+        <div class="nav-item"><a href="/geo">GEO, visibilité IA</a></div>
+        <div class="nav-item"><a href="/automatisation-ia">Automatisation IA</a></div>
+        <div class="nav-item"><a href="/blog/">Blog</a></div>
+        <div class="nav-item"><a href="/tarifs">Tarifs</a></div>
+      </div>
+      <button class="burger" id="burger" type="button" aria-label="Menu">☰</button>
+      <a class="nav-cta" href="/contact">Travailler avec moi</a>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="/seo">SEO</a>
+        <a href="/geo">GEO, visibilité IA</a>
+        <a href="/automatisation-ia">Automatisation IA</a>
+        <a href="/blog/">Blog</a>
+        <a href="/tarifs">Tarifs</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= EN-TÊTE D'ARTICLE ================= -->
+<section class="art-top">
+  <div class="wrap">
+    <nav class="crumb" aria-label="Fil d'Ariane">
+      <a href="/">Accueil</a><span aria-hidden="true">/</span>
+      <a href="/blog/">Blog</a><span aria-hidden="true">/</span>
+      <span>Vibe coding</span>
+    </nav>
+
+    <span class="art-cat">Utiliser l'IA</span>
+    <h1 class="art-title">Vibe coding : ce que ça permet vraiment</h1>
+    <p class="art-lede">Décrire ce qu'on veut, laisser un modèle l'écrire, juger au résultat. J'ai livré de vrais outils comme ça et j'en ai jeté d'autres. Voici la ligne entre les deux.</p>
+
+    <div class="art-metaline">
+      <span class="who">
+        <img src="/images/anthony.avif" alt="" width="38" height="38" loading="lazy">
+        Anthony Courtin
+      </span>
+      <span class="dot" aria-hidden="true">·</span>
+      <time datetime="2026-10-05">5 octobre 2026</time>
+      <span class="dot" aria-hidden="true">·</span>
+      <span>15 min de lecture</span>
+      <span class="dot" aria-hidden="true">·</span>
+      <span>Mis à jour le <time datetime="2026-10-05">5 octobre 2026</time></span>
+    </div>
+
+    <!-- Boutons "Résumer avec" : les href sont construits par blog-article.js -->
+    <div class="ai-actions">
+      <span class="ai-actions__title">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>
+        Résumer avec
+      </span>
+      <ul class="ai-actions__list">
+        <li><a class="ai-btn" data-ai="chatgpt" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec ChatGPT">ChatGPT</a></li>
+        <li><a class="ai-btn" data-ai="claude" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Claude">Claude</a></li>
+        <li><a class="ai-btn" data-ai="perplexity" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Perplexity">Perplexity</a></li>
+        <li><a class="ai-btn" data-ai="gemini" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Gemini">Gemini</a></li>
+        <li><a class="ai-btn" data-ai="mistral" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Le Chat de Mistral">Le Chat</a></li>
+        <li><a class="ai-btn" data-ai="grok" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Grok">Grok</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GRILLE 3 COLONNES ================= -->
+<div class="art-layout">
+
+  <!-- ---------- COLONNE GAUCHE : sommaire + partage ---------- -->
+  <aside class="rail rail-left">
+    <details class="toc-box" open>
+      <summary><span class="rail-title">Sommaire</span><span class="toc-chevron" aria-hidden="true"></span></summary>
+      <nav class="toc" id="toc" aria-label="Sommaire de l'article">
+        <p class="toc-empty">Chargement…</p>
+      </nav>
+    </details>
+
+    <div class="share-box">
+      <p class="rail-title">Partager</p>
+      <ul class="share">
+        <li><a class="share-btn share-linkedin" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur LinkedIn"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56z"/></svg></a></li>
+        <li><a class="share-btn share-x" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur X"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.96 6.82H1.68l7.73-8.84L1.25 2.25h6.83l4.71 6.23zm-1.16 17.52h1.83L7.08 4.13H5.12z"/></svg></a></li>
+        <li><a class="share-btn share-whatsapp" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur WhatsApp"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m5.8 14.16c-.25.69-1.43 1.31-1.98 1.4-.53.08-1.19.11-1.92-.12-.44-.14-1.01-.33-1.74-.64-3.06-1.32-5.06-4.4-5.21-4.6-.15-.2-1.25-1.66-1.25-3.16s.79-2.25 1.07-2.55c.28-.31.61-.38.81-.38h.58c.19 0 .44-.07.69.53.25.61.86 2.11.94 2.26.08.15.13.33.02.53-.1.2-.16.33-.31.5l-.46.54c-.15.15-.31.32-.13.63.18.31.79 1.3 1.69 2.11 1.16 1.03 2.14 1.35 2.45 1.5.31.15.49.13.67-.08.18-.2.77-.9.98-1.21.2-.31.41-.26.69-.15.28.1 1.78.84 2.09.99.31.15.51.23.59.36.08.13.08.74-.17 1.44"/></svg></a></li>
+        <li><a class="share-btn share-email" href="#" rel="nofollow" aria-label="Partager par e-mail"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m0 4-8 5-8-5V6l8 5 8-5z"/></svg></a></li>
+        <li><button class="share-btn share-copy" type="button" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2m0 16H8V7h11z"/></svg></button></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- ---------- COLONNE CENTRALE : le contenu ---------- -->
+  <div class="art-main">
+
+    <!-- Résumé IA version mobile : rendu côté serveur, donc lisible par Google et les LLM -->
+    <div class="ai-box ai-box-mobile">
+      <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
+      <p class="ai-text">Le vibe coding consiste à décrire en langage naturel ce qu'un programme doit faire et à laisser un modèle écrire le code, en jugeant le résultat à l'usage plutôt qu'à la lecture. La boucle tient en quatre temps : décrire, produire, tester, corriger en reformulant. Trois familles d'outils existent : agents en terminal, éditeurs augmentés et plateformes tout-en-un. La pratique est redoutablement efficace sur les outils internes, jetables et sans données sensibles, mais casse sur trois points : la dette invisible d'un code non lu, un mur situé autour d'un à deux mille lignes, et la sécurité. La règle : fabriquez tout ce dont l'échec ne coûte qu'à vous.</p>
+      <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
+    </div>
+
+    <article class="art-body">
+
+      <figure>
+        <picture>
+          <source srcset="/images/blog/vibe-coding-cover.avif" type="image/avif">
+          <img src="/images/blog/vibe-coding-cover.webp" alt="Illustration abstraite de rubans de lumière se cristallisant en blocs, image du vibe coding" width="1376" height="768" fetchpriority="high" decoding="async">
+        </picture>
+      </figure>
+
+      <p><strong>Le vibe coding consiste à décrire en langage naturel ce qu'un programme doit faire, et à laisser un modèle écrire le code.</strong> Vous jugez le résultat à l'usage plutôt qu'à la lecture. C'est devenu une manière crédible de fabriquer des outils, à condition de savoir exactement où elle s'arrête.</p>
+
+      <p>J'ai livré de vrais outils comme ça, et j'en ai jeté d'autres après trois semaines. Voici ce que cette pratique permet réellement, où elle casse, et comment s'y mettre sans se raconter d'histoires.</p>
+
+      <div class="verdict">
+        <div class="verdict-note">
+          <b>2 000</b>
+          <span>lignes, le mur</span>
+        </div>
+        <div class="verdict-body">
+          <h2>Ce que ça vaut vraiment</h2>
+          <p>Redoutablement efficace sur les petits outils à usage interne. Rapidement dangereux dès qu'il y a des utilisateurs, des données personnelles ou une durée de vie longue.</p>
+          <div class="verdict-lists">
+            <ul class="verdict-pros">
+              <li>Un outil interne utile livré en une soirée</li>
+              <li>L'accès à la programmation sans années d'apprentissage</li>
+              <li>Le prototype qui remplace vingt pages de cahier des charges</li>
+            </ul>
+            <ul class="verdict-cons">
+              <li>Une dette invisible tant que rien ne casse</li>
+              <li>Des failles de sécurité qu'on ne voit pas sans savoir lire</li>
+            </ul>
+          </div>
+        </div>
+        <p class="verdict-foot">
+          <span class="verdict-price">Excellent jusqu'au prototype</span>
+          <span>Risqué en production sans relecture</span>
+        </p>
+      </div>
+
+      <section class="takeaways">
+        <h2>À retenir</h2>
+        <ul>
+          <li><strong>Décrire remplace écrire</strong>, mais juger reste indispensable. Vous ne lisez plus le code, vous testez le comportement.</li>
+          <li><strong>Le point de rupture arrive vers un ou deux milliers de lignes</strong>, quand plus personne ne sait ce que fait l'ensemble.</li>
+          <li><strong>Les meilleurs projets sont internes, jetables et sans données sensibles.</strong> C'est là que le rapport bénéfice sur risque est imbattable.</li>
+          <li><strong>La compétence qui compte devient la spécification</strong> : savoir dire précisément ce que l'on veut, et reconnaître un résultat faux.</li>
+          <li><strong>Demandez les tests dès le premier jour.</strong> C'est le seul filet qui permette de reprendre un projet trois mois plus tard.</li>
+        </ul>
+      </section>
+
+      <p>Avant de vous lancer, évaluez votre projet. Quatre questions suffisent à savoir si vous êtes sur le bon terrain.</p>
+
+      <div class="tool" id="outil-vibe-coding">
+        <div class="tool-head">
+          <span class="tool-ico" aria-hidden="true">✦</span>
+          <span>
+            <em>Outil interactif</em>
+            <b>Votre projet est-il un bon candidat ?</b>
+          </span>
+        </div>
+        <div class="tool-body">
+          <div class="field">
+            <label for="vc-nature">Nature du projet</label>
+            <select id="vc-nature">
+              <option value="1">Un script personnel, pour moi seul</option>
+              <option value="2">Un outil interne pour mon équipe</option>
+              <option value="4">Un produit destiné à des clients</option>
+              <option value="5">Un système critique pour l'activité</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="vc-public">Qui va s'en servir</label>
+            <select id="vc-public">
+              <option value="1">Moi uniquement</option>
+              <option value="2">Quelques collègues</option>
+              <option value="4">Des utilisateurs extérieurs identifiés</option>
+              <option value="5">N'importe qui, sur internet</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="vc-donnees">Données manipulées</label>
+            <select id="vc-donnees">
+              <option value="1">Aucune donnée sensible</option>
+              <option value="3">Des données personnelles</option>
+              <option value="4">Des données de santé ou confidentielles</option>
+              <option value="5">Des moyens de paiement</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="vc-duree">Durée de vie prévue</label>
+            <select id="vc-duree">
+              <option value="1">Quelques jours, puis jeté</option>
+              <option value="2">Quelques mois</option>
+              <option value="3">Plusieurs années</option>
+              <option value="5">Indéfinie, avec reprise par d'autres</option>
+            </select>
+          </div>
+
+          <div class="score">
+            <b id="vc-score">4 / 20</b><span>niveau d'exposition</span>
+          </div>
+          <div class="meter"><i id="vc-meter" style="width:0%"></i></div>
+
+          <div class="field">
+            <span class="rail-title" style="margin-bottom:8px">Verdict et garde-fous</span>
+            <div class="tool-out" id="vc-out" aria-live="polite"></div>
+          </div>
+
+          <div class="tool-actions">
+            <button type="button" class="btn-sm primary" id="vc-copy">Copier l'évaluation</button>
+            <a class="btn-sm ghost" href="/automatisation-ia">Faire développer proprement</a>
+          </div>
+        </div>
+        <div class="tool-foot">
+          <span>Calcul local, rien n'est envoyé.</span>
+          <span>Grille issue de mes projets, Anthony Courtin</span>
+        </div>
+      </div>
+
+      <h2>Qu'est-ce que le vibe coding ?</h2>
+
+      <p>C'est une manière de programmer où l'on décrit l'intention plutôt que l'implémentation. Vous ne tapez pas de boucles ni de conditions : vous dites « je veux un outil qui prend un fichier de commandes, repère les doublons et me sort un tableau propre », et un modèle produit le programme correspondant.</p>
+
+      <p>La différence avec l'autocomplétion assistée n'est pas de degré, elle est de nature. Dans un éditeur classique augmenté, vous écrivez du code et la machine complète vos phrases. Ici, <strong>vous ne lisez plus forcément le code produit</strong> : vous exécutez, vous constatez le résultat, et vous corrigez en reformulant. Le programme redevient une boîte noire que l'on juge par son comportement.</p>
+
+      <p>Le terme vient du monde du développement, où il désigne, non sans ironie, ce moment où l'on code « à l'ambiance » : on avance à la description et à l'essai, sans passer par la compréhension ligne à ligne. Ce qui était une plaisanterie de développeur est devenu une pratique de travail parce que la qualité du code généré a franchi un seuil.</p>
+
+      <h3>Ce que ce n'est pas</h3>
+
+      <p>Trois confusions reviennent en permanence, et les lever évite beaucoup de déceptions.</p>
+
+      <p><strong>Ce n'est pas du no-code.</strong> Une plateforme sans code vous enferme dans un catalogue de briques préexistantes : vous assemblez ce que l'éditeur a prévu. Ici, il n'y a pas de catalogue, il y a un vrai programme, dans un vrai langage, que vous pouvez héberger où vous voulez. La liberté est totale, la responsabilité aussi.</p>
+
+      <p><strong>Ce n'est pas la fin de la programmation.</strong> Le code existe toujours, il tourne toujours sur un serveur, il peut toujours planter à trois heures du matin. Ce qui change, c'est qui l'écrit, pas s'il existe.</p>
+
+      <p><strong>Ce n'est pas magique.</strong> Un modèle produit un programme qui correspond à ce que vous avez dit, pas à ce que vous vouliez dire. L'écart entre les deux est exactement le même que celui qui a toujours séparé un cahier des charges d'un logiciel réussi. Il n'a pas disparu, il s'est déplacé.</p>
+
+      <h2>Comment fonctionne le vibe coding ?</h2>
+
+      <p>La boucle tient en quatre temps, et elle se répète des dizaines de fois par séance.</p>
+
+      <p><strong>Vous décrivez.</strong> En français ou en anglais, ce que le programme doit faire, avec quelles entrées et quelles sorties. Plus la description est précise sur le résultat attendu, moins vous ferez d'allers-retours.</p>
+
+      <p><strong>Le modèle produit.</strong> Il écrit les fichiers, installe les dépendances nécessaires, et souvent lance lui-même le programme pour vérifier qu'il démarre.</p>
+
+      <p><strong>Vous testez.</strong> Pas en lisant le code, en l'utilisant. Vous donnez un vrai fichier, vous cliquez sur les vrais boutons, vous regardez si le résultat est celui que vous attendiez.</p>
+
+      <p><strong>Vous corrigez en décrivant.</strong> « Le tableau ne trie pas dans le bon ordre », « il plante quand le fichier est vide », « ajoute une colonne avec la date ». Le modèle relit son propre code et corrige.</p>
+
+      <p>Ce cycle est le cœur de la pratique, et c'est aussi là que se joue la réussite ou l'échec. Un utilisateur qui teste sérieusement, avec de vrais cas et de vraies données bancales, obtient un outil solide. Un utilisateur qui teste le cas idéal obtient un outil qui casse au premier fichier mal formé.</p>
+
+      <h3>Pourquoi ça fonctionne seulement maintenant</h3>
+
+      <p>Trois évolutions se sont rejointes. Les modèles écrivent du code nettement plus juste qu'il y a deux ans. Ils tiennent des contextes beaucoup plus longs, donc gardent en tête un projet entier plutôt qu'un fichier isolé. Et surtout, ils sont devenus des agents : ils exécutent les commandes, lisent les messages d'erreur et corrigent seuls, au lieu de se contenter de proposer du texte.</p>
+
+      <p>Cette troisième évolution est la vraie bascule. Un modèle qui voit son erreur et la répare change la nature du travail : vous n'êtes plus l'intermédiaire qui copie des messages d'erreur, vous êtes le commanditaire qui juge le résultat.</p>
+
+      <h2>Quels outils de vibe coding utiliser ?</h2>
+
+      <p>Trois familles, et le choix dépend surtout de votre point de départ.</p>
+
+      <h3>Les agents en terminal</h3>
+
+      <p>Ce sont les plus puissants. Ils travaillent directement dans un dossier de votre machine, créent et modifient les fichiers, lancent les commandes, lisent les erreurs. Claude Code appartient à cette catégorie, et c'est celui que j'utilise.</p>
+
+      <p>Leur force est l'autonomie : on peut leur confier une tâche longue et les laisser dérouler. Leur défaut est l'entrée en matière, qui suppose d'être à l'aise avec un terminal. Pour quelqu'un qui n'a jamais ouvert de ligne de commande, ce n'est pas la première marche.</p>
+
+      <h3>Les éditeurs augmentés</h3>
+
+      <p>Un éditeur de code classique dans lequel un assistant est intégré profondément : il voit tout le projet, propose des modifications sur plusieurs fichiers et applique les changements après validation.</p>
+
+      <p>C'est le bon compromis pour qui veut garder un œil sur ce qui se passe. On voit les fichiers, on voit les différences avant de les accepter, et on peut intervenir à la main quand c'est plus rapide. C'est la porte d'entrée que je conseille à quelqu'un qui a déjà des notions.</p>
+
+      <h3>Les plateformes tout-en-un</h3>
+
+      <p>Vous décrivez une application dans un navigateur, elle est générée, hébergée et mise en ligne sans que vous voyiez jamais un fichier. C'est la voie la plus accessible pour un débutant complet, et la plus rapide pour montrer une idée à quelqu'un.</p>
+
+      <p>Le prix à payer est la dépendance : votre application vit chez un prestataire, avec ses limites et ses tarifs. Pour un prototype ou un outil interne, c'est parfaitement acceptable. Pour un produit que vous comptez faire vivre des années, la question de la portabilité doit être posée dès le premier jour.</p>
+
+      <h3>Comment choisir</h3>
+
+      <p>Une règle simple : partez du plus accessible et montez quand vous butez. Si vous n'avez jamais programmé, commencez par une plateforme, livrez quelque chose, prenez confiance. Si vous connaissez un peu, prenez un éditeur augmenté. Si vous êtes déjà technique, l'agent en terminal vous donnera un plafond bien plus haut.</p>
+
+      <p>Ne cherchez pas l'outil parfait, ils progressent tous vite et se ressemblent de plus en plus. Ce qui fait la différence dans le résultat, c'est la façon de commander, pas la marque.</p>
+
+      <h2>Quels sont les avantages du vibe coding ?</h2>
+
+      <p>Quatre gains, dont un seul est vraiment évident.</p>
+
+      <p><strong>La vitesse.</strong> L'évident. Un outil interne qui aurait demandé une semaine se livre en une soirée. Sur du petit périmètre, le facteur est réel et se compte en dizaines.</p>
+
+      <p><strong>L'accessibilité.</strong> Des gens qui ne programmeront jamais peuvent fabriquer l'outil dont ils ont besoin. C'est le changement le plus profond, et il touche des métiers entiers : marketing, comptabilité, logistique, tous ceux qui bricolaient dans un tableur des choses qui méritaient un vrai programme.</p>
+
+      <p><strong>Le prototype comme langage commun.</strong> Montrer une maquette qui fonctionne remplace vingt pages de spécifications que personne ne lit de la même façon. Sur un projet à plusieurs, c'est un accélérateur de décision plus qu'un gain de développement.</p>
+
+      <p><strong>Le droit d'essayer.</strong> Le plus sous-estimé. Quand un essai coûte deux heures au lieu de deux semaines, on tente des choses qu'on n'aurait jamais budgétées. La plupart ne donnent rien, une sur dix change une façon de travailler. Cette économie de l'essai est ce qui a le plus changé ma manière de travailler.</p>
+
+      <h2>Où cette pratique casse</h2>
+
+      <p>Voici la partie que les articles enthousiastes passent sous silence, et c'est pourtant celle qui décide de vos ennuis futurs.</p>
+
+      <h3>La dette invisible</h3>
+
+      <p>Un code que vous ne lisez pas est un code dont vous ignorez la qualité. Tant que le programme fonctionne, l'illusion tient. Le jour où il faut modifier un comportement, ajouter un cas particulier ou comprendre pourquoi un chiffre est faux, l'ignorance se paie d'un coup.</p>
+
+      <p>J'ai vu ce moment plusieurs fois, et il ressemble toujours au même scénario : un outil qui a très bien marché pendant deux mois devient impossible à faire évoluer, parce que personne, ni vous ni le modèle, ne sait plus quelle partie fait quoi.</p>
+
+      <h3>Le mur des deux mille lignes</h3>
+
+      <p>Il existe un seuil, empirique et remarquablement constant, autour d'un à deux milliers de lignes. En dessous, le modèle garde une vue d'ensemble et ses corrections sont chirurgicales. Au-dessus, il commence à réparer un endroit en cassant un autre, parce qu'il ne tient plus la totalité de la logique en tête.</p>
+
+      <p>Ce mur ne s'annonce pas. Il se manifeste par un symptôme précis : vous corrigez un problème, un autre apparaît ailleurs, vous corrigez celui-là, le premier revient. Si vous tournez trois fois dans cette boucle, ce n'est pas un mauvais jour, c'est le signal qu'il faut découper le projet en morceaux plus petits ou faire relire par un humain.</p>
+
+      <h3>La sécurité</h3>
+
+      <p>C'est le point qui devrait retenir le plus d'attention et qui en retient le moins. Un modèle produit du code qui fonctionne, pas nécessairement du code sûr. Les fautes classiques, données non validées, secrets écrits en clair, absence de contrôle sur qui a le droit de faire quoi, ne se voient pas à l'usage : l'application marche parfaitement jusqu'au jour où quelqu'un s'y intéresse.</p>
+
+      <p>La règle que j'applique sans exception : dès qu'un outil est accessible depuis internet ou qu'il manipule des données personnelles, il passe sous les yeux de quelqu'un qui sait lire du code. Ce n'est pas de la prudence excessive, c'est le minimum. L'outil d'évaluation en haut de page vous dit à partir de quand cette relecture devient obligatoire.</p>
+
+      <h3>Le piège du presque fini</h3>
+
+      <p>Le dernier écueil est psychologique. Ces outils amènent très vite à quatre-vingts pour cent du résultat, ce qui donne le sentiment d'avoir presque terminé. Les vingt pour cent restants, les cas limites, la gestion des erreurs, les comportements bizarres, prennent en réalité autant de temps que le reste, voire davantage.</p>
+
+      <p>Ce n'est pas propre à cette pratique, c'est la loi du développement logiciel depuis toujours. Mais la vitesse du début rend la déception plus brutale, et beaucoup de projets s'arrêtent exactement là.</p>
+
+      <h2>Vibe coding pour débutants : comment commencer</h2>
+
+      <p>Voici le chemin que je conseille à quelqu'un qui n'a jamais écrit une ligne de code.</p>
+
+      <h3>Choisir le bon premier projet</h3>
+
+      <p>Le meilleur projet de départ a quatre caractéristiques : il vous sert personnellement, il n'est utilisé que par vous, il ne touche aucune donnée sensible, et vous pouvez le jeter sans conséquence. Un convertisseur de fichier, un tableau de bord personnel, un outil qui range vos photos, un calculateur métier.</p>
+
+      <p>Le pire projet de départ est celui qui a des utilisateurs, des enjeux d'argent ou des données de clients. Ce n'est pas une question de difficulté technique, c'est une question de coût de l'erreur pendant que vous apprenez.</p>
+
+      <h3>Les cinq règles qui changent tout</h3>
+
+      <ul>
+        <li><strong>Décrivez le résultat, pas la méthode.</strong> Dites ce que le programme doit produire, pas comment vous imaginez qu'il devrait s'y prendre. Vous vous tromperez plus souvent que lui sur le comment.</li>
+        <li><strong>Une demande à la fois.</strong> Cinq changements demandés ensemble donnent cinq changements approximatifs. Un seul donne un résultat net que vous pouvez valider.</li>
+        <li><strong>Testez avec des données réelles et sales.</strong> Le fichier avec des accents, la ligne vide, la date au mauvais format. C'est là que se cachent les défauts.</li>
+        <li><strong>Demandez des tests automatisés dès le début.</strong> Ce sont des petits programmes qui vérifient que le programme principal fait ce qu'il doit. C'est le seul filet qui permette de reprendre un projet trois mois après.</li>
+        <li><strong>Gardez l'historique.</strong> Utilisez un outil de versions, ne serait-ce que pour pouvoir revenir en arrière quand une modification casse tout. Le modèle peut vous le mettre en place en deux minutes.</li>
+      </ul>
+
+      <h3>Les premiers jours, concrètement</h3>
+
+      <p>Prenez un vrai besoin, pas un exercice. Décrivez-le en trois phrases à l'outil de votre choix, laissez-le produire une première version, et utilisez-la immédiatement. Notez ce qui ne va pas, demandez une correction à la fois, recommencez.</p>
+
+      <p>En une soirée, vous aurez quelque chose qui marche. En une semaine, vous aurez compris que la difficulté n'est pas de faire produire du code, mais de savoir dire ce que vous voulez. Cette découverte est le vrai contenu de l'apprentissage.</p>
+
+      <h3>Un exemple complet, du besoin à l'outil</h3>
+
+      <p>Le plus parlant reste un cas réel. Voici, résumé, comment s'est déroulé un outil que j'utilise encore.</p>
+
+      <p><strong>Le besoin.</strong> Je recevais chaque mois des exports de positions de plusieurs clients, dans des formats différents, et je passais une heure à les uniformiser avant de pouvoir les comparer. Un travail sans aucune valeur ajoutée, répété douze fois par an.</p>
+
+      <p><strong>La première consigne.</strong> Trois phrases, pas plus : un programme qui lit tous les fichiers d'un dossier, quel que soit leur format de colonnes, les ramène à un tableau unique avec date, mot-clé, position et domaine, et écrit le résultat dans un seul fichier. La première version est arrivée en quatre minutes et fonctionnait sur deux fichiers sur trois.</p>
+
+      <p><strong>Les corrections.</strong> Le troisième fichier utilisait un point-virgule comme séparateur et des dates au format américain. Deux demandes, deux corrections, dix minutes. Puis un cas que je n'avais pas prévu : certaines lignes n'avaient pas de position, parce que le mot-clé était sorti du classement. J'ai demandé qu'elles soient conservées avec une valeur vide plutôt que supprimées, parce que la disparition d'un mot-clé est précisément l'information intéressante.</p>
+
+      <p><strong>Le filet.</strong> J'ai demandé des tests automatisés couvrant les trois formats et le cas de la ligne vide. Cinq minutes de plus. Ce sont eux qui m'ont permis, quatre mois plus tard, d'ajouter un quatrième format sans rien casser.</p>
+
+      <p><strong>Le bilan.</strong> Une heure de travail au total, une heure économisée chaque mois depuis. Et surtout : je n'aurais jamais écrit ce programme à la main, parce que le calcul de rentabilité ne l'aurait jamais justifié. C'est exactement ce que je voulais dire par l'économie de l'essai.</p>
+
+      <p>Notez ce qui a fait la réussite de ce cas : un périmètre minuscule, aucune donnée sensible, un seul utilisateur, et des tests demandés avant que le projet ne grossisse. Les quatre critères de l'outil d'évaluation, réunis.</p>
+
+      <h3>Ce que ça coûte</h3>
+
+      <p>La question arrive toujours, et la réponse dépend de l'outil choisi.</p>
+
+      <p>Les agents en terminal et les éditeurs augmentés fonctionnent avec un abonnement mensuel, de l'ordre de quelques dizaines d'euros, ou avec une facturation à l'usage. Pour un usage individuel régulier, l'abonnement est presque toujours plus avantageux, et il rend la dépense prévisible, ce qui compte quand on débute et qu'on ne sait pas doser.</p>
+
+      <p>Les plateformes tout-en-un facturent souvent à la fois la génération et l'hébergement. C'est confortable au début et cela devient le poste à surveiller si l'application prend de l'ampleur, d'autant que la migration ailleurs n'est pas toujours simple.</p>
+
+      <p>Le vrai coût est ailleurs, et il est en temps. Une séance productive de deux heures produit un outil ; une séance mal engagée produit trois heures de corrections en boucle et un projet abandonné. La différence tient presque toujours à la clarté de la description initiale, ce qui est une bonne nouvelle : c'est le seul paramètre que vous contrôlez entièrement.</p>
+
+      <h2>Comment apprendre le vibe coding</h2>
+
+      <p>Il n'y a pas grand-chose à apprendre au sens scolaire, et beaucoup à pratiquer. La compétence ne porte pas sur une syntaxe, elle porte sur trois choses.</p>
+
+      <p><strong>Savoir spécifier.</strong> Décomposer un besoin flou en comportements précis, envisager les cas limites avant qu'ils ne surviennent, dire ce que le programme doit faire quand les choses se passent mal. C'est le métier d'analyste, et il n'a jamais été aussi utile.</p>
+
+      <p><strong>Savoir juger.</strong> Reconnaître un résultat faux, un comportement suspect, une réponse trop belle. Cela s'acquiert en testant beaucoup, sur ses propres données, avec l'obsession du cas tordu.</p>
+
+      <p><strong>Comprendre les concepts, pas la syntaxe.</strong> Vous n'avez pas besoin de savoir écrire une boucle. Vous avez besoin de savoir ce qu'est une base de données, pourquoi on ne stocke pas un mot de passe en clair, ce qu'est une clé d'API et pourquoi elle ne se met pas dans une page web. Une dizaine de notions de ce type couvre l'essentiel des erreurs graves.</p>
+
+      <p>La meilleure formation reste donc un projet réel dont le résultat vous importe. Les cours théoriques sur la manière de formuler des consignes vieillissent en quelques mois ; la capacité à spécifier et à juger ne vieillit pas.</p>
+
+      <h2>Quels emplois et quelles carrières</h2>
+
+      <p>La question qui inquiète, alors répondons franchement.</p>
+
+      <p><strong>Le métier de développeur ne disparaît pas, il se déplace vers le haut.</strong> Écrire la première version d'un programme perd de la valeur ; concevoir une architecture qui tiendra, relire du code produit par une machine, garantir la sécurité et arbitrer les compromis en gagne. Le travail se déplace de la production vers la conception et le contrôle.</p>
+
+      <p>Deux profils voient leur situation s'améliorer nettement. Les développeurs expérimentés, dont le jugement devient le goulot d'étranglement et donc la ressource rare. Et les experts métier qui savent maintenant fabriquer leurs propres outils sans passer par une file d'attente informatique : un contrôleur de gestion qui produit son tableau de bord, un juriste qui automatise un tri de documents.</p>
+
+      <p>Le profil fragilisé est celui du développeur junior cantonné à des tâches simples et répétitives, exactement celles que ces outils font le mieux. Le conseil qui en découle est brutal mais utile : ne construisez pas votre valeur sur la production de code, construisez-la sur la compréhension des systèmes et sur la capacité à décider.</p>
+
+      <p>Un nouveau rôle apparaît, encore mal nommé, qui tient de l'analyste et du chef de produit technique : quelqu'un qui sait traduire un besoin métier en spécification exécutable, faire produire, et vérifier. Ce n'est pas un métier créé de toutes pièces, c'est un métier qui existait à la marge et qui passe au centre.</p>
+
+      <h3>À qui appartient le code produit</h3>
+
+      <p>La question revient dans toutes mes formations en entreprise, et elle mérite une réponse nette plutôt qu'un haussement d'épaules.</p>
+
+      <p>Le code généré vous revient, dans les conditions prévues par les conditions d'utilisation du service que vous employez. C'est le cas chez les principaux éditeurs, mais cela se vérifie avant de bâtir un produit dessus, pas après. Lisez la clause de propriété du service, une fois, et archivez-la.</p>
+
+      <p>Deux points appellent plus d'attention. <strong>Les dépendances</strong> d'abord : un modèle installe volontiers des bibliothèques tierces, qui viennent chacune avec leur licence. Certaines interdisent un usage commercial sans contrepartie. Demandez la liste des dépendances et de leurs licences, c'est une question à laquelle l'outil répond en quelques secondes. <strong>Vos données</strong> ensuite : si vous collez des extraits de fichiers clients dans une conversation, ces contenus quittent votre système. Pour un usage professionnel, cette question se règle au niveau de l'organisation et du contrat, pas au niveau de l'utilisateur.</p>
+
+      <p>Rien de tout cela n'est bloquant. Mais une entreprise qui découvre ces sujets après avoir mis un outil en production les découvre toujours au mauvais moment.</p>
+
+      <h2>Ce que j'en fais concrètement</h2>
+
+      <p>Je m'en sers tous les jours, et toujours dans le même périmètre : des outils internes, pour moi ou pour un client, qui ne manipulent pas de données sensibles et dont l'échec ne coûte qu'une matinée.</p>
+
+      <p>Des exemples réels : un script qui compare deux exports de crawl et me sort les URL qui ont changé de statut, un générateur de fichiers de redirections à partir d'un tableau, un petit tableau de bord qui agrège les positions de plusieurs clients, les outils interactifs que vous trouvez dans mes articles. Aucun de ces programmes n'existerait si j'avais dû les écrire à la main : ils n'auraient jamais valu le temps qu'ils auraient coûté.</p>
+
+      <p>Ce que je ne fais pas : le site d'un client, une application avec des comptes utilisateurs, tout ce qui touche à un paiement. Pas par principe, mais parce que je sais que je ne relirai pas le code assez sérieusement pour engager ma responsabilité dessus.</p>
+
+      <p>La ligne est là, et elle est simple à retenir : <strong>fabriquez tout ce dont l'échec ne coûte qu'à vous.</strong> Pour le reste, servez-vous de ces outils pour aller vite, mais faites relire par quelqu'un dont c'est le métier.</p>
+
+
+      <!-- MAILLAGE À AJOUTER APRÈS PUBLICATION DES CIBLES :
+           - /blog/automatiser-seo-claude-code (28/10/2026)
+           - /blog/mcp-model-context-protocol (21/10/2026)
+      -->
+
+      <!-- ================= FAQ ================= -->
+      <section class="faq">
+        <h2>Questions fréquentes</h2>
+
+        <details>
+          <summary>Qu'est-ce que le vibe coding ?</summary>
+          <div class="faq-a"><p>C'est une manière de programmer où l'on décrit en langage naturel ce qu'un programme doit faire, et où un modèle écrit le code correspondant. La différence avec l'autocomplétion classique est que vous ne lisez plus forcément le code produit : vous exécutez, vous constatez le résultat et vous corrigez en reformulant. Le programme est jugé par son comportement plutôt que par sa lecture.</p></div>
+        </details>
+
+        <details>
+          <summary>Comment fonctionne le vibe coding ?</summary>
+          <div class="faq-a"><p>En une boucle de quatre temps répétée des dizaines de fois. Vous décrivez le résultat attendu, le modèle produit les fichiers et lance souvent le programme lui-même, vous testez en utilisant l'outil plutôt qu'en lisant son code, puis vous corrigez en décrivant ce qui ne va pas. La qualité du résultat dépend surtout du sérieux des tests : des données réelles et bancales donnent un outil solide.</p></div>
+        </details>
+
+        <details>
+          <summary>Quels outils de vibe coding utiliser ?</summary>
+          <div class="faq-a"><p>Trois familles existent. Les agents en terminal, comme Claude Code, sont les plus puissants et les plus autonomes mais supposent d'être à l'aise en ligne de commande. Les éditeurs augmentés offrent le bon compromis, avec la visibilité sur les fichiers modifiés. Les plateformes tout-en-un génèrent et hébergent l'application sans que vous voyiez un fichier, au prix d'une dépendance au prestataire.</p></div>
+        </details>
+
+        <details>
+          <summary>Quels sont les avantages du vibe coding ?</summary>
+          <div class="faq-a"><p>La vitesse d'abord : un outil interne d'une semaine se livre en une soirée. L'accessibilité ensuite, puisque des personnes qui ne programmeront jamais peuvent fabriquer leurs propres outils. Le prototype comme langage commun, qui remplace des pages de spécifications. Et le droit d'essayer : quand un essai coûte deux heures au lieu de deux semaines, on tente des choses qu'on n'aurait jamais budgétées.</p></div>
+        </details>
+
+        <details>
+          <summary>Vibe coding pour débutants, comment commencer ?</summary>
+          <div class="faq-a"><p>Choisissez un projet qui vous sert personnellement, que vous seul utilisez, sans données sensibles et que vous pouvez jeter sans conséquence. Décrivez-le en trois phrases, laissez produire une première version et utilisez-la immédiatement. Puis appliquez cinq règles : décrire le résultat plutôt que la méthode, une demande à la fois, tester avec des données réelles et sales, demander des tests automatisés dès le début, et garder un historique des versions.</p></div>
+        </details>
+
+        <details>
+          <summary>Comment apprendre le vibe coding ?</summary>
+          <div class="faq-a"><p>Par la pratique sur un projet réel, pas par un cours. La compétence porte sur trois choses : savoir spécifier, c'est-à-dire décomposer un besoin flou en comportements précis ; savoir juger, c'est-à-dire reconnaître un résultat faux ; et comprendre une dizaine de concepts fondamentaux comme la raison pour laquelle un mot de passe ne se stocke pas en clair. La syntaxe, elle, n'est plus nécessaire.</p></div>
+        </details>
+
+        <details>
+          <summary>Quelles sont les limites du vibe coding ?</summary>
+          <div class="faq-a"><p>Trois limites sérieuses. La dette invisible, puisqu'un code que vous ne lisez pas est un code dont vous ignorez la qualité. Le mur des un à deux mille lignes, au-delà duquel le modèle répare un endroit en cassant un autre. Et la sécurité, car un modèle produit du code qui fonctionne, pas nécessairement du code sûr : les données non validées et les secrets en clair ne se voient pas à l'usage.</p></div>
+        </details>
+
+        <details>
+          <summary>Quels sont les emplois liés au vibe coding ?</summary>
+          <div class="faq-a"><p>Le métier de développeur ne disparaît pas, il se déplace vers la conception, la relecture et la garantie de sécurité. Les développeurs expérimentés voient leur jugement devenir la ressource rare, et les experts métier peuvent désormais fabriquer leurs propres outils. Le profil fragilisé est celui du développeur junior cantonné aux tâches répétitives, précisément celles que ces outils font le mieux.</p></div>
+        </details>
+      </section>
+
+      <!-- ================= CTA ================= -->
+      <div class="cta-band">
+        <div>
+          <h2>Faire développer proprement</h2>
+          <p>Je conçois les outils sur mesure qui méritent de durer, avec les tests et la relecture que suppose une mise en production.</p>
+        </div>
+        <a class="btn btn-lime" href="/automatisation-ia">Voir comment je travaille <span class="ar">→</span></a>
+      </div>
+
+      <!-- ================= AUTEUR ================= -->
+      <div class="author-box">
+        <img src="/images/anthony.avif" alt="Anthony Courtin" width="88" height="88" loading="lazy">
+        <div>
+          <p class="eyebrow">Écrit par</p>
+          <h3>Anthony Courtin</h3>
+          <p class="author-role">Consultant SEO, GEO &amp; automatisation IA</p>
+          <p class="author-bio">J'accompagne des PME et des indépendants sur la visibilité (Google, ChatGPT, Perplexity) et sur l'usage réel de l'IA au travail. J'interviens en entreprise pour former les équipes et repenser les process. Tout ce que j'écris ici, je l'utilise en mission.</p>
+          <div class="author-links">
+            <a class="li" href="https://www.linkedin.com/in/anthony-courtin/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56z"/></svg>
+              Me suivre sur LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= AVIS LECTEURS ================= -->
+      <section class="reviews" data-slug="vibe-coding" data-reviews="[]">
+        <h2>Avis des lecteurs</h2>
+        <p class="rv-sub">Cet article vous a servi ? Dites-le, ça aide les suivants.</p>
+
+        <form class="rv-form" name="avis" method="POST" data-netlify="true" netlify-honeypot="societe" action="/merci">
+          <input type="hidden" name="form-name" value="avis">
+          <input type="hidden" name="article" value="vibe-coding">
+          <p class="rv-hp"><label>Ne remplissez pas ce champ : <input name="societe" tabindex="-1" autocomplete="off"></label></p>
+
+          <h3>Notez cet article</h3>
+
+          <fieldset class="rating-field">
+            <legend>Votre note</legend>
+            <div class="rating">
+              <input type="radio" id="n5" name="note" value="5"><label for="n5" aria-label="5 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n4" name="note" value="4"><label for="n4" aria-label="4 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n3" name="note" value="3"><label for="n3" aria-label="3 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n2" name="note" value="2"><label for="n2" aria-label="2 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n1" name="note" value="1"><label for="n1" aria-label="1 étoile"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="rv-nom">Prénom <span class="hint">(facultatif)</span></label>
+            <input type="text" id="rv-nom" name="nom" maxlength="60" autocomplete="given-name">
+          </div>
+
+          <div class="field">
+            <label for="rv-texte">Votre commentaire <span class="hint">(facultatif)</span></label>
+            <textarea id="rv-texte" name="texte" rows="4" maxlength="2000"></textarea>
+          </div>
+
+          <div class="rv-msg" id="rv-msg" role="status"></div>
+          <div><button type="submit" class="btn-sm primary">Publier mon avis</button></div>
+        </form>
+
+        <div class="rv-published">
+          <h3 class="rv-published-title">Ce qu'en disent les lecteurs</h3>
+          <div class="rv-summary">
+            <span class="rv-avg" id="rv-avg"></span>
+            <span class="stars" id="rv-stars" aria-hidden="true"></span>
+            <span class="rv-count" id="rv-count">Aucun avis pour le moment.</span>
+          </div>
+          <div class="rv-list" id="rv-list"></div>
+          <p class="rv-empty" id="rv-empty">Soyez le premier à donner votre avis.</p>
+        </div>
+      </section>
+
+    </article>
+  </div>
+
+  <!-- ---------- COLONNE DROITE : résumé IA + articles liés ---------- -->
+  <aside class="rail rail-right">
+    <div class="ai-box">
+      <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
+      <p class="ai-text">Le vibe coding consiste à décrire en langage naturel ce qu'un programme doit faire et à laisser un modèle écrire le code, en jugeant le résultat à l'usage plutôt qu'à la lecture. La boucle tient en quatre temps : décrire, produire, tester, corriger en reformulant. Trois familles d'outils existent : agents en terminal, éditeurs augmentés et plateformes tout-en-un. La pratique est redoutablement efficace sur les outils internes, jetables et sans données sensibles, mais casse sur trois points : la dette invisible d'un code non lu, un mur situé autour d'un à deux mille lignes, et la sécurité. La règle : fabriquez tout ce dont l'échec ne coûte qu'à vous.</p>
+      <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
+    </div>
+
+    <div class="rail-recent">
+      <p class="rail-title">Dans la même catégorie</p>
+      <div class="mini-list">
+        <a class="mini" href="/blog/claude-code">
+          <span class="mini-thumb"><!-- TODO: visuel article --></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Claude Code, le guide</span></span>
+        </a>
+        <a class="mini" href="/blog/n8n">
+          <span class="mini-thumb"><!-- TODO: visuel article --></span>
+          <span><span class="mini-cat">Automatisation</span><span class="mini-ttl">n8n, no-code ou code</span></span>
+        </a>
+        <a class="mini" href="/blog/agent-ia">
+          <span class="mini-thumb"><!-- TODO: visuel article --></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Agent IA : la grille</span></span>
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- ================= ARTICLES LIÉS ================= -->
+<section class="related">
+  <div class="wrap">
+    <h2>À lire ensuite</h2>
+    <p class="sub">La suite logique du parcours.</p>
+    <div class="rel-grid">
+      <a class="rel-card" href="/blog/claude-code">
+        <!-- TODO: visuel article -->
+        <div class="rel-body">
+          <span class="rel-cat">Utiliser l'IA</span>
+          <h3>Claude Code : le guide complet</h3>
+          <p>L'agent de développement d'Anthropic, sa configuration et ce qu'il change au quotidien.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="/blog/n8n">
+        <!-- TODO: visuel article -->
+        <div class="rel-body">
+          <span class="rel-cat">Automatisation</span>
+          <h3>n8n : no-code ou code, le comparateur sur trois ans</h3>
+          <p>Ce que coûte vraiment chaque approche une fois la maintenance comptée.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="/blog/agent-ia">
+        <!-- TODO: visuel article -->
+        <div class="rel-body">
+          <span class="rel-cat">Utiliser l'IA</span>
+          <h3>Agent IA : la grille d'éligibilité d'un process</h3>
+          <p>Quels processus méritent un agent, lesquels n'en ont pas besoin, et comment trancher.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="foot-logo" href="/"><img src="/images/logo-transparent-pine.svg" alt="anthony courtin" width="98" height="48"></a>
+        <p style="color:var(--ink-2);font-size:.95rem;margin-top:12px;max-width:280px">Consultant SEO, GEO &amp; automatisation IA. Interventions partout en France.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul><li><a href="/seo">SEO</a></li><li><a href="/geo">GEO, visibilité IA</a></li><li><a href="/automatisation-ia">Automatisation IA</a></li><li><a href="/tarifs">Tarifs</a></li></ul>
+      </div>
+      <div>
+        <h4>Ressources</h4>
+        <ul><li><a href="/blog/">Blog</a></li><li><a href="/realisations">Réalisations</a></li><li><a href="/a-propos">À propos</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul><li><a href="/contact">Formulaire</a></li><li><a href="mailto:anthony@astrak.agency">anthony@astrak.agency</a></li><li><a href="https://www.linkedin.com/in/anthony-courtin/" rel="noopener">LinkedIn</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Anthony Courtin</span>
+      <span><a href="/mentions-legales">Mentions légales</a> · <a href="/confidentialite">Confidentialité</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/site.js?v=2" defer></script>
+<script src="/js/blog-article.js?v=3" defer></script>
+
+<!-- Outil interactif propre à cet article -->
+<script src="/js/vibe-coding-tool.js?v=1" defer></script>
+
+</body>
+</html>
