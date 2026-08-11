@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude pour le SEO : mes cas d'usage en mission</title>
+<meta name="description" content="Audit technique, briefs, analyse concurrentielle : ce que je délègue vraiment à Claude en SEO, les prompts que j'utilise et les cas où je ne l'utilise pas.">
+<link rel="canonical" href="https://anthony-courtin.com/blog/claude-pour-seo">
+<link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script src="/js/favicon-anim.js?v=2" defer></script>
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Claude pour le SEO : mes cas d'usage en mission">
+<meta property="og:description" content="Ce que Claude fait bien en SEO et ce qu'il fait mal, avec un générateur de prompts prêts à l'emploi tirés de mes missions réelles.">
+<meta property="og:url" content="https://anthony-courtin.com/blog/claude-pour-seo">
+<meta property="og:image" content="https://anthony-courtin.com/images/blog/claude-pour-seo-cover.webp">
+<meta property="og:locale" content="fr_FR">
+<meta property="article:published_time" content="2026-10-14">
+<meta property="article:modified_time" content="2026-10-14">
+<meta property="article:author" content="Anthony Courtin">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/main.css?v=2">
+<link rel="stylesheet" href="/css/blog-article.css?v=3">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"BlogPosting",
+      "@id":"https://anthony-courtin.com/blog/claude-pour-seo#article",
+      "headline":"Claude pour le SEO : ce que je lui délègue vraiment",
+      "description":"Usages réels de Claude pour le SEO : audit technique à partir d'un crawl, briefs de contenu, analyse concurrentielle, connexion aux outils via MCP, bonnes pratiques de prompt et limites à connaître.",
+      "inLanguage":"fr-FR",
+      "datePublished":"2026-10-14",
+      "dateModified":"2026-10-14",
+      "image":"https://anthony-courtin.com/images/blog/claude-pour-seo-cover.webp",
+      "wordCount":2000,
+      "mainEntityOfPage":{"@type":"WebPage","@id":"https://anthony-courtin.com/blog/claude-pour-seo"},
+      "author":{"@id":"https://anthony-courtin.com/#anthony"},
+      "publisher":{"@id":"https://anthony-courtin.com/#anthony"},
+      "about":[{"@type":"Thing","name":"Claude"},{"@type":"Thing","name":"SEO"},{"@type":"Thing","name":"Audit SEO"},{"@type":"Thing","name":"Intelligence artificielle"},{"@type":"Thing","name":"Automatisation"}]
+    },
+    {
+      "@type":"Person",
+      "@id":"https://anthony-courtin.com/#anthony",
+      "name":"Anthony Courtin",
+      "jobTitle":"Consultant SEO, GEO et automatisation IA",
+      "url":"https://anthony-courtin.com/a-propos",
+      "image":"https://anthony-courtin.com/images/anthony.avif",
+      "sameAs":["https://www.linkedin.com/in/anthony-courtin/"]
+    },
+    {
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Accueil","item":"https://anthony-courtin.com/"},
+        {"@type":"ListItem","position":2,"name":"Blog","item":"https://anthony-courtin.com/blog/"},
+        {"@type":"ListItem","position":3,"name":"Claude pour le SEO"}
+      ]
+    },
+    {
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"Comment utiliser Claude pour le SEO ?",
+         "acceptedAnswer":{"@type":"Answer","text":"La règle qui décide de tout : donnez-lui la donnée, pas la question. Demandez un volume de recherche et il inventera un nombre plausible ; donnez-lui votre export et il produira une analyse juste. Concrètement, chaque session commence par un fichier : un crawl, un export de la Search Console, le contenu de pages concurrentes ou la liste de vos URL."}},
+        {"@type":"Question","name":"Comment auditer son SEO avec Claude ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Lancez un crawl, donnez-lui l'export et demandez un classement en trois niveaux : ce qui bloque l'indexation, ce qui pénalise, ce qui est cosmétique. Exigez le nombre d'URL touchées par problème et interdisez toute recommandation dont l'effet n'est pas mesurable. Croisez ensuite avec la Search Console : les pages explorées mais sans impression révèlent presque toujours un contenu trop mince ou une cannibalisation."}},
+        {"@type":"Question","name":"Quels outils SEO peut-on brancher sur Claude ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Un crawler pour explorer le site, la Search Console pour les impressions et les positions, l'accès à vos fichiers pour lire le code réel, et un outil sémantique pour confronter un texte à une cible de vocabulaire. La connexion passe par le protocole MCP, ce qui évite le copier-coller et permet au modèle d'interroger les outils directement."}},
+        {"@type":"Question","name":"Quelles sont les meilleures pratiques SEO avec Claude ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Imposez un format de sortie, sinon vous recevrez une dissertation. Interdisez explicitement l'invention en donnant une issue de secours au modèle. Travaillez sur vos vraies pages plutôt que sur des exemples. Donnez le contexte commercial, car un mot-clé n'a pas la même valeur selon l'activité. Et relisez ligne à ligne tout ce qui sera publié sous votre nom."}},
+        {"@type":"Question","name":"Comment Claude améliore-t-il le référencement ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Par trois effets cumulés. La vitesse d'analyse, qui divise par trois ou quatre le temps d'un audit. La régularité, car les contrôles de maillage ou de balises finissent par être faits quand ils coûtent vingt minutes au lieu de trois heures. Et la qualité de structure des contenus, qui est ce qui manque le plus souvent aux pages qui ne se classent pas."}},
+        {"@type":"Question","name":"Quels prompts utiliser avec Claude pour le SEO ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Un bon prompt tient en quatre parties : le rôle qui cadre le registre, le travail attendu numéroté avec un livrable par point, les règles qui interdisent les dérives connues, et le contexte c'est-à-dire vos données. Ce qui distingue un prompt efficace n'est pas sa longueur mais la présence de règles négatives : dire ce qu'on ne veut pas fonctionne mieux que multiplier les précisions."}},
+        {"@type":"Question","name":"Quels sont les avantages de Claude pour un consultant SEO ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Le gain de temps se situe entre trois et huit heures par semaine dans mon cas, essentiellement sur l'analyse et la mise en forme, pas sur la rédaction où le temps se déplace vers la relecture. Le gain principal est ailleurs : les tâches ingrates sont désormais faites systématiquement au lieu d'être faites quand il reste du temps."}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+<div id="read-progress"></div>
+
+<!-- ================= HEADER (identique au reste du site v2) ================= -->
+<header class="site">
+  <div class="nav-shell">
+    <nav class="main" aria-label="Navigation principale">
+      <a class="logo" href="/"><img src="/images/logo-transparent-cream.svg" alt="anthony courtin" width="86" height="42"></a>
+      <div class="nav-links">
+        <div class="nav-item"><a href="/seo">SEO</a></div>
+        <div class="nav-item"><a href="/geo">GEO, visibilité IA</a></div>
+        <div class="nav-item"><a href="/automatisation-ia">Automatisation IA</a></div>
+        <div class="nav-item"><a href="/blog/">Blog</a></div>
+        <div class="nav-item"><a href="/tarifs">Tarifs</a></div>
+      </div>
+      <button class="burger" id="burger" type="button" aria-label="Menu">☰</button>
+      <a class="nav-cta" href="/contact">Travailler avec moi</a>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="/seo">SEO</a>
+        <a href="/geo">GEO, visibilité IA</a>
+        <a href="/automatisation-ia">Automatisation IA</a>
+        <a href="/blog/">Blog</a>
+        <a href="/tarifs">Tarifs</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= EN-TÊTE D'ARTICLE ================= -->
+<section class="art-top">
+  <div class="wrap">
+    <nav class="crumb" aria-label="Fil d'Ariane">
+      <a href="/">Accueil</a><span aria-hidden="true">/</span>
+      <a href="/blog/">Blog</a><span aria-hidden="true">/</span>
+      <span>Claude pour le SEO</span>
+    </nav>
+
+    <span class="art-cat">SEO</span>
+    <h1 class="art-title">Claude pour le SEO : ce que je lui délègue vraiment</h1>
+    <p class="art-lede">Trois usages tiennent en mission : l'audit technique, la production de contenu et l'analyse concurrentielle. Le reste fait perdre du temps. Voici la ligne de partage, et mes prompts.</p>
+
+    <div class="art-metaline">
+      <span class="who">
+        <img src="/images/anthony.avif" alt="" width="38" height="38" loading="lazy">
+        Anthony Courtin
+      </span>
+      <span class="dot" aria-hidden="true">·</span>
+      <time datetime="2026-10-14">14 octobre 2026</time>
+      <span class="dot" aria-hidden="true">·</span>
+      <span>10 min de lecture</span>
+      <span class="dot" aria-hidden="true">·</span>
+      <span>Mis à jour le <time datetime="2026-10-14">14 octobre 2026</time></span>
+    </div>
+
+    <!-- Boutons "Résumer avec" : les href sont construits par blog-article.js -->
+    <div class="ai-actions">
+      <span class="ai-actions__title">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>
+        Résumer avec
+      </span>
+      <ul class="ai-actions__list">
+        <li><a class="ai-btn" data-ai="chatgpt" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec ChatGPT">ChatGPT</a></li>
+        <li><a class="ai-btn" data-ai="claude" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Claude">Claude</a></li>
+        <li><a class="ai-btn" data-ai="perplexity" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Perplexity">Perplexity</a></li>
+        <li><a class="ai-btn" data-ai="gemini" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Gemini">Gemini</a></li>
+        <li><a class="ai-btn" data-ai="mistral" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Le Chat de Mistral">Le Chat</a></li>
+        <li><a class="ai-btn" data-ai="grok" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Grok">Grok</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GRILLE 3 COLONNES ================= -->
+<div class="art-layout">
+
+  <!-- ---------- COLONNE GAUCHE : sommaire + partage ---------- -->
+  <aside class="rail rail-left">
+    <details class="toc-box" open>
+      <summary><span class="rail-title">Sommaire</span><span class="toc-chevron" aria-hidden="true"></span></summary>
+      <nav class="toc" id="toc" aria-label="Sommaire de l'article">
+        <p class="toc-empty">Chargement…</p>
+      </nav>
+    </details>
+
+    <div class="share-box">
+      <p class="rail-title">Partager</p>
+      <ul class="share">
+        <li><a class="share-btn share-linkedin" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur LinkedIn"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56z"/></svg></a></li>
+        <li><a class="share-btn share-x" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur X"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.96 6.82H1.68l7.73-8.84L1.25 2.25h6.83l4.71 6.23zm-1.16 17.52h1.83L7.08 4.13H5.12z"/></svg></a></li>
+        <li><a class="share-btn share-whatsapp" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur WhatsApp"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m5.8 14.16c-.25.69-1.43 1.31-1.98 1.4-.53.08-1.19.11-1.92-.12-.44-.14-1.01-.33-1.74-.64-3.06-1.32-5.06-4.4-5.21-4.6-.15-.2-1.25-1.66-1.25-3.16s.79-2.25 1.07-2.55c.28-.31.61-.38.81-.38h.58c.19 0 .44-.07.69.53.25.61.86 2.11.94 2.26.08.15.13.33.02.53-.1.2-.16.33-.31.5l-.46.54c-.15.15-.31.32-.13.63.18.31.79 1.3 1.69 2.11 1.16 1.03 2.14 1.35 2.45 1.5.31.15.49.13.67-.08.18-.2.77-.9.98-1.21.2-.31.41-.26.69-.15.28.1 1.78.84 2.09.99.31.15.51.23.59.36.08.13.08.74-.17 1.44"/></svg></a></li>
+        <li><a class="share-btn share-email" href="#" rel="nofollow" aria-label="Partager par e-mail"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m0 4-8 5-8-5V6l8 5 8-5z"/></svg></a></li>
+        <li><button class="share-btn share-copy" type="button" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2m0 16H8V7h11z"/></svg></button></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- ---------- COLONNE CENTRALE : le contenu ---------- -->
+  <div class="art-main">
+
+    <!-- Résumé IA version mobile : rendu côté serveur, donc lisible par Google et les LLM -->
+    <div class="ai-box ai-box-mobile">
+      <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
+      <p class="ai-text">Claude sert utilement au SEO sur trois usages : l'audit technique à partir d'un crawl, la production de contenu et l'analyse concurrentielle. La règle qui décide de tout est de lui donner la donnée plutôt que la question, car un modèle qui doit deviner un chiffre l'invente. L'audit est le meilleur point d'entrée, car fastidieux, vérifiable et sans risque éditorial. Brancher les outils via le protocole MCP évite le copier-coller et permet d'interroger crawler, Search Console et fichiers directement. Un prompt efficace impose un format de sortie et contient des règles négatives explicites. Le gain se situe entre trois et huit heures par semaine, surtout sur l'analyse.</p>
+      <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
+    </div>
+
+    <article class="art-body">
+
+      <figure>
+        <picture>
+          <source srcset="/images/blog/claude-pour-seo-cover.avif" type="image/avif">
+          <img src="/images/blog/claude-pour-seo-cover.webp" alt="Illustration abstraite d'une loupe de verre sur une trame, image de Claude appliqué au SEO" width="1376" height="768" fetchpriority="high" decoding="async">
+        </picture>
+      </figure>
+
+      <p><strong>Claude sert au SEO à trois endroits précis : l'audit technique, la production de contenu et l'analyse concurrentielle.</strong> Partout ailleurs, il fait perdre du temps ou produit du texte qu'il faudra réécrire. La différence entre les deux tient moins au modèle qu'à la manière de lui donner du travail.</p>
+
+      <p>Voici ce que je lui délègue réellement en mission, avec les prompts que j'utilise et les cas où je ne l'utilise pas.</p>
+
+      <div class="verdict">
+        <div class="verdict-note">
+          <b>3</b>
+          <span>usages qui tiennent</span>
+        </div>
+        <div class="verdict-body">
+          <h2>Ce que Claude fait bien, et ce qu'il fait mal</h2>
+          <p>Il excelle sur les tâches où le raisonnement porte sur des données que vous lui fournissez. Il échoue dès qu'il faut connaître un état du monde qu'il n'a pas sous les yeux.</p>
+          <div class="verdict-lists">
+            <ul class="verdict-pros">
+              <li>Analyser un crawl et hiérarchiser les correctifs</li>
+              <li>Construire un plan et relire avant publication</li>
+              <li>Comparer des textes concurrents sur le fond</li>
+            </ul>
+            <ul class="verdict-cons">
+              <li>Inventer des volumes de recherche ou des positions</li>
+              <li>Écrire un article publiable sans intervention</li>
+            </ul>
+          </div>
+        </div>
+        <p class="verdict-foot">
+          <span class="verdict-price">Gain réel : plusieurs heures par semaine</span>
+          <span>À condition de lui donner la donnée</span>
+        </p>
+      </div>
+
+      <section class="takeaways">
+        <h2>À retenir</h2>
+        <ul>
+          <li><strong>Donnez-lui la donnée, pas la question.</strong> Un modèle qui doit deviner un chiffre l'invente ; un modèle qui lit votre export raisonne juste.</li>
+          <li><strong>L'audit technique est le meilleur point d'entrée</strong> : le travail est fastidieux, vérifiable et sans risque éditorial.</li>
+          <li><strong>Branchez-le sur vos outils</strong> plutôt que de copier-coller : Search Console, crawler et fichiers via le protocole MCP.</li>
+          <li><strong>Un prompt utile impose un format de sortie</strong> et interdit explicitement d'inventer ce qui manque.</li>
+          <li><strong>Il ne remplace pas l'arbitrage.</strong> Décider quelle page mérite un investissement reste un jugement de consultant.</li>
+        </ul>
+      </section>
+
+      <p>Choisissez une tâche, collez votre contexte, et récupérez un prompt prêt à l'emploi. Ce sont ceux que j'utilise en mission.</p>
+
+      <div class="tool" id="outil-claude-seo">
+        <div class="tool-head">
+          <span class="tool-ico" aria-hidden="true">✦</span>
+          <span>
+            <em>Outil interactif</em>
+            <b>Générateur de prompts SEO</b>
+          </span>
+        </div>
+        <div class="tool-body">
+          <div class="field">
+            <label for="cps-tache">Quelle tâche voulez-vous déléguer ?</label>
+            <select id="cps-tache">
+              <option value="audit">Audit technique à partir d'un crawl</option>
+              <option value="brief">Brief de contenu à partir d'un mot-clé</option>
+              <option value="meta">Balises title et meta description</option>
+              <option value="concurrence">Analyse des pages concurrentes</option>
+              <option value="maillage">Plan de maillage interne</option>
+              <option value="citable">Rendre un contenu citable par les IA</option>
+              <option value="redaction">Relecture avant publication</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="cps-contexte">Votre contexte (facultatif)</label>
+            <textarea id="cps-contexte" rows="3" placeholder="Mot-clé, URL, ou extrait de votre texte"></textarea>
+          </div>
+
+          <div class="score">
+            <b id="cps-compteur">0 caractères</b><span>prompt généré</span>
+          </div>
+          <div class="meter"><i id="cps-meter" style="width:0%"></i></div>
+
+          <div class="field">
+            <label for="cps-sortie">Prompt à copier</label>
+            <textarea id="cps-sortie" rows="10" readonly></textarea>
+          </div>
+
+          <div class="tool-actions">
+            <button type="button" class="btn-sm primary" id="cps-copy">Copier le prompt</button>
+            <a class="btn-sm ghost" href="/audit-seo">Faire auditer mon site</a>
+          </div>
+        </div>
+        <div class="tool-foot">
+          <span>Génération locale, rien n'est envoyé.</span>
+          <span>Prompts utilisés en mission, Anthony Courtin</span>
+        </div>
+      </div>
+
+      <h2>Comment utiliser Claude pour le SEO</h2>
+
+      <p>La règle qui décide de tout tient en une phrase : <strong>donnez-lui la donnée, pas la question.</strong></p>
+
+      <p>Demandez à un modèle le volume de recherche d'un mot-clé et il vous sortira un nombre plausible et faux. Donnez-lui l'export de votre outil de mots-clés et demandez-lui de repérer les requêtes à intention commerciale mal couvertes par votre site, et il fera un travail que vous auriez mis deux heures à faire.</p>
+
+      <p>Cette distinction explique presque tous les échecs que je vois. Les gens utilisent ces modèles comme des moteurs de recherche alors qu'ils sont des moteurs de raisonnement. La valeur n'est pas dans ce qu'ils savent, elle est dans ce qu'ils font de ce que vous leur donnez.</p>
+
+      <p>Conséquence pratique : mon usage du SEO avec Claude commence toujours par un export. Un crawl, un fichier de la Search Console, le contenu de trois pages concurrentes, la liste de mes URL. Sans ce point de départ, la session ne vaut rien.</p>
+
+      <h2>Comment auditer son SEO avec Claude</h2>
+
+      <p>C'est l'usage que je conseille en premier, parce qu'il est fastidieux pour un humain, entièrement vérifiable, et sans risque éditorial.</p>
+
+      <h3>Le déroulé que j'applique</h3>
+
+      <p>Je lance un crawl du site, j'exporte le résultat, et je le donne au modèle avec une consigne de classement en trois niveaux : ce qui bloque l'indexation, ce qui pénalise, ce qui est cosmétique. Cette hiérarchie compte plus que la liste des problèmes : un rapport d'outil vous donne cent alertes de même poids visuel, alors que trois d'entre elles expliquent 80 % du manque à gagner.</p>
+
+      <p>J'y ajoute systématiquement deux exigences. Le nombre d'URL touchées par problème, ce qui transforme une alerte en priorité. Et l'interdiction de proposer une action dont l'effet n'est pas mesurable, ce qui élimine d'un coup les recommandations creuses.</p>
+
+      <p>Ensuite je croise avec la Search Console. Les pages explorées mais sans impression racontent presque toujours une histoire : contenu trop mince, intention mal comprise, ou cannibalisation avec une autre page. C'est un travail de recoupement que le modèle fait bien et vite.</p>
+
+      <h3>Ce que je ne lui délègue jamais dans un audit</h3>
+
+      <p>La décision finale. Savoir si une page mérite d'être corrigée, refondue ou supprimée dépend de son rôle commercial, de vos moyens et de votre calendrier. Le modèle ne connaît ni votre marge ni votre équipe. Il prépare la décision, il ne la prend pas.</p>
+
+      <h2>Quels outils SEO brancher sur Claude</h2>
+
+      <p>Le copier-coller fonctionne mais fatigue vite. Le vrai changement, c'est de connecter les outils au modèle, ce que permet le protocole MCP.</p>
+
+      <ul>
+        <li><strong>Un crawler.</strong> Le modèle lance l'exploration, lit les résultats et travaille dessus sans que vous exportiez quoi que ce soit.</li>
+        <li><strong>La Search Console.</strong> Impressions, clics, positions et pages, interrogeables directement dans la conversation.</li>
+        <li><strong>Vos fichiers.</strong> Donner accès au dossier du site permet de faire lire le code réel plutôt que ce que vous en dites.</li>
+        <li><strong>Un outil sémantique.</strong> Pour confronter un texte à une cible de vocabulaire mesurée sur la page de résultats.</li>
+      </ul>
+
+      <p>Avec Claude Code, l'étape suivante devient possible : le modèle ne se contente plus d'analyser, il modifie. Corriger deux cents balises title dans un dépôt, générer les données structurées d'un catalogue, produire un fichier de redirections à partir d'une liste d'anciennes URL. Ce sont des tâches où la valeur ajoutée humaine est nulle et le risque d'erreur de saisie élevé.</p>
+
+      <h2>Comment Claude améliore le référencement</h2>
+
+      <p>Trois effets se cumulent, et aucun n'est magique.</p>
+
+      <p><strong>La vitesse d'analyse.</strong> Ce qui prenait une demi-journée en prend une heure. Sur un audit, la différence n'est pas la qualité du diagnostic, c'est le nombre de sites que je peux traiter sérieusement dans un mois.</p>
+
+      <p><strong>La régularité.</strong> Un contrôle mensuel du maillage ou des balises n'a jamais lieu quand il coûte trois heures. Il a lieu quand il en coûte vingt minutes. C'est le gain le plus sous-estimé : ce ne sont pas les tâches faites plus vite qui rapportent, ce sont celles qui finissent par être faites.</p>
+
+      <p><strong>La qualité de la structure.</strong> Sur la rédaction, le modèle produit un plan et une organisation solides. C'est exactement ce qui manque le plus souvent aux contenus qui ne se classent pas, et c'est ce qui rend aussi un texte reprenable par un moteur de réponse.</p>
+
+      <h2>Quelles sont les meilleures pratiques avec Claude</h2>
+
+      <p>Cinq règles, apprises en me trompant.</p>
+
+      <p><strong>Imposez un format de sortie.</strong> Un prompt qui ne dit pas comment répondre reçoit une dissertation. Demandez un tableau, une liste hiérarchisée, un nombre de propositions précis.</p>
+
+      <p><strong>Interdisez explicitement l'invention.</strong> La phrase « si une donnée te manque pour trancher, dis-le au lieu de supposer » supprime la majorité des affirmations fausses. Elle marche parce qu'elle donne une issue de secours.</p>
+
+      <p><strong>Travaillez sur du réel.</strong> Le contenu de vos vraies pages, vos vrais chiffres. Un exemple générique produit un conseil générique.</p>
+
+      <p><strong>Donnez le contexte commercial.</strong> Qui achète, à quel prix, avec quel cycle de décision. Un même mot-clé n'a pas la même valeur pour un artisan et pour un éditeur de logiciel, et le modèle ne peut pas le deviner.</p>
+
+      <p><strong>Relisez ce qui sera publié.</strong> Sur l'audit, une erreur se voit à l'exécution. Sur un texte publié sous votre nom, elle vous engage. Je ne publie jamais un contenu que je n'ai pas relu ligne à ligne.</p>
+
+      <h2>Quels prompts utiliser pour le SEO</h2>
+
+      <p>Un bon prompt SEO tient en quatre parties, et le générateur plus haut les applique toutes.</p>
+
+      <p><strong>Le rôle</strong>, qui cadre le registre : consultant SEO technique, responsable éditorial, relecteur. <strong>Le travail attendu</strong>, numéroté, avec un livrable par point. <strong>Les règles</strong>, qui interdisent les dérives connues : pas d'invention, pas de recommandation non mesurable, pas de remplissage. <strong>Le contexte</strong> enfin, c'est-à-dire vos données.</p>
+
+      <p>Ce qui distingue un prompt qui marche d'un prompt qui déçoit n'est presque jamais sa longueur. C'est la présence des règles négatives. Dire ce qu'on ne veut pas est plus efficace que multiplier les précisions sur ce qu'on veut.</p>
+
+      <h2>Ce que je ne lui demande pas</h2>
+
+      <p>La liste des échecs est plus instructive que celle des réussites, alors la voici sans filtre.</p>
+
+      <p><strong>Les données de marché.</strong> Volumes de recherche, difficulté d'un mot-clé, position d'un concurrent : tout cela s'obtient dans un outil, jamais auprès d'un modèle. La réponse aura l'air juste, elle sera fausse, et c'est le pire des cas de figure.</p>
+
+      <p><strong>L'article publiable en un coup.</strong> Un texte généré d'un bloc se reconnaît à trois signes : il annonce ce qu'il va dire au lieu de le dire, il équilibre artificiellement ses parties, et il ne prend aucun risque. Le corriger prend plus longtemps que d'écrire à partir d'un plan solide.</p>
+
+      <p><strong>Le jugement de priorité.</strong> Quelle page mérite trois jours de travail ? Cela dépend de votre marge, de votre saisonnalité et de votre capacité de production. Le modèle ne connaît rien de tout cela et produira un classement d'apparence rationnelle, déconnecté de votre réalité.</p>
+
+      <p><strong>La veille.</strong> Un modèle a une date de connaissance et le SEO bouge plus vite qu'elle. Pour ce qui a changé le mois dernier, il faut lui donner les sources, ou aller les lire soi-même.</p>
+
+      <h3>Comment j'organise la semaine avec</h3>
+
+      <p>Concrètement, mon usage se répartit en trois moments et cette organisation vaut mieux qu'une longue théorie.</p>
+
+      <p><strong>Le lundi, le contrôle.</strong> Vingt minutes par site suivi : évolution des impressions et des clics, nouvelles erreurs d'exploration, pages qui décrochent. Le modèle lit les exports et me signale ce qui a bougé. C'est ce contrôle-là qui n'existait pas avant, faute de temps.</p>
+
+      <p><strong>En cours de semaine, la production.</strong> Briefs, plans, relectures. Je n'écris jamais le premier jet à partir de rien, et je ne publie jamais un jet non relu. Le modèle occupe le milieu de cette chaîne, pas les extrémités.</p>
+
+      <p><strong>En fin de mois, la mesure.</strong> Le panel de questions posées aux moteurs de réponse, pour savoir qui est cité sur les sujets de mes clients. C'est artisanal, un peu long, et c'est la seule donnée fiable dont je dispose sur ce terrain.</p>
+
+      <h2>Quels sont les avantages pour un consultant SEO</h2>
+
+      <p>Je vais être précis plutôt qu'enthousiaste, parce que le sujet est saturé de promesses.</p>
+
+      <p>Le gain de temps est réel et se situe entre trois et huit heures par semaine dans mon cas, essentiellement sur l'analyse et la mise en forme. Il ne se situe pas là où on l'attend : la rédaction complète reste lente, parce que le temps se déplace de l'écriture vers la relecture et la vérification.</p>
+
+      <p>Le gain de qualité est ailleurs. Les tâches ingrates, contrôle du maillage, cohérence des balises, vérification des données structurées, sont désormais faites systématiquement au lieu d'être faites quand il reste du temps. Sur un an, cet écart pèse plus lourd que n'importe quel gain de vitesse ponctuel.</p>
+
+      <p>Et le risque, puisqu'il faut en parler : la facilité de production pousse à publier davantage. C'est le contraire de ce qu'il faut faire dans un web saturé de contenu moyen. L'outil sert à mieux faire, pas à faire plus.</p>
+
+
+      <!-- MAILLAGE À AJOUTER APRÈS PUBLICATION DES CIBLES :
+           - /blog/automatiser-seo-claude-code (28/10/2026)
+           - /blog/audit-technique-seo (16/10/2026)
+           - /blog/rediger-avec-ia (06/11/2026)
+      -->
+
+      <!-- ================= FAQ ================= -->
+      <section class="faq">
+        <h2>Questions fréquentes</h2>
+
+        <details>
+          <summary>Comment utiliser Claude pour le SEO ?</summary>
+          <div class="faq-a"><p>La règle qui décide de tout : donnez-lui la donnée, pas la question. Demandez un volume de recherche et il inventera un nombre plausible ; donnez-lui votre export et il produira une analyse juste. Concrètement, chaque session commence par un fichier : un crawl, un export de la Search Console, le contenu de pages concurrentes ou la liste de vos URL.</p></div>
+        </details>
+
+        <details>
+          <summary>Comment auditer son SEO avec Claude ?</summary>
+          <div class="faq-a"><p>Lancez un crawl, donnez-lui l'export et demandez un classement en trois niveaux : ce qui bloque l'indexation, ce qui pénalise, ce qui est cosmétique. Exigez le nombre d'URL touchées par problème et interdisez toute recommandation dont l'effet n'est pas mesurable. Croisez ensuite avec la Search Console : les pages explorées mais sans impression révèlent presque toujours un contenu trop mince ou une cannibalisation.</p></div>
+        </details>
+
+        <details>
+          <summary>Quels outils SEO peut-on brancher sur Claude ?</summary>
+          <div class="faq-a"><p>Un crawler pour explorer le site, la Search Console pour les impressions et les positions, l'accès à vos fichiers pour lire le code réel, et un outil sémantique pour confronter un texte à une cible de vocabulaire. La connexion passe par le protocole MCP, ce qui évite le copier-coller et permet au modèle d'interroger les outils directement.</p></div>
+        </details>
+
+        <details>
+          <summary>Quelles sont les meilleures pratiques SEO avec Claude ?</summary>
+          <div class="faq-a"><p>Imposez un format de sortie, sinon vous recevrez une dissertation. Interdisez explicitement l'invention en donnant une issue de secours au modèle. Travaillez sur vos vraies pages plutôt que sur des exemples. Donnez le contexte commercial, car un mot-clé n'a pas la même valeur selon l'activité. Et relisez ligne à ligne tout ce qui sera publié sous votre nom.</p></div>
+        </details>
+
+        <details>
+          <summary>Comment Claude améliore-t-il le référencement ?</summary>
+          <div class="faq-a"><p>Par trois effets cumulés. La vitesse d'analyse, qui divise par trois ou quatre le temps d'un audit. La régularité, car les contrôles de maillage ou de balises finissent par être faits quand ils coûtent vingt minutes au lieu de trois heures. Et la qualité de structure des contenus, qui est ce qui manque le plus souvent aux pages qui ne se classent pas.</p></div>
+        </details>
+
+        <details>
+          <summary>Quels prompts utiliser avec Claude pour le SEO ?</summary>
+          <div class="faq-a"><p>Un bon prompt tient en quatre parties : le rôle qui cadre le registre, le travail attendu numéroté avec un livrable par point, les règles qui interdisent les dérives connues, et le contexte c'est-à-dire vos données. Ce qui distingue un prompt efficace n'est pas sa longueur mais la présence de règles négatives : dire ce qu'on ne veut pas fonctionne mieux que multiplier les précisions.</p></div>
+        </details>
+
+        <details>
+          <summary>Quels sont les avantages de Claude pour un consultant SEO ?</summary>
+          <div class="faq-a"><p>Le gain de temps se situe entre trois et huit heures par semaine dans mon cas, essentiellement sur l'analyse et la mise en forme, pas sur la rédaction où le temps se déplace vers la relecture. Le gain principal est ailleurs : les tâches ingrates sont désormais faites systématiquement au lieu d'être faites quand il reste du temps.</p></div>
+        </details>
+      </section>
+
+      <!-- ================= CTA ================= -->
+      <div class="cta-band">
+        <div>
+          <h2>Faire auditer votre site</h2>
+          <p>J'audite votre site avec ces méthodes et je vous livre un plan d'action priorisé par impact, pas par facilité.</p>
+        </div>
+        <a class="btn btn-lime" href="/audit-seo">Voir l'audit SEO <span class="ar">→</span></a>
+      </div>
+
+      <!-- ================= AUTEUR ================= -->
+      <div class="author-box">
+        <img src="/images/anthony.avif" alt="Anthony Courtin" width="88" height="88" loading="lazy">
+        <div>
+          <p class="eyebrow">Écrit par</p>
+          <h3>Anthony Courtin</h3>
+          <p class="author-role">Consultant SEO, GEO &amp; automatisation IA</p>
+          <p class="author-bio">J'accompagne des PME et des indépendants sur la visibilité (Google, ChatGPT, Perplexity) et sur l'usage réel de l'IA au travail. J'interviens en entreprise pour former les équipes et repenser les process. Tout ce que j'écris ici, je l'utilise en mission.</p>
+          <div class="author-links">
+            <a class="li" href="https://www.linkedin.com/in/anthony-courtin/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56z"/></svg>
+              Me suivre sur LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= AVIS LECTEURS ================= -->
+      <section class="reviews" data-slug="claude-pour-seo" data-reviews="[]">
+        <h2>Avis des lecteurs</h2>
+        <p class="rv-sub">Cet article vous a servi ? Dites-le, ça aide les suivants.</p>
+
+        <form class="rv-form" name="avis" method="POST" data-netlify="true" netlify-honeypot="societe" action="/merci">
+          <input type="hidden" name="form-name" value="avis">
+          <input type="hidden" name="article" value="claude-pour-seo">
+          <p class="rv-hp"><label>Ne remplissez pas ce champ : <input name="societe" tabindex="-1" autocomplete="off"></label></p>
+
+          <h3>Notez cet article</h3>
+
+          <fieldset class="rating-field">
+            <legend>Votre note</legend>
+            <div class="rating">
+              <input type="radio" id="n5" name="note" value="5"><label for="n5" aria-label="5 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n4" name="note" value="4"><label for="n4" aria-label="4 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n3" name="note" value="3"><label for="n3" aria-label="3 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n2" name="note" value="2"><label for="n2" aria-label="2 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n1" name="note" value="1"><label for="n1" aria-label="1 étoile"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="rv-nom">Prénom <span class="hint">(facultatif)</span></label>
+            <input type="text" id="rv-nom" name="nom" maxlength="60" autocomplete="given-name">
+          </div>
+
+          <div class="field">
+            <label for="rv-texte">Votre commentaire <span class="hint">(facultatif)</span></label>
+            <textarea id="rv-texte" name="texte" rows="4" maxlength="2000"></textarea>
+          </div>
+
+          <div class="rv-msg" id="rv-msg" role="status"></div>
+          <div><button type="submit" class="btn-sm primary">Publier mon avis</button></div>
+        </form>
+
+        <div class="rv-published">
+          <h3 class="rv-published-title">Ce qu'en disent les lecteurs</h3>
+          <div class="rv-summary">
+            <span class="rv-avg" id="rv-avg"></span>
+            <span class="stars" id="rv-stars" aria-hidden="true"></span>
+            <span class="rv-count" id="rv-count">Aucun avis pour le moment.</span>
+          </div>
+          <div class="rv-list" id="rv-list"></div>
+          <p class="rv-empty" id="rv-empty">Soyez le premier à donner votre avis.</p>
+        </div>
+      </section>
+
+    </article>
+  </div>
+
+  <!-- ---------- COLONNE DROITE : résumé IA + articles liés ---------- -->
+  <aside class="rail rail-right">
+    <div class="ai-box">
+      <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
+      <p class="ai-text">Claude sert utilement au SEO sur trois usages : l'audit technique à partir d'un crawl, la production de contenu et l'analyse concurrentielle. La règle qui décide de tout est de lui donner la donnée plutôt que la question, car un modèle qui doit deviner un chiffre l'invente. L'audit est le meilleur point d'entrée, car fastidieux, vérifiable et sans risque éditorial. Brancher les outils via le protocole MCP évite le copier-coller et permet d'interroger crawler, Search Console et fichiers directement. Un prompt efficace impose un format de sortie et contient des règles négatives explicites. Le gain se situe entre trois et huit heures par semaine, surtout sur l'analyse.</p>
+      <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
+    </div>
+
+    <div class="rail-recent">
+      <p class="rail-title">Dans la même catégorie</p>
+      <div class="mini-list">
+        <a class="mini" href="/blog/seo-ia">
+          <span class="mini-thumb"><!-- TODO: visuel article --></span>
+          <span><span class="mini-cat">SEO</span><span class="mini-ttl">SEO et IA : quoi déléguer</span></span>
+        </a>
+        <a class="mini" href="/blog/claude-code">
+          <span class="mini-thumb"><!-- TODO: visuel article --></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Claude Code, le guide</span></span>
+        </a>
+        <a class="mini" href="/blog/audit-seo-methode">
+          <span class="mini-thumb"><!-- TODO: visuel article --></span>
+          <span><span class="mini-cat">SEO</span><span class="mini-ttl">Ma méthode d'audit SEO</span></span>
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- ================= ARTICLES LIÉS ================= -->
+<section class="related">
+  <div class="wrap">
+    <h2>À lire ensuite</h2>
+    <p class="sub">La suite logique du parcours.</p>
+    <div class="rel-grid">
+      <a class="rel-card" href="/blog/seo-ia">
+        <!-- TODO: visuel article -->
+        <div class="rel-body">
+          <span class="rel-cat">SEO</span>
+          <h3>SEO et IA : les 20 tâches à déléguer</h3>
+          <p>Le tableau filtrable de ce qui se délègue, de ce qui reste humain, et de ce qui se fait à deux.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="/blog/claude-code">
+        <!-- TODO: visuel article -->
+        <div class="rel-body">
+          <span class="rel-cat">Utiliser l'IA</span>
+          <h3>Claude Code : le guide complet</h3>
+          <p>L'agent de développement d'Anthropic, sa configuration et ce qu'il change au quotidien.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="/blog/audit-seo-methode">
+        <!-- TODO: visuel article -->
+        <div class="rel-body">
+          <span class="rel-cat">SEO</span>
+          <h3>Audit SEO : ma méthode en trois piliers</h3>
+          <p>Le pré-audit en 24 points que je fais passer à tout site avant d'engager le moindre budget.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="foot-logo" href="/"><img src="/images/logo-transparent-pine.svg" alt="anthony courtin" width="98" height="48"></a>
+        <p style="color:var(--ink-2);font-size:.95rem;margin-top:12px;max-width:280px">Consultant SEO, GEO &amp; automatisation IA. Interventions partout en France.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul><li><a href="/seo">SEO</a></li><li><a href="/geo">GEO, visibilité IA</a></li><li><a href="/automatisation-ia">Automatisation IA</a></li><li><a href="/tarifs">Tarifs</a></li></ul>
+      </div>
+      <div>
+        <h4>Ressources</h4>
+        <ul><li><a href="/blog/">Blog</a></li><li><a href="/realisations">Réalisations</a></li><li><a href="/a-propos">À propos</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul><li><a href="/contact">Formulaire</a></li><li><a href="mailto:anthony@astrak.agency">anthony@astrak.agency</a></li><li><a href="https://www.linkedin.com/in/anthony-courtin/" rel="noopener">LinkedIn</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Anthony Courtin</span>
+      <span><a href="/mentions-legales">Mentions légales</a> · <a href="/confidentialite">Confidentialité</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/site.js?v=2" defer></script>
+<script src="/js/blog-article.js?v=3" defer></script>
+
+<!-- Outil interactif propre à cet article -->
+<script src="/js/claude-pour-seo-tool.js?v=1" defer></script>
+
+</body>
+</html>

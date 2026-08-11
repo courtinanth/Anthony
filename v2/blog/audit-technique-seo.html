@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audit technique SEO : la checklist complète</title>
+<meta name="description" content="Indexation, structure, performance, balisage : les quatre blocs d'un audit technique SEO, dans l'ordre, avec la méthode de priorisation par impact réel.">
+<link rel="canonical" href="https://anthony-courtin.com/blog/audit-technique-seo">
+<link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script src="/js/favicon-anim.js?v=2" defer></script>
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Audit technique SEO : la checklist complète">
+<meta property="og:description" content="La checklist d'audit technique que j'applique en mission, bloc par bloc, avec le geste de croisement qui révèle la dette cachée d'un site.">
+<meta property="og:url" content="https://anthony-courtin.com/blog/audit-technique-seo">
+<meta property="og:image" content="https://anthony-courtin.com/images/blog/audit-technique-seo-cover.webp">
+<meta property="og:locale" content="fr_FR">
+<meta property="article:published_time" content="2026-10-16">
+<meta property="article:modified_time" content="2026-10-16">
+<meta property="article:author" content="Anthony Courtin">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/main.css?v=2">
+<link rel="stylesheet" href="/css/blog-article.css?v=3">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"BlogPosting",
+      "@id":"https://anthony-courtin.com/blog/audit-technique-seo#article",
+      "headline":"Audit technique SEO : la checklist que j'applique",
+      "description":"Méthode complète d'audit technique SEO : accès et indexation, structure et maillage, performance et affichage, balisage et données structurées, outils à utiliser et priorisation des corrections par impact.",
+      "inLanguage":"fr-FR",
+      "datePublished":"2026-10-16",
+      "dateModified":"2026-10-16",
+      "image":"https://anthony-courtin.com/images/blog/audit-technique-seo-cover.webp",
+      "wordCount":2100,
+      "mainEntityOfPage":{"@type":"WebPage","@id":"https://anthony-courtin.com/blog/audit-technique-seo"},
+      "author":{"@id":"https://anthony-courtin.com/#anthony"},
+      "publisher":{"@id":"https://anthony-courtin.com/#anthony"},
+      "about":[{"@type":"Thing","name":"Audit SEO"},{"@type":"Thing","name":"SEO technique"},{"@type":"Thing","name":"Indexation"},{"@type":"Thing","name":"Core Web Vitals"},{"@type":"Thing","name":"Search Console"}]
+    },
+    {
+      "@type":"Person",
+      "@id":"https://anthony-courtin.com/#anthony",
+      "name":"Anthony Courtin",
+      "jobTitle":"Consultant SEO, GEO et automatisation IA",
+      "url":"https://anthony-courtin.com/a-propos",
+      "image":"https://anthony-courtin.com/images/anthony.avif",
+      "sameAs":["https://www.linkedin.com/in/anthony-courtin/"]
+    },
+    {
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Accueil","item":"https://anthony-courtin.com/"},
+        {"@type":"ListItem","position":2,"name":"Blog","item":"https://anthony-courtin.com/blog/"},
+        {"@type":"ListItem","position":3,"name":"Audit technique SEO"}
+      ]
+    },
+    {
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"Qu'est-ce qu'un audit technique SEO ?",
+         "acceptedAnswer":{"@type":"Answer","text":"C'est le diagnostic de la partie du référencement qui ne dépend ni de votre contenu ni de votre popularité. Il répond à trois questions dans l'ordre : un moteur peut-il accéder à vos pages, peut-il les comprendre et les situer les unes par rapport aux autres, peut-il les servir assez vite. Il se corrige avec un développeur et se vérifie objectivement, contrairement à un audit de contenu."}},
+        {"@type":"Question","name":"Pourquoi faire un audit technique SEO ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Parce que les problèmes techniques annulent le reste du travail. Un excellent article sur une page non indexée ne rapporte rien, et aucun budget de contenu ne compense une multiplication par zéro. La deuxième raison est financière : les corrections techniques sont bornées, quelques jours de développement pour un résultat vérifiable, là où le contenu est un investissement continu."}},
+        {"@type":"Question","name":"Quelles sont les étapes d'un audit technique SEO ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Quatre blocs, dans cet ordre. L'accès et l'indexation d'abord, avec le rapport de couverture, le robots.txt, les balises canoniques et le sitemap. La structure et le maillage ensuite : profondeur de clic, pages orphelines, cannibalisation. La performance et l'affichage, mesurés sur données réelles. Enfin le balisage et les données structurées."}},
+        {"@type":"Question","name":"Quels outils utiliser pour un audit SEO ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Trois suffisent. La Search Console, gratuite, est la seule source qui montre ce que Google voit réellement. Un crawler donne la vue exhaustive du site : profondeur, redirections, duplications, liens cassés. Un outil de mesure de performance complète pour les Core Web Vitals. Le geste le plus rentable n'est dans aucun des trois : croiser les pages explorées avec les pages qui reçoivent des impressions."}},
+        {"@type":"Question","name":"Comment prioriser les corrections après un audit ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Classez par nombre d'URL touchées multiplié par la gravité, jamais par la sévérité affichée dans l'outil. Un crawler signale en rouge une balise manquante sur une page et en orange une canonique erronée sur huit cents : le second problème vaut cent fois le premier. Relevez aussi votre situation de départ avant toute correction, sinon vous ne pourrez démontrer aucun résultat."}},
+        {"@type":"Question","name":"Comment améliorer le référencement avec un audit ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Un audit ne sert que s'il produit un ordre de traitement plutôt qu'une liste. Corrigez par lots plutôt que problème par problème : traiter huit cents balises en une passe coûte à peine plus que d'en traiter dix et laisse une trace nette dans les courbes trois à six semaines plus tard."}},
+        {"@type":"Question","name":"À quelle fréquence refaire un audit technique ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Deux fois par an sur un site stable, une fois par trimestre sur un site qui publie beaucoup ou évolue techniquement. Et systématiquement après une refonte, une migration ou un changement de plateforme. Entre deux audits complets, un contrôle mensuel de vingt minutes sur les nouvelles erreurs suffit."}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+<div id="read-progress"></div>
+
+<!-- ================= HEADER (identique au reste du site v2) ================= -->
+<header class="site">
+  <div class="nav-shell">
+    <nav class="main" aria-label="Navigation principale">
+      <a class="logo" href="/"><img src="/images/logo-transparent-cream.svg" alt="anthony courtin" width="86" height="42"></a>
+      <div class="nav-links">
+        <div class="nav-item"><a href="/seo">SEO</a></div>
+        <div class="nav-item"><a href="/geo">GEO, visibilité IA</a></div>
+        <div class="nav-item"><a href="/automatisation-ia">Automatisation IA</a></div>
+        <div class="nav-item"><a href="/blog/">Blog</a></div>
+        <div class="nav-item"><a href="/tarifs">Tarifs</a></div>
+      </div>
+      <button class="burger" id="burger" type="button" aria-label="Menu">☰</button>
+      <a class="nav-cta" href="/contact">Travailler avec moi</a>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="/seo">SEO</a>
+        <a href="/geo">GEO, visibilité IA</a>
+        <a href="/automatisation-ia">Automatisation IA</a>
+        <a href="/blog/">Blog</a>
+        <a href="/tarifs">Tarifs</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= EN-TÊTE D'ARTICLE ================= -->
+<section class="art-top">
+  <div class="wrap">
+    <nav class="crumb" aria-label="Fil d'Ariane">
+      <a href="/">Accueil</a><span aria-hidden="true">/</span>
+      <a href="/blog/">Blog</a><span aria-hidden="true">/</span>
+      <span>Audit technique SEO</span>
+    </nav>
+
+    <span class="art-cat">SEO</span>
+    <h1 class="art-title">Audit technique SEO : la checklist que j'applique</h1>
+    <p class="art-lede">Quatre blocs, un ordre qui compte, et une règle de priorisation. Ce qu'un audit technique doit contrôler, ce qu'il ne doit pas contenir, et comment en tirer un plan d'action.</p>
+
+    <div class="art-metaline">
+      <span class="who">
+        <img src="/images/anthony.avif" alt="" width="38" height="38" loading="lazy">
+        Anthony Courtin
+      </span>
+      <span class="dot" aria-hidden="true">·</span>
+      <time datetime="2026-10-16">16 octobre 2026</time>
+      <span class="dot" aria-hidden="true">·</span>
+      <span>10 min de lecture</span>
+      <span class="dot" aria-hidden="true">·</span>
+      <span>Mis à jour le <time datetime="2026-10-16">16 octobre 2026</time></span>
+    </div>
+
+    <!-- Boutons "Résumer avec" : les href sont construits par blog-article.js -->
+    <div class="ai-actions">
+      <span class="ai-actions__title">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>
+        Résumer avec
+      </span>
+      <ul class="ai-actions__list">
+        <li><a class="ai-btn" data-ai="chatgpt" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec ChatGPT">ChatGPT</a></li>
+        <li><a class="ai-btn" data-ai="claude" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Claude">Claude</a></li>
+        <li><a class="ai-btn" data-ai="perplexity" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Perplexity">Perplexity</a></li>
+        <li><a class="ai-btn" data-ai="gemini" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Gemini">Gemini</a></li>
+        <li><a class="ai-btn" data-ai="mistral" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Le Chat de Mistral">Le Chat</a></li>
+        <li><a class="ai-btn" data-ai="grok" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Grok">Grok</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GRILLE 3 COLONNES ================= -->
+<div class="art-layout">
+
+  <!-- ---------- COLONNE GAUCHE : sommaire + partage ---------- -->
+  <aside class="rail rail-left">
+    <details class="toc-box" open>
+      <summary><span class="rail-title">Sommaire</span><span class="toc-chevron" aria-hidden="true"></span></summary>
+      <nav class="toc" id="toc" aria-label="Sommaire de l'article">
+        <p class="toc-empty">Chargement…</p>
+      </nav>
+    </details>
+
+    <div class="share-box">
+      <p class="rail-title">Partager</p>
+      <ul class="share">
+        <li><a class="share-btn share-linkedin" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur LinkedIn"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56z"/></svg></a></li>
+        <li><a class="share-btn share-x" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur X"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.96 6.82H1.68l7.73-8.84L1.25 2.25h6.83l4.71 6.23zm-1.16 17.52h1.83L7.08 4.13H5.12z"/></svg></a></li>
+        <li><a class="share-btn share-whatsapp" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur WhatsApp"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m5.8 14.16c-.25.69-1.43 1.31-1.98 1.4-.53.08-1.19.11-1.92-.12-.44-.14-1.01-.33-1.74-.64-3.06-1.32-5.06-4.4-5.21-4.6-.15-.2-1.25-1.66-1.25-3.16s.79-2.25 1.07-2.55c.28-.31.61-.38.81-.38h.58c.19 0 .44-.07.69.53.25.61.86 2.11.94 2.26.08.15.13.33.02.53-.1.2-.16.33-.31.5l-.46.54c-.15.15-.31.32-.13.63.18.31.79 1.3 1.69 2.11 1.16 1.03 2.14 1.35 2.45 1.5.31.15.49.13.67-.08.18-.2.77-.9.98-1.21.2-.31.41-.26.69-.15.28.1 1.78.84 2.09.99.31.15.51.23.59.36.08.13.08.74-.17 1.44"/></svg></a></li>
+        <li><a class="share-btn share-email" href="#" rel="nofollow" aria-label="Partager par e-mail"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m0 4-8 5-8-5V6l8 5 8-5z"/></svg></a></li>
+        <li><button class="share-btn share-copy" type="button" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2m0 16H8V7h11z"/></svg></button></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- ---------- COLONNE CENTRALE : le contenu ---------- -->
+  <div class="art-main">
+
+    <!-- Résumé IA version mobile : rendu côté serveur, donc lisible par Google et les LLM -->
+    <div class="ai-box ai-box-mobile">
+      <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
+      <p class="ai-text">Un audit technique SEO vérifie qu'un moteur peut accéder aux pages, les comprendre et les servir vite. Il se déroule en quatre blocs ordonnés : accès et indexation avec le rapport de couverture, le robots.txt, les canoniques et le sitemap ; structure et maillage avec la profondeur de clic, les pages orphelines et la cannibalisation ; performance et affichage sur données réelles ; balisage et données structurées. Trois outils suffisent, dont la Search Console qui est gratuite. Le geste le plus rentable est de croiser les pages explorées par un crawler avec celles qui reçoivent des impressions. La priorisation se fait par nombre d'URL touchées multiplié par la gravité.</p>
+      <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
+    </div>
+
+    <article class="art-body">
+
+      <figure>
+        <picture>
+          <source srcset="/images/blog/audit-technique-seo-cover.avif" type="image/avif">
+          <img src="/images/blog/audit-technique-seo-cover.webp" alt="Illustration abstraite de couches de verre séparées, image d'un audit technique SEO" width="1376" height="768" fetchpriority="high" decoding="async">
+        </picture>
+      </figure>
+
+      <p><strong>Un audit technique SEO vérifie qu'un moteur peut accéder à vos pages, les comprendre et les servir vite.</strong> Il ne juge ni votre contenu ni votre popularité : il s'assure que le reste du travail sert à quelque chose. C'est le seul audit qui doit passer en premier, parce qu'un problème technique annule tout ce qui vient après.</p>
+
+      <p>Voici la checklist que j'applique, dans l'ordre où je la déroule, avec ce qu'il faut regarder à chaque étape et ce qui ne mérite pas votre temps.</p>
+
+      <div class="verdict">
+        <div class="verdict-note">
+          <b>4</b>
+          <span>blocs à contrôler</span>
+        </div>
+        <div class="verdict-body">
+          <h2>Ce que couvre un audit technique</h2>
+          <p>Quatre familles suffisent à couvrir l'essentiel. Tout ce qui sort de ces quatre blocs relève du contenu ou de la popularité, donc d'un autre audit.</p>
+          <div class="verdict-lists">
+            <ul class="verdict-pros">
+              <li>Accès et indexation : le moteur peut-il voir la page</li>
+              <li>Structure et maillage : peut-il la situer</li>
+              <li>Performance et affichage : peut-il la servir vite</li>
+            </ul>
+            <ul class="verdict-cons">
+              <li>La qualité éditoriale, qui relève d'un audit de contenu</li>
+              <li>Les liens entrants, qui relèvent de la popularité</li>
+            </ul>
+          </div>
+        </div>
+        <p class="verdict-foot">
+          <span class="verdict-price">Durée : une demi-journée sur un site moyen</span>
+          <span>À refaire deux fois par an</span>
+        </p>
+      </div>
+
+      <section class="takeaways">
+        <h2>À retenir</h2>
+        <ul>
+          <li><strong>L'indexation passe avant tout le reste.</strong> Une page invisible pour Google rend tout autre travail théorique.</li>
+          <li><strong>Un rapport d'outil n'est pas un audit.</strong> Cent alertes de même poids visuel cachent les trois qui comptent.</li>
+          <li><strong>Le croisement crawl et Search Console</strong> est le geste le plus rentable : il révèle les pages explorées qui ne rapportent rien.</li>
+          <li><strong>La performance compte moins qu'on ne le dit</strong> mais elle départage à contenu égal, et elle pèse sur la conversion.</li>
+          <li><strong>Priorisez par nombre d'URL touchées</strong>, pas par sévérité affichée dans l'outil.</li>
+        </ul>
+      </section>
+
+      <p>Cochez les problèmes que vous avez relevés. L'outil les reclasse par impact réel, qui n'est presque jamais l'ordre du rapport que vous a sorti votre crawler.</p>
+
+      <div class="tool" id="outil-audit-technique">
+        <div class="tool-head">
+          <span class="tool-ico" aria-hidden="true">✦</span>
+          <span>
+            <em>Outil interactif</em>
+            <b>Vos problèmes, classés par impact</b>
+          </span>
+        </div>
+        <div class="tool-body">
+          <div class="field">
+            <span class="rail-title" id="ats-label">Cochez ce que vous avez trouvé</span>
+            <ul class="geo-check" id="ats-check" aria-labelledby="ats-label">
+              <li><label><input type="checkbox" data-p="10"> Des pages importantes sont exclues de l'index</label></li>
+              <li><label><input type="checkbox" data-p="9"> Le robots.txt bloque des ressources ou des sections utiles</label></li>
+              <li><label><input type="checkbox" data-p="8"> Des balises canoniques pointent vers la mauvaise page</label></li>
+              <li><label><input type="checkbox" data-p="7"> Plusieurs pages visent la même requête</label></li>
+              <li><label><input type="checkbox" data-p="6"> Des chaînes de redirections en cascade</label></li>
+              <li><label><input type="checkbox" data-p="6"> Des pages orphelines, sans aucun lien entrant</label></li>
+              <li><label><input type="checkbox" data-p="5"> Des titles dupliqués ou absents</label></li>
+              <li><label><input type="checkbox" data-p="5"> Le sitemap contient des URL en erreur</label></li>
+              <li><label><input type="checkbox" data-p="4"> Des liens internes cassés</label></li>
+              <li><label><input type="checkbox" data-p="4"> Les Core Web Vitals sont dans le rouge</label></li>
+              <li><label><input type="checkbox" data-p="3"> Pas de données structurées sur les pages clés</label></li>
+              <li><label><input type="checkbox" data-p="2"> Des images sans attribut alt</label></li>
+            </ul>
+          </div>
+
+          <div class="score">
+            <b id="ats-score">0 pts</b><span>de dette technique</span>
+          </div>
+          <div class="meter"><i id="ats-meter" style="width:0%"></i></div>
+
+          <div class="field">
+            <span class="rail-title" style="margin-bottom:8px">Votre ordre de traitement</span>
+            <div class="tool-out" id="ats-out" aria-live="polite"></div>
+          </div>
+
+          <div class="tool-actions">
+            <button type="button" class="btn-sm primary" id="ats-copy">Copier la priorisation</button>
+            <a class="btn-sm ghost" href="/audit-seo">Faire auditer mon site</a>
+          </div>
+        </div>
+        <div class="tool-foot">
+          <span>Calcul local, rien n'est envoyé.</span>
+          <span>Pondération issue de mes audits, Anthony Courtin</span>
+        </div>
+      </div>
+
+      <h2>Qu'est-ce qu'un audit technique SEO ?</h2>
+
+      <p>C'est le diagnostic de la partie du référencement qui ne dépend ni de ce que vous écrivez ni de qui parle de vous. Il répond à trois questions dans cet ordre : un moteur peut-il <strong>accéder</strong> à vos pages, peut-il les <strong>comprendre</strong> et les situer les unes par rapport aux autres, peut-il les <strong>servir</strong> assez vite pour que le visiteur reste.</p>
+
+      <p>La distinction avec l'audit de contenu et l'audit de popularité n'est pas académique, elle est opérationnelle. Un audit technique se corrige avec un développeur et se vérifie objectivement. Un audit de contenu se corrige avec un rédacteur et s'évalue par le résultat. Mélanger les deux produit un document de quarante pages que personne ne traite.</p>
+
+      <h2>Pourquoi faire un audit technique SEO ?</h2>
+
+      <p>Pour une raison simple et souvent apprise trop tard : <strong>les problèmes techniques annulent le reste du travail.</strong></p>
+
+      <p>Un article excellent sur une page non indexée ne rapporte rien. Une refonte éditoriale sur un site dont la moitié des pages se cannibalisent ne rapporte rien non plus. Ce sont des multiplications par zéro, et aucun budget de contenu ne les compense.</p>
+
+      <p>La deuxième raison est financière. Les corrections techniques sont bornées : un développeur, quelques jours, un résultat vérifiable. Le contenu est un investissement continu. Commencer par la technique donne un plancher de performance avant d'ouvrir le robinet des dépenses récurrentes.</p>
+
+      <p>Sur les sites que j'audite, l'écart entre le potentiel et le réalisé s'explique dans la majorité des cas par trois problèmes techniques, pas par trente. Le travail consiste surtout à les trouver.</p>
+
+      <h2>Quelles étapes pour un audit technique</h2>
+
+      <p>Quatre blocs, dans cet ordre. L'ordre compte : chaque bloc conditionne le suivant.</p>
+
+      <h3>1. L'accès et l'indexation</h3>
+
+      <p>C'est là que se trouvent les problèmes les plus coûteux et les plus faciles à rater.</p>
+
+      <ul>
+        <li><strong>Le rapport de couverture</strong> de la Search Console, à lire en entier. Les pages exclues sont plus instructives que les pages valides : chaque motif d'exclusion raconte une décision, la vôtre ou celle de Google.</li>
+        <li><strong>Le fichier robots.txt</strong>, à relire ligne à ligne. Une règle écrite pour un environnement de préproduction et oubliée en production est un classique absolu.</li>
+        <li><strong>Les balises canoniques</strong>, qui désignent la version de référence d'une page. Mal posées, elles disent à Google d'ignorer la page que vous voulez classer.</li>
+        <li><strong>Le sitemap</strong>, qui ne doit contenir que des URL valides, indexables et canoniques. Un sitemap plein d'erreurs dégrade la confiance accordée au fichier entier.</li>
+      </ul>
+
+      <h3>2. La structure et le maillage</h3>
+
+      <p>Une fois les pages accessibles, la question devient : le moteur comprend-il leur organisation ?</p>
+
+      <p>Je regarde la profondeur de clic, c'est-à-dire le nombre de clics nécessaires depuis l'accueil pour atteindre une page. Au-delà de trois ou quatre, une page importante est mal placée. Je repère les pages orphelines, qui ne reçoivent aucun lien interne : elles existent, mais rien ne les recommande. Et je traque la cannibalisation, ces groupes de pages qui visent la même intention et se privent mutuellement de position.</p>
+
+      <p>Le maillage interne est le levier le plus sous-utilisé du SEO technique. Il ne coûte rien, il se corrige sans développeur dans la plupart des cas, et il redistribue la popularité que vous avez déjà acquise vers les pages qui en ont besoin.</p>
+
+      <h3>3. La performance et l'affichage</h3>
+
+      <p>Les Core Web Vitals mesurent trois choses : la vitesse d'affichage du contenu principal, la réactivité aux interactions, et la stabilité visuelle pendant le chargement.</p>
+
+      <p>Je vais être honnête sur leur poids : à contenu très inégal, la performance ne renverse rien. À contenu comparable, elle départage. Et surtout, elle pèse directement sur la conversion, indépendamment de tout classement. C'est cet argument-là qui débloque les budgets, pas l'argument SEO.</p>
+
+      <p>Regardez les données réelles des utilisateurs plutôt que les tests en laboratoire. Un test synthétique sur une connexion parfaite dit peu de ce que vivent vos visiteurs sur mobile en 4G dégradée.</p>
+
+      <h3>4. Le balisage et les données structurées</h3>
+
+      <p>Titles et meta descriptions uniques, hiérarchie de titres cohérente, attributs alt renseignés sur les images porteuses de sens. Ce sont des fondamentaux, ils se contrôlent en masse, et leur absence coûte plus qu'on ne croit sur les gros catalogues.</p>
+
+      <p>Les données structurées méritent une mention particulière. Elles ne font pas monter une page, mais elles décrivent explicitement à une machine ce qu'elle regarde : un article, son auteur, sa date, une FAQ, un produit et son prix. À l'heure où des moteurs de réponse choisissent leurs sources, cette explicitation vaut mieux qu'une inférence.</p>
+
+      <h2>Quels outils utiliser pour un audit SEO</h2>
+
+      <p>Trois suffisent, et le premier est gratuit.</p>
+
+      <ul>
+        <li><strong>La Search Console.</strong> La seule source qui dit ce que Google voit réellement de votre site. Couverture, performances, expérience sur la page, données structurées détectées. Aucun outil payant ne la remplace.</li>
+        <li><strong>Un crawler.</strong> Il parcourt votre site comme un robot et produit la vue exhaustive que la Search Console ne donne pas : profondeur, redirections, duplications, liens cassés.</li>
+        <li><strong>Un outil de mesure de performance</strong>, pour les Core Web Vitals sur données réelles.</li>
+      </ul>
+
+      <p>Le geste qui rapporte le plus n'est dans aucun des trois : c'est le <strong>croisement</strong>. Exportez les pages explorées par le crawler, exportez les pages qui reçoivent des impressions dans la Search Console, et comparez les deux listes. Ce qui est dans la première et pas dans la seconde constitue votre dette : des pages qui coûtent du budget d'exploration et ne rapportent rien.</p>
+
+      <h2>Comment améliorer son référencement avec un audit</h2>
+
+      <p>Un audit ne sert à rien s'il produit une liste. Il sert quand il produit un ordre.</p>
+
+      <p>Ma règle de priorisation tient en une phrase : <strong>classez par nombre d'URL touchées multiplié par la gravité, jamais par la sévérité affichée dans l'outil.</strong> Un crawler signale en rouge une balise manquante sur une page et en orange une canonique erronée sur huit cents. Le second problème vaut cent fois le premier.</p>
+
+      <p>Ensuite, relevez votre situation de départ avant de corriger : positions, pages indexées, impressions. Sans ce point zéro, vous ne pourrez démontrer aucun résultat, et c'est la première chose qu'on vous demandera.</p>
+
+      <p>Enfin, traitez par lots plutôt que par problème isolé. Corriger huit cents balises en une passe coûte à peine plus que d'en corriger dix, et laisse une trace nette dans les courbes trois à six semaines plus tard.</p>
+
+      <h2>Les six problèmes que je trouve le plus souvent</h2>
+
+      <p>À force d'auditer, les mêmes causes reviennent. Les voici, avec ce qui les provoque, parce que reconnaître le motif fait gagner des heures.</p>
+
+      <p><strong>La canonique qui pointe vers l'accueil.</strong> Un développeur pose une balise canonique globale dans le gabarit, sans variable. Toutes les pages déclarent alors que la version de référence est la page d'accueil. Le site perd d'un coup l'essentiel de son indexation, et rien dans l'interface ne le montre. C'est le problème le plus violent que je rencontre, et le plus silencieux.</p>
+
+      <p><strong>Le blocage hérité de la préproduction.</strong> Un fichier robots.txt écrit pour empêcher l'indexation d'un environnement de test part en production avec le reste. Le site est en ligne, joli, et invisible. Le contrôle prend dix secondes et personne ne le fait.</p>
+
+      <p><strong>La pagination mal gérée.</strong> Sur un catalogue, les pages deux, trois et suivantes contiennent souvent les mêmes textes de présentation. Selon la manière dont elles sont déclarées, elles se cannibalisent ou consomment du budget d'exploration pour rien.</p>
+
+      <p><strong>Les paramètres d'URL.</strong> Filtres, tris, suivi de campagne : chaque combinaison crée une adresse différente pour un contenu identique. Sur un site marchand, on atteint vite des dizaines de milliers d'URL qui diluent tout.</p>
+
+      <p><strong>Les redirections en cascade.</strong> Une refonte redirige A vers B, une autre B vers C, une troisième C vers D. Chaque saut fait perdre un peu, et l'ensemble ralentit l'exploration. Une redirection doit toujours pointer directement vers la destination finale.</p>
+
+      <p><strong>Le contenu chargé après coup.</strong> Quand le texte principal n'apparaît qu'après exécution d'un script, le moteur voit parfois une page vide. Le test est simple : affichez le code source brut de la page et cherchez votre texte. S'il n'y est pas, vous avez trouvé votre problème.</p>
+
+      <h2>Le cas particulier de la migration</h2>
+
+      <p>C'est le moment où l'on casse le plus, et où un audit technique change le plus de choses. Je le traite en trois temps.</p>
+
+      <p><strong>Avant.</strong> Relevez l'état exact de l'existant : liste complète des URL, positions, pages indexées, pages qui reçoivent du trafic. Sans cet inventaire, vous ne saurez pas ce que vous avez perdu, et vous ne pourrez pas le récupérer. Cette photographie est le livrable le plus important de toute la migration.</p>
+
+      <p><strong>Pendant.</strong> Établissez le plan de redirections URL par URL, pas par règle globale. Une règle générique qui envoie tout un ancien dossier vers une nouvelle page de catégorie détruit la valeur accumulée par chaque page. Chaque ancienne adresse doit pointer vers son équivalent le plus proche, en une seule redirection permanente.</p>
+
+      <p><strong>Après.</strong> Surveillez pendant six semaines les erreurs d'exploration, les pages nouvellement exclues et les positions des vingt pages les plus stratégiques. Les problèmes de migration apparaissent rarement le premier jour : ils se révèlent quand le moteur a fini de réexplorer, souvent trois à quatre semaines plus tard.</p>
+
+      <p>Une baisse de trafic après migration est normale pendant quelques semaines. Une baisse qui ne se résorbe pas au bout de deux mois est un problème technique, presque jamais un problème de contenu.</p>
+
+      <h2>À quelle fréquence le refaire</h2>
+
+      <p>Deux fois par an sur un site stable, une fois par trimestre sur un site qui publie beaucoup ou qui évolue techniquement. Et systématiquement après une refonte, une migration ou un changement de plateforme, car ce sont les trois moments où l'on casse le plus de choses sans s'en apercevoir.</p>
+
+      <p>Entre deux audits complets, un contrôle mensuel de vingt minutes suffit : nouvelles erreurs d'exploration, nouvelles pages exclues, chute de performance. C'est ce contrôle régulier qui évite de retrouver, six mois plus tard, un problème installé depuis cinq.</p>
+
+
+      <!-- MAILLAGE À AJOUTER APRÈS PUBLICATION DES CIBLES :
+           - /blog/automatiser-seo-claude-code (28/10/2026)
+           - /blog/strategie-contenu-seo (02/10/2026)
+      -->
+
+      <!-- ================= FAQ ================= -->
+      <section class="faq">
+        <h2>Questions fréquentes</h2>
+
+        <details>
+          <summary>Qu'est-ce qu'un audit technique SEO ?</summary>
+          <div class="faq-a"><p>C'est le diagnostic de la partie du référencement qui ne dépend ni de votre contenu ni de votre popularité. Il répond à trois questions dans l'ordre : un moteur peut-il accéder à vos pages, peut-il les comprendre et les situer les unes par rapport aux autres, peut-il les servir assez vite. Il se corrige avec un développeur et se vérifie objectivement, contrairement à un audit de contenu.</p></div>
+        </details>
+
+        <details>
+          <summary>Pourquoi faire un audit technique SEO ?</summary>
+          <div class="faq-a"><p>Parce que les problèmes techniques annulent le reste du travail. Un excellent article sur une page non indexée ne rapporte rien, et aucun budget de contenu ne compense une multiplication par zéro. La deuxième raison est financière : les corrections techniques sont bornées, quelques jours de développement pour un résultat vérifiable, là où le contenu est un investissement continu.</p></div>
+        </details>
+
+        <details>
+          <summary>Quelles sont les étapes d'un audit technique SEO ?</summary>
+          <div class="faq-a"><p>Quatre blocs, dans cet ordre. L'accès et l'indexation d'abord, avec le rapport de couverture, le robots.txt, les balises canoniques et le sitemap. La structure et le maillage ensuite : profondeur de clic, pages orphelines, cannibalisation. La performance et l'affichage, mesurés sur données réelles. Enfin le balisage et les données structurées.</p></div>
+        </details>
+
+        <details>
+          <summary>Quels outils utiliser pour un audit SEO ?</summary>
+          <div class="faq-a"><p>Trois suffisent. La Search Console, gratuite, est la seule source qui montre ce que Google voit réellement. Un crawler donne la vue exhaustive du site : profondeur, redirections, duplications, liens cassés. Un outil de mesure de performance complète pour les Core Web Vitals. Le geste le plus rentable n'est dans aucun des trois : croiser les pages explorées avec les pages qui reçoivent des impressions.</p></div>
+        </details>
+
+        <details>
+          <summary>Comment prioriser les corrections après un audit ?</summary>
+          <div class="faq-a"><p>Classez par nombre d'URL touchées multiplié par la gravité, jamais par la sévérité affichée dans l'outil. Un crawler signale en rouge une balise manquante sur une page et en orange une canonique erronée sur huit cents : le second problème vaut cent fois le premier. Relevez aussi votre situation de départ avant toute correction, sinon vous ne pourrez démontrer aucun résultat.</p></div>
+        </details>
+
+        <details>
+          <summary>Comment améliorer le référencement avec un audit ?</summary>
+          <div class="faq-a"><p>Un audit ne sert que s'il produit un ordre de traitement plutôt qu'une liste. Corrigez par lots plutôt que problème par problème : traiter huit cents balises en une passe coûte à peine plus que d'en traiter dix et laisse une trace nette dans les courbes trois à six semaines plus tard.</p></div>
+        </details>
+
+        <details>
+          <summary>À quelle fréquence refaire un audit technique ?</summary>
+          <div class="faq-a"><p>Deux fois par an sur un site stable, une fois par trimestre sur un site qui publie beaucoup ou évolue techniquement. Et systématiquement après une refonte, une migration ou un changement de plateforme. Entre deux audits complets, un contrôle mensuel de vingt minutes sur les nouvelles erreurs suffit.</p></div>
+        </details>
+      </section>
+
+      <!-- ================= CTA ================= -->
+      <div class="cta-band">
+        <div>
+          <h2>Faire auditer votre site</h2>
+          <p>J'applique cette méthode sur votre site et je vous livre un plan d'action priorisé par impact, avec le point de départ mesuré.</p>
+        </div>
+        <a class="btn btn-lime" href="/audit-seo">Voir l'audit SEO <span class="ar">→</span></a>
+      </div>
+
+      <!-- ================= AUTEUR ================= -->
+      <div class="author-box">
+        <img src="/images/anthony.avif" alt="Anthony Courtin" width="88" height="88" loading="lazy">
+        <div>
+          <p class="eyebrow">Écrit par</p>
+          <h3>Anthony Courtin</h3>
+          <p class="author-role">Consultant SEO, GEO &amp; automatisation IA</p>
+          <p class="author-bio">J'accompagne des PME et des indépendants sur la visibilité (Google, ChatGPT, Perplexity) et sur l'usage réel de l'IA au travail. J'interviens en entreprise pour former les équipes et repenser les process. Tout ce que j'écris ici, je l'utilise en mission.</p>
+          <div class="author-links">
+            <a class="li" href="https://www.linkedin.com/in/anthony-courtin/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56z"/></svg>
+              Me suivre sur LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= AVIS LECTEURS ================= -->
+      <section class="reviews" data-slug="audit-technique-seo" data-reviews="[]">
+        <h2>Avis des lecteurs</h2>
+        <p class="rv-sub">Cet article vous a servi ? Dites-le, ça aide les suivants.</p>
+
+        <form class="rv-form" name="avis" method="POST" data-netlify="true" netlify-honeypot="societe" action="/merci">
+          <input type="hidden" name="form-name" value="avis">
+          <input type="hidden" name="article" value="audit-technique-seo">
+          <p class="rv-hp"><label>Ne remplissez pas ce champ : <input name="societe" tabindex="-1" autocomplete="off"></label></p>
+
+          <h3>Notez cet article</h3>
+
+          <fieldset class="rating-field">
+            <legend>Votre note</legend>
+            <div class="rating">
+              <input type="radio" id="n5" name="note" value="5"><label for="n5" aria-label="5 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n4" name="note" value="4"><label for="n4" aria-label="4 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n3" name="note" value="3"><label for="n3" aria-label="3 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n2" name="note" value="2"><label for="n2" aria-label="2 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n1" name="note" value="1"><label for="n1" aria-label="1 étoile"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="rv-nom">Prénom <span class="hint">(facultatif)</span></label>
+            <input type="text" id="rv-nom" name="nom" maxlength="60" autocomplete="given-name">
+          </div>
+
+          <div class="field">
+            <label for="rv-texte">Votre commentaire <span class="hint">(facultatif)</span></label>
+            <textarea id="rv-texte" name="texte" rows="4" maxlength="2000"></textarea>
+          </div>
+
+          <div class="rv-msg" id="rv-msg" role="status"></div>
+          <div><button type="submit" class="btn-sm primary">Publier mon avis</button></div>
+        </form>
+
+        <div class="rv-published">
+          <h3 class="rv-published-title">Ce qu'en disent les lecteurs</h3>
+          <div class="rv-summary">
+            <span class="rv-avg" id="rv-avg"></span>
+            <span class="stars" id="rv-stars" aria-hidden="true"></span>
+            <span class="rv-count" id="rv-count">Aucun avis pour le moment.</span>
+          </div>
+          <div class="rv-list" id="rv-list"></div>
+          <p class="rv-empty" id="rv-empty">Soyez le premier à donner votre avis.</p>
+        </div>
+      </section>
+
+    </article>
+  </div>
+
+  <!-- ---------- COLONNE DROITE : résumé IA + articles liés ---------- -->
+  <aside class="rail rail-right">
+    <div class="ai-box">
+      <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
+      <p class="ai-text">Un audit technique SEO vérifie qu'un moteur peut accéder aux pages, les comprendre et les servir vite. Il se déroule en quatre blocs ordonnés : accès et indexation avec le rapport de couverture, le robots.txt, les canoniques et le sitemap ; structure et maillage avec la profondeur de clic, les pages orphelines et la cannibalisation ; performance et affichage sur données réelles ; balisage et données structurées. Trois outils suffisent, dont la Search Console qui est gratuite. Le geste le plus rentable est de croiser les pages explorées par un crawler avec celles qui reçoivent des impressions. La priorisation se fait par nombre d'URL touchées multiplié par la gravité.</p>
+      <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
+    </div>
+
+    <div class="rail-recent">
+      <p class="rail-title">Dans la même catégorie</p>
+      <div class="mini-list">
+        <a class="mini" href="/blog/audit-seo-methode">
+          <span class="mini-thumb"><!-- TODO: visuel article --></span>
+          <span><span class="mini-cat">SEO</span><span class="mini-ttl">Ma méthode d'audit SEO</span></span>
+        </a>
+        <a class="mini" href="/blog/audit-seo-gratuit">
+          <span class="mini-thumb"><!-- TODO: visuel article --></span>
+          <span><span class="mini-cat">SEO</span><span class="mini-ttl">Auditer son site gratuitement</span></span>
+        </a>
+        <a class="mini" href="/blog/claude-pour-seo">
+          <span class="mini-thumb"><!-- TODO: visuel article --></span>
+          <span><span class="mini-cat">SEO</span><span class="mini-ttl">Claude pour le SEO</span></span>
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- ================= ARTICLES LIÉS ================= -->
+<section class="related">
+  <div class="wrap">
+    <h2>À lire ensuite</h2>
+    <p class="sub">La suite logique du parcours.</p>
+    <div class="rel-grid">
+      <a class="rel-card" href="/blog/audit-seo-methode">
+        <!-- TODO: visuel article -->
+        <div class="rel-body">
+          <span class="rel-cat">SEO</span>
+          <h3>Audit SEO : ma méthode en trois piliers</h3>
+          <p>Le pré-audit en 24 points que je fais passer à tout site avant d'engager le moindre budget.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="/blog/audit-seo-gratuit">
+        <!-- TODO: visuel article -->
+        <div class="rel-body">
+          <span class="rel-cat">SEO</span>
+          <h3>Faire un audit SEO gratuitement</h3>
+          <p>Le parcours en six étapes pour diagnostiquer votre site sans dépenser un euro.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="/blog/claude-pour-seo">
+        <!-- TODO: visuel article -->
+        <div class="rel-body">
+          <span class="rel-cat">SEO</span>
+          <h3>Claude pour le SEO : mes cas d'usage</h3>
+          <p>Ce que je délègue vraiment à un modèle en audit et en production, avec les prompts.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="foot-logo" href="/"><img src="/images/logo-transparent-pine.svg" alt="anthony courtin" width="98" height="48"></a>
+        <p style="color:var(--ink-2);font-size:.95rem;margin-top:12px;max-width:280px">Consultant SEO, GEO &amp; automatisation IA. Interventions partout en France.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul><li><a href="/seo">SEO</a></li><li><a href="/geo">GEO, visibilité IA</a></li><li><a href="/automatisation-ia">Automatisation IA</a></li><li><a href="/tarifs">Tarifs</a></li></ul>
+      </div>
+      <div>
+        <h4>Ressources</h4>
+        <ul><li><a href="/blog/">Blog</a></li><li><a href="/realisations">Réalisations</a></li><li><a href="/a-propos">À propos</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul><li><a href="/contact">Formulaire</a></li><li><a href="mailto:anthony@astrak.agency">anthony@astrak.agency</a></li><li><a href="https://www.linkedin.com/in/anthony-courtin/" rel="noopener">LinkedIn</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Anthony Courtin</span>
+      <span><a href="/mentions-legales">Mentions légales</a> · <a href="/confidentialite">Confidentialité</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/site.js?v=2" defer></script>
+<script src="/js/blog-article.js?v=3" defer></script>
+
+<!-- Outil interactif propre à cet article -->
+<script src="/js/audit-technique-seo-tool.js?v=1" defer></script>
+
+</body>
+</html>
