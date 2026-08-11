@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MCP : le Model Context Protocol expliqué simplement</title>
+<meta name="description" content="MCP est la norme ouverte qui branche un modèle d'IA sur vos outils et vos données. Fonctionnement, avantages, mise en route et grille de décision.">
+<link rel="canonical" href="https://anthony-courtin.com/blog/mcp-model-context-protocol">
+<link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script src="/js/favicon-anim.js?v=2" defer></script>
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="MCP : le Model Context Protocol expliqué simplement">
+<meta property="og:description" content="Le Model Context Protocol expliqué sans jargon : ce qu'il résout, comment marche l'architecture client et serveur, et quand un serveur MCP vaut vraiment le coup.">
+<meta property="og:url" content="https://anthony-courtin.com/blog/mcp-model-context-protocol">
+<meta property="og:image" content="https://anthony-courtin.com/images/blog/mcp-cover.webp">
+<meta property="og:locale" content="fr_FR">
+<meta property="article:published_time" content="2026-10-21">
+<meta property="article:modified_time" content="2026-10-21">
+<meta property="article:author" content="Anthony Courtin">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/main.css?v=2">
+<link rel="stylesheet" href="/css/blog-article.css?v=3">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"BlogPosting",
+      "@id":"https://anthony-courtin.com/blog/mcp-model-context-protocol#article",
+      "headline":"MCP : le protocole qui branche l'IA sur vos outils",
+      "description":"Guide du Model Context Protocol : définition, architecture client et serveur, avantages concrets, cas d'usage avec des outils externes et grille de décision avant de se lancer.",
+      "inLanguage":"fr-FR",
+      "datePublished":"2026-10-21",
+      "dateModified":"2026-10-21",
+      "image":"https://anthony-courtin.com/images/blog/mcp-cover.webp",
+      "wordCount":1450,
+      "mainEntityOfPage":{"@type":"WebPage","@id":"https://anthony-courtin.com/blog/mcp-model-context-protocol"},
+      "author":{"@id":"https://anthony-courtin.com/#anthony"},
+      "publisher":{"@id":"https://anthony-courtin.com/#anthony"},
+      "about":[{"@type":"Thing","name":"Model Context Protocol"},{"@type":"Thing","name":"Anthropic"},{"@type":"Thing","name":"Intelligence artificielle"},{"@type":"Thing","name":"Interopérabilité"},{"@type":"Thing","name":"API"}]
+    },
+    {
+      "@type":"Person",
+      "@id":"https://anthony-courtin.com/#anthony",
+      "name":"Anthony Courtin",
+      "jobTitle":"Consultant SEO, GEO et automatisation IA",
+      "url":"https://anthony-courtin.com/a-propos",
+      "image":"https://anthony-courtin.com/images/anthony.avif",
+      "sameAs":["https://www.linkedin.com/in/anthony-courtin/"]
+    },
+    {
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Accueil","item":"https://anthony-courtin.com/"},
+        {"@type":"ListItem","position":2,"name":"Blog","item":"https://anthony-courtin.com/blog/"},
+        {"@type":"ListItem","position":3,"name":"MCP"}
+      ]
+    },
+    {
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"Qu'est-ce que le protocole MCP ?",
+         "acceptedAnswer":{"@type":"Answer","text":"MCP, pour Model Context Protocol, est une norme ouverte publiée par Anthropic qui décrit comment une application d'intelligence artificielle se connecte à des systèmes extérieurs : fichiers, bases de données, moteurs de recherche ou outils métier. La documentation officielle le compare à un port USB-C pour les applications d'IA : une prise standard là où il fallait auparavant un connecteur différent par service."}},
+        {"@type":"Question","name":"Comment fonctionne le protocole MCP ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Il repose sur deux rôles. Un serveur expose ce qu'il sait faire, c'est-à-dire ses outils, les données auxquelles il donne accès et les instructions associées. Un client, l'application d'IA, découvre cette liste et appelle ce dont il a besoin au fil de la conversation. Ni l'un ni l'autre n'a besoin de connaître son interlocuteur à l'avance, ce qui rend chaque serveur réutilisable par tous les clients compatibles."}},
+        {"@type":"Question","name":"Quels sont les avantages du protocole MCP ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Le gain principal est arithmétique : connecter cinq assistants à dix services demandait cinquante intégrations spécifiques, MCP ramène ce produit à dix serveurs réutilisables. S'y ajoutent moins de code d'adaptation à maintenir, l'accès à un écosystème de connecteurs déjà écrits, et une maîtrise explicite du périmètre exposé, puisque le serveur décide exactement quels outils il ouvre et en lecture ou en écriture."}},
+        {"@type":"Question","name":"Comment utiliser le protocole MCP ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Deux chemins existent. Consommer un serveur déjà publié prend quelques minutes : vous le déclarez dans votre client, vous fournissez vos identifiants et les outils apparaissent. Écrire le vôtre demande de déclarer une liste d'outils avec leur nom, leur description et leurs paramètres, puis d'implémenter chacun. Commencez par deux outils bien décrits plutôt que par le catalogue complet d'une API."}},
+        {"@type":"Question","name":"MCP et intelligence artificielle : qu'est-ce que ça change ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Sans accès aux systèmes, un modèle raisonne sur ce qu'il a appris et sur ce que vous collez dans la conversation. Avec MCP, il travaille sur l'état réel de vos données au moment où il répond, et peut déclencher des actions. On passe d'un assistant qui rédige à un assistant qui agit."}},
+        {"@type":"Question","name":"Quels outils externes peut-on brancher avec MCP ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Les cas les plus fréquents sont la donnée métier, avec une base ou un outil de gestion interrogé en direct, les outils SEO comme un crawler ou la Search Console, le suivi de projet pour lire et créer des tickets, et l'accès à un dossier de fichiers, en lecture seule quand la prudence l'impose."}},
+        {"@type":"Question","name":"MCP est-il utilisable dans le secteur public ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Oui, et il n'y a pas de spécificité technique. Les contraintes du secteur public portent sur l'hébergement et sur la traçabilité des accès, pas sur le protocole lui-même. Un serveur MCP se déploie sur une infrastructure maîtrisée comme n'importe quel autre service interne."}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+<div id="read-progress"></div>
+
+<!-- ================= HEADER (identique au reste du site v2) ================= -->
+<header class="site">
+  <div class="nav-shell">
+    <nav class="main" aria-label="Navigation principale">
+      <a class="logo" href="/"><img src="/images/logo-transparent-cream.svg" alt="anthony courtin" width="86" height="42"></a>
+      <div class="nav-links">
+        <div class="nav-item"><a href="/seo">SEO</a></div>
+        <div class="nav-item"><a href="/geo">GEO, visibilité IA</a></div>
+        <div class="nav-item"><a href="/automatisation-ia">Automatisation IA</a></div>
+        <div class="nav-item"><a href="/blog/">Blog</a></div>
+        <div class="nav-item"><a href="/tarifs">Tarifs</a></div>
+      </div>
+      <button class="burger" id="burger" type="button" aria-label="Menu">☰</button>
+      <a class="nav-cta" href="/contact">Travailler avec moi</a>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="/seo">SEO</a>
+        <a href="/geo">GEO, visibilité IA</a>
+        <a href="/automatisation-ia">Automatisation IA</a>
+        <a href="/blog/">Blog</a>
+        <a href="/tarifs">Tarifs</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= EN-TÊTE D'ARTICLE ================= -->
+<section class="art-top">
+  <div class="wrap">
+    <nav class="crumb" aria-label="Fil d'Ariane">
+      <a href="/">Accueil</a><span aria-hidden="true">/</span>
+      <a href="/blog/">Blog</a><span aria-hidden="true">/</span>
+      <span>MCP</span>
+    </nav>
+
+    <span class="art-cat">Utiliser l'IA</span>
+    <h1 class="art-title">MCP : le protocole qui branche l'IA sur vos outils</h1>
+    <p class="art-lede">Model Context Protocol : une norme ouverte pour connecter un modèle à vos données et à vos outils. Ce qu'elle résout, comment elle marche, et à quel moment elle devient rentable.</p>
+
+    <div class="art-metaline">
+      <span class="who">
+        <img src="/images/anthony.avif" alt="" width="38" height="38" loading="lazy">
+        Anthony Courtin
+      </span>
+      <span class="dot" aria-hidden="true">·</span>
+      <time datetime="2026-10-21">21 octobre 2026</time>
+      <span class="dot" aria-hidden="true">·</span>
+      <span>8 min de lecture</span>
+      <span class="dot" aria-hidden="true">·</span>
+      <span>Mis à jour le <time datetime="2026-10-21">21 octobre 2026</time></span>
+    </div>
+
+    <!-- Boutons "Résumer avec" : les href sont construits par blog-article.js -->
+    <div class="ai-actions">
+      <span class="ai-actions__title">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>
+        Résumer avec
+      </span>
+      <ul class="ai-actions__list">
+        <li><a class="ai-btn" data-ai="chatgpt" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec ChatGPT">ChatGPT</a></li>
+        <li><a class="ai-btn" data-ai="claude" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Claude">Claude</a></li>
+        <li><a class="ai-btn" data-ai="perplexity" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Perplexity">Perplexity</a></li>
+        <li><a class="ai-btn" data-ai="gemini" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Gemini">Gemini</a></li>
+        <li><a class="ai-btn" data-ai="mistral" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Le Chat de Mistral">Le Chat</a></li>
+        <li><a class="ai-btn" data-ai="grok" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Grok">Grok</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GRILLE 3 COLONNES ================= -->
+<div class="art-layout">
+
+  <!-- ---------- COLONNE GAUCHE : sommaire + partage ---------- -->
+  <aside class="rail rail-left">
+    <details class="toc-box" open>
+      <summary><span class="rail-title">Sommaire</span><span class="toc-chevron" aria-hidden="true"></span></summary>
+      <nav class="toc" id="toc" aria-label="Sommaire de l'article">
+        <p class="toc-empty">Chargement…</p>
+      </nav>
+    </details>
+
+    <div class="share-box">
+      <p class="rail-title">Partager</p>
+      <ul class="share">
+        <li><a class="share-btn share-linkedin" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur LinkedIn"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56z"/></svg></a></li>
+        <li><a class="share-btn share-x" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur X"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.96 6.82H1.68l7.73-8.84L1.25 2.25h6.83l4.71 6.23zm-1.16 17.52h1.83L7.08 4.13H5.12z"/></svg></a></li>
+        <li><a class="share-btn share-whatsapp" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur WhatsApp"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m5.8 14.16c-.25.69-1.43 1.31-1.98 1.4-.53.08-1.19.11-1.92-.12-.44-.14-1.01-.33-1.74-.64-3.06-1.32-5.06-4.4-5.21-4.6-.15-.2-1.25-1.66-1.25-3.16s.79-2.25 1.07-2.55c.28-.31.61-.38.81-.38h.58c.19 0 .44-.07.69.53.25.61.86 2.11.94 2.26.08.15.13.33.02.53-.1.2-.16.33-.31.5l-.46.54c-.15.15-.31.32-.13.63.18.31.79 1.3 1.69 2.11 1.16 1.03 2.14 1.35 2.45 1.5.31.15.49.13.67-.08.18-.2.77-.9.98-1.21.2-.31.41-.26.69-.15.28.1 1.78.84 2.09.99.31.15.51.23.59.36.08.13.08.74-.17 1.44"/></svg></a></li>
+        <li><a class="share-btn share-email" href="#" rel="nofollow" aria-label="Partager par e-mail"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m0 4-8 5-8-5V6l8 5 8-5z"/></svg></a></li>
+        <li><button class="share-btn share-copy" type="button" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2m0 16H8V7h11z"/></svg></button></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- ---------- COLONNE CENTRALE : le contenu ---------- -->
+  <div class="art-main">
+
+    <!-- Résumé IA version mobile : rendu côté serveur, donc lisible par Google et les LLM -->
+    <div class="ai-box ai-box-mobile">
+      <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
+      <p class="ai-text">Le Model Context Protocol est une norme ouverte publiée par Anthropic qui standardise la connexion entre une application d'IA et des systèmes extérieurs : fichiers, bases de données, outils métier. Son architecture repose sur des serveurs qui exposent outils, données et instructions, et des clients qui les consomment sans connaissance préalable. L'intérêt est arithmétique : cinq assistants et dix services demandaient cinquante intégrations, MCP les ramène à dix serveurs réutilisables. Claude, ChatGPT, Visual Studio Code et Cursor le prennent en charge. Il devient rentable dès que la même connexion doit servir plusieurs assistants, plusieurs équipes ou plusieurs mois.</p>
+      <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
+    </div>
+
+    <article class="art-body">
+
+      <figure>
+        <picture>
+          <source srcset="/images/blog/mcp-cover.avif" type="image/avif">
+          <img src="/images/blog/mcp-cover.webp" alt="Illustration abstraite de connecteurs reliant des modules, image du protocole MCP" width="1376" height="768" fetchpriority="high" decoding="async">
+        </picture>
+      </figure>
+
+      <p><strong>Le protocole MCP est une norme ouverte qui branche un modèle d'IA sur vos outils et vos données.</strong> Sans lui, chaque connexion entre un assistant et un service extérieur se code à la main, une fois par assistant et par service. Avec lui, on écrit l'intégration une fois et tous les clients compatibles peuvent s'en servir.</p>
+
+      <p>C'est un sujet technique qui se raconte très simplement, et qui change concrètement ce qu'un modèle peut faire dans une entreprise. Voici ce qu'est MCP, comment il fonctionne, et à quel moment il vaut la peine de s'y mettre.</p>
+
+      <div class="verdict">
+        <div class="verdict-note">
+          <b>1 fois</b>
+          <span>au lieu de N × M</span>
+        </div>
+        <div class="verdict-body">
+          <h2>Le problème que MCP résout</h2>
+          <p>Avant MCP, connecter cinq assistants à dix services demandait cinquante intégrations différentes. MCP transforme ce produit en une addition : dix serveurs, que les cinq assistants savent tous lire.</p>
+          <div class="verdict-lists">
+            <ul class="verdict-pros">
+              <li>Une intégration écrite une fois, réutilisable partout</li>
+              <li>Un standard ouvert, pas la propriété d'un éditeur</li>
+              <li>Supporté par Claude, ChatGPT, VS Code et Cursor</li>
+            </ul>
+            <ul class="verdict-cons">
+              <li>Un serveur à héberger et à maintenir</li>
+              <li>Surdimensionné pour une intégration unique</li>
+            </ul>
+          </div>
+        </div>
+        <p class="verdict-foot">
+          <span class="verdict-price">Norme ouverte, gratuite</span>
+          <span>Pour qui : équipes techniques et éditeurs d'outils</span>
+        </p>
+      </div>
+
+      <section class="takeaways">
+        <h2>À retenir</h2>
+        <ul>
+          <li><strong>MCP veut dire Model Context Protocol.</strong> C'est un standard ouvert de connexion entre applications d'IA et systèmes extérieurs.</li>
+          <li><strong>L'analogie officielle est celle du port USB-C</strong> : une prise unique là où il fallait un câble par appareil.</li>
+          <li><strong>Il fonctionne en client et serveur.</strong> Votre serveur expose des outils, des données et des instructions, que n'importe quel client compatible sait consommer.</li>
+          <li><strong>L'écosystème est large</strong> : Claude, ChatGPT, Visual Studio Code et Cursor le prennent en charge, entre autres.</li>
+          <li><strong>MCP ne remplace pas une API</strong>, il la rend consommable par un modèle sans code d'adaptation propre à chaque assistant.</li>
+        </ul>
+      </section>
+
+      <p>Avant d'ouvrir un chantier, vérifiez que votre besoin le justifie. Cochez les critères qui s'appliquent à votre situation, l'outil tranche.</p>
+
+      <div class="tool" id="outil-mcp">
+        <div class="tool-head">
+          <span class="tool-ico" aria-hidden="true">✦</span>
+          <span>
+            <em>Outil interactif</em>
+            <b>Avez-vous besoin d'un serveur MCP ?</b>
+          </span>
+        </div>
+        <div class="tool-body">
+          <div class="field">
+            <span class="rail-title" id="mcp-label">Cochez ce qui décrit votre situation</span>
+            <ul class="geo-check" id="mcp-check" aria-labelledby="mcp-label">
+              <li><label><input type="checkbox"> Un modèle doit lire des données qui vivent dans nos systèmes</label></li>
+              <li><label><input type="checkbox"> Il doit aussi déclencher des actions, pas seulement consulter</label></li>
+              <li><label><input type="checkbox"> Plusieurs assistants ou éditeurs différents sont utilisés chez nous</label></li>
+              <li><label><input type="checkbox"> La même intégration a déjà été recodée au moins deux fois</label></li>
+              <li><label><input type="checkbox"> Nous voulons garder la maîtrise des accès et des permissions</label></li>
+              <li><label><input type="checkbox"> D'autres équipes réutiliseraient cette connexion</label></li>
+            </ul>
+          </div>
+
+          <div class="score">
+            <b id="mcp-score">0 / 6</b><span>critères réunis</span>
+          </div>
+          <div class="meter"><i id="mcp-meter" style="width:0%"></i></div>
+
+          <div class="field">
+            <span class="rail-title" style="margin-bottom:8px">Verdict</span>
+            <div class="tool-out" id="mcp-out" aria-live="polite"></div>
+          </div>
+
+          <div class="tool-actions">
+            <button type="button" class="btn-sm primary" id="mcp-copy">Copier le verdict</button>
+            <a class="btn-sm ghost" href="/automatisation-ia">En parler avec moi</a>
+          </div>
+        </div>
+        <div class="tool-foot">
+          <span>Calcul local, rien n'est envoyé.</span>
+          <span>Grille de décision, Anthony Courtin</span>
+        </div>
+      </div>
+
+      <h2>Qu'est-ce que le protocole MCP ?</h2>
+
+      <p>MCP est l'abréviation de Model Context Protocol. C'est une norme ouverte, publiée par Anthropic, qui décrit comment une application d'intelligence artificielle se connecte à des systèmes extérieurs : des fichiers locaux, une base de données, un moteur de recherche, un outil métier.</p>
+
+      <p>La documentation officielle emploie une image que je reprends toujours en réunion parce qu'elle fait mouche : <strong>MCP est au modèle ce que l'USB-C est aux appareils électroniques.</strong> Avant l'USB-C, chaque appareil avait son connecteur et son câble. Après, une seule prise sert à tout. MCP joue exactement ce rôle pour les applications d'IA.</p>
+
+      <p>Trois familles de ressources circulent par ce protocole. Les <strong>données</strong>, que le modèle peut consulter : documents, enregistrements, contenus. Les <strong>outils</strong>, que le modèle peut appeler pour agir : lancer une recherche, écrire une ligne, envoyer une commande. Et les <strong>instructions</strong>, des marches à suivre spécialisées que le serveur fournit au modèle pour cadrer son travail.</p>
+
+      <h2>Comment fonctionne le protocole MCP ?</h2>
+
+      <p>L'architecture distingue trois rôles, et les confondre est l'erreur la plus courante.</p>
+
+      <ul>
+        <li><strong>L'hôte</strong> est l'application d'IA elle-même : Claude Code, Claude Desktop, Visual Studio Code. C'est lui qui coordonne l'ensemble.</li>
+        <li><strong>Le client</strong> est le composant qui tient une connexion avec un serveur. L'hôte en crée un par serveur : trois serveurs branchés, trois clients.</li>
+        <li><strong>Le serveur</strong> est le programme qui fournit le contexte, qu'il tourne sur votre machine ou à l'autre bout du réseau.</li>
+      </ul>
+
+      <p>Le point important est qu'aucun des trois n'a besoin de connaître son interlocuteur à l'avance. Un serveur écrit pour votre outil interne fonctionne avec Claude aujourd'hui et avec un autre assistant demain, sans une ligne de code supplémentaire. C'est tout l'intérêt d'une norme.</p>
+
+      <p>Dans la pratique, le modèle ne devine rien. Il demande la liste des outils disponibles, lit les descriptions que le serveur lui donne, choisit celui qui correspond à la demande, l'appelle avec des paramètres validés par un schéma JSON, reçoit le résultat et poursuit son raisonnement. La qualité de vos descriptions d'outils compte donc autant que le code derrière : un outil mal décrit est un outil qui ne sera jamais appelé au bon moment.</p>
+
+      <h3>Les deux couches : données et transport</h3>
+
+      <p>La spécification sépare proprement deux niveaux, et c'est ce qui rend le protocole portable.</p>
+
+      <p>La <strong>couche de données</strong> définit le dialogue lui-même. Elle repose sur JSON-RPC 2.0 : le client envoie une requête nommée, le serveur répond. C'est là que vivent la découverte des capacités, les trois primitives du serveur et les notifications de changement. Le protocole est sans état : chaque requête transporte la version et les capacités dont elle a besoin, si bien que le serveur n'a rien à mémoriser entre deux appels.</p>
+
+      <p>La <strong>couche de transport</strong> définit par quel tuyau ce dialogue circule, et il en existe deux.</p>
+
+      <ul>
+        <li><strong>Le transport stdio</strong> fait communiquer deux processus sur la même machine par l'entrée et la sortie standard. Aucune latence réseau, idéal pour un serveur local qui lit vos fichiers.</li>
+        <li><strong>Le transport HTTP en flux</strong> s'appuie sur des requêtes POST, avec des événements envoyés par le serveur pour le streaming. C'est le choix des serveurs distants, qui servent plusieurs clients à la fois.</li>
+      </ul>
+
+      <p>Sur le transport HTTP, l'authentification passe par les mécanismes habituels du web : jeton porteur, clé d'API, en-tête personnalisé. <strong>La spécification recommande OAuth</strong> pour obtenir ces jetons, ce qui est la bonne nouvelle pour quiconque doit justifier un déploiement auprès d'une équipe sécurité.</p>
+
+      <h3>Les trois primitives à connaître</h3>
+
+      <p>Un serveur expose exactement trois choses, et savoir laquelle utiliser évite beaucoup de mauvaises conceptions.</p>
+
+      <ul>
+        <li><strong>Les outils</strong> sont des fonctions exécutables : interroger une base, appeler une API, écrire un fichier. C'est ce que le modèle déclenche.</li>
+        <li><strong>Les ressources</strong> sont des sources de données consultables : le contenu d'un fichier, un enregistrement, le schéma d'une base. C'est ce que le modèle lit.</li>
+        <li><strong>Les prompts</strong> sont des gabarits d'interaction réutilisables : une marche à suivre, des exemples. C'est ce qui cadre le modèle.</li>
+      </ul>
+
+      <p>La règle que j'applique : si l'IA doit <em>agir</em>, c'est un outil. Si elle doit <em>savoir</em>, c'est une ressource. Si elle doit <em>procéder d'une certaine façon</em>, c'est un prompt. Beaucoup de serveurs débutants transforment tout en outils, y compris de la simple lecture, et noient le modèle sous des fonctions qu'une ressource aurait mieux servies.</p>
+
+      <h2>Quels sont les avantages du protocole MCP ?</h2>
+
+      <p>Le gain se voit surtout en arithmétique. Connecter cinq assistants à dix services demandait cinquante intégrations spécifiques, chacune à écrire, tester et maintenir. Avec MCP, vous écrivez dix serveurs et les cinq assistants les consomment tous. Le produit devient une addition, et l'écart se creuse à mesure que le parc grandit.</p>
+
+      <p>Trois bénéfices concrets en découlent.</p>
+
+      <ul>
+        <li><strong>Pour les équipes techniques</strong>, moins de code d'adaptation à maintenir et une intégration qui survit au changement d'assistant.</li>
+        <li><strong>Pour les applications d'IA</strong>, l'accès immédiat à un écosystème de connecteurs déjà écrits par d'autres.</li>
+        <li><strong>Pour les utilisateurs</strong>, un assistant qui travaille sur les vraies données de l'entreprise au lieu de raisonner dans le vide.</li>
+      </ul>
+
+      <p>J'ajoute un quatrième avantage, moins cité et pourtant décisif en entreprise : la maîtrise du périmètre. Le serveur décide exactement ce qu'il expose. Vous ouvrez trois outils en lecture et un seul en écriture si c'est ce que vous voulez, et cette frontière est explicite dans le code plutôt que reposant sur la bonne volonté du modèle.</p>
+
+      <h2>Comment utiliser le protocole MCP ?</h2>
+
+      <p>Deux chemins, selon que vous consommez ou que vous produisez.</p>
+
+      <p><strong>Consommer un serveur existant</strong> est l'affaire de quelques minutes. Beaucoup de services publient déjà le leur. Vous le déclarez dans votre client, vous fournissez vos identifiants, et les outils apparaissent dans la conversation. C'est par là qu'il faut commencer, avant d'écrire quoi que ce soit.</p>
+
+      <p><strong>Écrire votre propre serveur</strong> demande davantage. Le principe reste simple : vous déclarez une liste d'outils avec, pour chacun, un nom, une description et le format des paramètres attendus, puis vous implémentez ce que fait chaque outil. Des bibliothèques existent dans les principaux langages, et le gros du travail n'est pas le protocole mais la question qui précède : quels outils exposer, et jusqu'où.</p>
+
+      <p>Mon conseil de mise en route tient en une phrase : commencez par deux outils, pas par vingt. Un serveur qui expose l'intégralité d'une API produit un modèle noyé qui choisit mal. Deux outils bien nommés et bien décrits valent mieux qu'un catalogue exhaustif.</p>
+
+      <h3>MCP et intelligence artificielle : ce que ça change vraiment</h3>
+
+      <p>Sans accès aux systèmes, un modèle raisonne sur ce qu'il a appris et sur ce que vous lui collez dans la conversation. Avec MCP, il travaille sur l'état réel de vos données au moment où il répond. La différence n'est pas de degré, elle est de nature : on passe d'un assistant qui rédige à un assistant qui agit.</p>
+
+      <p>C'est aussi ce qui explique l'adoption rapide du protocole. Claude, ChatGPT, Visual Studio Code et Cursor le prennent en charge, ce qui veut dire qu'un serveur écrit aujourd'hui a déjà plusieurs débouchés. Pour un éditeur de logiciel, publier un serveur MCP est devenu un geste de distribution autant que de technique.</p>
+
+      <h2>MCP et outils externes : les cas qui reviennent</h2>
+
+      <p>Sur mes missions, quatre usages reviennent constamment.</p>
+
+      <ul>
+        <li><strong>La donnée métier.</strong> Le modèle interroge la base ou l'outil de gestion et répond avec les chiffres du jour plutôt qu'avec une moyenne inventée.</li>
+        <li><strong>Les outils SEO.</strong> Brancher un crawler ou la Search Console permet de faire analyser un site réel, avec ses vraies URL.</li>
+        <li><strong>Le suivi de projet.</strong> Lire les tickets, en créer, changer un statut, sans quitter la conversation.</li>
+        <li><strong>Les fichiers.</strong> Donner accès à un dossier de travail précis, en lecture seule quand c'est plus prudent.</li>
+      </ul>
+
+      <p>Un mot sur le secteur public, que je vois parfois cité comme un cas à part : il ne l'est pas techniquement. Les contraintes y portent sur l'hébergement et la traçabilité des accès, pas sur le protocole, et un serveur MCP se déploie sur une infrastructure maîtrisée comme n'importe quel service interne.</p>
+
+      <h2>Qui gouverne le protocole ?</h2>
+
+      <p>C'est une question qu'on me pose systématiquement en comité, et la réponse a changé fin 2025. <strong>Anthropic a fait don du protocole à l'Agentic AI Foundation</strong>, un fonds dédié hébergé par la Linux Foundation, cofondé avec Block et OpenAI.</p>
+
+      <p>Concrètement, MCP n'appartient plus à son créateur. La gouvernance passe par un comité technique élu par la communauté, où Anthropic ne détient qu'un siège, sans droit de veto. C'est le modèle qui a été appliqué à Kubernetes et à PyTorch, et la Linux Foundation apporte le cadre juridique, la marque et le suivi de sécurité.</p>
+
+      <p>Pour une entreprise, ce point n'est pas anecdotique : il répond à l'objection du verrouillage propriétaire. Miser sur MCP aujourd'hui, ce n'est pas parier sur la stratégie commerciale d'un éditeur, c'est adopter un standard sous gouvernance neutre. C'est l'argument qui débloque le plus de dossiers dans les organisations prudentes.</p>
+
+      <h2>La question à se poser avant de se lancer</h2>
+
+      <p>MCP n'est pas gratuit en temps. Un serveur, c'est du code à écrire, à héberger, à tenir à jour quand l'API derrière évolue. Pour une intégration unique dans un script isolé, appeler directement l'API du service reste plus rapide et parfaitement légitime.</p>
+
+      <p>Le protocole devient rentable quand la même connexion doit servir plusieurs fois : plusieurs assistants, plusieurs équipes, ou simplement plusieurs mois. C'est exactement ce que mesure la grille en haut de page.</p>
+
+      <p>Et si vous hésitez encore, prenez le chemin le moins coûteux : branchez un serveur existant sur votre client, vivez avec pendant deux semaines, et regardez ce que vous auriez voulu qu'il fasse en plus. Cette liste-là est le cahier des charges de votre premier serveur.</p>
+
+
+      <!-- MAILLAGE À AJOUTER APRÈS PUBLICATION DES CIBLES :
+           - /blog/automatiser-seo-claude-code (28/10/2026)
+           - /blog/claude-pour-seo (14/10/2026)
+      -->
+
+      <!-- ================= FAQ ================= -->
+      <section class="faq">
+        <h2>Questions fréquentes</h2>
+
+        <details>
+          <summary>Qu'est-ce que le protocole MCP ?</summary>
+          <div class="faq-a"><p>MCP, pour Model Context Protocol, est une norme ouverte publiée par Anthropic qui décrit comment une application d'intelligence artificielle se connecte à des systèmes extérieurs : fichiers, bases de données, moteurs de recherche ou outils métier. La documentation officielle le compare à un port USB-C pour les applications d'IA : une prise standard là où il fallait auparavant un connecteur différent par service.</p></div>
+        </details>
+
+        <details>
+          <summary>Comment fonctionne le protocole MCP ?</summary>
+          <div class="faq-a"><p>Il repose sur deux rôles. Un serveur expose ce qu'il sait faire, c'est-à-dire ses outils, les données auxquelles il donne accès et les instructions associées. Un client, l'application d'IA, découvre cette liste et appelle ce dont il a besoin au fil de la conversation. Ni l'un ni l'autre n'a besoin de connaître son interlocuteur à l'avance, ce qui rend chaque serveur réutilisable par tous les clients compatibles.</p></div>
+        </details>
+
+        <details>
+          <summary>Quels sont les avantages du protocole MCP ?</summary>
+          <div class="faq-a"><p>Le gain principal est arithmétique : connecter cinq assistants à dix services demandait cinquante intégrations spécifiques, MCP ramène ce produit à dix serveurs réutilisables. S'y ajoutent moins de code d'adaptation à maintenir, l'accès à un écosystème de connecteurs déjà écrits, et une maîtrise explicite du périmètre exposé, puisque le serveur décide exactement quels outils il ouvre et en lecture ou en écriture.</p></div>
+        </details>
+
+        <details>
+          <summary>Comment utiliser le protocole MCP ?</summary>
+          <div class="faq-a"><p>Deux chemins existent. Consommer un serveur déjà publié prend quelques minutes : vous le déclarez dans votre client, vous fournissez vos identifiants et les outils apparaissent. Écrire le vôtre demande de déclarer une liste d'outils avec leur nom, leur description et leurs paramètres, puis d'implémenter chacun. Commencez par deux outils bien décrits plutôt que par le catalogue complet d'une API.</p></div>
+        </details>
+
+        <details>
+          <summary>MCP et intelligence artificielle : qu'est-ce que ça change ?</summary>
+          <div class="faq-a"><p>Sans accès aux systèmes, un modèle raisonne sur ce qu'il a appris et sur ce que vous collez dans la conversation. Avec MCP, il travaille sur l'état réel de vos données au moment où il répond, et peut déclencher des actions. On passe d'un assistant qui rédige à un assistant qui agit.</p></div>
+        </details>
+
+        <details>
+          <summary>Quels outils externes peut-on brancher avec MCP ?</summary>
+          <div class="faq-a"><p>Les cas les plus fréquents sont la donnée métier, avec une base ou un outil de gestion interrogé en direct, les outils SEO comme un crawler ou la Search Console, le suivi de projet pour lire et créer des tickets, et l'accès à un dossier de fichiers, en lecture seule quand la prudence l'impose.</p></div>
+        </details>
+
+        <details>
+          <summary>MCP est-il utilisable dans le secteur public ?</summary>
+          <div class="faq-a"><p>Oui, et il n'y a pas de spécificité technique. Les contraintes du secteur public portent sur l'hébergement et sur la traçabilité des accès, pas sur le protocole lui-même. Un serveur MCP se déploie sur une infrastructure maîtrisée comme n'importe quel autre service interne.</p></div>
+        </details>
+      </section>
+
+      <!-- ================= CTA ================= -->
+      <div class="cta-band">
+        <div>
+          <h2>Brancher l'IA sur vos outils</h2>
+          <p>Je conçois et déploie des serveurs MCP sur mesure, pour que vos assistants travaillent sur vos vraies données plutôt qu'à l'aveugle.</p>
+        </div>
+        <a class="btn btn-lime" href="/automatisation-ia">Voir comment je travaille <span class="ar">→</span></a>
+      </div>
+
+      <!-- ================= AUTEUR ================= -->
+      <div class="author-box">
+        <img src="/images/anthony.avif" alt="Anthony Courtin" width="88" height="88" loading="lazy">
+        <div>
+          <p class="eyebrow">Écrit par</p>
+          <h3>Anthony Courtin</h3>
+          <p class="author-role">Consultant SEO, GEO &amp; automatisation IA</p>
+          <p class="author-bio">J'accompagne des PME et des indépendants sur la visibilité (Google, ChatGPT, Perplexity) et sur l'usage réel de l'IA au travail. J'interviens en entreprise pour former les équipes et repenser les process. Tout ce que j'écris ici, je l'utilise en mission.</p>
+          <div class="author-links">
+            <a class="li" href="https://www.linkedin.com/in/anthony-courtin/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56z"/></svg>
+              Me suivre sur LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= AVIS LECTEURS ================= -->
+      <section class="reviews" data-slug="mcp-model-context-protocol" data-reviews="[]">
+        <h2>Avis des lecteurs</h2>
+        <p class="rv-sub">Cet article vous a servi ? Dites-le, ça aide les suivants.</p>
+
+        <form class="rv-form" name="avis" method="POST" data-netlify="true" netlify-honeypot="societe" action="/merci">
+          <input type="hidden" name="form-name" value="avis">
+          <input type="hidden" name="article" value="mcp-model-context-protocol">
+          <p class="rv-hp"><label>Ne remplissez pas ce champ : <input name="societe" tabindex="-1" autocomplete="off"></label></p>
+
+          <h3>Notez cet article</h3>
+
+          <fieldset class="rating-field">
+            <legend>Votre note</legend>
+            <div class="rating">
+              <input type="radio" id="n5" name="note" value="5"><label for="n5" aria-label="5 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n4" name="note" value="4"><label for="n4" aria-label="4 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n3" name="note" value="3"><label for="n3" aria-label="3 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n2" name="note" value="2"><label for="n2" aria-label="2 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n1" name="note" value="1"><label for="n1" aria-label="1 étoile"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="rv-nom">Prénom <span class="hint">(facultatif)</span></label>
+            <input type="text" id="rv-nom" name="nom" maxlength="60" autocomplete="given-name">
+          </div>
+
+          <div class="field">
+            <label for="rv-texte">Votre commentaire <span class="hint">(facultatif)</span></label>
+            <textarea id="rv-texte" name="texte" rows="4" maxlength="2000"></textarea>
+          </div>
+
+          <div class="rv-msg" id="rv-msg" role="status"></div>
+          <div><button type="submit" class="btn-sm primary">Publier mon avis</button></div>
+        </form>
+
+        <div class="rv-published">
+          <h3 class="rv-published-title">Ce qu'en disent les lecteurs</h3>
+          <div class="rv-summary">
+            <span class="rv-avg" id="rv-avg"></span>
+            <span class="stars" id="rv-stars" aria-hidden="true"></span>
+            <span class="rv-count" id="rv-count">Aucun avis pour le moment.</span>
+          </div>
+          <div class="rv-list" id="rv-list"></div>
+          <p class="rv-empty" id="rv-empty">Soyez le premier à donner votre avis.</p>
+        </div>
+      </section>
+
+    </article>
+  </div>
+
+  <!-- ---------- COLONNE DROITE : résumé IA + articles liés ---------- -->
+  <aside class="rail rail-right">
+    <div class="ai-box">
+      <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
+      <p class="ai-text">Le Model Context Protocol est une norme ouverte publiée par Anthropic qui standardise la connexion entre une application d'IA et des systèmes extérieurs : fichiers, bases de données, outils métier. Son architecture repose sur des serveurs qui exposent outils, données et instructions, et des clients qui les consomment sans connaissance préalable. L'intérêt est arithmétique : cinq assistants et dix services demandaient cinquante intégrations, MCP les ramène à dix serveurs réutilisables. Claude, ChatGPT, Visual Studio Code et Cursor le prennent en charge. Il devient rentable dès que la même connexion doit servir plusieurs assistants, plusieurs équipes ou plusieurs mois.</p>
+      <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
+    </div>
+
+    <div class="rail-recent">
+      <p class="rail-title">Dans la même catégorie</p>
+      <div class="mini-list">
+        <a class="mini" href="/blog/claude-code">
+          <span class="mini-thumb"><!-- TODO: visuel article --></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Claude Code, le guide</span></span>
+        </a>
+        <a class="mini" href="/blog/agent-ia">
+          <span class="mini-thumb"><!-- TODO: visuel article --></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Agent IA : ce que c'est</span></span>
+        </a>
+        <a class="mini" href="/blog/n8n">
+          <span class="mini-thumb"><!-- TODO: visuel article --></span>
+          <span><span class="mini-cat">Automatisation</span><span class="mini-ttl">n8n, no-code ou code</span></span>
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- ================= ARTICLES LIÉS ================= -->
+<section class="related">
+  <div class="wrap">
+    <h2>À lire ensuite</h2>
+    <p class="sub">La suite logique du parcours.</p>
+    <div class="rel-grid">
+      <a class="rel-card" href="/blog/claude-code">
+        <!-- TODO: visuel article -->
+        <div class="rel-body">
+          <span class="rel-cat">Utiliser l'IA</span>
+          <h3>Claude Code : le guide complet</h3>
+          <p>L'agent de développement d'Anthropic, sa configuration et ce qu'il change au quotidien.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="/blog/agent-ia">
+        <!-- TODO: visuel article -->
+        <div class="rel-body">
+          <span class="rel-cat">Utiliser l'IA</span>
+          <h3>Agent IA : la grille d'éligibilité d'un process</h3>
+          <p>Quels processus méritent un agent, lesquels n'en ont pas besoin, et comment trancher.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="/blog/automatisations-gain-temps">
+        <!-- TODO: visuel article -->
+        <div class="rel-body">
+          <span class="rel-cat">Automatisation</span>
+          <h3>Les automatisations qui font vraiment gagner du temps</h3>
+          <p>Le calcul des heures récupérables, poste par poste, avant d'automatiser quoi que ce soit.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="foot-logo" href="/"><img src="/images/logo-transparent-pine.svg" alt="anthony courtin" width="98" height="48"></a>
+        <p style="color:var(--ink-2);font-size:.95rem;margin-top:12px;max-width:280px">Consultant SEO, GEO &amp; automatisation IA. Interventions partout en France.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul><li><a href="/seo">SEO</a></li><li><a href="/geo">GEO, visibilité IA</a></li><li><a href="/automatisation-ia">Automatisation IA</a></li><li><a href="/tarifs">Tarifs</a></li></ul>
+      </div>
+      <div>
+        <h4>Ressources</h4>
+        <ul><li><a href="/blog/">Blog</a></li><li><a href="/realisations">Réalisations</a></li><li><a href="/a-propos">À propos</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul><li><a href="/contact">Formulaire</a></li><li><a href="mailto:anthony@astrak.agency">anthony@astrak.agency</a></li><li><a href="https://www.linkedin.com/in/anthony-courtin/" rel="noopener">LinkedIn</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Anthony Courtin</span>
+      <span><a href="/mentions-legales">Mentions légales</a> · <a href="/confidentialite">Confidentialité</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/site.js?v=2" defer></script>
+<script src="/js/blog-article.js?v=3" defer></script>
+
+<!-- Outil interactif propre à cet article -->
+<script src="/js/mcp-tool.js?v=1" defer></script>
+
+</body>
+</html>

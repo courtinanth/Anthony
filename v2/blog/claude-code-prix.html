@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude Code : prix, plans et coût réel (2026)</title>
+<meta name="description" content="Claude Code est inclus dans toutes les formules payantes de Claude, dès 20 $ par mois. Tarifs des plans, prix des tokens et méthode pour choisir.">
+<link rel="canonical" href="https://anthony-courtin.com/blog/claude-code-prix">
+<link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script src="/js/favicon-anim.js?v=2" defer></script>
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Claude Code : prix, plans et coût réel (2026)">
+<meta property="og:description" content="Combien coûte vraiment Claude Code ? Le détail des formules Pro, Max, Team et Enterprise, les tarifs API au million de tokens, et le calcul du seuil de bascule.">
+<meta property="og:url" content="https://anthony-courtin.com/blog/claude-code-prix">
+<meta property="og:image" content="https://anthony-courtin.com/images/blog/claude-code-prix-cover.webp">
+<meta property="og:locale" content="fr_FR">
+<meta property="article:published_time" content="2026-10-12">
+<meta property="article:modified_time" content="2026-10-12">
+<meta property="article:author" content="Anthony Courtin">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/main.css?v=2">
+<link rel="stylesheet" href="/css/blog-article.css?v=3">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"BlogPosting",
+      "@id":"https://anthony-courtin.com/blog/claude-code-prix#article",
+      "headline":"Claude Code : ce que ça coûte vraiment",
+      "description":"Guide des prix de Claude Code : formules Pro, Max, Team et Enterprise, tarifs de l'API par million de tokens, leviers d'économie et méthode pour arbitrer entre abonnement et facturation à l'usage.",
+      "inLanguage":"fr-FR",
+      "datePublished":"2026-10-12",
+      "dateModified":"2026-10-12",
+      "image":"https://anthony-courtin.com/images/blog/claude-code-prix-cover.webp",
+      "wordCount":2700,
+      "mainEntityOfPage":{"@type":"WebPage","@id":"https://anthony-courtin.com/blog/claude-code-prix"},
+      "author":{"@id":"https://anthony-courtin.com/#anthony"},
+      "publisher":{"@id":"https://anthony-courtin.com/#anthony"},
+      "about":[{"@type":"Thing","name":"Claude Code"},{"@type":"Thing","name":"Anthropic"},{"@type":"Thing","name":"Tarification"},{"@type":"Thing","name":"API"},{"@type":"Thing","name":"Intelligence artificielle"}]
+    },
+    {
+      "@type":"Person",
+      "@id":"https://anthony-courtin.com/#anthony",
+      "name":"Anthony Courtin",
+      "jobTitle":"Consultant SEO, GEO et automatisation IA",
+      "url":"https://anthony-courtin.com/a-propos",
+      "image":"https://anthony-courtin.com/images/anthony.avif",
+      "sameAs":["https://www.linkedin.com/in/anthony-courtin/"]
+    },
+    {
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Accueil","item":"https://anthony-courtin.com/"},
+        {"@type":"ListItem","position":2,"name":"Blog","item":"https://anthony-courtin.com/blog/"},
+        {"@type":"ListItem","position":3,"name":"Claude Code, prix"}
+      ]
+    },
+    {
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"Quel est le prix de Claude Code ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Claude Code n'a pas de tarif propre : il est inclus dans toutes les formules payantes de Claude, à partir de 20 $ par mois avec la formule Pro. Vous pouvez aussi passer par l'API et payer au token consommé, sans abonnement ni montant minimum."}},
+        {"@type":"Question","name":"Quels sont les plans disponibles pour Claude ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Il existe cinq formules. Free est gratuite mais n'inclut pas Claude Code. Pro coûte 20 $ par mois, ou 17 $ par mois en réglant l'année d'avance. Max se décline en deux crans, 100 $ par mois pour cinq fois l'usage de Pro et 200 $ pour vingt fois. Team se compte en sièges, 20 $ le siège Standard et 100 $ le siège Premium en facturation annuelle. Enterprise ajoute à un siège à 20 $ la consommation facturée au tarif de l'API."}},
+        {"@type":"Question","name":"Comment fonctionne la facturation de Claude ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Sur abonnement, vous payez un montant fixe et vous consommez à l'intérieur de limites qui se réinitialisent par sessions de cinq heures, doublées d'un plafond hebdomadaire propre à votre compte. L'usage de Claude et celui de Claude Code puisent dans le même compteur. Sur l'API, il n'y a ni forfait ni plancher : vous payez à la fin du mois les tokens réellement consommés."}},
+        {"@type":"Question","name":"Y a-t-il un plan gratuit pour Claude ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Oui pour Claude, non pour Claude Code. La formule Free donne accès à Claude sur le web, le mobile et le bureau avec un volume limité, mais pas à l'agent de développement. Les nouveaux comptes API reçoivent par ailleurs un petit crédit offert, suffisant pour tester un modèle mais pas pour produire."}},
+        {"@type":"Question","name":"Quels sont les coûts des tokens pour Claude ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Les tarifs API par million de tokens sont de 1 $ en entrée et 5 $ en sortie pour Claude Haiku 4.5, 3 $ et 15 $ pour Claude Sonnet 5, 5 $ et 25 $ pour Claude Opus 5, et 10 $ et 50 $ pour Claude Fable 5. La lecture de cache revient à un dixième du prix d'entrée et le traitement par lots applique 50 % de remise sur l'entrée comme sur la sortie."}},
+        {"@type":"Question","name":"Comment choisir le bon plan pour Claude ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Relevez votre consommation des trente derniers jours dans la console, convertissez-la en coût API et comparez ce montant aux paliers d'abonnement de 20 $, 100 $ et 200 $. En dessous du palier qui vous convient, l'abonnement gagne sur le prix et sur la prévisibilité. Au-delà de 200 $ par mois, ou dès que vous devez intégrer Claude dans un script, l'API devient l'option rationnelle."}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+<div id="read-progress"></div>
+
+<!-- ================= HEADER (identique au reste du site v2) ================= -->
+<header class="site">
+  <div class="nav-shell">
+    <nav class="main" aria-label="Navigation principale">
+      <a class="logo" href="/"><img src="/images/logo-transparent-cream.svg" alt="anthony courtin" width="86" height="42"></a>
+      <div class="nav-links">
+        <div class="nav-item"><a href="/seo">SEO</a></div>
+        <div class="nav-item"><a href="/geo">GEO, visibilité IA</a></div>
+        <div class="nav-item"><a href="/automatisation-ia">Automatisation IA</a></div>
+        <div class="nav-item"><a href="/blog/">Blog</a></div>
+        <div class="nav-item"><a href="/tarifs">Tarifs</a></div>
+      </div>
+      <button class="burger" id="burger" type="button" aria-label="Menu">☰</button>
+      <a class="nav-cta" href="/contact">Travailler avec moi</a>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="/seo">SEO</a>
+        <a href="/geo">GEO, visibilité IA</a>
+        <a href="/automatisation-ia">Automatisation IA</a>
+        <a href="/blog/">Blog</a>
+        <a href="/tarifs">Tarifs</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= EN-TÊTE D'ARTICLE ================= -->
+<section class="art-top">
+  <div class="wrap">
+    <nav class="crumb" aria-label="Fil d'Ariane">
+      <a href="/">Accueil</a><span aria-hidden="true">/</span>
+      <a href="/blog/">Blog</a><span aria-hidden="true">/</span>
+      <span>Claude Code, prix</span>
+    </nav>
+
+    <span class="art-cat">Utiliser l'IA</span>
+    <h1 class="art-title">Claude Code : ce que ça coûte vraiment</h1>
+    <p class="art-lede">Il n'existe pas d'abonnement Claude Code. Il y a des formules Claude, une API facturée au token, et un seuil de bascule entre les deux qui se calcule. Voici les prix exacts et la méthode.</p>
+
+    <div class="art-metaline">
+      <span class="who">
+        <img src="/images/anthony.avif" alt="" width="38" height="38" loading="lazy">
+        Anthony Courtin
+      </span>
+      <span class="dot" aria-hidden="true">·</span>
+      <time datetime="2026-10-12">12 octobre 2026</time>
+      <span class="dot" aria-hidden="true">·</span>
+      <span>11 min de lecture</span>
+      <span class="dot" aria-hidden="true">·</span>
+      <span>Mis à jour le <time datetime="2026-10-12">12 octobre 2026</time></span>
+    </div>
+
+    <!-- Boutons "Résumer avec" : les href sont construits par blog-article.js -->
+    <div class="ai-actions">
+      <span class="ai-actions__title">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>
+        Résumer avec
+      </span>
+      <ul class="ai-actions__list">
+        <li><a class="ai-btn" data-ai="chatgpt" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec ChatGPT">ChatGPT</a></li>
+        <li><a class="ai-btn" data-ai="claude" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Claude">Claude</a></li>
+        <li><a class="ai-btn" data-ai="perplexity" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Perplexity">Perplexity</a></li>
+        <li><a class="ai-btn" data-ai="gemini" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Gemini">Gemini</a></li>
+        <li><a class="ai-btn" data-ai="mistral" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Le Chat de Mistral">Le Chat</a></li>
+        <li><a class="ai-btn" data-ai="grok" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Grok">Grok</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GRILLE 3 COLONNES ================= -->
+<div class="art-layout">
+
+  <!-- ---------- COLONNE GAUCHE : sommaire + partage ---------- -->
+  <aside class="rail rail-left">
+    <details class="toc-box" open>
+      <summary><span class="rail-title">Sommaire</span><span class="toc-chevron" aria-hidden="true"></span></summary>
+      <nav class="toc" id="toc" aria-label="Sommaire de l'article">
+        <p class="toc-empty">Chargement…</p>
+      </nav>
+    </details>
+
+    <div class="share-box">
+      <p class="rail-title">Partager</p>
+      <ul class="share">
+        <li><a class="share-btn share-linkedin" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur LinkedIn"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56z"/></svg></a></li>
+        <li><a class="share-btn share-x" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur X"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.96 6.82H1.68l7.73-8.84L1.25 2.25h6.83l4.71 6.23zm-1.16 17.52h1.83L7.08 4.13H5.12z"/></svg></a></li>
+        <li><a class="share-btn share-whatsapp" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur WhatsApp"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m5.8 14.16c-.25.69-1.43 1.31-1.98 1.4-.53.08-1.19.11-1.92-.12-.44-.14-1.01-.33-1.74-.64-3.06-1.32-5.06-4.4-5.21-4.6-.15-.2-1.25-1.66-1.25-3.16s.79-2.25 1.07-2.55c.28-.31.61-.38.81-.38h.58c.19 0 .44-.07.69.53.25.61.86 2.11.94 2.26.08.15.13.33.02.53-.1.2-.16.33-.31.5l-.46.54c-.15.15-.31.32-.13.63.18.31.79 1.3 1.69 2.11 1.16 1.03 2.14 1.35 2.45 1.5.31.15.49.13.67-.08.18-.2.77-.9.98-1.21.2-.31.41-.26.69-.15.28.1 1.78.84 2.09.99.31.15.51.23.59.36.08.13.08.74-.17 1.44"/></svg></a></li>
+        <li><a class="share-btn share-email" href="#" rel="nofollow" aria-label="Partager par e-mail"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m0 4-8 5-8-5V6l8 5 8-5z"/></svg></a></li>
+        <li><button class="share-btn share-copy" type="button" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2m0 16H8V7h11z"/></svg></button></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- ---------- COLONNE CENTRALE : le contenu ---------- -->
+  <div class="art-main">
+
+    <!-- Résumé IA version mobile : rendu côté serveur, donc lisible par Google et les LLM -->
+    <div class="ai-box ai-box-mobile">
+      <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
+      <p class="ai-text">Claude Code est inclus sans supplément dans toutes les formules payantes de Claude : Pro à 20 $ par mois, Max à 100 $ ou 200 $, Team à partir de 20 $ le siège, Enterprise en siège plus consommation. L'API se facture au million de tokens, de 1 $ à 10 $ en entrée et de 5 $ à 50 $ en sortie selon le modèle. Le cache divise le prix d'entrée par dix sur la partie réutilisée et le mode batch applique 50 % de remise. La bascule entre abonnement et API se calcule en convertissant sa consommation réelle en coût API, puis en la comparant aux paliers de 20 $, 100 $ et 200 $.</p>
+      <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
+    </div>
+
+    <article class="art-body">
+
+      <figure>
+        <picture>
+          <source srcset="/images/blog/claude-code-prix-cover.avif" type="image/avif">
+          <img src="/images/blog/claude-code-prix-cover.webp" alt="Illustration abstraite représentant le coût d'utilisation de Claude Code" width="1376" height="768" fetchpriority="high" decoding="async">
+        </picture>
+      </figure>
+
+      <p><strong>Claude Code n'a pas de prix à lui.</strong> Il est inclus dans toutes les formules payantes de Claude, à partir de 20 $ par mois, et se facture au token si vous passez par l'API. Toute la question est de savoir laquelle des deux portes coûte le moins cher pour votre usage réel.</p>
+
+      <p>Je l'utilise tous les jours en mission, sur du code comme sur des scripts SEO. Voici les prix exacts, relevés à la source, et la méthode que j'emploie pour trancher entre abonnement et facturation à l'usage.</p>
+
+      <div class="verdict">
+        <div class="verdict-note">
+          <b>20 $</b>
+          <span>le ticket d'entrée</span>
+        </div>
+        <div class="verdict-body">
+          <h2>Ce que coûte vraiment Claude Code</h2>
+          <p>Il n'existe pas d'abonnement Claude Code séparé. Vous payez un accès à Claude, et Claude Code vient avec, sur le terminal comme dans l'éditeur. La seule vraie décision est le niveau d'usage dont vous avez besoin.</p>
+          <div class="verdict-lists">
+            <ul class="verdict-pros">
+              <li>Inclus dans Pro, Max, Team et Enterprise, sans supplément</li>
+              <li>Un prix fixe, prévisible, qui couvre aussi Claude sur le web et le mobile</li>
+              <li>L'API en secours quand le volume dépasse le forfait</li>
+            </ul>
+            <ul class="verdict-cons">
+              <li>Rien dans la formule gratuite</li>
+              <li>Des plafonds par session et par semaine, pas de l'illimité</li>
+            </ul>
+          </div>
+        </div>
+        <p class="verdict-foot">
+          <span class="verdict-price">De 20 $ à 200 $ par mois</span>
+          <span>Ou au token via l'API, sans plancher</span>
+        </p>
+      </div>
+
+      <section class="takeaways">
+        <h2>À retenir</h2>
+        <ul>
+          <li><strong>Claude Code est inclus dans toutes les formules payantes.</strong> Chercher son tarif séparé est une impasse : il n'y en a pas.</li>
+          <li><strong>La formule gratuite ne donne pas accès à Claude Code.</strong> Le premier palier utile est Pro, à 20 $ par mois.</li>
+          <li><strong>Max existe en deux crans</strong>, 100 $ et 200 $ par mois, pour cinq fois et vingt fois l'usage de Pro.</li>
+          <li><strong>L'API se facture au million de tokens</strong>, de 1 $ à 10 $ en entrée selon le modèle, et de 5 $ à 50 $ en sortie.</li>
+          <li><strong>Le cache divise le prix d'entrée par dix</strong> sur la partie réutilisée. C'est le levier d'économie le plus rentable, et le plus ignoré.</li>
+        </ul>
+      </section>
+
+      <p>Avant d'entrer dans le détail, chiffrez votre propre situation. Entrez votre consommation mensuelle et l'outil vous dit si l'abonnement ou l'API vous revient le moins cher.</p>
+
+      <div class="tool" id="outil-claude-code-prix">
+        <div class="tool-head">
+          <span class="tool-ico" aria-hidden="true">✦</span>
+          <span>
+            <em>Outil interactif</em>
+            <b>Abonnement ou API : votre seuil de bascule</b>
+          </span>
+        </div>
+        <div class="tool-body">
+          <div class="field">
+            <label for="ccp-modele">Modèle utilisé</label>
+            <select id="ccp-modele">
+              <option value="opus-5">Claude Opus 5, 5 $ et 25 $ par million de tokens</option>
+              <option value="sonnet-5">Claude Sonnet 5, 3 $ et 15 $</option>
+              <option value="haiku-45">Claude Haiku 4.5, 1 $ et 5 $</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="ccp-entree">Tokens en entrée par mois, en millions</label>
+            <input type="number" id="ccp-entree" min="0" step="0.5" value="10" inputmode="decimal">
+          </div>
+
+          <div class="field">
+            <label for="ccp-sortie">Tokens en sortie par mois, en millions</label>
+            <input type="number" id="ccp-sortie" min="0" step="0.1" value="1" inputmode="decimal">
+          </div>
+
+          <div class="field">
+            <label for="ccp-cache">Part servie par le cache : <span id="ccp-cache-val">0 %</span></label>
+            <input type="range" id="ccp-cache" min="0" max="90" step="5" value="0">
+          </div>
+
+          <div class="score">
+            <b id="ccp-total">0,00 $</b><span>par mois à l'API</span>
+          </div>
+          <div class="meter"><i id="ccp-meter" style="width:0%"></i></div>
+
+          <div class="field">
+            <span class="rail-title" style="margin-bottom:8px" id="ccp-verdict"></span>
+            <div class="tool-out" id="ccp-detail" aria-live="polite"></div>
+          </div>
+
+          <div class="tool-actions">
+            <button type="button" class="btn-sm primary" id="ccp-copy">Copier l'estimation</button>
+            <a class="btn-sm ghost" href="/automatisation-ia">Faire chiffrer mon usage</a>
+          </div>
+        </div>
+        <div class="tool-foot">
+          <span>Calcul local, rien n'est envoyé. Estimation hors surcoût d'écriture de cache.</span>
+          <span>Tarifs relevés le 11 août 2026</span>
+        </div>
+      </div>
+
+      <h2>Quel est le prix de Claude Code ?</h2>
+
+      <p>Zéro, si l'on pose la question ainsi. Claude Code n'est pas un produit vendu séparément : c'est une manière d'utiliser Claude, depuis votre terminal, votre éditeur ou votre navigateur. Anthropic l'inclut dans toutes les formules payantes, sans ligne supplémentaire sur la facture.</p>
+
+      <p>C'est la première source de confusion que je rencontre chez mes clients. Ils cherchent une grille tarifaire « Claude Code » et n'en trouvent pas, donc ils concluent que l'outil est réservé aux entreprises ou qu'il coûte cher. C'est l'inverse : le même abonnement à 20 $ qui vous donne Claude dans un navigateur vous donne aussi l'agent de développement.</p>
+
+      <p>La vraie question n'est donc pas combien coûte Claude Code, mais quel niveau d'usage vous devez acheter. Et là, il y a cinq réponses possibles.</p>
+
+      <h2>Quels sont les plans disponibles pour Claude ?</h2>
+
+      <p>Cinq formules, dont une gratuite qui n'ouvre pas Claude Code. Tous les prix sont hors taxes, en dollars, avec facturation dans votre devise locale là où c'est proposé.</p>
+
+      <h3>Free, la formule gratuite</h3>
+
+      <p>Zéro euro, l'accès à Claude sur le web, le mobile et le bureau, avec un volume d'échanges limité. <strong>Claude Code n'y est pas inclus.</strong> C'est utile pour tester la qualité des réponses, pas pour travailler.</p>
+
+      <h3>Pro, à 20 $ par mois</h3>
+
+      <p>Le premier palier qui débloque Claude Code. Il coûte 20 $ facturé au mois, ou 17 $ par mois si vous payez l'année d'avance, soit 200 $ réglés en une fois. L'engagement annuel fait donc économiser 40 $ sur douze mois, à peu près deux mois offerts.</p>
+
+      <p>Pro donne un usage nettement supérieur à la formule gratuite et un accès prioritaire aux heures de forte affluence. Pour un indépendant qui code quelques heures par semaine, c'est le point de départ raisonnable.</p>
+
+      <h3>Max, à 100 $ ou 200 $ par mois</h3>
+
+      <p>Max existe en deux crans. Le premier, à 100 $ par mois, donne cinq fois l'usage de Pro. Le second, à 200 $ par mois, en donne vingt fois. Les deux s'accompagnent d'un accès prioritaire aux nouveaux modèles.</p>
+
+      <p>Point important : <strong>Max n'existe qu'en abonnement mensuel</strong>, il n'y a pas de tarif annuel remisé. En revanche, le passage d'un cran à l'autre en cours de mois est calculé au prorata.</p>
+
+      <p>C'est la formule que je conseille dès que Claude Code devient un outil de travail quotidien plutôt qu'un appoint. Le cran à 100 $ couvre la grande majorité des usages individuels sérieux.</p>
+
+      <h3>Team, à partir de 20 $ par siège</h3>
+
+      <p>Team se compte en sièges, jusqu'à 150. Deux types coexistent. Le siège Standard revient à 20 $ par siège et par mois en facturation annuelle, 25 $ au mois. Le siège Premium coûte 100 $ par siège et par mois en annuel, 125 $ au mois, et donne cinq fois l'usage d'un siège Standard.</p>
+
+      <p>L'intérêt d'un mélange des deux est réel : quelques sièges Premium pour ceux qui codent toute la journée, des sièges Standard pour ceux qui rédigent ou analysent.</p>
+
+      <h3>Enterprise, siège plus consommation</h3>
+
+      <p>Enterprise fonctionne différemment, et c'est le point que les comparatifs ratent le plus souvent. Le modèle est hybride : <strong>un siège à 20 $ par utilisateur, facturé à l'année, auquel s'ajoute la consommation réelle facturée au tarif de l'API.</strong></p>
+
+      <p>Le siège ouvre l'accès à Claude sur le web, le bureau et le mobile, plus Claude Code. Les tokens consommés se facturent en plus. Ce n'est donc pas un forfait, et une organisation qui budgète Enterprise comme une ligne fixe se trompe : il faut modéliser la consommation à côté.</p>
+
+      <h2>Comment fonctionne la facturation de Claude ?</h2>
+
+      <p>Deux mécaniques cohabitent, et il faut les distinguer pour ne pas se tromper de budget.</p>
+
+      <p><strong>Côté abonnement</strong>, vous payez un montant fixe et vous consommez à l'intérieur de limites. Ces limites ne sont pas un compteur mensuel unique. Sur Max, elles fonctionnent par sessions qui se réinitialisent toutes les cinq heures, avec en plus un plafond hebdomadaire dont la date de remise à zéro est propre à votre compte. Autrement dit, une grosse journée peut vous bloquer quelques heures même si votre mois est loin d'être entamé.</p>
+
+      <p>Autre point à connaître : l'usage de Claude et celui de Claude Code puisent dans le même compteur. Une longue session de rédaction dans le navigateur réduit ce qu'il vous reste pour coder dans la journée.</p>
+
+      <p><strong>Côté API</strong>, il n'y a ni forfait ni plancher : vous payez les tokens que vous consommez, à la fin du mois. C'est plus fin, plus pilotable, et cela devient franchement moins cher au-delà d'un certain volume. C'est aussi plus exigeant, parce qu'il n'y a rien pour vous arrêter.</p>
+
+      <h2>Y a-t-il un plan gratuit pour Claude ?</h2>
+
+      <p>Oui pour Claude, non pour Claude Code. La formule Free permet de discuter avec Claude sur le web, le mobile et l'application de bureau, avec un volume quotidien restreint et sans accès à l'agent de développement.</p>
+
+      <p>Il existe tout de même une porte d'entrée sans engagement du côté de l'API : les nouveaux comptes reçoivent un petit crédit offert pour tester. C'est suffisant pour évaluer la qualité d'un modèle sur vos propres données, pas pour produire.</p>
+
+      <p>Si votre objectif est de tester Claude Code avant de payer, le chemin le plus court reste le premier mois de Pro, à 20 $, quitte à résilier ensuite.</p>
+
+      <h2>Quels sont les coûts des tokens pour Claude ?</h2>
+
+      <p>Voici les tarifs de l'API, en dollars par million de tokens. Ce sont les prix relevés à la source le 11 août 2026.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Modèle</th><th>Entrée</th><th>Sortie</th><th>Lecture de cache</th><th>Batch, entrée et sortie</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Claude Fable 5</td><td>10 $</td><td>50 $</td><td>1 $</td><td>5 $ et 25 $</td></tr>
+            <tr><td>Claude Opus 5</td><td>5 $</td><td>25 $</td><td>0,50 $</td><td>2,50 $ et 12,50 $</td></tr>
+            <tr><td>Claude Sonnet 5</td><td>3 $</td><td>15 $</td><td>0,30 $</td><td>1,50 $ et 7,50 $</td></tr>
+            <tr><td>Claude Haiku 4.5</td><td>1 $</td><td>5 $</td><td>0,10 $</td><td>0,50 $ et 2,50 $</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Trois leviers font varier ces montants dans de grandes proportions.</p>
+
+      <p><strong>Le cache.</strong> Une portion de prompt réutilisée d'une requête à l'autre se relit à un dixième du prix d'entrée. L'écriture coûte 1,25 fois le prix normal pour une conservation de cinq minutes, et deux fois pour une heure. Le calcul est vite fait : le cache court est rentable dès la première relecture, le cache long à partir de la deuxième. Sur un agent qui rejoue le même contexte des dizaines de fois par heure, c'est le poste d'économie numéro un.</p>
+
+      <p><strong>Le traitement par lots.</strong> Les requêtes qui ne sont pas urgentes peuvent passer par l'API batch, avec 50 % de remise sur l'entrée comme sur la sortie. Pour tout ce qui est génération de masse, classification ou enrichissement de catalogue, c'est de l'argent laissé sur la table si vous ne l'utilisez pas.</p>
+
+      <p><strong>Le choix du modèle.</strong> L'écart entre Haiku et Opus est d'un facteur cinq. Beaucoup de tâches d'un pipeline, extraire, classer, reformater, n'ont aucun besoin du modèle le plus puissant. Réserver Opus au raisonnement difficile et confier le reste à Haiku change l'ordre de grandeur d'une facture.</p>
+
+      <h3>Le piège que presque personne ne mentionne</h3>
+
+      <p>Comparer deux modèles au prix par million de tokens ne suffit pas, et c'est un vrai piège budgétaire. Les modèles à partir d'Opus 4.7 utilisent un nouveau tokeniseur qui découpe le texte plus finement : <strong>à texte identique, il produit environ 30 % de tokens en plus.</strong></p>
+
+      <p>Conséquence directe : deux modèles affichés au même tarif par million de tokens ne coûtent pas la même chose pour traiter le même document. Le plus récent consommera mécaniquement plus d'unités. L'information est écrite noir sur blanc dans la documentation d'Anthropic, et je ne l'ai vue reprise nulle part en français.</p>
+
+      <p>La seule façon sérieuse de comparer est donc de mesurer sur vos propres contenus, avec le point de comptage de tokens de l'API, plutôt que de raisonner sur la grille tarifaire.</p>
+
+      <h2>Ce qui se facture en plus des tokens</h2>
+
+      <p>Quelques postes s'ajoutent, modestes pris isolément, moins anodins à l'échelle d'un agent qui tourne en continu.</p>
+
+      <ul>
+        <li><strong>La recherche web</strong> revient à 10 $ pour 1 000 recherches, en plus des tokens du contenu rapporté.</li>
+        <li><strong>La récupération d'une page</strong> ne coûte rien de plus : seuls les tokens de la page comptent. Une page moyenne pèse environ 2 500 tokens, une grosse page de documentation dix fois plus.</li>
+        <li><strong>L'exécution de code</strong> offre 1 550 heures par mois et par organisation, puis 0,05 $ par heure et par conteneur. Elle devient gratuite dès qu'elle accompagne la recherche web.</li>
+        <li><strong>Les agents gérés</strong> ajoutent 0,08 $ par heure de session, décomptée seulement quand la session travaille réellement.</li>
+      </ul>
+
+      <p>Deux multiplicateurs méritent l'attention. Le mode rapide, disponible sur Opus 5, double le tarif. Et restreindre l'inférence au territoire américain, pour des raisons de conformité, applique un coefficient de 1,1 sur l'ensemble des postes.</p>
+
+      <h2>Abonnement ou API : comment choisir le bon plan</h2>
+
+      <p>La bascule se calcule, elle ne se devine pas. Voici la méthode que j'applique.</p>
+
+      <p>Commencez par relever votre consommation réelle des trente derniers jours dans la console. Convertissez-la en coût API avec la grille ci-dessus, cache compris. Comparez ce montant aux trois paliers d'abonnement : 20 $, 100 $, 200 $.</p>
+
+      <p>Si votre coût API théorique est inférieur au palier qui vous convient, l'abonnement gagne, et pas seulement sur le prix : il apporte la prévisibilité et couvre en prime tous les autres usages de Claude. Si votre coût API dépasse 200 $ par mois, l'abonnement individuel a atteint sa limite et l'API devient l'option rationnelle, parce qu'elle se pilote.</p>
+
+      <p>Trois signaux poussent vers l'API indépendamment du calcul. Vous avez besoin d'intégrer Claude dans un produit ou un script automatisé. Vous voulez appliquer le traitement par lots à des volumes importants. Vous devez répartir la charge entre plusieurs modèles selon la difficulté de la tâche. Aucun de ces trois besoins ne se traite avec un abonnement.</p>
+
+      <p>Et si vous êtes plusieurs, chiffrez Team avant de multiplier les abonnements individuels : un mélange de sièges Standard et Premium revient souvent moins cher que quatre Max.</p>
+
+      <h2>Ce que je paie, moi</h2>
+
+      <p>Je travaille avec un abonnement pour l'usage quotidien, dans le terminal comme dans le navigateur, et j'ouvre l'API pour tout ce qui est automatisé : les pipelines de contenu, les scripts d'audit, les traitements en série sur des milliers d'URL.</p>
+
+      <p>Cette séparation a un mérite pratique. L'abonnement couvre la partie imprévisible, celle où je discute avec le modèle et où je ne veux pas surveiller un compteur. L'API couvre la partie industrielle, celle que je peux mesurer, mettre en cache et passer en batch. Le budget devient lisible, et surtout il devient optimisable, ce qui n'est pas le cas d'un forfait.</p>
+
+      <p>Un dernier conseil, valable quel que soit votre choix : posez une alerte de dépense sur votre compte API dès le premier jour. Un agent mal bordé qui boucle peut consommer en une nuit ce que vous aviez prévu pour le trimestre. C'est le seul vrai risque financier de cet outil.</p>
+
+
+      <!-- MAILLAGE À AJOUTER APRÈS PUBLICATION DES CIBLES :
+           - /blog/claude-vs-chatgpt (02/11/2026)
+           - /blog/claude-ai-prix (16/11/2026)
+           - /blog/mcp-model-context-protocol (21/10/2026)
+      -->
+
+      <!-- ================= FAQ ================= -->
+      <section class="faq">
+        <h2>Questions fréquentes</h2>
+
+        <details>
+          <summary>Quel est le prix de Claude Code ?</summary>
+          <div class="faq-a"><p>Claude Code n'a pas de tarif propre : il est inclus dans toutes les formules payantes de Claude, à partir de 20 $ par mois avec la formule Pro. Vous pouvez aussi passer par l'API et payer au token consommé, sans abonnement ni montant minimum.</p></div>
+        </details>
+
+        <details>
+          <summary>Quels sont les plans disponibles pour Claude ?</summary>
+          <div class="faq-a"><p>Il existe cinq formules. Free est gratuite mais n'inclut pas Claude Code. Pro coûte 20 $ par mois, ou 17 $ par mois en réglant l'année d'avance. Max se décline en deux crans, 100 $ par mois pour cinq fois l'usage de Pro et 200 $ pour vingt fois. Team se compte en sièges, 20 $ le siège Standard et 100 $ le siège Premium en facturation annuelle. Enterprise ajoute à un siège à 20 $ la consommation facturée au tarif de l'API.</p></div>
+        </details>
+
+        <details>
+          <summary>Comment fonctionne la facturation de Claude ?</summary>
+          <div class="faq-a"><p>Sur abonnement, vous payez un montant fixe et vous consommez à l'intérieur de limites qui se réinitialisent par sessions de cinq heures, doublées d'un plafond hebdomadaire propre à votre compte. L'usage de Claude et celui de Claude Code puisent dans le même compteur. Sur l'API, il n'y a ni forfait ni plancher : vous payez à la fin du mois les tokens réellement consommés.</p></div>
+        </details>
+
+        <details>
+          <summary>Y a-t-il un plan gratuit pour Claude ?</summary>
+          <div class="faq-a"><p>Oui pour Claude, non pour Claude Code. La formule Free donne accès à Claude sur le web, le mobile et le bureau avec un volume limité, mais pas à l'agent de développement. Les nouveaux comptes API reçoivent par ailleurs un petit crédit offert, suffisant pour tester un modèle mais pas pour produire.</p></div>
+        </details>
+
+        <details>
+          <summary>Quels sont les coûts des tokens pour Claude ?</summary>
+          <div class="faq-a"><p>Les tarifs API par million de tokens sont de 1 $ en entrée et 5 $ en sortie pour Claude Haiku 4.5, 3 $ et 15 $ pour Claude Sonnet 5, 5 $ et 25 $ pour Claude Opus 5, et 10 $ et 50 $ pour Claude Fable 5. La lecture de cache revient à un dixième du prix d'entrée et le traitement par lots applique 50 % de remise sur l'entrée comme sur la sortie.</p></div>
+        </details>
+
+        <details>
+          <summary>Comment choisir le bon plan pour Claude ?</summary>
+          <div class="faq-a"><p>Relevez votre consommation des trente derniers jours dans la console, convertissez-la en coût API et comparez ce montant aux paliers d'abonnement de 20 $, 100 $ et 200 $. En dessous du palier qui vous convient, l'abonnement gagne sur le prix et sur la prévisibilité. Au-delà de 200 $ par mois, ou dès que vous devez intégrer Claude dans un script, l'API devient l'option rationnelle.</p></div>
+        </details>
+      </section>
+
+      <!-- ================= CTA ================= -->
+      <div class="cta-band">
+        <div>
+          <h2>Chiffrer votre usage de l'IA</h2>
+          <p>Je peux modéliser votre consommation, choisir les bons modèles par tâche et mettre en place le cache et le batch là où ils rapportent.</p>
+        </div>
+        <a class="btn btn-lime" href="/automatisation-ia">Voir comment je travaille <span class="ar">→</span></a>
+      </div>
+
+      <!-- ================= AUTEUR ================= -->
+      <div class="author-box">
+        <img src="/images/anthony.avif" alt="Anthony Courtin" width="88" height="88" loading="lazy">
+        <div>
+          <p class="eyebrow">Écrit par</p>
+          <h3>Anthony Courtin</h3>
+          <p class="author-role">Consultant SEO, GEO &amp; automatisation IA</p>
+          <p class="author-bio">J'accompagne des PME et des indépendants sur la visibilité (Google, ChatGPT, Perplexity) et sur l'usage réel de l'IA au travail. J'interviens en entreprise pour former les équipes et repenser les process. Tout ce que j'écris ici, je l'utilise en mission.</p>
+          <div class="author-links">
+            <a class="li" href="https://www.linkedin.com/in/anthony-courtin/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56z"/></svg>
+              Me suivre sur LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= AVIS LECTEURS ================= -->
+      <section class="reviews" data-slug="claude-code-prix" data-reviews="[]">
+        <h2>Avis des lecteurs</h2>
+        <p class="rv-sub">Cet article vous a servi ? Dites-le, ça aide les suivants.</p>
+
+        <form class="rv-form" name="avis" method="POST" data-netlify="true" netlify-honeypot="societe" action="/merci">
+          <input type="hidden" name="form-name" value="avis">
+          <input type="hidden" name="article" value="claude-code-prix">
+          <p class="rv-hp"><label>Ne remplissez pas ce champ : <input name="societe" tabindex="-1" autocomplete="off"></label></p>
+
+          <h3>Notez cet article</h3>
+
+          <fieldset class="rating-field">
+            <legend>Votre note</legend>
+            <div class="rating">
+              <input type="radio" id="n5" name="note" value="5"><label for="n5" aria-label="5 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n4" name="note" value="4"><label for="n4" aria-label="4 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n3" name="note" value="3"><label for="n3" aria-label="3 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n2" name="note" value="2"><label for="n2" aria-label="2 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n1" name="note" value="1"><label for="n1" aria-label="1 étoile"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="rv-nom">Prénom <span class="hint">(facultatif)</span></label>
+            <input type="text" id="rv-nom" name="nom" maxlength="60" autocomplete="given-name">
+          </div>
+
+          <div class="field">
+            <label for="rv-texte">Votre commentaire <span class="hint">(facultatif)</span></label>
+            <textarea id="rv-texte" name="texte" rows="4" maxlength="2000"></textarea>
+          </div>
+
+          <div class="rv-msg" id="rv-msg" role="status"></div>
+          <div><button type="submit" class="btn-sm primary">Publier mon avis</button></div>
+        </form>
+
+        <div class="rv-published">
+          <h3 class="rv-published-title">Ce qu'en disent les lecteurs</h3>
+          <div class="rv-summary">
+            <span class="rv-avg" id="rv-avg"></span>
+            <span class="stars" id="rv-stars" aria-hidden="true"></span>
+            <span class="rv-count" id="rv-count">Aucun avis pour le moment.</span>
+          </div>
+          <div class="rv-list" id="rv-list"></div>
+          <p class="rv-empty" id="rv-empty">Soyez le premier à donner votre avis.</p>
+        </div>
+      </section>
+
+    </article>
+  </div>
+
+  <!-- ---------- COLONNE DROITE : résumé IA + articles liés ---------- -->
+  <aside class="rail rail-right">
+    <div class="ai-box">
+      <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
+      <p class="ai-text">Claude Code est inclus sans supplément dans toutes les formules payantes de Claude : Pro à 20 $ par mois, Max à 100 $ ou 200 $, Team à partir de 20 $ le siège, Enterprise en siège plus consommation. L'API se facture au million de tokens, de 1 $ à 10 $ en entrée et de 5 $ à 50 $ en sortie selon le modèle. Le cache divise le prix d'entrée par dix sur la partie réutilisée et le mode batch applique 50 % de remise. La bascule entre abonnement et API se calcule en convertissant sa consommation réelle en coût API, puis en la comparant aux paliers de 20 $, 100 $ et 200 $.</p>
+      <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
+    </div>
+
+    <div class="rail-recent">
+      <p class="rail-title">Dans la même catégorie</p>
+      <div class="mini-list">
+        <a class="mini" href="/blog/claude-code">
+          <span class="mini-thumb"><!-- TODO: visuel article --></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Claude Code, le guide</span></span>
+        </a>
+        <a class="mini" href="/blog/claude-ai">
+          <span class="mini-thumb"><!-- TODO: visuel article --></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Claude AI : test complet</span></span>
+        </a>
+        <a class="mini" href="/blog/claude-ai-gratuit">
+          <span class="mini-thumb"><!-- TODO: visuel article --></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Claude gratuit, jusqu'où</span></span>
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- ================= ARTICLES LIÉS ================= -->
+<section class="related">
+  <div class="wrap">
+    <h2>À lire ensuite</h2>
+    <p class="sub">La suite logique du parcours.</p>
+    <div class="rel-grid">
+      <a class="rel-card" href="/blog/claude-code">
+        <!-- TODO: visuel article -->
+        <div class="rel-body">
+          <span class="rel-cat">Utiliser l'IA</span>
+          <h3>Claude Code : le guide complet</h3>
+          <p>Ce que fait vraiment l'agent de développement d'Anthropic, comment le configurer et ce qu'il change au quotidien.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="/blog/claude-ai">
+        <!-- TODO: visuel article -->
+        <div class="rel-body">
+          <span class="rel-cat">Utiliser l'IA</span>
+          <h3>Claude AI : ce que vaut vraiment l'IA d'Anthropic</h3>
+          <p>Testé en mission : ce qu'il fait mieux que ChatGPT, ses limites réelles et ce que vaut la version gratuite.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="/blog/claude-ai-gratuit">
+        <!-- TODO: visuel article -->
+        <div class="rel-body">
+          <span class="rel-cat">Utiliser l'IA</span>
+          <h3>Claude gratuit : jusqu'où peut-on aller</h3>
+          <p>Ce que la formule gratuite permet réellement, ses plafonds, et comment en tirer le maximum avant de payer.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="foot-logo" href="/"><img src="/images/logo-transparent-pine.svg" alt="anthony courtin" width="98" height="48"></a>
+        <p style="color:var(--ink-2);font-size:.95rem;margin-top:12px;max-width:280px">Consultant SEO, GEO &amp; automatisation IA. Interventions partout en France.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul><li><a href="/seo">SEO</a></li><li><a href="/geo">GEO, visibilité IA</a></li><li><a href="/automatisation-ia">Automatisation IA</a></li><li><a href="/tarifs">Tarifs</a></li></ul>
+      </div>
+      <div>
+        <h4>Ressources</h4>
+        <ul><li><a href="/blog/">Blog</a></li><li><a href="/realisations">Réalisations</a></li><li><a href="/a-propos">À propos</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul><li><a href="/contact">Formulaire</a></li><li><a href="mailto:anthony@astrak.agency">anthony@astrak.agency</a></li><li><a href="https://www.linkedin.com/in/anthony-courtin/" rel="noopener">LinkedIn</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Anthony Courtin</span>
+      <span><a href="/mentions-legales">Mentions légales</a> · <a href="/confidentialite">Confidentialité</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/site.js?v=2" defer></script>
+<script src="/js/blog-article.js?v=3" defer></script>
+
+<!-- Outil interactif propre à cet article -->
+<script src="/js/claude-code-prix-tool.js?v=1" defer></script>
+
+</body>
+</html>
