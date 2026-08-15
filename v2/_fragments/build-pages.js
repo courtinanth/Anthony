@@ -139,7 +139,7 @@ ${p.noindex ? '<meta name="robots" content="noindex, follow">' : '<meta name="ro
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/main.css?v=3">
+<link rel="stylesheet" href="/css/main.css?v=4">
 <script type="application/ld+json">
 ${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }, null, 1)}
 </script>

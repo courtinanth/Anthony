@@ -26,8 +26,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/main.css?v=3">
-<link rel="stylesheet" href="/css/blog-article.css?v=3">
+<link rel="stylesheet" href="/css/main.css?v=4">
+<link rel="stylesheet" href="/css/blog-article.css?v=4">
 
 <script type="application/ld+json">
 {
@@ -55,7 +55,7 @@
       "jobTitle":"Consultant SEO, GEO et automatisation IA",
       "url":"https://anthony-courtin.com/a-propos",
       "image":"https://anthony-courtin.com/images/anthony.avif",
-      "sameAs":["https://www.linkedin.com/in/anthony-courtin/"]
+      "sameAs":["https://www.linkedin.com/in/anthony-courtin/","https://www.youtube.com/@AnthonyCourtin4"]
     },
     {
       "@type":"BreadcrumbList",
@@ -101,11 +101,55 @@
     <nav class="main" aria-label="Navigation principale">
       <a class="logo" href="/"><img src="/images/logo-transparent-cream.svg" alt="anthony courtin" width="86" height="42"></a>
       <div class="nav-links">
-        <div class="nav-item"><a href="/seo">SEO</a></div>
-        <div class="nav-item"><a href="/geo">GEO, visibilité IA</a></div>
-        <div class="nav-item"><a href="/automatisation-ia">Automatisation IA</a></div>
-        <div class="nav-item"><a href="/blog/">Blog</a></div>
+        <div class="nav-item has-mega" data-mega>
+          <button type="button">Services <span class="chev">▼</span></button>
+          <div class="mega">
+            <div class="mega-col">
+              <span class="mega-label">SEO</span>
+              <a class="mega-link" href="/seo"><span class="mega-ico">🔍</span><span><b>Consultant SEO</b><span>Audit, technique, netlinking : le socle.</span></span></a>
+              <a class="mega-link" href="/audit-seo"><span class="mega-ico">📊</span><span><b>Audit SEO</b><span>Analyse complète, plan d'action priorisé.</span></span></a>
+              <a class="mega-link" href="/seo-local"><span class="mega-ico">📍</span><span><b>SEO local</b><span>Recherches locales et Google Maps.</span></span></a>
+            </div>
+            <div class="mega-col">
+              <span class="mega-label">GEO, visibilité IA</span>
+              <a class="mega-link" href="/geo"><span class="mega-ico">✦</span><span><b>Consultant GEO</b><span>Être cité par ChatGPT, Perplexity, AI Overviews.</span></span></a>
+              <a class="mega-link" href="/audit-visibilite-ia"><span class="mega-ico">📝</span><span><b>Audit de visibilité IA</b><span>Mesurer comment les IA parlent de vous.</span></span></a>
+            </div>
+            <div class="mega-col">
+              <span class="mega-label">Automatisation IA</span>
+              <a class="mega-link" href="/automatisation-ia"><span class="mega-ico">🤖</span><span><b>Automatisation IA</b><span>Agents et programmes sur mesure, Claude Code.</span></span></a>
+            </div>
+            <a class="mega-feat" href="/realisations">
+              <img class="feat-bg" src="/images/visuels/card-realisations-800.avif" alt="" width="800" height="447" loading="lazy" decoding="async">
+              <em>Cas clients</em>
+              <b>Des résultats mesurés, pas des promesses</b>
+              <span>Réalisations SEO, GEO &amp; IA</span>
+            </a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="/realisations">Réalisations</a></div>
+        <div class="nav-item has-mega" data-mega>
+          <button type="button">Ressources <span class="chev">▼</span></button>
+          <div class="mega cols-3">
+            <div class="mega-col">
+              <span class="mega-label">Apprendre</span>
+              <a class="mega-link" href="/blog/"><span class="mega-ico">📚</span><span><b>Blog</b><span>Guides et retours d'expérience SEO, GEO, IA.</span></span></a>
+            </div>
+            <div class="mega-col">
+              <span class="mega-label">Explorer</span>
+              <a class="mega-link" href="/realisations"><span class="mega-ico">🏆</span><span><b>Réalisations</b><span>Cas clients, résultats chiffrés.</span></span></a>
+              <a class="mega-link" href="/tarifs"><span class="mega-ico">💶</span><span><b>Tarifs</b><span>Formules claires, sans surprise.</span></span></a>
+            </div>
+            <a class="mega-feat" href="/blog/">
+              <img class="feat-bg" src="/images/visuels/methode-strategie-800.avif" alt="" width="800" height="447" loading="lazy" decoding="async">
+              <em>Sur le blog</em>
+              <b>Guides SEO, GEO et automatisation IA</b>
+              <span>Retours d'expérience concrets</span>
+            </a>
+          </div>
+        </div>
         <div class="nav-item"><a href="/tarifs">Tarifs</a></div>
+        <div class="nav-item"><a href="/a-propos">À propos</a></div>
       </div>
       <button class="burger" id="burger" type="button" aria-label="Menu">☰</button>
       <a class="nav-cta" href="/contact">Travailler avec moi</a>
@@ -113,8 +157,10 @@
         <a href="/seo">SEO</a>
         <a href="/geo">GEO, visibilité IA</a>
         <a href="/automatisation-ia">Automatisation IA</a>
+        <a href="/realisations">Réalisations</a>
         <a href="/blog/">Blog</a>
         <a href="/tarifs">Tarifs</a>
+        <a href="/a-propos">À propos</a>
         <a href="/contact">Contact</a>
       </div>
     </nav>
