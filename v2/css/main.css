@@ -42,10 +42,16 @@ h2{font-size:clamp(2.1rem,1.5rem+2.6vw,3.4rem)}
 .btn .ar{transition:transform .25s}
 .btn:hover .ar{transform:translateX(4px)}
 #progress{position:fixed;top:0;left:0;height:3px;background:var(--lime);width:0;z-index:200;border-radius:0 3px 3px 0}
-.rv{opacity:0;transform:translateY(36px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
-.rv.in{opacity:1;transform:none}
-.rv-d1{transition-delay:.08s}.rv-d2{transition-delay:.16s}.rv-d3{transition-delay:.24s}
-@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+/* Apparition au scroll.
+   Le masquage est conditionné à .js (posé par /js/js-flag.js tout en haut du
+   <head>). Sans JavaScript — JS coupé, script bloqué, robot qui ne rend pas
+   la page — la règle ne s'applique jamais et le contenu reste visible.
+   Ne jamais écrire `.rv{opacity:0}` sans le préfixe .js : ce serait rendre
+   tout le contenu du site invisible pour qui n'exécute pas de JavaScript. */
+.js .rv{opacity:0;transform:translateY(36px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+.js .rv-d1{transition-delay:.08s}.js .rv-d2{transition-delay:.16s}.js .rv-d3{transition-delay:.24s}
+@media(prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 .skip-link{position:absolute;left:-9999px;top:0;background:var(--lime);color:var(--pine-950);padding:10px 18px;border-radius:0 0 12px 0;z-index:300;font-weight:600}
 .skip-link:focus{left:0}
 
@@ -224,6 +230,10 @@ nav.main{padding:0 12px 0 24px;height:64px;display:flex;align-items:center;justi
 .tab-panels{position:relative}
 .panel{display:none;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
 .panel.active{display:grid;animation:pop .45s cubic-bezier(.2,.8,.2,1)}
+/* Sans JavaScript les onglets ne commutent pas : on masque la barre d'onglets
+   et on empile les quatre étapes, qui redeviennent toutes lisibles. */
+html:not(.js) .tabs{display:none}
+html:not(.js) .panel{display:grid;margin-bottom:56px}
 .panel h3{font-size:1.8rem;margin-bottom:14px}
 .panel p{color:var(--ink-2);margin-bottom:20px}
 .panel ul{list-style:none;display:grid;gap:12px}
@@ -298,6 +308,10 @@ nav.main{padding:0 12px 0 24px;height:64px;display:flex;align-items:center;justi
 .faq-item.open .plus{transform:rotate(45deg);background:var(--lime)}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.2,.8,.2,1)}
 .faq-a p{padding:0 26px 24px;color:var(--ink-2);font-size:.98rem}
+/* Sans JavaScript l'accordéon ne s'ouvre pas : toutes les réponses restent
+   dépliées, et le bouton « + » qui ne sert plus à rien disparaît. */
+html:not(.js) .faq-a{max-height:none}
+html:not(.js) .faq-q .plus{display:none}
 
 /* CTA final */
 .final{padding:40px 24px 120px}

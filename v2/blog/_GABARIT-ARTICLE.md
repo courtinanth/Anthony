@@ -42,6 +42,13 @@ lime `--lime`, crème `--cream`). Aucune couleur en dur.
 À remplacer à chaque article : `title`, `meta description`, `canonical`, les 4 `og:*`,
 `article:published_time` / `modified_time`, et le bloc **JSON-LD**.
 
+Première ligne du `<head>`, à ne jamais retirer ni passer en `defer` :
+`<script src="/js/js-flag.js?v=1"></script>`. Elle pose la classe `.js` sur
+`<html>` avant le premier rendu. C'est cette classe qui autorise `main.css` à
+masquer les blocs `.rv` en attendant leur animation d'apparition. Sans elle,
+tout le contenu de la page reste visible — c'est voulu : un visiteur sans
+JavaScript et un robot qui ne rend pas la page lisent l'article en entier.
+
 Le JSON-LD contient toujours 4 nœuds :
 `BlogPosting` · `Person` (Anthony, `@id` stable) · `BreadcrumbList` · `FAQPage`.
 Le `FAQPage` doit reprendre **mot pour mot** les questions/réponses de la section FAQ
