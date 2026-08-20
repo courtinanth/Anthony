@@ -22,7 +22,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/main.css?v=8">
+<link rel="stylesheet" href="/css/main.css?v=9">
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -102,6 +102,7 @@
             <div class="mega-col">
               <span class="mega-label">Apprendre</span>
               <a class="mega-link" href="/blog/"><span class="mega-ico">📚</span><span><b>Blog</b><span>Guides et retours d'expérience SEO, GEO, IA.</span></span></a>
+              <a class="mega-link" href="/videos"><span class="mega-ico">🎬</span><span><b>Vidéos</b><span>Mes tutos SEO, GEO et IA, sur YouTube.</span></span></a>
             </div>
             <div class="mega-col">
               <span class="mega-label">Explorer</span>
@@ -127,6 +128,7 @@
         <a href="/automatisation-ia">Automatisation IA</a>
         <a href="/realisations">Réalisations</a>
         <a href="/blog/">Blog</a>
+        <a href="/videos">Vidéos</a>
         <a href="/tarifs">Tarifs</a>
         <a href="/a-propos">À propos</a>
         <a href="/contact">Contact</a>
@@ -470,6 +472,55 @@
   </div>
 </section>
 
+<!-- Section YouTube : contenu régénéré par _fragments/sync-youtube.js à chaque
+     nouvelle vidéo. Ne rien écrire à la main entre les deux balises, ce serait
+     écrasé à la prochaine synchronisation. -->
+<!-- yt:debut -->
+<section class="section yt-sec" id="videos" aria-labelledby="yt-title" data-carousel>
+  <div class="wrap">
+    <div class="section-head rv">
+      <div>
+        <span class="eyebrow">YouTube</span>
+        <h2 id="yt-title">Le SEO à l'ère de l'IA,<br>en vidéo.</h2>
+      </div>
+      <div class="yt-aside">
+        <p>SEO, GEO, automatisation : des tutos concrets, applicables le jour même. La chaîne démarre : une nouvelle vidéo chaque semaine.</p>
+        <div class="yt-controls">
+          <button class="yt-nav prev" type="button" aria-label="Vidéos précédentes" hidden>←</button>
+          <button class="yt-nav next" type="button" aria-label="Vidéos suivantes" hidden>→</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="yt-carousel rv">
+    <div class="yt-rail">
+      <ul class="yt-set">
+        <li class="yt-card">
+          <a href="https://www.youtube.com/watch?v=wQhhRd7VSc0" target="_blank" rel="noopener">
+            <div class="yt-thumb">
+              <img src="/images/youtube/wQhhRd7VSc0.jpg" alt="" width="1280" height="720" loading="lazy" decoding="async">
+              <span class="yt-dur"><span class="sr-only">Durée : </span>14:07</span>
+            </div>
+            <div class="yt-body">
+              <h3>ChatGPT, Claude, Gemini, DeepSeek : lequel pour quoi ?</h3>
+              <p>J'ai donné exactement la même tâche à 6 IA, et le verdict est différent pour chacune.</p>
+              <time datetime="2026-08-20">20 août 2026</time>
+              <span class="sr-only">Voir sur YouTube, dans un nouvel onglet.</span>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="wrap yt-footer rv">
+    <a class="btn btn-lime" href="https://www.youtube.com/@AnthonyCourtin4?sub_confirmation=1" target="_blank" rel="noopener">S'abonner à la chaîne <span class="ar">→</span></a>
+    <a class="btn btn-outline" href="/videos">Toutes les vidéos <span class="ar">→</span></a>
+  </div>
+</section>
+<!-- yt:fin -->
+
 <section class="section blog-sec" id="blog">
   <div class="wrap">
     <div class="section-head rv">
@@ -563,7 +614,7 @@
       </div>
       <div>
         <h4>Ressources</h4>
-        <ul><li><a href="/blog/">Blog</a></li><li><a href="/realisations">Réalisations</a></li><li><a href="/a-propos">À propos</a></li></ul>
+        <ul><li><a href="/blog/">Blog</a></li><li><a href="/videos">Vidéos</a></li><li><a href="/realisations">Réalisations</a></li><li><a href="/a-propos">À propos</a></li></ul>
       </div>
       <div>
         <h4>Contact</h4>
@@ -577,6 +628,6 @@
   </div>
 </footer>
 
-<script src="/js/site.js?v=4" defer></script>
+<script src="/js/site.js?v=5" defer></script>
 </body>
 </html>

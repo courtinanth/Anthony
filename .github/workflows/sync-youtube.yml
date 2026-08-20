@@ -1,0 +1,105 @@
+# Synchronisation de la chaîne YouTube.
+#
+# Toutes les six heures, ce job demande à YouTube la liste des vidéos de la
+# chaîne, télécharge la miniature des nouvelles, puis régénère le carrousel de
+# l'accueil, la page /videos et le sitemap. S'il n'y a rien de nouveau, il ne
+# committe rien et Netlify ne redéploie pas.
+#
+# Le job ne touche jamais aux vidéos elles-mêmes : la source reste YouTube.
+# Publier une vidéo suffit donc, le site se met à jour tout seul dans les
+# heures qui suivent.
+#
+# Pour la voir apparaître tout de suite sans attendre le prochain passage :
+# onglet Actions du dépôt, « Synchroniser YouTube », Run workflow.
+#
+# Pour retirer une vidéo du site sans la dépublier de YouTube : ajouter son
+# identifiant dans "masquees" de v2/_fragments/youtube.json.
+
+name: Synchroniser YouTube
+
+on:
+  schedule:
+    # Toutes les six heures. Le flux RSS de YouTube met parfois une heure ou
+    # deux à voir une publication : un passage quotidien ferait attendre une
+    # vidéo publiée l'après-midi jusqu'au lendemain matin.
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+    inputs:
+      refresh:
+        description: "Reprendre aussi les métadonnées des vidéos déjà connues (titre ou description modifiés sur YouTube)"
+        type: boolean
+        required: false
+        default: false
+
+# Deux exécutions simultanées se marcheraient dessus au moment du push.
+concurrency:
+  group: sync-youtube
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  synchroniser:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+
+      - name: Installer Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # Les valeurs passent par l'environnement plutôt que par ${{ }} dans le
+      # script : GitHub remplace ${{ }} textuellement avant que le shell ne
+      # lise la ligne. Un titre de vidéo contenant un guillemet — « Le
+      # "meilleur" outil IA » — casserait la commande, et au-delà du guillemet
+      # tout est exécutable.
+      - name: Synchroniser
+        id: synchro
+        working-directory: v2/_fragments
+        env:
+          REFRESH: ${{ inputs.refresh }}
+        run: |
+          if [ "$REFRESH" = "true" ]; then
+            node sync-youtube.js --refresh
+          else
+            node sync-youtube.js
+          fi
+
+      - name: Vérifier que rien ne déborde de v2/
+        run: |
+          hors_v2=$(git status --porcelain | awk '{print $2}' | grep -v '^v2/' || true)
+          if [ -n "$hors_v2" ]; then
+            echo "Le script a modifié des fichiers hors de v2/, ce qu'il ne devrait jamais faire :"
+            echo "$hors_v2"
+            exit 1
+          fi
+
+      - name: Committer et pousser
+        env:
+          NOUVELLES: ${{ steps.synchro.outputs.nouvelles }}
+        run: |
+          # --porcelain plutôt que diff --quiet : les miniatures sont des
+          # fichiers neufs, invisibles pour git diff tant qu'ils ne sont pas
+          # indexés.
+          if [ -z "$(git status --porcelain)" ]; then
+            echo "Aucune nouvelle vidéo, aucun commit."
+            exit 0
+          fi
+
+          if [ -n "$NOUVELLES" ]; then
+            sujet="YouTube : $NOUVELLES"
+          else
+            sujet="YouTube : mise à jour du carrousel"
+          fi
+
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add v2/
+          git commit -m "$sujet"
+          git push
+
+          echo "Poussé. Netlify prend le relais pour le déploiement."
+          git show --stat --oneline HEAD

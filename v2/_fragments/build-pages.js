@@ -52,10 +52,10 @@ const PAGES = [
     title: 'Réalisations & cas clients SEO, GEO, IA | Anthony Courtin',
     desc: "+184 % de trafic organique, top 3 des marques citées par les IA, 30 h automatisées par mois : des cas clients mesurés, contextes et périodes indiqués.",
     crumb: 'Réalisations' },
-  /* /videos : retirée du build tant que la chaîne YouTube n'a pas de contenu.
-     Pour la réactiver : rétablir l'entrée { frag: 'videos.html', ... } ici,
-     puis remettre les liens /videos (menu, footer, accueil, à-propos, blog)
-     ainsi que l'entrée sitemap.xml et la ligne llms.txt. */
+  { frag: 'videos.html', out: 'videos.html', url: '/videos',
+    title: 'Vidéos SEO, GEO & IA | Anthony Courtin',
+    desc: "Mes dernières vidéos YouTube : SEO, GEO, automatisation IA et coulisses de mes missions. Des tutos concrets, applicables le jour même.",
+    crumb: 'Vidéos', videos: true },
   { frag: 'a-propos.html', out: 'a-propos.html', url: '/a-propos',
     title: 'À propos : Anthony Courtin, consultant SEO, GEO & IA',
     desc: "8 ans de SEO, plus de 50 clients accompagnés partout en France, et une conviction : la visibilité de demain se joue autant dans ChatGPT que sur Google.",
@@ -93,8 +93,45 @@ function faqLd(html, url){
   return { '@type': 'FAQPage', '@id': 'https://anthony-courtin.com' + url + '#faq', mainEntity: items };
 }
 
+/* Les vidéos de la chaîne, décrites une par une pour Google et pour les IA :
+   un VideoObject porte la durée, la date et la miniature, qu'aucune balise de
+   la page ne dit autrement. La liste vient de youtube.json, tenue à jour par
+   sync-youtube.js. */
+function videoLd(url){
+  const cache = path.join(__dirname, 'youtube.json');
+  if (!fs.existsSync(cache)) return [];
+  const { videos = [] } = JSON.parse(fs.readFileSync(cache, 'utf8'));
+  const iso = s => {
+    const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60), r = s % 60;
+    return 'PT' + (h ? h + 'H' : '') + (m ? m + 'M' : '') + (r || (!h && !m) ? r + 'S' : '');
+  };
+  return videos.map(v => ({
+    '@type': 'VideoObject',
+    '@id': 'https://anthony-courtin.com' + url + '#' + v.id,
+    name: v.titre,
+    description: v.accroche || v.titre,
+    thumbnailUrl: 'https://anthony-courtin.com/images/youtube/' + v.id + '.jpg',
+    uploadDate: v.publie || v.date,
+    duration: iso(v.secondes),
+    url: 'https://www.youtube.com/watch?v=' + v.id,
+    embedUrl: 'https://www.youtube.com/embed/' + v.id,
+    publisher: { '@id': 'https://anthony-courtin.com/#person' }
+  }));
+}
+
+/* Les derniers articles parus, repris tels quels de la grille du blog.
+   Les recopier dans un fragment les figerait : ils seraient encore là trois
+   publications plus tard, et un article programmé pourrait s'afficher avant
+   sa date. Le marqueur les fait suivre l'index, qui fait foi. */
+function derniersArticles(html, n){
+  const idx = fs.readFileSync(path.join(__dirname, 'blog-index.html'), 'utf8');
+  const cartes = (idx.match(/<a class="post-card[\s\S]*?<\/a>/g) || []).slice(0, n);
+  return html.replace('<!-- derniers-articles -->', cartes.join('\n').trim());
+}
+
 for (const p of PAGES) {
-  const frag = fs.readFileSync(path.join(__dirname, p.frag), 'utf8');
+  let frag = fs.readFileSync(path.join(__dirname, p.frag), 'utf8');
+  if (frag.includes('<!-- derniers-articles -->')) frag = derniersArticles(frag, 3);
   const fullUrl = 'https://anthony-courtin.com' + p.url;
   const graph = [
     { '@type': 'WebPage', '@id': fullUrl, url: fullUrl, name: p.title,
@@ -115,6 +152,7 @@ for (const p of PAGES) {
     areaServed: { '@type': 'Country', name: 'France' }, url: fullUrl });
   const faq = faqLd(frag, p.url);
   if (faq) graph.push(faq);
+  if (p.videos) for (const v of videoLd(p.url)) graph.push(v);
 
   const html = `<!DOCTYPE html>
 <html lang="fr">
@@ -140,7 +178,7 @@ ${p.noindex ? '<meta name="robots" content="noindex, follow">' : '<meta name="ro
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/main.css?v=8">
+<link rel="stylesheet" href="/css/main.css?v=9">
 <script type="application/ld+json">
 ${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }, null, 1)}
 </script>
@@ -155,7 +193,7 @@ ${frag}
 
 ${footer}
 
-<script src="/js/site.js?v=4" defer></script>
+<script src="/js/site.js?v=5" defer></script>
 </body>
 </html>
 `;

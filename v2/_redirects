@@ -1,11 +1,6 @@
 # anthony-courtin.com v2 : redirections exhaustives de l'ancien site
 # Regle Netlify : premiere regle qui matche gagne. Les plus specifiques d'abord.
 
-# --- /videos : page retiree tant que la chaine YouTube n'a pas de contenu.
-#     302 = temporaire, a SUPPRIMER au lancement de la chaine.
-/videos                    /                302
-/videos.html               /                302
-
 # --- Fichiers de travail presents dans v2/ mais a ne pas servir en prod
 /_fragments/*              /404.html        404
 /DEPLOIEMENT.md            /404.html        404

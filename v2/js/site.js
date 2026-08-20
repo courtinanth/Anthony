@@ -192,6 +192,63 @@
     },{passive:true});
   }
 
+  /* Carrousel de vidéos YouTube.
+     Le rail défile déjà seul (scroll-snap CSS, molette, doigt, tabulation) :
+     ce bloc n'ajoute que les deux flèches, et seulement s'il y a vraiment de
+     quoi défiler. Une vidéo unique sur grand écran n'affiche donc aucune
+     flèche, plutôt que deux boutons qui ne feraient rien. */
+  [].forEach.call(document.querySelectorAll('[data-carousel]'),function(car){
+    var rail=car.querySelector('.yt-rail'),
+        prev=car.querySelector('.yt-nav.prev'),
+        next=car.querySelector('.yt-nav.next');
+    if(!rail||!prev||!next) return;
+
+    /* Un cran = la carte suivante, amenée sur le point d'accroche. On vise une
+       position absolue plutôt que d'ajouter « une largeur de carte » au
+       défilement courant : le rail est en scroll-snap obligatoire, et un
+       déplacement relatif qui n'atterrit pas pile sur une accroche laisse le
+       navigateur arbitrer, parfois en revenant à la carte qu'on quittait.
+       Repartir de la carte réellement accrochée rattrape aussi une position
+       intermédiaire, après un défilement au doigt interrompu par exemple. */
+    var glisser=function(sens){
+      var cartes=[].slice.call(rail.querySelectorAll('.yt-card'));
+      if(!cartes.length) return;
+      /* Position d'une carte dans le contenu défilant, mesurée et non déduite
+         du CSS : le retrait vaut max(24px, 50% - 596px), que getComputedStyle
+         rend tel quel, sans le résoudre en pixels. La marge de tête de la
+         première carte EST le point d'accroche, il suffit de la lire. */
+      var origine=rail.getBoundingClientRect().left-rail.scrollLeft;
+      var dansLeRail=function(c){return c.getBoundingClientRect().left-origine};
+      var retrait=dansLeRail(cartes[0]);
+      var positions=cartes.map(function(c){return dansLeRail(c)-retrait});
+      var i=0,mini=Infinity;
+      positions.forEach(function(x,k){
+        var d=Math.abs(x-rail.scrollLeft);
+        if(d<mini){mini=d;i=k}
+      });
+      var cible=Math.min(cartes.length-1,Math.max(0,i+sens));
+      /* 'instant' explicitement, et non 'auto' : le rail porte scroll-behavior:
+         smooth en CSS, qui reprendrait la main sur un simple 'auto'. */
+      rail.scrollTo({left:positions[cible],behavior:reduced?'instant':'smooth'});
+    };
+    var etat=function(){
+      var reste=rail.scrollWidth-rail.clientWidth;
+      var defilable=reste>4;
+      prev.hidden=next.hidden=!defilable;
+      if(!defilable) return;
+      /* Marge de 2 px : les navigateurs arrondissent scrollLeft, un test
+         d'égalité stricte laisserait la flèche active en bout de course. */
+      prev.disabled=rail.scrollLeft<=2;
+      next.disabled=rail.scrollLeft>=reste-2;
+    };
+    prev.addEventListener('click',function(){glisser(-1)});
+    next.addEventListener('click',function(){glisser(1)});
+    rail.addEventListener('scroll',etat,{passive:true});
+    addEventListener('resize',etat,{passive:true});
+    addEventListener('load',etat);
+    etat();
+  });
+
   /* Dashboard : déclenche l'animation de la courbe */
   var dash=document.getElementById('dash');
   if(dash&&'IntersectionObserver' in window){

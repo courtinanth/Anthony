@@ -19,6 +19,7 @@ Site : https://anthony-courtin.com
 - [Tarifs](https://anthony-courtin.com/tarifs) : prestations sur devis, réponse sous 24 h
 - [Réalisations](https://anthony-courtin.com/realisations) : cas clients mesurés (SEO, GEO, automatisation)
 - [Blog](https://anthony-courtin.com/blog/) : guides SEO, GEO et IA
+- [Vidéos](https://anthony-courtin.com/videos) : chaîne YouTube, tutos SEO, GEO et automatisation IA
 - [À propos](https://anthony-courtin.com/a-propos) : parcours, 8 ans de SEO, +50 clients accompagnés
 - [Contact](https://anthony-courtin.com/contact) : réponse sous 24 h
 

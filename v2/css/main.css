@@ -257,22 +257,59 @@ html:not(.js) .panel{display:grid;margin-bottom:56px}
 .res-card p{color:rgba(244,241,232,.6);font-size:.95rem}
 @media(max-width:960px){.res-grid{grid-template-columns:1fr}}
 
-/* youtube */
+/* ---- YouTube ----
+   Section sombre qui prolonge les avis : padding-top:0, comme .avis-sec.
+   Le rail défile nativement (scroll-snap, molette, doigt, tabulation) ;
+   les flèches ne sont qu'un confort ajouté par site.js, jamais une
+   condition d'accès aux vidéos. */
 .yt-sec{background:var(--pine-950);color:var(--cream);padding-top:0}
 .yt-sec .section-head .eyebrow{color:var(--mint)}
 .yt-sec .section-head p{color:rgba(244,241,232,.65)}
-.yt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.yt-card{border-radius:var(--r-md);overflow:hidden;background:rgba(244,241,232,.05);border:1px solid rgba(244,241,232,.1);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
-.yt-card:hover{transform:translateY(-6px)}
-.yt-thumb{aspect-ratio:16/9;background:linear-gradient(135deg,var(--pine-700),var(--pine-900));position:relative;overflow:hidden}
+
+/* Le rail va d'un bord à l'autre pour que les cartes sortent de l'écran, mais
+   la première doit s'aligner sur .wrap : d'où ce retrait, appliqué deux fois.
+   En marge intérieure de la liste, il crée le décalage visuel ; en
+   scroll-padding du rail, il déplace d'autant les points d'accroche. Sans le
+   second, l'ancrage « start » viserait le bord du rail : le navigateur
+   décalerait le rail de 36 px dès le chargement et un cran de défilement
+   retomberait sur la carte qu'on vient de quitter. */
+.yt-carousel{--yt-retrait:max(24px,(100% - var(--maxw))/2 + 24px)}
+.yt-rail{overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-padding-inline:var(--yt-retrait);scroll-behavior:smooth;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.yt-rail::-webkit-scrollbar{display:none}
+/* 12 px en haut et en bas : le rail masque son débordement vertical, sans
+   cette marge le soulèvement de 6 px au survol serait rogné net. */
+.yt-set{display:flex;gap:18px;list-style:none;margin:0;padding:12px var(--yt-retrait)}
+.yt-card{flex:0 0 min(380px,80vw);scroll-snap-align:start}
+.yt-card a{display:flex;flex-direction:column;height:100%;border-radius:var(--r-md);overflow:hidden;background:rgba(244,241,232,.05);border:1px solid rgba(244,241,232,.1);transition:transform .35s cubic-bezier(.2,.8,.2,1),background .3s,border-color .3s}
+.yt-card a:hover{transform:translateY(-6px);background:rgba(244,241,232,.08);border-color:rgba(198,247,111,.4)}
+.yt-thumb{display:block;position:relative;aspect-ratio:16/9;background:linear-gradient(135deg,var(--pine-700),var(--pine-900));overflow:hidden}
+.yt-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.yt-card a:hover .yt-thumb img{transform:scale(1.05)}
 .yt-thumb::after{content:"▶";position:absolute;inset:0;margin:auto;width:58px;height:58px;background:var(--lime);color:var(--pine-950);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.1rem;transition:transform .3s cubic-bezier(.2,.8,.2,1)}
-.yt-card:hover .yt-thumb::after{transform:scale(1.18)}
-.yt-body{padding:20px 22px 26px}
-.yt-body h4{font-family:var(--display);font-size:1.08rem;font-weight:600;margin-bottom:6px}
-.yt-body span{font-size:.85rem;color:rgba(244,241,232,.5)}
+.yt-card a:hover .yt-thumb::after{transform:scale(1.18)}
+/* Durée en surimpression, comme sur YouTube : on sait avant de cliquer si on a
+   trois minutes ou un quart d'heure devant soi. */
+.yt-dur{position:absolute;right:10px;bottom:10px;background:rgba(6,32,26,.86);color:var(--cream);font-size:.78rem;font-weight:600;border-radius:6px;padding:3px 8px;font-variant-numeric:tabular-nums}
+.yt-body{display:flex;flex-direction:column;flex:1;padding:20px 22px 24px}
+.yt-body h3{font-size:1.08rem;font-weight:600;margin-bottom:8px}
+.yt-body p{flex:1;font-size:.92rem;color:rgba(244,241,232,.62);margin-bottom:14px}
+/* .45 d'opacité donnait 4,03:1 sur le vert sapin, sous le seuil AA de 4,5
+   pour un texte de cette taille. .55 monte à 5,37:1 et reste discret. */
+.yt-body time{font-size:.83rem;color:rgba(244,241,232,.55)}
+
+/* Flèches rangées dans le chapeau de section plutôt que posées sur le rail :
+   une flèche flottante recouvre toujours un bout de la première ou de la
+   dernière carte, y compris grisée. Elles restent masquées tant que le rail
+   tient entièrement à l'écran (une seule vidéo, grand écran). */
+.yt-aside{display:flex;flex-direction:column;align-items:flex-start;gap:22px}
+.yt-controls{display:flex;gap:10px}
+.yt-nav{width:46px;height:46px;border-radius:50%;background:rgba(244,241,232,.08);border:1px solid rgba(244,241,232,.18);color:var(--cream);font-size:1.1rem;line-height:1;display:flex;align-items:center;justify-content:center;transition:background .2s,border-color .2s,color .2s,transform .25s cubic-bezier(.2,.8,.2,1)}
+.yt-nav[hidden]{display:none}
+.yt-nav:hover{background:var(--lime);border-color:var(--lime);color:var(--pine-950);transform:scale(1.08)}
+.yt-nav:disabled{opacity:.3;pointer-events:none}
+
 .yt-footer{margin-top:44px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
 .yt-footer span{color:rgba(244,241,232,.5);font-size:.9rem}
-@media(max-width:960px){.yt-grid{grid-template-columns:1fr}}
 
 /* blog cards */
 .blog-sec{background:var(--cream);border-radius:48px 48px 0 0;margin-top:-48px;position:relative}

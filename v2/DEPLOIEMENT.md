@@ -13,9 +13,21 @@ Redirections : `_redirects` gère tout l'ancien site (694 pages villes → /seo,
 1. **Cas clients** (/realisations et accueil) : +184 %, top 3, −30 h/mois, ×3 : remplace par tes vrais chiffres.
 2. **Photo à propos** : `images/anthony.avif` est réutilisée, change-la si tu veux.
 
-## Partie YouTube retirée (août 2026, chaîne pas encore lancée)
-La page /videos et toutes ses références (menus, footer, accueil, à-propos, blog, sitemap.xml, llms.txt) ont été retirées le temps que la chaîne ait du contenu. Le fragment `_fragments/videos.html` est conservé. `_redirects` contient une 302 `/videos → /` temporaire et bloque `/_fragments/*`.
-Pour tout réactiver : suivre le commentaire dans `_fragments/build-pages.js` (rétablir l'entrée /videos, les liens, le sitemap, llms.txt), supprimer la 302, puis relancer le build.
+## YouTube : section et page /videos (réactivées le 20 août 2026)
+La chaîne (`UCAImExPZLxM8dqJsfptlzMQ`, @AnthonyCourtin4) est lancée : la section carrousel de l'accueil et la page /videos sont de retour, ainsi que leurs liens (menu Ressources, menu mobile, footer, sitemap.xml, llms.txt). La 302 `/videos → /` a été supprimée de `_redirects`, qui continue de bloquer `/_fragments/*`.
+
+**Rien n'est à faire à la publication d'une vidéo.** Le workflow GitHub « Synchroniser YouTube » tourne toutes les six heures : il interroge la chaîne, télécharge la miniature dans `images/youtube/`, régénère le carrousel, la page /videos et le sitemap, puis committe. Netlify déploie sur le push. Pour ne pas attendre : onglet Actions → « Synchroniser YouTube » → Run workflow.
+
+À la main, depuis `v2/_fragments/` :
+```
+node sync-youtube.js            # synchronise et réécrit les pages
+node sync-youtube.js --dry      # montre ce qui changerait
+node sync-youtube.js --refresh  # reprend aussi les titres/descriptions déjà connus
+node sync-youtube.js --offline  # régénère depuis youtube.json, sans réseau
+```
+`_fragments/youtube.json` est la mémoire du script : une vidéo vue une fois n'est jamais perdue, même si YouTube ne répond pas. Pour retirer une vidéo du site sans la dépublier, ajouter son identifiant dans `masquees`.
+
+Les cartes renvoient vers YouTube plutôt que d'intégrer un lecteur : la CSP interdit les cadres tiers, et une vue comptée sur YouTube vaut mieux qu'une vue perdue ici. Les miniatures sont auto-hébergées pour la même raison (`img-src 'self'`).
 (Les tarifs ont été retirés : tout est "sur devis", le formulaire t'envoie un mail via formsubmit.co et redirige vers /merci.)
 
 ## Après déploiement
