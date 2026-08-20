@@ -22,7 +22,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/main.css?v=5">
+<link rel="stylesheet" href="/css/main.css?v=8">
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -233,6 +233,31 @@
   </div>
 </section>
 
+<!-- ============================================================
+     Bandeau clients : défilement infini, juste sous le hero.
+     La liste n'est écrite QU'UNE FOIS : /js/site.js la clone
+     autant de fois que la largeur de l'écran l'exige, puis
+     double le tout pour que la boucle soit sans raccord.
+     Ajouter un client = ajouter un <li>, rien d'autre.
+     Un client peut être un logo (<li class="client"><img
+     src="/images/clients/x.svg" alt="X"></li>) ou, à défaut,
+     son nom en toutes lettres.
+     ============================================================ -->
+<section class="clients" aria-labelledby="clients-title">
+  <div class="wrap">
+    <p class="clients-title" id="clients-title">Ils me font confiance, en direct ou avec l'agence <b>Astrak</b></p>
+  </div>
+  <div class="clients-rail">
+    <div class="clients-track" data-marquee style="--marq-speed:8s">
+      <ul class="clients-set">
+        <li class="client">Interflora</li>
+        <li class="client">FindyMail</li>
+        <li class="client">TrustUp</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="services">
   <div class="wrap">
     <div class="section-head rv">
@@ -367,6 +392,84 @@
   </div>
 </section>
 
+<!-- ============================================================
+     Avis Google — preuve sociale.
+     Source : fiche Google Business « Anthony COURTIN »,
+     19 all. des Fauvettes, 33470 Gujan-Mestras
+     https://www.google.com/maps?cid=15601449540587437528
+     Relevé le 20 août 2026 : 5,0/5 sur 4 avis, dont 3 rédigés
+     (le quatrième est une note sans commentaire, rien à afficher).
+     Les textes sont recopiés mot pour mot, fautes comprises : un
+     avis retouché n'est plus un avis.
+     Volontairement SANS balisage Review/AggregateRating : Google
+     interdit de baliser sur son propre site des avis collectés sur
+     une plateforme tierce, et le faire expose à une action manuelle.
+     Même mécanique de défilement que le bandeau clients : la liste
+     est écrite une seule fois, site.js s'occupe du clonage.
+     ============================================================ -->
+<section class="section avis-sec" id="avis" aria-labelledby="avis-title">
+  <div class="wrap">
+    <div class="section-head rv">
+      <div>
+        <span class="eyebrow">Avis clients</span>
+        <h2 id="avis-title">5,0 sur 5,<br>sur Google.</h2>
+      </div>
+      <div class="avis-score">
+        <img src="/images/engines/google.svg" alt="" width="30" height="30" loading="lazy">
+        <div>
+          <span class="avis-stars" role="img" aria-label="Note de 5 sur 5">★★★★★</span>
+          <p><b>5,0</b> · 4 avis sur ma fiche Google Business</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="avis-rail">
+    <div class="avis-track" data-marquee style="--marq-speed:19s">
+      <ul class="avis-set">
+        <li class="avis-card">
+          <div class="avis-top">
+            <span class="avis-avatar" aria-hidden="true">IO</span>
+            <div class="avis-who"><b>Ilhan Odabas</b><small>Local Guide · 18 avis</small></div>
+            <img class="avis-g" src="/images/engines/google.svg" alt="Avis publié sur Google" width="20" height="20" loading="lazy">
+          </div>
+          <span class="avis-stars" role="img" aria-label="Note de 5 sur 5">★★★★★</span>
+          <blockquote>Un service impeccable pour une personne très professionnels à l'écoute de ce que l'on a besoin ! J'ai désormais un meilleur référencement de mon site internet qui me génère beaucoup plus de flux je recommande vivement !</blockquote>
+          <p class="avis-reply"><b>Ma réponse</b>Merci pour ton retour Ilhan ! Un plaisir d'avoir travaillé ensemble !</p>
+          <time datetime="2025-03">Mars 2025</time>
+        </li>
+        <li class="avis-card">
+          <div class="avis-top">
+            <span class="avis-avatar" aria-hidden="true">LM</span>
+            <div class="avis-who"><b>Louis Messerschmidt</b><small>15 avis</small></div>
+            <img class="avis-g" src="/images/engines/google.svg" alt="Avis publié sur Google" width="20" height="20" loading="lazy">
+          </div>
+          <span class="avis-stars" role="img" aria-label="Note de 5 sur 5">★★★★★</span>
+          <blockquote>Super, mon site web ressort bien dans le classement Google 💪</blockquote>
+          <p class="avis-reply"><b>Ma réponse</b>Merci Louis pour ton commentaire, très content du résultat !</p>
+          <time datetime="2025-03">Mars 2025</time>
+        </li>
+        <li class="avis-card">
+          <div class="avis-top">
+            <span class="avis-avatar" aria-hidden="true">TB</span>
+            <div class="avis-who"><b>Tom Benavente</b><small>8 avis</small></div>
+            <img class="avis-g" src="/images/engines/google.svg" alt="Avis publié sur Google" width="20" height="20" loading="lazy">
+          </div>
+          <span class="avis-stars" role="img" aria-label="Note de 5 sur 5">★★★★★</span>
+          <blockquote>Mon site enfin en première page !!! Merci 🙏</blockquote>
+          <p class="avis-reply"><b>Ma réponse</b>Merci Tom !</p>
+          <time datetime="2025-03">Mars 2025</time>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="wrap avis-foot rv">
+    <a class="btn btn-lime" href="https://www.google.com/maps?cid=15601449540587437528" target="_blank" rel="noopener">Voir les avis sur Google <span class="ar">→</span></a>
+    <span>Avis publiés sur ma fiche Google : je ne peux ni les écrire ni les supprimer.</span>
+  </div>
+</section>
+
 <section class="section blog-sec" id="blog">
   <div class="wrap">
     <div class="section-head rv">
@@ -474,6 +577,6 @@
   </div>
 </footer>
 
-<script src="/js/site.js?v=2" defer></script>
+<script src="/js/site.js?v=4" defer></script>
 </body>
 </html>

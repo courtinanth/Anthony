@@ -145,6 +145,53 @@
     });
   }
 
+  /* Bandeaux défilants : clients sous le hero, avis Google.
+     Une boucle sans raccord suppose une piste faite de deux moitiés
+     identiques, chacune au moins aussi large que l'écran — sinon
+     translateX(-50 %) laisse un trou à chaque tour. Plutôt que de
+     recopier la liste dans le HTML, avec le double entretien que ça
+     suppose, on la clone ici autant de fois que la largeur l'exige.
+     La durée suit le nombre de copies (--marq-speed est le temps par
+     copie), ce qui garde une vitesse constante quel que soit l'écran.
+     Sans JavaScript, ou en mouvement réduit, la liste reste affichée
+     telle quelle et le rail devient scrollable à la main (CSS). */
+  if(!reduced){
+    var marquees=[].slice.call(document.querySelectorAll('[data-marquee]'));
+    var fill=function(track){
+      var set=track.firstElementChild;
+      if(!set) return;
+      var setW=set.getBoundingClientRect().width;
+      if(!setW) return;
+      var need=Math.max(2,Math.ceil(innerWidth/setW)+1);
+      /* On ne reconstruit que s'il manque des copies : refaire la piste
+         redémarre l'animation, autant ne pas le faire pour rien. */
+      if(+track.dataset.half>=need) return;
+      while(track.children.length>1) track.removeChild(track.lastElementChild);
+      var frag=document.createDocumentFragment(),i,copy;
+      for(i=1;i<need*2;i++){
+        copy=set.cloneNode(true);
+        copy.setAttribute('aria-hidden','true');
+        frag.appendChild(copy);
+      }
+      track.appendChild(frag);
+      track.dataset.half=need;
+      track.style.setProperty('--marq-copies',need);
+      track.classList.add('is-looping');
+    };
+    marquees.forEach(fill);
+    /* Deux moments où la largeur d'une copie change sous nos pieds :
+       l'arrivée de la police (mesurer avec la police de repli fausse le
+       compte) et la rotation ou le redimensionnement de la fenêtre.
+       Sans ce rattrapage, un téléphone chargé en portrait puis basculé
+       en paysage laisse un trou à chaque tour de boucle. */
+    if(document.fonts&&document.fonts.ready) document.fonts.ready.then(function(){marquees.forEach(fill)});
+    var rt;
+    addEventListener('resize',function(){
+      clearTimeout(rt);
+      rt=setTimeout(function(){marquees.forEach(fill)},250);
+    },{passive:true});
+  }
+
   /* Dashboard : déclenche l'animation de la courbe */
   var dash=document.getElementById('dash');
   if(dash&&'IntersectionObserver' in window){

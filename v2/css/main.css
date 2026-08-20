@@ -28,7 +28,7 @@ img{max-width:100%;display:block}
 button{font-family:inherit;cursor:pointer;border:none;background:none}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
 h1,h2,h3{font-family:var(--display);font-weight:600;line-height:1.05;letter-spacing:-.02em}
-h2{font-size:clamp(2.1rem,1.5rem+2.6vw,3.4rem)}
+h2{font-size:clamp(2.1rem, 1.5rem + 2.6vw, 3.4rem)}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
 .eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--lime)}
 .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 30px;border-radius:999px;font-weight:600;font-size:.95rem;transition:transform .25s cubic-bezier(.2,.8,.2,1),background .2s,color .2s;will-change:transform}
@@ -111,7 +111,7 @@ nav.main{padding:0 12px 0 24px;height:64px;display:flex;align-items:center;justi
 @media(prefers-reduced-motion:reduce){.hero-media img,.hero-media video{animation:none}}
 .hero-grid{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;padding-bottom:70px}
 .hero .eyebrow{color:var(--mint);margin-bottom:24px}
-.hero h1{font-size:clamp(2.7rem,1.4rem+4.8vw,5rem);letter-spacing:-.035em}
+.hero h1{font-size:clamp(2.7rem, 1.4rem + 4.8vw, 5rem);letter-spacing:-.035em}
 .hero h1 .swap-wrap{display:inline-grid;vertical-align:top;overflow:hidden;height:1.05em}
 .hero h1 .swap{grid-area:1/1;color:var(--lime);white-space:nowrap;opacity:0;transform:translateY(100%);transition:transform .55s cubic-bezier(.2,.8,.2,1),opacity .4s}
 .hero h1 .swap.on{opacity:1;transform:none}
@@ -252,7 +252,7 @@ html:not(.js) .panel{display:grid;margin-bottom:56px}
 .res-card{background:rgba(244,241,232,.05);border:1px solid rgba(244,241,232,.1);border-radius:var(--r-lg);padding:38px 34px;transition:transform .35s cubic-bezier(.2,.8,.2,1),background .3s,border-color .3s}
 .res-card:hover{transform:translateY(-6px);background:rgba(244,241,232,.08);border-color:rgba(198,247,111,.4)}
 .res-card .cat{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mint);font-weight:600}
-.res-num{font-family:var(--display);font-size:clamp(2.8rem,2rem+2.4vw,4rem);font-weight:700;letter-spacing:-.03em;color:var(--lime);margin:20px 0 4px;line-height:1}
+.res-num{font-family:var(--display);font-size:clamp(2.8rem, 2rem + 2.4vw, 4rem);font-weight:700;letter-spacing:-.03em;color:var(--lime);margin:20px 0 4px;line-height:1}
 .res-card h3{font-size:1.15rem;margin-bottom:8px}
 .res-card p{color:rgba(244,241,232,.6);font-size:.95rem}
 @media(max-width:960px){.res-grid{grid-template-columns:1fr}}
@@ -318,7 +318,7 @@ html:not(.js) .faq-q .plus{display:none}
 .final-box{max-width:var(--maxw);margin:0 auto;background:var(--pine-950);color:var(--cream);border-radius:var(--r-lg);padding:clamp(48px,8vw,96px);text-align:center;position:relative;overflow:hidden}
 .final-box::before{content:"";position:absolute;inset:0;background:radial-gradient(640px 420px at 50% 120%,rgba(198,247,111,.18),transparent 65%)}
 .final-box .eyebrow{color:var(--mint);justify-content:center;display:inline-flex}
-.final-box h2{font-size:clamp(2.4rem,1.6rem+3.6vw,4.4rem);max-width:760px;margin:18px auto 20px;position:relative}
+.final-box h2{font-size:clamp(2.4rem, 1.6rem + 3.6vw, 4.4rem);max-width:760px;margin:18px auto 20px;position:relative}
 .final-box h2 em{font-style:normal;color:var(--lime)}
 .final-box p{color:rgba(244,241,232,.65);margin-bottom:38px;position:relative}
 .final-box .btn{position:relative}
@@ -339,7 +339,7 @@ footer.site{background:var(--cream);padding:0 0 40px}
 .page-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 460px at 75% 0%,rgba(29,107,84,.5),transparent 65%),radial-gradient(500px 380px at 10% 100%,rgba(198,247,111,.1),transparent 60%);pointer-events:none}
 .page-hero .wrap{position:relative}
 .page-hero .eyebrow{color:var(--mint);margin-bottom:22px}
-.page-hero h1{font-size:clamp(2.5rem,1.4rem+4.2vw,4.4rem);letter-spacing:-.03em;max-width:840px}
+.page-hero h1{font-size:clamp(2.5rem, 1.4rem + 4.2vw, 4.4rem);letter-spacing:-.03em;max-width:840px}
 .page-hero h1 em{font-style:normal;color:var(--lime)}
 .page-hero .lede{font-size:1.15rem;color:rgba(244,241,232,.72);max-width:620px;margin:22px 0 34px}
 .page-hero .hero-ctas{margin-bottom:0}
@@ -361,7 +361,7 @@ footer.site{background:var(--cream);padding:0 0 40px}
 
 /* prose */
 .prose{max-width:760px}
-.prose h2{font-size:clamp(1.7rem,1.3rem+1.6vw,2.4rem);margin:44px 0 16px}
+.prose h2{font-size:clamp(1.7rem, 1.3rem + 1.6vw, 2.4rem);margin:44px 0 16px}
 .prose h3{font-size:1.3rem;margin:30px 0 12px}
 .prose p{color:var(--ink-2);margin-bottom:16px}
 .prose strong{color:var(--ink)}
@@ -440,3 +440,85 @@ footer.site{background:var(--cream);padding:0 0 40px}
 .mega-feat .feat-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.72)}
 /* Titre accessible masque visuellement */
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* ============================================================
+   Bandeau clients + avis Google
+   ------------------------------------------------------------
+   Les deux blocs partagent le même principe de défilement que
+   .marquee : une piste large de deux copies identiques du
+   contenu, décalée de -50 % par @keyframes scroll. Le raccord
+   est invisible tant que les deux copies restent synchronisées.
+   ============================================================ */
+
+/* ---- Bandeau clients (sous le hero) ---- */
+.clients{background:var(--cream);padding:58px 0 46px;overflow:hidden}
+.clients-title{text-align:center;font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);margin-bottom:34px}
+.clients-title b{color:var(--pine-600);font-weight:700}
+/* Les extrémités s'estompent : sans ce masque, les noms
+   apparaissent et disparaissent net au bord de l'écran. */
+.clients-rail{-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent)}
+.clients-track{display:flex;width:max-content}
+.clients-set{display:flex;align-items:center;gap:clamp(46px,7vw,96px);padding-right:clamp(46px,7vw,96px);list-style:none;margin:0}
+.client{flex-shrink:0;font-family:var(--display);font-size:clamp(1.25rem, .9rem + 1.1vw, 1.75rem);font-weight:600;letter-spacing:-.02em;color:var(--ink);opacity:.42;white-space:nowrap;transition:opacity .3s}
+.client:hover{opacity:.85}
+/* Un logo fourni en image prend la place du nom, à hauteur constante. */
+.client img{height:clamp(24px,2.4vw,34px);width:auto;filter:grayscale(1)}
+
+/* ---- Avis Google ----
+   Section sombre qui prolonge #resultats : d'où padding-top:0,
+   comme .yt-sec. .blog-sec vient ensuite recouvrir son bas de
+   ses 48 px de coins arrondis. */
+.avis-sec{background:var(--pine-950);color:var(--cream);padding-top:0;overflow:hidden}
+.avis-sec .section-head{align-items:center}
+.avis-sec .section-head .eyebrow{color:var(--mint)}
+.avis-score{display:flex;align-items:center;gap:16px;background:rgba(244,241,232,.05);border:1px solid rgba(244,241,232,.12);border-radius:999px;padding:14px 26px 14px 20px}
+.avis-score p{font-size:.9rem;color:rgba(244,241,232,.6)}
+.avis-score p b{font-family:var(--display);font-size:1.15rem;color:var(--cream)}
+.avis-stars{display:block;color:var(--lime);font-size:.95rem;letter-spacing:.14em;line-height:1.4}
+
+.avis-rail{-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.avis-track{display:flex;width:max-content}
+.avis-set{display:flex;gap:18px;padding-right:18px;list-style:none;margin:0}
+.avis-card{flex-shrink:0;width:min(400px,82vw);display:flex;flex-direction:column;background:rgba(244,241,232,.05);border:1px solid rgba(244,241,232,.1);border-radius:var(--r-lg);padding:30px 30px 26px;transition:background .3s,border-color .3s}
+.avis-card:hover{background:rgba(244,241,232,.08);border-color:rgba(198,247,111,.4)}
+.avis-top{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.avis-avatar{flex-shrink:0;width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--pine-600),var(--pine-800));display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;color:var(--mint)}
+.avis-who{flex:1;min-width:0}
+.avis-who b{display:block;font-family:var(--display);font-size:1rem;font-weight:600}
+.avis-who small{font-size:.8rem;color:rgba(244,241,232,.5)}
+.avis-g{flex-shrink:0;opacity:.85}
+.avis-card blockquote{flex:1;margin:14px 0 0;font-size:.98rem;color:rgba(244,241,232,.82)}
+.avis-reply{margin-top:18px;padding-left:16px;border-left:2px solid rgba(198,247,111,.45);font-size:.9rem;color:rgba(244,241,232,.6)}
+.avis-reply b{display:block;font-family:var(--display);font-size:.74rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mint);margin-bottom:4px}
+.avis-card time{margin-top:18px;font-size:.8rem;color:rgba(244,241,232,.42)}
+.avis-foot{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:44px}
+.avis-foot span{font-size:.88rem;color:rgba(244,241,232,.5);max-width:420px}
+
+/* L'animation n'est posée qu'une fois les copies en place, par
+   site.js : l'appliquer plus tôt ferait sauter la boucle, la piste
+   n'ayant alors qu'une seule moitié. --marq-speed est le temps par
+   copie, la durée totale suit donc leur nombre : même vitesse
+   apparente sur un portable et sur un écran large. */
+.is-looping{animation:scroll linear infinite;animation-duration:calc(var(--marq-speed,10s) * var(--marq-copies,2))}
+.clients:hover .is-looping,.clients:focus-within .is-looping,
+.avis-rail:hover .is-looping,.avis-rail:focus-within .is-looping{animation-play-state:paused}
+
+/* Pas de défilement automatique — JavaScript coupé, ou mouvement
+   réduit demandé : site.js ne clone rien, la liste reste affichée en
+   un seul exemplaire et le rail se parcourt à la main. Sans cette
+   règle, tout ce qui dépasse de l'écran serait hors de portée. */
+html:not(.js) .clients-rail,html:not(.js) .avis-rail{overflow-x:auto;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+@media(prefers-reduced-motion:reduce){
+  .clients-rail,.avis-rail{overflow-x:auto;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+}
+.avis-card,.client{scroll-snap-align:center}
+@media(max-width:960px){
+  .avis-sec .section-head{align-items:flex-start}
+  .avis-card{padding:26px 24px 22px}
+}
+/* Sous 620 px, la ligne « 5,0 · 4 avis sur ma fiche Google Business »
+   passe à deux lignes : la pastille arrondie à 999 px devient une
+   capsule écrasée de 100 px de haut. On la repasse en bloc arrondi. */
+@media(max-width:620px){
+  .avis-score{width:100%;border-radius:var(--r-md);padding:16px 20px;align-items:flex-start}
+}
