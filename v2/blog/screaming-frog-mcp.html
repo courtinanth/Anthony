@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/main.css?v=9">
-<link rel="stylesheet" href="/css/blog-article.css?v=5">
+<link rel="stylesheet" href="/css/blog-article.css?v=6">
 
 <script type="application/ld+json">
 {
@@ -265,7 +265,7 @@
         </picture>
       </figure>
 
-      <p>Un crawl Screaming Frog, c'est trente onglets, des dizaines de filtres et autant d'exports à aller chercher. Le travail utile — décider quoi corriger en premier — commence après. Le serveur MCP déplace cette frontière : Claude lance le crawl, ouvre celui d'hier, sort le bon export, et peut même écrire un script Node pour retraiter le fichier avant de vous le rendre.</p>
+      <p>Un crawl Screaming Frog, c'est trente onglets, des dizaines de filtres et autant d'exports à aller chercher. Le travail utile, décider quoi corriger en premier, commence après. Le serveur MCP déplace cette frontière : Claude lance le crawl, ouvre celui d'hier, sort le bon export, et peut même écrire un script Node pour retraiter le fichier avant de vous le rendre.</p>
 
       <p>Je l'ai installé en direct dans la vidéo ci-dessous, sur une machine neuve. Comptez cinq minutes, trois réglages, et un piège qui bloque tout le monde au premier test.</p>
 
@@ -330,7 +330,7 @@
 
       <ul>
         <li><strong>Une licence payante de Screaming Frog</strong>, en version 24 ou supérieure. La version gratuite n'expose pas le serveur MCP : le réglage n'apparaît même pas.</li>
-        <li><strong>Claude Desktop</strong>, l'application de bureau — l'extension ne s'installe pas depuis le navigateur. LM Studio fonctionne aussi, avec un modèle local.</li>
+        <li><strong>Claude Desktop</strong>, l'application de bureau : l'extension ne s'installe pas depuis le navigateur. LM Studio fonctionne aussi, avec un modèle local.</li>
         <li><strong>Le stockage en base de données</strong> activé dans Screaming Frog. C'est le mode par défaut en version 24, mais il vaut mieux vérifier.</li>
       </ul>
 
@@ -339,34 +339,34 @@
         <p>Tout est documenté dans la section « MCP Server » du <a href="https://www.screamingfrog.co.uk/seo-spider/user-guide/configuration/#mcp-server" target="_blank" rel="noopener">guide utilisateur de Screaming Frog</a>, avec les deux extensions à télécharger. C'est la page que j'ouvre dans la vidéo.</p>
       </div>
 
-      <h2>Étape 1 — Passer en stockage base de données</h2>
+      <h2>Étape 1 : passer en stockage base de données</h2>
 
       <p>Direction <code>File &gt; Settings &gt; Storage Mode</code>, et choisissez le stockage en base de données plutôt que la mémoire vive. Redémarrage de l'application à la clé.</p>
 
       <p>Ce réglage n'est pas décoratif. En mode mémoire, un crawl disparaît quand vous fermez l'onglet : il n'existe nulle part sur le disque, donc le MCP n'a rien à rouvrir. En mode base de données, chaque crawl est enregistré, porte un identifiant, et reste consultable des semaines plus tard. C'est ce qui permet de demander « compare les deux derniers crawls du site » sans avoir rien préparé.</p>
 
-      <h2>Étape 2 — Activer le MCP dans Screaming Frog</h2>
+      <h2>Étape 2 : activer le MCP dans Screaming Frog</h2>
 
       <p>Toujours dans les réglages : <code>File &gt; Settings &gt; MCP Server</code>. Deux cases y comptent.</p>
 
-      <p><strong>Accepter l'environnement Node.js.</strong> C'est lui qui autorise le modèle à exécuter des scripts et à installer des paquets npm à la demande. Sans lui, vous gardez les exports mais vous perdez tout le retraitement — et c'est justement ce qui évite de faire transiter 50 000 lignes par la conversation. Le même écran laisse choisir le dossier où atterrissent scripts, exports et paquets installés : prenez un dossier dédié, pas votre bureau.</p>
+      <p><strong>Accepter l'environnement Node.js.</strong> C'est lui qui autorise le modèle à exécuter des scripts et à installer des paquets npm à la demande. Sans lui, vous gardez les exports mais vous perdez tout le retraitement, et c'est justement ce qui évite de faire transiter 50 000 lignes par la conversation. Le même écran laisse choisir le dossier où atterrissent scripts, exports et paquets installés : prenez un dossier dédié, pas votre bureau.</p>
 
       <p><strong>Démarrer le serveur MCP.</strong> Cette case ne sert qu'en mode Streamable HTTP, décrit plus bas. En mode STDIO, Claude se charge de lancer Screaming Frog tout seul.</p>
 
-      <h2>Étape 3 — Installer l'extension dans Claude</h2>
+      <h2>Étape 3 : installer l'extension dans Claude</h2>
 
-      <p>Depuis le guide utilisateur, téléchargez l'extension correspondant au mode retenu — un fichier <code>.mcpb</code>. Puis, dans Claude Desktop : <code>Settings &gt; Extensions &gt; Advanced Settings &gt; Install Extension</code>, sélectionnez le fichier, validez.</p>
+      <p>Depuis le guide utilisateur, téléchargez l'extension correspondant au mode retenu, un fichier <code>.mcpb</code>. Puis, dans Claude Desktop : <code>Settings &gt; Extensions &gt; Advanced Settings &gt; Install Extension</code>, sélectionnez le fichier, validez.</p>
 
       <p>Deux détails qui font perdre un quart d'heure quand on les rate :</p>
 
       <ul>
-        <li>L'extension suppose que Screaming Frog est installé à l'emplacement par défaut — <code>/Applications</code> sur macOS, <code>C:\Program Files (x86)</code> sur Windows. Ailleurs, il faut éditer le fichier pour corriger le chemin.</li>
+        <li>L'extension suppose que Screaming Frog est installé à l'emplacement par défaut (<code>/Applications</code> sur macOS, <code>C:\Program Files (x86)</code> sur Windows). Ailleurs, il faut éditer le fichier pour corriger le chemin.</li>
         <li>Il faut <strong>quitter Claude complètement</strong>, pas seulement fermer la fenêtre. Sur Windows, l'application continue de tourner dans la zone de notification : clic droit sur l'icône, « Quit ». Sinon l'extension ne sera pas chargée au redémarrage.</li>
       </ul>
 
       <p>Rouvrez Claude : dans <code>Settings &gt; Developer</code>, l'extension doit apparaître avec la mention indiquant qu'elle tourne. À partir de là, vous lui parlez normalement.</p>
 
-      <h2>Étape 4 — Le premier crawl, et le piège du crawl à vider</h2>
+      <h2>Étape 4 : le premier crawl, et le piège du crawl à vider</h2>
 
       <p>Le test que je fais dans la vidéo tient en une phrase :</p>
 
@@ -400,7 +400,7 @@
         </table>
       </div>
 
-      <p>Pour débuter, je conseille Streamable : voir l'onglet s'ouvrir pendant que Claude travaille apprend beaucoup sur ce qu'il fait réellement. Une fois la confiance installée, STDIO est plus confortable — c'est celui de la vidéo.</p>
+      <p>Pour débuter, je conseille Streamable : voir l'onglet s'ouvrir pendant que Claude travaille apprend beaucoup sur ce qu'il fait réellement. Une fois la confiance installée, STDIO est plus confortable, c'est celui de la vidéo.</p>
 
       <h2>Ce que Claude sait faire une fois branché</h2>
 
@@ -433,7 +433,7 @@
         <li><strong>Les images :</strong> « Exporte toutes les images de plus de 100 ko et génère une page HTML qui les affiche en grille, avec leur poids sous chacune. »</li>
       </ul>
 
-      <p>Le principe est le même que pour n'importe quelle demande à un modèle : ce n'est pas la formule qui compte, c'est <a href="/blog/prompt-chatgpt">le contexte que vous fournissez</a>. Ici, le contexte, c'est le crawl — encore faut-il dire lequel.</p>
+      <p>Le principe est le même que pour n'importe quelle demande à un modèle : ce n'est pas la formule qui compte, c'est <a href="/blog/prompt-chatgpt">le contexte que vous fournissez</a>. Ici, le contexte, c'est le crawl, encore faut-il dire lequel.</p>
 
       <div class="tool" id="outil-sf-mcp">
         <div class="tool-head">
@@ -527,7 +527,7 @@
 
       <h2>Et la Search Console dans tout ça ?</h2>
 
-      <p>C'est la question qui termine la vidéo, et c'est là que l'installation devient vraiment rentable. Si vous connectez les API dans Screaming Frog — Search Console, Analytics, PageSpeed, Ahrefs — <strong>avant</strong> de lancer le crawl, leurs colonnes font partie du crawl. Claude les lit comme les autres.</p>
+      <p>C'est la question qui termine la vidéo, et c'est là que l'installation devient vraiment rentable. Si vous connectez les API dans Screaming Frog (Search Console, Analytics, PageSpeed, Ahrefs) <strong>avant</strong> de lancer le crawl, leurs colonnes font partie du crawl. Claude les lit comme les autres.</p>
 
       <p>Vous pouvez alors demander des croisements qui prennent d'habitude une demi-journée de tableur : les pages qui perdent des clics et qui ont peu de liens internes, les URLs en erreur qui recevaient encore du trafic le mois dernier, les pages lentes parmi celles qui rapportent le plus. C'est exactement le genre de tâche que je délègue, et c'est ce qui transforme un crawl en plan d'action.</p>
 
@@ -755,7 +755,7 @@
 </footer>
 
 <script src="/js/site.js?v=5" defer></script>
-<script src="/js/blog-article.js?v=3" defer></script>
+<script src="/js/blog-article.js?v=4" defer></script>
 
 <!-- Outil interactif propre à cet article -->
 <script src="/js/sf-mcp-tool.js?v=1" defer></script>

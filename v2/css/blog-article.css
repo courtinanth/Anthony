@@ -46,6 +46,24 @@
 .rail::-webkit-scrollbar-thumb{background:var(--cream-2);border-radius:99px}
 .rail-title{font-size:.72rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--pine-600);margin:0 0 12px}
 
+/* Colonne de gauche, sur écran large. Sur un article long, le sommaire dépasse
+   la hauteur de l'écran et pousse le bloc de partage hors du rail : il faut
+   alors viser la colonne et la faire défiler pour atteindre les boutons, ce que
+   personne ne fait. Le rail ne défile donc plus lui-même. C'est la liste du
+   sommaire qui défile, et le partage reste visible en permanence. */
+/* Le défilement est posé sur le <details> lui-même, pas sur le <nav> qu'il
+   contient : les navigateurs récents insèrent une boîte anonyme entre les deux
+   (::details-content), qui empêche l'enfant de rétrécir. Le titre « Sommaire »
+   reste collé en haut pendant que la liste défile. */
+@media(min-width:1041px){
+  .rail-left{overflow:visible;padding-bottom:0}
+  .rail-left>.toc-box{flex:0 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
+  .rail-left>.toc-box::-webkit-scrollbar{width:5px}
+  .rail-left>.toc-box::-webkit-scrollbar-thumb{background:var(--cream-2);border-radius:99px}
+  .rail-left>.toc-box>summary{position:sticky;top:-18px;background:var(--white);padding-top:18px;margin-top:-18px;z-index:1}
+  .rail-left>.share-box{flex:0 0 auto}
+}
+
 /* Sommaire */
 .toc-box{background:var(--white);border:1px solid var(--cream-2);border-radius:var(--r-sm);padding:18px 18px 14px}
 .toc-box>summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
@@ -93,6 +111,17 @@
 .art-body h3{font-family:var(--display);font-size:1.28rem;line-height:1.24;letter-spacing:-.015em;color:var(--pine-800);margin-top:1.7em;scroll-margin-top:96px}
 .art-body h4{font-size:1.02rem;font-weight:600;color:var(--pine-800);margin-top:1.4em}
 .art-body p{margin:0}
+/* Rythme vertical du corps. La règle ci-dessus est plus spécifique que
+   `.art-body>*+*` : elle l'emportait, et les paragraphes se retrouvaient collés
+   les uns aux autres, comme les titres à leur premier paragraphe. On rétablit
+   l'espacement ici, sans toucher aux blocs qui portent déjà leur propre marge
+   (encarts, tableaux, figures, citations, outil, FAQ). */
+.art-body>*+p{margin-top:1.15em}
+/* « À retenir » et « verdict » sont écrits pour ouvrir l'article, juste sous le
+   visuel de tête : leur marge haute est à zéro. Placés plus bas dans le corps,
+   il leur faut de l'air comme aux autres blocs. */
+.art-body>*+.takeaways,
+.art-body>*+.verdict{margin-top:2em}
 .art-body a{color:var(--pine-700);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1.5px;text-decoration-color:rgba(29,107,84,.35);transition:text-decoration-color .18s,color .18s}
 .art-body a:hover{color:var(--pine-950);text-decoration-color:var(--lime)}
 .art-body ul,.art-body ol{padding-left:1.35em;display:flex;flex-direction:column;gap:.5em}

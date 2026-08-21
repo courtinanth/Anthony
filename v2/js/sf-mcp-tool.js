@@ -1,4 +1,4 @@
-/* Générateur de prompts pour le MCP Screaming Frog — article /blog/screaming-frog-mcp
+/* Générateur de prompts pour le MCP Screaming Frog, article /blog/screaming-frog-mcp
    Tout se passe dans le navigateur : aucun appel réseau, aucune donnée qui sort. */
 (function () {
   var out = document.getElementById('sf-out');

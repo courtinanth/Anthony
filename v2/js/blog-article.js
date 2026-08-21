@@ -56,9 +56,21 @@
     return links;
   }
 
+  /* Sur écran large, le sommaire défile dans sa propre boîte quand l'article
+     est long. On y ramène l'entrée active, sans jamais toucher au défilement
+     de la page : scrollIntoView, lui, emporterait les deux. */
+  function keepVisible(a, box) {
+    if (!box || box.scrollHeight <= box.clientHeight + 2) return;
+    var ba = a.getBoundingClientRect(), bb = box.getBoundingClientRect();
+    var haut = 46; /* la hauteur du titre « Sommaire », resté collé en haut */
+    if (ba.top < bb.top + haut) box.scrollTop += ba.top - bb.top - haut;
+    else if (ba.bottom > bb.bottom - 8) box.scrollTop += ba.bottom - bb.bottom + 8;
+  }
+
   function scrollSpy(links) {
     if (!links.length) return;
     var current = null;
+    var box = document.querySelector('.rail-left .toc-box');
     function update() {
       var y = window.scrollY + 120;
       var found = links[0];
@@ -69,6 +81,7 @@
       if (current) current.a.classList.remove('on');
       found.a.classList.add('on');
       current = found;
+      keepVisible(found.a, box);
     }
     var ticking = false;
     window.addEventListener('scroll', function () {
