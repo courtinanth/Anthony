@@ -7,6 +7,14 @@
   "masquees": [],
   "videos": [
     {
+      "id": "cXwgI54SwX8",
+      "titre": "Comment connecter Screaming Frog à Claude en 5 min ? (MCP)",
+      "date": "2026-08-21",
+      "publie": "2026-08-21T09:19:21-07:00",
+      "secondes": 225,
+      "accroche": "L'installation complète du MCP Screaming Frog dans Claude, en moins de 5 minutes, avec le piège à éviter."
+    },
+    {
       "id": "wQhhRd7VSc0",
       "titre": "ChatGPT, Claude, Gemini, DeepSeek : lequel pour quoi ?",
       "date": "2026-08-20",

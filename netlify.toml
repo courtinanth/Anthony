@@ -50,8 +50,11 @@
     # à décider séparément.
     Strict-Transport-Security = "max-age=63072000; includeSubDomains"
 
-    # Le site n'a besoin d'aucune de ces API : on les coupe toutes.
-    Permissions-Policy = "accelerometer=(), autoplay=(), camera=(), display-capture=(), encrypted-media=(), fullscreen=(self), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), usb=()"
+    # Le site n'a besoin d'aucune de ces API : on les coupe toutes. Seules
+    # exceptions, ouvertes à la seule origine du lecteur YouTube : autoplay,
+    # encrypted-media, picture-in-picture et plein écran. Sans elles, la vidéo
+    # d'un article se charge au clic mais refuse de démarrer.
+    Permissions-Policy = "accelerometer=(), autoplay=(self \"https://www.youtube-nocookie.com\"), camera=(), display-capture=(), encrypted-media=(self \"https://www.youtube-nocookie.com\"), fullscreen=(self \"https://www.youtube-nocookie.com\"), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(self \"https://www.youtube-nocookie.com\"), usb=()"
 
     # Isole le contexte de navigation des fenêtres ouvertes par le site.
     Cross-Origin-Opener-Policy = "same-origin"
@@ -88,6 +91,9 @@
 # Le site v2 n'a plus ni iframes Maps ni widget SociableKit. Tiers restants :
 #   - fonts.googleapis.com (CSS des polices) et fonts.gstatic.com (fichiers)
 #   - formsubmit.co (cible du formulaire de contact -> form-action)
+#   - youtube-nocookie.com (frame-src) : le lecteur des articles de blog, inséré
+#     seulement au clic sur la façade. La miniature reste servie depuis /images,
+#     donc img-src n'a pas besoin de i.ytimg.com.
 # Les scripts sont tous auto-hébergés (aucun inline exécutable : le générateur
 # S·M·T·F du blog a été externalisé dans /js/smtf-tool.js).
 # 'unsafe-inline' reste nécessaire pour style-src : attributs style inline.
@@ -95,4 +101,4 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self'; form-action 'self' https://formsubmit.co; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
+    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self'; frame-src https://www.youtube-nocookie.com; form-action 'self' https://formsubmit.co; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"

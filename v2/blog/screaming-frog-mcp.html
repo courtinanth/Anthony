@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<script src="/js/js-flag.js?v=1"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MCP Screaming Frog : brancher Claude sur vos crawls</title>
+<meta name="description" content="Installer le MCP Screaming Frog et le brancher sur Claude en 5 minutes : stockage base de données, extension, premier crawl et le piège à éviter.">
+<link rel="canonical" href="https://anthony-courtin.com/blog/screaming-frog-mcp">
+<link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script src="/js/favicon-anim.js?v=2" defer></script>
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="MCP Screaming Frog : brancher Claude sur vos crawls">
+<meta property="og:description" content="Cinq minutes, trois réglages, et Claude pilote vos crawls Screaming Frog. L'installation complète, en vidéo et pas à pas.">
+<meta property="og:url" content="https://anthony-courtin.com/blog/screaming-frog-mcp">
+<meta property="og:image" content="https://anthony-courtin.com/images/blog/screaming-frog-mcp-cover.webp">
+<meta property="og:locale" content="fr_FR">
+<meta property="article:published_time" content="2026-08-21">
+<meta property="article:modified_time" content="2026-08-21">
+<meta property="article:author" content="Anthony Courtin">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/main.css?v=9">
+<link rel="stylesheet" href="/css/blog-article.css?v=5">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"BlogPosting",
+      "@id":"https://anthony-courtin.com/blog/screaming-frog-mcp#article",
+      "headline":"MCP Screaming Frog : connecter Claude à vos crawls",
+      "description":"Installer le serveur MCP de Screaming Frog et le brancher sur Claude Desktop : prérequis, stockage en base de données, extension, premier crawl et le piège du crawl à vider.",
+      "inLanguage":"fr-FR",
+      "datePublished":"2026-08-21",
+      "dateModified":"2026-08-21",
+      "image":"https://anthony-courtin.com/images/blog/screaming-frog-mcp-cover.webp",
+      "wordCount":2760,
+      "mainEntityOfPage":{"@type":"WebPage","@id":"https://anthony-courtin.com/blog/screaming-frog-mcp"},
+      "author":{"@id":"https://anthony-courtin.com/#anthony"},
+      "publisher":{"@id":"https://anthony-courtin.com/#anthony"},
+      "video":{
+        "@type":"VideoObject",
+        "name":"Comment connecter Screaming Frog à Claude en 5 min ? (MCP)",
+        "description":"L'installation complète du MCP Screaming Frog dans Claude : stockage en base de données, activation du serveur, extension MCP, et un test sur un vrai crawl.",
+        "thumbnailUrl":"https://anthony-courtin.com/images/youtube/cXwgI54SwX8.jpg",
+        "uploadDate":"2026-08-21",
+        "duration":"PT3M45S",
+        "embedUrl":"https://www.youtube-nocookie.com/embed/cXwgI54SwX8",
+        "contentUrl":"https://www.youtube.com/watch?v=cXwgI54SwX8"
+      },
+      "about":[{"@type":"Thing","name":"Screaming Frog SEO Spider"},{"@type":"Thing","name":"Model Context Protocol"},{"@type":"Thing","name":"SEO technique"}]
+    },
+    {
+      "@type":"Person",
+      "@id":"https://anthony-courtin.com/#anthony",
+      "name":"Anthony Courtin",
+      "jobTitle":"Consultant SEO, GEO et automatisation IA",
+      "url":"https://anthony-courtin.com/a-propos",
+      "image":"https://anthony-courtin.com/images/anthony.avif",
+      "sameAs":["https://www.linkedin.com/in/anthony-courtin/","https://www.youtube.com/@AnthonyCourtin4"]
+    },
+    {
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Accueil","item":"https://anthony-courtin.com/"},
+        {"@type":"ListItem","position":2,"name":"Blog","item":"https://anthony-courtin.com/blog/"},
+        {"@type":"ListItem","position":3,"name":"MCP Screaming Frog"}
+      ]
+    },
+    {
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"Comment configurer le serveur MCP de Screaming Frog ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Trois réglages suffisent. Dans Screaming Frog, « File > Settings > Storage Mode » doit être sur le stockage en base de données. Dans « File > Settings > MCP Server », il faut accepter l'environnement Node.js. Dans Claude Desktop, il faut installer l'extension spider-mcp.mcpb téléchargée depuis le guide utilisateur, via « Settings > Extensions > Advanced Settings > Install Extension », puis quitter complètement Claude et le rouvrir."}},
+        {"@type":"Question","name":"Le MCP fonctionne-t-il avec la version gratuite de Screaming Frog ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Non. Le serveur MCP est réservé aux licences payantes, en version 24 ou supérieure. La version gratuite, limitée à 500 URLs, n'expose pas le serveur : le réglage n'apparaît pas dans les paramètres."}},
+        {"@type":"Question","name":"Comment utiliser Screaming Frog avec Claude ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Une fois l'extension installée, vous parlez à Claude normalement. « Crawle exemple.fr et résume les problèmes par priorité » suffit à déclencher un crawl. Claude peut aussi lister les crawls récents, en charger un par son identifiant, sortir un export ou un rapport, écrire le résultat dans un fichier et générer un script Node.js pour retraiter ce fichier."}},
+        {"@type":"Question","name":"Pourquoi Claude ne trouve-t-il pas mon crawl ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Parce qu'il est encore chargé dans l'interface. Tant que le crawl occupe l'écran de Screaming Frog, il n'est pas rangé dans la base de données et n'apparaît pas dans la liste des crawls récents. Videz-le une fois terminé, puis redemandez à Claude de lister les crawls : il le voit immédiatement."}},
+        {"@type":"Question","name":"STDIO ou Streamable HTTP : quelle différence ?",
+         "acceptedAnswer":{"@type":"Answer","text":"En mode STDIO, Claude lance lui-même Screaming Frog en ligne de commande : l'interface reste invisible, rien à démarrer à la main. En mode Streamable HTTP, vous ouvrez Screaming Frog normalement et vous démarrez le serveur MCP depuis le menu : vous voyez à l'écran ce que Claude manipule. STDIO pour l'automatisation, Streamable pour garder l'œil sur les données."}},
+        {"@type":"Question","name":"Quels outils sont compatibles avec le protocole MCP ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Screaming Frog documente deux clients : Claude Desktop et LM Studio. LM Studio permet de travailler avec un modèle local, gratuit, à condition qu'il sache appeler des outils et que la machine suive. Tout client compatible MCP peut s'y connecter, mais ces deux-là sont les seuls avec une procédure officielle."}},
+        {"@type":"Question","name":"Comment exporter les données de crawl avec le MCP ?",
+         "acceptedAnswer":{"@type":"Answer","text":"En le demandant, en précisant l'onglet, le filtre, les champs et le nom du fichier. « Exporte les URLs HTML de l'onglet Internal dans internal.csv, uniquement les champs Address et Status Code » produit le fichier dans le dossier autorisé du serveur. Passer par un fichier plutôt que par la conversation évite de saturer la fenêtre de contexte."}},
+        {"@type":"Question","name":"Peut-on croiser les données Search Console dans un crawl piloté par Claude ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Oui, à condition de connecter les API dans Screaming Frog avant de lancer le crawl. Les colonnes Search Console, Analytics, PageSpeed ou Ahrefs font alors partie du crawl, et Claude les lit comme les autres. C'est ce qui permet de prioriser les corrections par les clics réellement perdus."}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+<div id="read-progress"></div>
+
+<!-- ================= HEADER (identique au reste du site v2) ================= -->
+<header class="site">
+  <div class="nav-shell">
+    <nav class="main" aria-label="Navigation principale">
+      <a class="logo" href="/"><img src="/images/logo-transparent-cream.svg" alt="anthony courtin" width="86" height="42"></a>
+      <div class="nav-links">
+        <div class="nav-item has-mega" data-mega>
+          <button type="button">Services <span class="chev">▼</span></button>
+          <div class="mega">
+            <div class="mega-col">
+              <span class="mega-label">SEO</span>
+              <a class="mega-link" href="/seo"><span class="mega-ico">🔍</span><span><b>Consultant SEO</b><span>Audit, technique, netlinking : le socle.</span></span></a>
+              <a class="mega-link" href="/audit-seo"><span class="mega-ico">📊</span><span><b>Audit SEO</b><span>Analyse complète, plan d'action priorisé.</span></span></a>
+              <a class="mega-link" href="/seo-local"><span class="mega-ico">📍</span><span><b>SEO local</b><span>Recherches locales et Google Maps.</span></span></a>
+            </div>
+            <div class="mega-col">
+              <span class="mega-label">GEO, visibilité IA</span>
+              <a class="mega-link" href="/geo"><span class="mega-ico">✦</span><span><b>Consultant GEO</b><span>Être cité par ChatGPT, Perplexity, AI Overviews.</span></span></a>
+              <a class="mega-link" href="/audit-visibilite-ia"><span class="mega-ico">📝</span><span><b>Audit de visibilité IA</b><span>Mesurer comment les IA parlent de vous.</span></span></a>
+            </div>
+            <div class="mega-col">
+              <span class="mega-label">Automatisation IA</span>
+              <a class="mega-link" href="/automatisation-ia"><span class="mega-ico">🤖</span><span><b>Automatisation IA</b><span>Agents et programmes sur mesure, Claude Code.</span></span></a>
+            </div>
+            <a class="mega-feat" href="/realisations">
+              <img class="feat-bg" src="/images/visuels/card-realisations-800.avif" alt="" width="800" height="447" loading="lazy" decoding="async">
+              <em>Cas clients</em>
+              <b>Des résultats mesurés, pas des promesses</b>
+              <span>Réalisations SEO, GEO &amp; IA</span>
+            </a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="/realisations">Réalisations</a></div>
+        <div class="nav-item has-mega" data-mega>
+          <button type="button">Ressources <span class="chev">▼</span></button>
+          <div class="mega cols-3">
+            <div class="mega-col">
+              <span class="mega-label">Apprendre</span>
+              <a class="mega-link" href="/blog/"><span class="mega-ico">📚</span><span><b>Blog</b><span>Guides et retours d'expérience SEO, GEO, IA.</span></span></a>
+              <a class="mega-link" href="/videos"><span class="mega-ico">🎬</span><span><b>Vidéos</b><span>Mes tutos SEO, GEO et IA, sur YouTube.</span></span></a>
+            </div>
+            <div class="mega-col">
+              <span class="mega-label">Explorer</span>
+              <a class="mega-link" href="/realisations"><span class="mega-ico">🏆</span><span><b>Réalisations</b><span>Cas clients, résultats chiffrés.</span></span></a>
+              <a class="mega-link" href="/tarifs"><span class="mega-ico">💶</span><span><b>Tarifs</b><span>Formules claires, sans surprise.</span></span></a>
+            </div>
+            <a class="mega-feat" href="/blog/">
+              <img class="feat-bg" src="/images/visuels/methode-strategie-800.avif" alt="" width="800" height="447" loading="lazy" decoding="async">
+              <em>Sur le blog</em>
+              <b>Guides SEO, GEO et automatisation IA</b>
+              <span>Retours d'expérience concrets</span>
+            </a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="/tarifs">Tarifs</a></div>
+        <div class="nav-item"><a href="/a-propos">À propos</a></div>
+      </div>
+      <button class="burger" id="burger" type="button" aria-label="Menu">☰</button>
+      <a class="nav-cta" href="/contact">Travailler avec moi</a>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="/seo">SEO</a>
+        <a href="/geo">GEO, visibilité IA</a>
+        <a href="/automatisation-ia">Automatisation IA</a>
+        <a href="/realisations">Réalisations</a>
+        <a href="/blog/">Blog</a>
+        <a href="/videos">Vidéos</a>
+        <a href="/tarifs">Tarifs</a>
+        <a href="/a-propos">À propos</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<!-- ================= EN-TÊTE D'ARTICLE ================= -->
+<section class="art-top">
+  <div class="wrap">
+    <nav class="crumb" aria-label="Fil d'Ariane">
+      <a href="/">Accueil</a><span aria-hidden="true">/</span>
+      <a href="/blog/">Blog</a><span aria-hidden="true">/</span>
+      <span>MCP Screaming Frog</span>
+    </nav>
+
+    <span class="art-cat">SEO</span>
+    <h1 class="art-title">MCP Screaming Frog : connecter Claude à vos crawls</h1>
+    <p class="art-lede">Screaming Frog sait crawler depuis dix ans. Ce qu'il ne savait pas faire, c'est répondre à une question posée en français. Depuis la version 24, il expose ses crawls à Claude via un serveur MCP : cinq minutes de réglages, et vous demandez vos exports au lieu de les cliquer.</p>
+
+    <div class="art-metaline">
+      <span class="who">
+        <img src="/images/anthony.avif" alt="" width="38" height="38" loading="lazy">
+        Anthony Courtin
+      </span>
+      <span class="dot" aria-hidden="true">·</span>
+      <time datetime="2026-08-21">21 août 2026</time>
+      <span class="dot" aria-hidden="true">·</span>
+      <span>10 min de lecture</span>
+    </div>
+
+    <!-- Boutons "Résumer avec" : les href sont construits par blog-article.js -->
+    <div class="ai-actions">
+      <span class="ai-actions__title">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>
+        Résumer avec
+      </span>
+      <ul class="ai-actions__list">
+        <li><a class="ai-btn" data-ai="chatgpt" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec ChatGPT">ChatGPT</a></li>
+        <li><a class="ai-btn" data-ai="claude" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Claude">Claude</a></li>
+        <li><a class="ai-btn" data-ai="perplexity" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Perplexity">Perplexity</a></li>
+        <li><a class="ai-btn" data-ai="gemini" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Gemini">Gemini</a></li>
+        <li><a class="ai-btn" data-ai="mistral" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Le Chat de Mistral">Le Chat</a></li>
+        <li><a class="ai-btn" data-ai="grok" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Grok">Grok</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GRILLE 3 COLONNES ================= -->
+<div class="art-layout">
+
+  <aside class="rail rail-left">
+    <details class="toc-box" open>
+      <summary><span class="rail-title">Sommaire</span><span class="toc-chevron" aria-hidden="true"></span></summary>
+      <nav class="toc" id="toc" aria-label="Sommaire de l'article">
+        <p class="toc-empty">Chargement…</p>
+      </nav>
+    </details>
+
+    <div class="share-box">
+      <p class="rail-title">Partager</p>
+      <ul class="share">
+        <li><a class="share-btn share-linkedin" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur LinkedIn"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56z"/></svg></a></li>
+        <li><a class="share-btn share-x" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur X"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.96 6.82H1.68l7.73-8.84L1.25 2.25h6.83l4.71 6.23zm-1.16 17.52h1.83L7.08 4.13H5.12z"/></svg></a></li>
+        <li><a class="share-btn share-whatsapp" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur WhatsApp"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m5.8 14.16c-.25.69-1.43 1.31-1.98 1.4-.53.08-1.19.11-1.92-.12-.44-.14-1.01-.33-1.74-.64-3.06-1.32-5.06-4.4-5.21-4.6-.15-.2-1.25-1.66-1.25-3.16s.79-2.25 1.07-2.55c.28-.31.61-.38.81-.38h.58c.19 0 .44-.07.69.53.25.61.86 2.11.94 2.26.08.15.13.33.02.53-.1.2-.16.33-.31.5l-.46.54c-.15.15-.31.32-.13.63.18.31.79 1.3 1.69 2.11 1.16 1.03 2.14 1.35 2.45 1.5.31.15.49.13.67-.08.18-.2.77-.9.98-1.21.2-.31.41-.26.69-.15.28.1 1.78.84 2.09.99.31.15.51.23.59.36.08.13.08.74-.17 1.44"/></svg></a></li>
+        <li><a class="share-btn share-email" href="#" rel="nofollow" aria-label="Partager par e-mail"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m0 4-8 5-8-5V6l8 5 8-5z"/></svg></a></li>
+        <li><button class="share-btn share-copy" type="button" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2m0 16H8V7h11z"/></svg></button></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- ---------- COLONNE CENTRALE : le contenu ---------- -->
+  <div class="art-main">
+
+    <!-- Résumé IA version mobile : rendu côté serveur, donc lisible par Google et les LLM -->
+    <div class="ai-box ai-box-mobile">
+      <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
+      <p class="ai-text">Le serveur MCP de Screaming Frog laisse Claude lancer un crawl, rouvrir un crawl existant et en sortir les exports et les rapports en langage naturel. L'installation demande une licence payante, le stockage en base de données, l'extension MCP dans Claude Desktop, et un crawl vidé de l'interface pour qu'il devienne visible.</p>
+      <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
+    </div>
+
+    <article class="art-body">
+
+      <figure>
+        <picture>
+          <source srcset="/images/blog/screaming-frog-mcp-cover.avif" type="image/avif">
+          <img src="/images/blog/screaming-frog-mcp-cover.webp" alt="Une grille de verre translucide reliée à une sphère par un tube éclairé en vert lime, illustration abstraite d'un crawl branché sur un modèle d'IA" width="1376" height="768" fetchpriority="high" decoding="async">
+        </picture>
+      </figure>
+
+      <p>Un crawl Screaming Frog, c'est trente onglets, des dizaines de filtres et autant d'exports à aller chercher. Le travail utile — décider quoi corriger en premier — commence après. Le serveur MCP déplace cette frontière : Claude lance le crawl, ouvre celui d'hier, sort le bon export, et peut même écrire un script Node pour retraiter le fichier avant de vous le rendre.</p>
+
+      <p>Je l'ai installé en direct dans la vidéo ci-dessous, sur une machine neuve. Comptez cinq minutes, trois réglages, et un piège qui bloque tout le monde au premier test.</p>
+
+      <!-- ================= VIDÉO ================= -->
+      <div class="video-embed">
+        <div class="yt-lite" data-yt="cXwgI54SwX8" data-title="Comment connecter Screaming Frog à Claude en 5 min ? (MCP)">
+          <img src="/images/youtube/cXwgI54SwX8.jpg" alt="Miniature de la vidéo : Screaming Frog × Claude, le MCP en 5 minutes" width="1280" height="720" loading="lazy" decoding="async">
+          <span class="yt-play" aria-hidden="true">▶</span>
+          <span class="yt-label">Screaming Frog × Claude : l'installation complète, en 3 min 45</span>
+        </div>
+      </div>
+
+      <p><strong>Les chapitres de la vidéo :</strong> <a href="https://youtu.be/cXwgI54SwX8?t=16" target="_blank" rel="noopener">0:16 le stockage en base de données</a> · <a href="https://youtu.be/cXwgI54SwX8?t=49" target="_blank" rel="noopener">0:49 activer le MCP</a> · <a href="https://youtu.be/cXwgI54SwX8?t=95" target="_blank" rel="noopener">1:35 l'extension dans Claude</a> · <a href="https://youtu.be/cXwgI54SwX8?t=157" target="_blank" rel="noopener">2:37 le test et le piège</a>.</p>
+
+      <!-- Bloc « à retenir » : c'est ce que les moteurs de réponse citent le plus volontiers -->
+      <section class="takeaways">
+        <h2>À retenir</h2>
+        <ul>
+          <li>Le serveur MCP de Screaming Frog est réservé aux <strong>licences payantes</strong>, en version 24 minimum.</li>
+          <li>Trois réglages suffisent : <strong>stockage en base de données</strong>, environnement Node.js accepté, extension installée dans Claude Desktop.</li>
+          <li>Deux modes au choix : <strong>STDIO</strong>, où Claude lance Screaming Frog en tâche de fond, ou <strong>Streamable HTTP</strong>, où l'interface reste sous vos yeux.</li>
+          <li>Le piège du premier test : tant que le crawl est <strong>encore ouvert dans l'interface</strong>, Claude ne le trouve pas. Videz-le, il apparaît.</li>
+          <li>Le MCP fait gagner le temps des exports, pas celui de l'analyse : la priorisation reste votre travail.</li>
+        </ul>
+      </section>
+
+      <h2>Ce que le MCP change concrètement</h2>
+
+      <p>MCP, pour <em>Model Context Protocol</em>, est une prise standard : d'un côté un logiciel expose ce qu'il sait faire, de l'autre un modèle d'IA s'y branche et appelle ces fonctions lui-même. Screaming Frog joue ici le rôle du serveur, Claude celui du client.</p>
+
+      <p>Une fois la prise branchée, Claude accède à trois familles d'outils. Les outils de crawl et d'export, d'abord : démarrer un crawl, suivre son avancement, rouvrir un crawl enregistré, sortir un onglet, un filtre ou un rapport complet. Un moteur Node.js, ensuite, qui lui permet d'écrire un script pour retraiter un export trop gros et d'installer les paquets npm dont il a besoin. Un accès fichiers, enfin, limité à un dossier que vous choisissez, pour lire et écrire les résultats.</p>
+
+      <p>C'est cette autonomie qui fait la différence avec un simple export manuel : vous décrivez le livrable, Claude enchaîne les étapes techniques pour y arriver.</p>
+
+      <div class="verdict">
+        <div class="verdict-note">
+          <b>5</b>
+          <span>minutes</span>
+        </div>
+        <div class="verdict-body">
+          <h2>Ce que l'installation vous donne</h2>
+          <p>Trois réglages à faire une fois, et le crawl devient interrogeable en langage naturel. Voici ce que ça change au quotidien, et ce que ça ne change pas.</p>
+          <div class="verdict-lists">
+            <ul class="verdict-pros">
+              <li>Les exports et les rapports demandés en une phrase</li>
+              <li>Deux crawls comparés sans ouvrir un tableur</li>
+              <li>Des scripts Node générés à la volée sur vos données</li>
+            </ul>
+            <ul class="verdict-cons">
+              <li>Licence Screaming Frog payante obligatoire</li>
+              <li>La fenêtre de contexte se remplit très vite</li>
+            </ul>
+          </div>
+        </div>
+        <p class="verdict-foot">
+          <span class="verdict-price">Temps d'installation : 5 minutes</span>
+          <span>Screaming Frog 24+ · Claude Desktop · macOS ou Windows</span>
+        </p>
+      </div>
+
+      <h2>Ce qu'il faut avant de commencer</h2>
+
+      <ul>
+        <li><strong>Une licence payante de Screaming Frog</strong>, en version 24 ou supérieure. La version gratuite n'expose pas le serveur MCP : le réglage n'apparaît même pas.</li>
+        <li><strong>Claude Desktop</strong>, l'application de bureau — l'extension ne s'installe pas depuis le navigateur. LM Studio fonctionne aussi, avec un modèle local.</li>
+        <li><strong>Le stockage en base de données</strong> activé dans Screaming Frog. C'est le mode par défaut en version 24, mais il vaut mieux vérifier.</li>
+      </ul>
+
+      <div class="callout callout--info">
+        <p class="callout-t">Où trouver la procédure officielle</p>
+        <p>Tout est documenté dans la section « MCP Server » du <a href="https://www.screamingfrog.co.uk/seo-spider/user-guide/configuration/#mcp-server" target="_blank" rel="noopener">guide utilisateur de Screaming Frog</a>, avec les deux extensions à télécharger. C'est la page que j'ouvre dans la vidéo.</p>
+      </div>
+
+      <h2>Étape 1 — Passer en stockage base de données</h2>
+
+      <p>Direction <code>File &gt; Settings &gt; Storage Mode</code>, et choisissez le stockage en base de données plutôt que la mémoire vive. Redémarrage de l'application à la clé.</p>
+
+      <p>Ce réglage n'est pas décoratif. En mode mémoire, un crawl disparaît quand vous fermez l'onglet : il n'existe nulle part sur le disque, donc le MCP n'a rien à rouvrir. En mode base de données, chaque crawl est enregistré, porte un identifiant, et reste consultable des semaines plus tard. C'est ce qui permet de demander « compare les deux derniers crawls du site » sans avoir rien préparé.</p>
+
+      <h2>Étape 2 — Activer le MCP dans Screaming Frog</h2>
+
+      <p>Toujours dans les réglages : <code>File &gt; Settings &gt; MCP Server</code>. Deux cases y comptent.</p>
+
+      <p><strong>Accepter l'environnement Node.js.</strong> C'est lui qui autorise le modèle à exécuter des scripts et à installer des paquets npm à la demande. Sans lui, vous gardez les exports mais vous perdez tout le retraitement — et c'est justement ce qui évite de faire transiter 50 000 lignes par la conversation. Le même écran laisse choisir le dossier où atterrissent scripts, exports et paquets installés : prenez un dossier dédié, pas votre bureau.</p>
+
+      <p><strong>Démarrer le serveur MCP.</strong> Cette case ne sert qu'en mode Streamable HTTP, décrit plus bas. En mode STDIO, Claude se charge de lancer Screaming Frog tout seul.</p>
+
+      <h2>Étape 3 — Installer l'extension dans Claude</h2>
+
+      <p>Depuis le guide utilisateur, téléchargez l'extension correspondant au mode retenu — un fichier <code>.mcpb</code>. Puis, dans Claude Desktop : <code>Settings &gt; Extensions &gt; Advanced Settings &gt; Install Extension</code>, sélectionnez le fichier, validez.</p>
+
+      <p>Deux détails qui font perdre un quart d'heure quand on les rate :</p>
+
+      <ul>
+        <li>L'extension suppose que Screaming Frog est installé à l'emplacement par défaut — <code>/Applications</code> sur macOS, <code>C:\Program Files (x86)</code> sur Windows. Ailleurs, il faut éditer le fichier pour corriger le chemin.</li>
+        <li>Il faut <strong>quitter Claude complètement</strong>, pas seulement fermer la fenêtre. Sur Windows, l'application continue de tourner dans la zone de notification : clic droit sur l'icône, « Quit ». Sinon l'extension ne sera pas chargée au redémarrage.</li>
+      </ul>
+
+      <p>Rouvrez Claude : dans <code>Settings &gt; Developer</code>, l'extension doit apparaître avec la mention indiquant qu'elle tourne. À partir de là, vous lui parlez normalement.</p>
+
+      <h2>Étape 4 — Le premier crawl, et le piège du crawl à vider</h2>
+
+      <p>Le test que je fais dans la vidéo tient en une phrase :</p>
+
+      <blockquote>Crawle https://exemple.fr avec Screaming Frog, puis résume-moi les principaux problèmes trouvés, par ordre de priorité.</blockquote>
+
+      <p>Claude déclenche le crawl, suit son avancement, puis va chercher le rapport de synthèse des problèmes. Rien à cliquer.</p>
+
+      <div class="callout callout--warn">
+        <p class="callout-t">Le piège : videz le crawl une fois terminé</p>
+        <p>Tant que le crawl reste chargé dans l'interface de Screaming Frog, il n'est pas rangé dans la base de données : Claude ne le voit pas dans la liste des crawls récents et vous répond qu'il n'existe pas. Videz le crawl une fois terminé, redemandez la liste, il apparaît. C'est le seul vrai point de friction de l'installation.</p>
+      </div>
+
+      <p>Pour désigner un crawl précis, vous pouvez aussi lui donner son identifiant : clic droit sur le crawl dans <code>File &gt; Crawls</code>. Utile quand plusieurs versions du même site cohabitent.</p>
+
+      <h2>STDIO ou Streamable HTTP : lequel choisir</h2>
+
+      <p>Les deux modes donnent accès aux mêmes outils. Ce qui change, c'est qui lance le logiciel et ce que vous voyez pendant l'exécution.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>&nbsp;</th><th>STDIO</th><th>Streamable HTTP</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Qui démarre Screaming Frog</td><td>Claude, en ligne de commande</td><td>Vous, normalement</td></tr>
+            <tr><td>Interface visible</td><td>Non, tout se passe en tâche de fond</td><td>Oui, vous suivez les données à l'écran</td></tr>
+            <tr><td>À faire avant de discuter</td><td>Rien</td><td>Démarrer le serveur depuis le menu MCP</td></tr>
+            <tr><td>Node.js à installer sur la machine</td><td>Non, il est intégré</td><td>Oui, l'extension passe par un relais Node</td></tr>
+            <tr><td>Bon pour</td><td>Enchaîner des tâches sans surveiller</td><td>Apprendre, vérifier, garder la main</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Pour débuter, je conseille Streamable : voir l'onglet s'ouvrir pendant que Claude travaille apprend beaucoup sur ce qu'il fait réellement. Une fois la confiance installée, STDIO est plus confortable — c'est celui de la vidéo.</p>
+
+      <h2>Ce que Claude sait faire une fois branché</h2>
+
+      <p>Le serveur expose une trentaine d'outils. Dans la pratique, ils se rangent en cinq familles.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Famille</th><th>Ce que vous pouvez demander</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Piloter un crawl</td><td>Lancer un crawl sur une URL, suivre son avancement, le mettre en pause, le reprendre</td></tr>
+            <tr><td>Rouvrir l'existant</td><td>Lister les crawls récents, en charger un par son identifiant, comparer deux versions</td></tr>
+            <tr><td>Exporter</td><td>Un onglet, un filtre, des champs choisis, les exports groupés, les rapports (chaînes de redirection, problèmes, etc.)</td></tr>
+            <tr><td>Retraiter</td><td>Écrire un script Node.js sur un export, installer les paquets nécessaires, produire un tableau ou une page HTML</td></tr>
+            <tr><td>Inspecter une URL</td><td>Contenu, liens entrants et sortants, informations techniques, capture d'écran de la page</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>Cinq demandes qui marchent dès le premier jour</h2>
+
+      <p>Les prompts qui donnent de bons résultats ont un point commun : ils nomment l'onglet, le filtre et le livrable. Le modèle n'a plus à deviner où chercher.</p>
+
+      <ul>
+        <li><strong>Le point de départ :</strong> « Crawle exemple.fr, puis liste les problèmes du rapport de synthèse par priorité en distinguant ce qui est vraiment urgent du reste. »</li>
+        <li><strong>Les liens cassés :</strong> « Exporte tous les codes de réponse non-200 avec leurs liens entrants dans un seul fichier CSV. »</li>
+        <li><strong>Le suivi :</strong> « Ouvre les deux derniers crawls de exemple.fr, compare les problèmes principaux et résume ce qui a changé. »</li>
+        <li><strong>Le maillage interne :</strong> « Exporte les URLs HTML de l'onglet Internal dans un fichier, avec les champs Address et Unique Inlinks, puis sors le top 20 des pages les plus maillées sous forme de graphique HTML. »</li>
+        <li><strong>Les images :</strong> « Exporte toutes les images de plus de 100 ko et génère une page HTML qui les affiche en grille, avec leur poids sous chacune. »</li>
+      </ul>
+
+      <p>Le principe est le même que pour n'importe quelle demande à un modèle : ce n'est pas la formule qui compte, c'est <a href="/blog/prompt-chatgpt">le contexte que vous fournissez</a>. Ici, le contexte, c'est le crawl — encore faut-il dire lequel.</p>
+
+      <div class="tool" id="outil-sf-mcp">
+        <div class="tool-head">
+          <span class="tool-ico" aria-hidden="true">🐸</span>
+          <span>
+            <em>Outil interactif</em>
+            <b>Générateur de prompts Screaming Frog MCP</b>
+          </span>
+        </div>
+        <div class="tool-body">
+          <div class="field-row">
+            <div class="field">
+              <label for="f-site">Site à analyser</label>
+              <input id="f-site" type="text" placeholder="exemple.fr">
+            </div>
+            <div class="field">
+              <label for="f-source">Point de départ</label>
+              <select id="f-source">
+                <option value="new">lancer un nouveau crawl</option>
+                <option value="last">utiliser le dernier crawl enregistré</option>
+                <option value="compare">comparer les deux derniers crawls</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="f-obj">Ce que vous cherchez</label>
+            <select id="f-obj">
+              <option value="issues">les problèmes techniques, par priorité</option>
+              <option value="broken">les liens cassés et leurs pages sources</option>
+              <option value="maillage">les pages les mieux et les moins maillées</option>
+              <option value="images">les images trop lourdes</option>
+              <option value="redirects">les chaînes de redirection</option>
+              <option value="titles">les titres et méta-descriptions à réécrire</option>
+              <option value="indexabilite">les pages non indexables</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <span class="rail-title" style="margin-bottom:8px">Périmètre</span>
+            <div class="chips" id="chips-perimetre" role="group" aria-label="Périmètre du crawl">
+              <button type="button" class="chip on" data-v="tout le site">Tout le site</button>
+              <button type="button" class="chip" data-v="une seule section">Une section</button>
+              <button type="button" class="chip" data-v="500 URLs au maximum">500 URLs max</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="f-livrable">Livrable attendu</label>
+            <select id="f-livrable">
+              <option value="chat">un résumé dans la conversation</option>
+              <option value="csv">un fichier CSV</option>
+              <option value="html">une page HTML à ouvrir dans le navigateur</option>
+              <option value="table">un tableau comparatif</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <span class="rail-title" style="margin-bottom:8px">Options</span>
+            <div class="chips" id="chips-options" role="group" aria-label="Options du prompt">
+              <button type="button" class="chip" data-v="gsc">Croiser la Search Console</button>
+              <button type="button" class="chip" data-v="node">Autoriser un script Node</button>
+              <button type="button" class="chip on" data-v="fichier">Passer par un fichier</button>
+              <button type="button" class="chip" data-v="actions">Demander un plan d'action</button>
+            </div>
+          </div>
+
+          <div class="field">
+            <span class="rail-title" style="margin-bottom:8px">Votre prompt, prêt à coller</span>
+            <div class="tool-out" id="sf-out" aria-live="polite"></div>
+          </div>
+
+          <div class="tool-actions">
+            <button type="button" class="btn-sm primary" id="sf-copy">Copier le prompt</button>
+            <a class="btn-sm ghost" id="sf-claude" href="#" target="_blank" rel="noopener nofollow">Ouvrir dans Claude</a>
+          </div>
+        </div>
+        <div class="tool-foot">
+          <span>Rien n'est envoyé nulle part : tout se passe dans votre navigateur.</span>
+          <span>Prompts MCP · Anthony Courtin</span>
+        </div>
+      </div>
+
+      <h2>Les limites qu'il faut connaître</h2>
+
+      <p><strong>La fenêtre de contexte.</strong> C'est la vraie contrainte. Un export de 40 000 URLs ne rentre pas dans une conversation, et le modèle s'étouffe bien avant. D'où la règle : passer par des fichiers, laisser Claude écrire un script pour les traiter, et ouvrir une conversation neuve par tâche plutôt que d'empiler les sujets dans la même.</p>
+
+      <p><strong>La sécurité.</strong> Autoriser un modèle à exécuter des scripts et à écrire des fichiers n'est pas anodin. Screaming Frog cantonne l'accès à un dossier que vous désignez, mais la règle de prudence reste la même que pour n'importe quel agent : un dossier dédié, et un œil sur ce qui s'exécute. C'est le même arbitrage que pour <a href="/blog/claude-ai">n'importe quel usage sérieux de Claude</a> : ce qu'on gagne en autonomie, on le paie en vigilance.</p>
+
+      <p><strong>Ce que ça ne remplace pas.</strong> Screaming Frog le dit lui-même dans sa documentation, et je le répète volontiers : l'IA améliore l'efficacité des tâches, elle ne remplace pas l'analyse. Trier 200 problèmes par « priorité » selon un barème générique n'a rien à voir avec décider ce qui compte pour <em>ce</em> site, <em>ce</em> business, <em>ce</em> trimestre. La méthode d'<a href="/blog/audit-seo-methode">un audit SEO sérieux</a> ne change pas ; seul le temps passé à fabriquer les tableaux diminue.</p>
+
+      <h2>Et la Search Console dans tout ça ?</h2>
+
+      <p>C'est la question qui termine la vidéo, et c'est là que l'installation devient vraiment rentable. Si vous connectez les API dans Screaming Frog — Search Console, Analytics, PageSpeed, Ahrefs — <strong>avant</strong> de lancer le crawl, leurs colonnes font partie du crawl. Claude les lit comme les autres.</p>
+
+      <p>Vous pouvez alors demander des croisements qui prennent d'habitude une demi-journée de tableur : les pages qui perdent des clics et qui ont peu de liens internes, les URLs en erreur qui recevaient encore du trafic le mois dernier, les pages lentes parmi celles qui rapportent le plus. C'est exactement le genre de tâche que je délègue, et c'est ce qui transforme un crawl en plan d'action.</p>
+
+      <p>Si ce type de branchement vous intéresse au-delà de Screaming Frog, c'est tout le sujet de l'<a href="/automatisation-ia">automatisation IA sur vos propres outils</a> : la même prise existe pour votre CRM, votre CMS ou vos exports comptables.</p>
+
+      <section class="faq">
+        <h2>Questions fréquentes</h2>
+
+        <details>
+          <summary>Comment configurer le serveur MCP de Screaming Frog ?</summary>
+          <div class="faq-a"><p>Trois réglages suffisent. Dans Screaming Frog, « File &gt; Settings &gt; Storage Mode » doit être sur le stockage en base de données. Dans « File &gt; Settings &gt; MCP Server », il faut accepter l'environnement Node.js. Dans Claude Desktop, il faut installer l'extension spider-mcp.mcpb téléchargée depuis le guide utilisateur, via « Settings &gt; Extensions &gt; Advanced Settings &gt; Install Extension », puis quitter complètement Claude et le rouvrir.</p></div>
+        </details>
+
+        <details>
+          <summary>Le MCP fonctionne-t-il avec la version gratuite de Screaming Frog ?</summary>
+          <div class="faq-a"><p>Non. Le serveur MCP est réservé aux licences payantes, en version 24 ou supérieure. La version gratuite, limitée à 500 URLs, n'expose pas le serveur : le réglage n'apparaît pas dans les paramètres.</p></div>
+        </details>
+
+        <details>
+          <summary>Comment utiliser Screaming Frog avec Claude ?</summary>
+          <div class="faq-a"><p>Une fois l'extension installée, vous parlez à Claude normalement. « Crawle exemple.fr et résume les problèmes par priorité » suffit à déclencher un crawl. Claude peut aussi lister les crawls récents, en charger un par son identifiant, sortir un export ou un rapport, écrire le résultat dans un fichier et générer un script Node.js pour retraiter ce fichier.</p></div>
+        </details>
+
+        <details>
+          <summary>Pourquoi Claude ne trouve-t-il pas mon crawl ?</summary>
+          <div class="faq-a"><p>Parce qu'il est encore chargé dans l'interface. Tant que le crawl occupe l'écran de Screaming Frog, il n'est pas rangé dans la base de données et n'apparaît pas dans la liste des crawls récents. Videz-le une fois terminé, puis redemandez à Claude de lister les crawls : il le voit immédiatement.</p></div>
+        </details>
+
+        <details>
+          <summary>STDIO ou Streamable HTTP : quelle différence ?</summary>
+          <div class="faq-a"><p>En mode STDIO, Claude lance lui-même Screaming Frog en ligne de commande : l'interface reste invisible, rien à démarrer à la main. En mode Streamable HTTP, vous ouvrez Screaming Frog normalement et vous démarrez le serveur MCP depuis le menu : vous voyez à l'écran ce que Claude manipule. STDIO pour l'automatisation, Streamable pour garder l'œil sur les données.</p></div>
+        </details>
+
+        <details>
+          <summary>Quels outils sont compatibles avec le protocole MCP ?</summary>
+          <div class="faq-a"><p>Screaming Frog documente deux clients : Claude Desktop et LM Studio. LM Studio permet de travailler avec un modèle local, gratuit, à condition qu'il sache appeler des outils et que la machine suive. Tout client compatible MCP peut s'y connecter, mais ces deux-là sont les seuls avec une procédure officielle.</p></div>
+        </details>
+
+        <details>
+          <summary>Comment exporter les données de crawl avec le MCP ?</summary>
+          <div class="faq-a"><p>En le demandant, en précisant l'onglet, le filtre, les champs et le nom du fichier. « Exporte les URLs HTML de l'onglet Internal dans internal.csv, uniquement les champs Address et Status Code » produit le fichier dans le dossier autorisé du serveur. Passer par un fichier plutôt que par la conversation évite de saturer la fenêtre de contexte.</p></div>
+        </details>
+
+        <details>
+          <summary>Peut-on croiser les données Search Console dans un crawl piloté par Claude ?</summary>
+          <div class="faq-a"><p>Oui, à condition de connecter les API dans Screaming Frog avant de lancer le crawl. Les colonnes Search Console, Analytics, PageSpeed ou Ahrefs font alors partie du crawl, et Claude les lit comme les autres. C'est ce qui permet de prioriser les corrections par les clics réellement perdus.</p></div>
+        </details>
+
+      </section>
+
+      <!-- ================= CTA ================= -->
+      <div class="cta-band">
+        <div>
+          <h2>Brancher l'IA sur vos vrais outils, pas sur des démos</h2>
+          <p>Vos crawls, vos exports, vos fichiers clients : je conçois les automatisations qui tiennent en production, et je forme l'équipe qui s'en servira.</p>
+        </div>
+        <a class="btn btn-lime" href="/automatisation-ia">Voir comment je procède <span class="ar">→</span></a>
+      </div>
+
+      <div class="author-box">
+        <img src="/images/anthony.avif" alt="Anthony Courtin" width="88" height="88" loading="lazy">
+        <div>
+          <p class="eyebrow">Écrit par</p>
+          <h3>Anthony Courtin</h3>
+          <p class="author-role">Consultant SEO, GEO &amp; automatisation IA</p>
+          <p class="author-bio">J'accompagne des PME et des indépendants sur la visibilité (Google, ChatGPT, Perplexity) et sur l'usage réel de l'IA au travail. J'interviens en entreprise pour former les équipes et repenser les process. Tout ce que j'écris ici, je l'utilise en mission.</p>
+          <div class="author-links">
+            <a class="li" href="https://www.linkedin.com/in/anthony-courtin/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56z"/></svg>
+              Me suivre sur LinkedIn
+            </a>
+            <a class="yt" href="https://www.youtube.com/@AnthonyCourtin4" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></svg>
+              Ma chaîne YouTube
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <section class="reviews" data-slug="screaming-frog-mcp" data-reviews="[]">
+        <h2>Avis des lecteurs</h2>
+        <p class="rv-sub">Cet article vous a servi ? Dites-le, ça aide les suivants.</p>
+        <form class="rv-form" name="avis" method="POST" data-netlify="true" netlify-honeypot="societe" action="/merci">
+          <input type="hidden" name="form-name" value="avis">
+          <input type="hidden" name="article" value="screaming-frog-mcp">
+          <p class="rv-hp"><label>Ne remplissez pas ce champ : <input name="societe" tabindex="-1" autocomplete="off"></label></p>
+
+          <h3>Notez cet article</h3>
+
+          <fieldset class="rating-field">
+            <legend>Votre note</legend>
+            <div class="rating">
+              <input type="radio" id="n5" name="note" value="5"><label for="n5" aria-label="5 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n4" name="note" value="4"><label for="n4" aria-label="4 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n3" name="note" value="3"><label for="n3" aria-label="3 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n2" name="note" value="2"><label for="n2" aria-label="2 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n1" name="note" value="1"><label for="n1" aria-label="1 étoile"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="rv-nom">Prénom <span class="hint">(facultatif)</span></label>
+            <input type="text" id="rv-nom" name="nom" maxlength="60" autocomplete="given-name">
+          </div>
+
+          <div class="field">
+            <label for="rv-texte">Votre commentaire <span class="hint">(facultatif)</span></label>
+            <textarea id="rv-texte" name="texte" rows="4" maxlength="2000"></textarea>
+          </div>
+
+          <div class="rv-msg" id="rv-msg" role="status"></div>
+          <div><button type="submit" class="btn-sm primary">Publier mon avis</button></div>
+        </form>
+
+        <div class="rv-published">
+          <h3 class="rv-published-title">Ce qu'en disent les lecteurs</h3>
+
+          <div class="rv-summary">
+            <span class="rv-avg" id="rv-avg"></span>
+            <span class="stars" id="rv-stars" aria-hidden="true"></span>
+            <span class="rv-count" id="rv-count">Aucun avis pour le moment.</span>
+          </div>
+
+          
+
+          <div class="rv-list" id="rv-list"></div>
+          <p class="rv-empty" id="rv-empty">Soyez le premier à donner votre avis.</p>
+        </div>
+
+      </section>
+
+    </article>
+  </div>
+
+  <!-- ---------- COLONNE DROITE : résumé IA + articles liés ---------- -->
+  <aside class="rail rail-right">
+    <div class="ai-box">
+      <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
+      <p class="ai-text">Le serveur MCP de Screaming Frog laisse Claude lancer un crawl, rouvrir un crawl existant et en sortir les exports et les rapports en langage naturel. L'installation demande une licence payante, le stockage en base de données, l'extension MCP dans Claude Desktop, et un crawl vidé de l'interface pour qu'il devienne visible.</p>
+      <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
+    </div>
+
+    <div class="rail-recent">
+      <p class="rail-title">Dans la même catégorie</p>
+      <div class="mini-list">
+        <a class="mini" href="/blog/audit-seo-methode">
+          <span class="mini-thumb"><picture><source srcset="/images/blog/audit-seo-cover.avif" type="image/avif"><img src="/images/blog/audit-seo-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
+          <span><span class="mini-cat">SEO</span><span class="mini-ttl">Audit SEO : la méthode et la checklist complète</span></span>
+        </a>
+        <a class="mini" href="/blog/claude-ai">
+          <span class="mini-thumb"><picture><source srcset="/images/blog/claude-ai-cover.avif" type="image/avif"><img src="/images/blog/claude-ai-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Claude AI : ce que vaut vraiment l'IA d'Anthropic</span></span>
+        </a>
+        <a class="mini" href="/blog/generative-engine-optimization">
+          <span class="mini-thumb"><picture><source srcset="/images/blog/geo-cover.avif" type="image/avif"><img src="/images/blog/geo-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
+          <span><span class="mini-cat">GEO, visibilité IA</span><span class="mini-ttl">Generative Engine Optimization : comment être cité par les IA</span></span>
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- ================= ARTICLES LIÉS ================= -->
+<section class="related">
+  <div class="wrap">
+    <h2>À lire ensuite</h2>
+    <p class="sub">La suite logique du parcours.</p>
+    <div class="rel-grid">
+      <a class="rel-card" href="/blog/audit-seo-methode">
+        <picture><source srcset="/images/blog/audit-seo-cover.avif" type="image/avif"><img src="/images/blog/audit-seo-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
+<div class="rel-body">
+          <span class="rel-cat">SEO</span>
+          <h3>Audit SEO : la méthode et la checklist complète</h3>
+          <p>Ce que je regarde, dans quel ordre, et comment je transforme un crawl en plan d'action.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="/blog/claude-ai">
+        <picture><source srcset="/images/blog/claude-ai-cover.avif" type="image/avif"><img src="/images/blog/claude-ai-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
+<div class="rel-body">
+          <span class="rel-cat">Utiliser l'IA</span>
+          <h3>Claude AI : ce que vaut vraiment l'IA d'Anthropic</h3>
+          <p>Points forts, limites et usages où Claude fait la différence face à ChatGPT.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="/blog/prompt-chatgpt">
+        <picture><source srcset="/images/blog/prompt-chatgpt-cover.avif" type="image/avif"><img src="/images/blog/prompt-chatgpt-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
+<div class="rel-body">
+          <span class="rel-cat">Utiliser l'IA</span>
+          <h3>Prompt ChatGPT : arrêtez d'en écrire</h3>
+          <p>Pourquoi le contexte fourni pèse plus lourd que la formulation de votre demande.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="foot-logo" href="/"><img src="/images/logo-transparent-pine.svg" alt="anthony courtin" width="98" height="48"></a>
+        <p style="color:var(--ink-2);font-size:.95rem;margin-top:12px;max-width:280px">Consultant SEO, GEO &amp; automatisation IA. Interventions partout en France.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul><li><a href="/seo">SEO</a></li><li><a href="/geo">GEO, visibilité IA</a></li><li><a href="/automatisation-ia">Automatisation IA</a></li><li><a href="/tarifs">Tarifs</a></li></ul>
+      </div>
+      <div>
+        <h4>Ressources</h4>
+        <ul><li><a href="/blog/">Blog</a></li><li><a href="/videos">Vidéos</a></li><li><a href="/realisations">Réalisations</a></li><li><a href="/a-propos">À propos</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul><li><a href="/contact">Formulaire</a></li><li><a href="mailto:anthony@astrak.agency">anthony@astrak.agency</a></li><li><a href="https://www.linkedin.com/in/anthony-courtin/" rel="noopener">LinkedIn</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Anthony Courtin</span>
+      <span><a href="/mentions-legales">Mentions légales</a> · <a href="/confidentialite">Confidentialité</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/site.js?v=5" defer></script>
+<script src="/js/blog-article.js?v=3" defer></script>
+
+<!-- Outil interactif propre à cet article -->
+<script src="/js/sf-mcp-tool.js?v=1" defer></script>
+
+</body>
+</html>
