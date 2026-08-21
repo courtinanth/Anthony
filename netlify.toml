@@ -92,8 +92,9 @@
 #   - fonts.googleapis.com (CSS des polices) et fonts.gstatic.com (fichiers)
 #   - formsubmit.co (cible du formulaire de contact -> form-action)
 #   - youtube-nocookie.com (frame-src) : le lecteur des articles de blog, inséré
-#     seulement au clic sur la façade. La miniature reste servie depuis /images,
-#     donc img-src n'a pas besoin de i.ytimg.com.
+#     seulement au clic sur la façade. La miniature de la façade reste servie
+#     depuis /images ; i.ytimg.com n'est ouvert que pour l'affiche interne du
+#     lecteur, que le navigateur évalue avec la CSP de la page parente.
 # Les scripts sont tous auto-hébergés (aucun inline exécutable : le générateur
 # S·M·T·F du blog a été externalisé dans /js/smtf-tool.js).
 # 'unsafe-inline' reste nécessaire pour style-src : attributs style inline.
@@ -101,4 +102,4 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self'; frame-src https://www.youtube-nocookie.com; form-action 'self' https://formsubmit.co; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
+    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://i.ytimg.com; media-src 'self'; connect-src 'self'; frame-src https://www.youtube-nocookie.com; form-action 'self' https://formsubmit.co; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
