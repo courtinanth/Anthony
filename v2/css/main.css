@@ -593,31 +593,61 @@ html:not(.js) .clients-rail,html:not(.js) .avis-rail{overflow-x:auto;scroll-snap
 .legal-table thead th{background:var(--pine-950);color:var(--cream);font-weight:600;font-size:.81rem;letter-spacing:.03em;border-bottom:none}
 .legal-table tbody tr:last-child td{border-bottom:none}
 
-/* ============ BANDEAU « AUCUN COOKIE » ============
-   Le site ne dépose ni cookie ni traceur : il n'y a aucun consentement à
-   demander, et ce bandeau ne bloque donc rien. Il informe, une fois, et se
-   ferme. Posé en bas à gauche pour ne masquer ni le contenu ni les CTA. */
-.cookie-note{
-  position:fixed;left:24px;bottom:24px;z-index:180;max-width:392px;
+/* ============ CONSENTEMENT AUX COOKIES ============
+   Le panneau ne bloque pas la page : il se pose en bas à gauche, laisse les
+   contenus et les CTA accessibles, et n'entre pas dans le premier rendu.
+   « Refuser tout » et « Accepter tout » ont strictement le même poids visuel :
+   c'est une exigence de la CNIL, pas une préférence esthétique. */
+.cc{
+  position:fixed;left:24px;bottom:24px;z-index:200;width:min(430px,calc(100vw - 48px));
   background:var(--white);border:1px solid var(--cream-2);border-left:3px solid var(--lime);
-  border-radius:var(--r-md);box-shadow:0 22px 60px rgba(6,32,26,.18);padding:20px 22px;
-  opacity:0;transform:translateY(14px);transition:opacity .34s,transform .34s
+  border-radius:var(--r-md);box-shadow:0 26px 70px rgba(6,32,26,.22);padding:22px 24px;
+  max-height:calc(100vh - 48px);overflow-y:auto;overscroll-behavior:contain;
+  opacity:0;transform:translateY(14px);transition:opacity .32s,transform .32s
 }
-.cookie-note.on{opacity:1;transform:none}
-.cookie-note-t{font-family:var(--display);font-size:1.04rem;font-weight:600;line-height:1.2;letter-spacing:-.01em;color:var(--pine-950);margin:0 0 8px}
-.cookie-note p{font-size:.92rem;line-height:1.55;color:var(--ink-2);margin:0 0 16px}
-.cookie-note-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
-.cookie-note button{
-  background:var(--pine-950);color:var(--lime);border-radius:999px;padding:9px 19px;
-  font-size:.87rem;font-weight:600;transition:transform .2s,background .2s
-}
-.cookie-note button:hover{transform:translateY(-2px);background:var(--pine-800)}
-.cookie-note a{font-size:.87rem;font-weight:600;color:var(--pine-700);text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(29,107,84,.35)}
-.cookie-note a:hover{color:var(--pine-950);text-decoration-color:var(--lime)}
+.cc.on{opacity:1;transform:none}
+.cc-t{font-family:var(--display);font-size:1.08rem;font-weight:600;line-height:1.2;letter-spacing:-.01em;color:var(--pine-950);margin:0 0 9px}
+.cc-p{font-size:.91rem;line-height:1.55;color:var(--ink-2);margin:0}
+
+.cc-detail{margin-top:16px;border-top:1px solid var(--cream-2);padding-top:6px}
+.cc-cat{padding:14px 0;border-bottom:1px solid var(--cream-2)}
+.cc-cat:last-child{border-bottom:none;padding-bottom:4px}
+.cc-cat-h{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:6px}
+.cc-cat-n{font-size:.92rem;font-weight:600;color:var(--pine-950)}
+.cc-fixe{font-size:.75rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--pine-600);background:rgba(29,107,84,.09);border-radius:999px;padding:4px 10px;white-space:nowrap}
+.cc-cat p{font-size:.85rem;line-height:1.5;color:var(--ink-2);margin:0}
+.cc-cat code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em;background:var(--cream-2);padding:.1em .38em;border-radius:5px}
+
+/* Interrupteur : la case native reste dans le DOM, seulement masquée à l'œil,
+   pour garder le clavier, le focus et les lecteurs d'écran. */
+.cc-sw{display:flex;align-items:center;gap:11px;cursor:pointer;width:100%}
+.cc-sw input{position:absolute;opacity:0;width:0;height:0}
+.cc-piste{flex:0 0 auto;order:2;margin-left:auto;width:42px;height:24px;border-radius:999px;background:var(--cream-2);position:relative;transition:background .2s}
+.cc-piste::after{content:"";position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:var(--white);box-shadow:0 2px 6px rgba(6,32,26,.28);transition:transform .2s}
+.cc-sw input:checked+.cc-piste{background:var(--pine-600)}
+.cc-sw input:checked+.cc-piste::after{transform:translateX(18px)}
+.cc-sw input:focus-visible+.cc-piste{outline:2px solid var(--pine-600);outline-offset:3px}
+
+.cc-actions{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;margin-top:18px}
+.cc-b{border-radius:999px;padding:10px 20px;font-size:.88rem;font-weight:600;transition:transform .2s,background .2s,color .2s;flex:1 1 auto;text-align:center}
+.cc-refus{background:var(--cream);color:var(--pine-900);border:1.5px solid var(--cream-2)}
+.cc-refus:hover{transform:translateY(-2px);background:var(--cream-2)}
+.cc-ok{background:var(--pine-950);color:var(--lime)}
+.cc-ok:hover{transform:translateY(-2px);background:var(--pine-800)}
+.cc-enr{background:var(--lime);color:var(--pine-950);flex-basis:100%}
+.cc-enr:hover{transform:translateY(-2px);background:var(--lime-dark)}
+.cc-lien{font-size:.86rem;font-weight:600;color:var(--pine-700);text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(29,107,84,.35);background:none;padding:0}
+.cc-lien:hover{color:var(--pine-950);text-decoration-color:var(--lime)}
+
+/* Le lien du pied de page, qui rouvre le panneau. */
+.foot-cc{font-family:inherit;font-size:inherit;color:inherit;text-decoration:none;padding:0}
+.foot-cc:hover{color:var(--lime)}
+
 @media(max-width:560px){
-  .cookie-note{left:14px;right:14px;bottom:14px;max-width:none;padding:18px 20px}
+  .cc{left:12px;right:12px;bottom:12px;width:auto;padding:20px;max-height:calc(100vh - 24px)}
+  .cc-b{flex-basis:100%}
 }
 @media(prefers-reduced-motion:reduce){
-  .cookie-note{transition:none}
-  .cookie-note button:hover{transform:none}
+  .cc{transition:none}
+  .cc-b:hover{transform:none}
 }

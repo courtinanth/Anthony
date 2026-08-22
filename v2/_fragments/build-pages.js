@@ -69,11 +69,11 @@ const PAGES = [
      n'existe pas. Elles passent ici pour suivre le site automatiquement. */
   { frag: 'mentions-legales.html', out: 'mentions-legales.html', url: '/mentions-legales',
     title: 'Mentions légales | Anthony Courtin',
-    desc: "Éditeur, hébergeur, propriété intellectuelle et responsabilité du site anthony-courtin.com. Aucun cookie, aucun traceur, aucun script tiers.",
+    desc: "Éditeur, hébergeur, propriété intellectuelle et responsabilité du site anthony-courtin.com, et la mesure d'audience soumise à votre consentement.",
     crumb: 'Mentions légales' },
   { frag: 'confidentialite.html', out: 'confidentialite.html', url: '/confidentialite',
     title: 'Politique de confidentialité | Anthony Courtin',
-    desc: "Ce que je collecte, pourquoi, combien de temps je le garde et comment vous reprenez la main. Aucun cookie, aucune mesure d'audience, aucun profilage.",
+    desc: "Ce que je collecte, pourquoi, combien de temps je le garde et comment retirer votre consentement. Un seul traceur, aucun profilage, aucune revente.",
     crumb: 'Confidentialité' },
   { frag: 'merci.html', out: 'merci.html', url: '/merci',
     title: 'Merci, message bien reçu | Anthony Courtin',
@@ -189,7 +189,7 @@ ${p.noindex ? '<meta name="robots" content="noindex, follow">' : '<meta name="ro
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/main.css?v=10">
+<link rel="stylesheet" href="/css/main.css?v=11">
 <script type="application/ld+json">
 ${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph }, null, 1)}
 </script>
@@ -204,7 +204,8 @@ ${frag}
 
 ${footer}
 
-<script src="/js/site.js?v=6" defer></script>
+<script src="/js/site.js?v=7" defer></script>
+<script src="/js/consentement.js?v=1" defer></script>
 </body>
 </html>
 `;
