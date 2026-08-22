@@ -2,8 +2,11 @@
 # Regle Netlify : premiere regle qui matche gagne. Les plus specifiques d'abord.
 
 # --- Fichiers de travail presents dans v2/ mais a ne pas servir en prod
-/_fragments/*              /404.html        404
-/DEPLOIEMENT.md            /404.html        404
+# Le « ! » est indispensable : sans lui, un fichier qui existe vraiment sur le
+# disque est servi avant que la regle ne s'applique. Les fragments repondaient
+# donc en 200, avec le corps des pages en double.
+/_fragments/*              /404.html        404!
+/DEPLOIEMENT.md            /404.html        404!
 
 # --- Consolidation services (aout 2026) : 13 pages -> 6, 301 vers la page mere
 /seo-technique             /seo               301!
