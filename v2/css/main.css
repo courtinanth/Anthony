@@ -368,7 +368,19 @@ footer.site{background:var(--cream);padding:0 0 40px}
 .foot-grid a:hover{color:var(--pine-600)}
 .foot-logo{font-family:var(--display);font-weight:700;font-size:1.2rem;color:var(--ink)}
 .foot-logo span{color:var(--pine-600)}
-.foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.85rem;color:rgba(244,241,232,.78)}
+/* La barre du bas a longtemps été illisible : elle avait gardé la couleur du
+   footer sombre d'avant la refonte, rgba(244,241,232,.78), soit exactement la
+   couleur du fond crème actuel. Contraste 1:1 : mentions légales,
+   confidentialité et gestion des cookies étaient invisibles sur tout le site. */
+.foot-bottom{
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px 18px;
+  font-size:.85rem;color:var(--ink-2);
+  border-top:1px solid var(--cream-2);padding-top:24px
+}
+.foot-bottom a,.foot-bottom .foot-cc{color:var(--ink-2);transition:color .18s}
+.foot-bottom a:hover,.foot-bottom .foot-cc:hover{color:var(--pine-600);text-decoration:underline;text-underline-offset:3px}
+.foot-links{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center}
+.foot-links span[aria-hidden]{opacity:.4}
 @media(max-width:960px){.foot-grid{grid-template-columns:1fr 1fr}}
 
 /* ============ PAGES INTERNES ============ */
