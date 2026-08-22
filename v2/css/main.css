@@ -559,3 +559,65 @@ html:not(.js) .clients-rail,html:not(.js) .avis-rail{overflow-x:auto;scroll-snap
 @media(max-width:620px){
   .avis-score{width:100%;border-radius:var(--r-md);padding:16px 20px;align-items:flex-start}
 }
+
+/* ============ PAGES LÉGALES ============
+   Mentions légales et politique de confidentialité. Du texte long, lu en
+   diagonale la plupart du temps : mesure courte, titres séparés par un filet,
+   et les identités de l'éditeur et de l'hébergeur sorties en encart pour
+   qu'on les trouve sans lire. */
+.legal{max-width:74ch;font-size:1.02rem;line-height:1.72;color:var(--ink-2)}
+.legal>*+*{margin-top:1.15em}
+.legal h2{font-size:clamp(1.45rem,1.15rem+1.1vw,1.95rem);line-height:1.15;color:var(--pine-950);margin-top:2.1em;padding-top:.85em;border-top:1px solid var(--cream-2)}
+.legal h3{font-family:var(--display);font-size:1.14rem;line-height:1.25;color:var(--pine-800);margin-top:1.6em}
+.legal a{color:var(--pine-600);font-weight:600;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1.5px;text-decoration-color:rgba(29,107,84,.35);transition:text-decoration-color .18s,color .18s}
+.legal a:hover{color:var(--pine-950);text-decoration-color:var(--lime)}
+.legal strong{color:var(--pine-950);font-weight:600}
+.legal ul{list-style:none;display:flex;flex-direction:column;gap:.55em;padding:0}
+.legal ul>li{position:relative;padding-left:1.5em}
+.legal ul>li::before{content:"";position:absolute;left:2px;top:.64em;width:7px;height:7px;border-radius:50%;background:var(--lime);border:1.5px solid var(--pine-600)}
+.legal .maj{font-size:.86rem;color:var(--ink-2);opacity:.8}
+
+.legal .id-card{background:var(--white);border:1px solid var(--cream-2);border-left:3px solid var(--lime);border-radius:var(--r-sm);padding:22px 24px}
+.legal .id-card p{margin:0}
+.legal .id-card dl{display:grid;grid-template-columns:auto 1fr;gap:9px 22px;margin:0;font-size:.98rem}
+.legal .id-card dt{font-weight:600;color:var(--pine-800)}
+.legal .id-card dd{margin:0;color:var(--ink)}
+@media(max-width:560px){
+  .legal .id-card dl{grid-template-columns:1fr;gap:2px}
+  .legal .id-card dd{margin-bottom:10px}
+}
+
+.legal-table{overflow-x:auto;border:1px solid var(--cream-2);border-radius:var(--r-sm);background:var(--white)}
+.legal-table table{width:100%;border-collapse:collapse;font-size:.93rem;min-width:560px}
+.legal-table th,.legal-table td{padding:13px 16px;text-align:left;border-bottom:1px solid var(--cream-2);vertical-align:top;line-height:1.55}
+.legal-table thead th{background:var(--pine-950);color:var(--cream);font-weight:600;font-size:.81rem;letter-spacing:.03em;border-bottom:none}
+.legal-table tbody tr:last-child td{border-bottom:none}
+
+/* ============ BANDEAU « AUCUN COOKIE » ============
+   Le site ne dépose ni cookie ni traceur : il n'y a aucun consentement à
+   demander, et ce bandeau ne bloque donc rien. Il informe, une fois, et se
+   ferme. Posé en bas à gauche pour ne masquer ni le contenu ni les CTA. */
+.cookie-note{
+  position:fixed;left:24px;bottom:24px;z-index:180;max-width:392px;
+  background:var(--white);border:1px solid var(--cream-2);border-left:3px solid var(--lime);
+  border-radius:var(--r-md);box-shadow:0 22px 60px rgba(6,32,26,.18);padding:20px 22px;
+  opacity:0;transform:translateY(14px);transition:opacity .34s,transform .34s
+}
+.cookie-note.on{opacity:1;transform:none}
+.cookie-note-t{font-family:var(--display);font-size:1.04rem;font-weight:600;line-height:1.2;letter-spacing:-.01em;color:var(--pine-950);margin:0 0 8px}
+.cookie-note p{font-size:.92rem;line-height:1.55;color:var(--ink-2);margin:0 0 16px}
+.cookie-note-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.cookie-note button{
+  background:var(--pine-950);color:var(--lime);border-radius:999px;padding:9px 19px;
+  font-size:.87rem;font-weight:600;transition:transform .2s,background .2s
+}
+.cookie-note button:hover{transform:translateY(-2px);background:var(--pine-800)}
+.cookie-note a{font-size:.87rem;font-weight:600;color:var(--pine-700);text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(29,107,84,.35)}
+.cookie-note a:hover{color:var(--pine-950);text-decoration-color:var(--lime)}
+@media(max-width:560px){
+  .cookie-note{left:14px;right:14px;bottom:14px;max-width:none;padding:18px 20px}
+}
+@media(prefers-reduced-motion:reduce){
+  .cookie-note{transition:none}
+  .cookie-note button:hover{transform:none}
+}
