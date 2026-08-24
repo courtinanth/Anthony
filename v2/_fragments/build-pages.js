@@ -134,10 +134,18 @@ function videoLd(url){
    Les recopier dans un fragment les figerait : ils seraient encore là trois
    publications plus tard, et un article programmé pourrait s'afficher avant
    sa date. Le marqueur les fait suivre l'index, qui fait foi. */
+function cartesRecentes(n){
+  const blog = fs.readFileSync(path.join(__dirname, 'blog-index.html'), 'utf8');
+  return (blog.match(/<a class="post-card[\s\S]*?<\/a>/g) || []).slice(0, n)
+    /* Sur /blog/ les deux premières cartes sont en haut de page, d'où leur
+       chargement immédiat. Reprises ailleurs, elles atterrissent toujours en
+       bas : les laisser en eager ferait courir deux images de 1376 px après
+       le plus gros élément affiché, qui est ailleurs. */
+    .map(c => c.replace(/loading="eager"/g, 'loading="lazy"'));
+}
+
 function derniersArticles(html, n){
-  const idx = fs.readFileSync(path.join(__dirname, 'blog-index.html'), 'utf8');
-  const cartes = (idx.match(/<a class="post-card[\s\S]*?<\/a>/g) || []).slice(0, n);
-  return html.replace('<!-- derniers-articles -->', cartes.join('\n').trim());
+  return html.replace('<!-- derniers-articles -->', cartesRecentes(n).join('\n      '));
 }
 
 for (const p of PAGES) {
@@ -214,3 +222,26 @@ ${footer}
   fs.writeFileSync(outPath, html);
   console.log('OK', p.out);
 }
+
+/* index.html n'est pas assemblé ici : c'est lui qui fournit l'en-tête et le
+   pied de page aux autres. Sa grille d'articles doit pourtant suivre le blog
+   comme celle des autres pages, sinon elle reste figée sur les trois articles
+   du jour où elle a été écrite à la main. Faute de fragment séparé, le
+   marqueur simple ne suffit pas (il disparaîtrait à la première écriture) :
+   deux balises encadrent le bloc, comme yt:debut le fait pour les vidéos. */
+function majAccueil(){
+  const chemin = path.join(ROOT, 'index.html');
+  const avant = fs.readFileSync(chemin, 'utf8');
+  const re = /([ \t]*<!-- blog:debut -->)[\s\S]*?([ \t]*<!-- blog:fin -->)/;
+  if (!re.test(avant)) {
+    console.error('Balises <!-- blog:debut --> / <!-- blog:fin --> introuvables dans index.html.');
+    process.exit(1);
+  }
+  const cartes = cartesRecentes(3);
+  const apres = avant.replace(re, `$1\n      ${cartes.join('\n      ')}\n$2`);
+  if (apres === avant) { console.log('OK index.html (inchangé)'); return; }
+  fs.writeFileSync(chemin, apres);
+  console.log('OK index.html');
+}
+
+majAccueil();
