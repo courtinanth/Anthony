@@ -274,7 +274,17 @@ html:not(.js) .panel{display:grid;margin-bottom:56px}
    décalerait le rail de 36 px dès le chargement et un cran de défilement
    retomberait sur la carte qu'on vient de quitter. */
 .yt-carousel{--yt-retrait:max(24px,(100% - var(--maxw))/2 + 24px)}
-.yt-rail{overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-padding-inline:var(--yt-retrait);scroll-behavior:smooth;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+/* contain:paint n'est pas cosmétique. Le rail défile déjà seul, mais tant que
+   rien ne confine son contenu, Chrome mobile compte les cartes qui dépassent
+   comme un débordement du document et élargit la fenêtre d'affichage à leur
+   largeur : 1001 px sur un écran de 375. Le header en position fixed s'étirait
+   d'autant, burger et CTA hors champ, la navigation mobile inutilisable. Ni
+   overflow-x:hidden sur html ou body ni overflow:clip sur un parent n'y
+   changent quoi que ce soit, seul le confinement de peinture arrête
+   l'élargissement. Le symptôme n'apparaissait qu'une fois l'apparition au
+   scroll terminée : jusque-là le transform de .rv confinait le rail par
+   accident. */
+.yt-rail{overflow-x:auto;overflow-y:hidden;contain:paint;scroll-snap-type:x mandatory;scroll-padding-inline:var(--yt-retrait);scroll-behavior:smooth;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .yt-rail::-webkit-scrollbar{display:none}
 /* 12 px en haut et en bas : le rail masque son débordement vertical, sans
    cette marge le soulèvement de 6 px au survol serait rogné net. */
@@ -366,6 +376,12 @@ footer.site{background:var(--cream);padding:0 0 40px}
 .foot-grid h4{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);margin-bottom:16px}
 .foot-grid ul{list-style:none;display:grid;gap:10px;font-size:.95rem;color:var(--ink-2)}
 .foot-grid a:hover{color:var(--pine-600)}
+/* Sous 340 px, les deux colonnes du footer tombent à ~130 px alors que
+   « anthony@astrak.agency » en fait 167 : la grille ne pouvait pas descendre
+   sous cette largeur, la page débordait et le header fixe partait hors champ.
+   `anywhere` plutôt que `break-word` : seul le premier compte dans le calcul
+   de la largeur minimale de la colonne. */
+.foot-grid a{overflow-wrap:anywhere}
 .foot-logo{font-family:var(--display);font-weight:700;font-size:1.2rem;color:var(--ink)}
 .foot-logo span{color:var(--pine-600)}
 /* La barre du bas a longtemps été illisible : elle avait gardé la couleur du
