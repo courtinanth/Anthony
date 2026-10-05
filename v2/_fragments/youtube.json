@@ -7,6 +7,38 @@
   "masquees": [],
   "videos": [
     {
+      "id": "S6YO2edZQt8",
+      "titre": "ChatGPT recommande tes concurrents. Pas toi.",
+      "date": "2026-09-28",
+      "publie": "2026-09-28T07:00:28-07:00",
+      "secondes": 875,
+      "accroche": "J'ai demandé à ChatGPT de me recommander une entreprise. Il a donné"
+    },
+    {
+      "id": "vPYgEdlGsxI",
+      "titre": "ChatGPT ne connaît pas ton entreprise (voici comment corriger ça)",
+      "date": "2026-09-21",
+      "publie": "2026-09-21T07:00:27-07:00",
+      "secondes": 429,
+      "accroche": "Ton IA sait tout sur tout, sauf sur ta boîte. Dans cette vidéo, on"
+    },
+    {
+      "id": "vt3uDr23qRY",
+      "titre": "Arrête de tout réexpliquer à ton IA",
+      "date": "2026-09-14",
+      "publie": "2026-09-14T07:00:18-07:00",
+      "secondes": 391,
+      "accroche": "Tu réexpliques qui tu es et ce que tu fais à chaque nouvelle"
+    },
+    {
+      "id": "Qpd3gi02wbs",
+      "titre": "Pourquoi l'IA invente (et comment l'éviter)",
+      "date": "2026-09-07",
+      "publie": "2026-09-07T01:00:23-07:00",
+      "secondes": 472,
+      "accroche": "Une IA peut t'inventer une citation, une étude ou un chiffre, avec"
+    },
+    {
       "id": "LyGQuRnv_b0",
       "titre": "Arrête d'écrire des prompts (fais ça)",
       "date": "2026-08-31",

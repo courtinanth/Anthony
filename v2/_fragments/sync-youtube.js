@@ -152,7 +152,11 @@ async function metadonnees(id) {
      sienne, et une URL peut rediriger. On vérifie donc que la page décrit bien
      la vidéo demandée, et qu'elle appartient bien à la chaîne suivie. */
   if (champ(details, 'videoId') !== id) throw new Error('la page décrit une autre vidéo');
-  if (champ(details, 'channelId') !== chaine.id) throw new Error('vidéo publiée par une autre chaîne');
+  /* Un channelId absent n'est pas une autre chaîne : c'est la page dégradée que
+     YouTube sert aux IP de datacenter (GitHub Actions compris). */
+  const auteur = champ(details, 'channelId');
+  if (!auteur) throw new Error('page de lecture dégradée, YouTube bloque probablement ce serveur');
+  if (auteur !== chaine.id) throw new Error('vidéo publiée par une autre chaîne');
 
   const titre = champ(details, 'title');
   const secondes = Number(champ(details, 'lengthSeconds'));
@@ -213,6 +217,7 @@ async function synchroniser() {
     return;
   }
 
+  const bloquees = [];
   for (const id of ids) {
     if (cache.masquees.includes(id)) continue;
     if (connues.has(id) && !refresh) continue;
@@ -226,7 +231,16 @@ async function synchroniser() {
       /* Une vidéo illisible ne doit pas faire échouer les autres : si elle est
          déjà connue on garde l'ancienne fiche, sinon on la reverra demain. */
       console.warn(`  ${id} ignorée : ${e.message}`);
+      if (e.message.startsWith('page de lecture dégradée')) bloquees.push(id);
     }
+  }
+
+  /* Septembre 2026 : bloqué ainsi, le job a affiché « succès » pendant un mois
+     sans rien publier. Mieux vaut un échec rouge, et le mail qui va avec. */
+  if (bloquees.length) {
+    console.error(`\n${bloquees.length} vidéo(s) jamais vue(s) mais illisible(s) : YouTube bloque ce serveur. ` +
+      'Lancer node sync-youtube.js depuis un poste local.');
+    process.exit(1);
   }
 
   cache.videos = [...connues.values()]
