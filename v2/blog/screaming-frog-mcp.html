@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MCP Screaming Frog : brancher Claude sur vos crawls</title>
-<meta name="description" content="Installer le MCP Screaming Frog et le brancher sur Claude en 5 minutes : stockage base de données, extension, premier crawl et le piège à éviter.">
+<meta name="description" content="MCP Screaming Frog : connecter Screaming Frog à Claude en 5 minutes. Réglages, extension Claude Desktop, Claude Code, premier crawl et piège à éviter.">
 <link rel="canonical" href="https://anthony-courtin.com/blog/screaming-frog-mcp">
 <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
@@ -15,12 +15,12 @@
 
 <meta property="og:type" content="article">
 <meta property="og:title" content="MCP Screaming Frog : brancher Claude sur vos crawls">
-<meta property="og:description" content="Cinq minutes, trois réglages, et Claude pilote vos crawls Screaming Frog. L'installation complète, en vidéo et pas à pas.">
+<meta property="og:description" content="Connecter Screaming Frog à Claude : trois réglages, l'extension MCP de Claude Desktop ou Claude Code, et Claude pilote vos crawls. En vidéo et pas à pas.">
 <meta property="og:url" content="https://anthony-courtin.com/blog/screaming-frog-mcp">
 <meta property="og:image" content="https://anthony-courtin.com/images/blog/screaming-frog-mcp-cover.webp">
 <meta property="og:locale" content="fr_FR">
 <meta property="article:published_time" content="2026-08-21">
-<meta property="article:modified_time" content="2026-08-21">
+<meta property="article:modified_time" content="2026-10-07">
 <meta property="article:author" content="Anthony Courtin">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -38,12 +38,12 @@
       "@type":"BlogPosting",
       "@id":"https://anthony-courtin.com/blog/screaming-frog-mcp#article",
       "headline":"MCP Screaming Frog : connecter Claude à vos crawls",
-      "description":"Installer le serveur MCP de Screaming Frog et le brancher sur Claude Desktop : prérequis, stockage en base de données, extension, premier crawl et le piège du crawl à vider.",
+      "description":"MCP Screaming Frog : connecter Screaming Frog à Claude en 5 minutes. Réglages, extension Claude Desktop, Claude Code, premier crawl et piège à éviter.",
       "inLanguage":"fr-FR",
       "datePublished":"2026-08-21",
-      "dateModified":"2026-08-21",
+      "dateModified":"2026-10-07",
       "image":"https://anthony-courtin.com/images/blog/screaming-frog-mcp-cover.webp",
-      "wordCount":2760,
+      "wordCount":3320,
       "mainEntityOfPage":{"@type":"WebPage","@id":"https://anthony-courtin.com/blog/screaming-frog-mcp"},
       "author":{"@id":"https://anthony-courtin.com/#anthony"},
       "publisher":{"@id":"https://anthony-courtin.com/#anthony"},
@@ -57,7 +57,7 @@
         "embedUrl":"https://www.youtube-nocookie.com/embed/cXwgI54SwX8",
         "contentUrl":"https://www.youtube.com/watch?v=cXwgI54SwX8"
       },
-      "about":[{"@type":"Thing","name":"Screaming Frog SEO Spider"},{"@type":"Thing","name":"Model Context Protocol"},{"@type":"Thing","name":"SEO technique"}]
+      "about":[{"@type":"Thing","name":"Screaming Frog SEO Spider"},{"@type":"Thing","name":"Model Context Protocol"},{"@type":"Thing","name":"Claude (assistant IA)"},{"@type":"Thing","name":"SEO technique"}]
     },
     {
       "@type":"Person",
@@ -79,8 +79,8 @@
     {
       "@type":"FAQPage",
       "mainEntity":[
-        {"@type":"Question","name":"Comment configurer le serveur MCP de Screaming Frog ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Trois réglages suffisent. Dans Screaming Frog, « File > Settings > Storage Mode » doit être sur le stockage en base de données. Dans « File > Settings > MCP Server », il faut accepter l'environnement Node.js. Dans Claude Desktop, il faut installer l'extension spider-mcp.mcpb téléchargée depuis le guide utilisateur, via « Settings > Extensions > Advanced Settings > Install Extension », puis quitter complètement Claude et le rouvrir."}},
+        {"@type":"Question","name":"Comment connecter Screaming Frog à Claude ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Il faut une licence payante en version 24 ou plus, et trois réglages. Dans Screaming Frog, « File > Settings > Storage Mode » doit être sur le stockage en base de données, et « File > Settings > MCP Server » doit accepter l'environnement Node.js. Dans Claude Desktop, installez l'extension spider-stdio-mcp.mcpb (ou spider-streamable-mcp.mcpb) téléchargée depuis le guide officiel, via « Settings > Extensions > Advanced Settings > Install Extension », puis quittez complètement Claude et rouvrez-le."}},
         {"@type":"Question","name":"Le MCP fonctionne-t-il avec la version gratuite de Screaming Frog ?",
          "acceptedAnswer":{"@type":"Answer","text":"Non. Le serveur MCP est réservé aux licences payantes, en version 24 ou supérieure. La version gratuite, limitée à 500 URLs, n'expose pas le serveur : le réglage n'apparaît pas dans les paramètres."}},
         {"@type":"Question","name":"Comment utiliser Screaming Frog avec Claude ?",
@@ -89,11 +89,11 @@
          "acceptedAnswer":{"@type":"Answer","text":"Parce qu'il est encore chargé dans l'interface. Tant que le crawl occupe l'écran de Screaming Frog, il n'est pas rangé dans la base de données et n'apparaît pas dans la liste des crawls récents. Videz-le une fois terminé, puis redemandez à Claude de lister les crawls : il le voit immédiatement."}},
         {"@type":"Question","name":"STDIO ou Streamable HTTP : quelle différence ?",
          "acceptedAnswer":{"@type":"Answer","text":"En mode STDIO, Claude lance lui-même Screaming Frog en ligne de commande : l'interface reste invisible, rien à démarrer à la main. En mode Streamable HTTP, vous ouvrez Screaming Frog normalement et vous démarrez le serveur MCP depuis le menu : vous voyez à l'écran ce que Claude manipule. STDIO pour l'automatisation, Streamable pour garder l'œil sur les données."}},
-        {"@type":"Question","name":"Quels outils sont compatibles avec le protocole MCP ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Screaming Frog documente deux clients : Claude Desktop et LM Studio. LM Studio permet de travailler avec un modèle local, gratuit, à condition qu'il sache appeler des outils et que la machine suive. Tout client compatible MCP peut s'y connecter, mais ces deux-là sont les seuls avec une procédure officielle."}},
+        {"@type":"Question","name":"Est-il possible de connecter Screaming Frog à Claude Code ou à Claude sur le web ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Avec Claude Code, oui : démarrez le serveur en mode Streamable HTTP dans Screaming Frog, puis déclarez-le avec claude mcp add --transport http screaming-frog http://localhost:11435/mcp. Cette voie n'est pas documentée par l'éditeur, qui ne cite que Claude Desktop et LM Studio. Claude sur le web, en revanche, ne peut pas joindre un serveur qui tourne sur votre ordinateur."}},
         {"@type":"Question","name":"Comment exporter les données de crawl avec le MCP ?",
          "acceptedAnswer":{"@type":"Answer","text":"En le demandant, en précisant l'onglet, le filtre, les champs et le nom du fichier. « Exporte les URLs HTML de l'onglet Internal dans internal.csv, uniquement les champs Address et Status Code » produit le fichier dans le dossier autorisé du serveur. Passer par un fichier plutôt que par la conversation évite de saturer la fenêtre de contexte."}},
-        {"@type":"Question","name":"Peut-on croiser les données Search Console dans un crawl piloté par Claude ?",
+        {"@type":"Question","name":"Est-il possible de croiser les données Search Console dans un crawl piloté par Claude ?",
          "acceptedAnswer":{"@type":"Answer","text":"Oui, à condition de connecter les API dans Screaming Frog avant de lancer le crawl. Les colonnes Search Console, Analytics, PageSpeed ou Ahrefs font alors partie du crawl, et Claude les lit comme les autres. C'est ce qui permet de prioriser les corrections par les clics réellement perdus."}}
       ]
     }
@@ -192,7 +192,7 @@
 
     <span class="art-cat">SEO</span>
     <h1 class="art-title">MCP Screaming Frog : connecter Claude à vos crawls</h1>
-    <p class="art-lede">Screaming Frog sait crawler depuis dix ans. Ce qu'il ne savait pas faire, c'est répondre à une question posée en français. Depuis la version 24, il expose ses crawls à Claude via un serveur MCP : cinq minutes de réglages, et vous demandez vos exports au lieu de les cliquer.</p>
+    <p class="art-lede">Screaming Frog sait crawler un site de fond en comble. Ce qu'il ne savait pas faire, c'est répondre à une question posée en français. Depuis la version 24, sortie en mai 2026, il expose ses crawls à Claude via un serveur MCP officiel : cinq minutes de réglages, et vous demandez vos exports au lieu de les cliquer.</p>
 
     <div class="art-metaline">
       <span class="who">
@@ -202,7 +202,9 @@
       <span class="dot" aria-hidden="true">·</span>
       <time datetime="2026-08-21">21 août 2026</time>
       <span class="dot" aria-hidden="true">·</span>
-      <span>10 min de lecture</span>
+      <span>14 min de lecture</span>
+      <span class="dot" aria-hidden="true">·</span>
+      <span>Mis à jour le <time datetime="2026-10-07">7 octobre 2026</time></span>
     </div>
 
     <!-- Boutons "Résumer avec" : les href sont construits par blog-article.js -->
@@ -252,7 +254,7 @@
     <!-- Résumé IA version mobile : rendu côté serveur, donc lisible par Google et les LLM -->
     <div class="ai-box ai-box-mobile">
       <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
-      <p class="ai-text">Le serveur MCP de Screaming Frog laisse Claude lancer un crawl, rouvrir un crawl existant et en sortir les exports et les rapports en langage naturel. L'installation demande une licence payante, le stockage en base de données, l'extension MCP dans Claude Desktop, et un crawl vidé de l'interface pour qu'il devienne visible.</p>
+      <p class="ai-text">Le serveur MCP de Screaming Frog, arrivé avec la version 24, laisse Claude lancer un crawl, rouvrir un crawl enregistré et en sortir exports et rapports en langage naturel. Il demande une licence payante, le stockage en base de données et l'extension MCP de Claude Desktop, ou une connexion HTTP locale depuis Claude Code.</p>
       <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
     </div>
 
@@ -288,13 +290,26 @@
           <li>Trois réglages suffisent : <strong>stockage en base de données</strong>, environnement Node.js accepté, extension installée dans Claude Desktop.</li>
           <li>Deux modes au choix : <strong>STDIO</strong>, où Claude lance Screaming Frog en tâche de fond, ou <strong>Streamable HTTP</strong>, où l'interface reste sous vos yeux.</li>
           <li>Le piège du premier test : tant que le crawl est <strong>encore ouvert dans l'interface</strong>, Claude ne le trouve pas. Videz-le, il apparaît.</li>
+          <li>Côté Claude : <strong>Claude Desktop</strong> via l'extension officielle, <strong>Claude Code</strong> via l'adresse locale du mode HTTP. Claude sur le web ne peut pas joindre un serveur installé sur votre ordinateur.</li>
           <li>Le MCP fait gagner le temps des exports, pas celui de l'analyse : la priorisation reste votre travail.</li>
         </ul>
       </section>
 
+      <h2>Comment connecter Screaming Frog à Claude : la réponse courte</h2>
+
+      <ol>
+        <li>Vérifiez que vous avez une <strong>licence payante</strong> de Screaming Frog SEO Spider, en <strong>version 24</strong> ou plus récente.</li>
+        <li>Passez en stockage base de données : <code>File &gt; Settings &gt; Storage Mode</code>.</li>
+        <li>Dans <code>File &gt; Settings &gt; MCP Server</code>, acceptez l'environnement Node.js et choisissez le dossier de travail.</li>
+        <li>Téléchargez l'extension <code>.mcpb</code> depuis le guide officiel et installez-la dans Claude Desktop : <code>Settings &gt; Extensions &gt; Advanced Settings &gt; Install Extension</code>.</li>
+        <li>Quittez complètement Claude, rouvrez-le, puis demandez un crawl en langage naturel.</li>
+      </ol>
+
+      <p>Vous travaillez dans Claude Code plutôt que dans l'application de bureau ? La procédure est plus bas, dans <a href="#claude-code">Connecter Screaming Frog à Claude Code</a>. Claude sur le web, lui, ne peut pas se brancher sur Screaming Frog : il joint les serveurs MCP depuis l'infrastructure d'Anthropic, alors que celui de Screaming Frog tourne sur votre machine.</p>
+
       <h2>Ce que le MCP change concrètement</h2>
 
-      <p>MCP, pour <em>Model Context Protocol</em>, est une prise standard : d'un côté un logiciel expose ce qu'il sait faire, de l'autre un modèle d'IA s'y branche et appelle ces fonctions lui-même. Screaming Frog joue ici le rôle du serveur, Claude celui du client.</p>
+      <p>MCP, pour <em>Model Context Protocol</em>, est une prise standard : d'un côté un logiciel expose ce qu'il sait faire, de l'autre un modèle d'IA s'y branche et appelle ces fonctions lui-même. Screaming Frog joue ici le rôle du serveur, Claude celui du client. Si la notion est nouvelle pour vous, j'explique en détail <a href="/blog/mcp-model-context-protocol">ce qu'est un serveur MCP</a> et comment il fonctionne.</p>
 
       <p>Une fois la prise branchée, Claude accède à trois familles d'outils. Les outils de crawl et d'export, d'abord : démarrer un crawl, suivre son avancement, rouvrir un crawl enregistré, sortir un onglet, un filtre ou un rapport complet. Un moteur Node.js, ensuite, qui lui permet d'écrire un script pour retraiter un export trop gros et d'installer les paquets npm dont il a besoin. Un accès fichiers, enfin, limité à un dossier que vous choisissez, pour lire et écrire les résultats.</p>
 
@@ -330,13 +345,13 @@
 
       <ul>
         <li><strong>Une licence payante de Screaming Frog</strong>, en version 24 ou supérieure. La version gratuite n'expose pas le serveur MCP : le réglage n'apparaît même pas.</li>
-        <li><strong>Claude Desktop</strong>, l'application de bureau : l'extension ne s'installe pas depuis le navigateur. LM Studio fonctionne aussi, avec un modèle local.</li>
+        <li><strong>Claude Desktop</strong>, l'application de bureau : l'extension ne s'installe pas depuis le navigateur. LM Studio fonctionne aussi, avec un modèle local, et Claude Code par le mode HTTP décrit plus bas.</li>
         <li><strong>Le stockage en base de données</strong> activé dans Screaming Frog. C'est le mode par défaut en version 24, mais il vaut mieux vérifier.</li>
       </ul>
 
       <div class="callout callout--info">
         <p class="callout-t">Où trouver la procédure officielle</p>
-        <p>Tout est documenté dans la section « MCP Server » du <a href="https://www.screamingfrog.co.uk/seo-spider/user-guide/configuration/#mcp-server" target="_blank" rel="noopener">guide utilisateur de Screaming Frog</a>, avec les deux extensions à télécharger. C'est la page que j'ouvre dans la vidéo.</p>
+        <p>Tout est documenté dans le <a href="https://www.screamingfrog.co.uk/guides/mcp-server/" target="_blank" rel="noopener">guide officiel du serveur MCP de Screaming Frog</a>, avec les deux extensions à télécharger, la configuration de LM Studio et la liste complète des outils. C'est la procédure que je suis dans la vidéo.</p>
       </div>
 
       <h2>Étape 1 : passer en stockage base de données</h2>
@@ -357,7 +372,7 @@
 
       <p>Depuis le guide utilisateur, téléchargez l'extension correspondant au mode retenu, un fichier <code>.mcpb</code>. Puis, dans Claude Desktop : <code>Settings &gt; Extensions &gt; Advanced Settings &gt; Install Extension</code>, sélectionnez le fichier, validez.</p>
 
-      <p>Deux détails qui font perdre un quart d'heure quand on les rate :</p>
+      <p>Deux détails font perdre un quart d'heure si vous les ratez :</p>
 
       <ul>
         <li>L'extension suppose que Screaming Frog est installé à l'emplacement par défaut (<code>/Applications</code> sur macOS, <code>C:\Program Files (x86)</code> sur Windows). Ailleurs, il faut éditer le fichier pour corriger le chemin.</li>
@@ -394,7 +409,8 @@
             <tr><td>Qui démarre Screaming Frog</td><td>Claude, en ligne de commande</td><td>Vous, normalement</td></tr>
             <tr><td>Interface visible</td><td>Non, tout se passe en tâche de fond</td><td>Oui, vous suivez les données à l'écran</td></tr>
             <tr><td>À faire avant de discuter</td><td>Rien</td><td>Démarrer le serveur depuis le menu MCP</td></tr>
-            <tr><td>Node.js à installer sur la machine</td><td>Non, il est intégré</td><td>Oui, l'extension passe par un relais Node</td></tr>
+            <tr><td>Adresse du serveur</td><td>Aucune, Claude lance le processus</td><td><code>http://localhost:11435/mcp</code> par défaut</td></tr>
+            <tr><td>Node.js à installer sur la machine</td><td>Non, il est intégré</td><td>Oui pour l'extension Claude Desktop, qui passe par un relais Node</td></tr>
             <tr><td>Bon pour</td><td>Enchaîner des tâches sans surveiller</td><td>Apprendre, vérifier, garder la main</td></tr>
           </tbody>
         </table>
@@ -402,9 +418,23 @@
 
       <p>Pour débuter, je conseille Streamable : voir l'onglet s'ouvrir pendant que Claude travaille apprend beaucoup sur ce qu'il fait réellement. Une fois la confiance installée, STDIO est plus confortable, c'est celui de la vidéo.</p>
 
+      <h2 id="claude-code">Connecter Screaming Frog à Claude Code</h2>
+
+      <p>Screaming Frog documente deux clients : Claude Desktop et LM Studio. Claude Code n'a pas de procédure officielle, mais il accepte n'importe quel serveur MCP en HTTP, et le mode Streamable expose justement une adresse locale standard. La marche à suivre :</p>
+
+      <ol>
+        <li>Ouvrez Screaming Frog normalement, avec les réglages des étapes 1 et 2, puis démarrez le serveur depuis le menu <code>MCP</code>.</li>
+        <li>Dans un terminal, déclarez ce serveur auprès de Claude Code. Le port par défaut est 11435, celui que le guide officiel indique pour LM Studio :
+          <pre><code>claude mcp add --transport http --scope user screaming-frog http://localhost:11435/mcp</code></pre>
+        </li>
+        <li>Lancez Claude Code et tapez <code>/mcp</code> : le serveur doit apparaître comme connecté. Sinon, vérifiez qu'il est bien démarré dans Screaming Frog et que le port n'a pas été modifié.</li>
+      </ol>
+
+      <p>Cette procédure n'étant pas documentée par l'éditeur, surveillez ses notes de version. Deux remarques encore : Claude Code plafonne par défaut la réponse d'un outil MCP à 25 000 jetons, raison de plus pour faire écrire les gros exports dans un fichier. Et si l'outil n'est pas encore sur votre machine, mon tutoriel pour <a href="/blog/claude-code">installer Claude Code</a> détaille chaque étape.</p>
+
       <h2>Ce que Claude sait faire une fois branché</h2>
 
-      <p>Le serveur expose une trentaine d'outils. Dans la pratique, ils se rangent en cinq familles.</p>
+      <p>Le serveur expose une trentaine d'outils (29 dans la documentation actuelle). Dans la pratique, ils se rangent en cinq familles.</p>
 
       <div class="table-wrap">
         <table>
@@ -433,7 +463,7 @@
         <li><strong>Les images :</strong> « Exporte toutes les images de plus de 100 ko et génère une page HTML qui les affiche en grille, avec leur poids sous chacune. »</li>
       </ul>
 
-      <p>Le principe est le même que pour n'importe quelle demande à un modèle : ce n'est pas la formule qui compte, c'est <a href="/blog/prompt-chatgpt">le contexte que vous fournissez</a>. Ici, le contexte, c'est le crawl, encore faut-il dire lequel.</p>
+      <p>Le principe est le même que pour n'importe quelle demande à un modèle : ce n'est pas la formule qui compte, c'est le contexte que vous fournissez, la thèse de mon article sur le <a href="/blog/contexte-vs-prompt">prompt engineering</a>. Ici, le contexte, c'est le crawl, encore faut-il dire lequel.</p>
 
       <div class="tool" id="outil-sf-mcp">
         <div class="tool-head">
@@ -521,9 +551,9 @@
 
       <p><strong>La fenêtre de contexte.</strong> C'est la vraie contrainte. Un export de 40 000 URLs ne rentre pas dans une conversation, et le modèle s'étouffe bien avant. D'où la règle : passer par des fichiers, laisser Claude écrire un script pour les traiter, et ouvrir une conversation neuve par tâche plutôt que d'empiler les sujets dans la même.</p>
 
-      <p><strong>La sécurité.</strong> Autoriser un modèle à exécuter des scripts et à écrire des fichiers n'est pas anodin. Screaming Frog cantonne l'accès à un dossier que vous désignez, mais la règle de prudence reste la même que pour n'importe quel agent : un dossier dédié, et un œil sur ce qui s'exécute. C'est le même arbitrage que pour <a href="/blog/claude-ai">n'importe quel usage sérieux de Claude</a> : ce qu'on gagne en autonomie, on le paie en vigilance.</p>
+      <p><strong>La sécurité.</strong> Autoriser un modèle à exécuter des scripts et à écrire des fichiers n'est pas anodin. Screaming Frog cantonne l'accès à un dossier que vous désignez, mais la règle de prudence reste la même que pour n'importe quel agent : un dossier dédié, et un œil sur ce qui s'exécute. C'est le même arbitrage que pour tout usage sérieux de Claude, dont je fais le bilan dans mon <a href="/blog/claude-ai">avis sur Claude AI</a> : l'autonomie gagnée se paie en vigilance. Dernier point, contractuel : la documentation de Screaming Frog rappelle que personne d'autre que le titulaire de la licence ne doit accéder au serveur MCP. Pas de serveur partagé avec toute l'équipe sur une seule licence, donc.</p>
 
-      <p><strong>Ce que ça ne remplace pas.</strong> Screaming Frog le dit lui-même dans sa documentation, et je le répète volontiers : l'IA améliore l'efficacité des tâches, elle ne remplace pas l'analyse. Trier 200 problèmes par « priorité » selon un barème générique n'a rien à voir avec décider ce qui compte pour <em>ce</em> site, <em>ce</em> business, <em>ce</em> trimestre. La méthode d'<a href="/blog/audit-seo-methode">un audit SEO sérieux</a> ne change pas ; seul le temps passé à fabriquer les tableaux diminue.</p>
+      <p><strong>Ce que ça ne remplace pas.</strong> Screaming Frog le dit lui-même dans sa documentation, et je le répète volontiers : l'IA améliore l'efficacité des tâches, elle ne remplace pas l'analyse. Trier 200 problèmes par « priorité » selon un barème générique n'a rien à voir avec décider ce qui compte pour <em>ce</em> site, <em>ce</em> business, <em>ce</em> trimestre. La méthode ne change pas, qu'il s'agisse de mon <a href="/blog/audit-seo-methode">exemple de rapport d'audit SEO</a> ou de la checklist d'un <a href="/blog/audit-technique-seo">audit technique SEO</a> : seul le temps passé à fabriquer les tableaux diminue.</p>
 
       <h2>Et la Search Console dans tout ça ?</h2>
 
@@ -537,8 +567,8 @@
         <h2>Questions fréquentes</h2>
 
         <details>
-          <summary>Comment configurer le serveur MCP de Screaming Frog ?</summary>
-          <div class="faq-a"><p>Trois réglages suffisent. Dans Screaming Frog, « File &gt; Settings &gt; Storage Mode » doit être sur le stockage en base de données. Dans « File &gt; Settings &gt; MCP Server », il faut accepter l'environnement Node.js. Dans Claude Desktop, il faut installer l'extension spider-mcp.mcpb téléchargée depuis le guide utilisateur, via « Settings &gt; Extensions &gt; Advanced Settings &gt; Install Extension », puis quitter complètement Claude et le rouvrir.</p></div>
+          <summary>Comment connecter Screaming Frog à Claude ?</summary>
+          <div class="faq-a"><p>Il faut une licence payante en version 24 ou plus, et trois réglages. Dans Screaming Frog, « File &gt; Settings &gt; Storage Mode » doit être sur le stockage en base de données, et « File &gt; Settings &gt; MCP Server » doit accepter l'environnement Node.js. Dans Claude Desktop, installez l'extension spider-stdio-mcp.mcpb (ou spider-streamable-mcp.mcpb) téléchargée depuis le guide officiel, via « Settings &gt; Extensions &gt; Advanced Settings &gt; Install Extension », puis quittez complètement Claude et rouvrez-le.</p></div>
         </details>
 
         <details>
@@ -562,8 +592,8 @@
         </details>
 
         <details>
-          <summary>Quels outils sont compatibles avec le protocole MCP ?</summary>
-          <div class="faq-a"><p>Screaming Frog documente deux clients : Claude Desktop et LM Studio. LM Studio permet de travailler avec un modèle local, gratuit, à condition qu'il sache appeler des outils et que la machine suive. Tout client compatible MCP peut s'y connecter, mais ces deux-là sont les seuls avec une procédure officielle.</p></div>
+          <summary>Est-il possible de connecter Screaming Frog à Claude Code ou à Claude sur le web ?</summary>
+          <div class="faq-a"><p>Avec Claude Code, oui : démarrez le serveur en mode Streamable HTTP dans Screaming Frog, puis déclarez-le avec claude mcp add --transport http screaming-frog http://localhost:11435/mcp. Cette voie n'est pas documentée par l'éditeur, qui ne cite que Claude Desktop et LM Studio. Claude sur le web, en revanche, ne peut pas joindre un serveur qui tourne sur votre ordinateur.</p></div>
         </details>
 
         <details>
@@ -572,7 +602,7 @@
         </details>
 
         <details>
-          <summary>Peut-on croiser les données Search Console dans un crawl piloté par Claude ?</summary>
+          <summary>Est-il possible de croiser les données Search Console dans un crawl piloté par Claude ?</summary>
           <div class="faq-a"><p>Oui, à condition de connecter les API dans Screaming Frog avant de lancer le crawl. Les colonnes Search Console, Analytics, PageSpeed ou Ahrefs font alors partie du crawl, et Claude les lit comme les autres. C'est ce qui permet de prioriser les corrections par les clics réellement perdus.</p></div>
         </details>
 
@@ -666,24 +696,24 @@
   <aside class="rail rail-right">
     <div class="ai-box">
       <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
-      <p class="ai-text">Le serveur MCP de Screaming Frog laisse Claude lancer un crawl, rouvrir un crawl existant et en sortir les exports et les rapports en langage naturel. L'installation demande une licence payante, le stockage en base de données, l'extension MCP dans Claude Desktop, et un crawl vidé de l'interface pour qu'il devienne visible.</p>
+      <p class="ai-text">Le serveur MCP de Screaming Frog, arrivé avec la version 24, laisse Claude lancer un crawl, rouvrir un crawl enregistré et en sortir exports et rapports en langage naturel. Il demande une licence payante, le stockage en base de données et l'extension MCP de Claude Desktop, ou une connexion HTTP locale depuis Claude Code.</p>
       <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
     </div>
 
     <div class="rail-recent">
       <p class="rail-title">Dans la même catégorie</p>
       <div class="mini-list">
-        <a class="mini" href="/blog/audit-seo-methode">
-          <span class="mini-thumb"><picture><source srcset="/images/blog/audit-seo-cover.avif" type="image/avif"><img src="/images/blog/audit-seo-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
-          <span><span class="mini-cat">SEO</span><span class="mini-ttl">Audit SEO : la méthode et la checklist complète</span></span>
+        <a class="mini" href="/blog/mcp-model-context-protocol">
+          <span class="mini-thumb"><picture><source srcset="/images/blog/mcp-cover.avif" type="image/avif"><img src="/images/blog/mcp-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">MCP IA : c'est quoi un serveur MCP ? Définition et exemples</span></span>
         </a>
-        <a class="mini" href="/blog/claude-ai">
-          <span class="mini-thumb"><picture><source srcset="/images/blog/claude-ai-cover.avif" type="image/avif"><img src="/images/blog/claude-ai-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
-          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Claude AI : ce que vaut vraiment l'IA d'Anthropic</span></span>
+        <a class="mini" href="/blog/audit-technique-seo">
+          <span class="mini-thumb"><picture><source srcset="/images/blog/audit-technique-seo-cover.avif" type="image/avif"><img src="/images/blog/audit-technique-seo-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
+          <span><span class="mini-cat">SEO</span><span class="mini-ttl">Audit technique SEO : la checklist complète (2026)</span></span>
         </a>
-        <a class="mini" href="/blog/generative-engine-optimization">
-          <span class="mini-thumb"><picture><source srcset="/images/blog/geo-cover.avif" type="image/avif"><img src="/images/blog/geo-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
-          <span><span class="mini-cat">GEO, visibilité IA</span><span class="mini-ttl">Generative Engine Optimization : comment être cité par les IA</span></span>
+        <a class="mini" href="/blog/claude-pour-seo">
+          <span class="mini-thumb"><picture><source srcset="/images/blog/claude-pour-seo-cover.avif" type="image/avif"><img src="/images/blog/claude-pour-seo-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
+          <span><span class="mini-cat">SEO</span><span class="mini-ttl">Claude pour le SEO : usages, prompts et limites (2026)</span></span>
         </a>
       </div>
     </div>
@@ -696,28 +726,28 @@
     <h2>À lire ensuite</h2>
     <p class="sub">La suite logique du parcours.</p>
     <div class="rel-grid">
-      <a class="rel-card" href="/blog/audit-seo-methode">
-        <picture><source srcset="/images/blog/audit-seo-cover.avif" type="image/avif"><img src="/images/blog/audit-seo-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
-<div class="rel-body">
+      <a class="rel-card" href="/blog/mcp-model-context-protocol">
+        <picture><source srcset="/images/blog/mcp-cover.avif" type="image/avif"><img src="/images/blog/mcp-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
+        <div class="rel-body">
+          <span class="rel-cat">Utiliser l'IA</span>
+          <h3>MCP IA : c'est quoi un serveur MCP ? Définition et exemples</h3>
+          <p>Le protocole derrière le branchement : client, serveur, outils, et comment ajouter d'autres serveurs à Claude.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="/blog/audit-technique-seo">
+        <picture><source srcset="/images/blog/audit-technique-seo-cover.avif" type="image/avif"><img src="/images/blog/audit-technique-seo-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
+        <div class="rel-body">
           <span class="rel-cat">SEO</span>
-          <h3>Audit SEO : la méthode et la checklist complète</h3>
-          <p>Ce que je regarde, dans quel ordre, et comment je transforme un crawl en plan d'action.</p>
+          <h3>Audit technique SEO : la checklist complète (2026)</h3>
+          <p>Les points à contrôler dans un crawl, et dans quel ordre les corriger.</p>
         </div>
       </a>
-      <a class="rel-card" href="/blog/claude-ai">
-        <picture><source srcset="/images/blog/claude-ai-cover.avif" type="image/avif"><img src="/images/blog/claude-ai-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
-<div class="rel-body">
+      <a class="rel-card" href="/blog/claude-skills">
+        <picture><source srcset="/images/blog/automatiser-seo-claude-code-cover.avif" type="image/avif"><img src="/images/blog/automatiser-seo-claude-code-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
+        <div class="rel-body">
           <span class="rel-cat">Utiliser l'IA</span>
-          <h3>Claude AI : ce que vaut vraiment l'IA d'Anthropic</h3>
-          <p>Points forts, limites et usages où Claude fait la différence face à ChatGPT.</p>
-        </div>
-      </a>
-      <a class="rel-card" href="/blog/prompt-chatgpt">
-        <picture><source srcset="/images/blog/prompt-chatgpt-cover.avif" type="image/avif"><img src="/images/blog/prompt-chatgpt-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
-<div class="rel-body">
-          <span class="rel-cat">Utiliser l'IA</span>
-          <h3>Prompt ChatGPT : arrêtez d'en écrire</h3>
-          <p>Pourquoi le contexte fourni pèse plus lourd que la formulation de votre demande.</p>
+          <h3>Claude Skills : créer, installer et 10 exemples (2026)</h3>
+          <p>Le MCP donne l'accès au crawl, une skill apprend à Claude votre méthode d'audit.</p>
         </div>
       </a>
     </div>

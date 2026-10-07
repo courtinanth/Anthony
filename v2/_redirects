@@ -8,6 +8,14 @@
 /_fragments/*              /404.html        404!
 /DEPLOIEMENT.md            /404.html        404!
 
+# --- Blog : articles programmes reoriente vers une recherche reelle (octobre 2026)
+# Ces pages etaient deja servies (et liees depuis des articles publies) avant leur
+# date de sortie : la 301 garde les liens et les eventuels passages de robots.
+/blog/automatiser-seo-claude-code   /blog/claude-skills             301!
+/blog/rediger-avec-ia               /blog/claude-cowork             301!
+/blog/etude-cas-geo                 /blog/mode-ia-google            301!
+/blog/etude-cas-automatisation-pme  /blog/automatisation-processus  301!
+
 # --- Consolidation services (aout 2026) : 13 pages -> 6, 301 vers la page mere
 /seo-technique             /seo               301!
 /netlinking                /seo               301!

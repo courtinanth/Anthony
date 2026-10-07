@@ -4,8 +4,8 @@
 <script src="/js/js-flag.js?v=1"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>n8n : ce que l'outil fait vraiment (avis 2026)</title>
-<meta name="description" content="n8n est un outil d'automatisation open source et auto-hébergeable. Ce qu'il fait vraiment, ses prix, la comparaison avec Zapier et Make, et ses limites.">
+<title>n8n gratuit : prix, tuto en français et comparatif (2026)</title>
+<meta name="description" content="n8n est-il gratuit ? Édition Community, prix du cloud (dès 20 €/mois), tuto pas à pas en français, comparatif n8n vs Make vs Zapier et calculateur.">
 <link rel="canonical" href="https://anthony-courtin.com/blog/n8n">
 <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
@@ -14,13 +14,13 @@
 <meta name="robots" content="index, follow, max-image-preview:large">
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="n8n : ce que l'outil fait vraiment (avis 2026)">
-<meta property="og:description" content="Automatisation open source : ce que n8n fait vraiment, sa comparaison avec Zapier et Make, et pourquoi je code la plupart de mes automatisations.">
+<meta property="og:title" content="n8n gratuit : prix, tuto en français et comparatif (2026)">
+<meta property="og:description" content="n8n gratuit ou payant ? L'édition Community, les prix du cloud en 2026, un tuto pas à pas pour votre premier workflow et le comparatif avec Make et Zapier.">
 <meta property="og:url" content="https://anthony-courtin.com/blog/n8n">
 <meta property="og:image" content="https://anthony-courtin.com/images/blog/n8n-cover.webp">
 <meta property="og:locale" content="fr_FR">
 <meta property="article:published_time" content="2026-08-24">
-<meta property="article:modified_time" content="2026-08-24">
+<meta property="article:modified_time" content="2026-10-07">
 <meta property="article:author" content="Anthony Courtin">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -37,17 +37,17 @@
     {
       "@type":"BlogPosting",
       "@id":"https://anthony-courtin.com/blog/n8n#article",
-      "headline":"n8n : ce que l'outil fait vraiment",
-      "description":"n8n est une plateforme d'automatisation de workflows open source et auto-hébergeable, qui relie des applications entre elles sans écrire de code. Avis complet, prix, comparaison avec Zapier et Make.",
+      "headline":"n8n gratuit : prix, tuto en français et comparatif (2026)",
+      "description":"n8n est-il gratuit ? Édition Community, prix du cloud (dès 20 €/mois), tuto pas à pas en français, comparatif n8n vs Make vs Zapier et calculateur.",
       "inLanguage":"fr-FR",
       "datePublished":"2026-08-24",
-      "dateModified":"2026-08-24",
+      "dateModified":"2026-10-07",
       "image":"https://anthony-courtin.com/images/blog/n8n-cover.webp",
-      "wordCount":2100,
+      "wordCount":3700,
       "mainEntityOfPage":{"@type":"WebPage","@id":"https://anthony-courtin.com/blog/n8n"},
       "author":{"@id":"https://anthony-courtin.com/#anthony"},
       "publisher":{"@id":"https://anthony-courtin.com/#anthony"},
-      "about":[{"@type":"Thing","name":"n8n"},{"@type":"Thing","name":"Automatisation"},{"@type":"Thing","name":"Workflow"}]
+      "about":[{"@type":"Thing","name":"n8n"},{"@type":"Thing","name":"Automatisation de workflows"},{"@type":"Thing","name":"Make"},{"@type":"Thing","name":"Zapier"}]
     },
     {
       "@type":"Person",
@@ -69,18 +69,22 @@
     {
       "@type":"FAQPage",
       "mainEntity":[
-        {"@type":"Question","name":"Qu'est-ce que n8n ?",
-         "acceptedAnswer":{"@type":"Answer","text":"n8n est un outil d'automatisation open source qui permet de relier des applications entre elles et de faire circuler des données sans écrire de code. On y construit des workflows en assemblant des nœuds sur une interface visuelle : un déclencheur, des étapes de traitement, une action finale. Il s'utilise en ligne ou hébergé sur votre propre serveur."}},
-        {"@type":"Question","name":"Comment utiliser n8n ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Choisissez d'abord votre hébergement, l'offre cloud pour démarrer vite ou l'auto-hébergement avec Docker. Créez ensuite un workflow simple avec un déclencheur et une action, ajoutez la logique conditionnelle, connectez vos applications métier en préparant les authentifications, puis surveillez l'historique des exécutions. Comptez une demi-journée pour la prise en main."}},
-        {"@type":"Question","name":"Quels sont les avantages de n8n ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Trois avantages le distinguent : son code source ouvert qui permet de l'héberger sur votre propre serveur et de garder vos données, sa facturation à l'exécution du workflow plutôt qu'à la tâche, ce qui divise le coût des scénarios longs, et la possibilité d'écrire du JavaScript ou du Python dans un nœud dédié quand aucune intégration ne suffit."}},
-        {"@type":"Question","name":"n8n, Zapier ou Make : lequel choisir ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Si vos automatisations manipulent des données personnelles ou sensibles, n8n auto-hébergé est le seul des trois à régler la question à la racine. Si vous cherchez la simplicité maximale avec de faibles volumes, Zapier reste le plus simple à prendre en main. Make se situe entre les deux. Le choix se joue sur le modèle de facturation et la souveraineté des données."}},
-        {"@type":"Question","name":"Comment intégrer n8n avec d'autres outils ?",
-         "acceptedAnswer":{"@type":"Answer","text":"n8n propose plusieurs centaines de connecteurs prêts à l'emploi pour les applications courantes, ainsi qu'un nœud générique qui interroge n'importe quelle API. Chaque intégration demande une authentification à préparer en amont. Pour les outils sans connecteur, le nœud de code permet d'écrire l'appel directement."}},
-        {"@type":"Question","name":"Quels sont les prix de n8n ?",
-         "acceptedAnswer":{"@type":"Answer","text":"La version auto-hébergée est gratuite : vous ne payez que votre serveur. Les offres cloud sont facturées selon le nombre d'exécutions mensuelles. Les tarifs évoluant régulièrement, consultez le site officiel. Retenez surtout que l'abonnement représente rarement plus d'un quart du coût réel d'un projet d'automatisation, le reste étant du temps humain."}}
+        {"@type":"Question","name":"n8n est-il gratuit ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Oui, si vous l'hébergez vous-même : l'édition Community est gratuite, sans quota d'exécutions ni limite de workflows, et vous ne payez que votre serveur. La version cloud, hébergée par n8n, est payante à partir de 20 € par mois en facturation annuelle, avec un essai gratuit sans carte bancaire."}},
+        {"@type":"Question","name":"n8n, c'est quoi ?",
+         "acceptedAnswer":{"@type":"Answer","text":"n8n est une plateforme d'automatisation de workflows qui relie des applications entre elles sans écrire de code. Vous assemblez des nœuds sur un canevas visuel : un déclencheur, des traitements, des actions. L'outil, créé à Berlin et publié en 2019, tourne dans le cloud ou sur votre propre serveur."}},
+        {"@type":"Question","name":"Combien coûte n8n ?",
+         "acceptedAnswer":{"@type":"Answer","text":"En cloud, l'offre Starter coûte 24 € par mois (20 € en annuel) pour 2 500 exécutions et l'offre Pro 60 € par mois (50 € en annuel) pour 10 000 exécutions. L'offre Business, auto-hébergée, coûte 667 € par mois en annuel pour 40 000 exécutions. L'édition Community auto-hébergée est gratuite. Tarifs relevés sur n8n.io le 7 octobre 2026."}},
+        {"@type":"Question","name":"n8n existe-t-il en français ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Non, l'interface officielle de n8n est en anglais, comme sa documentation. Une variable d'environnement permet de changer la langue d'une instance auto-hébergée, mais aucune traduction française officielle n'est fournie. Vos workflows traitent en revanche du contenu en français sans difficulté."}},
+        {"@type":"Question","name":"Est-il possible d'utiliser n8n gratuitement en entreprise ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Oui. La licence de n8n autorise l'usage gratuit de l'édition Community pour les besoins internes d'une entreprise, y compris pour automatiser des services rendus à vos clients, tant qu'ils ne créent ni ne modifient eux-mêmes les workflows. Elle interdit en revanche de revendre n8n comme service d'automatisation ou en marque blanche."}},
+        {"@type":"Question","name":"n8n ou Make : lequel choisir ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Choisissez n8n si vos scénarios sont longs, si vos volumes montent ou si vos données doivent rester chez vous : il compte une exécution par passage complet, quand Make compte chaque module. Choisissez Make pour démarrer gratuitement sans serveur, avec une interface très visuelle. À volume égal, l'écart de prix grandit avec le nombre d'étapes."}},
+        {"@type":"Question","name":"Faut-il savoir coder pour utiliser n8n ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Non pour les workflows courants : les nœuds se configurent dans des formulaires et les données se glissent d'une étape à l'autre. Quelques notions aident vite, comme les expressions entre doubles accolades ou le format JSON. L'installation en auto-hébergement demande en revanche d'être à l'aise avec un terminal et Docker."}},
+        {"@type":"Question","name":"Comment installer n8n gratuitement ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Installez Docker Desktop, puis lancez la commande officielle curl -fsSL https://get.n8n.io | sh dans un terminal. Le script configure et démarre n8n, accessible ensuite à l'adresse http://localhost:5678. Pour un usage en production, prévoyez un vrai serveur, une base PostgreSQL et un suivi régulier des mises à jour."}}
       ]
     }
   ]
@@ -178,8 +182,8 @@
     </nav>
 
     <span class="art-cat">Automatisation IA</span>
-    <h1 class="art-title">n8n : ce que l'outil fait vraiment</h1>
-    <p class="art-lede">Un excellent outil d'automatisation, que je recommande dans la moitié des cas seulement. Voici ce qu'il sait faire, ce qu'il coûte réellement, et quand le code sur mesure reprend l'avantage.</p>
+    <h1 class="art-title">n8n gratuit : c'est quoi, prix 2026 et tuto en français</h1>
+    <p class="art-lede">n8n est un outil d'automatisation qui relie vos applications par des workflows visuels, sans écrire de code. Oui, n8n est gratuit : l'édition Community s'installe sur votre serveur, sans quota d'exécutions. Le cloud, lui, coûte dès 20 € par mois. Voici les prix réels, la question du français, un tuto pas à pas et le comparatif avec Make et Zapier.</p>
 
     <div class="art-metaline">
       <span class="who">
@@ -189,9 +193,9 @@
       <span class="dot" aria-hidden="true">·</span>
       <time datetime="2026-08-24">24 août 2026</time>
       <span class="dot" aria-hidden="true">·</span>
-      <span>11 min de lecture</span>
+      <span>16 min de lecture</span>
       <span class="dot" aria-hidden="true">·</span>
-      <span>Mis à jour le <time datetime="2026-08-24">24 août 2026</time></span>
+      <span>Mis à jour le <time datetime="2026-10-07">7 octobre 2026</time></span>
     </div>
 
     <!-- Boutons "Résumer avec" : les href sont construits par blog-article.js -->
@@ -242,7 +246,7 @@
     <!-- Résumé IA version mobile : rendu côté serveur, donc lisible par Google et les LLM -->
     <div class="ai-box ai-box-mobile">
       <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
-      <p class="ai-text">n8n est un outil d'automatisation open source qui relie des applications entre elles via des workflows visuels, sans écrire de code. Son atout principal est l'auto-hébergement, qui garde les données chez vous, et sa facturation à l'exécution plutôt qu'à la tâche. Il atteint ses limites sur la logique métier complexe.</p>
+      <p class="ai-text">n8n est une plateforme d'automatisation qui relie des applications par des workflows visuels faits de nœuds. Elle est gratuite en auto-hébergement (édition Community, sans quota d'exécutions) et payante en cloud dès 20 € par mois en annuel. L'interface est en anglais. Face à Make et Zapier, n8n compte une exécution par workflow complet, pas par étape.</p>
       <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
     </div>
 
@@ -255,286 +259,464 @@
         </picture>
       </figure>
 
-      <p><strong>n8n est un outil d'automatisation open source qui permet de relier des applications entre elles et de faire circuler des données sans écrire de code.</strong> On y construit des workflows en assemblant des nœuds sur une interface visuelle : un déclencheur, des étapes de traitement, une action finale. Il s'utilise en ligne ou hébergé sur votre propre serveur.</p>
-
-      <p>C'est un très bon produit, et je le dis d'autant plus volontiers que je ne l'utilise presque plus. Cet article explique ce que n8n fait réellement, quand il est le bon choix, et pourquoi je code la plupart des automatisations que je livre à mes clients.</p>
-
       <div class="verdict">
         <div class="verdict-note">
-          <b>8</b>
-          <span>sur 10</span>
+          <b>0 €</b>
+          <span>en auto-hébergé</span>
         </div>
         <div class="verdict-body">
-          <h2>Mon verdict en une minute</h2>
-          <p>Le meilleur outil d'automatisation visuelle du marché, surtout dans sa version auto-hébergée où vos données ne sortent pas de chez vous. Il devient limitant dès que la logique métier se complique, et c'est à ce moment précis que le code sur mesure reprend l'avantage.</p>
+          <h2>n8n gratuit ou payant : la réponse en 30 secondes</h2>
+          <p>n8n est gratuit si vous l'installez sur votre propre serveur : l'édition Community n'a ni quota d'exécutions ni limite de workflows. La version cloud, hébergée par n8n, est payante à partir de 20 € par mois en facturation annuelle (24 € en mensuel), avec un essai gratuit sans carte bancaire.</p>
           <div class="verdict-lists">
             <ul class="verdict-pros">
-              <li>Open source et auto-hébergeable, donc souverain</li>
-              <li>Plus de 400 intégrations prêtes à l'emploi</li>
-              <li>Facturation à l'exécution, pas à la tâche</li>
+              <li>Édition Community gratuite, sans quota d'exécutions</li>
+              <li>Facturation à l'exécution, pas à l'étape</li>
+              <li>Plus de 500 intégrations natives et un nœud de code</li>
             </ul>
             <ul class="verdict-cons">
-              <li>Devient illisible au-delà de 30 ou 40 nœuds</li>
-              <li>Le versionnage et les tests restent rudimentaires</li>
+              <li>Interface officielle uniquement en anglais</li>
+              <li>En auto-hébergé, sécurité et mises à jour à votre charge</li>
             </ul>
           </div>
         </div>
         <p class="verdict-foot">
-          <span class="verdict-price">Gratuit en auto-hébergement, offre cloud payante</span>
-          <span>Pour qui : équipes techniques, PME avec un besoin d'intégration</span>
+          <span class="verdict-price">Gratuit en auto-hébergé, cloud dès 20 €/mois</span>
+          <span>Pour qui : PME et indépendants à l'aise avec les outils numériques</span>
         </p>
       </div>
 
+      <!-- Bloc « à retenir » : c'est ce que les moteurs de réponse citent le plus volontiers -->
       <section class="takeaways">
         <h2>À retenir</h2>
         <ul>
-          <li><strong>n8n est open source</strong> et peut tourner sur votre serveur : c'est son principal avantage sur Zapier et Make.</li>
-          <li>La facturation se fait <strong>à l'exécution du workflow</strong>, pas à l'étape, ce qui change tout sur les scénarios longs.</li>
-          <li>Il excelle sur <strong>l'intégration d'applications</strong>, moins sur la logique métier complexe.</li>
-          <li>Le <strong>coût réel n'est pas l'abonnement</strong>, c'est le temps de maintenance quand les workflows se multiplient.</li>
-          <li>Au-delà d'une certaine complexité, <strong>un script versionné coûte moins cher à faire vivre</strong> qu'un workflow visuel.</li>
+          <li><strong>n8n</strong> est une plateforme d'automatisation qui relie vos applications par des workflows visuels : un déclencheur, des traitements, des actions.</li>
+          <li><strong>n8n est gratuit</strong> en auto-hébergement (édition Community, sans quota d'exécutions). Le cloud coûte 20 à 50 € par mois en annuel pour 2 500 à 10 000 exécutions.</li>
+          <li>n8n facture <strong>l'exécution complète</strong> d'un workflow, quel que soit son nombre d'étapes, là où Make compte chaque module et Zapier chaque action.</li>
+          <li>L'interface n'existe <strong>qu'en anglais</strong>, mais une dizaine de termes suffit pour s'y retrouver.</li>
+          <li>Un premier workflow (formulaire, Google Sheets, e-mail) se construit en <strong>six étapes</strong>, détaillées dans le tuto plus bas.</li>
         </ul>
       </section>
 
-      <p>Avant d'aller plus loin : combien vous coûterait réellement chaque approche sur trois ans ? Le calcul ci-dessous prend en compte ce que les comparatifs oublient, à savoir le temps humain.</p>
+      <p>Vous avez entendu parler de n8n comme de l'alternative gratuite à Zapier, et vous voulez savoir ce que cache ce « gratuit ». La réponse tient en une distinction : le logiciel est gratuit, l'hébergement ne l'est pas toujours.</p>
 
-      <div class="tool" id="outil-cout-auto">
+      <p>Je commence par la définition, puis les prix réels, la question du français, un tuto pour votre premier workflow, le comparatif avec Make et Zapier, et les limites que je constate quand j'installe l'outil chez des clients.</p>
+
+      <h2>n8n, c'est quoi ?</h2>
+
+      <p><strong>n8n est une plateforme d'automatisation de workflows : elle relie vos applications entre elles et fait circuler les données de l'une à l'autre, sans que vous ayez à écrire un programme.</strong> Vous dessinez l'enchaînement sur un canevas, chaque étape est un nœud, et n8n l'exécute à votre place, à heure fixe ou à chaque événement.</p>
+
+      <p>Le nom se prononce « n-eight-n » et contracte « nodemation », pour automatisation par nœuds. L'outil a été créé par Jan Oberhauser et publié en 2019 ; l'entreprise est basée à Berlin.</p>
+
+      <h3>Comment fonctionne un workflow n8n</h3>
+
+      <p>Tout workflow suit la même logique en trois temps :</p>
+
+      <ul>
+        <li><strong>Le déclencheur (trigger)</strong> lance le workflow : une heure fixe, un formulaire envoyé, un e-mail reçu, un appel webhook venu d'une autre application.</li>
+        <li><strong>Les traitements</strong> filtrent, transforment ou trient les données, prennent une décision avec une condition, ou appellent un modèle d'IA.</li>
+        <li><strong>Les actions</strong> écrivent le résultat quelque part : une ligne dans un tableur, une fiche dans le CRM, un e-mail, un message Slack.</li>
+      </ul>
+
+      <p>Exemple concret : quand un prospect remplit votre formulaire de contact, n8n vérifie que le message n'est pas vide, ajoute une ligne dans Google Sheets, puis vous envoie un e-mail récapitulatif. Quatre nœuds, aucune ligne de code. C'est exactement le workflow du tuto plus bas.</p>
+
+      <h3>Ce qui distingue n8n de Zapier et Make</h3>
+
+      <ul>
+        <li><strong>Il s'installe chez vous.</strong> Le code est publié sur GitHub et l'édition Community tourne sur votre serveur : vos données ne transitent par aucun service tiers.</li>
+        <li><strong>Il facture l'exécution, pas l'étape.</strong> n8n définit une exécution comme un passage complet du workflow, quel que soit le nombre de nœuds ou la quantité de données traitées. Un workflow de vingt nœuds compte pour une seule exécution.</li>
+        <li><strong>Il accepte du code.</strong> Le nœud Code exécute du JavaScript ou du Python quand aucun nœud ne fait exactement ce qu'il faut, et le nœud HTTP Request appelle n'importe quelle API.</li>
+        <li><strong>Il est pensé pour l'IA.</strong> Nœud AI Agent, connexion aux modèles de langage, client et déclencheur MCP : n8n sert souvent de base pour <a href="/blog/agent-ia">créer un agent IA</a> ou pour brancher un <a href="/blog/mcp-model-context-protocol">serveur MCP</a> sur vos outils.</li>
+      </ul>
+
+      <h2>n8n est-il gratuit ?</h2>
+
+      <p>Oui, à une condition : l'héberger vous-même. n8n existe sous deux formes, et seule l'une des deux est gratuite.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Version</th><th scope="col">Prix</th><th scope="col">Ce que vous gérez</th><th scope="col">Pour qui</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Community Edition</strong> (auto-hébergée)</td><td>Gratuit, sans quota d'exécutions</td><td>Le serveur, les sauvegardes, les mises à jour, la sécurité</td><td>Une équipe avec un profil technique</td></tr>
+            <tr><td><strong>Registered Community</strong> (auto-hébergée)</td><td>Gratuit, contre votre adresse e-mail</td><td>Idem</td><td>Idem, avec des fonctions de confort en plus</td></tr>
+            <tr><td><strong>n8n Cloud</strong> (hébergé par n8n)</td><td>Dès 20 €/mois en annuel, essai gratuit</td><td>Rien côté technique</td><td>Démarrer vite, équipe non technique</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>L'édition Community : ce qui est inclus, ce qui manque</h3>
+
+      <p>La documentation officielle présente l'édition Community comme la version gratuite qui contient presque toutes les fonctions de n8n. Vous avez tous les nœuds et toutes les intégrations, le nœud Code, les agents IA, des workflows et des exécutions sans plafond : la seule limite est la puissance de votre serveur.</p>
+
+      <p>Ce qui manque concerne surtout le travail en équipe et la gouvernance :</p>
+
+      <ul>
+        <li>le partage de workflows et d'identifiants entre utilisateurs (seuls le propriétaire de l'instance et l'auteur y accèdent) ;</li>
+        <li>les projets, les environnements et la gestion de versions avec Git ;</li>
+        <li>la connexion unique SSO (SAML, LDAP) ;</li>
+        <li>les coffres de secrets externes et l'envoi des journaux vers un outil de supervision.</li>
+      </ul>
+
+      <p>En enregistrant gratuitement votre instance avec votre adresse e-mail (édition Registered Community), vous débloquez en plus les dossiers, le débogage dans l'éditeur et les données d'exécution personnalisées.</p>
+
+      <h3>La licence : ce que le gratuit autorise vraiment</h3>
+
+      <p>n8n n'est pas un logiciel libre au sens strict. Il est distribué sous une licence maison, la Sustainable Use License : le code est lisible, l'usage est encadré. La FAQ officielle résume la règle ainsi : si les workflows ne sont créés ou modifiés que par vous ou par des personnes de votre organisation, l'usage est gratuit.</p>
+
+      <p><strong>Ce que vous pouvez faire gratuitement :</strong></p>
+      <ul>
+        <li>faire tourner n8n pour votre entreprise, vos projets personnels ou votre apprentissage ;</li>
+        <li>construire des automatisations pour vos clients sur votre instance, tant qu'ils ne peuvent ni les créer ni les modifier ;</li>
+        <li>facturer la création, la maintenance, la formation et le conseil autour de n8n.</li>
+      </ul>
+
+      <p><strong>Ce qui est interdit sans licence commerciale :</strong></p>
+      <ul>
+        <li>héberger n8n comme un service où vos clients construisent leurs propres workflows ;</li>
+        <li>revendre n8n en marque blanche, ou forker son code pour lancer votre propre outil d'automatisation ;</li>
+        <li>activer les fonctions réservées aux offres payantes sans la clé de licence correspondante.</li>
+      </ul>
+
+      <h3>Le vrai coût de la version gratuite</h3>
+
+      <p>Gratuit ne veut pas dire sans coût. Il vous faut un serveur, quelques euros par mois pour un petit serveur virtuel, et surtout du temps : installer, sauvegarder, mettre à jour. n8n l'écrit lui-même dans sa documentation : l'auto-hébergement est recommandé aux utilisateurs experts, parce qu'une erreur peut entraîner une perte de données, une faille de sécurité ou une interruption de service.</p>
+
+      <p>Ce n'est pas théorique. En janvier 2026, une faille notée 10 sur 10 (CVE-2026-21858) permettait d'attaquer des instances auto-hébergées non mises à jour qui exposaient certains formulaires publics. Les instances à jour n'étaient pas concernées. Si personne dans votre équipe ne suit les mises à jour, le cloud payant vous coûtera moins cher qu'un incident.</p>
+
+      <h2>n8n prix : les offres cloud en 2026</h2>
+
+      <p>Si vous ne voulez rien installer, n8n Cloud héberge et maintient l'outil pour vous. Toutes les offres incluent des utilisateurs et des workflows illimités, et toutes les intégrations : le prix dépend uniquement du nombre d'exécutions par mois. Voici la grille relevée sur n8n.io le 7 octobre 2026.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Offre</th><th scope="col">Prix mensuel</th><th scope="col">En annuel</th><th scope="col">Exécutions par mois</th><th scope="col">À savoir</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Community</strong></td><td>Gratuit</td><td>Gratuit</td><td>Sans quota</td><td>Auto-hébergé uniquement, sur votre serveur</td></tr>
+            <tr><td><strong>Starter</strong></td><td>24 €</td><td>20 €/mois</td><td>2 500</td><td>5 exécutions simultanées, 1 projet partagé</td></tr>
+            <tr><td><strong>Pro</strong></td><td>60 €</td><td>50 €/mois</td><td>10 000</td><td>Palier 50 000 exécutions : 145 €/mois. Historique des workflows, rôles d'administration</td></tr>
+            <tr><td><strong>Business</strong></td><td>800 €</td><td>667 €/mois</td><td>40 000</td><td>Auto-hébergé uniquement pour l'instant. SSO, Git, environnements</td></tr>
+            <tr><td><strong>Enterprise</strong></td><td>Sur devis</td><td>Sur devis</td><td>Sur mesure</td><td>Support dédié avec engagement de service, cloud ou auto-hébergé</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Les entreprises de moins de 20 salariés peuvent demander le Start-up Plan, qui accorde 50 % de réduction sur l'offre Business sous conditions. Les prix évoluent : vérifiez toujours la <a href="https://n8n.io/pricing/" target="_blank" rel="noopener nofollow">grille officielle de n8n</a> avant de souscrire.</p>
+
+      <h3>Ce que contient l'essai gratuit</h3>
+
+      <p>L'essai de n8n Cloud ne demande pas de carte bancaire. Il donne accès aux fonctions de niveau Pro avec un plafond de 1 000 exécutions, 5 exécutions simultanées et 180 secondes maximum par exécution. L'essai de l'offre Business, lui, dure 14 jours et demande une carte bancaire.</p>
+
+      <h3>Combien d'exécutions vous faut-il ?</h3>
+
+      <p>Une exécution, c'est un passage complet du workflow. Le calcul est donc simple : un workflow planifié une fois par jour consomme 30 exécutions par mois. Le même lancé toutes les cinq minutes en consomme environ 8 700, soit plus que l'offre Starter à lui seul. Un workflow déclenché par un formulaire consomme une exécution par envoi.</p>
+
+      <p>Le calculateur ci-dessous fait l'addition pour vos propres workflows, indique l'offre n8n adaptée et donne l'équivalent chez Make et Zapier.</p>
+
+      <div class="tool" id="outil-prix-n8n">
         <div class="tool-head">
           <span class="tool-ico" aria-hidden="true">✦</span>
           <span>
             <em>Outil interactif</em>
-            <b>No-code ou code sur mesure : le calcul sur 3 ans</b>
+            <b>Calculateur n8n : vos exécutions et l'offre adaptée</b>
           </span>
         </div>
         <div class="tool-body">
-          <div class="field">
-            <span class="rail-title" id="nc-nb-label">Nombre d'automatisations à faire tourner</span>
-            <div class="chips" id="nc-nb" role="group" aria-labelledby="nc-nb-label">
-              <button type="button" class="chip on" data-v="3">2 à 5</button>
-              <button type="button" class="chip" data-v="10">6 à 15</button>
-              <button type="button" class="chip" data-v="25">plus de 15</button>
+          <div class="field-row">
+            <div class="field">
+              <label for="n8n-plan-nb">Workflows planifiés</label>
+              <input type="number" id="n8n-plan-nb" min="0" max="500" step="1" value="3" inputmode="numeric">
+            </div>
+            <div class="field">
+              <label for="n8n-plan-freq">Fréquence de ces workflows</label>
+              <select id="n8n-plan-freq">
+                <option value="8760">Toutes les 5 minutes</option>
+                <option value="2920">Toutes les 15 minutes</option>
+                <option value="730">Toutes les heures</option>
+                <option value="220">Toutes les heures ouvrées (9 h à 18 h, en semaine)</option>
+                <option value="30" selected>Une fois par jour</option>
+                <option value="22">Chaque jour ouvré</option>
+                <option value="4">Une fois par semaine</option>
+                <option value="1">Une fois par mois</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="n8n-plan2-nb">Autres workflows planifiés <span class="hint">(facultatif)</span></label>
+              <input type="number" id="n8n-plan2-nb" min="0" max="500" step="1" value="0" inputmode="numeric">
+            </div>
+            <div class="field">
+              <label for="n8n-plan2-freq">Fréquence de ces autres workflows</label>
+              <select id="n8n-plan2-freq">
+                <option value="8760">Toutes les 5 minutes</option>
+                <option value="2920">Toutes les 15 minutes</option>
+                <option value="730" selected>Toutes les heures</option>
+                <option value="220">Toutes les heures ouvrées (9 h à 18 h, en semaine)</option>
+                <option value="30">Une fois par jour</option>
+                <option value="22">Chaque jour ouvré</option>
+                <option value="4">Une fois par semaine</option>
+                <option value="1">Une fois par mois</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="n8n-evt">Événements par jour <span class="hint">(formulaires, e-mails, webhooks)</span></label>
+              <input type="number" id="n8n-evt" min="0" max="100000" step="1" value="20" inputmode="numeric">
+            </div>
+            <div class="field">
+              <label for="n8n-steps">Nœuds par workflow, en moyenne <span class="hint">(pour comparer)</span></label>
+              <input type="number" id="n8n-steps" min="2" max="200" step="1" value="6" inputmode="numeric">
             </div>
           </div>
 
           <div class="field">
-            <span class="rail-title" id="nc-ex-label">Exécutions par mois, toutes automatisations confondues</span>
-            <div class="chips" id="nc-ex" role="group" aria-labelledby="nc-ex-label">
-              <button type="button" class="chip on" data-v="2000">moins de 5 000</button>
-              <button type="button" class="chip" data-v="20000">5 000 à 50 000</button>
-              <button type="button" class="chip" data-v="120000">plus de 50 000</button>
+            <span class="rail-title" id="n8n-tech-label">Qui s'occupe du serveur ?</span>
+            <div class="chips" id="n8n-tech" role="group" aria-labelledby="n8n-tech-label">
+              <button type="button" class="chip on" data-v="0">Personne : je veux du clé en main</button>
+              <button type="button" class="chip" data-v="1">Une personne technique en interne</button>
             </div>
-          </div>
-
-          <div class="field">
-            <span class="rail-title" id="nc-cx-label">Complexité de la logique métier</span>
-            <div class="chips" id="nc-cx" role="group" aria-labelledby="nc-cx-label">
-              <button type="button" class="chip on" data-v="1">Simple : je déplace des données</button>
-              <button type="button" class="chip" data-v="2">Moyenne : conditions et exceptions</button>
-              <button type="button" class="chip" data-v="3">Forte : règles métier, gros volumes</button>
-            </div>
-          </div>
-
-          <div class="field">
-            <span class="rail-title" id="nc-eq-label">Compétence technique en interne</span>
-            <div class="chips" id="nc-eq" role="group" aria-labelledby="nc-eq-label">
-              <button type="button" class="chip on" data-v="0">Aucune</button>
-              <button type="button" class="chip" data-v="1">Quelqu'un de curieux</button>
-              <button type="button" class="chip" data-v="2">Un profil technique</button>
-            </div>
-          </div>
-
-          <div class="field">
-            <span class="rail-title" style="margin-bottom:8px">Estimation sur 36 mois</span>
-            <div class="tool-out" id="nc-out" aria-live="polite"></div>
           </div>
 
           <div class="score">
-            <b id="nc-reco">n8n cloud</b><span id="nc-sub">, le meilleur rapport pour votre cas</span>
+            <b id="n8n-exec">0</b><span id="n8n-exec-sub">exécutions n8n par mois</span>
           </div>
-          <div class="meter"><i id="nc-meter" style="width:33%"></i></div>
+          <div class="meter"><i id="n8n-meter" style="width:0%"></i></div>
+
+          <div class="field">
+            <span class="rail-title" style="margin-bottom:8px">Offre conseillée et comparaison</span>
+            <div class="tool-out" id="n8n-out" aria-live="polite"></div>
+          </div>
 
           <div class="tool-actions">
-            <button type="button" class="btn-sm primary" id="nc-copy">Copier l'estimation</button>
-            <a class="btn-sm ghost" href="/automatisation-ia">Voir mon offre d'automatisation</a>
+            <button type="button" class="btn-sm primary" id="n8n-copy">Copier le résultat</button>
+            <a class="btn-sm ghost" href="https://n8n.io/pricing/" target="_blank" rel="noopener nofollow">Grille officielle n8n</a>
           </div>
         </div>
         <div class="tool-foot">
-          <span>Estimation indicative, calculée dans votre navigateur. Aucune donnée ne sort.</span>
-          <span>Hypothèses affichées avec le résultat</span>
+          <span>Calcul fait dans votre navigateur. Aucune donnée ne sort.</span>
+          <span>Tarifs relevés le 7 octobre 2026</span>
         </div>
       </div>
 
-      <h2>Qu'est-ce que n8n exactement</h2>
+      <h2>n8n en français : l'interface est-elle traduite ?</h2>
 
-      <p>n8n est une plateforme d'automatisation de workflows. Le principe : au lieu d'écrire un programme, vous dessinez un enchaînement. Chaque étape est un nœud, et chaque nœud sait parler à une application : une messagerie, un tableur Google, une base de données, une interface de paiement, un modèle d'intelligence artificielle.</p>
+      <p>Non. L'éditeur de n8n est officiellement disponible en anglais seulement, tout comme sa documentation. Une variable d'environnement, <code>N8N_DEFAULT_LOCALE</code>, permet d'afficher une autre langue sur une instance auto-hébergée, mais aucun pack français officiel n'est fourni et les textes non traduits retombent sur l'anglais. En mai 2026, une discussion du forum officiel confirmait encore que seule la version anglaise était disponible.</p>
 
-      <p>Un workflow type ressemble à ceci : quand un formulaire est rempli, récupérer les données, vérifier qu'elles sont complètes, créer une fiche dans le CRM, envoyer un message à l'équipe commerciale, puis inscrire une ligne dans un tableur de suivi. Cinq nœuds, aucune ligne de code.</p>
+      <p>En pratique, ce n'est pas bloquant. Vos workflows traitent du contenu en français sans difficulté (e-mails, formulaires, textes générés par IA), et une dizaine de termes suffit pour lire l'interface :</p>
 
-      <h3>Ce qui distingue n8n de ses concurrents</h3>
-
-      <p>Trois choses, et elles comptent réellement.</p>
-
-      <ul>
-        <li><strong>Le code source est ouvert.</strong> Vous pouvez installer n8n sur votre propre serveur, avec Docker par exemple. Vos données ne transitent alors par aucun service tiers, ce qui règle beaucoup de questions de confidentialité et de conformité.</li>
-        <li><strong>La facturation se fait à l'exécution.</strong> Un workflow de trente étapes compte pour une exécution. Chez les concurrents facturés à la tâche, le même scénario coûte trente fois plus cher.</li>
-        <li><strong>On peut y écrire du code.</strong> Un nœud dédié accepte du JavaScript ou du Python. C'est la soupape qui évite de rester bloqué quand aucun nœud ne fait exactement ce qu'il faut.</li>
-      </ul>
-
-      <div class="callout callout--info">
-        <p class="callout-t">Attention à la licence</p>
-        <p>n8n est distribué sous une licence de code source disponible, pas sous une licence libre classique. Vous pouvez l'utiliser gratuitement en interne, y compris en entreprise, mais pas le revendre comme service d'automatisation à vos propres clients. Pour un usage interne, cette nuance ne change rien ; pour une agence, elle mérite une lecture attentive.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Terme dans n8n</th><th scope="col">Ce que ça veut dire</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Workflow</strong></td><td>Le scénario d'automatisation complet</td></tr>
+            <tr><td><strong>Node</strong></td><td>Un nœud, c'est-à-dire une étape du workflow</td></tr>
+            <tr><td><strong>Trigger</strong></td><td>Le déclencheur qui lance le workflow</td></tr>
+            <tr><td><strong>Credentials</strong></td><td>Les identifiants de connexion à une application</td></tr>
+            <tr><td><strong>Execution</strong></td><td>Un passage complet du workflow, l'unité de facturation</td></tr>
+            <tr><td><strong>Expression</strong></td><td>Une formule entre doubles accolades qui reprend une donnée d'une étape précédente</td></tr>
+            <tr><td><strong>Pin data</strong></td><td>Figer la sortie d'un nœud pour tester sans rappeler l'application</td></tr>
+            <tr><td><strong>Publish</strong></td><td>Mettre le workflow en production</td></tr>
+            <tr><td><strong>Test URL / Production URL</strong></td><td>L'adresse de test et l'adresse définitive d'un formulaire ou d'un webhook</td></tr>
+          </tbody>
+        </table>
       </div>
 
-      <h2>Comment utiliser n8n concrètement</h2>
+      <h2>Tuto n8n : votre premier workflow pas à pas</h2>
 
-      <p>La prise en main demande une demi-journée pour quelqu'un d'à l'aise avec les outils numériques. Voici le chemin le plus court.</p>
+      <p>Objectif : un formulaire de contact qui enregistre chaque demande dans Google Sheets et vous prévient par e-mail. C'est le cas d'usage le plus courant, et il couvre les quatre gestes de base : déclencher, lire une donnée, décider, agir.</p>
+
+      <h3>Étape 1 : installer n8n ou ouvrir un compte cloud</h3>
+
+      <p>Deux options. <strong>Sans rien installer</strong> : créez un essai gratuit sur n8n.io, vous arrivez directement dans l'éditeur. <strong>En local et gratuitement</strong> : installez Docker Desktop, puis lancez la commande d'installation officielle dans un terminal.</p>
+
+      <pre><code>curl -fsSL https://get.n8n.io | sh</code></pre>
+
+      <p>Le script vérifie que Docker tourne, crée un dossier <code>n8n</code> avec sa configuration, télécharge l'outil et le démarre. Ouvrez ensuite <code>http://localhost:5678</code> et créez le compte propriétaire de l'instance. Si vous préférez lancer le conteneur vous-même :</p>
+
+      <pre><code>docker volume create n8n_data
+
+docker run -it --rm \
+ --name n8n \
+ -p 5678:5678 \
+ -e GENERIC_TIMEZONE="Europe/Paris" \
+ -e TZ="Europe/Paris" \
+ -e N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true \
+ -v n8n_data:/home/node/.n8n \
+ n8nio/n8n</code></pre>
+
+      <div class="callout callout--warn">
+        <p class="callout-t">Oubliez npx n8n</p>
+        <p>La commande <code>npx n8n</code> que vous croiserez dans d'anciens tutos est dépréciée. n8n annonce qu'à partir de sa version 3.0, prévue pour octobre 2026, l'outil ne sera plus distribué que via Docker.</p>
+      </div>
+
+      <h3>Étape 2 : créer le workflow et son déclencheur</h3>
 
       <ol>
-        <li><strong>Choisissez votre hébergement.</strong> L'offre cloud pour démarrer sans rien installer, ou l'auto-hébergement avec Docker si vous avez un serveur et un souci de confidentialité des données.</li>
-        <li><strong>Créez un premier workflow simple.</strong> Un déclencheur, une action. Par exemple : chaque matin à huit heures, m'envoyer un message avec les nouvelles lignes d'un tableur.</li>
-        <li><strong>Ajoutez la logique.</strong> Conditions, filtres, boucles. C'est ici qu'on commence à faire des choses utiles.</li>
-        <li><strong>Connectez vos applications métier.</strong> Chaque intégration demande une authentification, à préparer avant de commencer.</li>
-        <li><strong>Surveillez les exécutions.</strong> L'historique montre ce qui a échoué et pourquoi. C'est la partie que tout le monde néglige, et c'est celle qui coûte le plus cher ensuite.</li>
+        <li>Cliquez sur <strong>Create Workflow</strong> (ou <strong>Start from Scratch</strong>), puis sur <strong>Add first step</strong>.</li>
+        <li>Cherchez « Form » et choisissez le déclencheur <strong>n8n Form Trigger</strong>. Renommez le nœud « Formulaire » en double-cliquant sur son titre.</li>
+        <li>Donnez un titre au formulaire et ajoutez trois champs : <strong>Nom</strong>, <strong>Email</strong> et <strong>Message</strong>.</li>
+        <li>Cliquez sur <strong>Execute step</strong> : n8n ouvre le formulaire de test. Remplissez-le une fois, la sortie du nœud affiche vos données.</li>
       </ol>
 
-      <p>Un mot sur la formation : la documentation officielle est bonne, et la communauté partage des modèles de workflows prêts à importer. Pour un usage interne classique, une formation payante n'est pas nécessaire.</p>
+      <h3>Étape 3 : ajouter une condition</h3>
 
-      <h2>Les automatisations qui rapportent le plus</h2>
+      <p>Ajoutez un nœud <strong>If</strong> après le formulaire pour écarter les envois vides. Faites glisser le champ <strong>Message</strong> depuis le panneau de gauche, choisissez la comparaison <strong>String &gt; is not empty</strong>. Seule la branche <strong>true</strong> continue vers la suite.</p>
 
-      <p>Quel que soit l'outil, ce sont toujours les mêmes process qui reviennent, parce que ce sont eux qui font perdre le plus de temps. Voici ceux que je mets en place le plus souvent, avec le gain constaté chez mes clients.</p>
+      <h3>Étape 4 : enregistrer la demande dans Google Sheets</h3>
+
+      <ol>
+        <li>Préparez une feuille Google Sheets avec trois colonnes : Nom, Email, Message.</li>
+        <li>Sur la branche true, ajoutez un nœud <strong>Google Sheets</strong> avec l'opération <strong>Append Row</strong> (ajouter une ligne).</li>
+        <li>Dans <strong>Credential</strong>, choisissez <strong>Create new credential</strong>. Sur n8n Cloud, la connexion à Google se fait en vous identifiant directement. En auto-hébergé, il faut d'abord créer des identifiants OAuth dans la console Google Cloud.</li>
+        <li>Sélectionnez le fichier et la feuille, puis faites glisser chaque champ du formulaire vers la colonne correspondante.</li>
+      </ol>
+
+      <h3>Étape 5 : vous prévenir par e-mail</h3>
+
+      <p>Après Google Sheets, ajoutez un nœud <strong>Gmail</strong> (opération Send) ou <strong>Send Email</strong> si vous passez par un serveur SMTP. Dans le corps du message, des expressions reprennent les réponses du formulaire :</p>
+
+      <pre><code>Nouvelle demande de {{ $('Formulaire').item.json.Nom }}
+Adresse : {{ $('Formulaire').item.json.Email }}
+Message : {{ $('Formulaire').item.json.Message }}</code></pre>
+
+      <h3>Étape 6 : tester, puis publier</h3>
+
+      <ol>
+        <li>Cliquez sur <strong>Execute workflow</strong>, remplissez le formulaire de test et vérifiez chaque nœud : une ligne dans le tableur, un e-mail reçu.</li>
+        <li>Utilisez <strong>Pin data</strong> sur le déclencheur pour rejouer les mêmes données sans remplir le formulaire à chaque essai.</li>
+        <li>Cliquez sur <strong>Publish</strong> : le formulaire passe sur son adresse de production (Production URL), à intégrer sur votre site ou à partager. Sur les versions plus anciennes de n8n, ce bouton s'appelle <strong>Active</strong>.</li>
+        <li>Surveillez l'onglet <strong>Executions</strong> les premiers jours : chaque échec y est détaillé, nœud par nœud. C'est la partie que tout le monde néglige, et celle qui coûte le plus cher ensuite.</li>
+      </ol>
+
+      <p>Pour aller plus loin, la bibliothèque officielle propose plus de 10 000 modèles de workflows prêts à importer. Partez d'un modèle proche de votre besoin plutôt que d'une page blanche.</p>
+
+      <div class="callout callout--tip">
+        <p class="callout-t">Avant de construire, listez</p>
+        <p>Notez pendant une semaine tout ce que vous faites plus de trois fois. Cette liste vous dit quoi automatiser avant de vous demander avec quel outil. Une tâche pénible mais trimestrielle ne mérite pas d'être automatisée ; une tâche banale mais quotidienne se rembourse vite. J'en donne des cas concrets dans mes <a href="/blog/automatisations-gain-temps">exemples d'automatisation IA</a>.</p>
+      </div>
+
+      <h2>n8n vs Make vs Zapier : lequel choisir ?</h2>
+
+      <p>Les trois relient des applications sans code. Ils diffèrent sur trois points qui décident de la facture : où tournent vos données, ce qui est compté, et le niveau technique demandé.</p>
 
       <div class="table-wrap">
         <table>
           <thead>
-            <tr><th scope="col">Automatisation</th><th scope="col">Ce qu'elle remplace</th><th scope="col">Gain type</th></tr>
+            <tr><th scope="col">Critère</th><th scope="col">n8n</th><th scope="col">Make</th><th scope="col">Zapier</th></tr>
           </thead>
           <tbody>
-            <tr><td><strong>Traitement des demandes entrantes</strong></td><td>Recopier un formulaire dans le CRM et prévenir un commercial</td><td>2 à 4 h par semaine</td></tr>
-            <tr><td><strong>Relances de facturation</strong></td><td>Vérifier les impayés et écrire les relances à la main</td><td>1 jour par mois</td></tr>
-            <tr><td><strong>Veille sectorielle</strong></td><td>Parcourir des sources et faire circuler l'information</td><td>3 h par semaine</td></tr>
-            <tr><td><strong>Rapports récurrents</strong></td><td>Assembler des exports dans un tableur chaque lundi</td><td>2 h par semaine</td></tr>
-            <tr><td><strong>Publication de contenu</strong></td><td>Reformater et publier sur plusieurs canaux</td><td>4 h par semaine</td></tr>
-            <tr><td><strong>Contrôles de cohérence</strong></td><td>Vérifier des données entre deux systèmes</td><td>Variable, souvent le plus rentable</td></tr>
+            <tr><td><strong>Hébergement</strong></td><td>Cloud ou sur votre serveur</td><td>Cloud uniquement</td><td>Cloud uniquement</td></tr>
+            <tr><td><strong>Version gratuite</strong></td><td>Community auto-hébergée, sans quota</td><td>1 000 crédits par mois</td><td>100 tâches par mois, Zaps à deux étapes</td></tr>
+            <tr><td><strong>Premier prix payant</strong></td><td>20 €/mois en annuel (2 500 exécutions)</td><td>Dès 9 $/mois (10 000 crédits)</td><td>19,99 $/mois en annuel (750 tâches)</td></tr>
+            <tr><td><strong>Ce qui est compté</strong></td><td>Un passage complet du workflow</td><td>Chaque module exécuté</td><td>Chaque action réussie, hors déclencheur</td></tr>
+            <tr><td><strong>Code personnalisé</strong></td><td>JavaScript et Python, sur toutes les versions</td><td>JavaScript et Python sur les offres payantes</td><td>JavaScript et Python</td></tr>
+            <tr><td><strong>Prise en main</strong></td><td>Moyenne</td><td>Moyenne, très visuelle</td><td>La plus simple</td></tr>
+            <tr><td><strong>Données sensibles</strong></td><td>Restent chez vous en auto-hébergé</td><td>Serveurs du prestataire</td><td>Serveurs du prestataire</td></tr>
           </tbody>
         </table>
       </div>
 
-      <p>Ces gains ne sont pas des promesses commerciales, ce sont des ordres de grandeur que je constate. Ils dépendent surtout d'un facteur : la fréquence. Une tâche pénible mais trimestrielle ne mérite pas d'être automatisée ; une tâche banale mais quotidienne se rembourse en quelques semaines.</p>
+      <p><em>Tarifs relevés le 7 octobre 2026 sur n8n.io, make.com et zapier.com.</em></p>
 
-      <p>Le bon réflexe avant de choisir un outil : notez pendant une semaine tout ce que vous faites plus de trois fois. Cette liste vaut mieux que n'importe quel comparatif de plateformes, parce qu'elle vous dit ce que vous devez automatiser avant de vous demander avec quoi.</p>
+      <h3>n8n vs Make : les différences qui comptent</h3>
 
-      <h2>n8n, Zapier ou Make : lequel choisir</h2>
+      <p>Make est le concurrent le plus proche : même logique visuelle, même public. La différence se joue sur le comptage. Make consomme un crédit par module exécuté : un scénario de 8 modules lancé 1 000 fois consomme environ 8 000 crédits. Le même workflow dans n8n consomme 1 000 exécutions. Plus vos scénarios sont longs, plus n8n devient avantageux.</p>
 
-      <p>Les trois font globalement la même chose. Le choix se joue sur le modèle économique, la souveraineté des données et le niveau technique de l'équipe.</p>
+      <p>Make garde deux atouts : une offre gratuite hébergée, pratique pour tester sans serveur, et une interface très visuelle que les profils non techniques prennent vite en main. n8n l'emporte dès que la confidentialité des données compte, que les volumes montent, ou que vous voulez du code au milieu du workflow.</p>
 
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr><th scope="col">Critère</th><th scope="col">n8n</th><th scope="col">Zapier</th><th scope="col">Make</th></tr>
-          </thead>
-          <tbody>
-            <tr><td><strong>Auto-hébergement</strong></td><td>Oui</td><td>Non</td><td>Non</td></tr>
-            <tr><td><strong>Facturation</strong></td><td>À l'exécution</td><td>À la tâche</td><td>À l'opération</td></tr>
-            <tr><td><strong>Nombre d'intégrations</strong></td><td>Plusieurs centaines</td><td>Le plus large du marché</td><td>Très large</td></tr>
-            <tr><td><strong>Prise en main</strong></td><td>Moyenne</td><td>La plus simple</td><td>Moyenne</td></tr>
-            <tr><td><strong>Code possible</strong></td><td>Oui, natif</td><td>Limité</td><td>Limité</td></tr>
-            <tr><td><strong>Confidentialité des données</strong></td><td>Totale en auto-hébergé</td><td>Serveurs du prestataire</td><td>Serveurs du prestataire</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <h3>Mon verdict selon votre situation</h3>
 
-      <p>Ma règle : si vos automatisations manipulent des données personnelles ou sensibles, n8n auto-hébergé est le seul des trois qui règle la question à la racine. Si vous cherchez la simplicité maximale et que vos volumes sont faibles, Zapier reste imbattable sur la prise en main.</p>
+      <ul>
+        <li><strong>Données personnelles ou sensibles</strong> : n8n auto-hébergé, le seul des trois qui garde tout chez vous.</li>
+        <li><strong>Scénarios longs ou gros volumes</strong> : n8n, en cloud ou en auto-hébergé, grâce au comptage à l'exécution.</li>
+        <li><strong>Équipe non technique, petits volumes, envie de démarrer en dix minutes</strong> : Zapier, puis Make si la facture monte.</li>
+        <li><strong>Tester gratuitement sans serveur</strong> : l'offre Free de Make ou l'essai de n8n Cloud.</li>
+      </ul>
 
-      <h2>Les prix : ce que ça coûte vraiment</h2>
+      <h2>Les limites de n8n</h2>
 
-      <p>n8n propose une version auto-hébergée gratuite et des offres cloud payantes facturées selon le nombre d'exécutions. Les tarifs évoluant régulièrement, je renvoie au site officiel plutôt que d'afficher un chiffre qui sera faux dans six mois.</p>
+      <ul>
+        <li><strong>L'anglais partout.</strong> Interface, documentation, messages d'erreur : il faut accepter de travailler en anglais.</li>
+        <li><strong>L'auto-hébergement est un métier.</strong> Sauvegardes, mises à jour, sécurité : la gratuité se paie en temps, et la faille de janvier 2026 a montré ce que coûte une instance oubliée.</li>
+        <li><strong>La lisibilité au-delà de 30 ou 40 nœuds.</strong> Un workflow de dix nœuds est plus clair qu'un script. Un workflow de cinquante nœuds avec des branches imbriquées devient difficile à relire, même pour son auteur.</li>
+        <li><strong>Le versionnage réservé aux offres hautes.</strong> La gestion de versions avec Git et les environnements de test sont inclus dans Business et Enterprise, pas dans Starter, Pro ni Community.</li>
+        <li><strong>Une licence qui encadre la revente.</strong> Impossible de proposer n8n comme service à vos clients sans licence commerciale.</li>
+        <li><strong>Le coût réel, c'est le temps.</strong> L'abonnement pèse rarement le plus lourd : concevoir les workflows, les corriger quand une application change son API et former les utilisateurs coûte davantage.</li>
+      </ul>
 
-      <p>Ce qui compte davantage, c'est la structure du coût. Sur un projet d'automatisation, l'abonnement représente rarement plus d'un quart de la dépense réelle. Le reste, c'est le temps : concevoir les workflows, les corriger quand une application change son interface, et former les personnes qui les utilisent.</p>
+      <h2>Quand je recommande n8n, et quand je code plutôt</h2>
 
-      <p>C'est ce coût invisible que mon calculateur ci-dessus essaie de rendre visible, et c'est lui qui fait basculer la décision dans un sens ou dans l'autre.</p>
-
-      <h2>Pourquoi j'automatise autrement</h2>
-
-      <p>Voici la partie honnête. J'ai utilisé n8n, je l'ai installé chez des clients, et il rend de vrais services. Aujourd'hui, je livre la plupart de mes automatisations sous forme de programmes écrits avec <a href="/blog/claude-ai">Claude</a>, et voici pourquoi.</p>
-
-      <h3>La complexité ne se dessine pas</h3>
-
-      <p>Un workflow de dix nœuds est plus clair qu'un script. Un workflow de cinquante nœuds, avec des branches conditionnelles imbriquées, devient illisible pour tout le monde, y compris pour celui qui l'a construit. La même logique en code tient en deux cents lignes commentées que n'importe qui peut relire.</p>
-
-      <h3>Le versionnage et les tests</h3>
-
-      <p>Avec du code, j'ai l'historique des modifications, je peux revenir en arrière, comparer deux versions et faire tourner des tests automatiques. Sur une plateforme visuelle, ces pratiques existent mais restent bien plus rudimentaires. Quand une automatisation touche à la facturation d'un client, ce n'est pas un détail de confort.</p>
-
-      <h3>Le coût à l'échelle</h3>
-
-      <p>Un script qui tourne sur un petit serveur coûte quelques euros par mois, quel que soit le nombre d'exécutions. Les plateformes facturées à l'usage deviennent chères exactement au moment où l'automatisation commence à être rentable, ce qui est un mauvais signal envoyé à l'entreprise.</p>
-
-      <h3>Écrire du code n'est plus réservé aux développeurs</h3>
-
-      <p>C'est le vrai basculement. Décrire un besoin en français et obtenir un programme fonctionnel est devenu accessible. L'argument principal du no-code, à savoir se passer de compétences techniques, s'est considérablement affaibli en deux ans.</p>
+      <p>J'ai installé n8n chez des clients et il rend de vrais services. Aujourd'hui pourtant, je livre la plupart de mes automatisations sous forme de programmes écrits avec Claude Code : décrire un besoin en français et obtenir un programme versionné, testé et relisible est devenu accessible (voir comment <a href="/blog/claude-code">installer Claude Code</a>). L'argument principal du no-code, se passer de compétences techniques, s'est affaibli.</p>
 
       <div class="callout callout--tip">
         <p class="callout-t">Ma règle de décision, en une phrase</p>
-        <p>Si l'automatisation consiste à déplacer des données entre deux applications qui ont déjà un connecteur, n8n est plus rapide à mettre en place. Dès qu'il y a des règles métier, des exceptions et un besoin de fiabilité dans la durée, le code sur mesure coûte moins cher sur trois ans.</p>
+        <p>Si l'automatisation déplace des données entre deux applications qui ont déjà un connecteur, n8n est plus rapide à mettre en place. Dès qu'il y a des règles métier, des exceptions et un besoin de fiabilité dans la durée, un programme versionné coûte moins cher à faire vivre.</p>
       </div>
 
-      <h2>Les cas où je recommande n8n sans hésiter</h2>
+      <p>Je recommande n8n sans hésiter dans quatre cas :</p>
 
       <ul>
         <li><strong>Une équipe non technique qui veut garder la main.</strong> Modifier un workflow visuel est à la portée de tous, modifier un script non.</li>
         <li><strong>Un besoin d'intégration pur.</strong> Relier un formulaire, un CRM et une messagerie ne mérite pas un développement.</li>
-        <li><strong>Une contrainte forte de confidentialité.</strong> L'auto-hébergement est un argument décisif que peu de concurrents offrent.</li>
+        <li><strong>Une contrainte forte de confidentialité.</strong> L'auto-hébergement est un argument que ni Make ni Zapier n'offrent.</li>
         <li><strong>Un prototype.</strong> Valider qu'un process automatisé apporte de la valeur avant d'investir dans du sur-mesure.</li>
       </ul>
 
-      <p>Sur ce dernier point, l'approche mixte est souvent la meilleure : prototyper dans n8n, mesurer le gain réel, puis réécrire en code ce qui devient critique. C'est ce que je propose le plus souvent dans mes missions d'<a href="/automatisation-ia">automatisation sur mesure</a>.</p>
-
-      <p>Une dernière chose sur les offres d'emploi liées à n8n, sujet qui revient souvent dans les recherches : le marché cherche surtout des profils capables de concevoir des process, pas de cliquer dans une interface. La compétence qui a de la valeur n'est pas l'outil, c'est la capacité à modéliser un flux métier et à le rendre fiable.</p>
-
-
-      <!-- MAILLAGE À AJOUTER APRÈS PUBLICATION DES CIBLES :
-           - /blog/alternative-n8n (C3-04) : section « Pourquoi j'automatise autrement »
-           - /blog/zapier-vs-n8n-vs-make (C3-13) : section « n8n, Zapier ou Make »
-           - /blog/cout-no-code-vs-code (C3-05) : section « Les prix »
-           - /blog/agent-ia (C3-02, 14/09/2026) : section « Qu'est-ce que n8n »
-           - /blog/mcp-model-context-protocol (C3-11, 21/10/2026) : section « Connecter vos outils »
-           - /blog/claude-code (C2-03, 31/08/2026) : section « Pourquoi j'automatise autrement »
-      -->
+      <p>L'approche mixte marche souvent le mieux : prototyper dans n8n, mesurer le gain réel, puis réécrire en code ce qui devient critique. C'est la démarche que je suis dans mes missions d'<a href="/automatisation-ia">automatisation IA sur mesure</a>, et que je détaille dans mon guide sur l'<a href="/blog/automatisation-processus">automatisation des processus</a>.</p>
 
       <!-- ================= FAQ ================= -->
       <section class="faq">
         <h2>Questions fréquentes</h2>
 
         <details>
-          <summary>Qu'est-ce que n8n ?</summary>
-          <div class="faq-a"><p>n8n est un outil d'automatisation open source qui permet de relier des applications entre elles et de faire circuler des données sans écrire de code. On y construit des workflows en assemblant des nœuds sur une interface visuelle : un déclencheur, des étapes de traitement, une action finale. Il s'utilise en ligne ou hébergé sur votre propre serveur.</p></div>
+          <summary>n8n est-il gratuit ?</summary>
+          <div class="faq-a"><p>Oui, si vous l'hébergez vous-même : l'édition Community est gratuite, sans quota d'exécutions ni limite de workflows, et vous ne payez que votre serveur. La version cloud, hébergée par n8n, est payante à partir de 20 € par mois en facturation annuelle, avec un essai gratuit sans carte bancaire.</p></div>
         </details>
 
         <details>
-          <summary>Comment utiliser n8n ?</summary>
-          <div class="faq-a"><p>Choisissez d'abord votre hébergement, l'offre cloud pour démarrer vite ou l'auto-hébergement avec Docker. Créez ensuite un workflow simple avec un déclencheur et une action, ajoutez la logique conditionnelle, connectez vos applications métier en préparant les authentifications, puis surveillez l'historique des exécutions. Comptez une demi-journée pour la prise en main.</p></div>
+          <summary>n8n, c'est quoi ?</summary>
+          <div class="faq-a"><p>n8n est une plateforme d'automatisation de workflows qui relie des applications entre elles sans écrire de code. Vous assemblez des nœuds sur un canevas visuel : un déclencheur, des traitements, des actions. L'outil, créé à Berlin et publié en 2019, tourne dans le cloud ou sur votre propre serveur.</p></div>
         </details>
 
         <details>
-          <summary>Quels sont les avantages de n8n ?</summary>
-          <div class="faq-a"><p>Trois avantages le distinguent : son code source ouvert qui permet de l'héberger sur votre propre serveur et de garder vos données, sa facturation à l'exécution du workflow plutôt qu'à la tâche, ce qui divise le coût des scénarios longs, et la possibilité d'écrire du JavaScript ou du Python dans un nœud dédié quand aucune intégration ne suffit.</p></div>
+          <summary>Combien coûte n8n ?</summary>
+          <div class="faq-a"><p>En cloud, l'offre Starter coûte 24 € par mois (20 € en annuel) pour 2 500 exécutions et l'offre Pro 60 € par mois (50 € en annuel) pour 10 000 exécutions. L'offre Business, auto-hébergée, coûte 667 € par mois en annuel pour 40 000 exécutions. L'édition Community auto-hébergée est gratuite. Tarifs relevés sur n8n.io le 7 octobre 2026.</p></div>
         </details>
 
         <details>
-          <summary>n8n, Zapier ou Make : lequel choisir ?</summary>
-          <div class="faq-a"><p>Si vos automatisations manipulent des données personnelles ou sensibles, n8n auto-hébergé est le seul des trois à régler la question à la racine. Si vous cherchez la simplicité maximale avec de faibles volumes, Zapier reste le plus simple à prendre en main. Make se situe entre les deux. Le choix se joue sur le modèle de facturation et la souveraineté des données.</p></div>
+          <summary>n8n existe-t-il en français ?</summary>
+          <div class="faq-a"><p>Non, l'interface officielle de n8n est en anglais, comme sa documentation. Une variable d'environnement permet de changer la langue d'une instance auto-hébergée, mais aucune traduction française officielle n'est fournie. Vos workflows traitent en revanche du contenu en français sans difficulté.</p></div>
         </details>
 
         <details>
-          <summary>Comment intégrer n8n avec d'autres outils ?</summary>
-          <div class="faq-a"><p>n8n propose plusieurs centaines de connecteurs prêts à l'emploi pour les applications courantes, ainsi qu'un nœud générique qui interroge n'importe quelle API. Chaque intégration demande une authentification à préparer en amont. Pour les outils sans connecteur, le nœud de code permet d'écrire l'appel directement.</p></div>
+          <summary>Est-il possible d'utiliser n8n gratuitement en entreprise ?</summary>
+          <div class="faq-a"><p>Oui. La licence de n8n autorise l'usage gratuit de l'édition Community pour les besoins internes d'une entreprise, y compris pour automatiser des services rendus à vos clients, tant qu'ils ne créent ni ne modifient eux-mêmes les workflows. Elle interdit en revanche de revendre n8n comme service d'automatisation ou en marque blanche.</p></div>
         </details>
 
         <details>
-          <summary>Quels sont les prix de n8n ?</summary>
-          <div class="faq-a"><p>La version auto-hébergée est gratuite : vous ne payez que votre serveur. Les offres cloud sont facturées selon le nombre d'exécutions mensuelles. Les tarifs évoluant régulièrement, consultez le site officiel. Retenez surtout que l'abonnement représente rarement plus d'un quart du coût réel d'un projet d'automatisation, le reste étant du temps humain.</p></div>
+          <summary>n8n ou Make : lequel choisir ?</summary>
+          <div class="faq-a"><p>Choisissez n8n si vos scénarios sont longs, si vos volumes montent ou si vos données doivent rester chez vous : il compte une exécution par passage complet, quand Make compte chaque module. Choisissez Make pour démarrer gratuitement sans serveur, avec une interface très visuelle. À volume égal, l'écart de prix grandit avec le nombre d'étapes.</p></div>
+        </details>
+
+        <details>
+          <summary>Faut-il savoir coder pour utiliser n8n ?</summary>
+          <div class="faq-a"><p>Non pour les workflows courants : les nœuds se configurent dans des formulaires et les données se glissent d'une étape à l'autre. Quelques notions aident vite, comme les expressions entre doubles accolades ou le format JSON. L'installation en auto-hébergement demande en revanche d'être à l'aise avec un terminal et Docker.</p></div>
+        </details>
+
+        <details>
+          <summary>Comment installer n8n gratuitement ?</summary>
+          <div class="faq-a"><p>Installez Docker Desktop, puis lancez la commande officielle curl -fsSL https://get.n8n.io | sh dans un terminal. Le script configure et démarre n8n, accessible ensuite à l'adresse http://localhost:5678. Pour un usage en production, prévoyez un vrai serveur, une base PostgreSQL et un suivi régulier des mises à jour.</p></div>
         </details>
       </section>
+
 
       <!-- ================= CTA ================= -->
       <div class="cta-band">
@@ -622,24 +804,24 @@
   <aside class="rail rail-right">
     <div class="ai-box">
       <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
-      <p class="ai-text">n8n est un outil d'automatisation open source qui relie des applications entre elles via des workflows visuels, sans écrire de code. Son atout principal est l'auto-hébergement, qui garde les données chez vous, et sa facturation à l'exécution plutôt qu'à la tâche. Il atteint ses limites sur la logique métier complexe.</p>
+      <p class="ai-text">n8n est une plateforme d'automatisation qui relie des applications par des workflows visuels faits de nœuds. Elle est gratuite en auto-hébergement (édition Community, sans quota d'exécutions) et payante en cloud dès 20 € par mois en annuel. L'interface est en anglais. Face à Make et Zapier, n8n compte une exécution par workflow complet, pas par étape.</p>
       <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
     </div>
 
     <div class="rail-recent">
       <p class="rail-title">Dans la même catégorie</p>
       <div class="mini-list">
-        <a class="mini" href="/blog/claude-ai">
-          <span class="mini-thumb"><picture><source srcset="/images/blog/claude-ai-cover.avif" type="image/avif"><img src="/images/blog/claude-ai-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
-          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Claude AI : ce que vaut vraiment l'IA d'Anthropic</span></span>
+        <a class="mini" href="/blog/agent-ia">
+          <span class="mini-thumb"><picture><source srcset="/images/blog/agent-ia-cover.avif" type="image/avif"><img src="/images/blog/agent-ia-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
+          <span><span class="mini-cat">Automatisation IA</span><span class="mini-ttl">Créer un agent IA gratuit : méthode, outils et exemples</span></span>
         </a>
-        <a class="mini" href="/blog/generative-engine-optimization">
-          <span class="mini-thumb"><picture><source srcset="/images/blog/geo-cover.avif" type="image/avif"><img src="/images/blog/geo-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
-          <span><span class="mini-cat">GEO, visibilité IA</span><span class="mini-ttl">Generative Engine Optimization : comment être cité par les IA</span></span>
+        <a class="mini" href="/blog/automatisations-gain-temps">
+          <span class="mini-thumb"><picture><source srcset="/images/blog/automatisations-gain-temps-cover.avif" type="image/avif"><img src="/images/blog/automatisations-gain-temps-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
+          <span><span class="mini-cat">Automatisation IA</span><span class="mini-ttl">Automatisation IA : 10 exemples pour gagner du temps</span></span>
         </a>
-        <a class="mini" href="/blog/prompt-chatgpt">
-          <span class="mini-thumb"><picture><source srcset="/images/blog/prompt-chatgpt-cover.avif" type="image/avif"><img src="/images/blog/prompt-chatgpt-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
-          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Prompt ChatGPT : arrêtez d'en écrire</span></span>
+        <a class="mini" href="/blog/automatisation-processus">
+          <span class="mini-thumb"><picture><source srcset="/images/blog/etude-cas-automatisation-pme-cover.avif" type="image/avif"><img src="/images/blog/etude-cas-automatisation-pme-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
+          <span><span class="mini-cat">Automatisation IA</span><span class="mini-ttl">Automatisation des processus métier : méthode et cas PME</span></span>
         </a>
       </div>
     </div>
@@ -652,28 +834,28 @@
     <h2>À lire ensuite</h2>
     <p class="sub">La suite logique du parcours.</p>
     <div class="rel-grid">
-      <a class="rel-card" href="/blog/claude-ai">
-        <picture><source srcset="/images/blog/claude-ai-cover.avif" type="image/avif"><img src="/images/blog/claude-ai-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
+      <a class="rel-card" href="/blog/agent-ia">
+        <picture><source srcset="/images/blog/agent-ia-cover.avif" type="image/avif"><img src="/images/blog/agent-ia-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
+<div class="rel-body">
+          <span class="rel-cat">Automatisation IA</span>
+          <h3>Créer un agent IA gratuit : méthode, outils et exemples</h3>
+          <p>Passer du workflow à l'agent : ce qui change, les outils gratuits et des exemples à reproduire.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="/blog/mcp-model-context-protocol">
+        <picture><source srcset="/images/blog/mcp-cover.avif" type="image/avif"><img src="/images/blog/mcp-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
 <div class="rel-body">
           <span class="rel-cat">Utiliser l'IA</span>
-          <h3>Claude AI : ce que vaut vraiment l'IA d'Anthropic</h3>
-          <p>Le test complet : ce qu'il fait mieux que ChatGPT, ses limites, les prix et la version gratuite.</p>
+          <h3>MCP IA : c'est quoi un serveur MCP ? Définition et exemples</h3>
+          <p>Le protocole qui branche une IA sur vos outils, et que n8n sait déjà utiliser dans ses workflows.</p>
         </div>
       </a>
-      <a class="rel-card" href="/blog/audit-seo-methode">
-        <picture><source srcset="/images/blog/audit-seo-cover.avif" type="image/avif"><img src="/images/blog/audit-seo-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
+      <a class="rel-card" href="/blog/claude-code">
+        <picture><source srcset="/images/blog/claude-code-cover.avif" type="image/avif"><img src="/images/blog/claude-code-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
 <div class="rel-body">
-          <span class="rel-cat">SEO</span>
-          <h3>Audit SEO : la méthode et la checklist complète</h3>
-          <p>Les 47 points que je vérifie, et les trois corrections qui changent vraiment les positions.</p>
-        </div>
-      </a>
-      <a class="rel-card" href="/blog/generative-engine-optimization">
-        <picture><source srcset="/images/blog/geo-cover.avif" type="image/avif"><img src="/images/blog/geo-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
-<div class="rel-body">
-          <span class="rel-cat">GEO, visibilité IA</span>
-          <h3>Generative Engine Optimization : comment être cité par les IA</h3>
-          <p>La méthode en 7 points pour être repris comme source par ChatGPT, Perplexity et les AI Overviews.</p>
+          <span class="rel-cat">Utiliser l'IA</span>
+          <h3>Installer Claude Code : tuto Mac, Windows et Linux (2026)</h3>
+          <p>L'alternative au no-code quand la logique se complique : décrire le besoin, obtenir un programme.</p>
         </div>
       </a>
     </div>
@@ -715,7 +897,7 @@
 <script src="/js/blog-article.js?v=4" defer></script>
 
 <!-- Outil interactif propre à cet article -->
-<script src="/js/cout-automatisation-tool.js?v=1" defer></script>
+<script src="/js/cout-automatisation-tool.js?v=2" defer></script>
 
 </body>
 </html>

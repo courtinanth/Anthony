@@ -38,7 +38,7 @@
 
     // 4. Liens markdown
     var liens = txt.match(/^\s*-\s*\[[^\]]+\]\([^)]+\)/gm) || [];
-    if (liens.length >= 5) { score += 15; ok.push(liens.length + ' liens au format markdown'); }
+    if (liens.length >= 5) { score += 20; ok.push(liens.length + ' liens au format markdown'); }
     else if (liens.length) { score += 7; ko.push('Seulement ' + liens.length + ' lien(s) : visez 10 à 30 pages essentielles'); }
     else ko.push('Aucun lien au format « - [Titre](url) : description »');
 
@@ -48,7 +48,7 @@
     }
 
     // 5. Descriptions après les liens
-    var avecDesc = (txt.match(/^\s*-\s*\[[^\]]+\]\([^)]+\)\s*[:\-–]\s*\S/gm) || []).length;
+    var avecDesc = (txt.match(/^\s*-\s*\[[^\]]+\]\([^)]+\)\s*[:\-\u2013]\s*\S/gm) || []).length;
     if (liens.length) {
       var ratio = avecDesc / liens.length;
       if (ratio >= 0.9) { score += 20; ok.push('Tous les liens sont commentés'); }

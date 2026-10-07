@@ -1,4 +1,4 @@
-/* Parcours d'audit gratuit : suivi de progression et détail de l'étape en cours.
+/* Parcours d'audit SEO gratuit : suivi de progression, outil à utiliser et détail de l'étape en cours.
    Tout reste dans le navigateur, rien n'est envoyé. */
 (function () {
   var list = document.getElementById('ag2-check');
@@ -9,29 +9,30 @@
   var TOTAL = boxes.reduce(function (s, b) { return s + (parseInt(b.dataset.m, 10) || 0); }, 0);
 
   var DETAIL = {
-    depart: "Notez le trafic organique des trois derniers mois, le nombre de pages indexées "
-      + "et vos positions sur dix requêtes prioritaires.\n\nC'est l'étape que tout le monde saute, "
-      + "et celle qui manque quand il faut prouver l'effet des corrections six mois plus tard.",
-    index: "Search Console, rapport d'indexation des pages.\n\nRegardez le nombre de pages indexées, "
+    depart: "Outil : Search Console, rapport Performances.\n\nNotez le trafic organique des trois derniers mois, "
+      + "le nombre de pages indexées et vos positions sur dix requêtes prioritaires.\n\nC'est l'étape que tout "
+      + "le monde saute, et celle qui manque quand il faut prouver l'effet des corrections six mois plus tard.",
+    index: "Outil : Search Console, rapport d'indexation des pages.\n\nRegardez le nombre de pages indexées, "
       + "puis la liste des non indexées avec leur motif. Traitez en priorité : les pages exclues par "
       + "une balise noindex qui devraient être visibles, les pages explorées mais non indexées, "
       + "et les erreurs serveur.",
-    crawl: "Lancez un crawler sur votre domaine et laissez-le terminer.\n\nQuatre choses à relever : "
+    crawl: "Outil : Screaming Frog en version gratuite jusqu'à 500 URL. Au-delà : Ahrefs Webmaster Tools "
+      + "(5 000 pages par mois et par projet) ou le Site Scan de Bing Webmaster Tools.\n\nQuatre choses à relever : "
       + "les codes de réponse autres que 200, les balises title manquantes ou dupliquées, les pages "
       + "sans H1, et la profondeur de vos pages importantes. Au-delà de trois clics depuis l'accueil, "
       + "une page stratégique est mal placée.",
-    croise: "L'étape la plus rentable de tout l'audit.\n\nExportez les pages trouvées par le crawler "
-      + "d'un côté, les pages qui reçoivent des impressions dans la Search Console de l'autre. "
-      + "Comparez. Ce qui est dans la première liste et pas dans la seconde constitue vos pages "
-      + "invisibles : c'est là que se cache votre potentiel.",
-    perf: "Testez vos trois pages les plus importantes, pas seulement l'accueil.\n\nRegardez le temps "
-      + "d'affichage du plus grand élément, la stabilité visuelle pendant le chargement et le rendu "
-      + "sur téléphone. Les gains les plus faciles : compresser les images, différer les scripts "
-      + "non essentiels, déclarer les dimensions des images.",
+    croise: "Outils : export du crawler et Search Console, rapport Performances, onglet Pages.\n\n"
+      + "L'étape la plus rentable de tout l'audit. Comparez les deux listes : ce qui est trouvé par le crawler "
+      + "et ne reçoit aucune impression constitue vos pages invisibles. Soit elles ne sont pas indexées, "
+      + "soit elles ne répondent à aucune requête : c'est là que se cache votre potentiel.",
+    perf: "Outil : PageSpeed Insights, sur vos trois pages les plus importantes, pas seulement l'accueil.\n\n"
+      + "Regardez d'abord les données réelles : LCP sous 2,5 s, INP sous 200 ms, CLS sous 0,1. "
+      + "Les gains les plus faciles : compresser les images, différer les scripts non essentiels, "
+      + "déclarer les dimensions des images.",
     plan: "Ne corrigez pas dans l'ordre où vous avez trouvé les problèmes.\n\nClassez ainsi : "
       + "1. ce qui bloque l'indexation, 2. ce qui touche beaucoup de pages d'un coup comme un gabarit, "
-      + "3. ce qui concerne vos pages les plus rentables, 4. le reste.\n\nC'est cette hiérarchisation "
-      + "qui transforme une liste d'alertes en plan d'action."
+      + "3. ce qui concerne vos pages les plus rentables, 4. le reste.\n\nNotez chaque ligne sur l'impact, "
+      + "le nombre de pages touchées et l'effort : c'est ce tableau qui transforme une liste d'alertes en plan d'action."
   };
 
   function render() {
@@ -77,6 +78,7 @@
       var d = DETAIL[b.dataset.k];
       if (d) txt += '    ' + d.replace(/\n+/g, '\n    ') + '\n\n';
     });
+    txt += 'Méthode complète : anthony-courtin.com/blog/audit-seo-gratuit';
     var done = function () {
       copy.textContent = 'Copié ✓'; copy.classList.add('ok');
       setTimeout(function () { copy.textContent = 'Copier la marche à suivre'; copy.classList.remove('ok'); }, 1800);

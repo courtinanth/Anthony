@@ -1,6 +1,6 @@
 /* Quiz vrai ou faux sur les origines d'OpenAI et de ChatGPT.
    Article qui-a-cree-chatgpt. 100 % navigateur, aucun appel réseau.
-   Faits vérifiés le 11 août 2026. */
+   Faits vérifiés le 7 octobre 2026. */
 (function () {
   'use strict';
   var $ = function (id) { return document.getElementById(id); };
@@ -10,21 +10,21 @@
 
   var QUESTIONS = [
     { q: "Elon Musk fait partie des fondateurs d'OpenAI", r: true,
-      x: "Vrai. Il compte parmi les onze cofondateurs de décembre 2015 et a coprésidé l'organisation avec Sam Altman." },
+      x: "Vrai. Il compte parmi les onze cofondateurs de décembre 2015 et a coprésidé l'organisation avec Sam Altman, avant de quitter le conseil en 2018." },
     { q: "OpenAI a été créée comme une entreprise à but lucratif", r: false,
-      x: "Faux. OpenAI a été fondée en 2015 comme organisation à but non lucratif. La structure lucrative plafonnée date de 2019." },
-    { q: "ChatGPT est sorti en novembre 2022", r: true,
-      x: "Vrai, en accès libre. Il reposait alors sur GPT-3.5 et a dépassé le million d'inscriptions en cinq jours." },
+      x: "Faux. OpenAI a été fondée en 2015 comme organisation à but non lucratif. La filiale lucrative plafonnée date de mars 2019." },
+    { q: "ChatGPT est sorti le 30 novembre 2022", r: true,
+      x: "Vrai, en accès libre et gratuit. Il a dépassé le million d'utilisateurs en cinq jours." },
     { q: "ChatGPT reposait sur GPT-4 à son lancement", r: false,
-      x: "Faux. Il reposait sur GPT-3.5. GPT-4 n'est arrivé que le 14 mars 2023, soit quatre mois plus tard." },
+      x: "Faux. Il reposait sur GPT-3.5. GPT-4 n'est arrivé que le 14 mars 2023, soit trois mois et demi plus tard." },
     { q: "Sam Altman a quitté définitivement OpenAI en 2023", r: false,
-      x: "Faux. Il a été écarté brièvement en novembre 2023 puis réintégré comme directeur général le 21 novembre 2023." },
-    { q: "OpenAI a son siège à San Francisco", r: true,
-      x: "Vrai, au 1455 3rd Street, en Californie." },
+      x: "Faux. Écarté par le conseil le 17 novembre 2023, il a été rappelé le 21 novembre et dirige toujours OpenAI." },
+    { q: "Microsoft est le propriétaire de ChatGPT", r: false,
+      x: "Faux. Microsoft est un actionnaire important (environ 27 % lors de la restructuration d'octobre 2025), mais OpenAI est contrôlée par la fondation OpenAI." },
     { q: "OpenAI est aujourd'hui une public benefit corporation", r: true,
-      x: "Vrai depuis le 28 octobre 2025. La structure lucrative est devenue OpenAI Group PBC, détenue notamment par la fondation OpenAI et par Microsoft." },
+      x: "Vrai depuis le 28 octobre 2025. La structure lucrative est devenue OpenAI Group PBC, une société à mission." },
     { q: "ChatGPT et GPT désignent la même chose", r: false,
-      x: "Faux. GPT est la famille de modèles, ChatGPT est l'application qui permet de dialoguer avec eux. La confusion est constante." }
+      x: "Faux. GPT est la famille de modèles (jusqu'à GPT-6 en 2026), ChatGPT est l'application qui permet de dialoguer avec eux." }
   ];
 
   var reponses = {};
@@ -97,7 +97,7 @@
     var r = calcul();
     var texte = ['Quiz origines de ChatGPT : ' + r.justes + ' / ' + QUESTIONS.length, '']
       .concat(QUESTIONS.map(function (q, i) { return (i + 1) + '. ' + q.q + ' -> ' + q.x; }))
-      .concat(['', 'Faits vérifiés le 11 août 2026.',
+      .concat(['', 'Faits vérifiés le 7 octobre 2026.',
         'Source : anthony-courtin.com/blog/qui-a-cree-chatgpt']).join('\n');
     var fini = function (ok) {
       if (!copy) return;

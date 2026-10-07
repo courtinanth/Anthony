@@ -4,8 +4,8 @@
 <script src="/js/js-flag.js?v=1"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contenu citable : écrire pour être repris par les IA</title>
-<meta name="description" content="Un contenu citable se découpe sans se trahir. Les 6 règles d'écriture, comment citer ses sources et la méthode pour reprendre un article existant.">
+<title>AEO (Answer Engine Optimization) : définition et méthode</title>
+<meta name="description" content="AEO (answer engine optimization) : définition, différence avec le SEO et le GEO, 6 règles pour écrire un contenu repris par les IA, checklist et outil.">
 <link rel="canonical" href="https://anthony-courtin.com/blog/contenu-citable-guide">
 <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
@@ -14,13 +14,13 @@
 <meta name="robots" content="index, follow, max-image-preview:large">
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="Contenu citable : écrire pour être repris par les IA">
-<meta property="og:description" content="Les six règles pour écrire un contenu que les moteurs de réponse reprennent, et la méthode pour reprendre vos pages existantes.">
+<meta property="og:title" content="AEO (Answer Engine Optimization) : définition et méthode">
+<meta property="og:description" content="Ce qu'est l'AEO, ce qui la distingue du SEO et du GEO, et les règles d'écriture pour qu'un contenu soit repris par Google, ChatGPT et Perplexity.">
 <meta property="og:url" content="https://anthony-courtin.com/blog/contenu-citable-guide">
 <meta property="og:image" content="https://anthony-courtin.com/images/blog/contenu-citable-cover.webp">
 <meta property="og:locale" content="fr_FR">
 <meta property="article:published_time" content="2026-09-23">
-<meta property="article:modified_time" content="2026-09-23">
+<meta property="article:modified_time" content="2026-10-07">
 <meta property="article:author" content="Anthony Courtin">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -32,55 +32,148 @@
 
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@graph":[
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@type":"BlogPosting",
-      "@id":"https://anthony-courtin.com/blog/contenu-citable-guide#article",
-      "headline":"Contenu citable : écrire pour être repris par les IA",
-      "description":"Un contenu citable est un contenu qu'une machine peut découper sans le trahir : chaque bloc répond à une question précise, se comprend hors contexte et s'appuie sur une information vérifiable.",
-      "inLanguage":"fr-FR",
-      "datePublished":"2026-09-23",
-      "dateModified":"2026-09-23",
-      "image":"https://anthony-courtin.com/images/blog/contenu-citable-cover.webp",
-      "wordCount":2000,
-      "mainEntityOfPage":{"@type":"WebPage","@id":"https://anthony-courtin.com/blog/contenu-citable-guide"},
-      "author":{"@id":"https://anthony-courtin.com/#anthony"},
-      "publisher":{"@id":"https://anthony-courtin.com/#anthony"},
-      "about":[{"@type":"Thing","name":"Contenu citable"},{"@type":"Thing","name":"Generative engine optimization"},{"@type":"Thing","name":"Rédaction web"}]
-    },
-    {
-      "@type":"Person",
-      "@id":"https://anthony-courtin.com/#anthony",
-      "name":"Anthony Courtin",
-      "jobTitle":"Consultant SEO, GEO et automatisation IA",
-      "url":"https://anthony-courtin.com/a-propos",
-      "image":"https://anthony-courtin.com/images/anthony.avif",
-      "sameAs":["https://www.linkedin.com/in/anthony-courtin/","https://www.youtube.com/@AnthonyCourtin4"]
-    },
-    {
-      "@type":"BreadcrumbList",
-      "itemListElement":[
-        {"@type":"ListItem","position":1,"name":"Accueil","item":"https://anthony-courtin.com/"},
-        {"@type":"ListItem","position":2,"name":"Blog","item":"https://anthony-courtin.com/blog/"},
-        {"@type":"ListItem","position":3,"name":"Contenu citable"}
+      "@type": "BlogPosting",
+      "@id": "https://anthony-courtin.com/blog/contenu-citable-guide#article",
+      "headline": "AEO (Answer Engine Optimization) : définition et méthode",
+      "description": "L'AEO (answer engine optimization) optimise un contenu pour qu'un moteur de réponse le reprenne : réponse dans la première phrase, une idée par bloc, titres formulés comme des questions, faits datés et attribués.",
+      "inLanguage": "fr-FR",
+      "datePublished": "2026-09-23",
+      "dateModified": "2026-10-07",
+      "image": "https://anthony-courtin.com/images/blog/contenu-citable-cover.webp",
+      "wordCount": 3390,
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://anthony-courtin.com/blog/contenu-citable-guide"
+      },
+      "author": {
+        "@id": "https://anthony-courtin.com/#anthony"
+      },
+      "publisher": {
+        "@id": "https://anthony-courtin.com/#anthony"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Answer engine optimization"
+        },
+        {
+          "@type": "Thing",
+          "name": "Contenu citable"
+        },
+        {
+          "@type": "Thing",
+          "name": "Generative engine optimization"
+        },
+        {
+          "@type": "Thing",
+          "name": "Rédaction web"
+        }
       ]
     },
     {
-      "@type":"FAQPage",
-      "mainEntity":[
-        {"@type":"Question","name":"Qu'est-ce qu'un contenu citable ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Un contenu citable est un contenu qu'une machine peut découper sans le trahir : chaque bloc répond à une question précise, se comprend hors de son contexte, et s'appuie sur une information vérifiable. Ce n'est pas une question de style mais de structure, proche de celle d'une dépêche d'agence."}},
-        {"@type":"Question","name":"Comment rendre un contenu citable ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Six règles : répondre avant d'argumenter dès la première phrase, traiter une seule idée par bloc, écrire des titres qui contiennent la question posée, chiffrer et dater chaque information, supprimer les liaisons qui créent une dépendance au paragraphe précédent, et apporter une donnée que personne d'autre n'a."}},
-        {"@type":"Question","name":"Comment citer ses sources dans un contenu ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Nommez la source dans le texte et pas seulement en lien, datez-la, préférez la source primaire à l'article qui la commente, assumez vos propres données comme sources à part entière, et distinguez clairement le fait de l'opinion. Une page qui appuie ses affirmations inspire davantage confiance."}},
-        {"@type":"Question","name":"Pourquoi est-il important de citer ses sources ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Parce que les moteurs de réponse évaluent la fiabilité d'une page avant de la reprendre. Une page qui appuie ses affirmations sur des sources identifiables est jugée plus sûre qu'une page qui affirme sans rien montrer. Citer correctement augmente donc vos chances d'être cité à votre tour."}},
-        {"@type":"Question","name":"Qui a le plus de chances d'être cité par les IA ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Les sources reconnues du secteur partent avec une avance, mais quatre facteurs sont accessibles à tous : un auteur identifiable avec un parcours vérifiable, la publication de données originales, une page qui répond frontalement à la question, et une information de première main. Sur une question précise, la taille du site ne décide pas."}},
-        {"@type":"Question","name":"Comment optimiser un contenu existant pour l'IA ?",
-         "acceptedAnswer":{"@type":"Answer","text":"En vingt minutes par page : identifiez la question unique à laquelle la page répond, réécrivez le premier paragraphe pour qu'il contienne la réponse complète, transformez les titres en questions explicites, supprimez les liaisons en début de paragraphe, ajoutez un chiffre daté par section, et posez une FAQ balisée."}}
+      "@type": "Person",
+      "@id": "https://anthony-courtin.com/#anthony",
+      "name": "Anthony Courtin",
+      "jobTitle": "Consultant SEO, GEO et automatisation IA",
+      "url": "https://anthony-courtin.com/a-propos",
+      "image": "https://anthony-courtin.com/images/anthony.avif",
+      "sameAs": [
+        "https://www.linkedin.com/in/anthony-courtin/",
+        "https://www.youtube.com/@AnthonyCourtin4"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://anthony-courtin.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://anthony-courtin.com/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "AEO"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce que l'AEO ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "L'AEO, pour answer engine optimization, est l'optimisation d'un contenu pour qu'un moteur de réponse le reprenne dans sa réponse : extrait optimisé de Google, AI Overview, ChatGPT, Perplexity ou assistant vocal. Elle consiste à écrire des blocs qui répondent à une question précise, se comprennent hors contexte et s'appuient sur une information vérifiable."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Que veut dire AEO en SEO ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En SEO, AEO signifie answer engine optimization, soit optimisation pour les moteurs de réponse. Le sigle désigne le travail sur les passages d'une page pour qu'ils soient extraits et cités, et pas seulement sur le classement de la page. Hors du référencement, AEO désigne aussi un statut douanier, l'opérateur économique agréé."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle différence entre AEO et SEO ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Le SEO cherche à classer une page dans les résultats de recherche ; l'AEO cherche à faire reprendre un passage de cette page dans une réponse. Les deux se recouvrent largement : Google précise qu'aucune optimisation spéciale n'est nécessaire pour ses fonctionnalités d'IA, au-delà d'une page indexée et éligible à un extrait. L'AEO est la partie du SEO qui travaille l'extraction."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle différence entre AEO et GEO ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "L'AEO travaille le passage pour qu'il soit repris dans une réponse, quel que soit le moteur. Le GEO (generative engine optimization) vise les IA génératives comme ChatGPT, Perplexity ou Gemini, et ajoute à l'écriture la notoriété de la marque sur d'autres sites. Dans la pratique, les deux termes sont souvent employés l'un pour l'autre."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment optimiser un contenu pour l'AEO ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Six règles : répondre dès la première phrase, traiter une seule idée par bloc, écrire des titres qui contiennent la question posée, chiffrer, dater et attribuer chaque information, supprimer les liaisons qui rendent un paragraphe dépendant du précédent, et apporter une donnée que personne d'autre n'a. Comptez vingt minutes pour reprendre une page existante."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il des données structurées pour l'AEO ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Elles ne sont pas nécessaires. Google indique qu'aucune donnée structurée particulière n'est requise pour ses fonctionnalités d'IA, et n'affiche plus de FAQ enrichies depuis mai 2026. Le balisage reste utile pour identifier l'auteur et l'éditeur, et le balisage FAQPage reste valide s'il reprend une FAQ visible sur la page."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment mesurer les résultats de l'AEO ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Combinez la Search Console, qui compte les clics issus des AI Overviews dans le trafic Web, un panel de questions posées chaque mois aux moteurs de réponse avec relevé des sources citées, et le trafic venu de chatgpt.com ou perplexity.ai dans Google Analytics. Aucun outil ne donne seul une mesure complète."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qu'est-ce qu'un contenu citable ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un contenu citable est un contenu qu'une machine peut découper sans le trahir : chaque bloc répond à une question précise, se comprend hors de son contexte et s'appuie sur une information vérifiable. Ce n'est pas une question de style mais de structure, proche de celle d'une dépêche d'agence."
+          }
+        }
       ]
     }
   ]
@@ -174,12 +267,12 @@
     <nav class="crumb" aria-label="Fil d'Ariane">
       <a href="/">Accueil</a><span aria-hidden="true">/</span>
       <a href="/blog/">Blog</a><span aria-hidden="true">/</span>
-      <span>Contenu citable</span>
+      <span>AEO</span>
     </nav>
 
     <span class="art-cat">GEO, visibilité IA</span>
-    <h1 class="art-title">Contenu citable : écrire pour être repris par les IA</h1>
-    <p class="art-lede">Un texte excellent mais construit en fil continu ne sera pas repris. Un texte plus modeste mais bien découpé le sera. Voici ce qui change concrètement dans votre façon d'écrire.</p>
+    <h1 class="art-title">AEO (Answer Engine Optimization) : définition et méthode</h1>
+    <p class="art-lede">L'AEO (answer engine optimization) optimise vos contenus pour qu'ils soient repris dans les réponses de Google, ChatGPT ou Perplexity. Voici la définition, la différence avec le SEO et le GEO, puis les six règles d'écriture que j'applique pour rendre un contenu citable.</p>
 
     <div class="art-metaline">
       <span class="who">
@@ -189,9 +282,9 @@
       <span class="dot" aria-hidden="true">·</span>
       <time datetime="2026-09-23">23 septembre 2026</time>
       <span class="dot" aria-hidden="true">·</span>
-      <span>10 min de lecture</span>
+      <span>14 min de lecture</span>
       <span class="dot" aria-hidden="true">·</span>
-      <span>Mis à jour le <time datetime="2026-09-23">23 septembre 2026</time></span>
+      <span>Mis à jour le <time datetime="2026-10-07">7 octobre 2026</time></span>
     </div>
 
     <!-- Boutons "Résumer avec" : les href sont construits par blog-article.js -->
@@ -242,7 +335,7 @@
     <!-- Résumé IA version mobile : rendu côté serveur, donc lisible par Google et les LLM -->
     <div class="ai-box ai-box-mobile">
       <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
-      <p class="ai-text">Un contenu citable est un contenu qu'une machine peut découper sans le trahir : chaque bloc répond à une question précise, se comprend hors contexte et s'appuie sur une information vérifiable. Ce n'est pas une question de style mais de structure. La règle première est de répondre avant d'argumenter.</p>
+      <p class="ai-text">L'AEO (answer engine optimization) optimise un contenu pour qu'un moteur de réponse le reprenne : extrait optimisé de Google, AI Overview, ChatGPT, Perplexity. L'unité de travail est le passage : réponse dans la première phrase, une idée par bloc, titres formulés comme des questions, faits datés et attribués. Elle prolonge le SEO sans le remplacer.</p>
       <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
     </div>
 
@@ -255,26 +348,27 @@
         </picture>
       </figure>
 
-      <p><strong>Un contenu citable est un contenu qu'une machine peut découper sans le trahir : chaque bloc y répond à une question précise, se comprend hors contexte, et s'appuie sur une information vérifiable.</strong> Ce n'est pas une question de style mais de structure. Un texte excellent mais construit en fil continu ne sera pas repris ; un texte plus modeste mais bien découpé le sera.</p>
+      <p><strong>L'AEO, pour answer engine optimization, consiste à optimiser un contenu pour qu'un moteur de réponse le reprenne dans sa réponse, au lieu de simplement le classer dans une liste de liens.</strong> Elle vise les extraits optimisés de Google, les AI Overviews, ChatGPT, Perplexity et les assistants vocaux. En pratique, elle revient à écrire des blocs qui répondent à une question précise, se comprennent hors contexte et s'appuient sur une information vérifiable.</p>
 
-      <p>C'est la compétence éditoriale qui compte le plus aujourd'hui, et elle s'apprend en une heure. Voici les règles, avec ce qui change concrètement dans votre façon d'écrire.</p>
+      <p>Le sigle circule beaucoup depuis l'arrivée des réponses générées, souvent mélangé avec le GEO. Je commence par la définition et les différences, puis le cœur pratique : les règles d'écriture que j'applique pour qu'un contenu soit repris, une checklist pour reprendre vos pages existantes et la façon de mesurer le résultat.</p>
 
       <div class="verdict">
         <div class="verdict-note">
-          <b>1</b>
-          <span>test</span>
+          <b>6</b>
+          <span>règles</span>
         </div>
         <div class="verdict-body">
-          <h2>Le test qui tranche</h2>
-          <p>Prenez un paragraphe au hasard dans votre page, sortez-le de son contexte, lisez-le seul. S'il reste compréhensible et utile, il est citable. S'il commence par « c'est pourquoi » ou renvoie à ce qui précède, il ne l'est pas.</p>
+          <h2>L'AEO en 30 secondes</h2>
+          <p>Un moteur de réponse ne lit pas votre page comme un lecteur : il en extrait des passages. Le test qui tranche tient en une ligne : sortez un paragraphe de votre page et lisez-le seul. S'il reste compréhensible et utile, il est citable. S'il commence par « c'est pourquoi » ou renvoie à ce qui précède, il ne l'est pas.</p>
           <div class="verdict-lists">
             <ul class="verdict-pros">
+              <li>La réponse dans la première phrase</li>
               <li>Une idée par bloc, compréhensible isolément</li>
-              <li>Une information vérifiable, datée et attribuée</li>
               <li>Un titre qui contient la question posée</li>
+              <li>Une information datée et attribuée</li>
             </ul>
             <ul class="verdict-cons">
-              <li>Les transitions qui créent une dépendance au paragraphe précédent</li>
+              <li>Les transitions qui rendent un paragraphe dépendant du précédent</li>
               <li>Les affirmations générales sans preuve</li>
             </ul>
           </div>
@@ -288,43 +382,125 @@
       <section class="takeaways">
         <h2>À retenir</h2>
         <ul>
-          <li>Un contenu citable est <strong>découpable</strong> : chaque bloc tient debout seul.</li>
-          <li><strong>La réponse vient avant l'argumentaire</strong>, jamais l'inverse.</li>
-          <li>Une <strong>information vérifiable</strong> est reprise, une affirmation générale est ignorée.</li>
-          <li><strong>Citer vos propres sources</strong> augmente vos chances d'être cité à votre tour.</li>
-          <li>Les contenus les plus repris sont ceux qui apportent <strong>une donnée que personne d'autre n'a</strong>.</li>
+          <li>L'<strong>AEO (answer engine optimization)</strong> optimise un contenu pour qu'il soit repris dans une réponse, pas seulement classé dans une liste de liens.</li>
+          <li>L'unité de travail n'est plus la page mais <strong>le passage</strong> : chaque bloc doit tenir debout seul.</li>
+          <li><strong>La réponse vient avant l'argumentaire</strong>, et une information datée et attribuée est préférée à une affirmation générale.</li>
+          <li>L'AEO ne remplace pas le SEO : Google précise qu'<strong>aucune optimisation spéciale</strong> n'est nécessaire pour ses fonctionnalités d'IA, au-delà d'une page indexée et éligible à un extrait.</li>
+          <li>Les contenus les plus repris apportent <strong>une donnée que personne d'autre n'a</strong>.</li>
         </ul>
       </section>
 
-      <p>Le bloc le plus important d'une page est son premier paragraphe. Composez le vôtre : renseignez la question et vos trois éléments de réponse, l'outil produit un paragraphe structuré pour être extrait.</p>
+      <h2>L'AEO, c'est quoi ?</h2>
+
+      <p>L'answer engine optimization, abrégée AEO, regroupe les techniques qui rendent un contenu repris par les moteurs de réponse. Un moteur de réponse est un système qui renvoie directement une réponse rédigée plutôt qu'une liste de liens : l'extrait optimisé en tête de Google (la « position zéro »), un AI Overview, une réponse de ChatGPT ou de Perplexity, un assistant vocal.</p>
+
+      <p>Le terme est apparu au milieu des années 2010, avec les extraits optimisés et la recherche vocale : un assistant qui lit une réponse à voix haute n'en lit qu'une. Les réponses générées par IA ont élargi le sujet, sans changer le principe. Le moteur ne vous classe plus, il vous cite, ou il cite quelqu'un d'autre.</p>
+
+      <div class="callout callout--info">
+        <p class="callout-t">À ne pas confondre</p>
+        <p>AEO désigne aussi le statut douanier d'opérateur économique agréé (OEA en français, Authorized Economic Operator en anglais), une certification destinée aux entreprises du commerce international. Rien à voir avec le référencement.</p>
+      </div>
+
+      <h3>Comment un moteur de réponse choisit un passage</h3>
+
+      <p>Le mécanisme explique toutes les règles qui suivent. Quand un moteur de réponse traite une question, il lance souvent plusieurs recherches liées : Google appelle cette technique le « query fan-out » pour ses AI Overviews et son Mode IA. Il récupère des pages, en extrait les fragments qui répondent le mieux, puis les recombine avec ceux d'autres sources pour rédiger sa réponse.</p>
+
+      <p>Un contenu optimisé pour l'AEO est donc un contenu conçu pour survivre à ce découpage. C'est la logique d'une dépêche d'agence, dont chaque paragraphe peut être coupé sans que le texte devienne incompréhensible. Ce format n'a rien de nouveau : il a simplement changé de destinataire.</p>
+
+      <h2>AEO, SEO et GEO : quelle différence ?</h2>
+
+      <p>Les trois sigles décrivent des objectifs voisins, sur des surfaces qui se recouvrent.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col"></th><th scope="col">SEO</th><th scope="col">AEO</th><th scope="col">GEO</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Objectif</strong></td><td>Être classé dans les résultats</td><td>Être la réponse reprise</td><td>Être cité ou recommandé par une IA générative</td></tr>
+            <tr><td><strong>Surfaces</strong></td><td>Résultats classiques de Google et Bing</td><td>Extraits optimisés, AI Overviews, assistants vocaux, moteurs IA</td><td>ChatGPT, Perplexity, Gemini, Mode IA de Google</td></tr>
+            <tr><td><strong>Unité travaillée</strong></td><td>La page</td><td>Le passage</td><td>La page, la marque et ses mentions ailleurs</td></tr>
+            <tr><td><strong>Mesure</strong></td><td>Positions, clics</td><td>Extraits obtenus, citations</td><td>Citations, part de voix dans les réponses</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Dans les faits, l'AEO n'est pas une discipline séparée du SEO. Google l'écrit dans sa documentation : il n'existe aucune exigence supplémentaire ni optimisation spéciale pour apparaître dans les AI Overviews ou le Mode IA. Une page doit être indexée et éligible à un extrait, c'est tout. L'AEO est la partie du SEO qui travaille l'extraction du passage ; le <a href="/blog/generative-engine-optimization">GEO SEO</a> y ajoute la notoriété de la marque hors de votre site. J'ai détaillé les écarts réels dans mon comparatif <a href="/blog/avenir-du-seo">GEO vs SEO</a>.</p>
+
+      <div class="callout callout--info">
+        <p class="callout-t">Ce que Google dit, noir sur blanc</p>
+        <p>Dans son guide d'optimisation pour l'IA générative, mis à jour le 10 juillet 2026, Google précise qu'il n'est pas nécessaire de découper un contenu en petits morceaux ni d'écrire d'une façon particulière pour ses fonctions d'IA : ses systèmes comprennent une page qui traite plusieurs sujets. Les règles qui suivent ne sont donc pas des astuces pour machines. Ce sont des règles d'écriture claire, qui servent d'abord le lecteur, et qui comptent davantage pour les moteurs qui extraient des passages, comme ChatGPT ou Perplexity.</p>
+      </div>
+
+      <h2>Comment écrire un contenu que les moteurs de réponse reprennent</h2>
+
+      <p>Voici les six règles d'un contenu citable, celles que j'applique à chaque page que je rédige ou que je reprends.</p>
+
+      <h3>1. Répondre avant d'argumenter</h3>
+
+      <p>La première phrase contient la réponse. Pas une accroche, pas une mise en contexte, pas une question rhétorique : la réponse.</p>
+
+      <p>Concrètement, reprenez la question sous forme affirmative et complétez-la. Le reste du texte développe, nuance et prouve. C'est l'inverse de ce que l'école enseigne, et c'est ce qui fait la différence.</p>
+
+      <h3>2. Une idée par bloc</h3>
+
+      <p>Un paragraphe traite une seule chose. Dès qu'il y a un « par ailleurs » ou un « également », un deuxième paragraphe commence.</p>
+
+      <p>Cette règle a un effet secondaire heureux : elle rend le texte plus lisible pour les humains aussi. Les blocs courts sur une seule idée se parcourent mieux, et le parcours est le mode de lecture dominant sur écran.</p>
+
+      <h3>3. Des titres qui contiennent la question</h3>
+
+      <p>Bannissez les titres créatifs. « Le nerf de la guerre » ne dit rien à une machine qui cherche une correspondance avec une question. « Combien coûte un audit SEO » lui dit tout.</p>
+
+      <p>Un bon titre de section pourrait servir de requête tel quel. C'est le test le plus rapide pour vérifier.</p>
+
+      <h3>4. Chiffrer, dater, attribuer</h3>
+
+      <p>Une information vérifiable est reprise ; une affirmation générale est écartée. La différence entre « les délais sont souvent longs » et « comptez quatre à huit semaines, délai constaté sur mes missions en 2026 » décide de tout.</p>
+
+      <p>Trois éléments à fournir systématiquement : le chiffre, sa date de mesure et son origine. Si l'origine, c'est vous, dites-le : c'est même préférable, parce que la donnée devient introuvable ailleurs.</p>
+
+      <h3>5. Supprimer les liaisons qui créent une dépendance</h3>
+
+      <p>« C'est pourquoi », « en effet », « comme nous l'avons vu », « ainsi » : ces formules relient un paragraphe au précédent, ce qui le rend incompréhensible une fois extrait.</p>
+
+      <p>La correction est mécanique : relisez chaque début de paragraphe et supprimez tout ce qui suppose d'avoir lu ce qui précède. Le texte y perd un peu de fluidité et y gagne beaucoup en robustesse.</p>
+
+      <h3>6. Apporter ce que personne d'autre n'a</h3>
+
+      <p>C'est la règle qui compte le plus à moyen terme. Un contenu qui reformule ce qui existe déjà n'a aucune raison d'être préféré aux vingt autres qui disent la même chose.</p>
+
+      <p>Ce qui ne s'invente pas : vos propres mesures, vos cas réels, les objections que vous entendez en rendez-vous, les erreurs que vous avez commises. C'est le seul matériau qu'une machine ne peut pas générer, donc celui qui a le plus de valeur.</p>
+
+      <p>Le bloc le plus important d'une page est son premier paragraphe. Composez le vôtre : renseignez la question et vos trois éléments de réponse, l'outil assemble un paragraphe structuré pour être extrait et note ce qui manque.</p>
 
       <div class="tool" id="outil-bloc-reponse">
         <div class="tool-head">
           <span class="tool-ico" aria-hidden="true">✦</span>
           <span>
             <em>Outil interactif</em>
-            <b>Composer un paragraphe citable</b>
+            <b>Composer un paragraphe de réponse (AEO)</b>
           </span>
         </div>
         <div class="tool-body">
           <div class="field">
             <label for="bc-q">La question à laquelle la page répond</label>
-            <input id="bc-q" type="text" placeholder="Ex. : combien coûte un audit SEO">
+            <input id="bc-q" type="text" placeholder="Ex. : combien de temps pour qu'un robots.txt soit pris en compte par ChatGPT">
           </div>
 
           <div class="field">
             <label for="bc-r">La réponse en une phrase <span class="hint">: sujet, verbe, information</span></label>
-            <input id="bc-r" type="text" placeholder="Ex. : un audit SEO coûte entre 1 500 et 5 000 euros selon la taille du site">
+            <input id="bc-r" type="text" placeholder="Ex. : un robots.txt modifié est pris en compte par la recherche de ChatGPT en 24 heures environ">
           </div>
 
           <div class="field-row">
             <div class="field">
               <label for="bc-chiffre">Un chiffre et sa date</label>
-              <input id="bc-chiffre" type="text" placeholder="Ex. : 3 à 5 jours de travail, constaté en 2026">
+              <input id="bc-chiffre" type="text" placeholder="Ex. : 24 heures selon la documentation d'OpenAI, consultée en octobre 2026">
             </div>
             <div class="field">
               <label for="bc-nuance">La nuance ou la condition</label>
-              <input id="bc-nuance" type="text" placeholder="Ex. : le prix dépend du nombre de pages">
+              <input id="bc-nuance" type="text" placeholder="Ex. : le délai vaut pour OAI-SearchBot, pas pour l'entraînement">
             </div>
           </div>
 
@@ -340,7 +516,7 @@
 
           <div class="tool-actions">
             <button type="button" class="btn-sm primary" id="bc-copy">Copier le paragraphe</button>
-            <a class="btn-sm ghost" href="/geo">Voir mon offre GEO</a>
+            <a class="btn-sm ghost" href="/geo">Voir mon accompagnement GEO</a>
           </div>
         </div>
         <div class="tool-foot">
@@ -349,106 +525,58 @@
         </div>
       </div>
 
-      <h2>Qu'est-ce qu'un contenu citable</h2>
+      <h2>Citer vos sources : le signal de fiabilité</h2>
 
-      <p>Reprenons depuis le mécanisme, parce qu'il explique toutes les règles qui suivent.</p>
-
-      <p>Quand un moteur de réponse traite une question, il ne lit pas votre page comme un lecteur. Il en extrait des fragments, en cherchant ceux qui répondent le mieux. Ces fragments sont ensuite recombinés avec ceux d'autres sources pour former une réponse rédigée.</p>
-
-      <p>Un contenu citable est donc un contenu conçu pour survivre à ce découpage. C'est exactement la logique d'une dépêche d'agence, dont chaque paragraphe peut être coupé sans que le texte devienne incompréhensible. Ce format n'a rien de nouveau : il a simplement changé de destinataire.</p>
-
-      <h3>La différence avec un bon contenu tout court</h3>
-
-      <p>Un bon contenu peut être un long raisonnement qui prend son temps, construit une démonstration et conclut à la fin. C'est excellent pour un lecteur humain qui suit le fil.</p>
-
-      <p>Un contenu citable donne la conclusion d'abord, puis la démonstration. Il perd en effet de surprise ce qu'il gagne en utilité immédiate. Les deux qualités peuvent coexister, mais quand elles s'opposent, il faut choisir, et aujourd'hui je choisis la seconde.</p>
-
-      <h2>Les six règles d'un contenu citable</h2>
-
-      <h3>1. Répondre avant d'argumenter</h3>
-
-      <p>La première phrase contient la réponse. Pas une accroche, pas une mise en contexte, pas une question rhétorique. La réponse.</p>
-
-      <p>Concrètement, reprenez la question sous forme affirmative et complétez-la. Le reste du texte développe, nuance et prouve. C'est l'inverse de ce qu'on apprend à l'école, et c'est ce qui fait la différence.</p>
-
-      <h3>2. Une idée par bloc</h3>
-
-      <p>Un paragraphe traite une seule chose. Dès qu'il y a un « par ailleurs » ou un « également », c'est qu'un deuxième paragraphe commence.</p>
-
-      <p>Cette règle a un effet secondaire heureux : elle rend le texte plus lisible pour les humains aussi. Les blocs courts sur une seule idée sont plus faciles à parcourir, et le parcours est le mode de lecture dominant sur écran.</p>
-
-      <h3>3. Des titres qui contiennent la question</h3>
-
-      <p>Bannissez les titres créatifs. « Le nerf de la guerre » ne dit rien à une machine qui cherche une correspondance avec une question d'utilisateur. « Combien coûte un audit SEO » lui dit tout.</p>
-
-      <p>Un bon titre de section pourrait servir de requête de recherche tel quel. C'est le test le plus rapide pour vérifier.</p>
-
-      <h3>4. Chiffrer, dater, attribuer</h3>
-
-      <p>Une information vérifiable est reprise ; une affirmation générale est écartée. La différence entre « les délais sont souvent longs » et « comptez quatre à huit semaines, délai constaté sur mes missions en 2026 » décide de tout.</p>
-
-      <p>Trois éléments à fournir systématiquement : le chiffre, sa date de mesure, et son origine. Si l'origine, c'est vous, dites-le : c'est même préférable, parce que la donnée devient introuvable ailleurs.</p>
-
-      <h3>5. Supprimer les liaisons qui créent une dépendance</h3>
-
-      <p>« C'est pourquoi », « en effet », « comme nous l'avons vu », « ainsi ». Ces formules relient un paragraphe au précédent, ce qui le rend incompréhensible une fois extrait.</p>
-
-      <p>La correction est mécanique : relisez chaque début de paragraphe et supprimez tout ce qui suppose d'avoir lu ce qui précède. Le texte y perd un peu de fluidité et y gagne beaucoup en robustesse.</p>
-
-      <h3>6. Apporter ce que personne d'autre n'a</h3>
-
-      <p>C'est la règle qui compte le plus à moyen terme. Un contenu qui reformule ce qui existe déjà n'a aucune raison d'être préféré aux vingt autres qui disent la même chose.</p>
-
-      <p>Ce qui ne s'invente pas : vos propres mesures, vos cas réels, les objections que vous entendez en rendez-vous, les erreurs que vous avez commises. C'est le seul matériau que la machine ne peut pas générer, et c'est donc celui qui a le plus de valeur.</p>
-
-      <h2>Comment citer vos propres sources</h2>
-
-      <p>Question apparemment secondaire, en réalité déterminante : citer correctement augmente vos chances d'être cité à votre tour.</p>
-
-      <p>La raison est simple. Les moteurs de réponse évaluent la fiabilité d'une page, et une page qui appuie ses affirmations sur des sources identifiables inspire davantage confiance qu'une page qui affirme sans rien montrer. C'est un signal de sérieux au même titre qu'un auteur identifié.</p>
-
-      <h3>Les bonnes pratiques</h3>
+      <p>Question apparemment secondaire, en réalité déterminante : citer correctement augmente vos chances d'être cité à votre tour. Les moteurs de réponse évaluent la fiabilité d'une page, et une page qui appuie ses affirmations sur des sources identifiables inspire davantage confiance qu'une page qui affirme sans rien montrer.</p>
 
       <ul>
         <li><strong>Nommez la source dans le texte</strong>, pas seulement en lien. « Selon la documentation de Google » est plus exploitable qu'un lien nu sur un mot.</li>
         <li><strong>Datez la source.</strong> Une donnée sans date est inutilisable pour un moteur qui cherche l'information à jour.</li>
-        <li><strong>Préférez la source primaire.</strong> Citez l'étude, pas l'article qui commente l'étude.</li>
-        <li><strong>Assumez vos propres données.</strong> « Sur les trente audits que j'ai menés en 2026 » est une source, et c'est même la meilleure, parce qu'elle est unique.</li>
+        <li><strong>Préférez la source primaire.</strong> Citez l'étude ou la documentation officielle, pas l'article qui la commente.</li>
+        <li><strong>Assumez vos propres données.</strong> « Sur les audits que j'ai menés cette année » est une source, et c'est même la meilleure, parce qu'elle est unique.</li>
         <li><strong>Distinguez le fait de l'opinion.</strong> Un lecteur comme un modèle doivent pouvoir faire la part des deux.</li>
       </ul>
 
       <div class="callout callout--tip">
         <p class="callout-t">Le réflexe qui change tout</p>
-        <p>Avant de publier, relisez et demandez-vous : qu'est-ce que ce contenu apporte qu'un lecteur ne trouverait pas dans les cinq premiers résultats ? Si vous ne trouvez rien en dix secondes, le texte n'est pas prêt. Cette question fait plus pour la qualité que n'importe quel outil.</p>
+        <p>Avant de publier, demandez-vous : qu'est-ce que ce contenu apporte qu'un lecteur ne trouverait pas dans les cinq premiers résultats ? Si vous ne trouvez rien en dix secondes, le texte n'est pas prêt.</p>
       </div>
 
-      <h2>Qui a le plus de chances d'être cité</h2>
+      <h2>Les données structurées servent-elles l'AEO ?</h2>
+
+      <p>Moins que ce que beaucoup imaginent. Google précise qu'aucun fichier spécial, aucun balisage d'IA ni aucune donnée structurée particulière n'est nécessaire pour apparaître dans ses fonctionnalités d'IA. Et depuis mai 2026, Google n'affiche plus du tout de FAQ enrichies dans ses résultats, après les avoir réservées aux sites officiels et de santé en 2023.</p>
+
+      <p>Le balisage garde deux usages. Il décrit clairement qui publie et qui écrit (<code>Organization</code>, <code>Person</code>, <code>Article</code>), ce qui aide à rattacher le contenu à une entité identifiable. Et le balisage <code>FAQPage</code> reste valide et sans risque, à condition de reprendre mot pour mot une FAQ visible sur la page. Il ne remplace jamais un texte bien construit.</p>
+
+      <h2>Qui a le plus de chances d'être repris</h2>
 
       <p>À qualité de contenu égale, certains profils sont favorisés. Autant le savoir pour compenser si vous n'en faites pas partie.</p>
 
       <ul>
         <li><strong>Les sources reconnues du secteur.</strong> Institutions, fédérations, éditeurs de référence. Elles partent avec une avance.</li>
-        <li><strong>Les auteurs identifiables.</strong> Un nom, un parcours vérifiable, d'autres publications ailleurs. C'est accessible à tout le monde, et largement sous-exploité.</li>
+        <li><strong>Les auteurs identifiables.</strong> Un nom, un parcours vérifiable, d'autres publications ailleurs. C'est accessible à tous, et largement sous-exploité.</li>
         <li><strong>Les sites qui publient des données originales.</strong> Une étude, même modeste, est reprise bien au-delà de son audience directe.</li>
         <li><strong>Les pages qui répondent frontalement.</strong> Y compris de petits sites, quand leur page est mieux construite que celle d'un gros acteur.</li>
       </ul>
 
-      <p>Le dernier point est la bonne nouvelle pour une PME : sur une question précise, la taille du site ne décide pas. Un artisan qui publie une page claire sur le coût d'une intervention peut être cité devant une grande enseigne dont la page est un argumentaire commercial.</p>
+      <p>Le dernier point est la bonne nouvelle pour une PME : sur une question précise, la taille du site ne décide pas. Un artisan qui publie une page claire sur le coût d'une intervention peut être cité devant une grande enseigne dont la page est un argumentaire commercial. Pour ChatGPT en particulier, l'accès du robot et la présence sur les sites tiers comptent autant que l'écriture : c'est l'objet de mon guide sur le <a href="/blog/etre-cite-par-chatgpt">référencement ChatGPT</a>.</p>
 
-      <h2>Comment reprendre un contenu existant</h2>
+      <h2>Checklist AEO : reprendre un contenu existant</h2>
 
       <p>La méthode que j'applique pour rendre citable un article déjà publié. Comptez vingt minutes par page.</p>
 
       <ol>
         <li><strong>Identifiez la question</strong> à laquelle la page répond. Une seule. Si vous en trouvez trois, la page doit peut-être être découpée.</li>
-        <li><strong>Réécrivez le premier paragraphe</strong> pour qu'il contienne la réponse complète.</li>
-        <li><strong>Reprenez les titres</strong> pour qu'ils posent des questions explicites.</li>
+        <li><strong>Réécrivez le premier paragraphe</strong> pour qu'il contienne la réponse complète, en deux phrases.</li>
+        <li><strong>Reprenez les titres</strong> pour qu'ils posent des questions explicites, formulées comme une recherche.</li>
         <li><strong>Chassez les liaisons</strong> en début de paragraphe.</li>
-        <li><strong>Ajoutez un chiffre daté</strong> par section importante.</li>
-        <li><strong>Ajoutez une FAQ</strong> reprenant les questions annexes, balisée en schema.org.</li>
+        <li><strong>Ajoutez un fait daté et attribué</strong> par section importante.</li>
+        <li><strong>Transformez les comparaisons en tableaux</strong> et les énumérations en listes.</li>
+        <li><strong>Ajoutez une FAQ</strong> avec les questions annexes que vos clients posent vraiment, réponses de deux à quatre phrases.</li>
+        <li><strong>Vérifiez l'auteur et la date</strong> : un nom, une mise à jour visible, une page qui présente qui vous êtes.</li>
       </ol>
 
-      <p>Cette séquence améliore aussi le référencement classique, parce que les mêmes qualités servent les deux canaux. C'est le point que je répète le plus souvent dans mon guide sur <a href="/blog/generative-engine-optimization">le generative engine optimization</a> : il n'y a pas deux écritures, il y en a une meilleure que l'autre.</p>
+      <p>Cette séquence améliore aussi le référencement classique, parce que les mêmes qualités servent les deux canaux. Il n'y a pas deux écritures, il y en a une meilleure que l'autre : c'est la même logique que dans ma méthode de <a href="/blog/contenu-seo">rédaction SEO</a>.</p>
 
       <h2>Trois exemples, avant et après</h2>
 
@@ -456,11 +584,11 @@
 
       <h3>Une introduction de page de service</h3>
 
-      <p><strong>Avant :</strong> « À l'heure où le digital transforme tous les secteurs, il devient essentiel pour les entreprises de se poser la question de leur visibilité en ligne. C'est dans ce contexte que l'audit SEO prend tout son sens. »</p>
+      <p><strong>Avant :</strong> « Aujourd'hui, le digital transforme tous les secteurs, et il devient essentiel pour les entreprises de se poser la question de leur visibilité en ligne. C'est dans ce contexte que l'audit SEO prend tout son sens. »</p>
 
       <p><strong>Après :</strong> « Un audit SEO analyse un site pour identifier ce qui l'empêche d'être trouvé sur les moteurs de recherche. Il couvre quatre domaines : la technique, le contenu, la popularité et l'expérience. Comptez trois à cinq jours pour un site de 500 pages. »</p>
 
-      <p>Ce qui a changé : la réponse est là dès la première phrase, un chiffre apparaît, et aucune formule creuse ne subsiste. Le texte est plus court et dit infiniment plus.</p>
+      <p>La réponse est là dès la première phrase, un chiffre apparaît, et aucune formule creuse ne subsiste. Le texte est plus court et dit infiniment plus.</p>
 
       <h3>Un titre de section</h3>
 
@@ -474,70 +602,86 @@
 
       <p><strong>Après :</strong> « La proximité thématique du site source est le premier critère de qualité d'un lien. Un lien depuis un site de votre secteur vaut davantage que dix liens généralistes. »</p>
 
-      <p>Le premier extrait est inexploitable hors contexte : on ne sait ni de quoi il parle ni de quel critère il s'agit. Le second se comprend seul, et peut donc être cité tel quel.</p>
+      <p>Le premier extrait est inexploitable hors contexte : impossible de savoir de quoi il parle ni de quel critère il s'agit. Le second se comprend seul, et peut donc être cité tel quel.</p>
 
-      <h2>Ce qu'il ne faut pas faire</h2>
+      <h2>Comment mesurer les résultats de l'AEO</h2>
+
+      <p>Il n'existe pas de tableau de bord unique. Je combine quatre sources.</p>
 
       <ul>
-        <li><strong>Écrire pour la machine.</strong> Les textes bourrés de formulations artificielles se repèrent et ne servent personne. Le contenu citable est d'abord un contenu utile.</li>
+        <li><strong>La Search Console.</strong> Les clics et impressions issus des AI Overviews et du Mode IA y sont comptés dans le rapport Performances, type de recherche « Web », sans être isolés. Suivez surtout les pages retravaillées, avant et après.</li>
+        <li><strong>Un panel de questions.</strong> Vingt à trente questions de vos clients, posées chaque mois à ChatGPT, Perplexity et Google en navigation privée, avec un relevé des sources citées. C'est la méthode que je détaille pour <a href="/blog/audit-visibilite-ia-methode">mesurer la visibilité de la marque sur IA</a>.</li>
+        <li><strong>Le trafic référent.</strong> Dans Google Analytics, les visites venues de chatgpt.com ou perplexity.ai apparaissent comme sources de session.</li>
+        <li><strong>Un premier diagnostic gratuit.</strong> L'AEO Grader de HubSpot interroge ChatGPT, Perplexity et Gemini sur votre marque. Utile pour une photographie de départ, pas pour un suivi.</li>
+      </ul>
+
+      <p>Si vous voulez ce relevé fait pour vous, avec la comparaison face à vos concurrents, c'est le périmètre de mon <a href="/audit-visibilite-ia">audit de visibilité IA</a>.</p>
+
+      <h2>Les erreurs à éviter en AEO</h2>
+
+      <ul>
+        <li><strong>Écrire pour la machine.</strong> Les textes bourrés de formulations artificielles se repèrent et ne servent personne. Un contenu citable est d'abord un contenu utile.</li>
         <li><strong>Découper à l'excès.</strong> Une succession de phrases isolées sans articulation devient illisible pour un humain. L'objectif est l'autonomie des blocs, pas l'absence de liens entre eux.</li>
-        <li><strong>Multiplier les FAQ artificielles.</strong> Une FAQ qui pose des questions que personne ne se pose est du remplissage, et le balisage d'une FAQ invisible est une pénalité.</li>
+        <li><strong>Multiplier les FAQ artificielles.</strong> Une FAQ qui pose des questions que personne ne se pose est du remplissage, et baliser une FAQ invisible sur la page est une faute.</li>
         <li><strong>Confondre citable et court.</strong> Un contenu peut être long et parfaitement citable, à condition d'être structuré.</li>
         <li><strong>Publier sans rien apporter.</strong> C'est le défaut le plus fréquent depuis que produire du texte ne coûte plus rien.</li>
       </ul>
 
-      <p>Un dernier mot sur l'équilibre. Écrire citable ne veut pas dire écrire plat. Vous pouvez garder votre voix, vos formules, votre point de vue : ce sont même eux qui rendent le contenu irremplaçable. Ce qui change, c'est l'architecture qui les porte.</p>
-
-
-      <!-- MAILLAGE À AJOUTER APRÈS PUBLICATION DES CIBLES :
-           - /blog/rediger-avec-ia (C6-07, 06/11/2026) : section « Ce qu'il ne faut pas faire »
-           - /blog/contenu-seo (C6-02, 23/10/2026) : section « Comment reprendre un contenu existant »
-           - /blog/eeat-ia (C1-17) : section « Qui a le plus de chances d'être cité »
-           - /blog/questions-paa-seo (C6-15) : section « Ajoutez une FAQ »
-      -->
+      <p>Écrire pour l'AEO ne veut pas dire écrire plat. Vous pouvez garder votre voix, vos formules, votre point de vue : ce sont même eux qui rendent le contenu irremplaçable. Ce qui change, c'est l'architecture qui les porte.</p>
 
       <!-- ================= FAQ ================= -->
       <section class="faq">
         <h2>Questions fréquentes</h2>
 
         <details>
+          <summary>Qu'est-ce que l'AEO ?</summary>
+          <div class="faq-a"><p>L'AEO, pour answer engine optimization, est l'optimisation d'un contenu pour qu'un moteur de réponse le reprenne dans sa réponse : extrait optimisé de Google, AI Overview, ChatGPT, Perplexity ou assistant vocal. Elle consiste à écrire des blocs qui répondent à une question précise, se comprennent hors contexte et s'appuient sur une information vérifiable.</p></div>
+        </details>
+
+        <details>
+          <summary>Que veut dire AEO en SEO ?</summary>
+          <div class="faq-a"><p>En SEO, AEO signifie answer engine optimization, soit optimisation pour les moteurs de réponse. Le sigle désigne le travail sur les passages d'une page pour qu'ils soient extraits et cités, et pas seulement sur le classement de la page. Hors du référencement, AEO désigne aussi un statut douanier, l'opérateur économique agréé.</p></div>
+        </details>
+
+        <details>
+          <summary>Quelle différence entre AEO et SEO ?</summary>
+          <div class="faq-a"><p>Le SEO cherche à classer une page dans les résultats de recherche ; l'AEO cherche à faire reprendre un passage de cette page dans une réponse. Les deux se recouvrent largement : Google précise qu'aucune optimisation spéciale n'est nécessaire pour ses fonctionnalités d'IA, au-delà d'une page indexée et éligible à un extrait. L'AEO est la partie du SEO qui travaille l'extraction.</p></div>
+        </details>
+
+        <details>
+          <summary>Quelle différence entre AEO et GEO ?</summary>
+          <div class="faq-a"><p>L'AEO travaille le passage pour qu'il soit repris dans une réponse, quel que soit le moteur. Le GEO (generative engine optimization) vise les IA génératives comme ChatGPT, Perplexity ou Gemini, et ajoute à l'écriture la notoriété de la marque sur d'autres sites. Dans la pratique, les deux termes sont souvent employés l'un pour l'autre.</p></div>
+        </details>
+
+        <details>
+          <summary>Comment optimiser un contenu pour l'AEO ?</summary>
+          <div class="faq-a"><p>Six règles : répondre dès la première phrase, traiter une seule idée par bloc, écrire des titres qui contiennent la question posée, chiffrer, dater et attribuer chaque information, supprimer les liaisons qui rendent un paragraphe dépendant du précédent, et apporter une donnée que personne d'autre n'a. Comptez vingt minutes pour reprendre une page existante.</p></div>
+        </details>
+
+        <details>
+          <summary>Faut-il des données structurées pour l'AEO ?</summary>
+          <div class="faq-a"><p>Elles ne sont pas nécessaires. Google indique qu'aucune donnée structurée particulière n'est requise pour ses fonctionnalités d'IA, et n'affiche plus de FAQ enrichies depuis mai 2026. Le balisage reste utile pour identifier l'auteur et l'éditeur, et le balisage FAQPage reste valide s'il reprend une FAQ visible sur la page.</p></div>
+        </details>
+
+        <details>
+          <summary>Comment mesurer les résultats de l'AEO ?</summary>
+          <div class="faq-a"><p>Combinez la Search Console, qui compte les clics issus des AI Overviews dans le trafic Web, un panel de questions posées chaque mois aux moteurs de réponse avec relevé des sources citées, et le trafic venu de chatgpt.com ou perplexity.ai dans Google Analytics. Aucun outil ne donne seul une mesure complète.</p></div>
+        </details>
+
+        <details>
           <summary>Qu'est-ce qu'un contenu citable ?</summary>
-          <div class="faq-a"><p>Un contenu citable est un contenu qu'une machine peut découper sans le trahir : chaque bloc répond à une question précise, se comprend hors de son contexte, et s'appuie sur une information vérifiable. Ce n'est pas une question de style mais de structure, proche de celle d'une dépêche d'agence.</p></div>
+          <div class="faq-a"><p>Un contenu citable est un contenu qu'une machine peut découper sans le trahir : chaque bloc répond à une question précise, se comprend hors de son contexte et s'appuie sur une information vérifiable. Ce n'est pas une question de style mais de structure, proche de celle d'une dépêche d'agence.</p></div>
         </details>
 
-        <details>
-          <summary>Comment rendre un contenu citable ?</summary>
-          <div class="faq-a"><p>Six règles : répondre avant d'argumenter dès la première phrase, traiter une seule idée par bloc, écrire des titres qui contiennent la question posée, chiffrer et dater chaque information, supprimer les liaisons qui créent une dépendance au paragraphe précédent, et apporter une donnée que personne d'autre n'a.</p></div>
-        </details>
-
-        <details>
-          <summary>Comment citer ses sources dans un contenu ?</summary>
-          <div class="faq-a"><p>Nommez la source dans le texte et pas seulement en lien, datez-la, préférez la source primaire à l'article qui la commente, assumez vos propres données comme sources à part entière, et distinguez clairement le fait de l'opinion. Une page qui appuie ses affirmations inspire davantage confiance.</p></div>
-        </details>
-
-        <details>
-          <summary>Pourquoi est-il important de citer ses sources ?</summary>
-          <div class="faq-a"><p>Parce que les moteurs de réponse évaluent la fiabilité d'une page avant de la reprendre. Une page qui appuie ses affirmations sur des sources identifiables est jugée plus sûre qu'une page qui affirme sans rien montrer. Citer correctement augmente donc vos chances d'être cité à votre tour.</p></div>
-        </details>
-
-        <details>
-          <summary>Qui a le plus de chances d'être cité par les IA ?</summary>
-          <div class="faq-a"><p>Les sources reconnues du secteur partent avec une avance, mais quatre facteurs sont accessibles à tous : un auteur identifiable avec un parcours vérifiable, la publication de données originales, une page qui répond frontalement à la question, et une information de première main. Sur une question précise, la taille du site ne décide pas.</p></div>
-        </details>
-
-        <details>
-          <summary>Comment optimiser un contenu existant pour l'IA ?</summary>
-          <div class="faq-a"><p>En vingt minutes par page : identifiez la question unique à laquelle la page répond, réécrivez le premier paragraphe pour qu'il contienne la réponse complète, transformez les titres en questions explicites, supprimez les liaisons en début de paragraphe, ajoutez un chiffre daté par section, et posez une FAQ balisée.</p></div>
-        </details>
       </section>
 
       <!-- ================= CTA ================= -->
       <div class="cta-band">
         <div>
           <h2>Vos contenus sont-ils repris par les IA ?</h2>
-          <p>Audit de visibilité IA : ce que les moteurs citent sur votre secteur, et les contenus à produire pour y entrer.</p>
+          <p>Audit de visibilité IA : ce que les moteurs de réponse citent sur votre secteur, et les contenus à produire pour y entrer.</p>
         </div>
-        <a class="btn btn-lime" href="/geo">Voir mon offre GEO <span class="ar">→</span></a>
+        <a class="btn btn-lime" href="/audit-visibilite-ia">Auditer ma visibilité IA <span class="ar">→</span></a>
       </div>
 
       <!-- ================= AUTEUR ================= -->
@@ -617,7 +761,7 @@
   <aside class="rail rail-right">
     <div class="ai-box">
       <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
-      <p class="ai-text">Un contenu citable est un contenu qu'une machine peut découper sans le trahir : chaque bloc répond à une question précise, se comprend hors contexte et s'appuie sur une information vérifiable. Ce n'est pas une question de style mais de structure. La règle première est de répondre avant d'argumenter.</p>
+      <p class="ai-text">L'AEO (answer engine optimization) optimise un contenu pour qu'un moteur de réponse le reprenne : extrait optimisé de Google, AI Overview, ChatGPT, Perplexity. L'unité de travail est le passage : réponse dans la première phrase, une idée par bloc, titres formulés comme des questions, faits datés et attribués. Elle prolonge le SEO sans le remplacer.</p>
       <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
     </div>
 
@@ -626,15 +770,15 @@
       <div class="mini-list">
         <a class="mini" href="/blog/etre-cite-par-chatgpt">
           <span class="mini-thumb"><picture><source srcset="/images/blog/cite-chatgpt-cover.avif" type="image/avif"><img src="/images/blog/cite-chatgpt-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
-          <span><span class="mini-cat">GEO, visibilité IA</span><span class="mini-ttl">Comment être cité par ChatGPT</span></span>
+          <span><span class="mini-cat">GEO, visibilité IA</span><span class="mini-ttl">Référencement ChatGPT : comment apparaître dans ses réponses</span></span>
         </a>
         <a class="mini" href="/blog/generative-engine-optimization">
           <span class="mini-thumb"><picture><source srcset="/images/blog/geo-cover.avif" type="image/avif"><img src="/images/blog/geo-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
-          <span><span class="mini-cat">GEO, visibilité IA</span><span class="mini-ttl">Generative Engine Optimization : comment être cité par les IA</span></span>
+          <span><span class="mini-cat">GEO, visibilité IA</span><span class="mini-ttl">GEO SEO : le guide du Generative Engine Optimization</span></span>
         </a>
-        <a class="mini" href="/blog/rediger-article-blog-2026">
-          <span class="mini-thumb"><picture><source srcset="/images/blog/rediger-article-cover.avif" type="image/avif"><img src="/images/blog/rediger-article-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
-          <span><span class="mini-cat">Rédaction</span><span class="mini-ttl">Comment rédiger un bon article de blog en 2026</span></span>
+        <a class="mini" href="/blog/contenu-seo">
+          <span class="mini-thumb"><picture><source srcset="/images/blog/contenu-seo-cover.avif" type="image/avif"><img src="/images/blog/contenu-seo-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
+          <span><span class="mini-cat">SEO</span><span class="mini-ttl">Rédaction SEO : comment écrire un article SEO (guide 2026)</span></span>
         </a>
       </div>
     </div>
@@ -645,30 +789,30 @@
 <section class="related">
   <div class="wrap">
     <h2>À lire ensuite</h2>
-    <p class="sub">La suite logique du parcours.</p>
+    <p class="sub">Appliquer l'AEO moteur par moteur.</p>
     <div class="rel-grid">
       <a class="rel-card" href="/blog/etre-cite-par-chatgpt">
         <picture><source srcset="/images/blog/cite-chatgpt-cover.avif" type="image/avif"><img src="/images/blog/cite-chatgpt-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
 <div class="rel-body">
           <span class="rel-cat">GEO, visibilité IA</span>
-          <h3>Comment être cité par ChatGPT</h3>
-          <p>Les trois conditions, les sept leviers, et le plan sur quatre semaines.</p>
+          <h3>Référencement ChatGPT : comment apparaître dans ses réponses</h3>
+          <p>Les robots à autoriser, les sept étapes et la mesure, propres à ChatGPT.</p>
         </div>
       </a>
       <a class="rel-card" href="/blog/ai-overview-france">
         <picture><source srcset="/images/blog/ai-overview-cover.avif" type="image/avif"><img src="/images/blog/ai-overview-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
 <div class="rel-body">
           <span class="rel-cat">GEO, visibilité IA</span>
-          <h3>AI Overviews : ce qui change pour votre trafic</h3>
-          <p>Comment ils fonctionnent, ce qu'ils coûtent en clics, et comment y figurer.</p>
+          <h3>Désactiver l'Aperçu IA de Google : 5 méthodes (2026)</h3>
+          <p>Le moteur de réponse que vos clients voient le plus, côté utilisateur et côté site.</p>
         </div>
       </a>
       <a class="rel-card" href="/blog/rediger-article-blog-2026">
         <picture><source srcset="/images/blog/rediger-article-cover.avif" type="image/avif"><img src="/images/blog/rediger-article-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
 <div class="rel-body">
           <span class="rel-cat">Rédaction</span>
-          <h3>Comment rédiger un bon article de blog en 2026</h3>
-          <p>Structure, SEO, engagement : créer du contenu qui performe sur Google et que les IA citent.</p>
+          <h3>Comment écrire un article de blog en 11 étapes (+ modèle)</h3>
+          <p>La méthode complète, du plan à la relecture, avec les règles de structure qui servent aussi l'AEO.</p>
         </div>
       </a>
     </div>

@@ -1,127 +1,154 @@
-/* Estimation de l'exposition du trafic aux résumés générés de Google.
-   Les hypothèses sont affichées avec le résultat. Aucun appel réseau. */
+/* Google sans Aperçu IA : lien direct (paramètre udm=14) et réglage du moteur
+   par défaut, navigateur par navigateur. Article ai-overview-france.
+   100 % navigateur : l'outil ne fait aucun appel réseau, il prépare un lien
+   que le lecteur ouvre lui-même. */
 (function () {
-  var out = document.getElementById('ao-out');
-  if (!out) return;
+  'use strict';
+  var $ = function (id) { return document.getElementById(id); };
+  var q = $('ao-q'), out = $('ao-out'), go = $('ao-go'),
+      copy = $('ao-copy'), copyAll = $('ao-copy-all'), chips = $('ao-nav');
+  if (!q || !out) return;
 
-  var type = 'info', pos = 1;
+  var MOTEUR = 'https://www.google.com/search?udm=14&q=%s';
+  var nav = 'chrome';
 
-  // Part des requêtes déclenchant un résumé, par famille. Ordres de grandeur
-  // observés en mission, volontairement prudents.
-  var DECLENCHE = { info: 0.65, compa: 0.45, marque: 0.10, local: 0.25 };
-  // Part des clics perdus parmi les requêtes concernées.
-  var PERTE = { info: 0.35, compa: 0.20, marque: 0.05, local: 0.15 };
-  var LIB = {
-    info: 'questions et définitions',
-    compa: 'comparatifs et avis',
-    marque: 'marque et achat direct',
-    local: 'recherches locales'
+  var REGLAGES = {
+    chrome: {
+      nom: 'Google Chrome (ordinateur)',
+      moteur: true,
+      etapes: [
+        'Ouvrez les Paramètres de Chrome, rubrique Moteur de recherche.',
+        'Cliquez sur « Gérer les moteurs de recherche et la recherche sur le site ».',
+        'Dans la partie « Recherche sur le site », cliquez sur Ajouter.',
+        'Nom : Google Web. Raccourci : gw. URL : collez l\'adresse ci-dessus.',
+        'Ouvrez le menu (trois points) de la ligne Google Web et définissez-le par défaut.'
+      ],
+      note: 'Même manipulation sur Brave et Vivaldi.'
+    },
+    edge: {
+      nom: 'Microsoft Edge (ordinateur)',
+      moteur: true,
+      etapes: [
+        'Ouvrez Paramètres, puis Confidentialité, recherche et services.',
+        'Ouvrez Barre d\'adresse et recherche (sous « Recherche et expériences connectées » selon la version).',
+        'Cliquez sur Gérer les moteurs de recherche, puis sur Ajouter.',
+        'Nom : Google Web. Raccourci : gw. URL : collez l\'adresse ci-dessus.',
+        'Dans le menu de la ligne Google Web, choisissez de le définir par défaut.'
+      ],
+      note: ''
+    },
+    firefox: {
+      nom: 'Firefox (ordinateur)',
+      moteur: true,
+      etapes: [
+        'Ouvrez Paramètres, puis Recherche.',
+        'Dans « Raccourcis de recherche », cliquez sur Ajouter.',
+        'Nom : Google Web. URL : collez l\'adresse ci-dessus. Mot-clé : @gw.',
+        'En haut de la page, choisissez Google Web comme moteur par défaut.'
+      ],
+      note: 'Autre option : le module gratuit udm14 dans le catalogue des extensions de Firefox.'
+    },
+    safari: {
+      nom: 'Safari (Mac)',
+      moteur: false,
+      etapes: [
+        'Safari ne permet pas d\'ajouter un moteur personnalisé.',
+        'Installez l\'extension gratuite « udm14 for Safari » depuis l\'App Store.',
+        'Ouvrez Safari, Réglages, Extensions, et cochez udm14.',
+        'Autorisez l\'extension sur google.com.'
+      ],
+      note: 'Chaque recherche Google s\'ouvre alors en affichage Web, sans Aperçu IA.'
+    },
+    iphone: {
+      nom: 'iPhone et iPad',
+      moteur: false,
+      etapes: [
+        'Installez « udm14 for Safari » depuis l\'App Store (gratuite).',
+        'Ouvrez Réglages, Safari, Extensions (Réglages, Apps, Safari sur iOS 18 et suivants).',
+        'Activez udm14 et autorisez-la sur google.com.',
+        'Dans Chrome ou l\'application Google sur iPhone : touchez l\'onglet Web après chaque recherche.'
+      ],
+      note: ''
+    },
+    android: {
+      nom: 'Android',
+      moteur: false,
+      etapes: [
+        'Chrome pour Android ne permet pas de saisir l\'adresse d\'un moteur personnalisé.',
+        'Option durable : installez Firefox pour Android, puis le module gratuit udm14.',
+        'Option rapide : dans Chrome, touchez l\'onglet Web après chaque recherche.',
+        'L\'application Google ne propose aucune option pour retirer l\'Aperçu IA.'
+      ],
+      note: ''
+    }
   };
 
-  function num(id) {
-    var e = document.getElementById(id);
-    var v = e ? parseFloat(e.value) : 0;
-    return isNaN(v) || v < 0 ? 0 : v;
+  function lien() {
+    var v = q.value.trim();
+    return v ? 'https://www.google.com/search?udm=14&q=' + encodeURIComponent(v).replace(/%20/g, '+') : '';
+  }
+
+  function texte() {
+    var r = REGLAGES[nav];
+    var t = 'Google sans Aperçu IA : ' + r.nom + '\n\n';
+    if (r.moteur) t += 'Adresse du moteur à coller :\n' + MOTEUR + '\n\n';
+    t += 'Étapes :\n';
+    r.etapes.forEach(function (e, i) { t += (i + 1) + '. ' + e + '\n'; });
+    if (r.note) t += '\n' + r.note + '\n';
+    var l = lien();
+    t += '\nLien direct pour votre recherche :\n'
+      + (l || '(saisissez une recherche plus haut pour obtenir le lien)') + '\n';
+    t += '\nSource : anthony-courtin.com/blog/ai-overview-france';
+    return t;
   }
 
   function render() {
-    var imp = num('ao-imp'), clics = num('ao-clic');
-    var perteEl = document.getElementById('ao-perte');
-    var meterEl = document.getElementById('ao-meter');
-    var labelEl = document.getElementById('ao-label');
-
-    if (!clics) {
-      perteEl.textContent = '0';
-      meterEl.style.width = '0%';
-      labelEl.textContent = '';
-      out.textContent = '';
-      return;
+    out.textContent = texte();
+    var l = lien();
+    if (go) {
+      if (l) {
+        go.href = l;
+        go.removeAttribute('aria-disabled');
+        go.style.opacity = '';
+      } else {
+        go.href = '#outil-aio';
+        go.setAttribute('aria-disabled', 'true');
+        go.style.opacity = '.55';
+      }
     }
-
-    // Une position lointaine est moins exposée : ces clics sont déjà rares.
-    var facteurPos = pos === 1 ? 1 : (pos === 2 ? 0.7 : 0.4);
-    var exposes = Math.round(clics * DECLENCHE[type]);
-    var perdus = Math.round(exposes * PERTE[type] * facteurPos);
-    var ctr = imp ? (clics / imp * 100) : 0;
-
-    perteEl.textContent = perdus;
-    meterEl.style.width = Math.min(100, Math.round(perdus / clics * 100 * 2)) + '%';
-    labelEl.textContent = ' (' + Math.round(perdus / clics * 100) + ' % de vos clics)';
-
-    var txt = 'Exposition estimée aux résumés générés\n\n'
-      + '  clics mensuels actuels     : ' + clics + '\n'
-      + '  clics sur requêtes exposées: ' + exposes + '\n'
-      + '  clics potentiellement perdus: ' + perdus
-      + ' (' + Math.round(perdus / clics * 100) + ' %)\n';
-
-    if (imp) txt += '  taux de clic actuel        : ' + ctr.toFixed(2) + ' %\n';
-
-    txt += '\nLecture :\n';
-    if (type === 'marque') {
-      txt += "Votre trafic vient surtout de requêtes de marque ou d'achat direct, sur "
-           + "lesquelles les résumés se déclenchent peu. Vous êtes parmi les moins exposés : "
-           + "surveillez, mais ne refondez rien.\n";
-    } else if (type === 'info') {
-      txt += "Votre trafic repose sur des questions informationnelles, la famille la plus "
-           + "exposée. C'est aussi celle où la restructuration en questions et réponses "
-           + "donne les meilleurs résultats.\n";
-    } else if (type === 'compa') {
-      txt += "Les comparatifs résistent mieux que les définitions : le résumé sert souvent "
-           + "d'introduction et le lecteur clique quand même pour décider. Renforcez ce qui "
-           + "aide à trancher : tableaux, prix, critères.\n";
-    } else {
-      txt += "Sur le local, l'enjeu se déplace vers la fiche Google Business et les avis, "
-           + "davantage que vers le site lui-même.\n";
-    }
-
-    txt += '\nPlan d\'action :\n'
-      + '  1. Vérifier dans la Search Console les requêtes à impressions stables et clics en baisse.\n'
-      + '  2. Restructurer les pages exposées en questions suivies de réponses courtes.\n'
-      + '  3. Renforcer les contenus qui aident à décider : prix, comparatifs, cas réels.\n'
-      + '  4. Suivre le taux de clic à position constante, pas seulement les sessions.\n'
-      + '\nHypothèses retenues :\n'
-      + '  famille de requêtes : ' + LIB[type] + '\n'
-      + '  part des requêtes déclenchant un résumé : ' + Math.round(DECLENCHE[type] * 100) + ' %\n'
-      + '  part de clics perdus sur ces requêtes : ' + Math.round(PERTE[type] * 100) + ' %\n'
-      + '  ajustement selon la position moyenne : x' + facteurPos + '\n'
-      + '\nCe sont des ordres de grandeur observés en mission, pas une mesure de votre site. '
-      + 'Seule la Search Console donne votre chiffre réel.';
-
-    out.textContent = txt;
+    if (copy) copy.style.display = REGLAGES[nav].moteur ? '' : 'none';
   }
 
-  ['ao-imp', 'ao-clic'].forEach(function (id) {
-    var e = document.getElementById(id);
-    if (e) e.addEventListener('input', render);
-  });
-
-  var gt = document.getElementById('ao-type');
-  if (gt) gt.addEventListener('click', function (e) {
-    var b = e.target.closest('.chip'); if (!b) return;
-    gt.querySelectorAll('.chip').forEach(function (c) { c.classList.remove('on'); });
-    b.classList.add('on'); type = b.dataset.v; render();
-  });
-
-  var gp = document.getElementById('ao-pos');
-  if (gp) gp.addEventListener('click', function (e) {
-    var b = e.target.closest('.chip'); if (!b) return;
-    gp.querySelectorAll('.chip').forEach(function (c) { c.classList.remove('on'); });
-    b.classList.add('on'); pos = parseInt(b.dataset.v, 10) || 1; render();
-  });
-
-  var copy = document.getElementById('ao-copy');
-  if (copy) copy.addEventListener('click', function () {
-    var done = function () {
-      copy.textContent = 'Copié ✓'; copy.classList.add('ok');
-      setTimeout(function () { copy.textContent = "Copier l'estimation"; copy.classList.remove('ok'); }, 1800);
+  function copier(btn, valeur, libelle) {
+    var fini = function () {
+      btn.textContent = 'Copié ✓'; btn.classList.add('ok');
+      setTimeout(function () { btn.textContent = libelle; btn.classList.remove('ok'); }, 1800);
     };
-    if (navigator.clipboard) navigator.clipboard.writeText(out.textContent).then(done, function () {});
-    else {
-      var i = document.createElement('textarea');
-      i.value = out.textContent; document.body.appendChild(i);
-      i.select(); document.execCommand('copy'); i.remove(); done();
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(valeur).then(fini, function () {});
+    } else {
+      var a = document.createElement('textarea');
+      a.value = valeur; document.body.appendChild(a);
+      a.select(); document.execCommand('copy'); a.remove(); fini();
     }
+  }
+
+  q.addEventListener('input', render);
+  q.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && lien()) { e.preventDefault(); window.open(lien(), '_blank', 'noopener'); }
   });
+
+  if (chips) chips.addEventListener('click', function (e) {
+    var b = e.target.closest('.chip'); if (!b) return;
+    chips.querySelectorAll('.chip').forEach(function (c) { c.classList.remove('on'); });
+    b.classList.add('on'); nav = b.dataset.v; render();
+  });
+
+  if (go) go.addEventListener('click', function (e) {
+    if (!lien()) { e.preventDefault(); q.focus(); }
+  });
+  if (copy) copy.addEventListener('click', function () { copier(copy, MOTEUR, 'Copier l\'adresse du moteur'); });
+  if (copyAll) copyAll.addEventListener('click', function () { copier(copyAll, texte(), 'Copier le réglage'); });
 
   render();
 })();

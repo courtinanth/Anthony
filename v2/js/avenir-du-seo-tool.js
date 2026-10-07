@@ -1,54 +1,79 @@
-/* Diagnostic de préparation pour l'article avenir-du-seo.
+/* SEO ou GEO : par quoi commencer ? (article avenir-du-seo, « GEO vs SEO »).
+   Deux scores (socle SEO, couche GEO), une priorité et trois actions à copier.
    100 % navigateur, aucun appel réseau. */
 (function () {
   'use strict';
   var $ = function (id) { return document.getElementById(id); };
-  var liste = $('avs-check'), score = $('avs-score'), meter = $('avs-meter'),
-      out = $('avs-out'), copy = $('avs-copy');
-  if (!liste || !score) return;
+  var liste = $('avs-check'), out = $('avs-out'), copy = $('avs-copy');
+  var scoreSeo = $('avs-seo'), scoreGeo = $('avs-geo');
+  var meterSeo = $('avs-meter-seo'), meterGeo = $('avs-meter-geo');
+  if (!liste || !out || !scoreSeo || !scoreGeo) return;
 
   var cases = Array.prototype.slice.call(liste.querySelectorAll('input[type="checkbox"]'));
 
-  var PALIERS = [
-    { min: 8, titre: 'Vous êtes en avance',
-      texte: "Votre site coche l'essentiel de ce qui comptera dans les deux ans. Le travail restant est d'entretien : mesurer les citations dans les moteurs de réponse et tenir la fraîcheur des pages qui portent le trafic." },
-    { min: 6, titre: 'Bonne base, deux chantiers devant vous',
-      texte: "Les fondations tiennent. Ce qui manque relève surtout de la citabilité : structurer les réponses pour qu'un modèle puisse les reprendre sans les déformer, et rendre vos données vérifiables." },
-    { min: 4, titre: 'Vous êtes dans la moyenne, donc exposé',
-      texte: "Votre SEO fonctionne selon les règles d'hier. C'est exactement le profil qui perd du trafic quand les réponses générées absorbent les clics d'information. Priorisez la valeur propriétaire : ce que vous seul pouvez écrire." },
-    { min: 0, titre: 'Le rattrapage commence par les bases',
-      texte: "Avant de parler d'IA, il reste du SEO classique à faire : indexation, intention de recherche, contenu qui répond vraiment. Ces fondations n'ont pas disparu, elles conditionnent tout le reste." }
-  ];
+  var VERDICTS = {
+    seo: {
+      titre: 'Priorité au SEO',
+      texte: "Le socle n'est pas encore en place. Les moteurs génératifs puisent leurs sources dans les index de recherche : sans indexation ni positions, aucune optimisation GEO ne sera vue. Commencez par le SEO, la couche GEO viendra ensuite."
+    },
+    geo: {
+      titre: 'Priorité au GEO',
+      texte: "Votre socle SEO tient. Le gain le plus rapide est maintenant la citation : des pages faciles à reprendre, des preuves datées et une marque visible en dehors de votre site."
+    },
+    deux: {
+      titre: 'SEO et GEO en place : mesurez et entretenez',
+      texte: "Les deux couches sont solides. Le travail devient régulier : mettre à jour les pages qui rapportent, suivre les impressions IA dans la Search Console et relever chaque mois votre panel de questions."
+    }
+  };
+
+  function scoreDe(axe) {
+    return cases.reduce(function (t, c) {
+      return t + (c.dataset.axe === axe && c.checked ? (parseInt(c.dataset.p, 10) || 0) : 0);
+    }, 0);
+  }
+
+  function manquants(axe) {
+    return cases.filter(function (c) { return c.dataset.axe === axe && !c.checked; })
+      .sort(function (a, b) { return (parseInt(b.dataset.p, 10) || 0) - (parseInt(a.dataset.p, 10) || 0); })
+      .map(function (c) { return c.dataset.a; });
+  }
 
   function calcul() {
-    var n = cases.filter(function (c) { return c.checked; }).length;
-    score.textContent = n + ' / ' + cases.length;
-    if (meter) meter.style.width = Math.round((n / cases.length) * 100) + '%';
+    var s = scoreDe('seo'), g = scoreDe('geo');
+    scoreSeo.textContent = s;
+    scoreGeo.textContent = g;
+    if (meterSeo) meterSeo.style.width = s + '%';
+    if (meterGeo) meterGeo.style.width = g + '%';
 
-    var p = PALIERS[PALIERS.length - 1];
-    for (var i = 0; i < PALIERS.length; i++) { if (n >= PALIERS[i].min) { p = PALIERS[i]; break; } }
-
-    if (out) {
-      out.textContent = '';
-      var t = document.createElement('strong'); t.textContent = p.titre;
-      var d = document.createElement('p'); d.textContent = p.texte;
-      out.appendChild(t); out.appendChild(d);
+    var cle = s < 60 ? 'seo' : (g < 60 ? 'geo' : 'deux');
+    var ordre = cle === 'geo' ? manquants('geo').concat(manquants('seo'))
+                              : manquants('seo').concat(manquants('geo'));
+    var actions = ordre.slice(0, 3);
+    if (!actions.length) {
+      actions = ['Relever chaque mois votre panel de questions dans ChatGPT, Perplexity et Google.',
+                 'Mettre à jour en priorité les pages qui génèrent du chiffre d\'affaires.'];
     }
-    return { n: n, p: p };
+
+    out.textContent = '';
+    var t = document.createElement('strong'); t.textContent = VERDICTS[cle].titre;
+    var d = document.createElement('p'); d.textContent = VERDICTS[cle].texte;
+    var ol = document.createElement('ol');
+    actions.forEach(function (a) { var li = document.createElement('li'); li.textContent = a; ol.appendChild(li); });
+    out.appendChild(t); out.appendChild(d); out.appendChild(ol);
+
+    return { s: s, g: g, v: VERDICTS[cle], actions: actions };
   }
 
   function copier() {
     var r = calcul();
-    var manquants = cases.filter(function (c) { return !c.checked; })
-      .map(function (c) { var l = c.closest('label'); return '- ' + (l ? l.textContent.trim() : ''); });
-    var texte = ['Diagnostic : ' + r.n + ' critère(s) sur ' + cases.length, '', r.p.titre, r.p.texte, '',
-      manquants.length ? 'Ce qui reste à faire :' : 'Rien ne manque.']
-      .concat(manquants)
+    var texte = ['Socle SEO : ' + r.s + '/100 · Couche GEO : ' + r.g + '/100', '',
+      r.v.titre, r.v.texte, '', 'Mes trois prochaines actions :']
+      .concat(r.actions.map(function (a, i) { return (i + 1) + '. ' + a; }))
       .concat(['', 'Source : anthony-courtin.com/blog/avenir-du-seo']).join('\n');
     var fini = function (ok) {
       if (!copy) return;
       var a = copy.textContent;
-      copy.textContent = ok ? 'Copié' : 'Copie impossible';
+      copy.textContent = ok ? 'Copié ✓' : 'Copie impossible';
       setTimeout(function () { copy.textContent = a; }, 1800);
     };
     if (navigator.clipboard && navigator.clipboard.writeText) {

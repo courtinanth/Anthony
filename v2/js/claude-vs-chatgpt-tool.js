@@ -1,5 +1,5 @@
 /* Sélecteur d'usage pour l'article claude-vs-chatgpt.
-   100 % navigateur, aucun appel réseau. */
+   100 % navigateur, aucun appel réseau. Faits relevés le 7 octobre 2026. */
 (function () {
   'use strict';
   var $ = function (id) { return document.getElementById(id); };
@@ -11,30 +11,37 @@
      Une égalité est un résultat valide : sur beaucoup d'usages, les deux se valent. */
   var REGLES = {
     usage: {
-      documents: { c: 3, g: 0, r: "Sur les documents longs, la fenêtre de contexte fait la différence : Claude annonce un million de tokens là où le modèle instantané de ChatGPT est donné à 27 000." },
-      code: { c: 2, g: 1, r: "Les deux codent bien. Claude prend l'avantage sur les tâches longues et autonomes, ChatGPT sur l'intégration à un écosystème déjà en place." },
+      documents: { c: 3, g: 0, r: "Sur les documents longs, la fenêtre de contexte fait la différence : Claude monte jusqu'à un million de tokens sur toutes ses formules, ChatGPT donne 27 000 à 128 000 tokens en mode instantané selon la formule." },
+      code: { c: 2, g: 1, r: "Claude Code (inclus dès Claude Pro) et Codex (inclus dans ChatGPT Plus) font jeu égal sur l'offre. Claude garde un léger avantage dans ma pratique sur les tâches longues." },
       redaction: { c: 2, g: 1, r: "Question de goût plus que de capacité. L'écriture de Claude est plus sobre, celle de ChatGPT plus démonstrative." },
-      images: { c: 0, g: 3, r: "La génération et l'analyse d'images sont intégrées chez ChatGPT. Claude traite l'image en entrée mais n'en produit pas." },
-      recherche: { c: 1, g: 2, r: "Les deux cherchent sur le web. ChatGPT a l'avance sur la recherche approfondie et le nombre de connecteurs grand public." },
-      quotidien: { c: 1, g: 1, r: "Pour de l'assistance courante, les deux font le travail. Le critère de choix est ailleurs : prix, interface, écosystème." }
+      images: { c: 0, g: 3, r: "ChatGPT génère des images. Claude analyse les images et produit des schémas en code, mais ne crée ni photo ni illustration." },
+      recherche: { c: 1, g: 2, r: "Les deux cherchent sur le web. ChatGPT ouvre la recherche approfondie dès la version gratuite, Claude à partir de Pro." },
+      agents: { c: 1, g: 1, r: "Claude (qui intègre Cowork) et ChatGPT Work mènent tous deux des tâches longues sur vos fichiers et vos applications, sur les formules payantes." },
+      quotidien: { c: 1, g: 1, r: "Pour l'assistance courante, les deux font le travail. Le critère de choix est ailleurs : prix, interface, outils déjà en place." }
     },
     priorite: {
       contexte: { c: 3, g: 0, r: "Si vous travaillez sur de gros volumes de texte d'un seul tenant, l'écart de fenêtre de contexte est le critère décisif." },
-      ecosysteme: { c: 0, g: 3, r: "ChatGPT est distribué à travers l'écosystème Microsoft, ce qui en fait souvent la voie la plus courte dans une entreprise déjà équipée." },
+      ecosysteme: { c: 1, g: 1, r: "Les deux se branchent sur Microsoft 365, Google Drive ou Slack. Choisissez celui que vos équipes ouvrent déjà par réflexe." },
       sobriete: { c: 2, g: 0, r: "Les textes de Claude demandent en général moins de retouches pour retirer l'emphase superflue." },
       polyvalence: { c: 0, g: 2, r: "ChatGPT couvre plus de types de contenus dans une seule interface : texte, images, recherche approfondie, agents." },
-      confidentialite: { c: 1, g: 0, r: "Les deux proposent des réglages. Vérifiez surtout le contrat applicable à votre formule plutôt que la promesse commerciale." }
+      confidentialite: { c: 1, g: 1, r: "Les deux permettent de refuser l'entraînement sur vos conversations. Vérifiez surtout le contrat applicable à votre formule." }
     }
+  };
+
+  var BUDGET = {
+    serre: "Budget serré : ChatGPT Go coûte 8 € TTC par mois et peut inclure de la publicité. Claude n'a rien entre sa version gratuite et Pro (20 $ HT par mois, 17 $ en annuel).",
+    gratuit: "Version gratuite : ChatGPT offre des conversations écrites illimitées avec GPT-5.6 Luna. Claude gratuit fonctionne par quotas sur cinq heures, mais garde une grande fenêtre de contexte pour les longs documents."
   };
 
   function calcul() {
     var u = REGLES.usage[usage.value] || REGLES.usage.quotidien;
     var p = REGLES.priorite[priorite.value] || REGLES.priorite.polyvalence;
     var c = u.c + p.c, g = u.g + p.g;
+    if (budget.value === 'gratuit' && usage.value !== 'documents') g += 1;
 
     var titre, texte;
-    if (c > g + 1) { titre = 'Claude, assez nettement'; texte = "Vos deux critères pointent dans la même direction."; }
-    else if (g > c + 1) { titre = 'ChatGPT, assez nettement'; texte = "Vos deux critères pointent dans la même direction."; }
+    if (c > g + 1) { titre = 'Claude, assez nettement'; texte = "Vos critères pointent dans la même direction."; }
+    else if (g > c + 1) { titre = 'ChatGPT, assez nettement'; texte = "Vos critères pointent dans la même direction."; }
     else if (c > g) { titre = 'Claude, de peu'; texte = "L'écart est faible : testez les deux un mois avant de vous engager."; }
     else if (g > c) { titre = 'ChatGPT, de peu'; texte = "L'écart est faible : testez les deux un mois avant de vous engager."; }
     else { titre = 'Match nul'; texte = "Sur votre profil, les deux se valent. Choisissez sur l'interface et sur le prix, pas sur les capacités."; }
@@ -46,26 +53,22 @@
     out.textContent = '';
     var p0 = document.createElement('p'); p0.textContent = texte; out.appendChild(p0);
 
+    var raisons = [u.r, p.r];
+    if (BUDGET[budget.value]) raisons.push(BUDGET[budget.value]);
     var ul = document.createElement('ul');
-    [u.r, p.r].forEach(function (raison) {
+    raisons.forEach(function (raison) {
       var li = document.createElement('li'); li.textContent = raison; ul.appendChild(li);
     });
     out.appendChild(ul);
 
-    if (budget.value === 'serre') {
-      var b = document.createElement('p');
-      b.textContent = "Budget serré : ChatGPT propose une formule intermédiaire à 8 € par mois, qui peut inclure de la publicité. Claude n'a pas d'équivalent entre sa formule gratuite et son premier palier payant.";
-      out.appendChild(b);
-    }
-
-    return { titre: titre, texte: texte, raisons: [u.r, p.r] };
+    return { titre: titre, texte: texte, raisons: raisons };
   }
 
   function copier() {
     var r = calcul();
-    var texte = ['Claude ou ChatGPT : ' + r.titre, '', r.texte, '']
+    var texte = ['Claude vs ChatGPT, mon verdict : ' + r.titre, '', r.texte, '']
       .concat(r.raisons.map(function (x) { return '- ' + x; }))
-      .concat(['', 'Tarifs et caractéristiques relevés le 11 août 2026.',
+      .concat(['', 'Tarifs et caractéristiques relevés le 7 octobre 2026.',
         'Source : anthony-courtin.com/blog/claude-vs-chatgpt']).join('\n');
     var fini = function (ok) {
       if (!copy) return;

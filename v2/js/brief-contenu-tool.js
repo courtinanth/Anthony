@@ -1,4 +1,4 @@
-/* Générateur de commande éditoriale pour l'article brief-contenu.
+/* Générateur de brief SEO pour l'article brief-contenu.
    Trois réglages, un modèle à remplir adapté au format, à l'objectif et à
    celui qui écrira. 100 % navigateur, aucun appel réseau. */
 (function () {
@@ -10,7 +10,7 @@
 
   /* Le socle : ce que toute commande porte, quel que soit le format. */
   var SOCLE = [
-    ['Intention visée', "La question exacte à laquelle la page répond, écrite comme la poserait un lecteur."],
+    ['Requête et intention', "La requête principale, et la question exacte à laquelle la page répond, écrite comme la poserait un lecteur."],
     ['Promesse', "Ce que le lecteur saura faire à la fin. Une phrase, au futur."],
     ['Angle', "Ce que cette page dira que les autres ne disent pas. Sans cet élément, ne commandez pas."],
     ['Plan imposé', "Les titres de niveau 2 et 3, dans l'ordre. C'est la partie qui évite les allers-retours."],
@@ -20,18 +20,18 @@
   ];
 
   var PAR_TYPE = {
-    blog: { n: 'Article de blog', mots: '1 200 à 1 800 mots', rub: [
-      ['Question de départ', "La requête telle qu'elle se tape, avec les deux ou trois formulations voisines."],
+    blog: { n: 'Article de blog', mots: '1 500 à 2 500 mots', rub: [
+      ['Questions à traiter', "Les questions du bloc « Autres questions posées » que l'article doit couvrir."],
       ['Preuve à intégrer', "Un chiffre daté, un cas vécu ou une capture. Un article sans preuve ne se distingue pas."],
       ["Appel à l'action", "Où doit aller le lecteur ensuite, et pourquoi il aurait envie d'y aller."]
     ]},
-    service: { n: 'Page de service', mots: '800 à 1 400 mots', rub: [
+    service: { n: 'Page de service', mots: '800 à 1 500 mots', rub: [
       ['Problème du client', "Formulé avec ses mots à lui, pas avec le vocabulaire du métier."],
       ['Périmètre exact', "Ce qui est inclus, ce qui ne l'est pas. C'est ce paragraphe qui évite les malentendus."],
       ['Preuve de compétence', "Références, méthode, durée d'intervention, ce qui rassure avant l'appel."],
       ['Objection principale', "La raison numéro un de ne pas acheter, et la réponse à lui apporter."]
     ]},
-    produit: { n: 'Fiche produit', mots: '400 à 900 mots', rub: [
+    produit: { n: 'Fiche produit', mots: '300 à 900 mots', rub: [
       ['Caractéristiques vérifiées', "La liste technique, validée par quelqu'un qui a le produit en main."],
       ['Bénéfice associé', "Pour chaque caractéristique, ce qu'elle change concrètement à l'usage."],
       ['Usage type', "À qui ce produit s'adresse, et dans quelle situation précise."]
@@ -135,7 +135,7 @@
 
   function copier() {
     var r = afficher();
-    var lignes = ['COMMANDE ÉDITORIALE', '',
+    var lignes = ['BRIEF SEO', '',
       'Format : ' + r.t.n + ' (' + r.t.mots + ')',
       'Objectif : ' + r.o.n,
       'Rédaction : ' + r.q.n, ''];

@@ -4,8 +4,8 @@
 <script src="/js/js-flag.js?v=1"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Comment être cité par ChatGPT : la méthode complète</title>
-<meta name="description" content="Les 3 conditions pour être cité par ChatGPT, comment il choisit ses sources, les 7 leviers classés par efficacité et le plan sur 4 semaines.">
+<title>Référencement ChatGPT : comment apparaître dans ses réponses</title>
+<meta name="description" content="Référencement ChatGPT : comment il choisit ses sources, quels robots autoriser (OAI-SearchBot, GPTBot), 7 étapes pour être cité et comment le mesurer.">
 <link rel="canonical" href="https://anthony-courtin.com/blog/etre-cite-par-chatgpt">
 <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
@@ -14,13 +14,13 @@
 <meta name="robots" content="index, follow, max-image-preview:large">
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="Comment être cité par ChatGPT : la méthode complète">
-<meta property="og:description" content="Comment ChatGPT choisit ses sources, les 7 leviers pour en faire partie, et le protocole pour vérifier si votre marque est citée.">
+<meta property="og:title" content="Référencement ChatGPT : comment apparaître dans ses réponses">
+<meta property="og:description" content="Comment ChatGPT choisit ses sources, le robots.txt à poser pour OAI-SearchBot, les 7 étapes pour être cité et la mesure dans Google Analytics.">
 <meta property="og:url" content="https://anthony-courtin.com/blog/etre-cite-par-chatgpt">
 <meta property="og:image" content="https://anthony-courtin.com/images/blog/cite-chatgpt-cover.webp">
 <meta property="og:locale" content="fr_FR">
 <meta property="article:published_time" content="2026-09-09">
-<meta property="article:modified_time" content="2026-09-09">
+<meta property="article:modified_time" content="2026-10-07">
 <meta property="article:author" content="Anthony Courtin">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -32,59 +32,148 @@
 
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@graph":[
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@type":"BlogPosting",
-      "@id":"https://anthony-courtin.com/blog/etre-cite-par-chatgpt#article",
-      "headline":"Comment être cité par ChatGPT : la méthode complète",
-      "description":"Être cité par ChatGPT suppose trois conditions : être présent dans l'index de recherche interrogé, publier une page qui répond frontalement, et exister ailleurs sous une identité cohérente.",
-      "inLanguage":"fr-FR",
-      "datePublished":"2026-09-09",
-      "dateModified":"2026-09-09",
-      "image":"https://anthony-courtin.com/images/blog/cite-chatgpt-cover.webp",
-      "wordCount":2600,
-      "mainEntityOfPage":{"@type":"WebPage","@id":"https://anthony-courtin.com/blog/etre-cite-par-chatgpt"},
-      "author":{"@id":"https://anthony-courtin.com/#anthony"},
-      "publisher":{"@id":"https://anthony-courtin.com/#anthony"},
-      "about":[{"@type":"Thing","name":"Generative engine optimization"},{"@type":"Thing","name":"ChatGPT"},{"@type":"Thing","name":"Visibilité IA"}]
-    },
-    {
-      "@type":"Person",
-      "@id":"https://anthony-courtin.com/#anthony",
-      "name":"Anthony Courtin",
-      "jobTitle":"Consultant SEO, GEO et automatisation IA",
-      "url":"https://anthony-courtin.com/a-propos",
-      "image":"https://anthony-courtin.com/images/anthony.avif",
-      "sameAs":["https://www.linkedin.com/in/anthony-courtin/","https://www.youtube.com/@AnthonyCourtin4"]
-    },
-    {
-      "@type":"BreadcrumbList",
-      "itemListElement":[
-        {"@type":"ListItem","position":1,"name":"Accueil","item":"https://anthony-courtin.com/"},
-        {"@type":"ListItem","position":2,"name":"Blog","item":"https://anthony-courtin.com/blog/"},
-        {"@type":"ListItem","position":3,"name":"Être cité par ChatGPT"}
+      "@type": "BlogPosting",
+      "@id": "https://anthony-courtin.com/blog/etre-cite-par-chatgpt#article",
+      "headline": "Référencement ChatGPT : comment apparaître dans ses réponses",
+      "description": "Le référencement ChatGPT consiste à faire citer ses pages quand ChatGPT lance une recherche web : autoriser OAI-SearchBot, être indexé, répondre dès les deux premières phrases avec des faits datés et être mentionné par des sites tiers.",
+      "inLanguage": "fr-FR",
+      "datePublished": "2026-09-09",
+      "dateModified": "2026-10-07",
+      "image": "https://anthony-courtin.com/images/blog/cite-chatgpt-cover.webp",
+      "wordCount": 3520,
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://anthony-courtin.com/blog/etre-cite-par-chatgpt"
+      },
+      "author": {
+        "@id": "https://anthony-courtin.com/#anthony"
+      },
+      "publisher": {
+        "@id": "https://anthony-courtin.com/#anthony"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Référencement ChatGPT"
+        },
+        {
+          "@type": "Thing",
+          "name": "ChatGPT"
+        },
+        {
+          "@type": "Thing",
+          "name": "OAI-SearchBot"
+        },
+        {
+          "@type": "Thing",
+          "name": "Generative engine optimization"
+        }
       ]
     },
     {
-      "@type":"FAQPage",
-      "mainEntity":[
-        {"@type":"Question","name":"Comment être cité par ChatGPT ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Trois conditions cumulatives : être présent dans l'index de recherche que ChatGPT interroge, ce qui suppose un référencement classique qui fonctionne ; publier une page qui répond frontalement à la question dès les deux premières phrases ; et exister ailleurs sur le web sous une identité cohérente. Aucune ne suffit seule."}},
-        {"@type":"Question","name":"Quelles sources ChatGPT privilégie-t-il ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Quatre familles reviennent : les sites de référence du secteur et les organismes institutionnels, les comparatifs et annuaires spécialisés, les pages qui répondent frontalement même sur de petits sites, et les contenus datés et chiffrés. La taille du site n'est pas déterminante sur une question précise."}},
-        {"@type":"Question","name":"Comment apparaître dans les réponses de ChatGPT ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Commencez par les trois leviers les plus rentables : réécrire l'introduction de vos pages stratégiques pour répondre en deux phrases, ajouter des chiffres datés et sourcés, et découper le contenu en blocs autonomes compréhensibles hors contexte. Ces trois actions produisent l'essentiel du résultat en quatre à huit semaines."}},
-        {"@type":"Question","name":"Comment vérifier si ma marque est citée par ChatGPT ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Posez vos questions métier en navigation privée sans compte connecté, avec des formulations stables, et répétez la mesure sur plusieurs jours. Notez pour chaque question si vous êtes cité, quels concurrents apparaissent et quelles sources sont liées. Cette dernière colonne vous donne la liste des sites où il faut être présent."}},
-        {"@type":"Question","name":"Quels leviers pour être cité par ChatGPT ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Sept leviers, du plus rapide au plus lent : répondre dès les deux premières phrases, chiffrer et dater, découper en blocs autonomes, publier une page par question réelle, entrer dans les comparatifs du secteur, rendre l'auteur identifiable, et construire la notoriété de marque. Les trois premiers agissent en quatre à huit semaines."}},
-        {"@type":"Question","name":"Pourquoi ChatGPT ne cite-t-il aucune source parfois ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Parce qu'il ne lance pas toujours de recherche web. Sur une question générale et stable, il répond de mémoire à partir de son entraînement, sans citer personne. La recherche se déclenche quand la question suppose une information fraîche ou vérifiable : un prix, une date, une actualité, une recommandation ou une comparaison."}},
-        {"@type":"Question","name":"Peut-on payer pour être cité par ChatGPT ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Non. Il n'existe aucun référencement payant, aucune inscription à un annuaire officiel ni aucun réglage caché permettant d'apparaître dans les réponses. Méfiez-vous des offres qui garantissent une présence : les réponses varient d'un utilisateur à l'autre et d'un jour à l'autre, personne ne peut garantir ce qu'il ne contrôle pas."}},
-        {"@type":"Question","name":"Combien de temps avant d'être cité ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Les premiers mouvements apparaissent généralement entre quatre et huit semaines après les corrections, le temps que les robots repassent sur les pages modifiées et que l'index soit rafraîchi. Ce délai dépend surtout de l'autorité du domaine et de la fréquence de passage des robots, pas de la qualité des corrections."}}
+      "@type": "Person",
+      "@id": "https://anthony-courtin.com/#anthony",
+      "name": "Anthony Courtin",
+      "jobTitle": "Consultant SEO, GEO et automatisation IA",
+      "url": "https://anthony-courtin.com/a-propos",
+      "image": "https://anthony-courtin.com/images/anthony.avif",
+      "sameAs": [
+        "https://www.linkedin.com/in/anthony-courtin/",
+        "https://www.youtube.com/@AnthonyCourtin4"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Accueil",
+          "item": "https://anthony-courtin.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://anthony-courtin.com/blog/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Référencement ChatGPT"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Comment être référencé sur ChatGPT ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Autorisez le robot OAI-SearchBot dans votre robots.txt et votre pare-feu, vérifiez que vos pages sont bien indexées, puis publiez des pages qui répondent à une question précise dès les deux premières phrases, avec des faits datés. Faites-vous ensuite citer par les comparatifs et annuaires de votre secteur. Il n'existe ni inscription ni formulaire de soumission."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment apparaître dans les réponses de ChatGPT ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Visez les questions qui déclenchent une recherche web : prix, comparaisons, recommandations, actualités. Sur ces questions, réécrivez l'introduction de vos pages pour répondre en deux phrases, ajoutez des chiffres datés et découpez le contenu en blocs compréhensibles hors contexte. Ces trois actions produisent l'essentiel du résultat en quatre à huit semaines."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle différence entre OAI-SearchBot et GPTBot ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "OAI-SearchBot explore les pages pour la recherche de ChatGPT : le bloquer vous retire des réponses avec sources. GPTBot collecte des contenus pour entraîner les modèles d'OpenAI : le bloquer n'a pas d'effet sur la recherche. Les deux se règlent séparément dans le robots.txt."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Faut-il bloquer GPTBot ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "C'est un choix éditorial, pas un levier de visibilité dans la recherche. Bloquer GPTBot empêche l'usage de vos contenus pour entraîner les futurs modèles, sans vous retirer des réponses avec sources. Pour une entreprise qui veut que les IA connaissent sa marque, je conseille en général de le laisser passer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment savoir si ChatGPT cite mon site ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Posez vos questions métier en navigation privée, sans compte connecté, avec des formulations stables, et répétez la mesure sur plusieurs jours. Notez si vous êtes cité, quels concurrents apparaissent et quelles sources sont liées. Côté trafic, cherchez la source chatgpt.com dans Google Analytics : les clics venus de ChatGPT portent en général le paramètre utm_source=chatgpt.com."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Pourquoi ChatGPT ne cite-t-il aucune source parfois ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Parce qu'il ne lance pas toujours de recherche web. Sur une question générale et stable, il répond de mémoire à partir de son entraînement, sans citer personne. La recherche se déclenche quand la question suppose une information fraîche ou vérifiable : un prix, une date, une actualité, une recommandation ou une comparaison."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Est-il possible de payer pour être cité par ChatGPT ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Aucune citation dans une réponse ne s'achète, et aucun annuaire officiel ne garantit une présence. Depuis le 24 août 2026, ChatGPT affiche des annonces en France, mais OpenAI précise qu'elles sont séparées des réponses et ne les influencent pas. Méfiez-vous des offres qui promettent une présence garantie."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps pour apparaître dans ChatGPT ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "OpenAI indique qu'une modification du robots.txt est prise en compte en 24 heures environ. Pour le contenu, les premiers effets que je constate arrivent entre quatre et huit semaines après les corrections, le temps que les pages soient réexplorées. La notoriété hors de votre site se construit, elle, sur plusieurs mois."
+          }
+        }
       ]
     }
   ]
@@ -178,12 +267,12 @@
     <nav class="crumb" aria-label="Fil d'Ariane">
       <a href="/">Accueil</a><span aria-hidden="true">/</span>
       <a href="/blog/">Blog</a><span aria-hidden="true">/</span>
-      <span>Être cité par ChatGPT</span>
+      <span>Référencement ChatGPT</span>
     </nav>
 
     <span class="art-cat">GEO, visibilité IA</span>
-    <h1 class="art-title">Comment être cité par ChatGPT : la méthode complète</h1>
-    <p class="art-lede">Un concurrent sort dans les réponses, pas vous. Voici exactement comment le moteur sélectionne ses sources, et les sept leviers pour en faire partie.</p>
+    <h1 class="art-title">Référencement ChatGPT : comment apparaître dans ses réponses</h1>
+    <p class="art-lede">Le référencement ChatGPT consiste à faire citer vos pages quand ChatGPT cherche sur le web. Voici comment il choisit ses sources, les robots à autoriser, les sept étapes que j'applique pour apparaître dans ses réponses et la façon de mesurer le résultat.</p>
 
     <div class="art-metaline">
       <span class="who">
@@ -193,9 +282,9 @@
       <span class="dot" aria-hidden="true">·</span>
       <time datetime="2026-09-09">9 septembre 2026</time>
       <span class="dot" aria-hidden="true">·</span>
-      <span>12 min de lecture</span>
+      <span>14 min de lecture</span>
       <span class="dot" aria-hidden="true">·</span>
-      <span>Mis à jour le <time datetime="2026-09-09">9 septembre 2026</time></span>
+      <span>Mis à jour le <time datetime="2026-10-07">7 octobre 2026</time></span>
     </div>
 
     <!-- Boutons "Résumer avec" : les href sont construits par blog-article.js -->
@@ -246,7 +335,7 @@
     <!-- Résumé IA version mobile : rendu côté serveur, donc lisible par Google et les LLM -->
     <div class="ai-box ai-box-mobile">
       <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
-      <p class="ai-text">Être cité par ChatGPT suppose trois conditions cumulatives : être présent dans l'index de recherche que le moteur interroge, publier une page qui répond frontalement dès les premières lignes, et exister ailleurs sur le web sous une identité cohérente. Le moteur ne lance une recherche que si la question exige une information fraîche ou vérifiable.</p>
+      <p class="ai-text">Le référencement ChatGPT consiste à faire citer ses pages quand ChatGPT lance une recherche web. Il suppose d'autoriser le robot OAI-SearchBot, d'être bien indexé, de répondre à la question dès les deux premières phrases avec des faits datés, et d'être mentionné par des sites tiers. Le trafic obtenu se mesure grâce au paramètre utm_source=chatgpt.com.</p>
       <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
     </div>
 
@@ -259,9 +348,9 @@
         </picture>
       </figure>
 
-      <p><strong>Pour être cité par ChatGPT, il faut trois choses : être présent dans l'index de recherche que ChatGPT interroge, publier une page qui répond frontalement à la question posée, et exister ailleurs sur le web sous un nom cohérent.</strong> Aucune de ces trois conditions ne s'achète, et aucune ne suffit seule.</p>
+      <p><strong>Le référencement ChatGPT consiste à rendre vos pages trouvables, lisibles et citables au moment où ChatGPT cherche sur le web pour répondre.</strong> Concrètement : laisser passer son robot de recherche OAI-SearchBot, être bien indexé, publier des pages qui répondent net à une question réelle, et exister sur les sites que ChatGPT consulte. Rien de tout cela ne s'achète.</p>
 
-      <p>C'est la demande la plus fréquente qui m'arrive depuis un an. Un dirigeant a interrogé ChatGPT sur son secteur, un concurrent est sorti, pas lui. Voici précisément comment le moteur choisit ses sources, et ce que vous pouvez faire pour en faire partie.</p>
+      <p>C'est la demande la plus fréquente qui m'arrive depuis un an. Un dirigeant a interrogé ChatGPT sur son secteur, un concurrent est sorti, pas lui. Voici comment ChatGPT choisit ses sources, les réglages techniques à vérifier, les sept étapes que j'applique pour apparaître dans ses réponses et la façon de mesurer le résultat.</p>
 
       <div class="verdict">
         <div class="verdict-note">
@@ -269,17 +358,18 @@
           <span>conditions</span>
         </div>
         <div class="verdict-body">
-          <h2>Les trois conditions, dans l'ordre</h2>
-          <p>Elles se cumulent. Un site absent de l'index ne sera jamais cité, quelle que soit la qualité de ses contenus. Une page indexée mais qui noie sa réponse ne sera pas extraite. Une marque inconnue ailleurs ne sera pas jugée fiable.</p>
+          <h2>Le référencement ChatGPT en 30 secondes</h2>
+          <p>Les trois conditions se cumulent. Une page que le robot d'OpenAI ne peut pas lire ne sera jamais citée. Une page lue mais qui noie sa réponse ne sera pas extraite. Une marque dont personne ne parle ailleurs passera après celles que d'autres sites recommandent.</p>
           <div class="verdict-lists">
             <ul class="verdict-pros">
-              <li>Être indexé et explorable par les robots</li>
-              <li>Répondre frontalement, dès les premières lignes</li>
-              <li>Exister ailleurs sous une identité cohérente</li>
+              <li>Autoriser OAI-SearchBot (robots.txt, pare-feu, CDN)</li>
+              <li>Être bien indexé dans les moteurs de recherche</li>
+              <li>Répondre dès les deux premières phrases, avec des faits datés</li>
+              <li>Être cité par des sites tiers : comparatifs, annuaires, avis</li>
             </ul>
             <ul class="verdict-cons">
-              <li>Aucune inscription ni référencement payant possible</li>
-              <li>Les résultats varient d'une session à l'autre</li>
+              <li>Aucune inscription ni citation payante possible</li>
+              <li>Des réponses qui varient d'une session à l'autre</li>
             </ul>
           </div>
         </div>
@@ -292,28 +382,182 @@
       <section class="takeaways">
         <h2>À retenir</h2>
         <ul>
-          <li>ChatGPT ne cite que ce qu'il <strong>trouve dans un index de recherche</strong> : sans référencement classique, pas de citation.</li>
-          <li>Il ne lance une recherche que <strong>si la question l'exige</strong> : sujets datés, prix, actualités, comparaisons.</li>
-          <li>Il cite <strong>peu de sources</strong>, souvent trois à cinq, celles qui répondent le plus directement.</li>
-          <li><strong>Les pages qui contiennent des chiffres datés</strong> déclenchent la recherche et gagnent la citation.</li>
-          <li>La vérification se fait <strong>en navigation privée</strong>, sinon vous mesurez la mémoire de votre compte.</li>
+          <li>Le <strong>référencement ChatGPT</strong> vise les réponses où ChatGPT lance une recherche web et cite ses sources, avec un lien.</li>
+          <li>Pour figurer dans ces réponses, OpenAI demande d'<strong>autoriser le robot OAI-SearchBot</strong>. Bloquer GPTBot, le robot d'entraînement, ne vous en retire pas.</li>
+          <li>ChatGPT cherche quand la question exige une information fraîche ou vérifiable : <strong>prix, comparaisons, recommandations, actualités</strong>.</li>
+          <li>Il retient les passages qui <strong>répondent en deux phrases</strong>, avec des faits datés, sur des sites que d'autres sources mentionnent.</li>
+          <li>Le trafic venu de ChatGPT se repère dans Google Analytics grâce au paramètre <strong>utm_source=chatgpt.com</strong>.</li>
         </ul>
       </section>
 
-      <p>Avant la méthode, testez une de vos pages. Collez son texte : l'outil applique les critères que les moteurs utilisent pour extraire un passage, et vous dit ce qui manque.</p>
+      <h2>Le référencement ChatGPT, c'est quoi ?</h2>
+
+      <p>Le référencement ChatGPT, appelé aussi SEO pour ChatGPT, regroupe les actions qui augmentent vos chances d'apparaître dans les réponses de ChatGPT : être cité comme source, avec un lien vers votre page, ou être recommandé par votre nom. C'est une application du <a href="/blog/generative-engine-optimization">GEO SEO (generative engine optimization)</a> à un moteur précis.</p>
+
+      <p>ChatGPT peut parler de vous de deux façons, et elles ne se travaillent pas de la même manière.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col"></th><th scope="col">Mémoire du modèle</th><th scope="col">Recherche web</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>D'où vient l'information</strong></td><td>Données d'entraînement, figées à une date</td><td>Pages trouvées au moment de la question</td></tr>
+            <tr><td><strong>Robot d'OpenAI concerné</strong></td><td>GPTBot</td><td>OAI-SearchBot</td></tr>
+            <tr><td><strong>Lien vers votre site</strong></td><td>Non</td><td>Oui, en source citée</td></tr>
+            <tr><td><strong>Délai d'effet</strong></td><td>Long : jusqu'au prochain entraînement</td><td>Quelques semaines</td></tr>
+            <tr><td><strong>Ce que vous contrôlez</strong></td><td>Peu de chose à court terme</td><td>L'accès, le contenu, la présence sur les sources citées</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Le référencement ChatGPT se joue surtout dans la deuxième colonne. La mémoire du modèle reflète des années de présence en ligne ; la recherche web se travaille dès cette semaine. Elle est ouverte à tous les utilisateurs, même sans compte, depuis février 2025.</p>
+
+      <h2>Comment ChatGPT choisit ses sources</h2>
+
+      <p>Comprendre le mécanisme évite de dépenser son énergie au mauvais endroit. Le processus se déroule en quatre temps, et chacun est un filtre.</p>
+
+      <h3>1. La recherche se déclenche, ou pas</h3>
+
+      <p>ChatGPT ne va pas systématiquement chercher sur le web. Sur une question générale et stable, il répond de mémoire, à partir de son entraînement. Dans ce cas, aucune source n'est citée et votre travail d'optimisation n'a aucun effet.</p>
+
+      <p>La recherche se déclenche quand la question suppose une information fraîche ou vérifiable : un prix, une date, une actualité, une recommandation de prestataire, une comparaison de produits. C'est sur ces questions-là qu'il faut se battre.</p>
+
+      <div class="callout callout--tip">
+        <p class="callout-t">Le premier arbitrage à faire</p>
+        <p>Listez les questions de vos clients et repérez celles qui déclenchent une recherche web. Ce sont vos seules cibles utiles. Viser « qu'est-ce que le référencement » ne sert à rien : le modèle répond sans chercher. Viser « quel logiciel de caisse choisir pour une boulangerie en 2026 » a du sens, parce qu'il ira vérifier.</p>
+      </div>
+
+      <h3>2. L'index : OAI-SearchBot et les moteurs tiers</h3>
+
+      <p>Quand la recherche se déclenche, ChatGPT reformule la question en plusieurs requêtes et les envoie à des index de recherche. Il ne parcourt pas le web au hasard. OpenAI indique s'appuyer sur des fournisseurs de recherche tiers et sur son propre robot, OAI-SearchBot, qui explore les pages pour la recherche de ChatGPT.</p>
+
+      <p>Conséquence directe : une page absente de ces index, ou interdite à OAI-SearchBot, n'existe pas pour ChatGPT. Le référencement classique reste le préalable. En 2023, la navigation web de ChatGPT s'appelait d'ailleurs « Browse with Bing ». OpenAI ne détaille plus ses fournisseurs, mais vérifier son indexation dans Bing reste la précaution la plus simple.</p>
+
+      <h3>3. L'extraction du passage</h3>
+
+      <p>Le système récupère une poignée de pages et cherche, dans chacune, le passage qui répond à la requête. C'est ici que la plupart des sites perdent, et c'est le filtre sur lequel vous avez le plus de pouvoir.</p>
+
+      <p>Un passage extractible se comprend seul. S'il commence par « c'est pourquoi », s'il renvoie à un paragraphe précédent, ou si la réponse arrive après six paragraphes de mise en contexte, il ne sera pas retenu.</p>
+
+      <h3>4. La sélection finale</h3>
+
+      <p>Parmi les passages retenus, ChatGPT en garde quelques-uns pour construire sa réponse. À qualité de réponse égale, il privilégie les sources qui lui paraissent fiables : sites reconnus, auteurs identifiés, informations recoupées ailleurs.</p>
+
+      <p>C'est là qu'intervient la notoriété de votre marque en dehors de votre site, et c'est le levier le plus lent à construire.</p>
+
+      <h2>OAI-SearchBot, GPTBot, ChatGPT-User : quels robots autoriser ?</h2>
+
+      <p>OpenAI publie la liste de ses robots et leur rôle dans sa documentation développeurs. Ils sont indépendants : chacun se règle séparément dans le robots.txt.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Robot</th><th scope="col">Rôle</th><th scope="col">robots.txt</th><th scope="col">Si vous le bloquez</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>OAI-SearchBot</strong></td><td>Explore les pages pour la recherche de ChatGPT</td><td>Respecté</td><td>Vos pages ne sont plus montrées dans les réponses avec sources</td></tr>
+            <tr><td><strong>GPTBot</strong></td><td>Collecte des contenus pour entraîner les modèles</td><td>Respecté</td><td>Vos contenus ne servent plus à l'entraînement, sans effet sur la recherche</td></tr>
+            <tr><td><strong>ChatGPT-User</strong></td><td>Visite une page à la demande d'un utilisateur (lien collé, action d'un GPT)</td><td>Peut ne pas s'appliquer</td><td>Peu d'effet : il ne sert pas à choisir les sources de la recherche</td></tr>
+            <tr><td><strong>OAI-AdsBot</strong></td><td>Contrôle les pages d'atterrissage des annonces</td><td>Peut ne pas s'appliquer</td><td>Ne concerne que les annonceurs</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Pour être visible sur ChatGPT, le minimum est d'autoriser OAI-SearchBot. Voici le robots.txt que je recommande à une entreprise qui veut être citée et connue des modèles :</p>
+
+<pre><code>User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+Sitemap: https://www.votre-site.fr/sitemap.xml</code></pre>
+
+      <p>Si vous refusez que vos contenus servent à l'entraînement, remplacez <code>Allow: /</code> par <code>Disallow: /</code> sous GPTBot uniquement. Vous restez éligible à la recherche. OpenAI indique qu'une modification du robots.txt met environ 24 heures à être prise en compte.</p>
+
+      <div class="callout callout--warn">
+        <p class="callout-t">Le robots.txt ne suffit pas toujours</p>
+        <p>Depuis le 1er juillet 2025, Cloudflare bloque par défaut les robots d'IA sur les nouveaux domaines, et certains pare-feu filtrent les robots qu'ils ne connaissent pas. OpenAI demande aussi d'autoriser les adresses IP publiées pour OAI-SearchBot. Si votre site passe par un CDN ou un pare-feu applicatif, vérifiez ce réglage avant tout le reste.</p>
+      </div>
+
+      <p>Et le fichier llms.txt ? OpenAI ne le mentionne pas dans la documentation de ses robots, et il ne remplace en rien l'accès d'OAI-SearchBot. J'ai détaillé son intérêt réel dans mon article sur le <a href="/blog/llms-txt">fichier llms.txt</a>.</p>
+
+      <h2>Comment apparaître dans ChatGPT : les 7 étapes</h2>
+
+      <p>Voici l'ordre dans lequel je procède. Les deux premières étapes sont techniques et rapides, les cinq suivantes font l'essentiel du travail.</p>
+
+      <h3>Étape 1 : ouvrir l'accès à OAI-SearchBot</h3>
+
+      <p>Ouvrez <code>votre-site.fr/robots.txt</code> et cherchez une règle <code>Disallow</code> qui viserait OAI-SearchBot, ou un <code>User-agent: *</code> trop restrictif. Vérifiez ensuite le réglage des robots d'IA de votre CDN. Pour confirmer, cherchez « OAI-SearchBot » dans vos journaux serveur : des visites régulières montrent que le robot passe.</p>
+
+      <h3>Étape 2 : vérifier l'indexation, Bing compris</h3>
+
+      <p>Contrôlez vos pages stratégiques dans la Search Console de Google et dans Bing Webmaster Tools, qui permet d'importer vos sites depuis la Search Console en quelques clics. Déclarez votre sitemap dans les deux. Assurez-vous enfin que le texte figure dans le HTML servi : un contenu qui n'apparaît qu'après exécution de scripts risque de ne jamais être lu.</p>
+
+      <h3>Étape 3 : viser les questions qui déclenchent une recherche</h3>
+
+      <p>Dressez la liste des questions que vos clients posent avant d'acheter : prix, délais, comparaisons, « meilleur X pour Y », obligations réglementaires datées. Gardez celles qui supposent une information fraîche. Chacune mérite une page, ou au moins une section clairement titrée.</p>
+
+      <h3>Étape 4 : répondre dans les deux premières phrases</h3>
+
+      <p>Si vous ne devez faire qu'une chose, faites celle-là. Reprenez vos dix pages les plus importantes et réécrivez leur premier paragraphe pour qu'il contienne la réponse complète à la question traitée. La première phrase reprend la question sous forme affirmative, la suivante donne l'essentiel, le reste de la page développe. C'est la structure d'une dépêche d'agence : elle se coupe n'importe où sans perdre son sens.</p>
+
+      <h3>Étape 5 : dater, chiffrer, découper en blocs autonomes</h3>
+
+      <p>Une affirmation vérifiable est préférée à une affirmation générale. « OpenAI indique qu'une modification du robots.txt met environ 24 heures à être prise en compte » sera repris ; « les délais de prise en compte varient » ne le sera jamais. Les faits datés ont un effet secondaire précieux : ce sont eux qui poussent ChatGPT à aller chercher.</p>
+
+      <p>Chaque section doit aussi se lire seule : un titre qui contient la question, des paragraphes courts sur une idée, des listes quand l'information s'énumère, des tableaux quand elle se compare. Le test est immédiat : sortez un paragraphe de la page et lisez-le. S'il tient debout seul, il est extractible. C'est le cœur pratique de l'<a href="/blog/contenu-citable-guide">AEO (answer engine optimization)</a>, que je détaille dans un guide à part.</p>
+
+      <h3>Étape 6 : entrer dans les sources que ChatGPT cite déjà</h3>
+
+      <p>« Quel prestataire me conseilles-tu pour telle chose » : c'est la question qui vaut de l'argent. Sur ce type de demande, ChatGPT va rarement chercher sur le site des entreprises elles-mêmes. Il va là où quelqu'un a déjà fait le tri : comparatifs, annuaires professionnels, articles « les meilleurs X à Y », forums, avis en ligne. <strong>Pour être recommandé, votre présence ailleurs compte plus que votre propre site.</strong></p>
+
+      <ol>
+        <li><strong>Identifiez les sources citées.</strong> Posez dix questions de recommandation de votre secteur et notez les sites que ChatGPT utilise pour répondre.</li>
+        <li><strong>Entrez-y.</strong> Beaucoup acceptent une inscription, gratuite ou peu coûteuse : annuaires professionnels, fédérations, plateformes spécialisées de votre métier.</li>
+        <li><strong>Alimentez les avis.</strong> Sur les activités locales, ils pèsent lourd dans les recommandations, comme dans le pack local de Google.</li>
+      </ol>
+
+      <p>Cette étape produit souvent des résultats plus vite que la production de contenu, parce qu'elle ne dépend pas du rafraîchissement de votre propre site.</p>
+
+      <h3>Étape 7 : rendre votre marque identifiable</h3>
+
+      <p>ChatGPT recoupe les informations. Le même nom, la même adresse et la même description partout, une page « à propos » qui dit qui vous êtes, des auteurs identifiés sur vos articles et un balisage <code>Organization</code> cohérent rendent l'entité plus solide. Une divergence entre deux annuaires suffit à l'affaiblir.</p>
+
+      <h3>Les leviers, classés par efficacité</h3>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Levier</th><th scope="col">Effet</th><th scope="col">Délai</th><th scope="col">Effort</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Ouvrir l'accès à OAI-SearchBot</strong></td><td>Bloquant s'il manque</td><td>Environ 24 heures</td><td>Faible</td></tr>
+            <tr><td><strong>Répondre dans les deux premières phrases</strong></td><td>Très fort</td><td>4 à 8 semaines</td><td>Faible</td></tr>
+            <tr><td><strong>Dater et chiffrer</strong></td><td>Fort</td><td>4 à 8 semaines</td><td>Faible</td></tr>
+            <tr><td><strong>Découper en blocs autonomes</strong></td><td>Fort</td><td>4 à 8 semaines</td><td>Moyen</td></tr>
+            <tr><td><strong>Entrer dans les comparatifs du secteur</strong></td><td>Fort</td><td>1 à 3 mois</td><td>Moyen</td></tr>
+            <tr><td><strong>Publier une page par question réelle</strong></td><td>Fort</td><td>2 à 4 mois</td><td>Élevé</td></tr>
+            <tr><td><strong>Construire la notoriété de marque</strong></td><td>Décisif à terme</td><td>6 mois et plus</td><td>Élevé</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Pour les étapes 4 et 5, testez une page avant de la réécrire. Collez son texte et la question visée : l'outil applique les critères qu'un moteur de réponse utilise pour extraire un passage, et vous dit ce qui manque.</p>
 
       <div class="tool" id="outil-citabilite">
         <div class="tool-head">
           <span class="tool-ico" aria-hidden="true">✦</span>
           <span>
             <em>Outil interactif</em>
-            <b>Testeur de citabilité d'une page</b>
+            <b>Votre page peut-elle être citée par ChatGPT ?</b>
           </span>
         </div>
         <div class="tool-body">
           <div class="field">
             <label for="ct-q">La question à laquelle cette page doit répondre</label>
-            <input id="ct-q" type="text" placeholder="Ex. : combien coûte un audit SEO">
+            <input id="ct-q" type="text" placeholder="Ex. : quel logiciel de caisse pour une boulangerie">
           </div>
 
           <div class="field">
@@ -342,125 +586,9 @@
         </div>
       </div>
 
-      <h2>Comment ChatGPT choisit ses sources</h2>
+      <h2>Être visible sur ChatGPT : ce qui change selon votre activité</h2>
 
-      <p>Comprendre le mécanisme évite de dépenser son énergie au mauvais endroit. Le processus se déroule en quatre temps, et chacun est un filtre.</p>
-
-      <h3>Premier filtre : la recherche se déclenche, ou pas</h3>
-
-      <p>ChatGPT ne va pas systématiquement chercher sur le web. Sur une question générale et stable, il répond de mémoire, à partir de ce qu'il a appris pendant son entraînement. Dans ce cas, aucune source n'est citée et votre travail d'optimisation n'a aucun effet.</p>
-
-      <p>La recherche se déclenche quand la question suppose une information fraîche ou vérifiable : un prix, une date, une actualité, une recommandation de prestataire, une comparaison de produits. C'est donc sur ces questions-là qu'il faut se battre, et uniquement sur celles-là.</p>
-
-      <div class="callout callout--tip">
-        <p class="callout-t">Le premier arbitrage à faire</p>
-        <p>Listez les questions de votre secteur et repérez celles qui déclenchent une recherche web. Ce sont vos seules cibles utiles. Se positionner sur « qu'est-ce que le référencement » ne sert à rien : le modèle répond sans chercher. Se positionner sur « combien coûte un consultant SEO en 2026 » a du sens, parce qu'il ira vérifier.</p>
-      </div>
-
-      <h3>Deuxième filtre : l'index de recherche</h3>
-
-      <p>Quand la recherche se déclenche, le modèle reformule votre question en plusieurs requêtes et les envoie à un index de recherche. Il ne parcourt pas le web en direct : il interroge un index déjà constitué.</p>
-
-      <p>La conséquence est simple et sans appel : si votre page n'est pas dans cet index, elle n'existe pas pour ChatGPT. C'est pourquoi le référencement classique reste le préalable absolu, comme je l'explique dans mon guide sur <a href="/blog/generative-engine-optimization">le generative engine optimization</a>.</p>
-
-      <h3>Troisième filtre : l'extraction du passage</h3>
-
-      <p>Le système récupère une poignée de pages et cherche, dans chacune, le passage qui répond à la requête. C'est ici que la plupart des sites perdent, et c'est le filtre sur lequel vous avez le plus de pouvoir.</p>
-
-      <p>Un passage extractible est un passage qui se comprend seul. S'il commence par « c'est pourquoi », s'il renvoie à un paragraphe précédent, ou si la réponse arrive après six paragraphes de mise en contexte, il ne sera pas retenu.</p>
-
-      <h3>Quatrième filtre : la sélection finale</h3>
-
-      <p>Parmi les passages retenus, le modèle en garde trois à cinq pour construire sa réponse. À qualité de réponse égale, il privilégie les sources qui lui paraissent fiables : sites reconnus, auteurs identifiés, informations recoupées ailleurs.</p>
-
-      <p>C'est là qu'intervient la notoriété de votre marque en dehors de votre site, et c'est le levier le plus lent à construire.</p>
-
-      <h2>Les leviers, classés par efficacité</h2>
-
-      <p>Voici les sept leviers concrets, du plus rentable au plus lent. Les trois premiers produisent l'essentiel du résultat.</p>
-
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr><th scope="col">Levier</th><th scope="col">Effet</th><th scope="col">Délai</th><th scope="col">Effort</th></tr>
-          </thead>
-          <tbody>
-            <tr><td><strong>Répondre dans les deux premières phrases</strong></td><td>Très fort</td><td>4 à 8 semaines</td><td>Faible</td></tr>
-            <tr><td><strong>Chiffrer et dater</strong></td><td>Fort</td><td>4 à 8 semaines</td><td>Faible</td></tr>
-            <tr><td><strong>Découper en blocs autonomes</strong></td><td>Fort</td><td>4 à 8 semaines</td><td>Moyen</td></tr>
-            <tr><td><strong>Publier une page par question réelle</strong></td><td>Fort</td><td>2 à 4 mois</td><td>Élevé</td></tr>
-            <tr><td><strong>Entrer dans les comparatifs du secteur</strong></td><td>Fort</td><td>1 à 3 mois</td><td>Moyen</td></tr>
-            <tr><td><strong>Rendre l'auteur identifiable</strong></td><td>Moyen</td><td>Progressif</td><td>Faible</td></tr>
-            <tr><td><strong>Construire la notoriété de marque</strong></td><td>Décisif à terme</td><td>6 mois et plus</td><td>Élevé</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h3>Le levier n°1 : la réponse en tête</h3>
-
-      <p>Si vous ne devez faire qu'une chose, faites celle-là. Prenez vos dix pages les plus importantes et réécrivez leur premier paragraphe pour qu'il contienne la réponse complète à la question que la page traite.</p>
-
-      <p>Concrètement, la première phrase reprend la question sous forme affirmative, et les deux suivantes donnent l'essentiel. Le reste de la page développe. C'est la structure d'une dépêche d'agence, et ce n'est pas un hasard : ce format a été conçu pour être coupé n'importe où sans perdre son sens.</p>
-
-      <h3>Le levier n°2 : les chiffres datés</h3>
-
-      <p>Une affirmation vérifiable est préférée à une affirmation générale. « Un audit coûte entre 1 500 et 5 000 euros selon la taille du site, tarifs constatés en 2026 » sera repris ; « le prix d'un audit varie selon plusieurs facteurs » ne le sera jamais.</p>
-
-      <p>Ce levier a un effet secondaire précieux : il déclenche la recherche web. Une page qui contient des prix et des dates récentes est exactement le type de contenu que le modèle va chercher quand on lui pose une question factuelle.</p>
-
-      <h3>Le levier n°3 : les blocs autonomes</h3>
-
-      <p>Chaque section doit se lire indépendamment. Des titres qui contiennent la question, des paragraphes courts sur une seule idée, des listes quand l'information s'énumère, des tableaux quand elle se compare.</p>
-
-      <p>Le test est immédiat : prenez un paragraphe au hasard, sortez-le de la page, lisez-le. S'il tient debout seul, il est extractible.</p>
-
-      <h2>Comment vérifier si votre marque est citée</h2>
-
-      <p>La mesure demande un protocole, sinon elle ne veut rien dire. Trois règles.</p>
-
-      <ol>
-        <li><strong>En navigation privée, sans compte connecté.</strong> Sinon le modèle vous cite parce qu'il vous connaît, et vous mesurez votre propre historique.</li>
-        <li><strong>Avec des formulations stables.</strong> Une question reformulée donne une autre réponse : vous ne pourriez plus comparer d'une semaine sur l'autre.</li>
-        <li><strong>Plusieurs fois, sur plusieurs jours.</strong> Une réponse unique est une anecdote, pas une donnée.</li>
-      </ol>
-
-      <p>Pour chaque question, notez trois choses seulement : êtes-vous cité, quels concurrents le sont, et quelles sources sont liées. Cette dernière colonne est la plus utile : elle vous donne la liste exacte des sites où il faut être présent. La méthode complète, avec le panel de questions à constituer, est dans mon article sur <a href="/blog/audit-visibilite-ia-methode">l'audit de visibilité IA</a>.</p>
-
-      <h2>Quelles sources ChatGPT privilégie</h2>
-
-      <p>D'après ce que j'observe en interrogeant systématiquement des dizaines de questions par secteur, quatre familles de sources reviennent.</p>
-
-      <ul>
-        <li><strong>Les sites de référence du secteur.</strong> Ceux que tout le monde cite déjà, y compris les sites institutionnels et les organismes professionnels.</li>
-        <li><strong>Les comparatifs et annuaires.</strong> Très fréquents sur les questions de recommandation. C'est souvent la voie la plus rapide pour apparaître.</li>
-        <li><strong>Les pages qui répondent frontalement.</strong> Y compris de petits sites, quand leur page est mieux construite que celle d'un gros acteur.</li>
-        <li><strong>Les contenus datés et chiffrés.</strong> Prix, statistiques, échéances réglementaires.</li>
-      </ul>
-
-      <p>Le troisième point est la bonne nouvelle pour une PME : la taille du site n'est pas déterminante sur une question précise. Un artisan qui publie une page claire sur le coût d'une intervention peut être cité devant une grande enseigne dont la page est un argumentaire commercial.</p>
-
-      <h2>Le cas particulier des questions de recommandation</h2>
-
-      <p>« Quel prestataire me conseilles-tu pour telle chose », c'est la question qui vaut de l'argent, et elle obéit à des règles un peu différentes des questions informatives.</p>
-
-      <p>Sur ce type de demande, le modèle ne va presque jamais chercher sur le site des entreprises elles-mêmes. Il va chercher là où quelqu'un d'autre a déjà fait le tri : comparatifs, annuaires professionnels, articles de type « les meilleurs X à Y », discussions de forums, avis en ligne.</p>
-
-      <p>La conséquence est contre-intuitive mais essentielle : <strong>pour être recommandé, votre site importe moins que votre présence ailleurs.</strong> Vous pouvez avoir la meilleure page de services du marché, si aucun tiers ne vous mentionne, vous ne serez pas recommandé.</p>
-
-      <h3>La séquence qui fonctionne</h3>
-
-      <ol>
-        <li><strong>Identifiez les sources citées.</strong> Posez la question de recommandation dans votre secteur et notez systématiquement les sites que le moteur utilise pour répondre. En dix questions, vous aurez la liste complète.</li>
-        <li><strong>Entrez-y.</strong> Beaucoup de ces sources acceptent une inscription, gratuite ou peu coûteuse. Les annuaires professionnels, les fédérations, les plateformes spécialisées de votre métier.</li>
-        <li><strong>Vérifiez la cohérence.</strong> Le même nom, la même adresse, la même description partout. Les modèles recoupent ces informations, et une divergence affaiblit l'entité.</li>
-        <li><strong>Alimentez les avis.</strong> Sur les activités locales, les avis pèsent lourd dans les recommandations, exactement comme dans le pack local de Google.</li>
-      </ol>
-
-      <p>Cette séquence produit des résultats plus vite que la production de contenu, parce qu'elle ne dépend pas du rafraîchissement de votre propre site. Une inscription dans un annuaire déjà bien indexé peut vous faire apparaître en quelques semaines.</p>
-
-      <h2>Ce qui change selon votre activité</h2>
-
-      <p>La méthode générale est la même pour tous, mais le levier prioritaire dépend beaucoup de ce que vous vendez. Voici comment j'ajuste selon les cas.</p>
+      <p>La méthode générale est la même pour tous, mais le levier prioritaire dépend de ce que vous vendez. Voici comment j'ajuste selon les cas.</p>
 
       <div class="table-wrap">
         <table>
@@ -477,16 +605,40 @@
         </table>
       </div>
 
-      <p>Le point commun de la colonne du milieu : dans quatre cas sur cinq, le levier décisif se trouve en dehors de votre site. C'est le principal changement par rapport au référencement classique, où l'optimisation de vos propres pages faisait l'essentiel du travail.</p>
+      <p>Dans quatre cas sur cinq, le levier décisif se trouve en dehors de votre site. C'est le principal changement par rapport au référencement classique, où l'optimisation de vos propres pages faisait l'essentiel du travail. Pour un site marchand, OpenAI publie en plus une spécification de flux produits qui alimente la découverte de produits dans ChatGPT : elle se travaille comme un flux Google Shopping.</p>
 
-      <h2>Les erreurs qui empêchent d'être cité</h2>
+      <h2>Comment mesurer votre référencement ChatGPT</h2>
+
+      <p>Trois mesures se complètent : les citations, le trafic et les visites du robot.</p>
+
+      <h3>Les citations : un panel de questions</h3>
+
+      <p>La mesure des citations demande un protocole, sinon elle ne veut rien dire.</p>
+
+      <ol>
+        <li><strong>En navigation privée, sans compte connecté.</strong> Sinon ChatGPT vous cite parce qu'il vous connaît, et vous mesurez votre propre historique.</li>
+        <li><strong>Avec des formulations stables.</strong> Une question reformulée donne une autre réponse : vous ne pourriez plus comparer d'une semaine sur l'autre.</li>
+        <li><strong>Plusieurs fois, sur plusieurs jours.</strong> Une réponse unique est une anecdote, pas une donnée.</li>
+      </ol>
+
+      <p>Pour chaque question, notez trois choses : êtes-vous cité, quels concurrents le sont, quelles sources sont liées. La dernière colonne est la plus utile : elle donne la liste exacte des sites où il faut être présent. La méthode complète, avec le panel à constituer, est dans mon guide pour <a href="/blog/audit-visibilite-ia-methode">auditer sa visibilité IA</a>. Si vous préférez déléguer, c'est l'objet de mon <a href="/audit-visibilite-ia">audit de visibilité IA</a>.</p>
+
+      <h3>Le trafic : utm_source=chatgpt.com dans Google Analytics</h3>
+
+      <p>Les liens cliqués dans les réponses de ChatGPT arrivent en général avec le paramètre <code>utm_source=chatgpt.com</code>. Dans Google Analytics 4, ouvrez le rapport « Acquisition de trafic », affichez la dimension « Source de la session » et cherchez <code>chatgpt.com</code>. Une partie des visites arrive sans ce paramètre et se perd dans le trafic direct : le chiffre obtenu est un plancher.</p>
+
+      <h3>Les visites du robot : vos journaux serveur</h3>
+
+      <p>Comptez les passages d'OAI-SearchBot dans vos journaux, page par page. Une page stratégique jamais visitée ne sera jamais citée. Comme n'importe qui peut usurper un nom de robot, recoupez les adresses IP avec la liste qu'OpenAI publie pour OAI-SearchBot.</p>
+
+      <h2>Les erreurs qui empêchent d'être cité par ChatGPT</h2>
 
       <ul>
-        <li><strong>Bloquer GPTBot dans le robots.txt.</strong> C'est le premier point à vérifier, et je le trouve encore régulièrement, souvent sans que personne ne l'ait décidé.</li>
+        <li><strong>Bloquer OAI-SearchBot en voulant bloquer l'entraînement.</strong> C'est GPTBot qui sert à l'entraînement. Je trouve encore régulièrement des robots.txt qui ferment tout, souvent sans que personne ne l'ait décidé.</li>
+        <li><strong>Laisser le CDN filtrer les robots d'IA.</strong> Le robots.txt dit oui, le pare-feu dit non, et le robot ne passe pas.</li>
         <li><strong>Noyer la réponse.</strong> Trois paragraphes d'introduction avant d'entrer dans le sujet suffisent à disqualifier la page.</li>
         <li><strong>Écrire des titres créatifs.</strong> Un jeu de mots ne dit rien à une machine qui cherche une correspondance avec une question.</li>
-        <li><strong>Afficher le contenu uniquement après exécution de scripts.</strong> Si le texte n'est pas dans le HTML servi, il peut ne jamais être lu.</li>
-        <li><strong>Viser des questions qui ne déclenchent pas de recherche.</strong> Effort perdu, comme expliqué plus haut.</li>
+        <li><strong>Viser des questions qui ne déclenchent pas de recherche.</strong> ChatGPT y répond de mémoire, sans citer personne.</li>
         <li><strong>Confondre citation et trafic.</strong> Être cité ne garantit pas un clic. Ce sont deux objectifs distincts, à mesurer séparément.</li>
       </ul>
 
@@ -495,56 +647,47 @@
       <p>Voici l'ordre exact dans lequel je procède chez un client qui part de zéro.</p>
 
       <ol>
-        <li><strong>Semaine 1 : mesurer et débloquer.</strong> Constituer un panel de vingt questions, relever la situation de départ, vérifier le robots.txt et l'indexation.</li>
+        <li><strong>Semaine 1 : mesurer et débloquer.</strong> Constituer un panel de vingt questions, relever la situation de départ, vérifier le robots.txt, le CDN et l'indexation.</li>
         <li><strong>Semaine 2 : réécrire les têtes de page.</strong> Les dix pages stratégiques, introduction refaite pour répondre en deux phrases.</li>
-        <li><strong>Semaine 3 : chiffrer et structurer.</strong> Ajouter les données datées, découper en blocs, poser une FAQ balisée là où elle a du sens.</li>
+        <li><strong>Semaine 3 : dater et structurer.</strong> Ajouter les faits datés, découper en blocs, poser une FAQ balisée là où elle a du sens.</li>
         <li><strong>Semaine 4 : aller vers l'extérieur.</strong> Demander l'inscription dans les comparatifs et annuaires repérés lors de la mesure.</li>
       </ol>
 
-      <p>Puis on attend, et on remesure au bout d'un mois. Les premiers mouvements apparaissent généralement entre quatre et huit semaines, le temps que les robots repassent et que l'index soit rafraîchi. Ce délai n'est pas négociable : il ne dépend pas de vous.</p>
+      <p>Puis j'attends, et je remesure au bout d'un mois. Les premiers mouvements apparaissent en général entre quatre et huit semaines, le temps que les robots repassent et que les index se mettent à jour.</p>
 
-      <h2>Ce qu'on ne peut pas faire</h2>
+      <h2>Ce qui ne s'achète pas</h2>
 
-      <p>Pour finir, la partie que les prestataires évitent. Il n'existe aucun moyen d'acheter une citation, aucune inscription à un annuaire officiel de ChatGPT, aucun réglage caché. Ce qui existe, c'est un travail d'éditeur : rendre ses pages utiles, précises, vérifiables, et faire en sorte que d'autres parlent de vous.</p>
+      <p>Il n'existe aucun moyen d'acheter une citation dans une réponse, aucune inscription à un annuaire officiel de ChatGPT, aucun réglage caché. Depuis le 24 août 2026, ChatGPT affiche bien des annonces en France, sous les réponses des offres Free et Go, mais OpenAI précise qu'elles sont signalées comme telles, séparées de la réponse, et qu'elles ne l'influencent pas.</p>
 
-      <p>Méfiez-vous par conséquent de toute offre qui garantit une présence dans les réponses de ChatGPT. Les réponses varient d'un utilisateur à l'autre et d'un jour à l'autre : personne ne peut garantir ce qu'il ne contrôle pas.</p>
-
-
-      <!-- MAILLAGE À AJOUTER APRÈS PUBLICATION DES CIBLES :
-           - /blog/contenu-citable-guide (C1-15, 23/09/2026) : section « Les leviers »
-           - /blog/etre-cite-perplexity (C1-12) : section « Comment ChatGPT choisit ses sources »
-           - /blog/robots-ia-crawl (C1-18) : section « Les erreurs qui empêchent »
-           - /blog/chatgpt-moteur-de-recherche (C1-08) : section « La recherche se déclenche ou pas »
-           - /blog/mesurer-visibilite-ia (C1-10) : section « Comment vérifier »
-      -->
+      <p>Méfiez-vous donc de toute offre qui garantit une présence dans les réponses de ChatGPT. Les réponses varient d'un utilisateur à l'autre et d'un jour à l'autre : personne ne peut garantir ce qu'il ne contrôle pas. Ce qui existe, c'est un travail d'éditeur, celui que je mène dans mes missions de <a href="/geo">consultant GEO</a> : rendre ses pages utiles, précises, vérifiables, et faire en sorte que d'autres parlent de vous.</p>
 
       <!-- ================= FAQ ================= -->
       <section class="faq">
         <h2>Questions fréquentes</h2>
 
         <details>
-          <summary>Comment être cité par ChatGPT ?</summary>
-          <div class="faq-a"><p>Trois conditions cumulatives : être présent dans l'index de recherche que ChatGPT interroge, ce qui suppose un référencement classique qui fonctionne ; publier une page qui répond frontalement à la question dès les deux premières phrases ; et exister ailleurs sur le web sous une identité cohérente. Aucune ne suffit seule.</p></div>
-        </details>
-
-        <details>
-          <summary>Quelles sources ChatGPT privilégie-t-il ?</summary>
-          <div class="faq-a"><p>Quatre familles reviennent : les sites de référence du secteur et les organismes institutionnels, les comparatifs et annuaires spécialisés, les pages qui répondent frontalement même sur de petits sites, et les contenus datés et chiffrés. La taille du site n'est pas déterminante sur une question précise.</p></div>
+          <summary>Comment être référencé sur ChatGPT ?</summary>
+          <div class="faq-a"><p>Autorisez le robot OAI-SearchBot dans votre robots.txt et votre pare-feu, vérifiez que vos pages sont bien indexées, puis publiez des pages qui répondent à une question précise dès les deux premières phrases, avec des faits datés. Faites-vous ensuite citer par les comparatifs et annuaires de votre secteur. Il n'existe ni inscription ni formulaire de soumission.</p></div>
         </details>
 
         <details>
           <summary>Comment apparaître dans les réponses de ChatGPT ?</summary>
-          <div class="faq-a"><p>Commencez par les trois leviers les plus rentables : réécrire l'introduction de vos pages stratégiques pour répondre en deux phrases, ajouter des chiffres datés et sourcés, et découper le contenu en blocs autonomes compréhensibles hors contexte. Ces trois actions produisent l'essentiel du résultat en quatre à huit semaines.</p></div>
+          <div class="faq-a"><p>Visez les questions qui déclenchent une recherche web : prix, comparaisons, recommandations, actualités. Sur ces questions, réécrivez l'introduction de vos pages pour répondre en deux phrases, ajoutez des chiffres datés et découpez le contenu en blocs compréhensibles hors contexte. Ces trois actions produisent l'essentiel du résultat en quatre à huit semaines.</p></div>
         </details>
 
         <details>
-          <summary>Comment vérifier si ma marque est citée par ChatGPT ?</summary>
-          <div class="faq-a"><p>Posez vos questions métier en navigation privée sans compte connecté, avec des formulations stables, et répétez la mesure sur plusieurs jours. Notez pour chaque question si vous êtes cité, quels concurrents apparaissent et quelles sources sont liées. Cette dernière colonne vous donne la liste des sites où il faut être présent.</p></div>
+          <summary>Quelle différence entre OAI-SearchBot et GPTBot ?</summary>
+          <div class="faq-a"><p>OAI-SearchBot explore les pages pour la recherche de ChatGPT : le bloquer vous retire des réponses avec sources. GPTBot collecte des contenus pour entraîner les modèles d'OpenAI : le bloquer n'a pas d'effet sur la recherche. Les deux se règlent séparément dans le robots.txt.</p></div>
         </details>
 
         <details>
-          <summary>Quels leviers pour être cité par ChatGPT ?</summary>
-          <div class="faq-a"><p>Sept leviers, du plus rapide au plus lent : répondre dès les deux premières phrases, chiffrer et dater, découper en blocs autonomes, publier une page par question réelle, entrer dans les comparatifs du secteur, rendre l'auteur identifiable, et construire la notoriété de marque. Les trois premiers agissent en quatre à huit semaines.</p></div>
+          <summary>Faut-il bloquer GPTBot ?</summary>
+          <div class="faq-a"><p>C'est un choix éditorial, pas un levier de visibilité dans la recherche. Bloquer GPTBot empêche l'usage de vos contenus pour entraîner les futurs modèles, sans vous retirer des réponses avec sources. Pour une entreprise qui veut que les IA connaissent sa marque, je conseille en général de le laisser passer.</p></div>
+        </details>
+
+        <details>
+          <summary>Comment savoir si ChatGPT cite mon site ?</summary>
+          <div class="faq-a"><p>Posez vos questions métier en navigation privée, sans compte connecté, avec des formulations stables, et répétez la mesure sur plusieurs jours. Notez si vous êtes cité, quels concurrents apparaissent et quelles sources sont liées. Côté trafic, cherchez la source chatgpt.com dans Google Analytics : les clics venus de ChatGPT portent en général le paramètre utm_source=chatgpt.com.</p></div>
         </details>
 
         <details>
@@ -553,20 +696,21 @@
         </details>
 
         <details>
-          <summary>Peut-on payer pour être cité par ChatGPT ?</summary>
-          <div class="faq-a"><p>Non. Il n'existe aucun référencement payant, aucune inscription à un annuaire officiel ni aucun réglage caché permettant d'apparaître dans les réponses. Méfiez-vous des offres qui garantissent une présence : les réponses varient d'un utilisateur à l'autre et d'un jour à l'autre, personne ne peut garantir ce qu'il ne contrôle pas.</p></div>
+          <summary>Est-il possible de payer pour être cité par ChatGPT ?</summary>
+          <div class="faq-a"><p>Non. Aucune citation dans une réponse ne s'achète, et aucun annuaire officiel ne garantit une présence. Depuis le 24 août 2026, ChatGPT affiche des annonces en France, mais OpenAI précise qu'elles sont séparées des réponses et ne les influencent pas. Méfiez-vous des offres qui promettent une présence garantie.</p></div>
         </details>
 
         <details>
-          <summary>Combien de temps avant d'être cité ?</summary>
-          <div class="faq-a"><p>Les premiers mouvements apparaissent généralement entre quatre et huit semaines après les corrections, le temps que les robots repassent sur les pages modifiées et que l'index soit rafraîchi. Ce délai dépend surtout de l'autorité du domaine et de la fréquence de passage des robots, pas de la qualité des corrections.</p></div>
+          <summary>Combien de temps pour apparaître dans ChatGPT ?</summary>
+          <div class="faq-a"><p>OpenAI indique qu'une modification du robots.txt est prise en compte en 24 heures environ. Pour le contenu, les premiers effets que je constate arrivent entre quatre et huit semaines après les corrections, le temps que les pages soient réexplorées. La notoriété hors de votre site se construit, elle, sur plusieurs mois.</p></div>
         </details>
+
       </section>
 
       <!-- ================= CTA ================= -->
       <div class="cta-band">
         <div>
-          <h2>Que répond ChatGPT quand on parle de votre métier ?</h2>
+          <h2>Que répond ChatGPT quand vos clients parlent de votre métier ?</h2>
           <p>Panel de questions, part de voix face à vos concurrents, sources citées et plan d'action. Restitution en visio.</p>
         </div>
         <a class="btn btn-lime" href="/audit-visibilite-ia">Auditer ma visibilité IA <span class="ar">→</span></a>
@@ -649,24 +793,24 @@
   <aside class="rail rail-right">
     <div class="ai-box">
       <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
-      <p class="ai-text">Être cité par ChatGPT suppose trois conditions cumulatives : être présent dans l'index de recherche que le moteur interroge, publier une page qui répond frontalement dès les premières lignes, et exister ailleurs sur le web sous une identité cohérente. Le moteur ne lance une recherche que si la question exige une information fraîche ou vérifiable.</p>
+      <p class="ai-text">Le référencement ChatGPT consiste à faire citer ses pages quand ChatGPT lance une recherche web. Il suppose d'autoriser le robot OAI-SearchBot, d'être bien indexé, de répondre à la question dès les deux premières phrases avec des faits datés, et d'être mentionné par des sites tiers. Le trafic obtenu se mesure grâce au paramètre utm_source=chatgpt.com.</p>
       <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
     </div>
 
     <div class="rail-recent">
       <p class="rail-title">Dans la même catégorie</p>
       <div class="mini-list">
-        <a class="mini" href="/blog/generative-engine-optimization">
-          <span class="mini-thumb"><picture><source srcset="/images/blog/geo-cover.avif" type="image/avif"><img src="/images/blog/geo-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
-          <span><span class="mini-cat">GEO, visibilité IA</span><span class="mini-ttl">Generative Engine Optimization : comment être cité par les IA</span></span>
-        </a>
-        <a class="mini" href="/blog/audit-visibilite-ia-methode">
-          <span class="mini-thumb"><picture><source srcset="/images/blog/audit-visibilite-ia-cover.avif" type="image/avif"><img src="/images/blog/audit-visibilite-ia-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
-          <span><span class="mini-cat">GEO, visibilité IA</span><span class="mini-ttl">Audit de visibilité IA : la méthode pas à pas</span></span>
-        </a>
         <a class="mini" href="/blog/llms-txt">
           <span class="mini-thumb"><picture><source srcset="/images/blog/llms-txt-cover.avif" type="image/avif"><img src="/images/blog/llms-txt-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
-          <span><span class="mini-cat">GEO, visibilité IA</span><span class="mini-ttl">llms.txt : le fichier que les IA sont censées lire</span></span>
+          <span><span class="mini-cat">GEO, visibilité IA</span><span class="mini-ttl">llms.txt : exemple, générateur et intérêt réel (2026)</span></span>
+        </a>
+        <a class="mini" href="/blog/mode-ia-google">
+          <span class="mini-thumb"><picture><source srcset="/images/blog/etude-cas-geo-cover.avif" type="image/avif"><img src="/images/blog/etude-cas-geo-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
+          <span><span class="mini-cat">GEO</span><span class="mini-ttl">Mode IA Google (AI Mode) : activer, utiliser, être cité</span></span>
+        </a>
+        <a class="mini" href="/blog/avenir-du-seo">
+          <span class="mini-thumb"><picture><source srcset="/images/blog/avenir-du-seo-cover.avif" type="image/avif"><img src="/images/blog/avenir-du-seo-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
+          <span><span class="mini-cat">SEO</span><span class="mini-ttl">GEO vs SEO : les vraies différences (le SEO est-il mort ?)</span></span>
         </a>
       </div>
     </div>
@@ -677,30 +821,30 @@
 <section class="related">
   <div class="wrap">
     <h2>À lire ensuite</h2>
-    <p class="sub">La suite logique du parcours.</p>
+    <p class="sub">Pour aller plus loin que ChatGPT.</p>
     <div class="rel-grid">
-      <a class="rel-card" href="/blog/generative-engine-optimization">
-        <picture><source srcset="/images/blog/geo-cover.avif" type="image/avif"><img src="/images/blog/geo-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
+      <a class="rel-card" href="/blog/contenu-citable-guide">
+        <picture><source srcset="/images/blog/contenu-citable-cover.avif" type="image/avif"><img src="/images/blog/contenu-citable-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
 <div class="rel-body">
           <span class="rel-cat">GEO, visibilité IA</span>
-          <h3>Generative Engine Optimization : comment être cité par les IA</h3>
-          <p>La méthode en 7 points pour être repris comme source par ChatGPT, Perplexity et les AI Overviews.</p>
+          <h3>AEO (Answer Engine Optimization) : définition et méthode</h3>
+          <p>Les règles d'écriture qui font qu'un passage est repris par ChatGPT, Perplexity ou Google.</p>
         </div>
       </a>
       <a class="rel-card" href="/blog/audit-visibilite-ia-methode">
         <picture><source srcset="/images/blog/audit-visibilite-ia-cover.avif" type="image/avif"><img src="/images/blog/audit-visibilite-ia-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
 <div class="rel-body">
           <span class="rel-cat">GEO, visibilité IA</span>
-          <h3>Audit de visibilité IA : la méthode pas à pas</h3>
-          <p>Mesurer ce que les IA disent de votre marque, avec le protocole exact et le plan d'action.</p>
+          <h3>Visibilité IA : audit de marque dans ChatGPT, outils et prix</h3>
+          <p>Le panel de questions, la grille de relevé et la façon de lire les sources citées.</p>
         </div>
       </a>
-      <a class="rel-card" href="/blog/seo-ia">
-        <picture><source srcset="/images/blog/seo-ia-cover.avif" type="image/avif"><img src="/images/blog/seo-ia-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
+      <a class="rel-card" href="/blog/generative-engine-optimization">
+        <picture><source srcset="/images/blog/geo-cover.avif" type="image/avif"><img src="/images/blog/geo-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
 <div class="rel-body">
-          <span class="rel-cat">SEO</span>
-          <h3>SEO IA : ce qui a vraiment changé</h3>
-          <p>Deux sujets qu'on confond, les 20 tâches à déléguer à l'IA, et celles qu'il faut garder.</p>
+          <span class="rel-cat">GEO, visibilité IA</span>
+          <h3>GEO SEO : le guide du Generative Engine Optimization</h3>
+          <p>La même logique appliquée à tous les moteurs génératifs, de Perplexity aux AI Overviews.</p>
         </div>
       </a>
     </div>

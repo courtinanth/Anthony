@@ -4,8 +4,8 @@
 <script src="/js/js-flag.js?v=1"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Claude Code : prix, plans et coût réel (2026)</title>
-<meta name="description" content="Claude Code est inclus dans toutes les formules payantes de Claude, dès 20 $ par mois. Tarifs des plans, prix des tokens et méthode pour choisir.">
+<title>Claude Code prix : gratuit ou payant ? Coût réel (2026)</title>
+<meta name="description" content="Claude Code prix : pas de version gratuite, inclus dès Pro à 20 $ par mois. Tableau des formules, tarifs API, coût réel et accès gratuits possibles.">
 <link rel="canonical" href="https://anthony-courtin.com/blog/claude-code-prix">
 <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
@@ -14,8 +14,8 @@
 <meta name="robots" content="index, follow, max-image-preview:large">
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="Claude Code : prix, plans et coût réel (2026)">
-<meta property="og:description" content="Combien coûte vraiment Claude Code ? Le détail des formules Pro, Max, Team et Enterprise, les tarifs API au million de tokens, et le calcul du seuil de bascule.">
+<meta property="og:title" content="Claude Code prix : gratuit ou payant ? Coût réel (2026)">
+<meta property="og:description" content="Claude Code est-il gratuit ? Non : le tableau des formules Pro, Max, Team et Enterprise, les tarifs API d'octobre 2026, le coût moyen par jour et les vrais moyens de l'essayer sans payer.">
 <meta property="og:url" content="https://anthony-courtin.com/blog/claude-code-prix">
 <meta property="og:image" content="https://anthony-courtin.com/images/blog/claude-code-prix-cover.webp">
 <meta property="og:locale" content="fr_FR">
@@ -37,17 +37,17 @@
     {
       "@type":"BlogPosting",
       "@id":"https://anthony-courtin.com/blog/claude-code-prix#article",
-      "headline":"Claude Code : ce que ça coûte vraiment",
-      "description":"Guide des prix de Claude Code : formules Pro, Max, Team et Enterprise, tarifs de l'API par million de tokens, leviers d'économie et méthode pour arbitrer entre abonnement et facturation à l'usage.",
+      "headline":"Claude Code prix : gratuit ou payant ? Formules, API et coût réel",
+      "description":"Claude Code prix : pas de version gratuite, inclus dès Pro à 20 $ par mois. Tableau des formules, tarifs API, coût réel et accès gratuits possibles.",
       "inLanguage":"fr-FR",
       "datePublished":"2026-10-12",
       "dateModified":"2026-10-12",
       "image":"https://anthony-courtin.com/images/blog/claude-code-prix-cover.webp",
-      "wordCount":2700,
+      "wordCount":3150,
       "mainEntityOfPage":{"@type":"WebPage","@id":"https://anthony-courtin.com/blog/claude-code-prix"},
       "author":{"@id":"https://anthony-courtin.com/#anthony"},
       "publisher":{"@id":"https://anthony-courtin.com/#anthony"},
-      "about":[{"@type":"Thing","name":"Claude Code"},{"@type":"Thing","name":"Anthropic"},{"@type":"Thing","name":"Tarification"},{"@type":"Thing","name":"API"},{"@type":"Thing","name":"Intelligence artificielle"}]
+      "about":[{"@type":"Thing","name":"Claude Code"},{"@type":"Thing","name":"Tarification"},{"@type":"Thing","name":"Anthropic"},{"@type":"Thing","name":"API Claude"}]
     },
     {
       "@type":"Person",
@@ -63,24 +63,28 @@
       "itemListElement":[
         {"@type":"ListItem","position":1,"name":"Accueil","item":"https://anthony-courtin.com/"},
         {"@type":"ListItem","position":2,"name":"Blog","item":"https://anthony-courtin.com/blog/"},
-        {"@type":"ListItem","position":3,"name":"Claude Code, prix"}
+        {"@type":"ListItem","position":3,"name":"Claude Code prix"}
       ]
     },
     {
       "@type":"FAQPage",
       "mainEntity":[
+        {"@type":"Question","name":"Claude Code est-il gratuit ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Non. La formule gratuite de Claude n'inclut pas Claude Code. L'outil s'installe gratuitement, mais son usage demande un abonnement Pro, Max, Team ou Enterprise, ou un compte API facturé au token. Les seuls accès gratuits sont l'invitation de 7 jours d'un abonné, le petit crédit API de départ et le programme pour les mainteneurs open source."}},
         {"@type":"Question","name":"Quel est le prix de Claude Code ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Claude Code n'a pas de tarif propre : il est inclus dans toutes les formules payantes de Claude, à partir de 20 $ par mois avec la formule Pro. Vous pouvez aussi passer par l'API et payer au token consommé, sans abonnement ni montant minimum."}},
-        {"@type":"Question","name":"Quels sont les plans disponibles pour Claude ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Il existe cinq formules. Free est gratuite mais n'inclut pas Claude Code. Pro coûte 20 $ par mois, ou 17 $ par mois en réglant l'année d'avance. Max se décline en deux crans, 100 $ par mois pour cinq fois l'usage de Pro et 200 $ pour vingt fois. Team se compte en sièges, 20 $ le siège Standard et 100 $ le siège Premium en facturation annuelle. Enterprise ajoute à un siège à 20 $ la consommation facturée au tarif de l'API."}},
-        {"@type":"Question","name":"Comment fonctionne la facturation de Claude ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Sur abonnement, vous payez un montant fixe et vous consommez à l'intérieur de limites qui se réinitialisent par sessions de cinq heures, doublées d'un plafond hebdomadaire propre à votre compte. L'usage de Claude et celui de Claude Code puisent dans le même compteur. Sur l'API, il n'y a ni forfait ni plancher : vous payez à la fin du mois les tokens réellement consommés."}},
-        {"@type":"Question","name":"Y a-t-il un plan gratuit pour Claude ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Oui pour Claude, non pour Claude Code. La formule Free donne accès à Claude sur le web, le mobile et le bureau avec un volume limité, mais pas à l'agent de développement. Les nouveaux comptes API reçoivent par ailleurs un petit crédit offert, suffisant pour tester un modèle mais pas pour produire."}},
-        {"@type":"Question","name":"Quels sont les coûts des tokens pour Claude ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Les tarifs API par million de tokens sont de 1 $ en entrée et 5 $ en sortie pour Claude Haiku 4.5, 3 $ et 15 $ pour Claude Sonnet 5, 5 $ et 25 $ pour Claude Opus 5, et 10 $ et 50 $ pour Claude Fable 5. La lecture de cache revient à un dixième du prix d'entrée et le traitement par lots applique 50 % de remise sur l'entrée comme sur la sortie."}},
-        {"@type":"Question","name":"Comment choisir le bon plan pour Claude ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Relevez votre consommation des trente derniers jours dans la console, convertissez-la en coût API et comparez ce montant aux paliers d'abonnement de 20 $, 100 $ et 200 $. En dessous du palier qui vous convient, l'abonnement gagne sur le prix et sur la prévisibilité. Au-delà de 200 $ par mois, ou dès que vous devez intégrer Claude dans un script, l'API devient l'option rationnelle."}}
+         "acceptedAnswer":{"@type":"Answer","text":"Claude Code n'a pas de tarif propre : il est compris dans les formules payantes de Claude. Comptez 20 $ par mois avec Pro (17 $ en annuel), 100 $ ou 200 $ avec Max, 20 à 125 $ par siège avec Team. À l'API, il se facture au token, par exemple 2 $ en entrée et 10 $ en sortie par million de tokens avec Sonnet 5.5."}},
+        {"@type":"Question","name":"Claude Code est-il inclus dans l'abonnement Claude Pro ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Oui, sans supplément. L'abonnement Pro donne accès à Claude Code dans le terminal, dans VS Code, dans les IDE JetBrains et dans l'application de bureau. L'usage de Claude Code et celui de Claude dans le navigateur partagent les mêmes limites."}},
+        {"@type":"Question","name":"Est-il possible d'utiliser Claude Code gratuitement avec Ollama ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Oui, mais ce n'est plus Claude qui travaille. Ollama fait tourner Claude Code avec des modèles open source installés sur votre machine, par exemple avec la commande ollama launch claude. Le coût est nul, mais ces modèles sont nettement moins capables et demandent un ordinateur puissant."}},
+        {"@type":"Question","name":"Combien coûte Claude Code par mois en moyenne ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Selon la documentation d'Anthropic, l'usage moyen en entreprise revient à environ 13 $ par développeur et par jour actif, et 150 à 250 $ par mois, au tarif de l'API. Pour 90 % des utilisateurs, la dépense reste sous les 30 $ par jour actif. Un usage de quelques heures par semaine coûte bien moins."}},
+        {"@type":"Question","name":"Comment fonctionnent les limites d'usage de Claude Code ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Sur un abonnement, l'usage se réinitialise par tranches de cinq heures, avec en plus un plafond hebdomadaire. Ce compteur est partagé entre Claude dans le navigateur et Claude Code. La commande /usage affiche où vous en êtes et ce qui consomme le plus."}},
+        {"@type":"Question","name":"Que se passe-t-il quand j'atteins la limite de mon abonnement ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Claude Code vous indique l'heure de remise à zéro. Vous pouvez attendre, passer à la formule supérieure, ou activer les crédits d'usage, facturés au tarif de l'API, pour continuer tout de suite. Sur Pro et Max, une limite de dépense mensuelle se règle dans les paramètres de votre compte."}},
+        {"@type":"Question","name":"Claude Code est-il moins cher à l'API ou en abonnement ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Cela dépend du volume. Un usage léger coûte souvent moins de 20 $ par mois à l'API. Un usage quotidien revient à l'API à peu près au prix d'un abonnement Max, qui apporte en plus un montant fixe. L'API garde l'avantage pour les scripts automatisés et le contrôle fin des dépenses."}}
       ]
     }
   ]
@@ -174,12 +178,12 @@
     <nav class="crumb" aria-label="Fil d'Ariane">
       <a href="/">Accueil</a><span aria-hidden="true">/</span>
       <a href="/blog/">Blog</a><span aria-hidden="true">/</span>
-      <span>Claude Code, prix</span>
+      <span>Claude Code prix</span>
     </nav>
 
     <span class="art-cat">Utiliser l'IA</span>
-    <h1 class="art-title">Claude Code : ce que ça coûte vraiment</h1>
-    <p class="art-lede">Il n'existe pas d'abonnement Claude Code. Il y a des formules Claude, une API facturée au token, et un seuil de bascule entre les deux qui se calcule. Voici les prix exacts et la méthode.</p>
+    <h1 class="art-title">Claude Code prix : gratuit ou payant ? Formules, API et coût réel</h1>
+    <p class="art-lede">Claude Code n'est pas gratuit : il est inclus dans les abonnements Claude payants, à partir de 20 $ par mois avec Pro, ou facturé au token avec un compte API. Voici le tableau des formules au 7 octobre 2026, les tarifs de l'API, ce que coûte vraiment une journée de travail, et les vraies façons de l'essayer sans payer.</p>
 
     <div class="art-metaline">
       <span class="who">
@@ -189,7 +193,7 @@
       <span class="dot" aria-hidden="true">·</span>
       <time datetime="2026-10-12">12 octobre 2026</time>
       <span class="dot" aria-hidden="true">·</span>
-      <span>11 min de lecture</span>
+      <span>14 min de lecture</span>
       <span class="dot" aria-hidden="true">·</span>
       <span>Mis à jour le <time datetime="2026-10-12">12 octobre 2026</time></span>
     </div>
@@ -242,7 +246,7 @@
     <!-- Résumé IA version mobile : rendu côté serveur, donc lisible par Google et les LLM -->
     <div class="ai-box ai-box-mobile">
       <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
-      <p class="ai-text">Claude Code est inclus sans supplément dans toutes les formules payantes de Claude : Pro à 20 $ par mois, Max à 100 $ ou 200 $, Team à partir de 20 $ le siège, Enterprise en siège plus consommation. L'API se facture au million de tokens, de 1 $ à 10 $ en entrée et de 5 $ à 50 $ en sortie selon le modèle. Le cache divise le prix d'entrée par dix sur la partie réutilisée et le mode batch applique 50 % de remise. La bascule entre abonnement et API se calcule en convertissant sa consommation réelle en coût API, puis en la comparant aux paliers de 20 $, 100 $ et 200 $.</p>
+      <p class="ai-text">Claude Code n'est pas gratuit : il est inclus dans Claude Pro, Max, Team et Enterprise, ou facturé au token via l'API. Pro coûte 20 $ par mois, Max 100 ou 200 $. À l'API, Sonnet 5.5 coûte 2 $ et 10 $ par million de tokens. Anthropic estime l'usage moyen en entreprise à 13 $ par jour actif. Une invitation de 7 jours permet de l'essayer.</p>
       <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
     </div>
 
@@ -255,270 +259,303 @@
         </picture>
       </figure>
 
-      <p><strong>Claude Code n'a pas de prix à lui.</strong> Il est inclus dans toutes les formules payantes de Claude, à partir de 20 $ par mois, et se facture au token si vous passez par l'API. Toute la question est de savoir laquelle des deux portes coûte le moins cher pour votre usage réel.</p>
-
-      <p>Je l'utilise tous les jours en mission, sur du code comme sur des scripts SEO. Voici les prix exacts, relevés à la source, et la méthode que j'emploie pour trancher entre abonnement et facturation à l'usage.</p>
-
       <div class="verdict">
         <div class="verdict-note">
           <b>20 $</b>
-          <span>le ticket d'entrée</span>
+          <span>par mois minimum</span>
         </div>
         <div class="verdict-body">
-          <h2>Ce que coûte vraiment Claude Code</h2>
-          <p>Il n'existe pas d'abonnement Claude Code séparé. Vous payez un accès à Claude, et Claude Code vient avec, sur le terminal comme dans l'éditeur. La seule vraie décision est le niveau d'usage dont vous avez besoin.</p>
+          <h2>Claude Code est-il gratuit ? La réponse courte</h2>
+          <p>Non. La formule gratuite de Claude n'inclut pas Claude Code, ni dans le terminal, ni dans VS Code, ni dans l'application de bureau. L'outil s'installe gratuitement, mais son usage demande un abonnement Pro, Max, Team ou Enterprise, ou un compte API facturé au token.</p>
           <div class="verdict-lists">
             <ul class="verdict-pros">
-              <li>Inclus dans Pro, Max, Team et Enterprise, sans supplément</li>
-              <li>Un prix fixe, prévisible, qui couvre aussi Claude sur le web et le mobile</li>
-              <li>L'API en secours quand le volume dépasse le forfait</li>
+              <li>Inclus sans supplément dans Pro, Max, Team et Enterprise</li>
+              <li>Un essai de 7 jours possible sur invitation d'un abonné</li>
+              <li>Un petit crédit API offert aux nouveaux comptes</li>
             </ul>
             <ul class="verdict-cons">
               <li>Rien dans la formule gratuite</li>
-              <li>Des plafonds par session et par semaine, pas de l'illimité</li>
+              <li>Des limites par tranche de 5 heures et par semaine, pas de l'illimité</li>
             </ul>
           </div>
         </div>
         <p class="verdict-foot">
-          <span class="verdict-price">De 20 $ à 200 $ par mois</span>
-          <span>Ou au token via l'API, sans plancher</span>
+          <span class="verdict-price">De 20 $ à 200 $ par mois en individuel</span>
+          <span>Ou au token via l'API, sans abonnement</span>
         </p>
       </div>
 
       <section class="takeaways">
         <h2>À retenir</h2>
         <ul>
-          <li><strong>Claude Code est inclus dans toutes les formules payantes.</strong> Chercher son tarif séparé est une impasse : il n'y en a pas.</li>
-          <li><strong>La formule gratuite ne donne pas accès à Claude Code.</strong> Le premier palier utile est Pro, à 20 $ par mois.</li>
-          <li><strong>Max existe en deux crans</strong>, 100 $ et 200 $ par mois, pour cinq fois et vingt fois l'usage de Pro.</li>
-          <li><strong>L'API se facture au million de tokens</strong>, de 1 $ à 10 $ en entrée selon le modèle, et de 5 $ à 50 $ en sortie.</li>
-          <li><strong>Le cache divise le prix d'entrée par dix</strong> sur la partie réutilisée. C'est le levier d'économie le plus rentable, et le plus ignoré.</li>
+          <li><strong>Claude Code n'a pas de prix à lui</strong> : il est compris dans les abonnements Claude payants, ou facturé au token avec un compte API.</li>
+          <li><strong>La formule gratuite ne donne pas accès à Claude Code.</strong> Le premier palier est Pro, à 20 $ par mois ou 17 $ par mois en annuel.</li>
+          <li><strong>Max coûte 100 $ ou 200 $ par mois</strong>, pour cinq ou vingt fois l'usage de Pro, en mensuel uniquement.</li>
+          <li><strong>À l'API</strong>, Sonnet 5.5 coûte 2 $ par million de tokens en entrée et 10 $ en sortie, Opus 5.5 4 $ et 20 $.</li>
+          <li>Anthropic chiffre l'usage moyen en entreprise à <strong>environ 13 $ par développeur et par jour actif</strong>, et 150 à 250 $ par mois.</li>
+          <li>Pour l'essayer sans payer : une invitation de 7 jours d'un abonné, le crédit API de départ, ou le programme pour les mainteneurs open source.</li>
         </ul>
       </section>
 
-      <p>Avant d'entrer dans le détail, chiffrez votre propre situation. Entrez votre consommation mensuelle et l'outil vous dit si l'abonnement ou l'API vous revient le moins cher.</p>
+      <p>Je l'utilise tous les jours en mission, sur du code comme sur des scripts SEO. Les prix ci-dessous ont été relevés sur les pages officielles d'Anthropic le 7 octobre 2026. Ils bougent souvent : vérifiez la date du relevé avant de bâtir un budget.</p>
 
+      <h2>Claude Code prix : le tableau des formules en octobre 2026</h2>
+
+      <p>Il n'existe pas d'abonnement « Claude Code » séparé. Vous payez un accès à Claude, et Claude Code vient avec, dans le terminal, dans VS Code, dans JetBrains et dans l'application de bureau. La seule vraie décision est le niveau d'usage dont vous avez besoin.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Formule</th><th scope="col">Prix</th><th scope="col">Claude Code</th><th scope="col">Usage</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Free</strong></td><td>0 $</td><td>Non</td><td>Claude sur le web, le mobile et le bureau, sans Claude Code</td></tr>
+            <tr><td><strong>Pro</strong></td><td>20 $ par mois, ou 17 $ par mois en annuel (200 $ par an)</td><td>Oui</td><td>Limites par tranche de 5 heures, plus un plafond hebdomadaire</td></tr>
+            <tr><td><strong>Max 5x</strong></td><td>100 $ par mois, mensuel uniquement</td><td>Oui</td><td>Cinq fois l'usage de Pro</td></tr>
+            <tr><td><strong>Max 20x</strong></td><td>200 $ par mois, mensuel uniquement</td><td>Oui</td><td>Vingt fois l'usage de Pro</td></tr>
+            <tr><td><strong>Team, siège Standard</strong></td><td>20 $ par siège et par mois en annuel, 25 $ au mois</td><td>Oui</td><td>1,25 fois l'usage de Pro par session ; de 2 à 150 sièges</td></tr>
+            <tr><td><strong>Team, siège Premium</strong></td><td>100 $ par siège et par mois en annuel, 125 $ au mois</td><td>Oui</td><td>6,25 fois l'usage de Pro par session</td></tr>
+            <tr><td><strong>Enterprise</strong></td><td>20 $ par siège et par mois en annuel, plus l'usage au tarif de l'API</td><td>Oui</td><td>Consommation facturée en plus du siège</td></tr>
+            <tr><td><strong>API (compte Console)</strong></td><td>Au token, sans abonnement</td><td>Oui</td><td>Pas de plafond, sauf la limite de dépense que vous fixez</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Prix publics en dollars hors taxes, relevés sur claude.com ; la conversion dans votre devise n'apparaît qu'au moment du paiement. Pour le détail des formules côté chat (projets, mémoire, modèles), voyez mon article sur l'<a href="/blog/claude-ai-prix">abonnement Claude</a>.</p>
+
+      <h3>Pro : le ticket d'entrée</h3>
+
+      <p>Pro est le premier palier qui débloque Claude Code. L'engagement annuel revient à 200 $ réglés d'avance, soit 40 $ d'économie sur douze mois. Pour un indépendant qui code quelques heures par semaine, c'est le point de départ raisonnable. Attention : l'abonnement Pro ne comprend pas l'usage de l'API par la Console, qui se paie à part.</p>
+
+      <h3>Max : pour un usage quotidien</h3>
+
+      <p>Max existe en deux crans, 100 $ et 200 $ par mois, pour cinq et vingt fois l'usage de Pro, avec un accès prioritaire aux nouveautés. Il n'y a pas de tarif annuel. C'est la formule que je conseille dès que Claude Code devient un outil de travail quotidien plutôt qu'un appoint.</p>
+
+      <h3>Team et Enterprise : pour une équipe</h3>
+
+      <p>Team se compte en sièges, de 2 à 150, et chaque siège donne accès à Claude Code. Le mélange des deux types de sièges est rentable : quelques sièges Premium pour ceux qui codent toute la journée, des sièges Standard pour ceux qui rédigent ou analysent. Enterprise fonctionne autrement : un siège à 20 $ par mois en annuel, auquel s'ajoute la consommation réelle au tarif de l'API. Une organisation qui budgète Enterprise comme une ligne fixe se trompe : la consommation se modélise à côté.</p>
+
+      <h2>Claude Code gratuit : ce qui est possible, et ce qui ne l'est pas</h2>
+
+      <p>La formule gratuite de Claude donne accès au chat sur le web, le mobile et l'application de bureau, avec un volume limité. Elle ne donne pas accès à Claude Code : dans l'application de bureau, un clic sur l'onglet Code propose de passer à une formule payante, et la documentation officielle l'écrit noir sur blanc. Si votre besoin est surtout de discuter avec Claude, mon article sur <a href="/blog/claude-ai-gratuit">Claude AI gratuit</a> détaille ce que permet la formule gratuite.</p>
+
+      <p>Quatre portes restent ouvertes pour utiliser Claude Code sans payer, chacune avec ses limites.</p>
+
+      <h3>1. Une invitation de 7 jours (guest pass)</h3>
+
+      <p>Les abonnés Pro et Max éligibles disposent d'un nombre limité d'invitations. La personne invitée reçoit sept jours gratuits de la formule Pro, Claude Code compris. Condition : ne jamais avoir eu d'abonnement payant à Claude. Côté abonné, la commande <code>/passes</code> dans Claude Code affiche les invitations disponibles et le lien à partager. C'est le moyen le plus simple de tester l'outil sur un vrai projet.</p>
+
+      <h3>2. Le crédit API offert aux nouveaux comptes</h3>
+
+      <p>Anthropic indique que les nouveaux utilisateurs de l'API reçoivent « un petit montant de crédits gratuits » pour tester. Le montant n'est pas publié. Une fois Claude Code connecté à ce compte Console, ce crédit suffit pour quelques sessions d'essai, pas pour travailler.</p>
+
+      <h3>3. Le programme Claude for Open Source</h3>
+
+      <p>Anthropic offre six mois de Max 20x aux contributeurs open source qui remplissent l'un de ses critères : maintenir une bibliothèque dont dépendent au moins 500 dépôts ou 100 paquets, ou qui cumule 200 000 téléchargements par mois ; faire partie de l'équipe principale d'un projet reconnu (CPython, Node.js, Kubernetes, noyau Linux…) ; avoir fait fusionner au moins 100 pull requests dans des dépôts tiers en un an. À la fin des six mois, l'abonnement offert s'arrête.</p>
+
+      <h3>4. Claude Code avec un modèle open source (Ollama)</h3>
+
+      <p>C'est la méthode qui circule sous le titre « Claude Code gratuit et illimité ». Ollama sait faire tourner Claude Code avec des modèles open source installés sur votre machine : la commande <code>ollama launch claude</code> s'en charge, et Ollama conseille une fenêtre de contexte de 64 000 tokens ou plus. Le coût est nul, mais ce n'est plus Claude qui travaille : vous gardez l'interface de Claude Code avec un autre modèle, nettement moins capable sur les tâches longues, et il faut une machine puissante. Utile pour apprendre l'outil, pas pour juger ce qu'il vaut.</p>
+
+      <div class="callout callout--warn">
+        <p class="callout-t">Méfiez-vous des « clés gratuites »</p>
+        <p>Les clés API partagées sur des forums ou les extensions non officielles qui promettent Claude Code gratuit font transiter votre code par un intermédiaire inconnu. Sur un projet client, c'est un risque que rien ne justifie.</p>
+      </div>
+
+      <h2>Quel est le prix de Claude Code à l'API ?</h2>
+
+      <p>Avec un compte Claude Console, Claude Code se facture au token consommé, sans abonnement ni minimum. Voici les tarifs des modèles actuels, en dollars par million de tokens, relevés le 7 octobre 2026 :</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Modèle</th><th scope="col">Entrée</th><th scope="col">Sortie</th><th scope="col">Lecture de cache</th><th scope="col">Pour quoi faire</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Claude Fable 5.1</strong></td><td>10 $</td><td>50 $</td><td>0,25 $</td><td>Le plus cher de la gamme, pour les cas les plus durs</td></tr>
+            <tr><td><strong>Claude Opus 5.5</strong></td><td>4 $</td><td>20 $</td><td>0,20 $</td><td>Raisonnement complexe, décisions d'architecture</td></tr>
+            <tr><td><strong>Claude Sonnet 5.5</strong></td><td>2 $</td><td>10 $</td><td>0,20 $</td><td>La plupart des tâches de code</td></tr>
+            <tr><td><strong>Claude Haiku 4.5</strong></td><td>1 $</td><td>5 $</td><td>0,10 $</td><td>Tâches simples, sous-agents</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Trois mécanismes font varier la facture bien plus que la grille elle-même.</p>
+
+      <p><strong>Le cache.</strong> Claude Code renvoie toute la conversation à chaque requête, mais il s'appuie automatiquement sur le cache : la partie déjà vue se relit à un dixième du prix d'entrée (un vingtième sur Opus 5.5). L'écriture en cache coûte 1,25 fois le prix d'entrée pour une conservation de cinq minutes, deux fois pour une heure. C'est pour cela qu'une pause longue coûte cher : la première requête après expiration du cache repaie tout le contexte.</p>
+
+      <p><strong>Le choix du modèle.</strong> Entre Haiku et Opus 5.5, l'écart est d'un facteur quatre. La documentation de Claude Code le dit sans détour : Sonnet suffit pour la plupart des tâches, Opus est à réserver aux décisions d'architecture et au raisonnement en plusieurs étapes. La commande <code>/model</code> change de modèle en cours de session.</p>
+
+      <p><strong>Le raisonnement.</strong> Les tokens de réflexion sont facturés comme des tokens de sortie. Sur Opus 5.5, Sonnet 5.5 et Fable, la réflexion ne se désactive pas ; vous pouvez baisser le niveau d'effort avec <code>/effort</code>.</p>
+
+      <h3>Le piège du tokeniseur</h3>
+
+      <p>Comparer deux modèles au prix du million de tokens ne suffit pas. Depuis Claude 4.7, les modèles utilisent un tokeniseur qui découpe le texte plus finement : à texte identique, il produit <strong>environ 30 % de tokens en plus</strong>, selon la documentation d'Anthropic. Un modèle récent affiché au même tarif qu'un ancien consomme donc davantage d'unités pour le même travail. La seule comparaison sérieuse se fait sur vos propres contenus.</p>
+
+      <h3>Ce qui peut s'ajouter</h3>
+
+      <ul>
+        <li><strong>Le mode rapide</strong> d'Opus 5.5 double le tarif : 8 $ en entrée et 40 $ en sortie par million de tokens.</li>
+        <li><strong>L'inférence limitée aux États-Unis</strong>, pour des raisons de conformité, applique un coefficient de 1,1 sur tous les postes.</li>
+        <li><strong>La recherche web</strong> par l'API coûte 10 $ les 1 000 recherches, en plus des tokens des pages rapportées.</li>
+      </ul>
+
+      <h2>Combien coûte vraiment Claude Code par mois ?</h2>
+
+      <p>La documentation de Claude Code donne un repère rare, mesuré sur les déploiements en entreprise facturés à l'usage : <strong>environ 13 $ par développeur et par jour actif</strong>, et 150 à 250 $ par développeur et par mois. Pour 90 % des utilisateurs, la dépense reste sous les 30 $ par jour actif.</p>
+
+      <p>Mis en face des abonnements, le calcul est parlant. Un développeur qui travaille avec Claude Code tous les jours consomme à l'API à peu près le prix d'un abonnement Max. L'abonnement apporte alors la prévisibilité, et couvre en prime Claude dans le navigateur. À l'inverse, un usage de quelques heures par semaine reste souvent sous les 20 $ de Pro.</p>
+
+      <p>Pour suivre votre propre consommation, la commande <code>/usage</code> affiche dans une session le coût estimé (en compte API) ou vos jauges de limites (en abonnement), avec la part due aux skills, aux sous-agents et aux serveurs MCP.</p>
+
+      <p>Chiffrez votre cas : entrez votre consommation mensuelle, ou votre nombre de jours d'usage, et l'outil vous dit quelle formule revient le moins cher.</p>
+
+      <!-- ================= OUTIL INTERACTIF ================= -->
       <div class="tool" id="outil-claude-code-prix">
         <div class="tool-head">
           <span class="tool-ico" aria-hidden="true">✦</span>
           <span>
             <em>Outil interactif</em>
-            <b>Abonnement ou API : votre seuil de bascule</b>
+            <b>Claude Code : abonnement ou API, quel coût pour votre usage ?</b>
           </span>
         </div>
         <div class="tool-body">
           <div class="field">
             <label for="ccp-modele">Modèle utilisé</label>
             <select id="ccp-modele">
-              <option value="opus-5">Claude Opus 5, 5 $ et 25 $ par million de tokens</option>
-              <option value="sonnet-5">Claude Sonnet 5, 3 $ et 15 $</option>
+              <option value="sonnet-55">Claude Sonnet 5.5, 2 $ et 10 $ par million de tokens</option>
+              <option value="opus-55">Claude Opus 5.5, 4 $ et 20 $</option>
               <option value="haiku-45">Claude Haiku 4.5, 1 $ et 5 $</option>
+              <option value="fable-51">Claude Fable 5.1, 10 $ et 50 $</option>
             </select>
           </div>
-
-          <div class="field">
-            <label for="ccp-entree">Tokens en entrée par mois, en millions</label>
-            <input type="number" id="ccp-entree" min="0" step="0.5" value="10" inputmode="decimal">
+          <div class="field-row">
+            <div class="field">
+              <label for="ccp-entree">Tokens en entrée par mois, en millions</label>
+              <input type="number" id="ccp-entree" min="0" step="1" value="40" inputmode="decimal">
+            </div>
+            <div class="field">
+              <label for="ccp-sortie">Tokens en sortie par mois, en millions</label>
+              <input type="number" id="ccp-sortie" min="0" step="0.1" value="1" inputmode="decimal">
+            </div>
           </div>
-
           <div class="field">
-            <label for="ccp-sortie">Tokens en sortie par mois, en millions</label>
-            <input type="number" id="ccp-sortie" min="0" step="0.1" value="1" inputmode="decimal">
+            <label for="ccp-cache">Part de l'entrée relue depuis le cache : <span id="ccp-cache-val">80 %</span></label>
+            <input type="range" id="ccp-cache" min="0" max="95" step="5" value="80">
           </div>
-
           <div class="field">
-            <label for="ccp-cache">Part servie par le cache : <span id="ccp-cache-val">0 %</span></label>
-            <input type="range" id="ccp-cache" min="0" max="90" step="5" value="0">
+            <label for="ccp-jours">Ou, à défaut, vos jours d'usage par mois <span class="hint">: pour le repère moyen d'Anthropic</span></label>
+            <input type="number" id="ccp-jours" min="0" max="31" step="1" value="0" inputmode="numeric">
           </div>
-
           <div class="score">
             <b id="ccp-total">0,00 $</b><span>par mois à l'API</span>
           </div>
           <div class="meter"><i id="ccp-meter" style="width:0%"></i></div>
-
           <div class="field">
             <span class="rail-title" style="margin-bottom:8px" id="ccp-verdict"></span>
             <div class="tool-out" id="ccp-detail" aria-live="polite"></div>
           </div>
-
           <div class="tool-actions">
             <button type="button" class="btn-sm primary" id="ccp-copy">Copier l'estimation</button>
             <a class="btn-sm ghost" href="/automatisation-ia">Faire chiffrer mon usage</a>
           </div>
         </div>
         <div class="tool-foot">
-          <span>Calcul local, rien n'est envoyé. Estimation hors surcoût d'écriture de cache.</span>
-          <span>Tarifs relevés le 11 août 2026</span>
+          <span>Calcul local, rien n'est envoyé. Estimation hors écritures de cache et taxes.</span>
+          <span>Tarifs relevés le 7 octobre 2026</span>
         </div>
       </div>
 
-      <h2>Quel est le prix de Claude Code ?</h2>
-
-      <p>Zéro, si l'on pose la question ainsi. Claude Code n'est pas un produit vendu séparément : c'est une manière d'utiliser Claude, depuis votre terminal, votre éditeur ou votre navigateur. Anthropic l'inclut dans toutes les formules payantes, sans ligne supplémentaire sur la facture.</p>
-
-      <p>C'est la première source de confusion que je rencontre chez mes clients. Ils cherchent une grille tarifaire « Claude Code » et n'en trouvent pas, donc ils concluent que l'outil est réservé aux entreprises ou qu'il coûte cher. C'est l'inverse : le même abonnement à 20 $ qui vous donne Claude dans un navigateur vous donne aussi l'agent de développement.</p>
-
-      <p>La vraie question n'est donc pas combien coûte Claude Code, mais quel niveau d'usage vous devez acheter. Et là, il y a cinq réponses possibles.</p>
-
-      <h2>Quels sont les plans disponibles pour Claude ?</h2>
-
-      <p>Cinq formules, dont une gratuite qui n'ouvre pas Claude Code. Tous les prix sont hors taxes, en dollars, avec facturation dans votre devise locale là où c'est proposé.</p>
-
-      <h3>Free, la formule gratuite</h3>
-
-      <p>Zéro euro, l'accès à Claude sur le web, le mobile et le bureau, avec un volume d'échanges limité. <strong>Claude Code n'y est pas inclus.</strong> C'est utile pour tester la qualité des réponses, pas pour travailler.</p>
-
-      <h3>Pro, à 20 $ par mois</h3>
-
-      <p>Le premier palier qui débloque Claude Code. Il coûte 20 $ facturé au mois, ou 17 $ par mois si vous payez l'année d'avance, soit 200 $ réglés en une fois. L'engagement annuel fait donc économiser 40 $ sur douze mois, à peu près deux mois offerts.</p>
-
-      <p>Pro donne un usage nettement supérieur à la formule gratuite et un accès prioritaire aux heures de forte affluence. Pour un indépendant qui code quelques heures par semaine, c'est le point de départ raisonnable.</p>
-
-      <h3>Max, à 100 $ ou 200 $ par mois</h3>
-
-      <p>Max existe en deux crans. Le premier, à 100 $ par mois, donne cinq fois l'usage de Pro. Le second, à 200 $ par mois, en donne vingt fois. Les deux s'accompagnent d'un accès prioritaire aux nouveaux modèles.</p>
-
-      <p>Point important : <strong>Max n'existe qu'en abonnement mensuel</strong>, il n'y a pas de tarif annuel remisé. En revanche, le passage d'un cran à l'autre en cours de mois est calculé au prorata.</p>
-
-      <p>C'est la formule que je conseille dès que Claude Code devient un outil de travail quotidien plutôt qu'un appoint. Le cran à 100 $ couvre la grande majorité des usages individuels sérieux.</p>
-
-      <h3>Team, à partir de 20 $ par siège</h3>
-
-      <p>Team se compte en sièges, jusqu'à 150. Deux types coexistent. Le siège Standard revient à 20 $ par siège et par mois en facturation annuelle, 25 $ au mois. Le siège Premium coûte 100 $ par siège et par mois en annuel, 125 $ au mois, et donne cinq fois l'usage d'un siège Standard.</p>
-
-      <p>L'intérêt d'un mélange des deux est réel : quelques sièges Premium pour ceux qui codent toute la journée, des sièges Standard pour ceux qui rédigent ou analysent.</p>
-
-      <h3>Enterprise, siège plus consommation</h3>
-
-      <p>Enterprise fonctionne différemment, et c'est le point que les comparatifs ratent le plus souvent. Le modèle est hybride : <strong>un siège à 20 $ par utilisateur, facturé à l'année, auquel s'ajoute la consommation réelle facturée au tarif de l'API.</strong></p>
-
-      <p>Le siège ouvre l'accès à Claude sur le web, le bureau et le mobile, plus Claude Code. Les tokens consommés se facturent en plus. Ce n'est donc pas un forfait, et une organisation qui budgète Enterprise comme une ligne fixe se trompe : il faut modéliser la consommation à côté.</p>
-
-      <h2>Comment fonctionne la facturation de Claude ?</h2>
-
-      <p>Deux mécaniques cohabitent, et il faut les distinguer pour ne pas se tromper de budget.</p>
-
-      <p><strong>Côté abonnement</strong>, vous payez un montant fixe et vous consommez à l'intérieur de limites. Ces limites ne sont pas un compteur mensuel unique. Sur Max, elles fonctionnent par sessions qui se réinitialisent toutes les cinq heures, avec en plus un plafond hebdomadaire dont la date de remise à zéro est propre à votre compte. Autrement dit, une grosse journée peut vous bloquer quelques heures même si votre mois est loin d'être entamé.</p>
-
-      <p>Autre point à connaître : l'usage de Claude et celui de Claude Code puisent dans le même compteur. Une longue session de rédaction dans le navigateur réduit ce qu'il vous reste pour coder dans la journée.</p>
-
-      <p><strong>Côté API</strong>, il n'y a ni forfait ni plancher : vous payez les tokens que vous consommez, à la fin du mois. C'est plus fin, plus pilotable, et cela devient franchement moins cher au-delà d'un certain volume. C'est aussi plus exigeant, parce qu'il n'y a rien pour vous arrêter.</p>
-
-      <h2>Y a-t-il un plan gratuit pour Claude ?</h2>
-
-      <p>Oui pour Claude, non pour Claude Code. La formule Free permet de discuter avec Claude sur le web, le mobile et l'application de bureau, avec un volume quotidien restreint et sans accès à l'agent de développement.</p>
-
-      <p>Il existe tout de même une porte d'entrée sans engagement du côté de l'API : les nouveaux comptes reçoivent un petit crédit offert pour tester. C'est suffisant pour évaluer la qualité d'un modèle sur vos propres données, pas pour produire.</p>
-
-      <p>Si votre objectif est de tester Claude Code avant de payer, le chemin le plus court reste le premier mois de Pro, à 20 $, quitte à résilier ensuite.</p>
-
-      <h2>Quels sont les coûts des tokens pour Claude ?</h2>
-
-      <p>Voici les tarifs de l'API, en dollars par million de tokens. Ce sont les prix relevés à la source le 11 août 2026.</p>
-
-      <div class="table-wrap">
-        <table>
-          <thead>
-            <tr><th>Modèle</th><th>Entrée</th><th>Sortie</th><th>Lecture de cache</th><th>Batch, entrée et sortie</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Claude Fable 5</td><td>10 $</td><td>50 $</td><td>1 $</td><td>5 $ et 25 $</td></tr>
-            <tr><td>Claude Opus 5</td><td>5 $</td><td>25 $</td><td>0,50 $</td><td>2,50 $ et 12,50 $</td></tr>
-            <tr><td>Claude Sonnet 5</td><td>3 $</td><td>15 $</td><td>0,30 $</td><td>1,50 $ et 7,50 $</td></tr>
-            <tr><td>Claude Haiku 4.5</td><td>1 $</td><td>5 $</td><td>0,10 $</td><td>0,50 $ et 2,50 $</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <p>Trois leviers font varier ces montants dans de grandes proportions.</p>
-
-      <p><strong>Le cache.</strong> Une portion de prompt réutilisée d'une requête à l'autre se relit à un dixième du prix d'entrée. L'écriture coûte 1,25 fois le prix normal pour une conservation de cinq minutes, et deux fois pour une heure. Le calcul est vite fait : le cache court est rentable dès la première relecture, le cache long à partir de la deuxième. Sur un agent qui rejoue le même contexte des dizaines de fois par heure, c'est le poste d'économie numéro un.</p>
-
-      <p><strong>Le traitement par lots.</strong> Les requêtes qui ne sont pas urgentes peuvent passer par l'API batch, avec 50 % de remise sur l'entrée comme sur la sortie. Pour tout ce qui est génération de masse, classification ou enrichissement de catalogue, c'est de l'argent laissé sur la table si vous ne l'utilisez pas.</p>
-
-      <p><strong>Le choix du modèle.</strong> L'écart entre Haiku et Opus est d'un facteur cinq. Beaucoup de tâches d'un pipeline, extraire, classer, reformater, n'ont aucun besoin du modèle le plus puissant. Réserver Opus au raisonnement difficile et confier le reste à Haiku change l'ordre de grandeur d'une facture.</p>
-
-      <h3>Le piège que presque personne ne mentionne</h3>
-
-      <p>Comparer deux modèles au prix par million de tokens ne suffit pas, et c'est un vrai piège budgétaire. Les modèles à partir d'Opus 4.7 utilisent un nouveau tokeniseur qui découpe le texte plus finement : <strong>à texte identique, il produit environ 30 % de tokens en plus.</strong></p>
-
-      <p>Conséquence directe : deux modèles affichés au même tarif par million de tokens ne coûtent pas la même chose pour traiter le même document. Le plus récent consommera mécaniquement plus d'unités. L'information est écrite noir sur blanc dans la documentation d'Anthropic, et je ne l'ai vue reprise nulle part en français.</p>
-
-      <p>La seule façon sérieuse de comparer est donc de mesurer sur vos propres contenus, avec le point de comptage de tokens de l'API, plutôt que de raisonner sur la grille tarifaire.</p>
-
-      <h2>Ce qui se facture en plus des tokens</h2>
-
-      <p>Quelques postes s'ajoutent, modestes pris isolément, moins anodins à l'échelle d'un agent qui tourne en continu.</p>
-
-      <ul>
-        <li><strong>La recherche web</strong> revient à 10 $ pour 1 000 recherches, en plus des tokens du contenu rapporté.</li>
-        <li><strong>La récupération d'une page</strong> ne coûte rien de plus : seuls les tokens de la page comptent. Une page moyenne pèse environ 2 500 tokens, une grosse page de documentation dix fois plus.</li>
-        <li><strong>L'exécution de code</strong> offre 1 550 heures par mois et par organisation, puis 0,05 $ par heure et par conteneur. Elle devient gratuite dès qu'elle accompagne la recherche web.</li>
-        <li><strong>Les agents gérés</strong> ajoutent 0,08 $ par heure de session, décomptée seulement quand la session travaille réellement.</li>
-      </ul>
-
-      <p>Deux multiplicateurs méritent l'attention. Le mode rapide, disponible sur Opus 5, double le tarif. Et restreindre l'inférence au territoire américain, pour des raisons de conformité, applique un coefficient de 1,1 sur l'ensemble des postes.</p>
-
-      <h2>Abonnement ou API : comment choisir le bon plan</h2>
+      <h2>Abonnement ou API : comment choisir</h2>
 
       <p>La bascule se calcule, elle ne se devine pas. Voici la méthode que j'applique.</p>
 
-      <p>Commencez par relever votre consommation réelle des trente derniers jours dans la console. Convertissez-la en coût API avec la grille ci-dessus, cache compris. Comparez ce montant aux trois paliers d'abonnement : 20 $, 100 $, 200 $.</p>
+      <ol>
+        <li><strong>Relevez votre consommation réelle</strong> sur un mois : <code>/usage</code> en session, ou la page Usage de la Console si vous êtes à l'API.</li>
+        <li><strong>Convertissez-la en coût API</strong> avec la grille ci-dessus, cache compris, ou avec l'outil.</li>
+        <li><strong>Comparez aux paliers</strong> de 20 $, 100 $ et 200 $. Sous le palier qui vous suffit, l'abonnement gagne, et pas seulement sur le prix : il apporte un montant fixe et couvre Claude dans le navigateur.</li>
+      </ol>
 
-      <p>Si votre coût API théorique est inférieur au palier qui vous convient, l'abonnement gagne, et pas seulement sur le prix : il apporte la prévisibilité et couvre en prime tous les autres usages de Claude. Si votre coût API dépasse 200 $ par mois, l'abonnement individuel a atteint sa limite et l'API devient l'option rationnelle, parce qu'elle se pilote.</p>
+      <p>Deux mécaniques de l'abonnement sont à connaître avant de trancher. D'abord, les limites ne forment pas un compteur mensuel : elles se réinitialisent par tranches de cinq heures, avec en plus un plafond hebdomadaire. Une grosse journée peut donc vous arrêter quelques heures alors que votre mois est loin d'être entamé. Ensuite, l'usage de Claude et celui de Claude Code puisent dans le même compteur : une longue session de rédaction dans le navigateur réduit ce qu'il vous reste pour coder. Une fois la limite atteinte, vous pouvez attendre la remise à zéro, ou activer les crédits d'usage, facturés au tarif de l'API.</p>
 
-      <p>Trois signaux poussent vers l'API indépendamment du calcul. Vous avez besoin d'intégrer Claude dans un produit ou un script automatisé. Vous voulez appliquer le traitement par lots à des volumes importants. Vous devez répartir la charge entre plusieurs modèles selon la difficulté de la tâche. Aucun de ces trois besoins ne se traite avec un abonnement.</p>
+      <p>Trois signaux poussent vers l'API, quel que soit le calcul :</p>
 
-      <p>Et si vous êtes plusieurs, chiffrez Team avant de multiplier les abonnements individuels : un mélange de sièges Standard et Premium revient souvent moins cher que quatre Max.</p>
+      <ul>
+        <li>Claude Code tourne dans des scripts ou une chaîne d'intégration continue, sans personne devant l'écran.</li>
+        <li>Vous voulez un plafond de dépense par espace de travail, réglable dans la Console.</li>
+        <li>Vous êtes plusieurs et chacun a un usage très différent, ce qui se modélise mieux au token. Chiffrez aussi Team avant de multiplier les abonnements individuels.</li>
+      </ul>
+
+      <div class="callout callout--warn">
+        <p class="callout-t">Une clé API oubliée change la facture</p>
+        <p>Si la variable <code>ANTHROPIC_API_KEY</code> est définie sur votre machine, Claude Code l'utilise à la place de votre abonnement, une fois que vous l'avez acceptée : l'usage part alors en facturation API. Vérifiez la méthode active avec <code>/status</code>. La marche à suivre est dans mon tuto pour <a href="/blog/claude-code">installer Claude Code</a>.</p>
+      </div>
+
+      <h2>Réduire la facture de Claude Code</h2>
+
+      <p>Le coût suit la taille du contexte : plus Claude Code relit de choses, plus vous payez, en dollars à l'API comme en limites sur un abonnement.</p>
+
+      <ul>
+        <li><strong>Une session par tâche.</strong> <code>/clear</code> repart d'un contexte vide quand vous changez de sujet ; une session ouverte toute la journée renvoie tout son historique à chaque échange.</li>
+        <li><strong>Le bon modèle.</strong> Sonnet par défaut, Opus quand la tâche le justifie, Haiku pour les sous-agents simples.</li>
+        <li><strong>Un CLAUDE.md court.</strong> La documentation conseille de rester sous 200 lignes et de déplacer les procédures spécialisées dans des skills, chargées seulement quand elles servent. Le mode d'emploi est dans <a href="/blog/claude-skills">Claude Skills</a>.</li>
+        <li><strong>Moins de serveurs MCP actifs.</strong> Désactivez avec <code>/mcp</code> ceux qui ne servent pas ; un outil en ligne de commande coûte moins de contexte. Voir <a href="/blog/mcp-model-context-protocol">c'est quoi un serveur MCP</a>.</li>
+        <li><strong>Des demandes précises.</strong> « Ajoute une validation dans la fonction de connexion de auth.ts » coûte bien moins que « améliore ce projet », qui déclenche une exploration de tout le dépôt.</li>
+        <li><strong>Le mode Plan</strong> avant un gros chantier : l'agent propose une approche avant de modifier, ce qui évite de payer un travail à refaire.</li>
+      </ul>
 
       <h2>Ce que je paie, moi</h2>
 
       <p>Je travaille avec un abonnement pour l'usage quotidien, dans le terminal comme dans le navigateur, et j'ouvre l'API pour tout ce qui est automatisé : les pipelines de contenu, les scripts d'audit, les traitements en série sur des milliers d'URL.</p>
 
-      <p>Cette séparation a un mérite pratique. L'abonnement couvre la partie imprévisible, celle où je discute avec le modèle et où je ne veux pas surveiller un compteur. L'API couvre la partie industrielle, celle que je peux mesurer, mettre en cache et passer en batch. Le budget devient lisible, et surtout il devient optimisable, ce qui n'est pas le cas d'un forfait.</p>
+      <p>Cette séparation a un mérite pratique. L'abonnement couvre la partie imprévisible, celle où je discute avec le modèle et où je ne veux pas surveiller un compteur. L'API couvre la partie industrielle, celle que je peux mesurer, mettre en cache et passer en traitement par lots. Le budget devient lisible, et surtout optimisable. C'est ce type de chaîne que je mets en place en <a href="/automatisation-ia">mission d'automatisation IA</a>.</p>
 
-      <p>Un dernier conseil, valable quel que soit votre choix : posez une alerte de dépense sur votre compte API dès le premier jour. Un agent mal bordé qui boucle peut consommer en une nuit ce que vous aviez prévu pour le trimestre. C'est le seul vrai risque financier de cet outil.</p>
-
-
-      <!-- MAILLAGE À AJOUTER APRÈS PUBLICATION DES CIBLES :
-           - /blog/claude-vs-chatgpt (02/11/2026)
-           - /blog/claude-ai-prix (16/11/2026)
-           - /blog/mcp-model-context-protocol (21/10/2026)
-      -->
+      <p>Un dernier conseil, valable quel que soit votre choix : posez une limite de dépense sur votre compte API dès le premier jour. Un agent mal cadré qui tourne en boucle peut consommer en une nuit ce que vous aviez prévu pour le mois.</p>
 
       <!-- ================= FAQ ================= -->
       <section class="faq">
         <h2>Questions fréquentes</h2>
 
         <details>
+          <summary>Claude Code est-il gratuit ?</summary>
+          <div class="faq-a"><p>Non. La formule gratuite de Claude n'inclut pas Claude Code. L'outil s'installe gratuitement, mais son usage demande un abonnement Pro, Max, Team ou Enterprise, ou un compte API facturé au token. Les seuls accès gratuits sont l'invitation de 7 jours d'un abonné, le petit crédit API de départ et le programme pour les mainteneurs open source.</p></div>
+        </details>
+
+        <details>
           <summary>Quel est le prix de Claude Code ?</summary>
-          <div class="faq-a"><p>Claude Code n'a pas de tarif propre : il est inclus dans toutes les formules payantes de Claude, à partir de 20 $ par mois avec la formule Pro. Vous pouvez aussi passer par l'API et payer au token consommé, sans abonnement ni montant minimum.</p></div>
+          <div class="faq-a"><p>Claude Code n'a pas de tarif propre : il est compris dans les formules payantes de Claude. Comptez 20 $ par mois avec Pro (17 $ en annuel), 100 $ ou 200 $ avec Max, 20 à 125 $ par siège avec Team. À l'API, il se facture au token, par exemple 2 $ en entrée et 10 $ en sortie par million de tokens avec Sonnet 5.5.</p></div>
         </details>
 
         <details>
-          <summary>Quels sont les plans disponibles pour Claude ?</summary>
-          <div class="faq-a"><p>Il existe cinq formules. Free est gratuite mais n'inclut pas Claude Code. Pro coûte 20 $ par mois, ou 17 $ par mois en réglant l'année d'avance. Max se décline en deux crans, 100 $ par mois pour cinq fois l'usage de Pro et 200 $ pour vingt fois. Team se compte en sièges, 20 $ le siège Standard et 100 $ le siège Premium en facturation annuelle. Enterprise ajoute à un siège à 20 $ la consommation facturée au tarif de l'API.</p></div>
+          <summary>Claude Code est-il inclus dans l'abonnement Claude Pro ?</summary>
+          <div class="faq-a"><p>Oui, sans supplément. L'abonnement Pro donne accès à Claude Code dans le terminal, dans VS Code, dans les IDE JetBrains et dans l'application de bureau. L'usage de Claude Code et celui de Claude dans le navigateur partagent les mêmes limites.</p></div>
         </details>
 
         <details>
-          <summary>Comment fonctionne la facturation de Claude ?</summary>
-          <div class="faq-a"><p>Sur abonnement, vous payez un montant fixe et vous consommez à l'intérieur de limites qui se réinitialisent par sessions de cinq heures, doublées d'un plafond hebdomadaire propre à votre compte. L'usage de Claude et celui de Claude Code puisent dans le même compteur. Sur l'API, il n'y a ni forfait ni plancher : vous payez à la fin du mois les tokens réellement consommés.</p></div>
+          <summary>Est-il possible d'utiliser Claude Code gratuitement avec Ollama ?</summary>
+          <div class="faq-a"><p>Oui, mais ce n'est plus Claude qui travaille. Ollama fait tourner Claude Code avec des modèles open source installés sur votre machine, par exemple avec la commande ollama launch claude. Le coût est nul, mais ces modèles sont nettement moins capables et demandent un ordinateur puissant.</p></div>
         </details>
 
         <details>
-          <summary>Y a-t-il un plan gratuit pour Claude ?</summary>
-          <div class="faq-a"><p>Oui pour Claude, non pour Claude Code. La formule Free donne accès à Claude sur le web, le mobile et le bureau avec un volume limité, mais pas à l'agent de développement. Les nouveaux comptes API reçoivent par ailleurs un petit crédit offert, suffisant pour tester un modèle mais pas pour produire.</p></div>
+          <summary>Combien coûte Claude Code par mois en moyenne ?</summary>
+          <div class="faq-a"><p>Selon la documentation d'Anthropic, l'usage moyen en entreprise revient à environ 13 $ par développeur et par jour actif, et 150 à 250 $ par mois, au tarif de l'API. Pour 90 % des utilisateurs, la dépense reste sous les 30 $ par jour actif. Un usage de quelques heures par semaine coûte bien moins.</p></div>
         </details>
 
         <details>
-          <summary>Quels sont les coûts des tokens pour Claude ?</summary>
-          <div class="faq-a"><p>Les tarifs API par million de tokens sont de 1 $ en entrée et 5 $ en sortie pour Claude Haiku 4.5, 3 $ et 15 $ pour Claude Sonnet 5, 5 $ et 25 $ pour Claude Opus 5, et 10 $ et 50 $ pour Claude Fable 5. La lecture de cache revient à un dixième du prix d'entrée et le traitement par lots applique 50 % de remise sur l'entrée comme sur la sortie.</p></div>
+          <summary>Comment fonctionnent les limites d'usage de Claude Code ?</summary>
+          <div class="faq-a"><p>Sur un abonnement, l'usage se réinitialise par tranches de cinq heures, avec en plus un plafond hebdomadaire. Ce compteur est partagé entre Claude dans le navigateur et Claude Code. La commande /usage affiche où vous en êtes et ce qui consomme le plus.</p></div>
         </details>
 
         <details>
-          <summary>Comment choisir le bon plan pour Claude ?</summary>
-          <div class="faq-a"><p>Relevez votre consommation des trente derniers jours dans la console, convertissez-la en coût API et comparez ce montant aux paliers d'abonnement de 20 $, 100 $ et 200 $. En dessous du palier qui vous convient, l'abonnement gagne sur le prix et sur la prévisibilité. Au-delà de 200 $ par mois, ou dès que vous devez intégrer Claude dans un script, l'API devient l'option rationnelle.</p></div>
+          <summary>Que se passe-t-il quand j'atteins la limite de mon abonnement ?</summary>
+          <div class="faq-a"><p>Claude Code vous indique l'heure de remise à zéro. Vous pouvez attendre, passer à la formule supérieure, ou activer les crédits d'usage, facturés au tarif de l'API, pour continuer tout de suite. Sur Pro et Max, une limite de dépense mensuelle se règle dans les paramètres de votre compte.</p></div>
         </details>
+
+        <details>
+          <summary>Claude Code est-il moins cher à l'API ou en abonnement ?</summary>
+          <div class="faq-a"><p>Cela dépend du volume. Un usage léger coûte souvent moins de 20 $ par mois à l'API. Un usage quotidien revient à l'API à peu près au prix d'un abonnement Max, qui apporte en plus un montant fixe. L'API garde l'avantage pour les scripts automatisés et le contrôle fin des dépenses.</p></div>
+        </details>
+
       </section>
 
       <!-- ================= CTA ================= -->
@@ -607,24 +644,24 @@
   <aside class="rail rail-right">
     <div class="ai-box">
       <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
-      <p class="ai-text">Claude Code est inclus sans supplément dans toutes les formules payantes de Claude : Pro à 20 $ par mois, Max à 100 $ ou 200 $, Team à partir de 20 $ le siège, Enterprise en siège plus consommation. L'API se facture au million de tokens, de 1 $ à 10 $ en entrée et de 5 $ à 50 $ en sortie selon le modèle. Le cache divise le prix d'entrée par dix sur la partie réutilisée et le mode batch applique 50 % de remise. La bascule entre abonnement et API se calcule en convertissant sa consommation réelle en coût API, puis en la comparant aux paliers de 20 $, 100 $ et 200 $.</p>
+      <p class="ai-text">Claude Code n'est pas gratuit : il est inclus dans Claude Pro, Max, Team et Enterprise, ou facturé au token via l'API. Pro coûte 20 $ par mois, Max 100 ou 200 $. À l'API, Sonnet 5.5 coûte 2 $ et 10 $ par million de tokens. Anthropic estime l'usage moyen en entreprise à 13 $ par jour actif. Une invitation de 7 jours permet de l'essayer.</p>
       <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
     </div>
 
     <div class="rail-recent">
       <p class="rail-title">Dans la même catégorie</p>
       <div class="mini-list">
-        <a class="mini" href="/blog/claude-code">
-          <span class="mini-thumb"><picture><source srcset="/images/blog/claude-code-cover.avif" type="image/avif"><img src="/images/blog/claude-code-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
-          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Claude Code, le guide</span></span>
+        <a class="mini" href="/blog/claude-ai-prix">
+          <span class="mini-thumb"><picture><source srcset="/images/blog/claude-ai-prix-cover.avif" type="image/avif"><img src="/images/blog/claude-ai-prix-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Abonnement Claude : prix Free, Pro, Max et Team (2026)</span></span>
         </a>
-        <a class="mini" href="/blog/claude-ai">
-          <span class="mini-thumb"><picture><source srcset="/images/blog/claude-ai-cover.avif" type="image/avif"><img src="/images/blog/claude-ai-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
-          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Claude AI : test complet</span></span>
+        <a class="mini" href="/blog/claude-vs-chatgpt">
+          <span class="mini-thumb"><picture><source srcset="/images/blog/claude-vs-chatgpt-cover.avif" type="image/avif"><img src="/images/blog/claude-vs-chatgpt-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Claude vs ChatGPT : lequel choisir en 2026 ?</span></span>
         </a>
-        <a class="mini" href="/blog/claude-ai-gratuit">
-          <span class="mini-thumb"><picture><source srcset="/images/blog/claude-ai-gratuit-cover.avif" type="image/avif"><img src="/images/blog/claude-ai-gratuit-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
-          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Claude gratuit, jusqu'où</span></span>
+        <a class="mini" href="/blog/vibe-coding">
+          <span class="mini-thumb"><picture><source srcset="/images/blog/vibe-coding-cover.avif" type="image/avif"><img src="/images/blog/vibe-coding-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Vibe coding : définition, outils et limites (2026)</span></span>
         </a>
       </div>
     </div>
@@ -635,30 +672,30 @@
 <section class="related">
   <div class="wrap">
     <h2>À lire ensuite</h2>
-    <p class="sub">La suite logique du parcours.</p>
+    <p class="sub">Pour passer du budget à la pratique.</p>
     <div class="rel-grid">
       <a class="rel-card" href="/blog/claude-code">
         <picture><source srcset="/images/blog/claude-code-cover.avif" type="image/avif"><img src="/images/blog/claude-code-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
 <div class="rel-body">
           <span class="rel-cat">Utiliser l'IA</span>
-          <h3>Claude Code : le guide complet</h3>
-          <p>Ce que fait vraiment l'agent de développement d'Anthropic, comment le configurer et ce qu'il change au quotidien.</p>
+          <h3>Installer Claude Code : tuto Mac, Windows et Linux (2026)</h3>
+          <p>Les commandes officielles pour Mac, Windows, Linux et WSL, puis la connexion à votre compte.</p>
         </div>
       </a>
-      <a class="rel-card" href="/blog/claude-ai">
-        <picture><source srcset="/images/blog/claude-ai-cover.avif" type="image/avif"><img src="/images/blog/claude-ai-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
+      <a class="rel-card" href="/blog/claude-ai-prix">
+        <picture><source srcset="/images/blog/claude-ai-prix-cover.avif" type="image/avif"><img src="/images/blog/claude-ai-prix-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
 <div class="rel-body">
           <span class="rel-cat">Utiliser l'IA</span>
-          <h3>Claude AI : ce que vaut vraiment l'IA d'Anthropic</h3>
-          <p>Testé en mission : ce qu'il fait mieux que ChatGPT, ses limites réelles et ce que vaut la version gratuite.</p>
+          <h3>Abonnement Claude : prix Free, Pro, Max et Team (2026)</h3>
+          <p>Ce que chaque formule apporte côté chat, au-delà de Claude Code.</p>
         </div>
       </a>
       <a class="rel-card" href="/blog/claude-ai-gratuit">
         <picture><source srcset="/images/blog/claude-ai-gratuit-cover.avif" type="image/avif"><img src="/images/blog/claude-ai-gratuit-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
 <div class="rel-body">
           <span class="rel-cat">Utiliser l'IA</span>
-          <h3>Claude gratuit : jusqu'où peut-on aller</h3>
-          <p>Ce que la formule gratuite permet réellement, ses plafonds, et comment en tirer le maximum avant de payer.</p>
+          <h3>Claude AI gratuit : limites réelles et astuces (2026)</h3>
+          <p>Jusqu'où va la formule gratuite de Claude quand Claude Code n'est pas indispensable.</p>
         </div>
       </a>
     </div>
@@ -700,7 +737,7 @@
 <script src="/js/blog-article.js?v=4" defer></script>
 
 <!-- Outil interactif propre à cet article -->
-<script src="/js/claude-code-prix-tool.js?v=1" defer></script>
+<script src="/js/claude-code-prix-tool.js?v=2" defer></script>
 
 </body>
 </html>

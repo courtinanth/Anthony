@@ -4,8 +4,8 @@
 <script src="/js/js-flag.js?v=1"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Claude pour le SEO : mes cas d'usage en mission</title>
-<meta name="description" content="Audit technique, briefs, analyse concurrentielle : ce que je délègue vraiment à Claude en SEO, les prompts que j'utilise et les cas où je ne l'utilise pas.">
+<title>Claude pour le SEO : usages, prompts et limites (2026)</title>
+<meta name="description" content="Claude pour le SEO : 8 usages concrets (audit, Search Console, mots-clés, balises, maillage, JSON-LD), les prompts à copier et ses vraies limites.">
 <link rel="canonical" href="https://anthony-courtin.com/blog/claude-pour-seo">
 <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
@@ -14,8 +14,8 @@
 <meta name="robots" content="index, follow, max-image-preview:large">
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="Claude pour le SEO : mes cas d'usage en mission">
-<meta property="og:description" content="Ce que Claude fait bien en SEO et ce qu'il fait mal, avec un générateur de prompts prêts à l'emploi tirés de mes missions réelles.">
+<meta property="og:title" content="Claude pour le SEO : usages, prompts et limites (2026)">
+<meta property="og:description" content="Utiliser Claude pour le SEO : audit d'un crawl, Search Console, mots-clés, briefs, balises, maillage et données structurées, avec les prompts à copier, MCP et Claude Code.">
 <meta property="og:url" content="https://anthony-courtin.com/blog/claude-pour-seo">
 <meta property="og:image" content="https://anthony-courtin.com/images/blog/claude-pour-seo-cover.webp">
 <meta property="og:locale" content="fr_FR">
@@ -37,17 +37,17 @@
     {
       "@type":"BlogPosting",
       "@id":"https://anthony-courtin.com/blog/claude-pour-seo#article",
-      "headline":"Claude pour le SEO : ce que je lui délègue vraiment",
-      "description":"Usages réels de Claude pour le SEO : audit technique à partir d'un crawl, briefs de contenu, analyse concurrentielle, connexion aux outils via MCP, bonnes pratiques de prompt et limites à connaître.",
+      "headline":"Claude pour le SEO : usages concrets, prompts à copier et limites",
+      "description":"Claude pour le SEO : 8 usages concrets (audit, Search Console, mots-clés, balises, maillage, JSON-LD), les prompts à copier et ses vraies limites.",
       "inLanguage":"fr-FR",
       "datePublished":"2026-10-14",
       "dateModified":"2026-10-14",
       "image":"https://anthony-courtin.com/images/blog/claude-pour-seo-cover.webp",
-      "wordCount":2000,
+      "wordCount":3450,
       "mainEntityOfPage":{"@type":"WebPage","@id":"https://anthony-courtin.com/blog/claude-pour-seo"},
       "author":{"@id":"https://anthony-courtin.com/#anthony"},
       "publisher":{"@id":"https://anthony-courtin.com/#anthony"},
-      "about":[{"@type":"Thing","name":"Claude"},{"@type":"Thing","name":"SEO"},{"@type":"Thing","name":"Audit SEO"},{"@type":"Thing","name":"Intelligence artificielle"},{"@type":"Thing","name":"Automatisation"}]
+      "about":[{"@type":"Thing","name":"Claude"},{"@type":"Thing","name":"SEO"},{"@type":"Thing","name":"Audit SEO"},{"@type":"Thing","name":"Prompt (intelligence artificielle)"},{"@type":"Thing","name":"Model Context Protocol"}]
     },
     {
       "@type":"Person",
@@ -70,19 +70,21 @@
       "@type":"FAQPage",
       "mainEntity":[
         {"@type":"Question","name":"Comment utiliser Claude pour le SEO ?",
-         "acceptedAnswer":{"@type":"Answer","text":"La règle qui décide de tout : donnez-lui la donnée, pas la question. Demandez un volume de recherche et il inventera un nombre plausible ; donnez-lui votre export et il produira une analyse juste. Concrètement, chaque session commence par un fichier : un crawl, un export de la Search Console, le contenu de pages concurrentes ou la liste de vos URL."}},
+         "acceptedAnswer":{"@type":"Answer","text":"Donnez-lui la donnée, pas la question. Demandez un volume de recherche et il inventera un nombre plausible ; donnez-lui votre export et il produira une analyse juste. Chaque session commence donc par un fichier : un crawl, un export de la Search Console, le contenu de pages concurrentes ou la liste de vos URL."}},
+        {"@type":"Question","name":"Claude est-il bon pour le SEO ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Oui pour l'analyse et la structure : audit d'un crawl, lecture de la Search Console, regroupement de mots-clés, briefs, balises, maillage et données structurées. Non pour les données de marché, qu'il invente, ni pour publier un article sans relecture. Sa valeur dépend des fichiers que vous lui fournissez."}},
         {"@type":"Question","name":"Comment auditer son SEO avec Claude ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Lancez un crawl, donnez-lui l'export et demandez un classement en trois niveaux : ce qui bloque l'indexation, ce qui pénalise, ce qui est cosmétique. Exigez le nombre d'URL touchées par problème et interdisez toute recommandation dont l'effet n'est pas mesurable. Croisez ensuite avec la Search Console : les pages explorées mais sans impression révèlent presque toujours un contenu trop mince ou une cannibalisation."}},
-        {"@type":"Question","name":"Quels outils SEO peut-on brancher sur Claude ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Un crawler pour explorer le site, la Search Console pour les impressions et les positions, l'accès à vos fichiers pour lire le code réel, et un outil sémantique pour confronter un texte à une cible de vocabulaire. La connexion passe par le protocole MCP, ce qui évite le copier-coller et permet au modèle d'interroger les outils directement."}},
-        {"@type":"Question","name":"Quelles sont les meilleures pratiques SEO avec Claude ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Imposez un format de sortie, sinon vous recevrez une dissertation. Interdisez explicitement l'invention en donnant une issue de secours au modèle. Travaillez sur vos vraies pages plutôt que sur des exemples. Donnez le contexte commercial, car un mot-clé n'a pas la même valeur selon l'activité. Et relisez ligne à ligne tout ce qui sera publié sous votre nom."}},
-        {"@type":"Question","name":"Comment Claude améliore-t-il le référencement ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Par trois effets cumulés. La vitesse d'analyse, qui divise par trois ou quatre le temps d'un audit. La régularité, car les contrôles de maillage ou de balises finissent par être faits quand ils coûtent vingt minutes au lieu de trois heures. Et la qualité de structure des contenus, qui est ce qui manque le plus souvent aux pages qui ne se classent pas."}},
+         "acceptedAnswer":{"@type":"Answer","text":"Lancez un crawl, donnez-lui l'export et demandez un classement en trois niveaux : ce qui bloque l'indexation, ce qui pénalise, ce qui est cosmétique. Exigez le nombre d'URL touchées par problème et interdisez toute recommandation dont l'effet n'est pas mesurable. Croisez ensuite avec la Search Console : les pages explorées sans impression révèlent souvent un contenu trop mince ou une cannibalisation."}},
+        {"@type":"Question","name":"Quels outils SEO brancher sur Claude ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Un crawler comme Screaming Frog, la Search Console, un outil de mots-clés comme Ahrefs et les fichiers de votre site. La connexion passe par le protocole MCP, ce qui évite le copier-coller et permet à Claude d'interroger les outils directement. Avec Claude Code, il peut aussi appliquer les corrections dans les fichiers."}},
         {"@type":"Question","name":"Quels prompts utiliser avec Claude pour le SEO ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Un bon prompt tient en quatre parties : le rôle qui cadre le registre, le travail attendu numéroté avec un livrable par point, les règles qui interdisent les dérives connues, et le contexte c'est-à-dire vos données. Ce qui distingue un prompt efficace n'est pas sa longueur mais la présence de règles négatives : dire ce qu'on ne veut pas fonctionne mieux que multiplier les précisions."}},
-        {"@type":"Question","name":"Quels sont les avantages de Claude pour un consultant SEO ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Le gain de temps se situe entre trois et huit heures par semaine dans mon cas, essentiellement sur l'analyse et la mise en forme, pas sur la rédaction où le temps se déplace vers la relecture. Le gain principal est ailleurs : les tâches ingrates sont désormais faites systématiquement au lieu d'être faites quand il reste du temps."}}
+         "acceptedAnswer":{"@type":"Answer","text":"Un bon prompt SEO tient en quatre parties : le rôle qui cadre le registre, le travail attendu numéroté avec un livrable par point, les règles qui interdisent les dérives connues, et vos données. Ce qui le rend efficace n'est pas sa longueur mais la présence de règles négatives, comme l'interdiction d'inventer un chiffre absent de l'export."}},
+        {"@type":"Question","name":"Claude peut-il donner des volumes de recherche ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Non, pas de façon fiable. Sans accès à un outil, Claude produit des chiffres plausibles mais inventés. Les volumes viennent d'un outil SEO ou du planificateur de mots-clés de Google ; Claude sert ensuite à les trier et à les regrouper, ou à les interroger directement si l'outil est branché par MCP."}},
+        {"@type":"Question","name":"Claude ou ChatGPT : lequel choisir pour le SEO ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Pour un prompt dans le chat, les deux donnent des résultats proches si vous fournissez les mêmes données. La différence se fait sur l'outillage : Claude Code et les connecteurs MCP permettent de brancher Claude sur un crawler ou la Search Console et de corriger les fichiers du site. Le choix dépend donc surtout de votre façon de travailler."}},
+        {"@type":"Question","name":"Faut-il payer Claude pour l'utiliser en SEO ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Non pour commencer : la formule gratuite suffit pour tester les prompts de cette page sur un texte ou un petit export. Les usages plus lourds demandent un abonnement payant, en particulier Claude Code, réservé aux formules payantes. Le volume d'échanges de la formule gratuite reste limité."}}
       ]
     }
   ]
@@ -180,8 +182,8 @@
     </nav>
 
     <span class="art-cat">SEO</span>
-    <h1 class="art-title">Claude pour le SEO : ce que je lui délègue vraiment</h1>
-    <p class="art-lede">Trois usages tiennent en mission : l'audit technique, la production de contenu et l'analyse concurrentielle. Le reste fait perdre du temps. Voici la ligne de partage, et mes prompts.</p>
+    <h1 class="art-title">Claude pour le SEO : usages concrets, prompts à copier et limites</h1>
+    <p class="art-lede">Utiliser Claude pour le SEO rapporte quand il travaille sur vos données : un crawl, un export de la Search Console, le texte de vos pages. Voici les huit usages qui tiennent en mission, de l'audit technique aux données structurées, le prompt que j'emploie pour chacun, et ce qu'il ne faut pas lui demander.</p>
 
     <div class="art-metaline">
       <span class="who">
@@ -191,7 +193,7 @@
       <span class="dot" aria-hidden="true">·</span>
       <time datetime="2026-10-14">14 octobre 2026</time>
       <span class="dot" aria-hidden="true">·</span>
-      <span>10 min de lecture</span>
+      <span>15 min de lecture</span>
       <span class="dot" aria-hidden="true">·</span>
       <span>Mis à jour le <time datetime="2026-10-14">14 octobre 2026</time></span>
     </div>
@@ -244,7 +246,7 @@
     <!-- Résumé IA version mobile : rendu côté serveur, donc lisible par Google et les LLM -->
     <div class="ai-box ai-box-mobile">
       <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
-      <p class="ai-text">Claude sert utilement au SEO sur trois usages : l'audit technique à partir d'un crawl, la production de contenu et l'analyse concurrentielle. La règle qui décide de tout est de lui donner la donnée plutôt que la question, car un modèle qui doit deviner un chiffre l'invente. L'audit est le meilleur point d'entrée, car fastidieux, vérifiable et sans risque éditorial. Brancher les outils via le protocole MCP évite le copier-coller et permet d'interroger crawler, Search Console et fichiers directement. Un prompt efficace impose un format de sortie et contient des règles négatives explicites. Le gain se situe entre trois et huit heures par semaine, surtout sur l'analyse.</p>
+      <p class="ai-text">Claude sert au SEO quand il raisonne sur vos données : export de crawl, Search Console, liste de mots-clés, texte de vos pages. Huit usages tiennent en mission, de l'audit technique aux données structurées, avec des prompts en quatre parties qui interdisent d'inventer. Branché par MCP sur un crawler ou un outil de mots-clés, et avec Claude Code, il corrige aussi le site.</p>
       <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
     </div>
 
@@ -257,23 +259,19 @@
         </picture>
       </figure>
 
-      <p><strong>Claude sert au SEO à trois endroits précis : l'audit technique, la production de contenu et l'analyse concurrentielle.</strong> Partout ailleurs, il fait perdre du temps ou produit du texte qu'il faudra réécrire. La différence entre les deux tient moins au modèle qu'à la manière de lui donner du travail.</p>
-
-      <p>Voici ce que je lui délègue réellement en mission, avec les prompts que j'utilise et les cas où je ne l'utilise pas.</p>
-
       <div class="verdict">
         <div class="verdict-note">
-          <b>3</b>
+          <b>8</b>
           <span>usages qui tiennent</span>
         </div>
         <div class="verdict-body">
-          <h2>Ce que Claude fait bien, et ce qu'il fait mal</h2>
-          <p>Il excelle sur les tâches où le raisonnement porte sur des données que vous lui fournissez. Il échoue dès qu'il faut connaître un état du monde qu'il n'a pas sous les yeux.</p>
+          <h2>Claude pour le SEO : ce qu'il fait bien, et ce qu'il fait mal</h2>
+          <p>Claude excelle quand il raisonne sur des données que vous lui fournissez : un crawl, un export, le texte de vos pages. Il échoue dès qu'il doit connaître un état du monde qu'il n'a pas sous les yeux, comme un volume de recherche ou une position.</p>
           <div class="verdict-lists">
             <ul class="verdict-pros">
               <li>Analyser un crawl et hiérarchiser les correctifs</li>
-              <li>Construire un plan et relire avant publication</li>
-              <li>Comparer des textes concurrents sur le fond</li>
+              <li>Exploiter un export de la Search Console</li>
+              <li>Construire un brief, des balises, un maillage, des données structurées</li>
             </ul>
             <ul class="verdict-cons">
               <li>Inventer des volumes de recherche ou des positions</li>
@@ -291,21 +289,142 @@
         <h2>À retenir</h2>
         <ul>
           <li><strong>Donnez-lui la donnée, pas la question.</strong> Un modèle qui doit deviner un chiffre l'invente ; un modèle qui lit votre export raisonne juste.</li>
-          <li><strong>L'audit technique est le meilleur point d'entrée</strong> : le travail est fastidieux, vérifiable et sans risque éditorial.</li>
-          <li><strong>Branchez-le sur vos outils</strong> plutôt que de copier-coller : Search Console, crawler et fichiers via le protocole MCP.</li>
-          <li><strong>Un prompt utile impose un format de sortie</strong> et interdit explicitement d'inventer ce qui manque.</li>
+          <li><strong>Huit usages de Claude pour le SEO tiennent en mission</strong> : audit technique, Search Console, mots-clés, briefs, balises, maillage, données structurées, relecture.</li>
+          <li><strong>Un prompt SEO utile tient en quatre parties</strong> : le rôle, le travail attendu numéroté, des règles qui interdisent d'inventer, puis vos données.</li>
+          <li><strong>Branché sur vos outils</strong> par le protocole MCP (crawler, Search Console, outil de mots-clés), Claude ne se contente plus d'analyser : avec Claude Code, il corrige.</li>
           <li><strong>Il ne remplace pas l'arbitrage.</strong> Décider quelle page mérite un investissement reste un jugement de consultant.</li>
         </ul>
       </section>
 
-      <p>Choisissez une tâche, collez votre contexte, et récupérez un prompt prêt à l'emploi. Ce sont ceux que j'utilise en mission.</p>
+      <p>J'utilise Claude chaque semaine en mission SEO. Trois choses comptent plus que le choix du modèle : ce que vous lui donnez à lire, la manière de formuler la demande, et ce que vous lui interdisez. Voici les usages qui tiennent, chacun avec le prompt que j'emploie, puis les limites.</p>
 
+      <h2>Comment utiliser Claude pour le SEO</h2>
+
+      <p>La règle qui décide de tout tient en une phrase : <strong>donnez-lui la donnée, pas la question.</strong></p>
+
+      <p>Demandez à un modèle le volume de recherche d'un mot-clé et il vous sortira un nombre plausible et faux. Donnez-lui l'export de votre outil de mots-clés et demandez-lui de repérer les requêtes à intention commerciale mal couvertes par votre site, et il fera un travail que vous auriez mis deux heures à faire.</p>
+
+      <p>Cette distinction explique presque tous les échecs que je vois. Les gens utilisent ces modèles comme des moteurs de recherche alors qu'ils sont des moteurs de raisonnement. La valeur n'est pas dans ce qu'ils savent, elle est dans ce qu'ils font de ce que vous leur donnez.</p>
+
+      <p>Concrètement, Claude s'utilise pour le SEO à trois niveaux :</p>
+
+      <ul>
+        <li><strong>Dans le chat</strong> (claude.ai ou l'application) : vous joignez un export CSV, le texte d'une page, une liste d'URL. C'est là que commencent la plupart des usages ci-dessous.</li>
+        <li><strong>Connecté à vos outils</strong> par le protocole MCP : Claude interroge lui-même le crawler, la Search Console ou votre outil de mots-clés, sans copier-coller.</li>
+        <li><strong>Dans Claude Code</strong> : l'agent travaille sur les fichiers du site et applique les corrections, de deux cents balises title à un fichier de redirections.</li>
+      </ul>
+
+      <h2>8 usages de Claude pour le SEO, avec le prompt à copier</h2>
+
+      <p>Chaque prompt suit la même structure : un rôle, un travail numéroté, des règles, puis vos données à coller en dessous. Remplacez les crochets et joignez le fichier quand le prompt le demande.</p>
+
+      <h3>1. Auditer un site à partir d'un crawl</h3>
+
+      <p>C'est l'usage que je conseille en premier : fastidieux pour un humain, entièrement vérifiable, sans risque éditorial. Je lance un crawl, j'exporte le résultat et je demande un classement en trois niveaux. Cette hiérarchie compte plus que la liste des problèmes : un rapport d'outil affiche cent alertes de même poids visuel, alors que trois d'entre elles expliquent l'essentiel du manque à gagner.</p>
+
+      <h4>Prompt : audit technique</h4>
+      <pre class="prompt" style="white-space:pre-wrap"><code>Tu es consultant SEO technique. Je te donne l'export d'un crawl de [site].
+1. Classe les problèmes en trois niveaux : bloquant pour l'indexation, pénalisant, cosmétique.
+2. Pour chaque problème bloquant, indique le nombre d'URL touchées et la correction exacte.
+3. Termine par les trois chantiers à traiter en premier, classés par impact sur le trafic, pas par facilité.
+Règles : aucune action dont l'effet n'est pas mesurable. Si une donnée te manque pour trancher, dis-le au lieu de supposer.
+[Joins l'export du crawl]</code></pre>
+
+      <p>La décision finale ne se délègue pas. Savoir si une page mérite d'être corrigée, refondue ou supprimée dépend de son rôle commercial, de vos moyens et de votre calendrier. Claude prépare la décision, il ne la prend pas.</p>
+
+      <h3>2. Exploiter un export de la Search Console</h3>
+
+      <p>Les pages explorées mais sans impression racontent presque toujours une histoire : contenu trop mince, intention mal comprise, ou cannibalisation avec une autre page. Les requêtes entre la 5<sup>e</sup> et la 15<sup>e</sup> position, elles, sont les gains les plus proches. C'est un travail de recoupement que Claude fait bien et vite.</p>
+
+      <h4>Prompt : analyse Search Console</h4>
+      <pre class="prompt" style="white-space:pre-wrap"><code>Tu es consultant SEO. Je te donne un export de la Search Console (pages et requêtes, trois derniers mois).
+1. Liste les requêtes en position 5 à 15 avec beaucoup d'impressions et peu de clics.
+2. Repère les pages dont le taux de clic est nettement sous la moyenne de leur position, avec une hypothèse sur la cause.
+3. Signale les requêtes pour lesquelles deux pages du site se partagent les impressions.
+Règles : appuie chaque ligne sur un chiffre de l'export. N'invente aucune donnée.
+[Joins l'export]</code></pre>
+
+      <h3>3. Regrouper des mots-clés par intention</h3>
+
+      <p>Claude ne connaît pas les volumes de recherche : ils viennent de votre outil (Ahrefs, Semrush, SE Ranking, le planificateur de Google Ads). En revanche, il regroupe très bien une liste de plusieurs centaines de requêtes par intention et par page cible, ce qui prend des heures à la main.</p>
+
+      <h4>Prompt : regroupement de mots-clés</h4>
+      <pre class="prompt" style="white-space:pre-wrap"><code>Tu es consultant SEO. Voici un export de mots-clés avec volume et difficulté, et la liste de mes pages.
+1. Regroupe les mots-clés par intention : s'informer, comparer, acheter, local.
+2. Dans chaque groupe, rassemble les requêtes qu'une seule page peut viser.
+3. Pour chaque groupe, indique la page existante qui doit le porter, ou la page à créer.
+Règles : reprends les volumes de l'export sans les modifier. N'ajoute aucun mot-clé ni aucun chiffre.
+[Joins l'export et la liste des pages]</code></pre>
+
+      <h3>4. Écrire le brief d'un article</h3>
+
+      <p>Sur la rédaction, Claude produit un plan et une organisation solides. C'est exactement ce qui manque le plus souvent aux contenus qui ne se classent pas. Donnez-lui les titres des pages en tête de Google : il voit vite ce qu'elles traitent toutes et ce qu'aucune ne traite.</p>
+
+      <h4>Prompt : brief de contenu</h4>
+      <pre class="prompt" style="white-space:pre-wrap"><code>Tu es responsable éditorial SEO. Requête visée : [mot-clé]. Voici les titres et intertitres des cinq premières pages de Google sur cette requête.
+1. Donne l'intention de recherche dominante en une phrase.
+2. Propose un plan en H2 et H3 où chaque titre contient la question à laquelle il répond.
+3. Liste les questions à traiter en FAQ, formulées comme un internaute les tape.
+4. Indique l'angle qui manque aux pages en tête.
+Règles : aucune section de remplissage.
+[Colle les titres]</code></pre>
+
+      <h3>5. Rédiger les balises title et meta description</h3>
+
+      <h4>Prompt : balises</h4>
+      <pre class="prompt" style="white-space:pre-wrap"><code>Tu es consultant SEO. Voici le contenu de ma page et sa requête principale : [mot-clé].
+Propose trois couples title et meta description :
+- title de 60 caractères maximum, qui commence par la requête ;
+- meta description de 120 à 155 caractères, qui donne une raison de cliquer plutôt qu'un résumé.
+Règles : affiche le nombre de caractères de chaque proposition. Pas de superlatif, pas de point d'exclamation.
+[Colle le contenu]</code></pre>
+
+      <p>Recomptez les caractères vous-même : les modèles de langage comptent mal les signes.</p>
+
+      <h3>6. Construire le maillage interne</h3>
+
+      <h4>Prompt : maillage interne</h4>
+      <pre class="prompt" style="white-space:pre-wrap"><code>Tu es consultant SEO. Je te donne la liste de mes pages avec leur URL, leur titre et leur sujet.
+1. Pour chaque page, propose les trois liens internes entrants les plus pertinents, avec l'ancre exacte.
+2. Liste les pages orphelines, qui ne reçoivent aucun lien.
+3. Signale les couples de pages qui risquent de se cannibaliser, et laquelle garder.
+Règles : des ancres variées et descriptives, jamais « cliquez ici » ni « en savoir plus ».
+[Colle la liste]</code></pre>
+
+      <h3>7. Générer les données structurées</h3>
+
+      <p>Article, produit, entreprise locale, fil d'Ariane : Claude écrit un JSON-LD propre en quelques secondes. Le risque est qu'il complète les trous avec des informations plausibles, d'où la règle finale. Validez toujours le résultat avec le test des résultats enrichis de Google.</p>
+
+      <h4>Prompt : données structurées</h4>
+      <pre class="prompt" style="white-space:pre-wrap"><code>Tu es consultant SEO technique. Voici le contenu d'une page de [type de site].
+1. Indique le type schema.org le plus adapté et pourquoi.
+2. Écris le bloc JSON-LD complet, prêt à coller.
+3. Liste les propriétés que tu n'as pas pu remplir faute d'information.
+Règles : n'utilise que des informations visibles dans la page. Aucune note, aucun avis, aucun prix inventés.
+[Colle le contenu]</code></pre>
+
+      <h3>8. Relire avant publication et rendre un contenu citable</h3>
+
+      <p>Dernier usage, et pas le moindre : la relecture. Claude repère les affirmations sans source, les promesses non tenues et les paragraphes trop longs pour être repris par un moteur de réponse. C'est aussi le point de départ pour être cité par ChatGPT ou par l'aperçu IA de Google, que je détaille dans mon article sur <a href="/blog/seo-ia">l'IA pour le SEO</a>.</p>
+
+      <h4>Prompt : relecture</h4>
+      <pre class="prompt" style="white-space:pre-wrap"><code>Tu es relecteur. Contrôle le texte ci-dessous avant publication.
+1. Les affirmations invérifiables ou non sourcées.
+2. Les répétitions et les phrases qui ne disent rien.
+3. Les promesses de l'introduction non tenues dans le corps.
+4. Le paragraphe d'ouverture : répond-il à la question dès les deux premières phrases ?
+Règles : ne réécris pas le texte. Cite le passage et propose une correction courte.
+[Colle le texte]</code></pre>
+
+      <p>Pour composer un prompt sur mesure à partir de l'une de ces tâches, collez votre contexte dans le générateur : il assemble le rôle, le travail attendu, les règles et vos données.</p>
+
+      <!-- ================= OUTIL INTERACTIF ================= -->
       <div class="tool" id="outil-claude-seo">
         <div class="tool-head">
           <span class="tool-ico" aria-hidden="true">✦</span>
           <span>
             <em>Outil interactif</em>
-            <b>Générateur de prompts SEO</b>
+            <b>Générateur de prompts SEO pour Claude</b>
           </span>
         </div>
         <div class="tool-body">
@@ -313,30 +432,29 @@
             <label for="cps-tache">Quelle tâche voulez-vous déléguer ?</label>
             <select id="cps-tache">
               <option value="audit">Audit technique à partir d'un crawl</option>
+              <option value="gsc">Analyse d'un export Search Console</option>
+              <option value="motscles">Regroupement de mots-clés</option>
               <option value="brief">Brief de contenu à partir d'un mot-clé</option>
               <option value="meta">Balises title et meta description</option>
-              <option value="concurrence">Analyse des pages concurrentes</option>
               <option value="maillage">Plan de maillage interne</option>
+              <option value="schema">Données structurées JSON-LD</option>
+              <option value="concurrence">Analyse des pages concurrentes</option>
               <option value="citable">Rendre un contenu citable par les IA</option>
               <option value="redaction">Relecture avant publication</option>
             </select>
           </div>
-
           <div class="field">
             <label for="cps-contexte">Votre contexte (facultatif)</label>
             <textarea id="cps-contexte" rows="3" placeholder="Mot-clé, URL, ou extrait de votre texte"></textarea>
           </div>
-
           <div class="score">
             <b id="cps-compteur">0 caractères</b><span>prompt généré</span>
           </div>
           <div class="meter"><i id="cps-meter" style="width:0%"></i></div>
-
           <div class="field">
             <label for="cps-sortie">Prompt à copier</label>
             <textarea id="cps-sortie" rows="10" readonly></textarea>
           </div>
-
           <div class="tool-actions">
             <button type="button" class="btn-sm primary" id="cps-copy">Copier le prompt</button>
             <a class="btn-sm ghost" href="/audit-seo">Faire auditer mon site</a>
@@ -348,44 +466,20 @@
         </div>
       </div>
 
-      <h2>Comment utiliser Claude pour le SEO</h2>
+      <h2>Brancher Claude sur vos outils SEO : MCP, Claude Code et skills</h2>
 
-      <p>La règle qui décide de tout tient en une phrase : <strong>donnez-lui la donnée, pas la question.</strong></p>
-
-      <p>Demandez à un modèle le volume de recherche d'un mot-clé et il vous sortira un nombre plausible et faux. Donnez-lui l'export de votre outil de mots-clés et demandez-lui de repérer les requêtes à intention commerciale mal couvertes par votre site, et il fera un travail que vous auriez mis deux heures à faire.</p>
-
-      <p>Cette distinction explique presque tous les échecs que je vois. Les gens utilisent ces modèles comme des moteurs de recherche alors qu'ils sont des moteurs de raisonnement. La valeur n'est pas dans ce qu'ils savent, elle est dans ce qu'ils font de ce que vous leur donnez.</p>
-
-      <p>Conséquence pratique : mon usage du SEO avec Claude commence toujours par un export. Un crawl, un fichier de la Search Console, le contenu de trois pages concurrentes, la liste de mes URL. Sans ce point de départ, la session ne vaut rien.</p>
-
-      <h2>Comment auditer son SEO avec Claude</h2>
-
-      <p>C'est l'usage que je conseille en premier, parce qu'il est fastidieux pour un humain, entièrement vérifiable, et sans risque éditorial.</p>
-
-      <h3>Le déroulé que j'applique</h3>
-
-      <p>Je lance un crawl du site, j'exporte le résultat, et je le donne au modèle avec une consigne de classement en trois niveaux : ce qui bloque l'indexation, ce qui pénalise, ce qui est cosmétique. Cette hiérarchie compte plus que la liste des problèmes : un rapport d'outil vous donne cent alertes de même poids visuel, alors que trois d'entre elles expliquent 80 % du manque à gagner.</p>
-
-      <p>J'y ajoute systématiquement deux exigences. Le nombre d'URL touchées par problème, ce qui transforme une alerte en priorité. Et l'interdiction de proposer une action dont l'effet n'est pas mesurable, ce qui élimine d'un coup les recommandations creuses.</p>
-
-      <p>Ensuite je croise avec la Search Console. Les pages explorées mais sans impression racontent presque toujours une histoire : contenu trop mince, intention mal comprise, ou cannibalisation avec une autre page. C'est un travail de recoupement que le modèle fait bien et vite.</p>
-
-      <h3>Ce que je ne lui délègue jamais dans un audit</h3>
-
-      <p>La décision finale. Savoir si une page mérite d'être corrigée, refondue ou supprimée dépend de son rôle commercial, de vos moyens et de votre calendrier. Le modèle ne connaît ni votre marge ni votre équipe. Il prépare la décision, il ne la prend pas.</p>
-
-      <h2>Quels outils SEO brancher sur Claude</h2>
-
-      <p>Le copier-coller fonctionne mais fatigue vite. Le vrai changement, c'est de connecter les outils au modèle, ce que permet le protocole MCP.</p>
+      <p>Le copier-coller fonctionne mais fatigue vite. Le vrai changement, c'est de connecter les outils au modèle, ce que permet le protocole MCP. Si le principe vous est étranger, je l'explique dans <a href="/blog/mcp-model-context-protocol">c'est quoi un serveur MCP</a>.</p>
 
       <ul>
-        <li><strong>Un crawler.</strong> Le modèle lance l'exploration, lit les résultats et travaille dessus sans que vous exportiez quoi que ce soit.</li>
-        <li><strong>La Search Console.</strong> Impressions, clics, positions et pages, interrogeables directement dans la conversation.</li>
+        <li><strong>Un crawler.</strong> Claude lance l'exploration, lit les résultats et travaille dessus sans que vous exportiez quoi que ce soit. La mise en place pas à pas est dans mon tuto <a href="/blog/screaming-frog-mcp">MCP Screaming Frog</a>.</li>
+        <li><strong>La Search Console.</strong> Impressions, clics, positions et pages, interrogeables directement dans la conversation, par des serveurs MCP souvent développés par la communauté.</li>
+        <li><strong>Un outil de mots-clés.</strong> Ahrefs, par exemple, propose un serveur MCP officiel, à partir de sa formule Lite : les volumes et la difficulté arrivent du vrai outil, pas de la mémoire du modèle. Dans Claude Code, une commande suffit : <code>claude mcp add ahrefs --transport http https://api.ahrefs.com/mcp/mcp</code>.</li>
         <li><strong>Vos fichiers.</strong> Donner accès au dossier du site permet de faire lire le code réel plutôt que ce que vous en dites.</li>
-        <li><strong>Un outil sémantique.</strong> Pour confronter un texte à une cible de vocabulaire mesurée sur la page de résultats.</li>
       </ul>
 
-      <p>Avec Claude Code, l'étape suivante devient possible : le modèle ne se contente plus d'analyser, il modifie. Corriger deux cents balises title dans un dépôt, générer les données structurées d'un catalogue, produire un fichier de redirections à partir d'une liste d'anciennes URL. Ce sont des tâches où la valeur ajoutée humaine est nulle et le risque d'erreur de saisie élevé.</p>
+      <p>Avec Claude Code, l'étape suivante devient possible : le modèle ne se contente plus d'analyser, il modifie. Corriger deux cents balises title dans un dépôt, générer les données structurées d'un catalogue, produire un fichier de redirections à partir d'une liste d'anciennes URL. Ce sont des tâches où la valeur ajoutée humaine est nulle et le risque d'erreur de saisie élevé. Pour démarrer, suivez mon tuto pour <a href="/blog/claude-code">installer Claude Code</a>.</p>
+
+      <p>Enfin, les procédures qui reviennent (votre checklist d'audit, votre format de brief) peuvent devenir des skills : des fichiers d'instructions que Claude charge quand la tâche s'y prête, au lieu de tout réexpliquer à chaque session. Le mode d'emploi, avec des exemples de skills SEO, est dans <a href="/blog/claude-skills">Claude Skills</a>.</p>
 
       <h2>Comment Claude améliore le référencement</h2>
 
@@ -395,9 +489,9 @@
 
       <p><strong>La régularité.</strong> Un contrôle mensuel du maillage ou des balises n'a jamais lieu quand il coûte trois heures. Il a lieu quand il en coûte vingt minutes. C'est le gain le plus sous-estimé : ce ne sont pas les tâches faites plus vite qui rapportent, ce sont celles qui finissent par être faites.</p>
 
-      <p><strong>La qualité de la structure.</strong> Sur la rédaction, le modèle produit un plan et une organisation solides. C'est exactement ce qui manque le plus souvent aux contenus qui ne se classent pas, et c'est ce qui rend aussi un texte reprenable par un moteur de réponse.</p>
+      <p><strong>La qualité de la structure.</strong> Un plan solide, des titres qui annoncent leur contenu, des réponses placées au début des sections : c'est ce qui manque aux pages qui ne se classent pas, et ce qui rend un texte reprenable par un moteur de réponse.</p>
 
-      <h2>Quelles sont les meilleures pratiques avec Claude</h2>
+      <h2>Les bonnes pratiques pour des prompts SEO fiables</h2>
 
       <p>Cinq règles, apprises en me trompant.</p>
 
@@ -411,15 +505,9 @@
 
       <p><strong>Relisez ce qui sera publié.</strong> Sur l'audit, une erreur se voit à l'exécution. Sur un texte publié sous votre nom, elle vous engage. Je ne publie jamais un contenu que je n'ai pas relu ligne à ligne.</p>
 
-      <h2>Quels prompts utiliser pour le SEO</h2>
+      <p>Ce qui distingue un prompt qui marche d'un prompt qui déçoit n'est presque jamais sa longueur. C'est la présence des règles négatives : dire ce que vous ne voulez pas fonctionne mieux que multiplier les précisions sur ce que vous voulez. Les mêmes prompts fonctionnent d'ailleurs dans ChatGPT, et j'en ai rassemblé d'autres dans mon article sur le <a href="/blog/prompt-chatgpt">prompt ChatGPT</a>.</p>
 
-      <p>Un bon prompt SEO tient en quatre parties, et le générateur plus haut les applique toutes.</p>
-
-      <p><strong>Le rôle</strong>, qui cadre le registre : consultant SEO technique, responsable éditorial, relecteur. <strong>Le travail attendu</strong>, numéroté, avec un livrable par point. <strong>Les règles</strong>, qui interdisent les dérives connues : pas d'invention, pas de recommandation non mesurable, pas de remplissage. <strong>Le contexte</strong> enfin, c'est-à-dire vos données.</p>
-
-      <p>Ce qui distingue un prompt qui marche d'un prompt qui déçoit n'est presque jamais sa longueur. C'est la présence des règles négatives. Dire ce qu'on ne veut pas est plus efficace que multiplier les précisions sur ce qu'on veut.</p>
-
-      <h2>Ce que je ne lui demande pas</h2>
+      <h2>Ce que Claude ne sait pas faire en SEO</h2>
 
       <p>La liste des échecs est plus instructive que celle des réussites, alors la voici sans filtre.</p>
 
@@ -431,32 +519,25 @@
 
       <p><strong>La veille.</strong> Un modèle a une date de connaissance et le SEO bouge plus vite qu'elle. Pour ce qui a changé le mois dernier, il faut lui donner les sources, ou aller les lire soi-même.</p>
 
-      <h3>Comment j'organise la semaine avec</h3>
+      <h3>Comment j'organise la semaine avec Claude</h3>
 
-      <p>Concrètement, mon usage se répartit en trois moments et cette organisation vaut mieux qu'une longue théorie.</p>
+      <p>Concrètement, mon usage se répartit en trois moments, et cette organisation vaut mieux qu'une longue théorie.</p>
 
-      <p><strong>Le lundi, le contrôle.</strong> Vingt minutes par site suivi : évolution des impressions et des clics, nouvelles erreurs d'exploration, pages qui décrochent. Le modèle lit les exports et me signale ce qui a bougé. C'est ce contrôle-là qui n'existait pas avant, faute de temps.</p>
+      <p><strong>Le lundi, le contrôle.</strong> Vingt minutes par site suivi : évolution des impressions et des clics, nouvelles erreurs d'exploration, pages qui décrochent. Claude lit les exports et me signale ce qui a bougé. C'est ce contrôle-là qui n'existait pas avant, faute de temps.</p>
 
       <p><strong>En cours de semaine, la production.</strong> Briefs, plans, relectures. Je n'écris jamais le premier jet à partir de rien, et je ne publie jamais un jet non relu. Le modèle occupe le milieu de cette chaîne, pas les extrémités.</p>
 
       <p><strong>En fin de mois, la mesure.</strong> Le panel de questions posées aux moteurs de réponse, pour savoir qui est cité sur les sujets de mes clients. C'est artisanal, un peu long, et c'est la seule donnée fiable dont je dispose sur ce terrain.</p>
 
-      <h2>Quels sont les avantages pour un consultant SEO</h2>
+      <h2>Les avantages pour un consultant SEO</h2>
 
       <p>Je vais être précis plutôt qu'enthousiaste, parce que le sujet est saturé de promesses.</p>
 
-      <p>Le gain de temps est réel et se situe entre trois et huit heures par semaine dans mon cas, essentiellement sur l'analyse et la mise en forme. Il ne se situe pas là où on l'attend : la rédaction complète reste lente, parce que le temps se déplace de l'écriture vers la relecture et la vérification.</p>
+      <p>Le gain de temps est réel et se situe entre trois et huit heures par semaine dans mon cas, essentiellement sur l'analyse et la mise en forme. Il ne se situe pas là où il est attendu : la rédaction complète reste lente, parce que le temps se déplace de l'écriture vers la relecture et la vérification.</p>
 
       <p>Le gain de qualité est ailleurs. Les tâches ingrates, contrôle du maillage, cohérence des balises, vérification des données structurées, sont désormais faites systématiquement au lieu d'être faites quand il reste du temps. Sur un an, cet écart pèse plus lourd que n'importe quel gain de vitesse ponctuel.</p>
 
-      <p>Et le risque, puisqu'il faut en parler : la facilité de production pousse à publier davantage. C'est le contraire de ce qu'il faut faire dans un web saturé de contenu moyen. L'outil sert à mieux faire, pas à faire plus.</p>
-
-
-      <!-- MAILLAGE À AJOUTER APRÈS PUBLICATION DES CIBLES :
-           - /blog/automatiser-seo-claude-code (28/10/2026)
-           - /blog/audit-technique-seo (16/10/2026)
-           - /blog/rediger-avec-ia (06/11/2026)
-      -->
+      <p>Et le risque, puisqu'il faut en parler : la facilité de production pousse à publier davantage. C'est le contraire de ce qu'il faut faire dans un web saturé de contenu moyen. L'outil sert à mieux faire, pas à faire plus. Si vous préférez déléguer le diagnostic complet, c'est ce que je fais en <a href="/audit-seo">audit SEO</a>, avec ces méthodes.</p>
 
       <!-- ================= FAQ ================= -->
       <section class="faq">
@@ -464,38 +545,44 @@
 
         <details>
           <summary>Comment utiliser Claude pour le SEO ?</summary>
-          <div class="faq-a"><p>La règle qui décide de tout : donnez-lui la donnée, pas la question. Demandez un volume de recherche et il inventera un nombre plausible ; donnez-lui votre export et il produira une analyse juste. Concrètement, chaque session commence par un fichier : un crawl, un export de la Search Console, le contenu de pages concurrentes ou la liste de vos URL.</p></div>
+          <div class="faq-a"><p>Donnez-lui la donnée, pas la question. Demandez un volume de recherche et il inventera un nombre plausible ; donnez-lui votre export et il produira une analyse juste. Chaque session commence donc par un fichier : un crawl, un export de la Search Console, le contenu de pages concurrentes ou la liste de vos URL.</p></div>
+        </details>
+
+        <details>
+          <summary>Claude est-il bon pour le SEO ?</summary>
+          <div class="faq-a"><p>Oui pour l'analyse et la structure : audit d'un crawl, lecture de la Search Console, regroupement de mots-clés, briefs, balises, maillage et données structurées. Non pour les données de marché, qu'il invente, ni pour publier un article sans relecture. Sa valeur dépend des fichiers que vous lui fournissez.</p></div>
         </details>
 
         <details>
           <summary>Comment auditer son SEO avec Claude ?</summary>
-          <div class="faq-a"><p>Lancez un crawl, donnez-lui l'export et demandez un classement en trois niveaux : ce qui bloque l'indexation, ce qui pénalise, ce qui est cosmétique. Exigez le nombre d'URL touchées par problème et interdisez toute recommandation dont l'effet n'est pas mesurable. Croisez ensuite avec la Search Console : les pages explorées mais sans impression révèlent presque toujours un contenu trop mince ou une cannibalisation.</p></div>
+          <div class="faq-a"><p>Lancez un crawl, donnez-lui l'export et demandez un classement en trois niveaux : ce qui bloque l'indexation, ce qui pénalise, ce qui est cosmétique. Exigez le nombre d'URL touchées par problème et interdisez toute recommandation dont l'effet n'est pas mesurable. Croisez ensuite avec la Search Console : les pages explorées sans impression révèlent souvent un contenu trop mince ou une cannibalisation.</p></div>
         </details>
 
         <details>
-          <summary>Quels outils SEO peut-on brancher sur Claude ?</summary>
-          <div class="faq-a"><p>Un crawler pour explorer le site, la Search Console pour les impressions et les positions, l'accès à vos fichiers pour lire le code réel, et un outil sémantique pour confronter un texte à une cible de vocabulaire. La connexion passe par le protocole MCP, ce qui évite le copier-coller et permet au modèle d'interroger les outils directement.</p></div>
-        </details>
-
-        <details>
-          <summary>Quelles sont les meilleures pratiques SEO avec Claude ?</summary>
-          <div class="faq-a"><p>Imposez un format de sortie, sinon vous recevrez une dissertation. Interdisez explicitement l'invention en donnant une issue de secours au modèle. Travaillez sur vos vraies pages plutôt que sur des exemples. Donnez le contexte commercial, car un mot-clé n'a pas la même valeur selon l'activité. Et relisez ligne à ligne tout ce qui sera publié sous votre nom.</p></div>
-        </details>
-
-        <details>
-          <summary>Comment Claude améliore-t-il le référencement ?</summary>
-          <div class="faq-a"><p>Par trois effets cumulés. La vitesse d'analyse, qui divise par trois ou quatre le temps d'un audit. La régularité, car les contrôles de maillage ou de balises finissent par être faits quand ils coûtent vingt minutes au lieu de trois heures. Et la qualité de structure des contenus, qui est ce qui manque le plus souvent aux pages qui ne se classent pas.</p></div>
+          <summary>Quels outils SEO brancher sur Claude ?</summary>
+          <div class="faq-a"><p>Un crawler comme Screaming Frog, la Search Console, un outil de mots-clés comme Ahrefs et les fichiers de votre site. La connexion passe par le protocole MCP, ce qui évite le copier-coller et permet à Claude d'interroger les outils directement. Avec Claude Code, il peut aussi appliquer les corrections dans les fichiers.</p></div>
         </details>
 
         <details>
           <summary>Quels prompts utiliser avec Claude pour le SEO ?</summary>
-          <div class="faq-a"><p>Un bon prompt tient en quatre parties : le rôle qui cadre le registre, le travail attendu numéroté avec un livrable par point, les règles qui interdisent les dérives connues, et le contexte c'est-à-dire vos données. Ce qui distingue un prompt efficace n'est pas sa longueur mais la présence de règles négatives : dire ce qu'on ne veut pas fonctionne mieux que multiplier les précisions.</p></div>
+          <div class="faq-a"><p>Un bon prompt SEO tient en quatre parties : le rôle qui cadre le registre, le travail attendu numéroté avec un livrable par point, les règles qui interdisent les dérives connues, et vos données. Ce qui le rend efficace n'est pas sa longueur mais la présence de règles négatives, comme l'interdiction d'inventer un chiffre absent de l'export.</p></div>
         </details>
 
         <details>
-          <summary>Quels sont les avantages de Claude pour un consultant SEO ?</summary>
-          <div class="faq-a"><p>Le gain de temps se situe entre trois et huit heures par semaine dans mon cas, essentiellement sur l'analyse et la mise en forme, pas sur la rédaction où le temps se déplace vers la relecture. Le gain principal est ailleurs : les tâches ingrates sont désormais faites systématiquement au lieu d'être faites quand il reste du temps.</p></div>
+          <summary>Claude peut-il donner des volumes de recherche ?</summary>
+          <div class="faq-a"><p>Non, pas de façon fiable. Sans accès à un outil, Claude produit des chiffres plausibles mais inventés. Les volumes viennent d'un outil SEO ou du planificateur de mots-clés de Google ; Claude sert ensuite à les trier et à les regrouper, ou à les interroger directement si l'outil est branché par MCP.</p></div>
         </details>
+
+        <details>
+          <summary>Claude ou ChatGPT : lequel choisir pour le SEO ?</summary>
+          <div class="faq-a"><p>Pour un prompt dans le chat, les deux donnent des résultats proches si vous fournissez les mêmes données. La différence se fait sur l'outillage : Claude Code et les connecteurs MCP permettent de brancher Claude sur un crawler ou la Search Console et de corriger les fichiers du site. Le choix dépend donc surtout de votre façon de travailler.</p></div>
+        </details>
+
+        <details>
+          <summary>Faut-il payer Claude pour l'utiliser en SEO ?</summary>
+          <div class="faq-a"><p>Non pour commencer : la formule gratuite suffit pour tester les prompts de cette page sur un texte ou un petit export. Les usages plus lourds demandent un abonnement payant, en particulier Claude Code, réservé aux formules payantes. Le volume d'échanges de la formule gratuite reste limité.</p></div>
+        </details>
+
       </section>
 
       <!-- ================= CTA ================= -->
@@ -584,7 +671,7 @@
   <aside class="rail rail-right">
     <div class="ai-box">
       <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
-      <p class="ai-text">Claude sert utilement au SEO sur trois usages : l'audit technique à partir d'un crawl, la production de contenu et l'analyse concurrentielle. La règle qui décide de tout est de lui donner la donnée plutôt que la question, car un modèle qui doit deviner un chiffre l'invente. L'audit est le meilleur point d'entrée, car fastidieux, vérifiable et sans risque éditorial. Brancher les outils via le protocole MCP évite le copier-coller et permet d'interroger crawler, Search Console et fichiers directement. Un prompt efficace impose un format de sortie et contient des règles négatives explicites. Le gain se situe entre trois et huit heures par semaine, surtout sur l'analyse.</p>
+      <p class="ai-text">Claude sert au SEO quand il raisonne sur vos données : export de crawl, Search Console, liste de mots-clés, texte de vos pages. Huit usages tiennent en mission, de l'audit technique aux données structurées, avec des prompts en quatre parties qui interdisent d'inventer. Branché par MCP sur un crawler ou un outil de mots-clés, et avec Claude Code, il corrige aussi le site.</p>
       <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
     </div>
 
@@ -593,15 +680,15 @@
       <div class="mini-list">
         <a class="mini" href="/blog/seo-ia">
           <span class="mini-thumb"><picture><source srcset="/images/blog/seo-ia-cover.avif" type="image/avif"><img src="/images/blog/seo-ia-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
-          <span><span class="mini-cat">SEO</span><span class="mini-ttl">SEO et IA : quoi déléguer</span></span>
+          <span><span class="mini-cat">SEO</span><span class="mini-ttl">SEO IA : 10 usages concrets de l'IA pour le référencement</span></span>
         </a>
-        <a class="mini" href="/blog/claude-code">
-          <span class="mini-thumb"><picture><source srcset="/images/blog/claude-code-cover.avif" type="image/avif"><img src="/images/blog/claude-code-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
-          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Claude Code, le guide</span></span>
+        <a class="mini" href="/blog/screaming-frog-mcp">
+          <span class="mini-thumb"><picture><source srcset="/images/blog/screaming-frog-mcp-cover.avif" type="image/avif"><img src="/images/blog/screaming-frog-mcp-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
+          <span><span class="mini-cat">SEO</span><span class="mini-ttl">MCP Screaming Frog : brancher Claude sur vos crawls</span></span>
         </a>
-        <a class="mini" href="/blog/audit-seo-methode">
-          <span class="mini-thumb"><picture><source srcset="/images/blog/audit-seo-cover.avif" type="image/avif"><img src="/images/blog/audit-seo-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
-          <span><span class="mini-cat">SEO</span><span class="mini-ttl">Ma méthode d'audit SEO</span></span>
+        <a class="mini" href="/blog/audit-technique-seo">
+          <span class="mini-thumb"><picture><source srcset="/images/blog/audit-technique-seo-cover.avif" type="image/avif"><img src="/images/blog/audit-technique-seo-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
+          <span><span class="mini-cat">SEO</span><span class="mini-ttl">Audit technique SEO : la checklist complète (2026)</span></span>
         </a>
       </div>
     </div>
@@ -612,30 +699,30 @@
 <section class="related">
   <div class="wrap">
     <h2>À lire ensuite</h2>
-    <p class="sub">La suite logique du parcours.</p>
+    <p class="sub">Pour passer du prompt à l'outillage.</p>
     <div class="rel-grid">
-      <a class="rel-card" href="/blog/seo-ia">
-        <picture><source srcset="/images/blog/seo-ia-cover.avif" type="image/avif"><img src="/images/blog/seo-ia-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
+      <a class="rel-card" href="/blog/claude-skills">
+        <picture><source srcset="/images/blog/automatiser-seo-claude-code-cover.avif" type="image/avif"><img src="/images/blog/automatiser-seo-claude-code-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
 <div class="rel-body">
-          <span class="rel-cat">SEO</span>
-          <h3>SEO et IA : les 20 tâches à déléguer</h3>
-          <p>Le tableau filtrable de ce qui se délègue, de ce qui reste humain, et de ce qui se fait à deux.</p>
+          <span class="rel-cat">Automatisation</span>
+          <h3>Claude Skills : créer, installer et 10 exemples (2026)</h3>
+          <p>Transformer votre checklist d'audit ou votre format de brief en compétence réutilisable.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="/blog/mcp-model-context-protocol">
+        <picture><source srcset="/images/blog/mcp-cover.avif" type="image/avif"><img src="/images/blog/mcp-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
+<div class="rel-body">
+          <span class="rel-cat">Utiliser l'IA</span>
+          <h3>MCP IA : c'est quoi un serveur MCP ? Définition et exemples</h3>
+          <p>Le protocole qui relie Claude à la Search Console, au crawler et à vos outils SEO.</p>
         </div>
       </a>
       <a class="rel-card" href="/blog/claude-code">
         <picture><source srcset="/images/blog/claude-code-cover.avif" type="image/avif"><img src="/images/blog/claude-code-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
 <div class="rel-body">
           <span class="rel-cat">Utiliser l'IA</span>
-          <h3>Claude Code : le guide complet</h3>
-          <p>L'agent de développement d'Anthropic, sa configuration et ce qu'il change au quotidien.</p>
-        </div>
-      </a>
-      <a class="rel-card" href="/blog/audit-seo-methode">
-        <picture><source srcset="/images/blog/audit-seo-cover.avif" type="image/avif"><img src="/images/blog/audit-seo-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
-<div class="rel-body">
-          <span class="rel-cat">SEO</span>
-          <h3>Audit SEO : ma méthode en trois piliers</h3>
-          <p>Le pré-audit en 24 points que je fais passer à tout site avant d'engager le moindre budget.</p>
+          <h3>Installer Claude Code : tuto Mac, Windows et Linux (2026)</h3>
+          <p>L'étape d'après : laisser Claude corriger lui-même les balises et les fichiers du site.</p>
         </div>
       </a>
     </div>
@@ -677,7 +764,7 @@
 <script src="/js/blog-article.js?v=4" defer></script>
 
 <!-- Outil interactif propre à cet article -->
-<script src="/js/claude-pour-seo-tool.js?v=1" defer></script>
+<script src="/js/claude-pour-seo-tool.js?v=2" defer></script>
 
 </body>
 </html>

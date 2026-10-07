@@ -4,8 +4,8 @@
 <script src="/js/js-flag.js?v=1"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MCP : le Model Context Protocol expliqué simplement</title>
-<meta name="description" content="MCP est la norme ouverte qui branche un modèle d'IA sur vos outils et vos données. Fonctionnement, avantages, mise en route et grille de décision.">
+<title>MCP IA : c'est quoi un serveur MCP ? Définition et exemples</title>
+<meta name="description" content="MCP IA expliqué simplement : définition du Model Context Protocol, rôle d'un serveur MCP, exemples utiles, ajout dans Claude et générateur de commande.">
 <link rel="canonical" href="https://anthony-courtin.com/blog/mcp-model-context-protocol">
 <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
@@ -14,8 +14,8 @@
 <meta name="robots" content="index, follow, max-image-preview:large">
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="MCP : le Model Context Protocol expliqué simplement">
-<meta property="og:description" content="Le Model Context Protocol expliqué sans jargon : ce qu'il résout, comment marche l'architecture client et serveur, et quand un serveur MCP vaut vraiment le coup.">
+<meta property="og:title" content="MCP IA : c'est quoi un serveur MCP ? Définition et exemples">
+<meta property="og:description" content="Le Model Context Protocol en clair : ce qu'est un serveur MCP, comment il relie Claude ou ChatGPT à vos outils, les serveurs utiles et la sécurité.">
 <meta property="og:url" content="https://anthony-courtin.com/blog/mcp-model-context-protocol">
 <meta property="og:image" content="https://anthony-courtin.com/images/blog/mcp-cover.webp">
 <meta property="og:locale" content="fr_FR">
@@ -37,17 +37,17 @@
     {
       "@type":"BlogPosting",
       "@id":"https://anthony-courtin.com/blog/mcp-model-context-protocol#article",
-      "headline":"MCP : le protocole qui branche l'IA sur vos outils",
-      "description":"Guide du Model Context Protocol : définition, architecture client et serveur, avantages concrets, cas d'usage avec des outils externes et grille de décision avant de se lancer.",
+      "headline":"MCP IA : c'est quoi un serveur MCP et comment l'utiliser",
+      "description":"MCP IA expliqué simplement : définition du Model Context Protocol, rôle d'un serveur MCP, exemples utiles, ajout dans Claude et générateur de commande.",
       "inLanguage":"fr-FR",
       "datePublished":"2026-10-21",
       "dateModified":"2026-10-21",
       "image":"https://anthony-courtin.com/images/blog/mcp-cover.webp",
-      "wordCount":1450,
+      "wordCount":3860,
       "mainEntityOfPage":{"@type":"WebPage","@id":"https://anthony-courtin.com/blog/mcp-model-context-protocol"},
       "author":{"@id":"https://anthony-courtin.com/#anthony"},
       "publisher":{"@id":"https://anthony-courtin.com/#anthony"},
-      "about":[{"@type":"Thing","name":"Model Context Protocol"},{"@type":"Thing","name":"Anthropic"},{"@type":"Thing","name":"Intelligence artificielle"},{"@type":"Thing","name":"Interopérabilité"},{"@type":"Thing","name":"API"}]
+      "about":[{"@type":"Thing","name":"Model Context Protocol"},{"@type":"Thing","name":"Serveur MCP"},{"@type":"Thing","name":"Claude (assistant IA)"},{"@type":"Thing","name":"Anthropic"}]
     },
     {
       "@type":"Person",
@@ -63,26 +63,28 @@
       "itemListElement":[
         {"@type":"ListItem","position":1,"name":"Accueil","item":"https://anthony-courtin.com/"},
         {"@type":"ListItem","position":2,"name":"Blog","item":"https://anthony-courtin.com/blog/"},
-        {"@type":"ListItem","position":3,"name":"MCP"}
+        {"@type":"ListItem","position":3,"name":"MCP IA"}
       ]
     },
     {
       "@type":"FAQPage",
       "mainEntity":[
-        {"@type":"Question","name":"Qu'est-ce que le protocole MCP ?",
-         "acceptedAnswer":{"@type":"Answer","text":"MCP, pour Model Context Protocol, est une norme ouverte publiée par Anthropic qui décrit comment une application d'intelligence artificielle se connecte à des systèmes extérieurs : fichiers, bases de données, moteurs de recherche ou outils métier. La documentation officielle le compare à un port USB-C pour les applications d'IA : une prise standard là où il fallait auparavant un connecteur différent par service."}},
-        {"@type":"Question","name":"Comment fonctionne le protocole MCP ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Il repose sur deux rôles. Un serveur expose ce qu'il sait faire, c'est-à-dire ses outils, les données auxquelles il donne accès et les instructions associées. Un client, l'application d'IA, découvre cette liste et appelle ce dont il a besoin au fil de la conversation. Ni l'un ni l'autre n'a besoin de connaître son interlocuteur à l'avance, ce qui rend chaque serveur réutilisable par tous les clients compatibles."}},
-        {"@type":"Question","name":"Quels sont les avantages du protocole MCP ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Le gain principal est arithmétique : connecter cinq assistants à dix services demandait cinquante intégrations spécifiques, MCP ramène ce produit à dix serveurs réutilisables. S'y ajoutent moins de code d'adaptation à maintenir, l'accès à un écosystème de connecteurs déjà écrits, et une maîtrise explicite du périmètre exposé, puisque le serveur décide exactement quels outils il ouvre et en lecture ou en écriture."}},
-        {"@type":"Question","name":"Comment utiliser le protocole MCP ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Deux chemins existent. Consommer un serveur déjà publié prend quelques minutes : vous le déclarez dans votre client, vous fournissez vos identifiants et les outils apparaissent. Écrire le vôtre demande de déclarer une liste d'outils avec leur nom, leur description et leurs paramètres, puis d'implémenter chacun. Commencez par deux outils bien décrits plutôt que par le catalogue complet d'une API."}},
-        {"@type":"Question","name":"MCP et intelligence artificielle : qu'est-ce que ça change ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Sans accès aux systèmes, un modèle raisonne sur ce qu'il a appris et sur ce que vous collez dans la conversation. Avec MCP, il travaille sur l'état réel de vos données au moment où il répond, et peut déclencher des actions. On passe d'un assistant qui rédige à un assistant qui agit."}},
-        {"@type":"Question","name":"Quels outils externes peut-on brancher avec MCP ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Les cas les plus fréquents sont la donnée métier, avec une base ou un outil de gestion interrogé en direct, les outils SEO comme un crawler ou la Search Console, le suivi de projet pour lire et créer des tickets, et l'accès à un dossier de fichiers, en lecture seule quand la prudence l'impose."}},
-        {"@type":"Question","name":"MCP est-il utilisable dans le secteur public ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Oui, et il n'y a pas de spécificité technique. Les contraintes du secteur public portent sur l'hébergement et sur la traçabilité des accès, pas sur le protocole lui-même. Un serveur MCP se déploie sur une infrastructure maîtrisée comme n'importe quel autre service interne."}}
+        {"@type":"Question","name":"C'est quoi un MCP en IA ?",
+         "acceptedAnswer":{"@type":"Answer","text":"MCP, pour Model Context Protocol, est une norme ouverte qui permet à une application d'IA comme Claude ou ChatGPT de se connecter à des outils et des données extérieurs : fichiers, bases de données, logiciels métier. La documentation officielle le compare à un port USB-C, une prise standard au lieu d'un câble différent par service. Lancé par Anthropic en novembre 2024, il est géré depuis décembre 2025 par l'Agentic AI Foundation, au sein de la Linux Foundation."}},
+        {"@type":"Question","name":"C'est quoi un serveur MCP ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Un serveur MCP est un programme qui expose à l'IA ce qu'un service sait faire : des outils à appeler, des données à lire et des modèles de consignes. Il tourne sur votre ordinateur (serveur local, lancé par l'application d'IA) ou sur Internet (serveur distant, joint par une adresse HTTPS). L'IA découvre la liste de ses outils et les appelle quand votre demande le justifie."}},
+        {"@type":"Question","name":"Quelle est la différence entre un LLM et un MCP ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Le LLM est le modèle de langage qui comprend la demande et rédige la réponse, par exemple Claude ou GPT. MCP n'est pas un modèle : c'est le protocole qui relie l'application où tourne ce modèle à des outils extérieurs. Sans MCP, le modèle travaille sur ce qu'il a appris et sur ce que vous lui collez. Avec MCP, il peut consulter vos données et agir dans vos logiciels."}},
+        {"@type":"Question","name":"Quelle est la différence entre une API et un MCP ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Une API est propre à un service et demande une intégration codée pour chaque application. Un serveur MCP s'appuie souvent sur cette API, mais la présente dans un format standard que tous les clients compatibles savent lire, avec des descriptions destinées au modèle. MCP ne remplace donc pas l'API : il la rend utilisable par n'importe quelle IA compatible, sans code spécifique."}},
+        {"@type":"Question","name":"Comment ajouter un serveur MCP dans Claude ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Dans Claude sur le web ou l'application, un serveur distant s'ajoute comme connecteur personnalisé, en collant son adresse dans les réglages des connecteurs. Dans Claude Desktop, un serveur local s'installe par une extension .mcpb ou dans le fichier claude_desktop_config.json. Dans Claude Code, la commande claude mcp add suffit, par exemple claude mcp add --transport http notion https://mcp.notion.com/mcp."}},
+        {"@type":"Question","name":"Quels sont les serveurs MCP les plus utilisés ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Les plus répandus donnent accès aux fichiers locaux, au navigateur (Playwright de Microsoft), aux outils de travail comme Notion ou Sentry, et aux données d'analyse comme Google Analytics. Le registre officiel registry.modelcontextprotocol.io et le dépôt de serveurs de référence du projet permettent d'en trouver d'autres. Le meilleur serveur reste celui qui donne accès à l'outil que vous utilisez vraiment, publié par son éditeur."}},
+        {"@type":"Question","name":"MCP est-il gratuit ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Le protocole est ouvert et gratuit, comme les kits de développement officiels et de nombreux serveurs. Le coût vient du service branché derrière : un serveur MCP n'ouvre que ce que votre abonnement à ce service permet déjà, à l'image du serveur de Screaming Frog réservé aux licences payantes. Côté Claude, l'offre gratuite autorise un seul connecteur personnalisé."}},
+        {"@type":"Question","name":"Un serveur MCP est-il sécurisé ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Le protocole recommande OAuth pour l'authentification, et les clients demandent votre accord avant d'appeler un outil, mais la sécurité dépend surtout du serveur choisi. Un serveur local s'exécute avec vos droits sur la machine, et un serveur qui lit du contenu extérieur expose au risque d'injection de prompt. N'installez que des serveurs de sources fiables, accordez le minimum de droits et relisez chaque demande d'approbation."}}
       ]
     }
   ]
@@ -176,12 +178,12 @@
     <nav class="crumb" aria-label="Fil d'Ariane">
       <a href="/">Accueil</a><span aria-hidden="true">/</span>
       <a href="/blog/">Blog</a><span aria-hidden="true">/</span>
-      <span>MCP</span>
+      <span>MCP IA</span>
     </nav>
 
     <span class="art-cat">Utiliser l'IA</span>
-    <h1 class="art-title">MCP : le protocole qui branche l'IA sur vos outils</h1>
-    <p class="art-lede">Model Context Protocol : une norme ouverte pour connecter un modèle à vos données et à vos outils. Ce qu'elle résout, comment elle marche, et à quel moment elle devient rentable.</p>
+    <h1 class="art-title">MCP IA : c'est quoi un serveur MCP et comment l'utiliser</h1>
+    <p class="art-lede">MCP (Model Context Protocol) est une norme ouverte qui permet à une IA comme Claude ou ChatGPT de se brancher sur vos outils et vos données. Un serveur MCP est le programme qui fait le lien : il annonce à l'IA ce qu'elle peut lire et faire chez vous. Voici comment ça marche, les serveurs utiles et comment en ajouter un dans Claude.</p>
 
     <div class="art-metaline">
       <span class="who">
@@ -191,9 +193,7 @@
       <span class="dot" aria-hidden="true">·</span>
       <time datetime="2026-10-21">21 octobre 2026</time>
       <span class="dot" aria-hidden="true">·</span>
-      <span>8 min de lecture</span>
-      <span class="dot" aria-hidden="true">·</span>
-      <span>Mis à jour le <time datetime="2026-10-21">21 octobre 2026</time></span>
+      <span>17 min de lecture</span>
     </div>
 
     <!-- Boutons "Résumer avec" : les href sont construits par blog-article.js -->
@@ -244,7 +244,7 @@
     <!-- Résumé IA version mobile : rendu côté serveur, donc lisible par Google et les LLM -->
     <div class="ai-box ai-box-mobile">
       <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
-      <p class="ai-text">Le Model Context Protocol est une norme ouverte publiée par Anthropic qui standardise la connexion entre une application d'IA et des systèmes extérieurs : fichiers, bases de données, outils métier. Son architecture repose sur des serveurs qui exposent outils, données et instructions, et des clients qui les consomment sans connaissance préalable. L'intérêt est arithmétique : cinq assistants et dix services demandaient cinquante intégrations, MCP les ramène à dix serveurs réutilisables. Claude, ChatGPT, Visual Studio Code et Cursor le prennent en charge. Il devient rentable dès que la même connexion doit servir plusieurs assistants, plusieurs équipes ou plusieurs mois.</p>
+      <p class="ai-text">MCP (Model Context Protocol) est une norme ouverte qui relie une IA comme Claude ou ChatGPT à des outils et des données. Un serveur MCP expose des outils, des ressources et des prompts que l'application d'IA découvre et appelle au besoin. Dans Claude, il s'ajoute comme connecteur, comme extension de Claude Desktop ou avec la commande claude mcp add.</p>
       <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
     </div>
 
@@ -257,241 +257,405 @@
         </picture>
       </figure>
 
-      <p><strong>Le protocole MCP est une norme ouverte qui branche un modèle d'IA sur vos outils et vos données.</strong> Sans lui, chaque connexion entre un assistant et un service extérieur se code à la main, une fois par assistant et par service. Avec lui, on écrit l'intégration une fois et tous les clients compatibles peuvent s'en servir.</p>
-
-      <p>C'est un sujet technique qui se raconte très simplement, et qui change concrètement ce qu'un modèle peut faire dans une entreprise. Voici ce qu'est MCP, comment il fonctionne, et à quel moment il vaut la peine de s'y mettre.</p>
-
       <div class="verdict">
         <div class="verdict-note">
-          <b>1 fois</b>
-          <span>au lieu de N × M</span>
+          <b>1</b>
+          <span>prise pour tous vos outils</span>
         </div>
         <div class="verdict-body">
-          <h2>Le problème que MCP résout</h2>
-          <p>Avant MCP, connecter cinq assistants à dix services demandait cinquante intégrations différentes. MCP transforme ce produit en une addition : dix serveurs, que les cinq assistants savent tous lire.</p>
+          <h2>Le MCP en 30 secondes</h2>
+          <p>MCP est une prise standard entre une IA et vos logiciels. Un serveur MCP annonce ce qu'un outil sait faire, et Claude, ChatGPT ou votre éditeur de code l'appellent quand votre demande le justifie.</p>
           <div class="verdict-lists">
             <ul class="verdict-pros">
-              <li>Une intégration écrite une fois, réutilisable partout</li>
-              <li>Un standard ouvert, pas la propriété d'un éditeur</li>
-              <li>Supporté par Claude, ChatGPT, VS Code et Cursor</li>
+              <li>Une intégration écrite une fois, utilisable par tous les clients compatibles</li>
+              <li>L'IA travaille sur vos vraies données, à jour</li>
+              <li>Norme ouverte, sous gouvernance neutre depuis décembre 2025</li>
             </ul>
             <ul class="verdict-cons">
-              <li>Un serveur à héberger et à maintenir</li>
-              <li>Surdimensionné pour une intégration unique</li>
+              <li>Un serveur mal choisi ouvre l'accès à vos données</li>
+              <li>Chaque outil branché occupe du contexte</li>
             </ul>
           </div>
         </div>
         <p class="verdict-foot">
-          <span class="verdict-price">Norme ouverte, gratuite</span>
-          <span>Pour qui : équipes techniques et éditeurs d'outils</span>
+          <span class="verdict-price">Norme ouverte et gratuite</span>
+          <span>Pris en charge par Claude, ChatGPT, VS Code et Cursor</span>
         </p>
       </div>
 
+      <!-- Bloc « à retenir » : c'est ce que les moteurs de réponse citent le plus volontiers -->
       <section class="takeaways">
         <h2>À retenir</h2>
         <ul>
-          <li><strong>MCP veut dire Model Context Protocol.</strong> C'est un standard ouvert de connexion entre applications d'IA et systèmes extérieurs.</li>
-          <li><strong>L'analogie officielle est celle du port USB-C</strong> : une prise unique là où il fallait un câble par appareil.</li>
-          <li><strong>Il fonctionne en client et serveur.</strong> Votre serveur expose des outils, des données et des instructions, que n'importe quel client compatible sait consommer.</li>
-          <li><strong>L'écosystème est large</strong> : Claude, ChatGPT, Visual Studio Code et Cursor le prennent en charge, entre autres.</li>
-          <li><strong>MCP ne remplace pas une API</strong>, il la rend consommable par un modèle sans code d'adaptation propre à chaque assistant.</li>
+          <li><strong>MCP (Model Context Protocol)</strong> est une norme ouverte qui relie une IA comme Claude ou ChatGPT à des outils et des données extérieurs, à la manière d'un port USB-C.</li>
+          <li>Un <strong>serveur MCP</strong> expose des outils (agir), des ressources (lire) et des prompts (cadrer). L'application d'IA, côté client, les découvre et les appelle.</li>
+          <li>Un serveur est <strong>local</strong> (lancé sur votre machine, transport stdio) ou <strong>distant</strong> (joint par une adresse HTTPS).</li>
+          <li>Dans Claude : <strong>connecteur personnalisé</strong> sur le web, extension ou fichier de configuration dans Claude Desktop, commande <code>claude mcp add</code> dans Claude Code.</li>
+          <li>Le protocole est gratuit et géré depuis décembre 2025 par l'Agentic AI Foundation (Linux Foundation). Le risque vient des serveurs installés, pas de la norme.</li>
         </ul>
       </section>
 
-      <p>Avant d'ouvrir un chantier, vérifiez que votre besoin le justifie. Cochez les critères qui s'appliquent à votre situation, l'outil tranche.</p>
+      <p>Vous avez sûrement vu passer « MCP » dans une annonce de Claude, de ChatGPT ou d'un éditeur de logiciel. Le sigle cache une idée simple : donner à l'IA un accès standard à vos outils, pour qu'elle travaille sur vos données plutôt que sur ce que vous lui recopiez.</p>
 
+      <p>Je commence par la définition, puis le fonctionnement, des exemples de serveurs utiles et la marche à suivre pour en ajouter un dans Claude, avec un <a href="#outil-mcp">générateur de commande</a> pour éviter les erreurs de syntaxe.</p>
+
+      <h2>MCP IA : c'est quoi ? La définition simple</h2>
+
+      <p><strong>MCP</strong> est l'abréviation de <em>Model Context Protocol</em>, littéralement « protocole de contexte pour les modèles ». C'est une norme ouverte qui décrit comment une application d'intelligence artificielle se connecte à des systèmes extérieurs : des fichiers, une base de données, un moteur de recherche, un logiciel métier.</p>
+
+      <p>La documentation officielle emploie une image que je reprends toujours en réunion : <strong>MCP est un port USB-C pour les applications d'IA</strong>. Avant l'USB-C, chaque appareil avait son câble. Avant MCP, chaque connexion entre un assistant et un service se codait à la main, une fois par assistant et une fois par service. Avec MCP, un service publie un serveur, et tous les assistants compatibles savent s'en servir.</p>
+
+      <p>Concrètement, une IA branchée en MCP peut chercher dans vos pages Notion, interroger vos statistiques Google Analytics, piloter un navigateur ou lancer un crawl Screaming Frog, puis vous répondre à partir de ce qu'elle vient de trouver. Elle passe d'un assistant qui rédige à un assistant qui consulte et agit.</p>
+
+      <h3>D'où vient MCP et qui le gouverne ?</h3>
+
+      <p>Anthropic, l'éditeur de Claude, a publié MCP en novembre 2024. Le protocole a ensuite été adopté par la plupart des acteurs : lors de son transfert, en décembre 2025, l'annonce officielle citait une prise en charge par ChatGPT, Claude, Cursor, Gemini, Microsoft Copilot et Visual Studio Code, plus de 10 000 serveurs actifs et 97 millions de téléchargements mensuels des kits de développement.</p>
+
+      <p>Ce transfert date du 9 décembre 2025 : Anthropic a confié MCP à l'<strong>Agentic AI Foundation</strong>, un fonds hébergé par la Linux Foundation et cofondé avec Block et OpenAI. Les décisions sur la spécification restent prises par ses mainteneurs, à partir de propositions publiques de la communauté. Pour une entreprise, c'est la réponse à l'objection du verrouillage : adopter MCP ne revient pas à parier sur un seul éditeur.</p>
+
+      <h3>Quelle différence entre MCP, IA et LLM ?</h3>
+
+      <p>Les trois termes désignent des étages différents. Le <strong>LLM</strong> (grand modèle de langage) est le moteur qui comprend et rédige : Claude, GPT, Gemini. L'<strong>application d'IA</strong> est le logiciel dans lequel vous travaillez avec lui : l'application Claude, ChatGPT, Claude Code, Cursor. <strong>MCP</strong> est le câble qui relie cette application à vos outils.</p>
+
+      <p>MCP ne rend donc pas le modèle plus intelligent. Il lui donne accès à des informations et à des actions qu'il n'avait pas. Un modèle moyen bien branché sur vos données répond souvent mieux qu'un excellent modèle qui travaille à l'aveugle.</p>
+
+      <h3>MCP ou API : quelle différence ?</h3>
+
+      <p>Une <strong>API</strong> est la porte d'entrée programmatique d'un service, propre à chaque éditeur. Un serveur MCP s'appuie le plus souvent sur cette API, mais la présente dans un format commun, avec pour chaque outil un nom, une description lisible par le modèle et un schéma de paramètres. MCP ne remplace pas l'API : il la rend utilisable par n'importe quelle IA compatible, sans code d'adaptation propre à chaque assistant.</p>
+
+      <p>Le gain se voit en arithmétique. Relier cinq assistants à dix services demandait cinquante intégrations, chacune à écrire et à maintenir. Avec MCP, dix serveurs suffisent, et les cinq assistants les lisent tous.</p>
+
+      <h2>C'est quoi un serveur MCP ?</h2>
+
+      <p>Un <strong>serveur MCP</strong> est le programme qui fait le lien entre l'IA et un service. Il annonce ce qu'il sait faire, reçoit les demandes de l'IA, les exécute auprès du service (une API, une base de données, des fichiers) et renvoie le résultat. Le mot « serveur » impressionne à tort : c'est souvent un petit programme de quelques centaines de lignes.</p>
+
+      <p>Il en existe deux sortes :</p>
+
+      <ul>
+        <li><strong>Le serveur local</strong> tourne sur votre ordinateur. L'application d'IA le lance elle-même et lui parle par l'entrée et la sortie standard (le transport <em>stdio</em>). C'est le cas d'un serveur qui lit vos fichiers ou pilote un logiciel installé, comme Screaming Frog.</li>
+        <li><strong>Le serveur distant</strong> est hébergé par l'éditeur du service et joint par une adresse HTTPS (le transport <em>Streamable HTTP</em>). Notion, Stripe ou Sentry publient le leur : rien à installer, une connexion à votre compte suffit.</li>
+      </ul>
+
+      <p>Chez Claude, un serveur distant ajouté depuis l'interface s'appelle un <strong>connecteur</strong>. Un connecteur MCP n'est rien d'autre qu'un serveur MCP distant, déclaré dans votre compte.</p>
+
+      <h2>Comment fonctionne le MCP : client, serveur, outils et ressources</h2>
+
+      <h3>Les trois rôles : hôte, client et serveur</h3>
+
+      <p>L'architecture distingue trois rôles, et les confondre est l'erreur la plus courante.</p>
+
+      <ul>
+        <li><strong>L'hôte</strong> est l'application d'IA elle-même : Claude Desktop, Claude Code, Visual Studio Code. C'est lui qui coordonne l'ensemble.</li>
+        <li><strong>Le client</strong> est le composant qui tient la connexion avec un serveur. L'hôte en crée un par serveur : trois serveurs branchés, trois clients.</li>
+        <li><strong>Le serveur</strong> est le programme qui fournit le contexte, qu'il tourne sur votre machine ou à l'autre bout du réseau.</li>
+      </ul>
+
+      <p>Aucun des trois n'a besoin de connaître son interlocuteur à l'avance. Un serveur écrit pour votre outil interne fonctionne avec Claude aujourd'hui et avec un autre assistant demain, sans une ligne de code en plus. C'est tout l'intérêt d'une norme.</p>
+
+      <h3>Ce qu'un serveur expose : outils, ressources et prompts</h3>
+
+      <p>Un serveur peut proposer trois types d'éléments, que la spécification appelle des primitives.</p>
+
+      <ul>
+        <li><strong>Les outils</strong> sont des fonctions exécutables : interroger une base, appeler une API, écrire un fichier. C'est ce que le modèle déclenche.</li>
+        <li><strong>Les ressources</strong> sont des données consultables : le contenu d'un fichier, un enregistrement, le schéma d'une base. C'est ce que le modèle lit.</li>
+        <li><strong>Les prompts</strong> sont des modèles d'interaction réutilisables : une marche à suivre, des exemples. C'est ce qui cadre le modèle.</li>
+      </ul>
+
+      <p>La règle que j'applique : si l'IA doit <em>agir</em>, c'est un outil. Si elle doit <em>savoir</em>, c'est une ressource. Si elle doit <em>procéder d'une certaine façon</em>, c'est un prompt. Dans les faits, la plupart des serveurs publics exposent surtout des outils, et la qualité de l'expérience dépend d'eux.</p>
+
+      <p>Dans l'autre sens, le client peut offrir des fonctions au serveur. La principale est l'<em>élicitation</em> : le serveur demande une précision ou une confirmation à l'utilisateur en cours de route.</p>
+
+      <h3>Ce qui se passe quand vous posez une question</h3>
+
+      <ol>
+        <li><strong>Découverte.</strong> Le client demande au serveur ses capacités, puis la liste de ses outils (<code>tools/list</code>) : pour chacun, un nom, une description et un schéma JSON des paramètres.</li>
+        <li><strong>Choix.</strong> Le modèle lit ces descriptions et décide si l'un des outils sert votre demande. Il ne sait de l'outil que ce qui est écrit dans sa description.</li>
+        <li><strong>Approbation.</strong> Selon vos réglages, l'application vous demande l'autorisation avant d'exécuter l'outil.</li>
+        <li><strong>Appel.</strong> Le client envoie la requête (<code>tools/call</code>) avec des paramètres conformes au schéma, et le serveur l'exécute auprès du service.</li>
+        <li><strong>Réponse.</strong> Le résultat revient dans la conversation. Le modèle poursuit son raisonnement, quitte à appeler un autre outil.</li>
+      </ol>
+
+      <p>Conséquence pratique : la qualité des descriptions d'outils compte autant que le code. Un outil mal décrit ne sera jamais appelé au bon moment.</p>
+
+      <h3>Les dessous techniques en un paragraphe</h3>
+
+      <p>Les échanges utilisent JSON-RPC 2.0, quel que soit le transport. Depuis la version 2026-07-28 de la spécification, le protocole est sans état : chaque requête porte sa version et les capacités du client, et le serveur publie les siennes via une requête de découverte obligatoire (<code>server/discover</code>). Sur le transport HTTP, l'authentification passe par les mécanismes habituels du web (jeton, clé d'API, en-tête), et la spécification recommande OAuth pour obtenir les jetons.</p>
+
+      <h2>Exemples de serveurs MCP utiles</h2>
+
+      <p>Des milliers de serveurs existent, de qualité très inégale. Ceux du tableau sont publiés par l'éditeur du service ou par le projet MCP lui-même, ce qui est mon premier critère de choix.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Serveur</th><th scope="col">Ce que l'IA peut faire</th><th scope="col">Type</th><th scope="col">À savoir</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Filesystem</strong> (projet MCP)</td><td>Lire, créer, déplacer et chercher des fichiers</td><td>Local</td><td>Limité aux dossiers que vous listez, mais agit avec vos droits</td></tr>
+            <tr><td><strong>Playwright</strong> (Microsoft)</td><td>Ouvrir un navigateur, naviguer, cliquer, lire une page</td><td>Local</td><td>Utile pour tester un site ou vérifier un rendu</td></tr>
+            <tr><td><strong>Google Analytics</strong> (Google)</td><td>Interroger les rapports et le temps réel d'une propriété</td><td>Local</td><td>Lecture seule, demande des identifiants Google Cloud</td></tr>
+            <tr><td><strong>Screaming Frog SEO Spider</strong></td><td>Lancer un crawl, rouvrir un crawl enregistré, sortir exports et rapports</td><td>Local</td><td>Licence payante, version 24 minimum</td></tr>
+            <tr><td><strong>Notion</strong></td><td>Chercher, lire et créer des pages</td><td>Distant</td><td>Connexion OAuth à votre espace</td></tr>
+            <tr><td><strong>Sentry</strong></td><td>Consulter les erreurs et incidents d'une application</td><td>Distant</td><td>Pour les équipes de développement</td></tr>
+            <tr><td><strong>data.gouv.fr</strong></td><td>Chercher et analyser les jeux de données publics français</td><td>Distant</td><td>Expérimental, sans compte ni clé</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Côté SEO, notez une absence : à ma connaissance, Google n'a pas publié de serveur officiel pour la Search Console. Des serveurs communautaires existent, et il faut lire leur code ou leurs permissions avant de leur confier vos propriétés. J'ai rassemblé d'autres usages de l'IA pour le référencement dans <a href="/blog/claude-pour-seo">Claude pour le SEO</a>.</p>
+
+      <p>Pour un cas complet, pas à pas, j'ai détaillé l'installation du <a href="/blog/screaming-frog-mcp">MCP Screaming Frog</a> dans Claude, avec les réglages et le piège du premier crawl.</p>
+
+      <h3>Où trouver d'autres serveurs MCP</h3>
+
+      <ul>
+        <li><strong>Le registre officiel</strong> du projet, <code>registry.modelcontextprotocol.io</code>, qui recense les serveurs publiés.</li>
+        <li><strong>Le dépôt de serveurs de référence</strong> du projet sur GitHub (<code>modelcontextprotocol/servers</code>), utile pour voir à quoi ressemble un serveur propre.</li>
+        <li><strong>Le catalogue de connecteurs de Claude</strong>, où les serveurs des grands éditeurs s'ajoutent en quelques clics.</li>
+        <li><strong>La documentation de vos logiciels</strong> : de plus en plus d'éditeurs y décrivent leur serveur MCP et sa procédure d'installation.</li>
+      </ul>
+
+      <h2>MCP Claude : comment ajouter un serveur MCP dans Claude</h2>
+
+      <p>La marche à suivre dépend de l'endroit où vous utilisez Claude. Le serveur reste le même, seule la façon de le déclarer change.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Où</th><th scope="col">Type de serveur</th><th scope="col">Comment</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Claude sur le web et dans l'application de bureau</td><td>Distant</td><td>Connecteur personnalisé : coller l'adresse du serveur</td></tr>
+            <tr><td>Claude Desktop</td><td>Local</td><td>Extension <code>.mcpb</code> ou fichier <code>claude_desktop_config.json</code></td></tr>
+            <tr><td>Claude Code</td><td>Local ou distant</td><td>Commande <code>claude mcp add</code> ou fichier <code>.mcp.json</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Dans Claude (web et application) : ajouter un connecteur</h3>
+
+      <ol>
+        <li>Ouvrez les réglages des connecteurs : <code>Customize &gt; Connectors</code> sur les offres Pro et Max.</li>
+        <li>Cliquez sur <code>+ Add</code>, puis <code>Add custom connector</code>, et collez l'adresse du serveur distant, par exemple <code>https://mcp.notion.com/mcp</code>.</li>
+        <li>Si l'éditeur vous en a fourni, renseignez l'identifiant et le secret OAuth dans les réglages avancés, validez, puis connectez votre compte.</li>
+        <li>Dans une conversation, activez ou coupez le connecteur depuis le menu des outils de la zone de saisie.</li>
+      </ol>
+
+      <p>Trois limites à connaître. L'offre gratuite n'autorise qu'un seul connecteur personnalisé. Sur les offres Team et Enterprise, seuls les propriétaires de l'espace ajoutent les connecteurs, et les membres s'y connectent ensuite. Enfin, Claude joint le serveur depuis l'infrastructure d'Anthropic, pas depuis votre ordinateur : un serveur qui n'écoute que sur <code>localhost</code> reste inaccessible par ce chemin.</p>
+
+      <h3>Dans Claude Desktop : extension ou fichier de configuration</h3>
+
+      <p>Pour un serveur local, deux méthodes. La plus simple est l'<strong>extension</strong> : un fichier <code>.mcpb</code> fourni par l'éditeur, à installer depuis <code>Settings &gt; Extensions</code>. C'est la méthode que documente Screaming Frog.</p>
+
+      <p>L'autre passe par le <strong>fichier de configuration</strong>. Dans les réglages de l'application, ouvrez <code>Developer &gt; Edit Config</code> : Claude ouvre <code>claude_desktop_config.json</code>, rangé dans <code>~/Library/Application Support/Claude/</code> sur macOS et dans <code>%APPDATA%\Claude\</code> sous Windows. Déclarez-y le serveur :</p>
+
+      <pre><code>{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/Users/vous/Documents/dossier-autorise"
+      ]
+    }
+  }
+}</code></pre>
+
+      <p>Quittez ensuite Claude complètement, pas seulement la fenêtre, puis rouvrez-le. C'est l'oubli qui explique la majorité des serveurs « invisibles ». Le serveur apparaît alors dans la liste des connecteurs, depuis le bouton d'ajout de la zone de saisie.</p>
+
+      <h3>Dans Claude Code : la commande claude mcp add</h3>
+
+      <p>Claude Code se configure en ligne de commande. Si l'outil n'est pas encore sur votre machine, suivez d'abord mon tutoriel pour <a href="/blog/claude-code">installer Claude Code</a>. Trois formes couvrent presque tous les cas :</p>
+
+      <pre><code># Serveur distant (HTTP)
+claude mcp add --transport http notion https://mcp.notion.com/mcp
+
+# Serveur local (stdio) : tout ce qui suit -- est la commande du serveur
+claude mcp add --transport stdio playwright -- npx @playwright/mcp@latest
+
+# Serveur local avec une variable d'environnement, pour tous vos projets
+claude mcp add --transport stdio --scope user analytics-mcp -e "GOOGLE_PROJECT_ID=votre-projet" -- pipx run analytics-mcp</code></pre>
+
+      <p>L'option <code>--scope</code> décide où la configuration est rangée :</p>
+
+      <ul>
+        <li><code>local</code>, la valeur par défaut : ce projet, pour vous seul.</li>
+        <li><code>project</code> : un fichier <code>.mcp.json</code> à la racine du projet, partagé avec l'équipe via git.</li>
+        <li><code>user</code> : tous vos projets, sur votre machine.</li>
+      </ul>
+
+      <p>Ensuite, <code>claude mcp list</code> affiche les serveurs déclarés, <code>claude mcp remove nom</code> en retire un, et la commande <code>/mcp</code>, dans une session, montre leur état et lance la connexion OAuth quand un serveur la demande.</p>
+
+      <div class="callout callout--tip">
+        <p class="callout-t">Les réponses trop volumineuses</p>
+        <p>Claude Code avertit quand un outil MCP renvoie plus de 10 000 jetons et plafonne par défaut à 25 000 (variable <code>MAX_MCP_OUTPUT_TOKENS</code>). Pour un crawl ou un gros export de données, demandez un fichier plutôt qu'une réponse dans la conversation.</p>
+      </div>
+
+      <p>Pour ne pas vous tromper de syntaxe, le générateur ci-dessous écrit la commande Claude Code et le bloc JSON à partir de quelques champs. Partez d'un serveur connu ou décrivez le vôtre.</p>
+
+      <!-- ================= OUTIL INTERACTIF ================= -->
       <div class="tool" id="outil-mcp">
         <div class="tool-head">
           <span class="tool-ico" aria-hidden="true">✦</span>
           <span>
             <em>Outil interactif</em>
-            <b>Avez-vous besoin d'un serveur MCP ?</b>
+            <b>Générateur de commande MCP pour Claude</b>
           </span>
         </div>
         <div class="tool-body">
           <div class="field">
-            <span class="rail-title" id="mcp-label">Cochez ce qui décrit votre situation</span>
-            <ul class="geo-check" id="mcp-check" aria-labelledby="mcp-label">
-              <li><label><input type="checkbox"> Un modèle doit lire des données qui vivent dans nos systèmes</label></li>
-              <li><label><input type="checkbox"> Il doit aussi déclencher des actions, pas seulement consulter</label></li>
-              <li><label><input type="checkbox"> Plusieurs assistants ou éditeurs différents sont utilisés chez nous</label></li>
-              <li><label><input type="checkbox"> La même intégration a déjà été recodée au moins deux fois</label></li>
-              <li><label><input type="checkbox"> Nous voulons garder la maîtrise des accès et des permissions</label></li>
-              <li><label><input type="checkbox"> D'autres équipes réutiliseraient cette connexion</label></li>
-            </ul>
+            <label for="mcp-preset">Partir d'un serveur connu <span class="hint">: pré-remplit les champs, à adapter ensuite</span></label>
+            <select id="mcp-preset">
+              <option value="">Serveur personnalisé</option>
+              <option value="filesystem">Système de fichiers (local)</option>
+              <option value="playwright">Playwright, navigateur piloté (local)</option>
+              <option value="analytics">Google Analytics (local, lecture seule)</option>
+              <option value="screamingfrog">Screaming Frog, mode HTTP (local)</option>
+              <option value="notion">Notion (distant)</option>
+              <option value="datagouv">data.gouv.fr (distant, sans compte)</option>
+            </select>
           </div>
-
-          <div class="score">
-            <b id="mcp-score">0 / 6</b><span>critères réunis</span>
-          </div>
-          <div class="meter"><i id="mcp-meter" style="width:0%"></i></div>
 
           <div class="field">
-            <span class="rail-title" style="margin-bottom:8px">Verdict</span>
-            <div class="tool-out" id="mcp-out" aria-live="polite"></div>
+            <span class="rail-title" style="margin-bottom:8px">Type de serveur</span>
+            <div class="chips" id="mcp-transport" role="group" aria-label="Type de serveur">
+              <button type="button" class="chip on" data-v="http">Distant (HTTP)</button>
+              <button type="button" class="chip" data-v="stdio">Local (stdio)</button>
+            </div>
           </div>
 
+          <div class="field-row">
+            <div class="field">
+              <label for="mcp-name">Nom du serveur</label>
+              <input id="mcp-name" type="text" placeholder="mon-serveur" autocomplete="off" spellcheck="false">
+            </div>
+            <div class="field">
+              <label for="mcp-scope">Portée dans Claude Code</label>
+              <select id="mcp-scope">
+                <option value="local">local : ce projet, pour vous seul</option>
+                <option value="project">project : ce projet, partagé (.mcp.json)</option>
+                <option value="user">user : tous vos projets</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field" id="mcp-f-url">
+            <label for="mcp-url">Adresse du serveur</label>
+            <input id="mcp-url" type="text" placeholder="https://exemple.com/mcp" autocomplete="off" spellcheck="false">
+          </div>
+
+          <div class="field" id="mcp-f-header">
+            <label for="mcp-header">En-tête d'authentification <span class="hint">: facultatif, par exemple Authorization: Bearer VOTRE_JETON</span></label>
+            <input id="mcp-header" type="text" placeholder="Authorization: Bearer VOTRE_JETON" autocomplete="off" spellcheck="false">
+          </div>
+
+          <div class="field" id="mcp-f-cmd" style="display:none">
+            <label for="mcp-cmd">Commande de lancement du serveur</label>
+            <input id="mcp-cmd" type="text" placeholder="npx -y @modelcontextprotocol/server-filesystem /Users/vous/Documents" autocomplete="off" spellcheck="false">
+          </div>
+
+          <div class="field" id="mcp-f-env" style="display:none">
+            <label for="mcp-env">Variables d'environnement <span class="hint">: une par ligne, NOM=valeur</span></label>
+            <textarea id="mcp-env" placeholder="API_KEY=votre-cle" spellcheck="false"></textarea>
+          </div>
+
+          <div class="field">
+            <span class="rail-title" style="margin-bottom:8px">Commande Claude Code</span>
+            <div class="tool-out" id="mcp-out-cli" aria-live="polite"></div>
+          </div>
+
+          <div class="field">
+            <span class="rail-title" style="margin-bottom:8px" id="mcp-json-title">Configuration JSON</span>
+            <div class="tool-out" id="mcp-out-json"></div>
+          </div>
+
+          <p id="mcp-note"></p>
+
           <div class="tool-actions">
-            <button type="button" class="btn-sm primary" id="mcp-copy">Copier le verdict</button>
-            <a class="btn-sm ghost" href="/automatisation-ia">En parler avec moi</a>
+            <button type="button" class="btn-sm primary" id="mcp-copy-cli">Copier la commande</button>
+            <button type="button" class="btn-sm ghost" id="mcp-copy-json">Copier le JSON</button>
           </div>
         </div>
         <div class="tool-foot">
-          <span>Calcul local, rien n'est envoyé.</span>
-          <span>Grille de décision, Anthony Courtin</span>
+          <span>Rien n'est envoyé : la commande est construite dans votre navigateur.</span>
+          <span>Générateur MCP · Anthony Courtin</span>
         </div>
       </div>
 
-      <h2>Qu'est-ce que le protocole MCP ?</h2>
+      <h2>Sécurité : les risques d'un serveur MCP</h2>
 
-      <p>MCP est l'abréviation de Model Context Protocol. C'est une norme ouverte, publiée par Anthropic, qui décrit comment une application d'intelligence artificielle se connecte à des systèmes extérieurs : des fichiers locaux, une base de données, un moteur de recherche, un outil métier.</p>
-
-      <p>La documentation officielle emploie une image que je reprends toujours en réunion parce qu'elle fait mouche : <strong>MCP est au modèle ce que l'USB-C est aux appareils électroniques.</strong> Avant l'USB-C, chaque appareil avait son connecteur et son câble. Après, une seule prise sert à tout. MCP joue exactement ce rôle pour les applications d'IA.</p>
-
-      <p>Trois familles de ressources circulent par ce protocole. Les <strong>données</strong>, que le modèle peut consulter : documents, enregistrements, contenus. Les <strong>outils</strong>, que le modèle peut appeler pour agir : lancer une recherche, écrire une ligne, envoyer une commande. Et les <strong>instructions</strong>, des marches à suivre spécialisées que le serveur fournit au modèle pour cadrer son travail.</p>
-
-      <h2>Comment fonctionne le protocole MCP ?</h2>
-
-      <p>L'architecture distingue trois rôles, et les confondre est l'erreur la plus courante.</p>
+      <p>MCP donne des mains à l'IA. C'est tout son intérêt, et c'est aussi là que se logent les risques. La documentation de sécurité du protocole et celle de Claude convergent sur quatre points.</p>
 
       <ul>
-        <li><strong>L'hôte</strong> est l'application d'IA elle-même : Claude Code, Claude Desktop, Visual Studio Code. C'est lui qui coordonne l'ensemble.</li>
-        <li><strong>Le client</strong> est le composant qui tient une connexion avec un serveur. L'hôte en crée un par serveur : trois serveurs branchés, trois clients.</li>
-        <li><strong>Le serveur</strong> est le programme qui fournit le contexte, qu'il tourne sur votre machine ou à l'autre bout du réseau.</li>
+        <li><strong>Un serveur local s'exécute avec vos droits.</strong> Un serveur de fichiers peut lire et modifier tout ce que vous pouvez lire et modifier. Limitez-le aux dossiers nécessaires, et n'exécutez jamais une commande d'installation que vous ne comprenez pas.</li>
+        <li><strong>L'injection de prompt.</strong> Un serveur qui récupère du contenu extérieur (une page web, un ticket, un e-mail) peut faire entrer dans la conversation des instructions cachées qui détournent le modèle. La documentation de Claude Code le rappelle : vérifiez que vous faites confiance à chaque serveur avant de le connecter.</li>
+        <li><strong>Des droits trop larges.</strong> Les bonnes pratiques du protocole recommandent de partir d'autorisations minimales et de les élargir seulement quand une action le demande. Un jeton qui ouvre tout expose tout s'il fuit.</li>
+        <li><strong>Les connecteurs non vérifiés.</strong> Anthropic le précise pour les connecteurs personnalisés : ils relient Claude à des services qu'Anthropic n'a pas vérifiés. Relisez chaque demande d'approbation d'outil.</li>
       </ul>
 
-      <p>Le point important est qu'aucun des trois n'a besoin de connaître son interlocuteur à l'avance. Un serveur écrit pour votre outil interne fonctionne avec Claude aujourd'hui et avec un autre assistant demain, sans une ligne de code supplémentaire. C'est tout l'intérêt d'une norme.</p>
+      <div class="callout callout--warn">
+        <p class="callout-t">Mes cinq réflexes avant de brancher un serveur</p>
+        <p>Préférer le serveur publié par l'éditeur du service. Commencer en lecture seule. Ranger les clés d'API dans des variables d'environnement, jamais dans un fichier partagé via git. Garder l'approbation manuelle pour tout ce qui écrit, supprime ou envoie. Retirer les serveurs que vous n'utilisez plus.</p>
+      </div>
 
-      <p>Dans la pratique, le modèle ne devine rien. Il demande la liste des outils disponibles, lit les descriptions que le serveur lui donne, choisit celui qui correspond à la demande, l'appelle avec des paramètres validés par un schéma JSON, reçoit le résultat et poursuit son raisonnement. La qualité de vos descriptions d'outils compte donc autant que le code derrière : un outil mal décrit est un outil qui ne sera jamais appelé au bon moment.</p>
+      <h2>MCP, skills et agents : qui fait quoi ?</h2>
 
-      <h3>Les deux couches : données et transport</h3>
+      <p>Trois notions reviennent ensemble et se complètent. <strong>MCP donne l'accès</strong> : il branche l'IA sur un outil. Une <strong>skill</strong> donne la méthode : un dossier d'instructions et de scripts que Claude charge quand une tâche s'y prête, par exemple votre procédure d'audit. Un <strong>agent</strong> enchaîne les deux en autonomie pour atteindre un objectif.</p>
 
-      <p>La spécification sépare proprement deux niveaux, et c'est ce qui rend le protocole portable.</p>
+      <p>Exemple en SEO : le serveur MCP de Screaming Frog sait lancer un crawl et sortir un export, une skill d'audit dit quels exports demander et comment hiérarchiser les problèmes. Pour écrire les vôtres, voyez mon guide des <a href="/blog/claude-skills">Claude Skills</a>, et pour l'étape suivante, la méthode pour <a href="/blog/agent-ia">créer un agent IA</a>.</p>
 
-      <p>La <strong>couche de données</strong> définit le dialogue lui-même. Elle repose sur JSON-RPC 2.0 : le client envoie une requête nommée, le serveur répond. C'est là que vivent la découverte des capacités, les trois primitives du serveur et les notifications de changement. Le protocole est sans état : chaque requête transporte la version et les capacités dont elle a besoin, si bien que le serveur n'a rien à mémoriser entre deux appels.</p>
+      <h2>Faut-il créer son propre serveur MCP ?</h2>
 
-      <p>La <strong>couche de transport</strong> définit par quel tuyau ce dialogue circule, et il en existe deux.</p>
+      <p>Rarement en premier. Commencez par brancher un serveur existant et vivez avec pendant deux semaines : la liste de ce qui vous a manqué devient le cahier des charges de votre premier serveur.</p>
 
-      <ul>
-        <li><strong>Le transport stdio</strong> fait communiquer deux processus sur la même machine par l'entrée et la sortie standard. Aucune latence réseau, idéal pour un serveur local qui lit vos fichiers.</li>
-        <li><strong>Le transport HTTP en flux</strong> s'appuie sur des requêtes POST, avec des événements envoyés par le serveur pour le streaming. C'est le choix des serveurs distants, qui servent plusieurs clients à la fois.</li>
-      </ul>
+      <p>Écrire un serveur devient rentable quand la même connexion doit servir plusieurs fois : plusieurs assistants, plusieurs équipes, ou plusieurs mois. Les kits de développement officiels existent dans les principaux langages, et le protocole n'est pas la partie difficile. La vraie question est de choisir quels outils exposer, et jusqu'où.</p>
 
-      <p>Sur le transport HTTP, l'authentification passe par les mécanismes habituels du web : jeton porteur, clé d'API, en-tête personnalisé. <strong>La spécification recommande OAuth</strong> pour obtenir ces jetons, ce qui est la bonne nouvelle pour quiconque doit justifier un déploiement auprès d'une équipe sécurité.</p>
-
-      <h3>Les trois primitives à connaître</h3>
-
-      <p>Un serveur expose exactement trois choses, et savoir laquelle utiliser évite beaucoup de mauvaises conceptions.</p>
-
-      <ul>
-        <li><strong>Les outils</strong> sont des fonctions exécutables : interroger une base, appeler une API, écrire un fichier. C'est ce que le modèle déclenche.</li>
-        <li><strong>Les ressources</strong> sont des sources de données consultables : le contenu d'un fichier, un enregistrement, le schéma d'une base. C'est ce que le modèle lit.</li>
-        <li><strong>Les prompts</strong> sont des gabarits d'interaction réutilisables : une marche à suivre, des exemples. C'est ce qui cadre le modèle.</li>
-      </ul>
-
-      <p>La règle que j'applique : si l'IA doit <em>agir</em>, c'est un outil. Si elle doit <em>savoir</em>, c'est une ressource. Si elle doit <em>procéder d'une certaine façon</em>, c'est un prompt. Beaucoup de serveurs débutants transforment tout en outils, y compris de la simple lecture, et noient le modèle sous des fonctions qu'une ressource aurait mieux servies.</p>
-
-      <h2>Quels sont les avantages du protocole MCP ?</h2>
-
-      <p>Le gain se voit surtout en arithmétique. Connecter cinq assistants à dix services demandait cinquante intégrations spécifiques, chacune à écrire, tester et maintenir. Avec MCP, vous écrivez dix serveurs et les cinq assistants les consomment tous. Le produit devient une addition, et l'écart se creuse à mesure que le parc grandit.</p>
-
-      <p>Trois bénéfices concrets en découlent.</p>
-
-      <ul>
-        <li><strong>Pour les équipes techniques</strong>, moins de code d'adaptation à maintenir et une intégration qui survit au changement d'assistant.</li>
-        <li><strong>Pour les applications d'IA</strong>, l'accès immédiat à un écosystème de connecteurs déjà écrits par d'autres.</li>
-        <li><strong>Pour les utilisateurs</strong>, un assistant qui travaille sur les vraies données de l'entreprise au lieu de raisonner dans le vide.</li>
-      </ul>
-
-      <p>J'ajoute un quatrième avantage, moins cité et pourtant décisif en entreprise : la maîtrise du périmètre. Le serveur décide exactement ce qu'il expose. Vous ouvrez trois outils en lecture et un seul en écriture si c'est ce que vous voulez, et cette frontière est explicite dans le code plutôt que reposant sur la bonne volonté du modèle.</p>
-
-      <h2>Comment utiliser le protocole MCP ?</h2>
-
-      <p>Deux chemins, selon que vous consommez ou que vous produisez.</p>
-
-      <p><strong>Consommer un serveur existant</strong> est l'affaire de quelques minutes. Beaucoup de services publient déjà le leur. Vous le déclarez dans votre client, vous fournissez vos identifiants, et les outils apparaissent dans la conversation. C'est par là qu'il faut commencer, avant d'écrire quoi que ce soit.</p>
-
-      <p><strong>Écrire votre propre serveur</strong> demande davantage. Le principe reste simple : vous déclarez une liste d'outils avec, pour chacun, un nom, une description et le format des paramètres attendus, puis vous implémentez ce que fait chaque outil. Des bibliothèques existent dans les principaux langages, et le gros du travail n'est pas le protocole mais la question qui précède : quels outils exposer, et jusqu'où.</p>
-
-      <p>Mon conseil de mise en route tient en une phrase : commencez par deux outils, pas par vingt. Un serveur qui expose l'intégralité d'une API produit un modèle noyé qui choisit mal. Deux outils bien nommés et bien décrits valent mieux qu'un catalogue exhaustif.</p>
-
-      <h3>MCP et intelligence artificielle : ce que ça change vraiment</h3>
-
-      <p>Sans accès aux systèmes, un modèle raisonne sur ce qu'il a appris et sur ce que vous lui collez dans la conversation. Avec MCP, il travaille sur l'état réel de vos données au moment où il répond. La différence n'est pas de degré, elle est de nature : on passe d'un assistant qui rédige à un assistant qui agit.</p>
-
-      <p>C'est aussi ce qui explique l'adoption rapide du protocole. Claude, ChatGPT, Visual Studio Code et Cursor le prennent en charge, ce qui veut dire qu'un serveur écrit aujourd'hui a déjà plusieurs débouchés. Pour un éditeur de logiciel, publier un serveur MCP est devenu un geste de distribution autant que de technique.</p>
-
-      <h2>MCP et outils externes : les cas qui reviennent</h2>
-
-      <p>Sur mes missions, quatre usages reviennent constamment.</p>
-
-      <ul>
-        <li><strong>La donnée métier.</strong> Le modèle interroge la base ou l'outil de gestion et répond avec les chiffres du jour plutôt qu'avec une moyenne inventée.</li>
-        <li><strong>Les outils SEO.</strong> Brancher un crawler ou la Search Console permet de faire analyser un site réel, avec ses vraies URL. C'est le socle des usages que je décris dans <a href="/blog/claude-pour-seo">Claude pour le SEO</a>.</li>
-        <li><strong>Le suivi de projet.</strong> Lire les tickets, en créer, changer un statut, sans quitter la conversation.</li>
-        <li><strong>Les fichiers.</strong> Donner accès à un dossier de travail précis, en lecture seule quand c'est plus prudent.</li>
-      </ul>
-
-      <p>Un mot sur le secteur public, que je vois parfois cité comme un cas à part : il ne l'est pas techniquement. Les contraintes y portent sur l'hébergement et la traçabilité des accès, pas sur le protocole, et un serveur MCP se déploie sur une infrastructure maîtrisée comme n'importe quel service interne.</p>
-
-      <h2>Qui gouverne le protocole ?</h2>
-
-      <p>C'est une question qu'on me pose systématiquement en comité, et la réponse a changé fin 2025. <strong>Anthropic a fait don du protocole à l'Agentic AI Foundation</strong>, un fonds dédié hébergé par la Linux Foundation, cofondé avec Block et OpenAI.</p>
-
-      <p>Concrètement, MCP n'appartient plus à son créateur. La gouvernance passe par un comité technique élu par la communauté, où Anthropic ne détient qu'un siège, sans droit de veto. C'est le modèle qui a été appliqué à Kubernetes et à PyTorch, et la Linux Foundation apporte le cadre juridique, la marque et le suivi de sécurité.</p>
-
-      <p>Pour une entreprise, ce point n'est pas anecdotique : il répond à l'objection du verrouillage propriétaire. Miser sur MCP aujourd'hui, ce n'est pas parier sur la stratégie commerciale d'un éditeur, c'est adopter un standard sous gouvernance neutre. C'est l'argument qui débloque le plus de dossiers dans les organisations prudentes.</p>
-
-      <h2>La question à se poser avant de se lancer</h2>
-
-      <p>MCP n'est pas gratuit en temps. Un serveur, c'est du code à écrire, à héberger, à tenir à jour quand l'API derrière évolue. Pour une intégration unique dans un script isolé, appeler directement l'API du service reste plus rapide et parfaitement légitime.</p>
-
-      <p>Le protocole devient rentable quand la même connexion doit servir plusieurs fois : plusieurs assistants, plusieurs équipes, ou simplement plusieurs mois. C'est exactement ce que mesure la grille en haut de page.</p>
-
-      <p>Et si vous hésitez encore, prenez le chemin le moins coûteux : branchez un serveur existant sur votre client, vivez avec pendant deux semaines, et regardez ce que vous auriez voulu qu'il fasse en plus. Cette liste-là est le cahier des charges de votre premier serveur.</p>
-
-
-      <!-- MAILLAGE À AJOUTER APRÈS PUBLICATION DES CIBLES :
-           - /blog/automatiser-seo-claude-code (28/10/2026)
-      -->
+      <p>Mon conseil tient en une phrase : deux outils bien nommés et bien décrits valent mieux qu'un serveur qui recopie toute une API. Face à cinquante outils, un modèle choisit mal, et chaque définition d'outil occupe de la place dans sa fenêtre de contexte. C'est le type de chantier que je mène en <a href="/automatisation-ia">mission d'automatisation IA</a>, quand un outil métier doit devenir accessible à Claude.</p>
 
       <!-- ================= FAQ ================= -->
       <section class="faq">
         <h2>Questions fréquentes</h2>
 
         <details>
-          <summary>Qu'est-ce que le protocole MCP ?</summary>
-          <div class="faq-a"><p>MCP, pour Model Context Protocol, est une norme ouverte publiée par Anthropic qui décrit comment une application d'intelligence artificielle se connecte à des systèmes extérieurs : fichiers, bases de données, moteurs de recherche ou outils métier. La documentation officielle le compare à un port USB-C pour les applications d'IA : une prise standard là où il fallait auparavant un connecteur différent par service.</p></div>
+          <summary>C'est quoi un MCP en IA ?</summary>
+          <div class="faq-a"><p>MCP, pour Model Context Protocol, est une norme ouverte qui permet à une application d'IA comme Claude ou ChatGPT de se connecter à des outils et des données extérieurs : fichiers, bases de données, logiciels métier. La documentation officielle le compare à un port USB-C, une prise standard au lieu d'un câble différent par service. Lancé par Anthropic en novembre 2024, il est géré depuis décembre 2025 par l'Agentic AI Foundation, au sein de la Linux Foundation.</p></div>
         </details>
 
         <details>
-          <summary>Comment fonctionne le protocole MCP ?</summary>
-          <div class="faq-a"><p>Il repose sur deux rôles. Un serveur expose ce qu'il sait faire, c'est-à-dire ses outils, les données auxquelles il donne accès et les instructions associées. Un client, l'application d'IA, découvre cette liste et appelle ce dont il a besoin au fil de la conversation. Ni l'un ni l'autre n'a besoin de connaître son interlocuteur à l'avance, ce qui rend chaque serveur réutilisable par tous les clients compatibles.</p></div>
+          <summary>C'est quoi un serveur MCP ?</summary>
+          <div class="faq-a"><p>Un serveur MCP est un programme qui expose à l'IA ce qu'un service sait faire : des outils à appeler, des données à lire et des modèles de consignes. Il tourne sur votre ordinateur (serveur local, lancé par l'application d'IA) ou sur Internet (serveur distant, joint par une adresse HTTPS). L'IA découvre la liste de ses outils et les appelle quand votre demande le justifie.</p></div>
         </details>
 
         <details>
-          <summary>Quels sont les avantages du protocole MCP ?</summary>
-          <div class="faq-a"><p>Le gain principal est arithmétique : connecter cinq assistants à dix services demandait cinquante intégrations spécifiques, MCP ramène ce produit à dix serveurs réutilisables. S'y ajoutent moins de code d'adaptation à maintenir, l'accès à un écosystème de connecteurs déjà écrits, et une maîtrise explicite du périmètre exposé, puisque le serveur décide exactement quels outils il ouvre et en lecture ou en écriture.</p></div>
+          <summary>Quelle est la différence entre un LLM et un MCP ?</summary>
+          <div class="faq-a"><p>Le LLM est le modèle de langage qui comprend la demande et rédige la réponse, par exemple Claude ou GPT. MCP n'est pas un modèle : c'est le protocole qui relie l'application où tourne ce modèle à des outils extérieurs. Sans MCP, le modèle travaille sur ce qu'il a appris et sur ce que vous lui collez. Avec MCP, il peut consulter vos données et agir dans vos logiciels.</p></div>
         </details>
 
         <details>
-          <summary>Comment utiliser le protocole MCP ?</summary>
-          <div class="faq-a"><p>Deux chemins existent. Consommer un serveur déjà publié prend quelques minutes : vous le déclarez dans votre client, vous fournissez vos identifiants et les outils apparaissent. Écrire le vôtre demande de déclarer une liste d'outils avec leur nom, leur description et leurs paramètres, puis d'implémenter chacun. Commencez par deux outils bien décrits plutôt que par le catalogue complet d'une API.</p></div>
+          <summary>Quelle est la différence entre une API et un MCP ?</summary>
+          <div class="faq-a"><p>Une API est propre à un service et demande une intégration codée pour chaque application. Un serveur MCP s'appuie souvent sur cette API, mais la présente dans un format standard que tous les clients compatibles savent lire, avec des descriptions destinées au modèle. MCP ne remplace donc pas l'API : il la rend utilisable par n'importe quelle IA compatible, sans code spécifique.</p></div>
         </details>
 
         <details>
-          <summary>MCP et intelligence artificielle : qu'est-ce que ça change ?</summary>
-          <div class="faq-a"><p>Sans accès aux systèmes, un modèle raisonne sur ce qu'il a appris et sur ce que vous collez dans la conversation. Avec MCP, il travaille sur l'état réel de vos données au moment où il répond, et peut déclencher des actions. On passe d'un assistant qui rédige à un assistant qui agit.</p></div>
+          <summary>Comment ajouter un serveur MCP dans Claude ?</summary>
+          <div class="faq-a"><p>Dans Claude sur le web ou l'application, un serveur distant s'ajoute comme connecteur personnalisé, en collant son adresse dans les réglages des connecteurs. Dans Claude Desktop, un serveur local s'installe par une extension .mcpb ou dans le fichier claude_desktop_config.json. Dans Claude Code, la commande claude mcp add suffit, par exemple claude mcp add --transport http notion https://mcp.notion.com/mcp.</p></div>
         </details>
 
         <details>
-          <summary>Quels outils externes peut-on brancher avec MCP ?</summary>
-          <div class="faq-a"><p>Les cas les plus fréquents sont la donnée métier, avec une base ou un outil de gestion interrogé en direct, les outils SEO comme un crawler ou la Search Console, le suivi de projet pour lire et créer des tickets, et l'accès à un dossier de fichiers, en lecture seule quand la prudence l'impose.</p></div>
+          <summary>Quels sont les serveurs MCP les plus utilisés ?</summary>
+          <div class="faq-a"><p>Les plus répandus donnent accès aux fichiers locaux, au navigateur (Playwright de Microsoft), aux outils de travail comme Notion ou Sentry, et aux données d'analyse comme Google Analytics. Le registre officiel registry.modelcontextprotocol.io et le dépôt de serveurs de référence du projet permettent d'en trouver d'autres. Le meilleur serveur reste celui qui donne accès à l'outil que vous utilisez vraiment, publié par son éditeur.</p></div>
         </details>
 
         <details>
-          <summary>MCP est-il utilisable dans le secteur public ?</summary>
-          <div class="faq-a"><p>Oui, et il n'y a pas de spécificité technique. Les contraintes du secteur public portent sur l'hébergement et sur la traçabilité des accès, pas sur le protocole lui-même. Un serveur MCP se déploie sur une infrastructure maîtrisée comme n'importe quel autre service interne.</p></div>
+          <summary>MCP est-il gratuit ?</summary>
+          <div class="faq-a"><p>Le protocole est ouvert et gratuit, comme les kits de développement officiels et de nombreux serveurs. Le coût vient du service branché derrière : un serveur MCP n'ouvre que ce que votre abonnement à ce service permet déjà, à l'image du serveur de Screaming Frog réservé aux licences payantes. Côté Claude, l'offre gratuite autorise un seul connecteur personnalisé.</p></div>
+        </details>
+
+        <details>
+          <summary>Un serveur MCP est-il sécurisé ?</summary>
+          <div class="faq-a"><p>Le protocole recommande OAuth pour l'authentification, et les clients demandent votre accord avant d'appeler un outil, mais la sécurité dépend surtout du serveur choisi. Un serveur local s'exécute avec vos droits sur la machine, et un serveur qui lit du contenu extérieur expose au risque d'injection de prompt. N'installez que des serveurs de sources fiables, accordez le minimum de droits et relisez chaque demande d'approbation.</p></div>
         </details>
       </section>
 
@@ -581,24 +745,24 @@
   <aside class="rail rail-right">
     <div class="ai-box">
       <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
-      <p class="ai-text">Le Model Context Protocol est une norme ouverte publiée par Anthropic qui standardise la connexion entre une application d'IA et des systèmes extérieurs : fichiers, bases de données, outils métier. Son architecture repose sur des serveurs qui exposent outils, données et instructions, et des clients qui les consomment sans connaissance préalable. L'intérêt est arithmétique : cinq assistants et dix services demandaient cinquante intégrations, MCP les ramène à dix serveurs réutilisables. Claude, ChatGPT, Visual Studio Code et Cursor le prennent en charge. Il devient rentable dès que la même connexion doit servir plusieurs assistants, plusieurs équipes ou plusieurs mois.</p>
+      <p class="ai-text">MCP (Model Context Protocol) est une norme ouverte qui relie une IA comme Claude ou ChatGPT à des outils et des données. Un serveur MCP expose des outils, des ressources et des prompts que l'application d'IA découvre et appelle au besoin. Dans Claude, il s'ajoute comme connecteur, comme extension de Claude Desktop ou avec la commande claude mcp add.</p>
       <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
     </div>
 
     <div class="rail-recent">
       <p class="rail-title">Dans la même catégorie</p>
       <div class="mini-list">
+        <a class="mini" href="/blog/screaming-frog-mcp">
+          <span class="mini-thumb"><picture><source srcset="/images/blog/screaming-frog-mcp-cover.avif" type="image/avif"><img src="/images/blog/screaming-frog-mcp-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
+          <span><span class="mini-cat">SEO</span><span class="mini-ttl">MCP Screaming Frog : brancher Claude sur vos crawls</span></span>
+        </a>
+        <a class="mini" href="/blog/claude-skills">
+          <span class="mini-thumb"><picture><source srcset="/images/blog/automatiser-seo-claude-code-cover.avif" type="image/avif"><img src="/images/blog/automatiser-seo-claude-code-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Claude Skills : créer, installer et 10 exemples (2026)</span></span>
+        </a>
         <a class="mini" href="/blog/claude-code">
           <span class="mini-thumb"><picture><source srcset="/images/blog/claude-code-cover.avif" type="image/avif"><img src="/images/blog/claude-code-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
-          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Claude Code, le guide</span></span>
-        </a>
-        <a class="mini" href="/blog/agent-ia">
-          <span class="mini-thumb"><picture><source srcset="/images/blog/agent-ia-cover.avif" type="image/avif"><img src="/images/blog/agent-ia-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
-          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Agent IA : ce que c'est</span></span>
-        </a>
-        <a class="mini" href="/blog/n8n">
-          <span class="mini-thumb"><picture><source srcset="/images/blog/n8n-cover.avif" type="image/avif"><img src="/images/blog/n8n-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
-          <span><span class="mini-cat">Automatisation</span><span class="mini-ttl">n8n, no-code ou code</span></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Installer Claude Code : tuto Mac, Windows et Linux (2026)</span></span>
         </a>
       </div>
     </div>
@@ -609,30 +773,30 @@
 <section class="related">
   <div class="wrap">
     <h2>À lire ensuite</h2>
-    <p class="sub">La suite logique du parcours.</p>
+    <p class="sub">Passer de la définition à la pratique.</p>
     <div class="rel-grid">
-      <a class="rel-card" href="/blog/claude-code">
-        <picture><source srcset="/images/blog/claude-code-cover.avif" type="image/avif"><img src="/images/blog/claude-code-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
+      <a class="rel-card" href="/blog/screaming-frog-mcp">
+        <picture><source srcset="/images/blog/screaming-frog-mcp-cover.avif" type="image/avif"><img src="/images/blog/screaming-frog-mcp-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
+        <div class="rel-body">
+          <span class="rel-cat">SEO</span>
+          <h3>MCP Screaming Frog : brancher Claude sur vos crawls</h3>
+          <p>Un serveur MCP en conditions réelles : trois réglages, et Claude lance vos crawls et sort vos exports.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="/blog/claude-skills">
+        <picture><source srcset="/images/blog/automatiser-seo-claude-code-cover.avif" type="image/avif"><img src="/images/blog/automatiser-seo-claude-code-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
         <div class="rel-body">
           <span class="rel-cat">Utiliser l'IA</span>
-          <h3>Claude Code : le guide complet</h3>
-          <p>L'agent de développement d'Anthropic, sa configuration et ce qu'il change au quotidien.</p>
+          <h3>Claude Skills : créer, installer et 10 exemples (2026)</h3>
+          <p>MCP donne l'accès aux outils, une skill donne la méthode : comment écrire la vôtre.</p>
         </div>
       </a>
       <a class="rel-card" href="/blog/agent-ia">
         <picture><source srcset="/images/blog/agent-ia-cover.avif" type="image/avif"><img src="/images/blog/agent-ia-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
         <div class="rel-body">
           <span class="rel-cat">Utiliser l'IA</span>
-          <h3>Agent IA : la grille d'éligibilité d'un process</h3>
-          <p>Quels processus méritent un agent, lesquels n'en ont pas besoin, et comment trancher.</p>
-        </div>
-      </a>
-      <a class="rel-card" href="/blog/automatisations-gain-temps">
-        <picture><source srcset="/images/blog/automatisations-gain-temps-cover.avif" type="image/avif"><img src="/images/blog/automatisations-gain-temps-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
-        <div class="rel-body">
-          <span class="rel-cat">Automatisation</span>
-          <h3>Les automatisations qui font vraiment gagner du temps</h3>
-          <p>Le calcul des heures récupérables, poste par poste, avant d'automatiser quoi que ce soit.</p>
+          <h3>Créer un agent IA gratuit : méthode, outils et exemples</h3>
+          <p>Quand l'IA enchaîne seule les outils branchés en MCP pour atteindre un objectif.</p>
         </div>
       </a>
     </div>
@@ -674,7 +838,7 @@
 <script src="/js/blog-article.js?v=4" defer></script>
 
 <!-- Outil interactif propre à cet article -->
-<script src="/js/mcp-tool.js?v=1" defer></script>
+<script src="/js/mcp-tool.js?v=2" defer></script>
 
 </body>
 </html>

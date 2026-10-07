@@ -1,18 +1,26 @@
-/* Pré-audit SEO : 24 vérifications réparties sur trois piliers, un score global
-   et le pilier le plus faible mis en avant. Tout se calcule dans le navigateur. */
+/* Pré-audit SEO au format rapport : 24 vérifications sur trois piliers, un score,
+   puis un pré-rapport (synthèse, score par pilier, plan d'action par priorité, suivi).
+   Article audit-seo-methode. Tout se calcule dans le navigateur, rien n'est envoyé. */
 (function () {
   var out = document.getElementById('as-out');
   if (!out) return;
 
   var PILIERS = [
-    { id: 'as-tech',    nom: 'technique',              conseil: "Commencez par là : tant qu'une page n'est pas explorée et indexable, aucun contenu ne peut se classer." },
-    { id: 'as-contenu', nom: 'contenu',                conseil: "Vos pages sont accessibles mais ne disent pas assez clairement de quoi elles parlent. Reprenez les balises title et les H1 en priorité." },
-    { id: 'as-pop',     nom: 'popularité et structure', conseil: "Le socle est sain : l'enjeu devient le maillage interne et les liens entrants, c'est-à-dire la notoriété de vos pages." }
+    { id: 'as-tech',    nom: 'Technique',               conseil: "Commencez par là : tant qu'une page n'est pas explorée et indexable, aucun contenu ne peut se classer." },
+    { id: 'as-contenu', nom: 'Contenu',                 conseil: "Vos pages ne disent pas assez clairement de quoi elles parlent. Reprenez les balises title et les H1 en priorité." },
+    { id: 'as-pop',     nom: 'Popularité et structure', conseil: "Vos pages manquent de soutien : renforcez d'abord le maillage interne, qui ne dépend que de vous, puis les liens entrants." }
   ];
+
+  var PRIO = {
+    1: 'Priorité 1 : bloque l\'indexation, à corriger d\'abord',
+    2: 'Priorité 2 : touche beaucoup de pages, à traiter ce mois-ci',
+    3: 'Priorité 3 : à planifier dans le trimestre'
+  };
 
   var scoreEl = document.getElementById('as-score');
   var meterEl = document.getElementById('as-meter');
   var labelEl = document.getElementById('as-label');
+  var siteEl = document.getElementById('as-site');
 
   function palier(n) {
     if (n >= 21) return 'socle solide';
@@ -22,8 +30,13 @@
     return 'à diagnostiquer';
   }
 
+  function dateDuJour() {
+    try { return new Date().toLocaleDateString('fr-FR'); } catch (e) { return ''; }
+  }
+
   function render() {
-    var total = 0, lignes = [], faible = null, manquants = [];
+    var total = 0, max = 0, lignes = [], faible = null;
+    var actions = { 1: [], 2: [], 3: [] };
 
     PILIERS.forEach(function (p) {
       var g = document.getElementById(p.id);
@@ -31,32 +44,53 @@
       var boxes = [].slice.call(g.querySelectorAll('input[type="checkbox"]'));
       var ok = boxes.filter(function (b) { return b.checked; }).length;
       total += ok;
-      lignes.push('  ' + p.nom + ' : ' + ok + '/' + boxes.length);
+      max += boxes.length;
+      lignes.push('- ' + p.nom + ' : ' + ok + '/' + boxes.length);
       if (!faible || ok < faible.ok) faible = { ok: ok, p: p };
       boxes.forEach(function (b) {
-        if (!b.checked) manquants.push(b.parentNode.textContent.trim());
+        if (b.checked) return;
+        var n = parseInt(b.dataset.prio, 10);
+        if (!actions[n]) n = 3;
+        actions[n].push(b.dataset.a || b.parentNode.textContent.trim());
       });
     });
 
     scoreEl.textContent = total;
-    meterEl.style.width = Math.round(total / 24 * 100) + '%';
+    meterEl.style.width = (max ? Math.round(total / max * 100) : 0) + '%';
     labelEl.textContent = palier(total);
 
-    var txt = 'Pré-audit SEO : ' + total + '/24 (' + palier(total) + ')\n\n'
-      + 'Par pilier :\n' + lignes.join('\n') + '\n';
+    var site = siteEl && siteEl.value.trim() ? siteEl.value.trim() : 'non renseigné';
+    var txt = 'PRÉ-RAPPORT D\'AUDIT SEO\n'
+      + 'Site : ' + site + '\n'
+      + 'Date : ' + dateDuJour() + '\n\n'
+      + '1. SYNTHÈSE\n'
+      + 'Score : ' + total + '/' + max + ' (' + palier(total) + ').\n';
 
-    if (!manquants.length) {
-      txt += '\nLes 24 vérifications sont couvertes. Le socle technique et éditorial est sain : '
-           + "l'étape suivante est la mesure et l'analyse sémantique face aux concurrents déjà classés.";
+    if (total === max) {
+      txt += 'Les ' + max + ' vérifications sont couvertes. Le socle technique et éditorial est sain : '
+        + "l'étape suivante est l'analyse sémantique face aux concurrents déjà classés.\n";
     } else {
-      txt += '\nPilier à traiter en premier : ' + faible.p.nom + '.\n' + faible.p.conseil
-           + '\n\nÀ corriger, dans l\'ordre :\n';
-      manquants.slice(0, 5).forEach(function (m, i) { txt += '\n' + (i + 1) + '. ' + m; });
-      if (manquants.length > 5) txt += '\n\n(et ' + (manquants.length - 5) + ' autre'
-        + (manquants.length - 5 > 1 ? 's' : '') + ' point'
-        + (manquants.length - 5 > 1 ? 's' : '') + ' non coché'
-        + (manquants.length - 5 > 1 ? 's' : '') + ')';
+      txt += 'Pilier le plus faible : ' + faible.p.nom.toLowerCase() + '.\n' + faible.p.conseil + '\n';
     }
+
+    txt += '\n2. SCORE PAR PILIER\n' + lignes.join('\n') + '\n';
+
+    txt += '\n3. PLAN D\'ACTION PRIORISÉ\n';
+    var vide = true;
+    [1, 2, 3].forEach(function (n) {
+      if (!actions[n].length) return;
+      vide = false;
+      txt += '\n' + PRIO[n] + '\n';
+      actions[n].forEach(function (a) { txt += '- ' + a + '\n'; });
+    });
+    if (vide) txt += 'Aucune action ouverte sur ces 24 points.\n';
+
+    txt += '\n4. SUIVI\n'
+      + 'Avant toute correction, notez dans la Search Console : clics organiques des 3 derniers mois, '
+      + 'pages indexées, positions sur vos 10 requêtes prioritaires. '
+      + 'Refaites ce pré-audit dans 3 mois avec les mêmes indicateurs.\n\n'
+      + 'Grille : anthony-courtin.com/blog/audit-seo-methode';
+
     out.textContent = txt;
   }
 
@@ -64,15 +98,18 @@
     var g = document.getElementById(p.id);
     if (g) g.addEventListener('change', render);
   });
+  if (siteEl) siteEl.addEventListener('input', render);
 
   var copy = document.getElementById('as-copy');
   if (copy) copy.addEventListener('click', function () {
+    var label = copy.textContent;
     var done = function () {
       copy.textContent = 'Copié ✓'; copy.classList.add('ok');
-      setTimeout(function () { copy.textContent = 'Copier mon diagnostic'; copy.classList.remove('ok'); }, 1800);
+      setTimeout(function () { copy.textContent = label; copy.classList.remove('ok'); }, 1800);
     };
-    if (navigator.clipboard) navigator.clipboard.writeText(out.textContent).then(done, function () {});
-    else {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(out.textContent).then(done, function () {});
+    } else {
       var i = document.createElement('textarea');
       i.value = out.textContent; document.body.appendChild(i);
       i.select(); document.execCommand('copy'); i.remove(); done();

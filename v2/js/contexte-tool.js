@@ -1,6 +1,7 @@
-/* Estimation de l'occupation d'une fenêtre de contexte.
-   Base : 1 000 tokens pour environ 750 mots en français, 500 mots par page.
-   Tout se calcule dans le navigateur. */
+/* Estimation de l'occupation d'une fenêtre de contexte, article /blog/contexte-vs-prompt.
+   Repères d'Anthropic : 200 000 tokens pour environ 150 000 mots,
+   1 million de tokens pour environ 555 000 mots (découpage des modèles récents).
+   500 mots par page. Tout se calcule dans le navigateur. */
 (function () {
   var out = document.getElementById('cx-out');
   if (!out) return;
@@ -9,6 +10,10 @@
   var MOTS_PAR_PAGE = 500;
   var MOTS_PAR_MSG = 180;      // longueur moyenne d'un échange, question et réponse
   var TOKENS_PAR_MOT = 1 / 0.75;
+
+  /* Le ratio dépend du découpage du modèle : 0,75 mot par token pour la fenêtre
+     de 200 000 tokens, 0,555 pour la fenêtre d'un million (modèles récents). */
+  function ratio() { return fenetre >= 1000000 ? 1 / 0.555 : 1 / 0.75; }
 
   function num(id) {
     var e = document.getElementById(id);
@@ -22,6 +27,7 @@
     var pages = num('cx-pages'), msg = num('cx-msg');
     var motsDoc = pages * MOTS_PAR_PAGE;
     var motsHist = msg * MOTS_PAR_MSG;
+    TOKENS_PAR_MOT = ratio();
     var tokens = Math.round((motsDoc + motsHist) * TOKENS_PAR_MOT);
     var pct = fenetre ? Math.round(tokens / fenetre * 100) : 0;
 
@@ -61,8 +67,10 @@
     }
 
     txt += '\nHypothèses : 500 mots par page, 180 mots par échange, '
-         + '1 000 tokens pour 750 mots en français. Ce sont des ordres de grandeur, '
-         + 'la découpe réelle en tokens varie selon le texte.';
+         + (fenetre >= 1000000
+           ? 'environ 555 mots pour 1 000 tokens (repère d\'Anthropic pour ses modèles récents). '
+           : 'environ 750 mots pour 1 000 tokens (repère d\'Anthropic pour une fenêtre de 200 000 tokens). ')
+         + 'Ce sont des ordres de grandeur : la découpe réelle varie selon la langue et le texte.';
 
     out.textContent = txt;
   }

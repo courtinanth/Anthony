@@ -1,120 +1,146 @@
-/* Comparateur no-code / code sur mesure sur 36 mois.
-   Les hypothèses sont affichées avec le résultat : un calculateur dont on ne
-   voit pas les hypothèses ne sert à rien. Tout est calculé côté navigateur. */
+/* Calculateur d'exécutions n8n : estime le volume mensuel d'un ensemble de
+   workflows, indique l'offre n8n adaptée et l'équivalent chez Make et Zapier.
+   Tarifs relevés sur les pages officielles le 7 octobre 2026.
+   Tout est calculé dans le navigateur : aucune donnée ne sort. */
 (function () {
-  var out = document.getElementById('nc-out');
+  var out = document.getElementById('n8n-out');
   if (!out) return;
 
-  var rep = { 'nc-nb': 3, 'nc-ex': 2000, 'nc-cx': 1, 'nc-eq': 0 };
+  var JOURS = 30;
+  var tech = 0;
 
-  // Hypothèses, volontairement conservatrices et affichées à l'utilisateur.
-  var TJM = 550;          // coût d'une journée de prestation
-  var MOIS = 36;
-
-  function euros(n) {
-    return Math.round(n / 100) * 100 + ' €';
+  function num(id, def) {
+    var el = document.getElementById(id);
+    if (!el) return def;
+    var v = parseFloat(String(el.value).replace(',', '.'));
+    return isFinite(v) && v >= 0 ? v : def;
   }
 
-  function calcul() {
-    var nb = rep['nc-nb'], ex = rep['nc-ex'], cx = rep['nc-cx'], eq = rep['nc-eq'];
+  function fmt(n) {
+    return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+  }
 
-    // --- Plateforme no-code hébergée ---
-    // abonnement indexé sur le volume d'exécutions
-    var absMois = ex <= 2000 ? 25 : (ex <= 20000 ? 60 : 200);
-    var noCodeAbo = absMois * MOIS;
-    // mise en place : ~0,4 jour par automatisation, majorée par la complexité
-    var noCodeSetup = nb * 0.4 * cx * TJM;
-    // maintenance : plus la logique est complexe, plus ça casse
-    var noCodeMaint = nb * 0.12 * cx * TJM * (MOIS / 12);
-    // une équipe non technique dépend d'un prestataire pour les corrections
-    if (eq === 0) noCodeMaint *= 1.5;
-    var noCodeTotal = noCodeAbo + noCodeSetup + noCodeMaint;
-
-    // --- Code sur mesure ---
-    // serveur modeste, coût quasi fixe quel que soit le volume
-    var codeHeb = 12 * MOIS;
-    // développement : plus long au départ
-    var codeSetup = nb * 0.7 * cx * TJM;
-    // maintenance plus faible : versionné et testé
-    var codeMaint = nb * 0.06 * cx * TJM * (MOIS / 12);
-    if (eq === 0) codeMaint *= 1.4;
-    var codeTotal = codeHeb + codeSetup + codeMaint;
-
+  function offreN8n(ex) {
+    if (tech === 1) {
+      return {
+        nom: 'Community Edition auto-hébergée',
+        prix: "0 € de licence, aucun quota d'exécutions. Prévoir un petit serveur et le temps des mises à jour.",
+        alt: ex <= 2500
+          ? 'Sans serveur à gérer : Starter, 24 €/mois (20 €/mois en annuel).'
+          : (ex <= 10000
+            ? 'Sans serveur à gérer : Pro 10 000, 60 €/mois (50 €/mois en annuel).'
+            : (ex <= 50000
+              ? 'Sans serveur à gérer : Pro 50 000, 145 €/mois (1 450 €/an en annuel).'
+              : 'Sans serveur à gérer : offre Enterprise, sur devis.'))
+      };
+    }
+    if (ex <= 1000) {
+      return {
+        nom: 'Essai gratuit, puis Starter',
+        prix: "L'essai cloud (1 000 exécutions, sans carte bancaire) suffit pour tester. Ensuite Starter : 24 €/mois, ou 20 €/mois en annuel.",
+        alt: 'Gratuit sans limite de temps : la Community Edition sur votre propre serveur.'
+      };
+    }
+    if (ex <= 2500) {
+      return {
+        nom: 'n8n Cloud Starter',
+        prix: '24 €/mois en mensuel, 20 €/mois en annuel, pour 2 500 exécutions.',
+        alt: 'Gratuit : la Community Edition sur votre propre serveur.'
+      };
+    }
+    if (ex <= 10000) {
+      return {
+        nom: 'n8n Cloud Pro (10 000 exécutions)',
+        prix: '60 €/mois en mensuel, 50 €/mois en annuel.',
+        alt: 'Gratuit : la Community Edition sur votre propre serveur.'
+      };
+    }
+    if (ex <= 50000) {
+      return {
+        nom: 'n8n Cloud Pro (50 000 exécutions)',
+        prix: '145 €/mois en mensuel, 1 450 €/an en annuel.',
+        alt: 'À ce volume, la Community Edition auto-hébergée devient très intéressante si quelqu\'un peut gérer le serveur.'
+      };
+    }
     return {
-      noCode: noCodeTotal, code: codeTotal, absMois: absMois,
-      nb: nb, cx: cx, eq: eq,
-      ecart: Math.abs(noCodeTotal - codeTotal),
-      gagnant: codeTotal < noCodeTotal ? 'code' : 'nocode'
+      nom: 'Enterprise (cloud) ou auto-hébergement',
+      prix: "Au-delà de 50 000 exécutions, le cloud passe sur devis. L'offre Business (667 €/mois en annuel pour 40 000 exécutions) n'existe qu'en auto-hébergé.",
+      alt: 'Gratuit : la Community Edition, sans quota, si votre serveur suit.'
     };
   }
 
+  function offreMake(credits) {
+    if (credits <= 1000) return 'Offre Free (1 000 crédits par mois).';
+    if (credits <= 10000) return 'Offre Core, à partir de 9 $ par mois (10 000 crédits).';
+    return 'Palier au-delà de 10 000 crédits : le prix augmente avec le volume, voir la grille Make.';
+  }
+
+  function offreZapier(taches, etapes) {
+    if (taches <= 100 && etapes <= 2) return 'Offre Free (100 tâches par mois, Zaps à deux étapes).';
+    if (taches <= 750) return 'Professional, à partir de 19,99 $ par mois en annuel (750 tâches).';
+    return 'Palier au-delà de 750 tâches : Professional ou Team (dès 69 $ par mois en annuel), prix selon le volume.';
+  }
+
   function render() {
-    var r = calcul();
-    var proche = r.ecart / Math.max(r.noCode, r.code) < 0.15;
+    var nbPlan = num('n8n-plan-nb', 0);
+    var freq = num('n8n-plan-freq', 30);
+    var nbPlan2 = num('n8n-plan2-nb', 0);
+    var freq2 = num('n8n-plan2-freq', 730);
+    var evt = num('n8n-evt', 0);
+    var etapes = Math.max(2, Math.round(num('n8n-steps', 6)));
 
-    var reco, sub, fill;
-    if (proche) {
-      reco = 'Les deux se valent';
-      sub = ", choisissez selon votre équipe";
-      fill = '50%';
-    } else if (r.gagnant === 'code') {
-      reco = 'Code sur mesure';
-      sub = ', plus rentable sur 3 ans';
-      fill = '85%';
-    } else {
-      reco = r.eq === 0 ? 'n8n cloud' : 'n8n auto-hébergé';
-      sub = ', le meilleur rapport pour votre cas';
-      fill = '33%';
-    }
-    document.getElementById('nc-reco').textContent = reco;
-    document.getElementById('nc-sub').textContent = sub;
-    document.getElementById('nc-meter').style.width = fill;
+    var exPlan = nbPlan * freq + nbPlan2 * freq2;
+    var exEvt = evt * JOURS;
+    var ex = exPlan + exEvt;
 
-    var txt = 'Estimation sur 36 mois\n\n'
-      + '  Plateforme no-code : ' + euros(r.noCode) + '\n'
-      + '  Code sur mesure    : ' + euros(r.code) + '\n\n'
-      + 'Recommandation : ' + reco + '\n\n';
+    var credits = ex * etapes;
+    var taches = ex * (etapes - 1);
+    var o = offreN8n(ex);
 
-    if (proche) {
-      txt += "L'écart est faible. Dans ce cas, le critère qui tranche n'est pas le coût "
-           + "mais l'autonomie : si votre équipe doit pouvoir modifier les automatisations "
-           + "elle-même, prenez le visuel.\n";
-    } else if (r.gagnant === 'code') {
-      txt += "Votre volume et votre complexité font basculer le calcul : l'abonnement et la "
-           + "maintenance des workflows visuels dépassent le coût d'un programme versionné.\n";
-    } else {
-      txt += "Votre besoin reste dans ce que le no-code fait bien : peu d'automatisations, "
-           + "logique simple. Développer sur mesure coûterait plus cher pour le même service.\n";
-    }
+    document.getElementById('n8n-exec').textContent = fmt(ex);
+    document.getElementById('n8n-exec-sub').textContent = 'exécutions n8n par mois, soit ' + o.nom;
+    var w = ex <= 0 ? 0 : Math.min(100, Math.max(4, Math.log10(ex + 1) / Math.log10(100000) * 100));
+    document.getElementById('n8n-meter').style.width = w.toFixed(0) + '%';
 
-    txt += '\nHypothèses retenues :\n'
-      + '  abonnement estimé à ' + r.absMois + ' € par mois\n'
-      + '  journée de prestation à ' + TJM + ' €\n'
-      + '  ' + r.nb + ' automatisation' + (r.nb > 1 ? 's' : '') + ' à faire vivre\n'
-      + '  maintenance annuelle plus élevée en no-code sur les logiques complexes\n'
-      + '\nCes montants sont des ordres de grandeur, pas un devis.';
+    var txt = 'Volume estimé : ' + fmt(ex) + ' exécutions par mois\n'
+      + '  workflows planifiés : ' + fmt(exPlan) + '\n'
+      + '  workflows déclenchés par un événement : ' + fmt(exEvt) + '\n\n'
+      + 'Offre n8n conseillée : ' + o.nom + '\n'
+      + '  ' + o.prix + '\n'
+      + '  Autre option : ' + o.alt + '\n\n'
+      + 'Le même volume ailleurs (' + etapes + ' étapes par workflow) :\n'
+      + '  Make : environ ' + fmt(credits) + ' crédits. ' + offreMake(credits) + '\n'
+      + '  Zapier : environ ' + fmt(taches) + ' tâches. ' + offreZapier(taches, etapes) + '\n\n'
+      + "Pourquoi l'écart : n8n compte une exécution par passage complet du workflow,\n"
+      + "Make compte chaque module, Zapier chaque action réussie (hors déclencheur).\n\n"
+      + 'Tarifs relevés le 7 octobre 2026 sur n8n.io, make.com et zapier.com.\n'
+      + 'Ordres de grandeur, à vérifier sur les grilles officielles avant de souscrire.';
 
     out.textContent = txt;
   }
 
-  Object.keys(rep).forEach(function (id) {
-    var g = document.getElementById(id);
-    if (!g) return;
-    g.addEventListener('click', function (e) {
-      var b = e.target.closest('.chip');
-      if (!b) return;
-      g.querySelectorAll('.chip').forEach(function (c) { c.classList.remove('on'); });
-      b.classList.add('on');
-      rep[id] = parseInt(b.dataset.v, 10) || 0;
-      render();
-    });
+  ['n8n-plan-nb', 'n8n-plan-freq', 'n8n-plan2-nb', 'n8n-plan2-freq', 'n8n-evt', 'n8n-steps'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.addEventListener('input', render);
+    el.addEventListener('change', render);
   });
 
-  var copy = document.getElementById('nc-copy');
+  var g = document.getElementById('n8n-tech');
+  if (g) g.addEventListener('click', function (e) {
+    var b = e.target.closest('.chip');
+    if (!b) return;
+    g.querySelectorAll('.chip').forEach(function (c) { c.classList.remove('on'); });
+    b.classList.add('on');
+    tech = parseInt(b.dataset.v, 10) || 0;
+    render();
+  });
+
+  var copy = document.getElementById('n8n-copy');
   if (copy) copy.addEventListener('click', function () {
     var done = function () {
       copy.textContent = 'Copié ✓'; copy.classList.add('ok');
-      setTimeout(function () { copy.textContent = "Copier l'estimation"; copy.classList.remove('ok'); }, 1800);
+      setTimeout(function () { copy.textContent = 'Copier le résultat'; copy.classList.remove('ok'); }, 1800);
     };
     if (navigator.clipboard) navigator.clipboard.writeText(out.textContent).then(done, function () {});
     else {

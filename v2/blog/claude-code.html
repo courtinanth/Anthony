@@ -4,8 +4,8 @@
 <script src="/js/js-flag.js?v=1"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Claude Code : démarrer en 30 minutes (guide 2026)</title>
-<meta name="description" content="Claude Code est un agent qui agit sur vos fichiers depuis le terminal. Comment il fonctionne, l'installation, les prix, et son usage quand on ne code pas.">
+<title>Installer Claude Code : tuto Mac, Windows et Linux (2026)</title>
+<meta name="description" content="Installer Claude Code pas à pas : commandes officielles pour Mac, Windows, Linux et WSL, connexion, VS Code, appli de bureau et erreurs fréquentes.">
 <link rel="canonical" href="https://anthony-courtin.com/blog/claude-code">
 <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
@@ -14,13 +14,13 @@
 <meta name="robots" content="index, follow, max-image-preview:large">
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="Claude Code : démarrer en 30 minutes (guide 2026)">
-<meta property="og:description" content="L'agent d'Anthropic qui travaille dans votre terminal : fonctionnement, installation, prix et usages concrets même sans savoir coder.">
+<meta property="og:title" content="Installer Claude Code : tuto Mac, Windows et Linux (2026)">
+<meta property="og:description" content="Les commandes officielles pour installer Claude Code sur macOS, Windows, Linux et WSL, puis la connexion, les premières commandes, VS Code, JetBrains et les erreurs fréquentes.">
 <meta property="og:url" content="https://anthony-courtin.com/blog/claude-code">
 <meta property="og:image" content="https://anthony-courtin.com/images/blog/claude-code-cover.webp">
 <meta property="og:locale" content="fr_FR">
 <meta property="article:published_time" content="2026-08-31">
-<meta property="article:modified_time" content="2026-08-31">
+<meta property="article:modified_time" content="2026-10-07">
 <meta property="article:author" content="Anthony Courtin">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -37,17 +37,17 @@
     {
       "@type":"BlogPosting",
       "@id":"https://anthony-courtin.com/blog/claude-code#article",
-      "headline":"Claude Code : démarrer en 30 minutes, même sans coder",
-      "description":"Claude Code est un agent d'Anthropic qui lit, modifie et vérifie les fichiers d'un projet depuis le terminal. Guide de démarrage, installation, prix, permissions et comparaison avec les autres outils.",
+      "headline":"Installer Claude Code : le tuto pas à pas sur Mac, Windows et Linux",
+      "description":"Installer Claude Code pas à pas : commandes officielles pour Mac, Windows, Linux et WSL, connexion, VS Code, appli de bureau et erreurs fréquentes.",
       "inLanguage":"fr-FR",
       "datePublished":"2026-08-31",
-      "dateModified":"2026-08-31",
+      "dateModified":"2026-10-07",
       "image":"https://anthony-courtin.com/images/blog/claude-code-cover.webp",
-      "wordCount":2000,
+      "wordCount":3950,
       "mainEntityOfPage":{"@type":"WebPage","@id":"https://anthony-courtin.com/blog/claude-code"},
       "author":{"@id":"https://anthony-courtin.com/#anthony"},
       "publisher":{"@id":"https://anthony-courtin.com/#anthony"},
-      "about":[{"@type":"Thing","name":"Claude Code"},{"@type":"Thing","name":"Anthropic"},{"@type":"Thing","name":"Automatisation"}]
+      "about":[{"@type":"Thing","name":"Claude Code"},{"@type":"Thing","name":"Installation de logiciel"},{"@type":"Thing","name":"Anthropic"}]
     },
     {
       "@type":"Person",
@@ -63,26 +63,28 @@
       "itemListElement":[
         {"@type":"ListItem","position":1,"name":"Accueil","item":"https://anthony-courtin.com/"},
         {"@type":"ListItem","position":2,"name":"Blog","item":"https://anthony-courtin.com/blog/"},
-        {"@type":"ListItem","position":3,"name":"Claude Code"}
+        {"@type":"ListItem","position":3,"name":"Installer Claude Code"}
       ]
     },
     {
       "@type":"FAQPage",
       "mainEntity":[
-        {"@type":"Question","name":"Comment fonctionne Claude Code ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Vous décrivez ce que vous voulez obtenir, l'agent explore votre projet, propose un plan, puis exécute : il lit les fichiers nécessaires, écrit les modifications, lance les commandes de vérification et corrige ce qui échoue. Contrairement à un assistant classique, il agit réellement sur vos fichiers au lieu de proposer du code à recopier."}},
         {"@type":"Question","name":"Comment installer Claude Code ?",
-         "acceptedAnswer":{"@type":"Answer","text":"L'installation se fait en une commande dans un terminal, sur Mac, Windows ou Linux. Vous placez ensuite le terminal dans le dossier de votre projet, vous lancez l'agent et vous vous authentifiez avec votre compte Claude ou une clé d'API. Des extensions existent aussi pour Visual Studio Code et les outils JetBrains."}},
-        {"@type":"Question","name":"Quels sont les tarifs de Claude Code ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Claude Code est inclus dans les abonnements Claude payants, à partir du plan Pro à 17 dollars par mois en engagement annuel. Il n'y a pas de licence séparée. Le plan Max lève les limites d'usage pour un travail soutenu, et l'accès par API permet de payer à la consommation. Tarifs relevés en août 2026."}},
-        {"@type":"Question","name":"Claude Code est-il efficace ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Il est excellent sur les tâches bien délimitées et vérifiables : traiter des fichiers en masse, écrire des utilitaires, modifier un site, contrôler avant publication. Il est moins fiable quand la demande est floue ou quand la bonne réponse dépend d'un contexte métier qu'il n'a pas. La règle : ne lui confiez pas une tâche dont vous ne sauriez pas vérifier le résultat."}},
-        {"@type":"Question","name":"Quelles sont les fonctionnalités de Claude Code ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Il lit et modifie les fichiers d'un projet entier, exécute des commandes, lance les tests, gère les versions, et se connecte à des outils externes via le protocole MCP. Un système de permissions demande votre accord avant chaque opération sensible. Le fichier CLAUDE.md placé à la racine lui donne le contexte du projet au démarrage."}},
-        {"@type":"Question","name":"Claude Code ou GitHub Copilot : quelle différence ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Copilot complète votre code ligne par ligne pendant que vous écrivez : il vous aide à aller plus vite. Claude Code prend en charge une tâche complète de bout en bout et vous rend compte du résultat. Pour quelqu'un qui ne programme pas, seule la seconde approche est réellement utilisable."}},
-        {"@type":"Question","name":"Peut-on utiliser Claude Code sans savoir coder ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Oui, à condition de savoir décrire précisément un résultat attendu. Commencez par une tâche répétitive et sans risque comme convertir des images ou nettoyer un export, travaillez sur une copie, et demandez à l'agent d'expliquer ce qu'il va faire avant d'agir. Comptez une semaine pour que le réflexe s'installe."}}
+         "acceptedAnswer":{"@type":"Answer","text":"Ouvrez un terminal et collez la commande de votre système : curl -fsSL https://claude.ai/install.sh | bash sur Mac, Linux et WSL, irm https://claude.ai/install.ps1 | iex dans PowerShell sous Windows. Ouvrez ensuite un nouveau terminal et vérifiez avec claude --version. Lancez enfin claude dans le dossier de votre projet pour vous connecter."}},
+        {"@type":"Question","name":"Claude Code est-il gratuit ?",
+         "acceptedAnswer":{"@type":"Answer","text":"L'installation est gratuite, pas l'usage. Claude Code demande un abonnement Claude Pro, Max, Team ou Enterprise, ou un compte Console facturé au token. La formule gratuite de Claude ne donne pas accès à Claude Code, ni dans le terminal ni dans l'application de bureau."}},
+        {"@type":"Question","name":"Faut-il installer Node.js pour utiliser Claude Code ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Non. L'installeur natif fournit un programme autonome qui n'a pas besoin de Node.js. Node.js, en version 22 ou plus, ne sert que si vous choisissez l'installation par npm, et même dans ce cas le paquet installe le même programme natif."}},
+        {"@type":"Question","name":"Où s'installe Claude Code ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Avec l'installeur natif, la commande claude est placée dans ~/.local/bin sur Mac et Linux, et dans %USERPROFILE%\\.local\\bin sous Windows. Les versions sont rangées dans ~/.local/share/claude. Vos réglages et votre historique se trouvent dans le dossier ~/.claude et le fichier ~/.claude.json."}},
+        {"@type":"Question","name":"Comment avoir Claude Code dans VS Code ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Ouvrez la vue Extensions de VS Code (Ctrl + Maj + X, ou Cmd + Maj + X sur Mac), cherchez « Claude Code » publié par Anthropic et installez-le. Ouvrez un fichier, cliquez sur l'icône Spark en haut à droite de l'éditeur, puis connectez-vous. Il faut VS Code 1.94 ou plus récent et un compte Claude payant ou Console."}},
+        {"@type":"Question","name":"Claude Code fonctionne-t-il sur Windows sans WSL ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Oui. Avec l'installeur natif, Claude Code tourne directement sous Windows 10 (version 1809 et plus) et Windows 11, depuis PowerShell ou CMD, sans droits administrateur. Git for Windows est recommandé pour que l'agent dispose de Git Bash. WSL 2 reste utile si vos projets demandent des outils Linux ou l'isolation des commandes."}},
+        {"@type":"Question","name":"Comment mettre à jour Claude Code ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Avec l'installeur natif, les mises à jour se font seules en arrière-plan, et la commande claude update force la dernière version. Avec Homebrew, WinGet, apt, dnf ou npm, la mise à jour est manuelle : brew upgrade claude-code, winget upgrade Anthropic.ClaudeCode ou npm install -g @anthropic-ai/claude-code@latest, par exemple."}},
+        {"@type":"Question","name":"Comment installer un plugin dans Claude Code ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Dans une session, tapez /plugin pour parcourir les plugins disponibles, ou /plugin install suivi du nom du plugin et de sa marketplace, par exemple commit-commands@claude-plugins-official. Choisissez ensuite la portée : pour vous dans tous vos projets, pour tous les collaborateurs du dépôt, ou pour vous dans ce dépôt seulement."}}
       ]
     }
   ]
@@ -176,12 +178,12 @@
     <nav class="crumb" aria-label="Fil d'Ariane">
       <a href="/">Accueil</a><span aria-hidden="true">/</span>
       <a href="/blog/">Blog</a><span aria-hidden="true">/</span>
-      <span>Claude Code</span>
+      <span>Installer Claude Code</span>
     </nav>
 
     <span class="art-cat">Utiliser l'IA</span>
-    <h1 class="art-title">Claude Code : démarrer en 30 minutes, même sans coder</h1>
-    <p class="art-lede">Un agent qui lit vos fichiers, les modifie et vérifie son travail. La moitié de ce que je lui confie n'a rien à voir avec de la programmation, et c'est justement l'usage que je veux vous montrer.</p>
+    <h1 class="art-title">Installer Claude Code : le tuto pas à pas sur Mac, Windows et Linux</h1>
+    <p class="art-lede">Pour installer Claude Code, une commande suffit : l'installeur natif d'Anthropic sur Mac, Linux et WSL, ou sa version PowerShell sous Windows. Voici chaque méthode officielle, la connexion à votre compte, les premières commandes, l'extension VS Code, l'application de bureau et les erreurs les plus fréquentes, avec leur solution.</p>
 
     <div class="art-metaline">
       <span class="who">
@@ -191,9 +193,9 @@
       <span class="dot" aria-hidden="true">·</span>
       <time datetime="2026-08-31">31 août 2026</time>
       <span class="dot" aria-hidden="true">·</span>
-      <span>11 min de lecture</span>
+      <span>17 min de lecture</span>
       <span class="dot" aria-hidden="true">·</span>
-      <span>Mis à jour le <time datetime="2026-08-31">31 août 2026</time></span>
+      <span>Mis à jour le <time datetime="2026-10-07">7 octobre 2026</time></span>
     </div>
 
     <!-- Boutons "Résumer avec" : les href sont construits par blog-article.js -->
@@ -244,7 +246,7 @@
     <!-- Résumé IA version mobile : rendu côté serveur, donc lisible par Google et les LLM -->
     <div class="ai-box ai-box-mobile">
       <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
-      <p class="ai-text">Claude Code est un agent d'Anthropic qui travaille dans le terminal : il lit les fichiers d'un projet, les modifie, exécute des commandes et vérifie son résultat. Il est inclus dans les abonnements Claude payants. Le fichier de contexte CLAUDE.md détermine la qualité du résultat plus que la formulation des demandes.</p>
+      <p class="ai-text">Claude Code s'installe avec une commande : curl -fsSL https://claude.ai/install.sh | bash sur Mac, Linux et WSL, irm https://claude.ai/install.ps1 | iex dans PowerShell. L'installeur natif se passe de Node.js et se met à jour seul. L'usage demande un compte Claude Pro, Max, Team, Enterprise ou Console ; VS Code, JetBrains et l'application de bureau évitent le terminal.</p>
       <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
     </div>
 
@@ -253,283 +255,495 @@
       <figure>
         <picture>
           <source srcset="/images/blog/claude-code-cover.avif" type="image/avif">
-          <img src="/images/blog/claude-code-cover.webp" alt="Blocs de verre translucide disposés en escalier descendant, illustration abstraite d'une construction structurée" width="1376" height="768" fetchpriority="high" decoding="async">
+          <img src="/images/blog/claude-code-cover.webp" alt="Blocs de verre translucide disposés en escalier, illustration abstraite d'une installation étape par étape" width="1376" height="768" fetchpriority="high" decoding="async">
         </picture>
       </figure>
 
-      <p><strong>Claude Code est un agent d'Anthropic qui travaille directement dans votre terminal : il lit vos fichiers, les modifie, exécute des commandes et vérifie son propre travail.</strong> Il ne se contente pas de proposer du code à recopier, il agit sur votre projet. Il est inclus dans les abonnements Claude payants, à partir de 17 dollars par mois en annuel.</p>
-
-      <p>Je l'utilise tous les jours, et pas seulement pour développer. La moitié de ce que je lui confie relève de tâches que personne n'appellerait de la programmation : trier des exports, vérifier des redirections, générer des rapports. C'est cet usage que je veux vous montrer, parce que c'est celui qui concerne le plus de monde.</p>
-
       <div class="verdict">
         <div class="verdict-note">
-          <b>9</b>
-          <span>sur 10</span>
+          <b>1</b>
+          <span>commande</span>
         </div>
         <div class="verdict-body">
-          <h2>Mon verdict en une minute</h2>
-          <p>L'outil qui a le plus changé ma façon de travailler depuis dix ans. Sa force n'est pas d'écrire des lignes plus vite, c'est de mener une tâche complète du début à la fin, en vérifiant lui-même le résultat.</p>
+          <h2>Installer Claude Code en 30 secondes</h2>
+          <p>Ouvrez un terminal, collez la commande de votre système, ouvrez un nouveau terminal et tapez <code>claude</code> dans le dossier de votre projet. Le navigateur s'ouvre pour la connexion à votre compte Claude.</p>
           <div class="verdict-lists">
             <ul class="verdict-pros">
-              <li>Agit réellement sur les fichiers, ne se contente pas de suggérer</li>
-              <li>Comprend un projet entier, pas seulement le fichier ouvert</li>
-              <li>Accessible sans savoir programmer, à condition de savoir décrire</li>
+              <li>Mac, Linux, WSL : <code>curl -fsSL https://claude.ai/install.sh | bash</code></li>
+              <li>Windows PowerShell : <code>irm https://claude.ai/install.ps1 | iex</code></li>
+              <li>Vérifier : <code>claude --version</code></li>
             </ul>
             <ul class="verdict-cons">
-              <li>Le terminal reste un obstacle psychologique pour beaucoup</li>
-              <li>Consomme vite le quota d'un abonnement d'entrée de gamme</li>
+              <li>Coller la commande Mac dans PowerShell, ou l'inverse</li>
+              <li>Installer avec <code>sudo npm install -g</code></li>
             </ul>
           </div>
         </div>
         <p class="verdict-foot">
-          <span class="verdict-price">Inclus dans Claude Pro, à partir de 17 $ par mois</span>
-          <span>Pour qui : développeurs, mais aussi profils techniques non développeurs</span>
+          <span class="verdict-price">Installation gratuite, compte Claude payant requis</span>
+          <span>macOS 13+, Windows 10 (1809)+, Ubuntu 20.04+, Debian 10+</span>
         </p>
       </div>
 
       <section class="takeaways">
         <h2>À retenir</h2>
         <ul>
-          <li>Claude Code est un <strong>agent qui agit</strong> : il modifie vos fichiers et lance vos commandes, il ne se contente pas de répondre.</li>
-          <li>Il <strong>s'installe en une commande</strong> et fonctionne sur Mac, Windows et Linux.</li>
-          <li>Il est <strong>inclus dans l'abonnement Claude Pro</strong>, sans surcoût, avec une facturation à l'usage possible par API.</li>
-          <li>Le fichier <strong>CLAUDE.md détermine la qualité du résultat</strong> plus que la formulation de vos demandes.</li>
-          <li>Il demande <strong>votre autorisation avant chaque action sensible</strong> : rien ne s'exécute dans votre dos.</li>
+          <li><strong>Claude Code</strong> est l'agent de programmation d'Anthropic : il lit, modifie et vérifie les fichiers d'un projet depuis le terminal, un éditeur ou l'application de bureau.</li>
+          <li>L'<strong>installeur natif</strong> est la méthode recommandée : une commande, pas besoin de Node.js, mises à jour automatiques.</li>
+          <li>Homebrew, WinGet, apt, dnf et npm fonctionnent aussi, mais <strong>leurs mises à jour sont manuelles</strong>.</li>
+          <li>L'installation est gratuite ; l'usage demande un compte <strong>Pro, Max, Team, Enterprise ou Console</strong>. La formule gratuite de Claude ne donne pas accès à Claude Code.</li>
+          <li>Sur Windows, Claude Code tourne <strong>sans WSL</strong>, depuis PowerShell ou CMD. Git for Windows reste recommandé.</li>
+          <li>Si le terminal répond « command not found », ouvrez un nouveau terminal ; si l'erreur persiste, ajoutez <code>~/.local/bin</code> au PATH.</li>
         </ul>
       </section>
 
-      <p>Le fichier de contexte projet est ce qui sépare un agent utile d'un agent approximatif. Générez le vôtre en une minute, il vous servira dès la première session.</p>
+      <p>Je forme régulièrement des profils marketing à Claude Code. La difficulté n'est jamais l'agent lui-même : c'est l'installation, et l'écran noir du terminal. Ce tuto suit l'ordre réel des étapes, avec les commandes telles que la documentation d'Anthropic les donne au 7 octobre 2026. Copiez celle de votre système, ou générez votre aide-mémoire complet avec l'outil plus bas.</p>
 
-      <div class="tool" id="outil-claude-md">
+      <h2>C'est quoi Claude Code ?</h2>
+
+      <p><strong>Claude Code est l'agent de programmation d'Anthropic : il lit les fichiers d'un projet, les modifie, exécute des commandes et vérifie son propre travail.</strong> Contrairement à un chatbot qui propose du code à recopier, il agit directement dans votre dossier, avec votre accord selon le mode de permission choisi.</p>
+
+      <p>Il existe sous plusieurs formes, qui partagent le même moteur :</p>
+
+      <ul>
+        <li><strong>Claude Code CLI</strong> : l'outil en ligne de commande, lancé avec <code>claude</code> dans un terminal. C'est lui que ce tuto installe en premier.</li>
+        <li><strong>L'extension VS Code et le plugin JetBrains</strong> : Claude Code dans votre éditeur, avec les modifications affichées en diff.</li>
+        <li><strong>Claude Code desktop</strong> : l'onglet Code de l'application de bureau Claude, sans terminal.</li>
+        <li><strong>Claude Code sur le web</strong> : des sessions qui tournent dans le cloud, depuis claude.ai/code.</li>
+      </ul>
+
+      <p>Je l'utilise tous les jours, et pas seulement pour développer : trier des exports, vérifier des redirections, générer des rapports. Si vous découvrez cette façon de travailler, mon article sur le <a href="/blog/vibe-coding">vibe coding</a> en montre les possibilités et les limites.</p>
+
+      <h2>Prérequis pour installer Claude Code</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Élément</th><th scope="col">Ce qu'il faut</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Système</strong></td><td>macOS 13 ou plus récent ; Windows 10 version 1809 ou plus, Windows 11, Windows Server 2019 ; Ubuntu 20.04, Debian 10 ou Alpine 3.19 et versions suivantes</td></tr>
+            <tr><td><strong>Matériel</strong></td><td>4 Go de mémoire vive au moins, processeur x64 ou ARM64</td></tr>
+            <tr><td><strong>Terminal</strong></td><td>Bash, Zsh, PowerShell ou l'invite de commandes CMD</td></tr>
+            <tr><td><strong>Réseau</strong></td><td>Une connexion internet, depuis un pays pris en charge par Anthropic</td></tr>
+            <tr><td><strong>Compte</strong></td><td>Claude Pro, Max, Team ou Enterprise, ou un compte Claude Console (API). La formule gratuite ne suffit pas.</td></tr>
+            <tr><td><strong>Node.js</strong></td><td>Inutile avec l'installeur natif. Version 22 ou plus seulement pour l'installation par npm.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>L'installation elle-même ne coûte rien. Ce qui se paie, c'est l'usage : compris dans l'abonnement, ou facturé au token avec un compte Console. Le détail des formules, et la question de savoir si <a href="/blog/claude-code-prix">Claude Code est gratuit</a>, fait l'objet d'un article à part.</p>
+
+      <h2>Installer Claude Code : les commandes par système</h2>
+
+      <p>Anthropic recommande l'<strong>installeur natif</strong> : un programme autonome, sans Node.js, qui se met à jour seul en arrière-plan. Les gestionnaires de paquets (Homebrew, WinGet, apt, dnf) sont des alternatives propres, mais leurs mises à jour se font à la main.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Système</th><th scope="col">Commande recommandée</th><th scope="col">Alternative</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>macOS</strong></td><td><code>curl -fsSL https://claude.ai/install.sh | bash</code></td><td><code>brew install --cask claude-code</code></td></tr>
+            <tr><td><strong>Linux</strong></td><td><code>curl -fsSL https://claude.ai/install.sh | bash</code></td><td>Dépôts apt, dnf ou apk</td></tr>
+            <tr><td><strong>Windows PowerShell</strong></td><td><code>irm https://claude.ai/install.ps1 | iex</code></td><td><code>winget install Anthropic.ClaudeCode</code></td></tr>
+            <tr><td><strong>Windows CMD</strong></td><td><code>curl -fsSL https://claude.ai/install.cmd -o install.cmd &amp;&amp; install.cmd &amp;&amp; del install.cmd</code></td><td><code>winget install Anthropic.ClaudeCode</code></td></tr>
+            <tr><td><strong>WSL</strong></td><td><code>curl -fsSL https://claude.ai/install.sh | bash</code>, dans le terminal Linux</td><td>npm</td></tr>
+            <tr><td><strong>Tous systèmes</strong></td><td colspan="2"><code>npm install -g @anthropic-ai/claude-code</code>, avec Node.js 22 ou plus</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Pas sûr de la bonne commande ? Choisissez votre système et votre méthode : l'outil assemble les commandes d'installation, de vérification, de mise à jour et de désinstallation, à copier ou à télécharger.</p>
+
+      <!-- ================= OUTIL INTERACTIF ================= -->
+      <div class="tool" id="outil-installation">
         <div class="tool-head">
           <span class="tool-ico" aria-hidden="true">✦</span>
           <span>
             <em>Outil interactif</em>
-            <b>Générateur de fichier CLAUDE.md</b>
+            <b>Générateur de commandes d'installation Claude Code</b>
           </span>
         </div>
         <div class="tool-body">
           <div class="field-row">
             <div class="field">
-              <label for="cm-projet">Nom du projet</label>
-              <input id="cm-projet" type="text" placeholder="Ex. : site vitrine Dupont">
+              <label for="ci-os">Votre système</label>
+              <select id="ci-os">
+                <option value="mac">macOS</option>
+                <option value="debian">Linux Ubuntu ou Debian</option>
+                <option value="fedora">Linux Fedora ou RHEL</option>
+                <option value="ps">Windows (PowerShell)</option>
+                <option value="cmd">Windows (invite de commandes CMD)</option>
+                <option value="wsl">Windows avec WSL</option>
+              </select>
             </div>
             <div class="field">
-              <label for="cm-tech">Technologies principales</label>
-              <input id="cm-tech" type="text" placeholder="Ex. : HTML statique, CSS, Netlify">
+              <label for="ci-methode">Méthode d'installation</label>
+              <select id="ci-methode">
+                <option value="natif">Installeur natif (recommandé)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="ci-canal">Canal de mise à jour</label>
+              <select id="ci-canal">
+                <option value="latest">latest : chaque version dès sa sortie (par défaut)</option>
+                <option value="stable">stable : environ une semaine de décalage</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="ci-ide">Éditeur</label>
+              <select id="ci-ide">
+                <option value="aucun">Terminal seul</option>
+                <option value="vscode">VS Code</option>
+                <option value="jetbrains">JetBrains (IntelliJ, PyCharm, WebStorm…)</option>
+              </select>
             </div>
           </div>
 
           <div class="field">
-            <label for="cm-but">À quoi sert ce projet <span class="hint">: une ou deux phrases</span></label>
-            <textarea id="cm-but" rows="2" placeholder="Ex. : site vitrine de 12 pages, publié sur Netlify, avec un blog statique."></textarea>
-          </div>
-
-          <div class="field">
-            <label for="cm-cmd">Commandes à connaître <span class="hint">: une par ligne</span></label>
-            <textarea id="cm-cmd" rows="3" placeholder="npm run dev&#10;npm test"></textarea>
-          </div>
-
-          <div class="field">
-            <span class="rail-title" id="cm-r-label">Règles à imposer</span>
-            <div class="chips" id="cm-regles" role="group" aria-labelledby="cm-r-label">
-              <button type="button" class="chip on" data-v="Ne jamais committer sans que je le demande explicitement.">Pas de commit auto</button>
-              <button type="button" class="chip on" data-v="Toujours me montrer le plan avant de modifier plus de trois fichiers.">Plan avant gros changement</button>
-              <button type="button" class="chip" data-v="Ne pas ajouter de dépendance sans me demander.">Pas de dépendance</button>
-              <button type="button" class="chip" data-v="Écrire les commentaires et les messages en français.">Tout en français</button>
-              <button type="button" class="chip" data-v="Lancer les tests après chaque modification.">Tests systématiques</button>
-            </div>
-          </div>
-
-          <div class="field">
-            <span class="rail-title" style="margin-bottom:8px">Votre fichier CLAUDE.md</span>
-            <div class="tool-out" id="cm-out" aria-live="polite"></div>
+            <span class="rail-title" style="margin-bottom:8px">Votre aide-mémoire d'installation</span>
+            <div class="tool-out" id="ci-out" aria-live="polite"></div>
           </div>
 
           <div class="tool-actions">
-            <button type="button" class="btn-sm primary" id="cm-copy">Copier le fichier</button>
+            <button type="button" class="btn-sm primary" id="ci-copy">Copier l'aide-mémoire</button>
+            <button type="button" class="btn-sm ghost" id="ci-dl">Télécharger (.txt)</button>
             <a class="btn-sm ghost" href="/automatisation-ia">Me faire accompagner</a>
           </div>
         </div>
         <div class="tool-foot">
-          <span>Rien n'est envoyé nulle part : le fichier est composé dans votre navigateur.</span>
-          <span>À placer à la racine de votre projet</span>
+          <span>Rien n'est envoyé nulle part : les commandes sont assemblées dans votre navigateur.</span>
+          <span>Commandes relevées dans la documentation officielle le 7 octobre 2026</span>
         </div>
       </div>
 
-      <h2>Comment fonctionne Claude Code</h2>
+      <h3>Installer Claude Code sur Mac (macOS)</h3>
 
-      <p>La différence avec un assistant classique tient en un mot : l'action. Vous décrivez ce que vous voulez, l'agent explore votre projet, propose un plan, puis exécute. Il lit les fichiers dont il a besoin, écrit les modifications, lance les commandes de vérification et corrige ce qui échoue.</p>
+      <p>Ouvrez l'application Terminal (Cmd + Espace, tapez « Terminal ») et collez :</p>
 
-      <p>Concrètement, une session ressemble à une conversation avec quelqu'un qui a accès à votre machine. Vous dites « les images de la page d'accueil sont trop lourdes, convertis-les et mets à jour les balises », et il le fait. Vous validez chaque étape sensible avant qu'elle ne s'exécute.</p>
+      <pre><code>curl -fsSL https://claude.ai/install.sh | bash</code></pre>
 
-      <h3>Le système de permissions</h3>
+      <p>Le programme s'installe dans votre dossier personnel, sans droits administrateur, sur les Mac Intel comme sur les puces Apple. Fermez ensuite la fenêtre, ouvrez-en une nouvelle et vérifiez avec <code>claude --version</code>.</p>
 
-      <p>C'est le point qui rassure les entreprises, et il mérite d'être expliqué. Rien ne s'exécute sans votre accord sur les opérations à risque : modifier un fichier, lancer une commande, accéder au réseau. Vous pouvez accorder une permission ponctuelle, pour toute la session, ou définir des règles permanentes.</p>
+      <p>Si vous gérez vos logiciels avec Homebrew :</p>
 
-      <p>En pratique, on commence par tout valider à la main, puis on autorise progressivement les opérations de lecture, qui sont sans danger. C'est le bon réflexe : la prudence coûte quelques clics au début, elle évite des mauvaises surprises ensuite.</p>
+      <pre><code>brew install --cask claude-code</code></pre>
 
-      <h3>Le fichier de contexte projet</h3>
+      <p>Ce cask suit le canal <strong>stable</strong>, en général une semaine derrière la dernière version et sans les versions qui ont posé problème. Pour recevoir chaque nouvelle version dès sa sortie, installez <code>claude-code@latest</code>. Dans les deux cas, Homebrew ne met pas Claude Code à jour tout seul : pensez à <code>brew upgrade</code>.</p>
 
-      <p>Un fichier nommé CLAUDE.md, placé à la racine, est lu automatiquement au démarrage. Il contient ce qu'un nouveau collaborateur aurait besoin de savoir : à quoi sert le projet, quelles technologies, quelles commandes lancer, et surtout quelles règles respecter.</p>
+      <h3>Installer Claude Code sur Linux</h3>
 
-      <p>C'est le levier le plus rentable de tout l'outil. Un projet avec un bon fichier de contexte donne des résultats sans commune mesure avec le même projet sans. C'est exactement le principe que je décris dans mon article sur <a href="/blog/prompt-chatgpt">le contexte à fournir avant d'écrire un prompt</a> : ce que vous donnez à lire compte davantage que la façon dont vous demandez.</p>
+      <p>Même commande que sur Mac, dans votre terminal :</p>
 
-      <h2>Installer Claude Code en dix minutes</h2>
+      <pre><code>curl -fsSL https://claude.ai/install.sh | bash</code></pre>
 
-      <p>L'installation se fait en une commande dans un terminal, sur Mac, Windows ou Linux. Vous ouvrez ensuite le dossier de votre projet, vous lancez l'agent, et vous vous authentifiez avec votre compte Claude.</p>
+      <p>Si vous préférez que les mises à jour passent par le gestionnaire de paquets du système, Anthropic publie des dépôts signés pour apt (Debian, Ubuntu), dnf (Fedora, RHEL) et apk (Alpine). Pour Ubuntu ou Debian, sur le canal stable :</p>
 
-      <ol>
-        <li><strong>Ouvrez un terminal.</strong> Sur Mac, l'application Terminal. Sur Windows, PowerShell ou le sous-système Linux.</li>
-        <li><strong>Installez l'outil</strong> avec la commande donnée sur la documentation officielle.</li>
-        <li><strong>Placez-vous dans votre dossier de travail</strong> et lancez l'agent.</li>
-        <li><strong>Connectez-vous</strong> avec votre compte Claude ou une clé d'API.</li>
-        <li><strong>Créez votre fichier de contexte</strong> avec le générateur ci-dessus.</li>
-      </ol>
+      <pre><code>sudo install -d -m 0755 /etc/apt/keyrings
+sudo curl -fsSL https://downloads.claude.ai/keys/claude-code.asc -o /etc/apt/keyrings/claude-code.asc
+echo "deb [signed-by=/etc/apt/keyrings/claude-code.asc] https://downloads.claude.ai/claude-code/apt/stable stable main" | sudo tee /etc/apt/sources.list.d/claude-code.list
+sudo apt update
+sudo apt install claude-code</code></pre>
 
-      <p>Il existe aussi des extensions pour les environnements de développement courants, dont Visual Studio Code et les outils JetBrains, ainsi qu'une intégration avec Slack. Elles font la même chose depuis une interface plus familière, ce qui aide beaucoup les personnes que la ligne de commande intimide.</p>
+      <p>Sur une installation neuve, lancez d'abord <code>sudo apt install curl gnupg</code>. Avant de faire confiance à la clé, vérifiez son empreinte avec <code>gpg --show-keys /etc/apt/keyrings/claude-code.asc</code> : elle doit se terminer par <code>BAA929FF1A7ECACE</code>. Alpine demande quelques paquets en plus (bash, curl, libgcc, libstdc++, ripgrep), détaillés dans la documentation officielle.</p>
 
-      <div class="callout callout--info">
-        <p class="callout-t">Le terminal fait peur, et c'est le seul vrai obstacle</p>
-        <p>Je forme régulièrement des profils marketing à cet outil. La difficulté n'est jamais l'agent lui-même, qui parle français et explique ce qu'il fait. C'est l'écran noir. Une fois passée la première demi-heure, la question ne se pose plus. Si cet obstacle vous bloque, commencez par l'extension pour Visual Studio Code.</p>
-      </div>
+      <h3>Installer Claude Code sur Windows (PowerShell, CMD, WinGet)</h3>
 
-      <h2>Ce que je lui confie vraiment</h2>
+      <p>Claude Code tourne nativement sous Windows 10 (version 1809 et plus) et Windows 11, sans WSL et sans droits administrateur. Ouvrez PowerShell depuis le menu Démarrer et collez :</p>
 
-      <p>Voici mes usages réels, classés du plus fréquent au moins fréquent. Trois sur cinq n'ont rien à voir avec du développement.</p>
+      <pre><code>irm https://claude.ai/install.ps1 | iex</code></pre>
+
+      <p>Dans l'invite de commandes classique (CMD), la commande est différente :</p>
+
+      <pre><code>curl -fsSL https://claude.ai/install.cmd -o install.cmd &amp;&amp; install.cmd &amp;&amp; del install.cmd</code></pre>
+
+      <p>Pour savoir où vous êtes : l'invite affiche <code>PS C:\Users\VotreNom&gt;</code> dans PowerShell, et <code>C:\Users\VotreNom&gt;</code> sans le « PS » dans CMD. Se tromper de commande est une erreur courante sous Windows. Autre voie, plus classique pour un poste géré : <code>winget install Anthropic.ClaudeCode</code>, à mettre à jour avec <code>winget upgrade Anthropic.ClaudeCode</code>.</p>
+
+      <p>Installez aussi <strong>Git for Windows</strong>. Il n'est plus obligatoire : sans lui, Claude Code exécute ses commandes avec PowerShell. Avec lui, l'agent dispose de Git Bash, dont certains de ses outils ont besoin.</p>
+
+      <h3>Installer Claude Code sous WSL</h3>
+
+      <p>WSL vous donne un vrai Linux dans Windows. Choisissez-le si vos projets utilisent des outils Linux, ou si vous voulez l'isolation des commandes (sandbox), disponible avec WSL 2 mais pas en natif Windows. Ouvrez votre distribution (Ubuntu, par exemple) et lancez la commande Linux dans ce terminal, pas dans PowerShell :</p>
+
+      <pre><code>curl -fsSL https://claude.ai/install.sh | bash</code></pre>
+
+      <p>Claude Code s'installe et se lance alors côté Linux. WSL n'a pas besoin de Git for Windows.</p>
+
+      <h3>Installer Claude Code avec npm</h3>
+
+      <p>L'ancienne méthode reste disponible sur tous les systèmes, avec Node.js 22 ou plus :</p>
+
+      <pre><code>npm install -g @anthropic-ai/claude-code</code></pre>
+
+      <p>Le paquet npm installe le même programme natif que l'installeur. N'utilisez jamais <code>sudo npm install -g</code> : c'est une source de problèmes de droits et un risque de sécurité. Pour mettre à jour, préférez <code>npm install -g @anthropic-ai/claude-code@latest</code> à <code>npm update -g</code>, qui peut vous laisser sur une ancienne version.</p>
+
+      <h2>Vérifier que Claude Code est bien installé</h2>
+
+      <p>Fermez le terminal qui a servi à l'installation et ouvrez-en un nouveau : l'ancien garde l'ancienne valeur du PATH. Puis :</p>
+
+      <pre><code>claude --version</code></pre>
+
+      <p>Une installation correcte affiche un numéro de version suivi de « (Claude Code) ». Pour un diagnostic complet (état de l'installation, réglages invalides, dernière mise à jour), lancez :</p>
+
+      <pre><code>claude doctor</code></pre>
+
+      <p>Avec l'installeur natif, la commande <code>claude</code> se trouve dans <code>~/.local/bin</code> sur Mac et Linux, et dans <code>%USERPROFILE%\.local\bin</code> sous Windows. Les versions successives sont rangées dans <code>~/.local/share/claude</code>.</p>
+
+      <h2>Se connecter à son compte Claude</h2>
+
+      <p>Placez-vous dans le dossier de votre projet et lancez Claude Code :</p>
+
+      <pre><code>cd chemin/vers/votre/projet
+claude</code></pre>
+
+      <p>Au premier lancement, le navigateur s'ouvre sur la page de connexion. Validez, revenez au terminal : vos identifiants sont enregistrés et vous n'aurez plus à vous reconnecter. Trois types de comptes fonctionnent :</p>
 
       <ul>
-        <li><strong>Traiter des fichiers en masse.</strong> Convertir trois cents images, renommer des exports, croiser deux tableaux de plusieurs milliers de lignes. Ce sont des tâches où l'agent excelle et où le gain est immédiat.</li>
-        <li><strong>Écrire de petits programmes utilitaires.</strong> Un script qui vérifie mes redirections, un autre qui surveille les mentions d'une marque. Des outils que je n'aurais jamais pris le temps de développer.</li>
-        <li><strong>Comprendre un projet existant.</strong> Arriver sur le site d'un client et demander comment il est construit fait gagner une demi-journée de lecture.</li>
-        <li><strong>Modifier un site.</strong> Ajouter une page, corriger un affichage, mettre à jour un gabarit sur toutes les pages d'un coup.</li>
-        <li><strong>Vérifier avant publication.</strong> Contrôler des liens, valider des données structurées, repérer les balises manquantes.</li>
+        <li><strong>Un abonnement Claude Pro, Max, Team ou Enterprise</strong> : la voie la plus simple, l'usage est compris dans l'abonnement.</li>
+        <li><strong>Un compte Claude Console</strong> : l'usage est facturé au token sur des crédits prépayés. À la première connexion, la Console crée un espace de travail « Claude Code » pour suivre les dépenses.</li>
+        <li><strong>Amazon Bedrock, Google Cloud ou Microsoft Foundry</strong>, pour les entreprises qui passent par leur fournisseur cloud.</li>
       </ul>
 
-      <p>Le point commun de ces usages : ce sont des tâches répétitives, mesurables et vérifiables. C'est là que l'agent est le plus fiable, parce qu'il peut contrôler lui-même son résultat.</p>
+      <p>Si le navigateur ne s'ouvre pas, appuyez sur <code>c</code> pour copier le lien de connexion et collez-le à la main. Depuis WSL, un serveur en SSH ou un conteneur, la page affiche un code à recoller dans le terminal ; si le collage ne passe pas, <code>claude auth login</code> lit ce code directement. Pour changer de compte : <code>/logout</code> puis <code>/login</code>. Pour voir le compte actif : <code>/status</code>.</p>
 
-      <h2>Claude Code face aux autres outils</h2>
+      <div class="callout callout--warn">
+        <p class="callout-t">Une clé d'API oubliée passe avant votre abonnement</p>
+        <p>Si la variable <code>ANTHROPIC_API_KEY</code> est définie dans votre terminal, Claude Code propose de l'utiliser à la place de la connexion par navigateur. Une vieille clé d'un ancien projet provoque alors des erreurs, ou une facturation à l'API que vous n'attendiez pas. Vérifiez avec <code>/status</code>, et retirez la ligne <code>export ANTHROPIC_API_KEY=…</code> de votre <code>~/.zshrc</code> ou <code>~/.bashrc</code> si elle ne vous sert plus.</p>
+      </div>
 
-      <p>La catégorie s'est remplie en deux ans. Voici comment je situe les principaux, en restant sur ce qui les différencie vraiment.</p>
+      <h2>Premières commandes Claude Code</h2>
+
+      <p>Une fois connecté, vous parlez à Claude Code en français, comme à un collègue. Commencez par lui faire comprendre le projet avant de lui demander de modifier quoi que ce soit :</p>
+
+      <pre><code>que fait ce projet ?
+explique-moi l'organisation des dossiers
+/init</code></pre>
+
+      <p>La commande <code>/init</code> crée un fichier <strong>CLAUDE.md</strong> à la racine : le contexte du projet, que Claude Code relit à chaque démarrage (à quoi sert le projet, quelles commandes lancer, quelles règles respecter). C'est le réglage le plus rentable de l'outil. Relisez-le et complétez-le : un projet avec un bon fichier de contexte donne des résultats sans commune mesure avec le même projet sans. C'est le principe que je développe dans mon article sur le <a href="/blog/contexte-vs-prompt">prompt engineering</a> : ce que vous donnez à lire compte plus que la façon dont vous demandez.</p>
 
       <div class="table-wrap">
         <table>
           <thead>
-            <tr><th scope="col">Outil</th><th scope="col">Nature</th><th scope="col">Là où il est meilleur</th></tr>
+            <tr><th scope="col">Commande</th><th scope="col">Où</th><th scope="col">À quoi elle sert</th></tr>
           </thead>
           <tbody>
-            <tr><td><strong>Claude Code</strong></td><td>Agent en terminal</td><td>Tâches complètes de bout en bout, projets entiers</td></tr>
-            <tr><td><strong>GitHub Copilot</strong></td><td>Complétion dans l'éditeur</td><td>Écrire plus vite ligne par ligne</td></tr>
-            <tr><td><strong>Cursor</strong></td><td>Éditeur augmenté</td><td>Confort visuel, édition assistée</td></tr>
-            <tr><td><strong>Lovable</strong></td><td>Générateur d'applications</td><td>Créer un prototype web sans rien installer</td></tr>
+            <tr><td><code>claude</code></td><td>Terminal</td><td>Ouvre une session dans le dossier courant</td></tr>
+            <tr><td><code>claude "tâche"</code></td><td>Terminal</td><td>Ouvre une session avec une première demande</td></tr>
+            <tr><td><code>claude -p "question"</code></td><td>Terminal</td><td>Répond une fois puis rend la main, pratique dans un script</td></tr>
+            <tr><td><code>claude -c</code></td><td>Terminal</td><td>Reprend la dernière conversation du dossier</td></tr>
+            <tr><td><code>claude -r</code></td><td>Terminal</td><td>Choisit une conversation passée à reprendre</td></tr>
+            <tr><td><code>/help</code></td><td>Session</td><td>Liste les commandes disponibles</td></tr>
+            <tr><td><code>/init</code></td><td>Session</td><td>Crée le fichier CLAUDE.md du projet</td></tr>
+            <tr><td><code>/model</code></td><td>Session</td><td>Change de modèle</td></tr>
+            <tr><td><code>/usage</code></td><td>Session</td><td>Affiche la consommation et les limites de votre formule</td></tr>
+            <tr><td><code>/clear</code></td><td>Session</td><td>Repart d'une conversation vide</td></tr>
+            <tr><td><code>/compact</code></td><td>Session</td><td>Résume la conversation pour libérer de la place</td></tr>
+            <tr><td><code>/exit</code></td><td>Session</td><td>Quitte Claude Code</td></tr>
           </tbody>
         </table>
       </div>
 
-      <p>Ces outils ne s'excluent pas. La vraie ligne de partage est celle-ci : les uns vous aident à écrire, Claude Code fait le travail et vous rend compte. Pour quelqu'un qui ne programme pas, la seconde approche est la seule utilisable.</p>
+      <h3>Les modes de permission : ce que Claude Code fait sans vous demander</h3>
 
-      <h2>Les prix et le coût réel</h2>
+      <p>Un mode de permission fixe ce que l'agent peut faire sans votre accord. <strong>Maj + Tab</strong> passe d'un mode à l'autre pendant la session.</p>
 
-      <p>Claude Code est inclus dans les abonnements payants, à partir du plan Pro à 17 dollars par mois en engagement annuel. Il n'y a pas de licence séparée à acheter. Pour un usage soutenu, le plan Max lève les limites d'usage, et l'accès par API permet de payer à la consommation.</p>
+      <ul>
+        <li><strong>Manual</strong> : il demande avant chaque modification de fichier ou commande ; seules les lectures passent sans question. Le bon choix pour débuter ou pour un travail sensible.</li>
+        <li><strong>Accept edits</strong> : il modifie les fichiers et lance les commandes de fichiers courantes (créer, copier, déplacer) sans demander.</li>
+        <li><strong>Plan</strong> : il analyse et propose un plan sans rien modifier, utile avant un gros changement.</li>
+        <li><strong>Auto</strong> : un second modèle examine les actions à votre place et bloque celles qui présentent un risque.</li>
+      </ul>
 
-      <p>Le vrai sujet n'est pas le tarif mensuel mais le quota. Une session longue sur un gros projet consomme beaucoup, parce que l'agent lit énormément de fichiers pour comprendre le contexte. C'est le premier motif de passage au plan supérieur chez mes clients, bien avant le nombre d'utilisateurs. Le détail des offres est dans mon article sur <a href="/blog/claude-ai">Claude AI et ses abonnements</a>.</p>
+      <p>Depuis la version 2.1.283, une session interactive démarre en mode auto, sauf réglage contraire. Si vous débutez, je conseille de passer en Manual les premiers jours et de travailler sur une copie du dossier : vous voyez ce que l'agent va faire avant qu'il le fasse.</p>
 
-      <div class="callout callout--tip">
-        <p class="callout-t">Diviser sa consommation par deux</p>
-        <p>Démarrez une session neuve pour chaque tâche, au lieu d'enchaîner dans la même conversation. Une session longue renvoie tout l'historique à chaque échange. Et soyez précis sur les fichiers concernés : « regarde le dossier des articles » coûte bien moins cher que de laisser l'agent explorer tout le projet.</p>
-      </div>
+      <h2>Installer l'extension Claude Code pour VS Code</h2>
 
-      <h2>Trois exemples détaillés, du début à la fin</h2>
-
-      <p>Les listes d'usages restent abstraites. Voici trois cas réels, avec ce que j'ai demandé et ce qui s'est passé.</p>
-
-      <h3>Alléger les images d'un site</h3>
-
-      <p>Demande : « les visuels du dossier images sont trop lourds, convertis-les en AVIF avec un repli WebP, largeur maximale 1400 pixels, et mets à jour les balises dans les pages qui les utilisent ».</p>
-
-      <p>L'agent a listé les fichiers concernés, installé la bibliothèque de traitement, écrit le script de conversion, remplacé les balises image par des blocs picture dans une quinzaine de pages, puis affiché le poids avant et après pour chaque visuel. Durée : une dizaine de minutes, contre une bonne demi-journée à la main.</p>
-
-      <h3>Croiser deux exports</h3>
-
-      <p>Demande : « voici l'export des pages explorées et celui des pages qui reçoivent des impressions, dis-moi lesquelles sont dans le premier mais pas dans le second ».</p>
-
-      <p>C'est le croisement que je décris dans mon article sur <a href="/blog/audit-seo-methode">la méthode d'audit SEO</a>, et qui révèle en quelques minutes les problèmes d'indexation et de maillage. L'agent a lu les deux fichiers, fait la comparaison, et rendu la liste triée par profondeur de page. Aucun tableur ouvert.</p>
-
-      <h3>Vérifier un site avant mise en ligne</h3>
-
-      <p>Demande : « parcours toutes les pages du dossier, vérifie que chaque page a un titre de moins de soixante signes, une description, une balise canonique, et signale les liens internes cassés ».</p>
-
-      <p>Il a produit un tableau récapitulatif page par page, avec les anomalies en évidence. C'est devenu un contrôle systématique avant chacune de mes mises en production, et il coûte deux minutes.</p>
-
-      <h2>Est-ce vraiment efficace</h2>
-
-      <p>Il faut être honnête sur les limites, parce qu'elles existent et que les retours d'utilisateurs déçus ne sont pas tous de mauvaise foi.</p>
-
-      <p>L'agent est excellent sur les tâches bien délimitées et vérifiables. Il est moins bon quand la demande est floue, quand le projet est mal organisé, ou quand la bonne réponse dépend d'un contexte métier qu'il n'a pas. Dans ces cas, il produit quelque chose de plausible mais inadapté, et il faut savoir le repérer.</p>
-
-      <p>Ma règle après un an d'usage quotidien : je ne lui confie jamais une tâche dont je serais incapable de vérifier le résultat. Ce n'est pas une question de confiance dans l'outil, c'est une question de responsabilité sur ce que je livre à mes clients.</p>
-
-      <h2>Par où commencer si vous ne codez pas</h2>
+      <p>L'extension est la façon la plus confortable d'utiliser Claude Code si le terminal vous rebute : les modifications s'affichent en diff, vous relisez et ajustez le plan avant de l'accepter, et vous citez un fichier avec <code>@</code>. Il faut VS Code 1.94 ou plus récent.</p>
 
       <ol>
-        <li><strong>Choisissez une tâche répétitive et sans risque.</strong> Renommer des fichiers, convertir des images, nettoyer un export. Rien qui touche à de la production.</li>
-        <li><strong>Travaillez sur une copie.</strong> Toujours, les premières semaines.</li>
-        <li><strong>Décrivez le résultat attendu, pas la méthode.</strong> Dites ce que vous voulez obtenir, laissez l'agent choisir comment.</li>
-        <li><strong>Demandez-lui d'expliquer avant d'agir.</strong> La formule « explique-moi ce que tu vas faire avant de le faire » est la meilleure sécurité pour un débutant.</li>
-        <li><strong>Écrivez votre fichier de contexte</strong> dès que vous revenez sur le même projet une deuxième fois.</li>
+        <li><strong>Ouvrez la vue Extensions</strong> : Cmd + Maj + X sur Mac, Ctrl + Maj + X sous Windows et Linux.</li>
+        <li><strong>Cherchez « Claude Code »</strong>, publié par Anthropic, et cliquez sur Installer. En ligne de commande : <code>code --install-extension anthropic.claude-code</code>.</li>
+        <li><strong>Ouvrez un fichier</strong>, puis cliquez sur l'icône Spark en haut à droite de l'éditeur, ou sur « ✻ Claude Code » dans la barre d'état.</li>
+        <li><strong>Cliquez sur Sign in</strong> et validez la connexion dans le navigateur.</li>
       </ol>
 
-      <p>Comptez une semaine avant que le réflexe s'installe. Le basculement se produit le jour où vous vous surprenez à lui confier une tâche que vous auriez faite à la main sans même y penser un mois plus tôt.</p>
+      <p>L'extension s'installe aussi dans Cursor et dans les autres éditeurs dérivés de VS Code, depuis leur catalogue ou le registre Open VSX. Point à connaître : elle embarque sa propre copie de Claude Code et n'ajoute pas la commande <code>claude</code> au terminal. Pour l'avoir aussi en ligne de commande, installez le CLI à part. À l'inverse, lancer <code>claude</code> dans le terminal intégré de VS Code installe l'extension automatiquement.</p>
 
+      <h2>Claude Code dans JetBrains (IntelliJ, PyCharm, WebStorm…)</h2>
 
-      <!-- MAILLAGE À AJOUTER APRÈS PUBLICATION DES CIBLES :
-           - /blog/installer-claude-code (C2-04) : section « Installer Claude Code »
-           - /blog/claude-code-prix (C2-05, 12/10/2026) : section « Les prix et le coût réel »
-           - /blog/claude-code-skills (C2-10) : section « Ce que je lui confie »
-           - /blog/codex-vs-claude-code (C2-12) : section « Face aux autres outils »
-           - /blog/mcp-model-context-protocol (C3-11, 21/10/2026) : section « Fonctionnalités »
-           - /blog/vibe-coding (C3-14, 05/10/2026) : section « Par où commencer si vous ne codez pas »
-           - /blog/automatiser-seo-claude-code (C3-15, 28/10/2026) : section « Ce que je lui confie »
-      -->
+      <p>Le plugin JetBrains fonctionne avec IntelliJ IDEA, PyCharm, WebStorm, PhpStorm, GoLand et Android Studio. Contrairement à l'extension VS Code, il n'embarque pas Claude Code : il lance la commande <code>claude</code> dans le terminal de l'IDE.</p>
+
+      <ol>
+        <li><strong>Installez le CLI</strong> avec l'une des commandes ci-dessus et vérifiez <code>claude --version</code>.</li>
+        <li><strong>Installez le plugin</strong> « Claude Code [Beta] » depuis le Marketplace JetBrains (Settings, puis Plugins), et redémarrez l'IDE.</li>
+        <li><strong>Lancez <code>claude</code></strong> dans le terminal intégré, ou utilisez Cmd + Échap sur Mac, Ctrl + Échap sous Windows et Linux.</li>
+      </ol>
+
+      <p>Depuis un terminal externe, la commande <code>/ide</code> connecte la session à l'IDE ouvert. Sous WSL, indiquez dans les réglages du plugin la commande <code>wsl -d Ubuntu -- bash -lic "claude"</code>, en remplaçant Ubuntu par le nom de votre distribution.</p>
+
+      <h2>Claude Code desktop : l'application de bureau</h2>
+
+      <p>Si vous ne voulez pas de terminal du tout, l'application de bureau Claude contient Claude Code dans son <strong>onglet Code</strong>. Elle s'installe comme n'importe quel logiciel, sans Node.js ni CLI.</p>
+
+      <ul>
+        <li><strong>macOS</strong> : une version universelle, pour les Mac Intel comme pour les puces Apple.</li>
+        <li><strong>Windows</strong> : un installeur x64, et un installeur séparé pour les processeurs ARM64.</li>
+        <li><strong>Linux</strong> : en bêta, pour Ubuntu 22.04 ou Debian 12 et versions suivantes, par le dépôt apt d'Anthropic (paquet <code>claude-desktop</code>).</li>
+      </ul>
+
+      <p>Lancez l'application, connectez-vous, cliquez sur l'onglet Code puis sur <strong>Select folder</strong> pour choisir votre projet. Vous pouvez travailler en local, dans le cloud (la session continue application fermée), sur une machine distante en SSH, ou dans WSL sous Windows. La même application donne accès au chat et à Cowork, l'agent de tâches de fond que je présente dans <a href="/blog/claude-cowork">Claude Cowork</a>.</p>
+
+      <p>Comme le CLI, l'onglet Code demande un abonnement payant : si un clic sur Code vous propose de changer de formule, votre compte est en formule gratuite. L'application n'accepte pas de clé d'API Console ; pour ce cas, passez par le CLI.</p>
+
+      <h2>Mettre à jour Claude Code</h2>
+
+      <p>Avec l'installeur natif, rien à faire : Claude Code vérifie les mises à jour au démarrage et pendant l'utilisation, les télécharge en arrière-plan et les applique au lancement suivant. Pour forcer la mise à jour tout de suite :</p>
+
+      <pre><code>claude update</code></pre>
+
+      <p>Les autres méthodes se mettent à jour à la main :</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Méthode</th><th scope="col">Commande de mise à jour</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Homebrew</td><td><code>brew upgrade claude-code</code> (ou <code>claude-code@latest</code>)</td></tr>
+            <tr><td>WinGet</td><td><code>winget upgrade Anthropic.ClaudeCode</code></td></tr>
+            <tr><td>apt</td><td><code>sudo apt update &amp;&amp; sudo apt upgrade claude-code</code></td></tr>
+            <tr><td>dnf</td><td><code>sudo dnf upgrade claude-code</code></td></tr>
+            <tr><td>npm</td><td><code>npm install -g @anthropic-ai/claude-code@latest</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Le canal se règle dans <code>/config</code>, rubrique Auto-update channel : <strong>latest</strong>, le choix par défaut, reçoit chaque version dès sa sortie ; <strong>stable</strong> reste environ une semaine en retrait et saute les versions qui ont posé problème. Pour couper les mises à jour automatiques, ajoutez <code>"DISABLE_AUTOUPDATER": "1"</code> dans la section <code>env</code> de votre fichier <code>settings.json</code>.</p>
+
+      <h2>Désinstaller Claude Code</h2>
+
+      <p>Supprimez d'abord le programme. Installeur natif, sur Mac, Linux et WSL :</p>
+
+      <pre><code>rm -f ~/.local/bin/claude
+rm -rf ~/.local/share/claude</code></pre>
+
+      <p>Installeur natif sous Windows, dans PowerShell :</p>
+
+      <pre><code>Remove-Item -Path "$env:USERPROFILE\.local\bin\claude.exe" -Force
+Remove-Item -Path "$env:USERPROFILE\.local\share\claude" -Recurse -Force</code></pre>
+
+      <p>Pour les autres méthodes : <code>brew uninstall --cask claude-code</code>, <code>winget uninstall Anthropic.ClaudeCode</code>, <code>sudo apt remove claude-code</code>, <code>sudo dnf remove claude-code</code> ou <code>npm uninstall -g @anthropic-ai/claude-code</code>.</p>
+
+      <p>Vos réglages, l'historique des sessions et la configuration des serveurs MCP restent dans <code>~/.claude</code> et <code>~/.claude.json</code>. Supprimez-les seulement si vous voulez tout effacer, et désinstallez avant l'extension VS Code, le plugin JetBrains et l'application de bureau, qui recréent ce dossier :</p>
+
+      <pre><code>rm -rf ~/.claude
+rm ~/.claude.json</code></pre>
+
+      <p>Si <code>claude</code> répond encore après tout cela, il reste une seconde installation, souvent une ancienne version npm ou un alias laissé par un ancien installeur.</p>
+
+      <h2>Erreurs d'installation fréquentes et leur solution</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Message affiché</th><th scope="col">Cause</th><th scope="col">Solution</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>command not found: claude</code> ou <code>'claude' is not recognized</code></td><td>Le terminal est resté ouvert pendant l'installation, ou le dossier n'est pas dans le PATH</td><td>Ouvrir un nouveau terminal ; sinon ajouter le dossier au PATH (ci-dessous)</td></tr>
+            <tr><td><code>'irm' is not recognized</code></td><td>Vous êtes dans CMD, pas dans PowerShell</td><td>Ouvrir PowerShell, ou prendre la commande CMD</td></tr>
+            <tr><td><code>The token '&amp;&amp;' is not a valid statement separator</code></td><td>Commande CMD lancée dans PowerShell</td><td>Prendre la commande PowerShell</td></tr>
+            <tr><td><code>A parameter cannot be found that matches parameter name 'fsSL'</code></td><td>Commande Mac et Linux lancée dans PowerShell</td><td>Prendre la commande PowerShell</td></tr>
+            <tr><td><code>syntax error near unexpected token '&lt;'</code> ou erreur 403</td><td>Le serveur renvoie une page web au lieu du script : pays non pris en charge, proxy d'entreprise ou incident passager</td><td>Vérifier que votre pays est pris en charge, réessayer plus tard, ou passer par Homebrew ou WinGet</td></tr>
+            <tr><td><code>EACCES: permission denied</code></td><td>Dossier d'installation non accessible en écriture, souvent après une installation npm</td><td>Passer à l'installeur natif, sans sudo</td></tr>
+            <tr><td><code>Cask 'claude-code' is unavailable</code></td><td>Homebrew n'est pas à jour</td><td><code>brew update</code>, puis relancer l'installation</td></tr>
+            <tr><td><code>Killed</code> pendant l'installation sous Linux</td><td>Mémoire insuffisante sur la machine</td><td>Libérer de la mémoire ou ajouter de l'espace d'échange (swap)</td></tr>
+            <tr><td><code>App unavailable in region</code></td><td>Claude Code n'est pas proposé dans votre pays</td><td>Aucun contournement officiel</td></tr>
+            <tr><td><code>OAuth error: Invalid code</code></td><td>Code de connexion expiré ou coupé au copier-coller</td><td>Recommencer rapidement, ou appuyer sur <code>c</code> pour copier le lien complet</td></tr>
+            <tr><td><code>API Error: 403</code> après la connexion</td><td>Abonnement inactif, ou rôle manquant sur un compte Console</td><td>Vérifier l'abonnement dans les réglages de claude.ai</td></tr>
+            <tr><td><code>This organization has been disabled</code></td><td>Une ancienne clé <code>ANTHROPIC_API_KEY</code> passe avant l'abonnement</td><td><code>unset ANTHROPIC_API_KEY</code>, puis relancer <code>claude</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Ajouter Claude Code au PATH</h3>
+
+      <p>Sur Mac, avec Zsh, le shell par défaut :</p>
+
+      <pre><code>echo 'export PATH="$HOME/.local/bin:$PATH"' &gt;&gt; ~/.zshrc
+source ~/.zshrc</code></pre>
+
+      <p>Sur Linux et WSL, avec Bash, même ligne en remplaçant <code>~/.zshrc</code> par <code>~/.bashrc</code>. Sous Windows, dans PowerShell :</p>
+
+      <pre><code>$currentPath = [Environment]::GetEnvironmentVariable('PATH', 'User')
+[Environment]::SetEnvironmentVariable('PATH', "$currentPath;$env:USERPROFILE\.local\bin", 'User')</code></pre>
+
+      <p>Redémarrez ensuite le terminal et relancez <code>claude --version</code>.</p>
+
+      <div class="callout callout--info">
+        <p class="callout-t">Le terminal fait peur, et c'est le seul vrai obstacle</p>
+        <p>La difficulté n'est jamais l'agent, qui parle français et explique ce qu'il fait. C'est l'écran noir. Une fois passée la première demi-heure, la question ne se pose plus. Si cet obstacle vous bloque, commencez par l'application de bureau ou l'extension VS Code : le moteur est le même.</p>
+      </div>
+
+      <h2>Et après l'installation ?</h2>
+
+      <p>Claude Code s'enrichit ensuite de trois façons :</p>
+
+      <ul>
+        <li><strong>Les skills</strong> : des savoir-faire réutilisables (une procédure d'audit, une checklist de publication) que l'agent charge quand il en a besoin. Le mode d'emploi est dans <a href="/blog/claude-skills">Claude Skills</a>.</li>
+        <li><strong>Les serveurs MCP</strong> : la connexion à vos outils (Search Console, crawler, base de données). Voir <a href="/blog/mcp-model-context-protocol">c'est quoi un serveur MCP</a>.</li>
+        <li><strong>Les plugins</strong> : des paquets qui regroupent skills, agents et serveurs MCP, à installer avec <code>/plugin</code> dans une session.</li>
+      </ul>
+
+      <p>La moitié de ce que je lui confie n'a rien à voir avec du développement : convertir des centaines d'images, croiser deux exports, vérifier un site avant sa mise en ligne. Quand une tâche revient chaque semaine, elle devient un programme qui tourne seul : c'est le type de chantier que je mène en <a href="/automatisation-ia">mission d'automatisation IA</a>.</p>
 
       <!-- ================= FAQ ================= -->
       <section class="faq">
         <h2>Questions fréquentes</h2>
 
         <details>
-          <summary>Comment fonctionne Claude Code ?</summary>
-          <div class="faq-a"><p>Vous décrivez ce que vous voulez obtenir, l'agent explore votre projet, propose un plan, puis exécute : il lit les fichiers nécessaires, écrit les modifications, lance les commandes de vérification et corrige ce qui échoue. Contrairement à un assistant classique, il agit réellement sur vos fichiers au lieu de proposer du code à recopier.</p></div>
-        </details>
-
-        <details>
           <summary>Comment installer Claude Code ?</summary>
-          <div class="faq-a"><p>L'installation se fait en une commande dans un terminal, sur Mac, Windows ou Linux. Vous placez ensuite le terminal dans le dossier de votre projet, vous lancez l'agent et vous vous authentifiez avec votre compte Claude ou une clé d'API. Des extensions existent aussi pour Visual Studio Code et les outils JetBrains.</p></div>
+          <div class="faq-a"><p>Ouvrez un terminal et collez la commande de votre système : curl -fsSL https://claude.ai/install.sh | bash sur Mac, Linux et WSL, irm https://claude.ai/install.ps1 | iex dans PowerShell sous Windows. Ouvrez ensuite un nouveau terminal et vérifiez avec claude --version. Lancez enfin claude dans le dossier de votre projet pour vous connecter.</p></div>
         </details>
 
         <details>
-          <summary>Quels sont les tarifs de Claude Code ?</summary>
-          <div class="faq-a"><p>Claude Code est inclus dans les abonnements Claude payants, à partir du plan Pro à 17 dollars par mois en engagement annuel. Il n'y a pas de licence séparée. Le plan Max lève les limites d'usage pour un travail soutenu, et l'accès par API permet de payer à la consommation. Tarifs relevés en août 2026.</p></div>
+          <summary>Claude Code est-il gratuit ?</summary>
+          <div class="faq-a"><p>L'installation est gratuite, pas l'usage. Claude Code demande un abonnement Claude Pro, Max, Team ou Enterprise, ou un compte Console facturé au token. La formule gratuite de Claude ne donne pas accès à Claude Code, ni dans le terminal ni dans l'application de bureau.</p></div>
         </details>
 
         <details>
-          <summary>Claude Code est-il efficace ?</summary>
-          <div class="faq-a"><p>Il est excellent sur les tâches bien délimitées et vérifiables : traiter des fichiers en masse, écrire des utilitaires, modifier un site, contrôler avant publication. Il est moins fiable quand la demande est floue ou quand la bonne réponse dépend d'un contexte métier qu'il n'a pas. La règle : ne lui confiez pas une tâche dont vous ne sauriez pas vérifier le résultat.</p></div>
+          <summary>Faut-il installer Node.js pour utiliser Claude Code ?</summary>
+          <div class="faq-a"><p>Non. L'installeur natif fournit un programme autonome qui n'a pas besoin de Node.js. Node.js, en version 22 ou plus, ne sert que si vous choisissez l'installation par npm, et même dans ce cas le paquet installe le même programme natif.</p></div>
         </details>
 
         <details>
-          <summary>Quelles sont les fonctionnalités de Claude Code ?</summary>
-          <div class="faq-a"><p>Il lit et modifie les fichiers d'un projet entier, exécute des commandes, lance les tests, gère les versions, et se connecte à des outils externes via le protocole MCP. Un système de permissions demande votre accord avant chaque opération sensible. Le fichier CLAUDE.md placé à la racine lui donne le contexte du projet au démarrage.</p></div>
+          <summary>Où s'installe Claude Code ?</summary>
+          <div class="faq-a"><p>Avec l'installeur natif, la commande claude est placée dans ~/.local/bin sur Mac et Linux, et dans %USERPROFILE%\.local\bin sous Windows. Les versions sont rangées dans ~/.local/share/claude. Vos réglages et votre historique se trouvent dans le dossier ~/.claude et le fichier ~/.claude.json.</p></div>
         </details>
 
         <details>
-          <summary>Claude Code ou GitHub Copilot : quelle différence ?</summary>
-          <div class="faq-a"><p>Copilot complète votre code ligne par ligne pendant que vous écrivez : il vous aide à aller plus vite. Claude Code prend en charge une tâche complète de bout en bout et vous rend compte du résultat. Pour quelqu'un qui ne programme pas, seule la seconde approche est réellement utilisable.</p></div>
+          <summary>Comment avoir Claude Code dans VS Code ?</summary>
+          <div class="faq-a"><p>Ouvrez la vue Extensions de VS Code (Ctrl + Maj + X, ou Cmd + Maj + X sur Mac), cherchez « Claude Code » publié par Anthropic et installez-le. Ouvrez un fichier, cliquez sur l'icône Spark en haut à droite de l'éditeur, puis connectez-vous. Il faut VS Code 1.94 ou plus récent et un compte Claude payant ou Console.</p></div>
         </details>
 
         <details>
-          <summary>Peut-on utiliser Claude Code sans savoir coder ?</summary>
-          <div class="faq-a"><p>Oui, à condition de savoir décrire précisément un résultat attendu. Commencez par une tâche répétitive et sans risque comme convertir des images ou nettoyer un export, travaillez sur une copie, et demandez à l'agent d'expliquer ce qu'il va faire avant d'agir. Comptez une semaine pour que le réflexe s'installe.</p></div>
+          <summary>Claude Code fonctionne-t-il sur Windows sans WSL ?</summary>
+          <div class="faq-a"><p>Oui. Avec l'installeur natif, Claude Code tourne directement sous Windows 10 (version 1809 et plus) et Windows 11, depuis PowerShell ou CMD, sans droits administrateur. Git for Windows est recommandé pour que l'agent dispose de Git Bash. WSL 2 reste utile si vos projets demandent des outils Linux ou l'isolation des commandes.</p></div>
         </details>
+
+        <details>
+          <summary>Comment mettre à jour Claude Code ?</summary>
+          <div class="faq-a"><p>Avec l'installeur natif, les mises à jour se font seules en arrière-plan, et la commande claude update force la dernière version. Avec Homebrew, WinGet, apt, dnf ou npm, la mise à jour est manuelle : brew upgrade claude-code, winget upgrade Anthropic.ClaudeCode ou npm install -g @anthropic-ai/claude-code@latest, par exemple.</p></div>
+        </details>
+
+        <details>
+          <summary>Comment installer un plugin dans Claude Code ?</summary>
+          <div class="faq-a"><p>Dans une session, tapez /plugin pour parcourir les plugins disponibles, ou /plugin install suivi du nom du plugin et de sa marketplace, par exemple commit-commands@claude-plugins-official. Choisissez ensuite la portée : pour vous dans tous vos projets, pour tous les collaborateurs du dépôt, ou pour vous dans ce dépôt seulement.</p></div>
+        </details>
+
       </section>
 
       <!-- ================= CTA ================= -->
@@ -618,24 +832,24 @@
   <aside class="rail rail-right">
     <div class="ai-box">
       <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
-      <p class="ai-text">Claude Code est un agent d'Anthropic qui travaille dans le terminal : il lit les fichiers d'un projet, les modifie, exécute des commandes et vérifie son résultat. Il est inclus dans les abonnements Claude payants. Le fichier de contexte CLAUDE.md détermine la qualité du résultat plus que la formulation des demandes.</p>
+      <p class="ai-text">Claude Code s'installe avec une commande : curl -fsSL https://claude.ai/install.sh | bash sur Mac, Linux et WSL, irm https://claude.ai/install.ps1 | iex dans PowerShell. L'installeur natif se passe de Node.js et se met à jour seul. L'usage demande un compte Claude Pro, Max, Team, Enterprise ou Console ; VS Code, JetBrains et l'application de bureau évitent le terminal.</p>
       <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
     </div>
 
     <div class="rail-recent">
       <p class="rail-title">Dans la même catégorie</p>
       <div class="mini-list">
-        <a class="mini" href="/blog/claude-ai">
-          <span class="mini-thumb"><picture><source srcset="/images/blog/claude-ai-cover.avif" type="image/avif"><img src="/images/blog/claude-ai-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
-          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Claude AI : ce que vaut vraiment l'IA d'Anthropic</span></span>
+        <a class="mini" href="/blog/claude-ai-gratuit">
+          <span class="mini-thumb"><picture><source srcset="/images/blog/claude-ai-gratuit-cover.avif" type="image/avif"><img src="/images/blog/claude-ai-gratuit-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Claude AI gratuit : limites réelles et astuces (2026)</span></span>
         </a>
-        <a class="mini" href="/blog/n8n">
-          <span class="mini-thumb"><picture><source srcset="/images/blog/n8n-cover.avif" type="image/avif"><img src="/images/blog/n8n-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
-          <span><span class="mini-cat">Automatisation IA</span><span class="mini-ttl">n8n : ce que l'outil fait vraiment</span></span>
+        <a class="mini" href="/blog/vibe-coding">
+          <span class="mini-thumb"><picture><source srcset="/images/blog/vibe-coding-cover.avif" type="image/avif"><img src="/images/blog/vibe-coding-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Vibe coding : définition, outils et limites (2026)</span></span>
         </a>
-        <a class="mini" href="/blog/prompt-chatgpt">
-          <span class="mini-thumb"><picture><source srcset="/images/blog/prompt-chatgpt-cover.avif" type="image/avif"><img src="/images/blog/prompt-chatgpt-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
-          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Prompt ChatGPT : arrêtez d'en écrire</span></span>
+        <a class="mini" href="/blog/mcp-model-context-protocol">
+          <span class="mini-thumb"><picture><source srcset="/images/blog/mcp-cover.avif" type="image/avif"><img src="/images/blog/mcp-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">MCP IA : c'est quoi un serveur MCP ? Définition et exemples</span></span>
         </a>
       </div>
     </div>
@@ -646,30 +860,30 @@
 <section class="related">
   <div class="wrap">
     <h2>À lire ensuite</h2>
-    <p class="sub">La suite logique du parcours.</p>
+    <p class="sub">Claude Code est installé : la suite du parcours.</p>
     <div class="rel-grid">
-      <a class="rel-card" href="/blog/claude-ai">
-        <picture><source srcset="/images/blog/claude-ai-cover.avif" type="image/avif"><img src="/images/blog/claude-ai-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
+      <a class="rel-card" href="/blog/claude-code-prix">
+        <picture><source srcset="/images/blog/claude-code-prix-cover.avif" type="image/avif"><img src="/images/blog/claude-code-prix-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
 <div class="rel-body">
           <span class="rel-cat">Utiliser l'IA</span>
-          <h3>Claude AI : ce que vaut vraiment l'IA d'Anthropic</h3>
-          <p>Le test complet : ce qu'il fait mieux que ChatGPT, ses limites, les prix et la version gratuite.</p>
+          <h3>Claude Code prix : gratuit ou payant ? Coût réel (2026)</h3>
+          <p>Dans quelles formules Claude Code est inclus, et ce que coûte l'usage à l'API.</p>
         </div>
       </a>
-      <a class="rel-card" href="/blog/n8n">
-        <picture><source srcset="/images/blog/n8n-cover.avif" type="image/avif"><img src="/images/blog/n8n-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
+      <a class="rel-card" href="/blog/claude-skills">
+        <picture><source srcset="/images/blog/automatiser-seo-claude-code-cover.avif" type="image/avif"><img src="/images/blog/automatiser-seo-claude-code-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
 <div class="rel-body">
-          <span class="rel-cat">Automatisation IA</span>
-          <h3>n8n : ce que l'outil fait vraiment</h3>
-          <p>Automatisation open source : ses forces, ses limites, et quand le code sur mesure reprend l'avantage.</p>
+          <span class="rel-cat">Automatisation</span>
+          <h3>Claude Skills : créer, installer et 10 exemples (2026)</h3>
+          <p>Apprendre à Claude Code vos procédures une fois pour toutes, avec des exemples.</p>
         </div>
       </a>
-      <a class="rel-card" href="/blog/prompt-chatgpt">
-        <picture><source srcset="/images/blog/prompt-chatgpt-cover.avif" type="image/avif"><img src="/images/blog/prompt-chatgpt-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
+      <a class="rel-card" href="/blog/mcp-model-context-protocol">
+        <picture><source srcset="/images/blog/mcp-cover.avif" type="image/avif"><img src="/images/blog/mcp-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
 <div class="rel-body">
           <span class="rel-cat">Utiliser l'IA</span>
-          <h3>Prompt ChatGPT : arrêtez d'en écrire</h3>
-          <p>Le prompt parfait n'existe plus. Ce qui change tout, c'est le contexte que vous donnez avant de demander.</p>
+          <h3>MCP IA : c'est quoi un serveur MCP ? Définition et exemples</h3>
+          <p>Brancher Claude Code sur vos outils : Search Console, crawler, base de données.</p>
         </div>
       </a>
     </div>
@@ -711,7 +925,7 @@
 <script src="/js/blog-article.js?v=4" defer></script>
 
 <!-- Outil interactif propre à cet article -->
-<script src="/js/claude-md-tool.js?v=1" defer></script>
+<script src="/js/claude-md-tool.js?v=2" defer></script>
 
 </body>
 </html>

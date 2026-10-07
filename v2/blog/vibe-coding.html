@@ -4,8 +4,8 @@
 <script src="/js/js-flag.js?v=1"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vibe coding : créer des outils sans savoir coder</title>
-<meta name="description" content="Décrire un programme et laisser l'IA l'écrire : ce que le vibe coding permet vraiment, où il casse, quels outils choisir et comment commencer sans risque.">
+<title>Vibe coding : définition, outils et limites (2026)</title>
+<meta name="description" content="Vibe coding : définition et origine du terme, outils (Claude Code, Cursor, Lovable) avec leurs prix, méthode pour débuter, exemple réel et limites.">
 <link rel="canonical" href="https://anthony-courtin.com/blog/vibe-coding">
 <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
@@ -14,13 +14,13 @@
 <meta name="robots" content="index, follow, max-image-preview:large">
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vibe coding : créer des outils sans savoir coder">
-<meta property="og:description" content="Ce que j'ai livré en vibe coding, ce que j'ai jeté, et la ligne exacte entre les deux. Outils, méthode, limites et évaluation de votre projet.">
+<meta property="og:title" content="Vibe coding : définition, outils et limites (2026)">
+<meta property="og:description" content="Le vibe coding expliqué : d'où vient le terme, les outils et leurs prix, la méthode pour débuter, un exemple réel et les limites, avec un test de votre projet.">
 <meta property="og:url" content="https://anthony-courtin.com/blog/vibe-coding">
 <meta property="og:image" content="https://anthony-courtin.com/images/blog/vibe-coding-cover.webp">
 <meta property="og:locale" content="fr_FR">
 <meta property="article:published_time" content="2026-10-05">
-<meta property="article:modified_time" content="2026-10-05">
+<meta property="article:modified_time" content="2026-10-07">
 <meta property="article:author" content="Anthony Courtin">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -37,17 +37,17 @@
     {
       "@type":"BlogPosting",
       "@id":"https://anthony-courtin.com/blog/vibe-coding#article",
-      "headline":"Vibe coding : ce que ça permet vraiment",
-      "description":"Guide complet du vibe coding : définition, fonctionnement de la boucle décrire, générer, tester, familles d'outils, avantages réels, limites de sécurité et de dette technique, méthode pour débuter et impact sur les métiers.",
+      "headline":"Vibe coding : définition, outils, méthode et limites",
+      "description":"Vibe coding : définition et origine du terme, outils (Claude Code, Cursor, Lovable) avec leurs prix, méthode pour débuter, exemple réel et limites.",
       "inLanguage":"fr-FR",
       "datePublished":"2026-10-05",
-      "dateModified":"2026-10-05",
+      "dateModified":"2026-10-07",
       "image":"https://anthony-courtin.com/images/blog/vibe-coding-cover.webp",
-      "wordCount":4000,
+      "wordCount":4680,
       "mainEntityOfPage":{"@type":"WebPage","@id":"https://anthony-courtin.com/blog/vibe-coding"},
       "author":{"@id":"https://anthony-courtin.com/#anthony"},
       "publisher":{"@id":"https://anthony-courtin.com/#anthony"},
-      "about":[{"@type":"Thing","name":"Vibe coding"},{"@type":"Thing","name":"Développement logiciel"},{"@type":"Thing","name":"Intelligence artificielle"},{"@type":"Thing","name":"Claude Code"},{"@type":"Thing","name":"Programmation"}]
+      "about":[{"@type":"Thing","name":"Vibe coding"},{"@type":"Person","name":"Andrej Karpathy"},{"@type":"Thing","name":"Outils de vibe coding"},{"@type":"Thing","name":"Claude Code"},{"@type":"Thing","name":"Développement logiciel"}]
     },
     {
       "@type":"Person",
@@ -70,21 +70,21 @@
       "@type":"FAQPage",
       "mainEntity":[
         {"@type":"Question","name":"Qu'est-ce que le vibe coding ?",
-         "acceptedAnswer":{"@type":"Answer","text":"C'est une manière de programmer où l'on décrit en langage naturel ce qu'un programme doit faire, et où un modèle écrit le code correspondant. La différence avec l'autocomplétion classique est que vous ne lisez plus forcément le code produit : vous exécutez, vous constatez le résultat et vous corrigez en reformulant. Le programme est jugé par son comportement plutôt que par sa lecture."}},
+         "acceptedAnswer":{"@type":"Answer","text":"Le vibe coding est une façon de programmer où vous décrivez en langage naturel ce qu'un logiciel doit faire, et où une IA écrit le code. Vous ne lisez plus forcément le code produit : vous exécutez, vous constatez le résultat et vous corrigez en reformulant. Le programme est jugé par son comportement plutôt que par sa lecture."}},
+        {"@type":"Question","name":"Qui a inventé le terme vibe coding ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Andrej Karpathy, chercheur en IA et cofondateur d'OpenAI, dans un message publié sur X le 2 février 2025. Il y décrivait une façon de coder où il oubliait jusqu'à l'existence du code. Le dictionnaire Collins a élu vibe coding mot de l'année 2025."}},
         {"@type":"Question","name":"Comment fonctionne le vibe coding ?",
          "acceptedAnswer":{"@type":"Answer","text":"En une boucle de quatre temps répétée des dizaines de fois. Vous décrivez le résultat attendu, le modèle produit les fichiers et lance souvent le programme lui-même, vous testez en utilisant l'outil plutôt qu'en lisant son code, puis vous corrigez en décrivant ce qui ne va pas. La qualité du résultat dépend surtout du sérieux des tests : des données réelles et bancales donnent un outil solide."}},
         {"@type":"Question","name":"Quels outils de vibe coding utiliser ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Trois familles existent. Les agents en terminal, comme Claude Code, sont les plus puissants et les plus autonomes mais supposent d'être à l'aise en ligne de commande. Les éditeurs augmentés offrent le bon compromis, avec la visibilité sur les fichiers modifiés. Les plateformes tout-en-un génèrent et hébergent l'application sans que vous voyiez un fichier, au prix d'une dépendance au prestataire."}},
-        {"@type":"Question","name":"Quels sont les avantages du vibe coding ?",
-         "acceptedAnswer":{"@type":"Answer","text":"La vitesse d'abord : un outil interne d'une semaine se livre en une soirée. L'accessibilité ensuite, puisque des personnes qui ne programmeront jamais peuvent fabriquer leurs propres outils. Le prototype comme langage commun, qui remplace des pages de spécifications. Et le droit d'essayer : quand un essai coûte deux heures au lieu de deux semaines, on tente des choses qu'on n'aurait jamais budgétées."}},
-        {"@type":"Question","name":"Vibe coding pour débutants, comment commencer ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Choisissez un projet qui vous sert personnellement, que vous seul utilisez, sans données sensibles et que vous pouvez jeter sans conséquence. Décrivez-le en trois phrases, laissez produire une première version et utilisez-la immédiatement. Puis appliquez cinq règles : décrire le résultat plutôt que la méthode, une demande à la fois, tester avec des données réelles et sales, demander des tests automatisés dès le début, et garder un historique des versions."}},
-        {"@type":"Question","name":"Comment apprendre le vibe coding ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Par la pratique sur un projet réel, pas par un cours. La compétence porte sur trois choses : savoir spécifier, c'est-à-dire décomposer un besoin flou en comportements précis ; savoir juger, c'est-à-dire reconnaître un résultat faux ; et comprendre une dizaine de concepts fondamentaux comme la raison pour laquelle un mot de passe ne se stocke pas en clair. La syntaxe, elle, n'est plus nécessaire."}},
+         "acceptedAnswer":{"@type":"Answer","text":"Trois familles existent. Les agents de code, comme Claude Code ou Codex, sont les plus autonomes mais supposent d'être à l'aise avec un terminal. Les éditeurs augmentés, comme Cursor ou GitHub Copilot, offrent le bon compromis. Les plateformes tout-en-un, comme Lovable ou Bolt.new, génèrent et hébergent l'application sans que vous voyiez un fichier, au prix d'une dépendance au prestataire."}},
+        {"@type":"Question","name":"Est-il possible de faire du vibe coding avec ChatGPT ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Oui. Le chat de ChatGPT suffit pour un petit script que vous copiez et exécutez vous-même. Pour aller plus loin, Codex, l'agent de code d'OpenAI inclus dans les abonnements ChatGPT, modifie les fichiers, lance le programme et corrige seul ses erreurs."}},
+        {"@type":"Question","name":"Est-il possible de faire du vibe coding sans savoir coder ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Oui, c'est même ce qui distingue le vibe coding : une plateforme tout-en-un permet de produire un outil fonctionnel sans écrire une ligne. Il faut en revanche savoir décrire précisément le besoin, tester avec des données réelles et comprendre quelques notions de base, comme la raison pour laquelle un mot de passe ne se stocke pas en clair. Dès que l'outil touche des données personnelles ou des utilisateurs extérieurs, une relecture par un développeur s'impose."}},
         {"@type":"Question","name":"Quelles sont les limites du vibe coding ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Trois limites sérieuses. La dette invisible, puisqu'un code que vous ne lisez pas est un code dont vous ignorez la qualité. Le mur des un à deux mille lignes, au-delà duquel le modèle répare un endroit en cassant un autre. Et la sécurité, car un modèle produit du code qui fonctionne, pas nécessairement du code sûr : les données non validées et les secrets en clair ne se voient pas à l'usage."}},
-        {"@type":"Question","name":"Quels sont les emplois liés au vibe coding ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Le métier de développeur ne disparaît pas, il se déplace vers la conception, la relecture et la garantie de sécurité. Les développeurs expérimentés voient leur jugement devenir la ressource rare, et les experts métier peuvent désormais fabriquer leurs propres outils. Le profil fragilisé est celui du développeur junior cantonné aux tâches répétitives, précisément celles que ces outils font le mieux."}}
+         "acceptedAnswer":{"@type":"Answer","text":"Trois limites sérieuses. La dette invisible, puisqu'un code que vous ne lisez pas est un code dont vous ignorez la qualité. Un mur, que je constate vers un à deux milliers de lignes, au-delà duquel le modèle répare un endroit en cassant un autre. Et la sécurité : un modèle produit du code qui fonctionne, pas nécessairement du code sûr, et les données non validées ou les secrets en clair ne se voient pas à l'usage."}},
+        {"@type":"Question","name":"Vibe coding pour débutants, comment commencer ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Choisissez un projet qui vous sert personnellement, que vous seul utilisez, sans données sensibles et que vous pouvez jeter sans conséquence. Décrivez-le en trois phrases, laissez produire une première version et utilisez-la immédiatement. Puis appliquez cinq règles : décrire le résultat plutôt que la méthode, une demande à la fois, tester avec des données réelles et sales, demander des tests automatisés dès le début, et garder un historique des versions."}}
       ]
     }
   ]
@@ -182,8 +182,8 @@
     </nav>
 
     <span class="art-cat">Utiliser l'IA</span>
-    <h1 class="art-title">Vibe coding : ce que ça permet vraiment</h1>
-    <p class="art-lede">Décrire ce qu'on veut, laisser un modèle l'écrire, juger au résultat. J'ai livré de vrais outils comme ça et j'en ai jeté d'autres. Voici la ligne entre les deux.</p>
+    <h1 class="art-title">Vibe coding : définition, outils, méthode et limites</h1>
+    <p class="art-lede">Le vibe coding consiste à décrire un programme en langage naturel et à laisser une IA écrire le code. J'ai livré de vrais outils comme ça et j'en ai jeté d'autres : voici la définition, les outils, la méthode pour débuter et la ligne entre les deux.</p>
 
     <div class="art-metaline">
       <span class="who">
@@ -193,9 +193,9 @@
       <span class="dot" aria-hidden="true">·</span>
       <time datetime="2026-10-05">5 octobre 2026</time>
       <span class="dot" aria-hidden="true">·</span>
-      <span>15 min de lecture</span>
+      <span>20 min de lecture</span>
       <span class="dot" aria-hidden="true">·</span>
-      <span>Mis à jour le <time datetime="2026-10-05">5 octobre 2026</time></span>
+      <span>Mis à jour le <time datetime="2026-10-07">7 octobre 2026</time></span>
     </div>
 
     <!-- Boutons "Résumer avec" : les href sont construits par blog-article.js -->
@@ -246,7 +246,7 @@
     <!-- Résumé IA version mobile : rendu côté serveur, donc lisible par Google et les LLM -->
     <div class="ai-box ai-box-mobile">
       <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
-      <p class="ai-text">Le vibe coding consiste à décrire en langage naturel ce qu'un programme doit faire et à laisser un modèle écrire le code, en jugeant le résultat à l'usage plutôt qu'à la lecture. La boucle tient en quatre temps : décrire, produire, tester, corriger en reformulant. Trois familles d'outils existent : agents en terminal, éditeurs augmentés et plateformes tout-en-un. La pratique est redoutablement efficace sur les outils internes, jetables et sans données sensibles, mais casse sur trois points : la dette invisible d'un code non lu, un mur situé autour d'un à deux mille lignes, et la sécurité. La règle : fabriquez tout ce dont l'échec ne coûte qu'à vous.</p>
+      <p class="ai-text">Le vibe coding consiste à décrire en langage naturel ce qu'un programme doit faire et à laisser une IA écrire le code, jugé à l'usage. Le terme vient d'Andrej Karpathy, en février 2025. Les outils se répartissent entre agents (Claude Code, Codex), éditeurs augmentés (Cursor, Copilot) et plateformes (Lovable, Bolt.new). La pratique convient aux outils internes sans données sensibles.</p>
       <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
     </div>
 
@@ -259,9 +259,9 @@
         </picture>
       </figure>
 
-      <p><strong>Le vibe coding consiste à décrire en langage naturel ce qu'un programme doit faire, et à laisser un modèle écrire le code.</strong> Vous jugez le résultat à l'usage plutôt qu'à la lecture. C'est devenu une manière crédible de fabriquer des outils, à condition de savoir exactement où elle s'arrête.</p>
+      <p><strong>Le vibe coding est une façon de programmer où vous décrivez en langage naturel ce qu'un logiciel doit faire, et où une IA écrit le code à votre place : vous jugez le résultat à l'usage plutôt qu'en lisant le code.</strong> Le terme a été lancé par Andrej Karpathy, cofondateur d'OpenAI, dans un message publié sur X le 2 février 2025, et le dictionnaire Collins en a fait son mot de l'année 2025.</p>
 
-      <p>J'ai livré de vrais outils comme ça, et j'en ai jeté d'autres après trois semaines. Voici ce que cette pratique permet réellement, où elle casse, et comment s'y mettre sans se raconter d'histoires.</p>
+      <p>C'est devenu une manière crédible de fabriquer des outils, à condition de savoir exactement où elle s'arrête. J'ai livré de vrais outils comme ça, et j'en ai jeté d'autres après trois semaines. Voici la définition, les outils de vibe coding avec leurs prix, la méthode pour débuter, un exemple réel et les limites.</p>
 
       <div class="verdict">
         <div class="verdict-note">
@@ -269,7 +269,7 @@
           <span>lignes, le mur</span>
         </div>
         <div class="verdict-body">
-          <h2>Ce que ça vaut vraiment</h2>
+          <h2>Ce que le vibe coding vaut vraiment</h2>
           <p>Redoutablement efficace sur les petits outils à usage interne. Rapidement dangereux dès qu'il y a des utilisateurs, des données personnelles ou une durée de vie longue.</p>
           <div class="verdict-lists">
             <ul class="verdict-pros">
@@ -279,7 +279,7 @@
             </ul>
             <ul class="verdict-cons">
               <li>Une dette invisible tant que rien ne casse</li>
-              <li>Des failles de sécurité qu'on ne voit pas sans savoir lire</li>
+              <li>Des failles de sécurité invisibles sans savoir lire le code</li>
             </ul>
           </div>
         </div>
@@ -292,10 +292,10 @@
       <section class="takeaways">
         <h2>À retenir</h2>
         <ul>
-          <li><strong>Décrire remplace écrire</strong>, mais juger reste indispensable. Vous ne lisez plus le code, vous testez le comportement.</li>
-          <li><strong>Le point de rupture arrive vers un ou deux milliers de lignes</strong>, quand plus personne ne sait ce que fait l'ensemble.</li>
-          <li><strong>Les meilleurs projets sont internes, jetables et sans données sensibles.</strong> C'est là que le rapport bénéfice sur risque est imbattable.</li>
-          <li><strong>La compétence qui compte devient la spécification</strong> : savoir dire précisément ce que l'on veut, et reconnaître un résultat faux.</li>
+          <li><strong>Le vibe coding consiste à décrire un programme en langage naturel</strong> et à laisser une IA l'écrire. Le terme vient d'Andrej Karpathy, en février 2025.</li>
+          <li><strong>Décrire remplace écrire</strong>, mais juger reste indispensable : vous ne lisez plus le code, vous testez le comportement.</li>
+          <li><strong>Trois familles d'outils</strong> : agents (Claude Code, Codex), éditeurs augmentés (Cursor, GitHub Copilot), plateformes tout-en-un (Lovable, Bolt.new).</li>
+          <li><strong>Les meilleurs projets sont internes, jetables et sans données sensibles.</strong> Dans mes projets, le point de rupture arrive vers un ou deux milliers de lignes.</li>
           <li><strong>Demandez les tests dès le premier jour.</strong> C'est le seul filet qui permette de reprendre un projet trois mois plus tard.</li>
         </ul>
       </section>
@@ -372,13 +372,17 @@
         </div>
       </div>
 
-      <h2>Qu'est-ce que le vibe coding ?</h2>
+      <h2>Qu'est-ce que le vibe coding ? Définition et origine</h2>
 
-      <p>C'est une manière de programmer où l'on décrit l'intention plutôt que l'implémentation. Vous ne tapez pas de boucles ni de conditions : vous dites « je veux un outil qui prend un fichier de commandes, repère les doublons et me sort un tableau propre », et un modèle produit le programme correspondant.</p>
+      <p>C'est une manière de programmer où vous décrivez l'intention plutôt que l'implémentation. Vous ne tapez pas de boucles ni de conditions : vous dites « je veux un outil qui prend un fichier de commandes, repère les doublons et me sort un tableau propre », et un modèle produit le programme correspondant.</p>
 
-      <p>La différence avec l'autocomplétion assistée n'est pas de degré, elle est de nature. Dans un éditeur classique augmenté, vous écrivez du code et la machine complète vos phrases. Ici, <strong>vous ne lisez plus forcément le code produit</strong> : vous exécutez, vous constatez le résultat, et vous corrigez en reformulant. Le programme redevient une boîte noire que l'on juge par son comportement.</p>
+      <p>La différence avec l'autocomplétion assistée n'est pas de degré, elle est de nature. Dans un éditeur classique augmenté, vous écrivez du code et la machine complète vos phrases. Ici, <strong>vous ne lisez plus forcément le code produit</strong> : vous exécutez, vous constatez le résultat, et vous corrigez en reformulant. Le programme redevient une boîte noire, jugée sur son comportement.</p>
 
-      <p>Le terme vient du monde du développement, où il désigne, non sans ironie, ce moment où l'on code « à l'ambiance » : on avance à la description et à l'essai, sans passer par la compréhension ligne à ligne. Ce qui était une plaisanterie de développeur est devenu une pratique de travail parce que la qualité du code généré a franchi un seuil.</p>
+      <h3>D'où vient le terme vibe coding</h3>
+
+      <p>L'expression vient d'Andrej Karpathy, chercheur en IA, cofondateur d'OpenAI et ancien responsable de l'IA chez Tesla. Le 2 février 2025, il décrit sur X une nouvelle façon de coder où il se laisse porter par « les vibes » et oublie que le code existe : il parle à son outil, accepte les modifications sans les relire et colle les messages d'erreur jusqu'à ce que ça marche. Le ton est mi-sérieux, mi-ironique, et c'est précisément ce qui a fait circuler le mot.</p>
+
+      <p>En quelques mois, la plaisanterie de développeur est devenue une pratique de travail, parce que la qualité du code généré a franchi un seuil. Merriam-Webster l'a ajouté à sa liste des expressions tendance dès mars 2025, et le dictionnaire Collins l'a élu mot de l'année 2025. En français, le terme anglais s'est imposé tel quel.</p>
 
       <h3>Ce que ce n'est pas</h3>
 
@@ -388,69 +392,94 @@
 
       <p><strong>Ce n'est pas la fin de la programmation.</strong> Le code existe toujours, il tourne toujours sur un serveur, il peut toujours planter à trois heures du matin. Ce qui change, c'est qui l'écrit, pas s'il existe.</p>
 
-      <p><strong>Ce n'est pas magique.</strong> Un modèle produit un programme qui correspond à ce que vous avez dit, pas à ce que vous vouliez dire. L'écart entre les deux est exactement le même que celui qui a toujours séparé un cahier des charges d'un logiciel réussi. Il n'a pas disparu, il s'est déplacé.</p>
+      <p><strong>Ce n'est pas magique.</strong> Un modèle produit un programme qui correspond à ce que vous avez dit, pas à ce que vous vouliez dire. L'écart entre les deux est exactement celui qui a toujours séparé un cahier des charges d'un logiciel réussi. Il n'a pas disparu, il s'est déplacé.</p>
 
       <h2>Comment fonctionne le vibe coding ?</h2>
 
       <p>La boucle tient en quatre temps, et elle se répète des dizaines de fois par séance.</p>
 
-      <p><strong>Vous décrivez.</strong> En français ou en anglais, ce que le programme doit faire, avec quelles entrées et quelles sorties. Plus la description est précise sur le résultat attendu, moins vous ferez d'allers-retours.</p>
+      <ol>
+        <li><strong>Vous décrivez.</strong> En français ou en anglais, ce que le programme doit faire, avec quelles entrées et quelles sorties. Plus la description est précise sur le résultat attendu, moins vous ferez d'allers-retours.</li>
+        <li><strong>Le modèle produit.</strong> Il écrit les fichiers, installe les dépendances nécessaires, et souvent lance lui-même le programme pour vérifier qu'il démarre.</li>
+        <li><strong>Vous testez.</strong> Pas en lisant le code, en l'utilisant. Vous donnez un vrai fichier, vous cliquez sur les vrais boutons, vous regardez si le résultat est celui que vous attendiez.</li>
+        <li><strong>Vous corrigez en décrivant.</strong> « Le tableau ne trie pas dans le bon ordre », « il plante quand le fichier est vide », « ajoute une colonne avec la date ». Le modèle relit son propre code et corrige.</li>
+      </ol>
 
-      <p><strong>Le modèle produit.</strong> Il écrit les fichiers, installe les dépendances nécessaires, et souvent lance lui-même le programme pour vérifier qu'il démarre.</p>
-
-      <p><strong>Vous testez.</strong> Pas en lisant le code, en l'utilisant. Vous donnez un vrai fichier, vous cliquez sur les vrais boutons, vous regardez si le résultat est celui que vous attendiez.</p>
-
-      <p><strong>Vous corrigez en décrivant.</strong> « Le tableau ne trie pas dans le bon ordre », « il plante quand le fichier est vide », « ajoute une colonne avec la date ». Le modèle relit son propre code et corrige.</p>
-
-      <p>Ce cycle est le cœur de la pratique, et c'est aussi là que se joue la réussite ou l'échec. Un utilisateur qui teste sérieusement, avec de vrais cas et de vraies données bancales, obtient un outil solide. Un utilisateur qui teste le cas idéal obtient un outil qui casse au premier fichier mal formé.</p>
+      <p>Ce cycle est le centre de la pratique, et c'est là que se joue la réussite ou l'échec. Un utilisateur qui teste sérieusement, avec de vrais cas et de vraies données bancales, obtient un outil solide. Un utilisateur qui teste le cas idéal obtient un outil qui casse au premier fichier mal formé.</p>
 
       <h3>Pourquoi ça fonctionne seulement maintenant</h3>
 
-      <p>Trois évolutions se sont rejointes. Les modèles écrivent du code nettement plus juste qu'il y a deux ans. Ils tiennent des contextes beaucoup plus longs, donc gardent en tête un projet entier plutôt qu'un fichier isolé. Et surtout, ils sont devenus des agents : ils exécutent les commandes, lisent les messages d'erreur et corrigent seuls, au lieu de se contenter de proposer du texte.</p>
+      <p>Trois évolutions se sont rejointes. Les modèles écrivent du code nettement plus juste qu'il y a deux ans. Ils tiennent des contextes beaucoup plus longs, donc gardent en tête un projet entier plutôt qu'un fichier isolé. Et surtout, ils sont devenus des agents : ils exécutent les commandes, lisent les messages d'erreur et corrigent seuls, au lieu de se contenter de proposer du texte. C'est le même principe que celui d'un <a href="/blog/agent-ia">agent IA</a> appliqué au développement.</p>
 
-      <p>Cette troisième évolution est la vraie bascule. Un modèle qui voit son erreur et la répare change la nature du travail : vous n'êtes plus l'intermédiaire qui copie des messages d'erreur, vous êtes le commanditaire qui juge le résultat.</p>
+      <p>Cette troisième évolution est la vraie bascule. Un modèle qui voit son erreur et la répare change la nature du travail : vous n'êtes plus l'intermédiaire qui copie des messages d'erreur, vous êtes le commanditaire qui juge le résultat. Branché sur vos outils par un <a href="/blog/mcp-model-context-protocol">serveur MCP</a>, il peut même lire vos fichiers, vos bases ou vos exports sans copier-coller.</p>
 
-      <h2>Quels outils de vibe coding utiliser ?</h2>
+      <h2>Les outils de vibe coding</h2>
 
-      <p>Trois familles, et le choix dépend surtout de votre point de départ.</p>
+      <p>Trois familles d'outils de vibe coding existent, et le choix dépend surtout de votre point de départ.</p>
 
-      <h3>Les agents en terminal</h3>
+      <h3>Les agents de code</h3>
 
-      <p>Ce sont les plus puissants. Ils travaillent directement dans un dossier de votre machine, créent et modifient les fichiers, lancent les commandes, lisent les erreurs. Claude Code appartient à cette catégorie, et c'est celui que j'utilise.</p>
+      <p>Ce sont les plus puissants. Ils travaillent directement dans un dossier de votre machine, créent et modifient les fichiers, lancent les commandes, lisent les erreurs. Claude Code, d'Anthropic, et Codex, d'OpenAI, appartiennent à cette catégorie. J'utilise Claude Code au quotidien, et mon tutoriel pour <a href="/blog/claude-code">installer Claude Code</a> part de zéro.</p>
 
-      <p>Leur force est l'autonomie : on peut leur confier une tâche longue et les laisser dérouler. Leur défaut est l'entrée en matière, qui suppose d'être à l'aise avec un terminal. Pour quelqu'un qui n'a jamais ouvert de ligne de commande, ce n'est pas la première marche.</p>
+      <p>Leur force est l'autonomie : vous pouvez leur confier une tâche longue et les laisser dérouler. Leur défaut est l'entrée en matière, qui suppose d'être à l'aise avec un terminal. Pour quelqu'un qui n'a jamais ouvert de ligne de commande, ce n'est pas la première marche.</p>
 
       <h3>Les éditeurs augmentés</h3>
 
-      <p>Un éditeur de code classique dans lequel un assistant est intégré profondément : il voit tout le projet, propose des modifications sur plusieurs fichiers et applique les changements après validation.</p>
+      <p>Un éditeur de code dans lequel un assistant est intégré profondément : il voit tout le projet, propose des modifications sur plusieurs fichiers et applique les changements après validation. Cursor et GitHub Copilot en mode agent en sont deux exemples connus.</p>
 
-      <p>C'est le bon compromis pour qui veut garder un œil sur ce qui se passe. On voit les fichiers, on voit les différences avant de les accepter, et on peut intervenir à la main quand c'est plus rapide. C'est la porte d'entrée que je conseille à quelqu'un qui a déjà des notions.</p>
+      <p>C'est le bon compromis pour garder un œil sur ce qui se passe. Vous voyez les fichiers, vous voyez les différences avant de les accepter, et vous pouvez intervenir à la main quand c'est plus rapide. C'est la porte d'entrée que je conseille à quelqu'un qui a déjà des notions.</p>
 
       <h3>Les plateformes tout-en-un</h3>
 
-      <p>Vous décrivez une application dans un navigateur, elle est générée, hébergée et mise en ligne sans que vous voyiez jamais un fichier. C'est la voie la plus accessible pour un débutant complet, et la plus rapide pour montrer une idée à quelqu'un.</p>
+      <p>Vous décrivez une application dans un navigateur, elle est générée, hébergée et mise en ligne sans que vous voyiez jamais un fichier. Lovable, Bolt.new ou Replit fonctionnent ainsi. C'est la voie la plus accessible pour un débutant complet, et la plus rapide pour montrer une idée à quelqu'un.</p>
 
       <p>Le prix à payer est la dépendance : votre application vit chez un prestataire, avec ses limites et ses tarifs. Pour un prototype ou un outil interne, c'est parfaitement acceptable. Pour un produit que vous comptez faire vivre des années, la question de la portabilité doit être posée dès le premier jour.</p>
 
-      <h3>Comment choisir</h3>
+      <h3>Comparatif des principaux outils et de leurs prix</h3>
 
-      <p>Une règle simple : partez du plus accessible et montez quand vous butez. Si vous n'avez jamais programmé, commencez par une plateforme, livrez quelque chose, prenez confiance. Si vous connaissez un peu, prenez un éditeur augmenté. Si vous êtes déjà technique, l'agent en terminal vous donnera un plafond bien plus haut.</p>
+      <p>Prix publics en dollars, relevés le 7 octobre 2026 sur les pages tarifs des éditeurs. Ils changent souvent : vérifiez avant de vous abonner.</p>
 
-      <p>Ne cherchez pas l'outil parfait, ils progressent tous vite et se ressemblent de plus en plus. Ce qui fait la différence dans le résultat, c'est la façon de commander, pas la marque.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Outil</th><th scope="col">Famille</th><th scope="col">Pour qui</th><th scope="col">Gratuit</th><th scope="col">Payant</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Claude Code</strong> (Anthropic)</td><td>Agent de code</td><td>Profils à l'aise avec un terminal</td><td>Non, absent de l'offre Free de Claude</td><td>Inclus dans Claude Pro, 20 $/mois (17 $ en annuel), et Max, dès 100 $/mois</td></tr>
+            <tr><td><strong>Codex</strong> (OpenAI)</td><td>Agent de code</td><td>Utilisateurs de ChatGPT</td><td>Oui, inclus dans ChatGPT Free avec des limites</td><td>ChatGPT Go 8 $/mois, Plus 20 $/mois, Pro dès 100 $/mois</td></tr>
+            <tr><td><strong>Cursor</strong></td><td>Éditeur augmenté</td><td>Qui a déjà des notions</td><td>Oui (Hobby, requêtes d'agent limitées)</td><td>Individual 20 $/mois</td></tr>
+            <tr><td><strong>GitHub Copilot</strong></td><td>Extension d'éditeur avec mode agent</td><td>Développeurs</td><td>Oui (Free)</td><td>Pro 10 $/mois, Pro+ 39 $/mois</td></tr>
+            <tr><td><strong>Lovable</strong></td><td>Plateforme tout-en-un</td><td>Débutants complets</td><td>Oui, 5 crédits par jour (30 par mois au plus)</td><td>Offres Pro et Business</td></tr>
+            <tr><td><strong>Bolt.new</strong></td><td>Plateforme tout-en-un</td><td>Débutants complets</td><td>Oui</td><td>Pro 25 $/mois</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Pour le détail des formules de l'agent d'Anthropic et de ce qu'elles coûtent vraiment à l'usage, voir mon article sur le <a href="/blog/claude-code-prix">prix de Claude Code</a>.</p>
+
+      <h3>Est-il possible de faire du vibe coding avec ChatGPT ?</h3>
+
+      <p>Oui. Le simple chat de ChatGPT suffit pour un petit script : vous décrivez, il écrit, vous copiez le code et vous l'exécutez vous-même. C'est la version artisanale, où vous restez l'intermédiaire qui recopie les erreurs. Codex, l'agent de code d'OpenAI inclus dans les abonnements ChatGPT, fait le travail complet : il modifie les fichiers, lance le programme et corrige seul.</p>
+
+      <h3>Quel est le meilleur outil de vibe coding ?</h3>
+
+      <p>Il n'y en a pas un, il y a un bon point de départ selon votre profil. Partez du plus accessible et montez quand vous butez. Si vous n'avez jamais programmé, commencez par une plateforme, livrez quelque chose, prenez confiance. Si vous connaissez un peu, prenez un éditeur augmenté. Si vous êtes déjà technique, un agent de code vous donnera un plafond bien plus haut.</p>
+
+      <p>Ne cherchez pas l'outil parfait : ils progressent tous vite et se ressemblent de plus en plus. Ce qui fait la différence dans le résultat, c'est la façon de commander, pas la marque.</p>
 
       <h2>Quels sont les avantages du vibe coding ?</h2>
 
       <p>Quatre gains, dont un seul est vraiment évident.</p>
 
-      <p><strong>La vitesse.</strong> L'évident. Un outil interne qui aurait demandé une semaine se livre en une soirée. Sur du petit périmètre, le facteur est réel et se compte en dizaines.</p>
+      <p><strong>La vitesse.</strong> L'évident. Un outil interne qui aurait demandé une semaine se livre en une soirée, du moins sur un petit périmètre.</p>
 
       <p><strong>L'accessibilité.</strong> Des gens qui ne programmeront jamais peuvent fabriquer l'outil dont ils ont besoin. C'est le changement le plus profond, et il touche des métiers entiers : marketing, comptabilité, logistique, tous ceux qui bricolaient dans un tableur des choses qui méritaient un vrai programme.</p>
 
       <p><strong>Le prototype comme langage commun.</strong> Montrer une maquette qui fonctionne remplace vingt pages de spécifications que personne ne lit de la même façon. Sur un projet à plusieurs, c'est un accélérateur de décision plus qu'un gain de développement.</p>
 
-      <p><strong>Le droit d'essayer.</strong> Le plus sous-estimé. Quand un essai coûte deux heures au lieu de deux semaines, on tente des choses qu'on n'aurait jamais budgétées. La plupart ne donnent rien, une sur dix change une façon de travailler. Cette économie de l'essai est ce qui a le plus changé ma manière de travailler.</p>
+      <p><strong>Le droit d'essayer.</strong> Le plus sous-estimé. Quand un essai coûte deux heures au lieu de deux semaines, il devient raisonnable de tenter des choses qui n'auraient jamais été budgétées. La plupart ne donnent rien, quelques-unes changent une façon de travailler. Cette économie de l'essai est ce qui a le plus changé ma manière de travailler.</p>
 
-      <h2>Où cette pratique casse</h2>
+      <h2>Les limites du vibe coding</h2>
 
       <p>Voici la partie que les articles enthousiastes passent sous silence, et c'est pourtant celle qui décide de vos ennuis futurs.</p>
 
@@ -462,7 +491,7 @@
 
       <h3>Le mur des deux mille lignes</h3>
 
-      <p>Il existe un seuil, empirique et remarquablement constant, autour d'un à deux milliers de lignes. En dessous, le modèle garde une vue d'ensemble et ses corrections sont chirurgicales. Au-dessus, il commence à réparer un endroit en cassant un autre, parce qu'il ne tient plus la totalité de la logique en tête.</p>
+      <p>Dans mes projets, un seuil revient autour d'un à deux milliers de lignes. En dessous, le modèle garde une vue d'ensemble et ses corrections sont chirurgicales. Au-dessus, il commence à réparer un endroit en cassant un autre, parce qu'il ne tient plus la totalité de la logique en tête.</p>
 
       <p>Ce mur ne s'annonce pas. Il se manifeste par un symptôme précis : vous corrigez un problème, un autre apparaît ailleurs, vous corrigez celui-là, le premier revient. Si vous tournez trois fois dans cette boucle, ce n'est pas un mauvais jour, c'est le signal qu'il faut découper le projet en morceaux plus petits ou faire relire par un humain.</p>
 
@@ -504,7 +533,7 @@
 
       <p>En une soirée, vous aurez quelque chose qui marche. En une semaine, vous aurez compris que la difficulté n'est pas de faire produire du code, mais de savoir dire ce que vous voulez. Cette découverte est le vrai contenu de l'apprentissage.</p>
 
-      <h3>Un exemple complet, du besoin à l'outil</h3>
+      <h3>Exemple de vibe coding, du besoin à l'outil</h3>
 
       <p>Le plus parlant reste un cas réel. Voici, résumé, comment s'est déroulé un outil que j'utilise encore.</p>
 
@@ -522,9 +551,7 @@
 
       <h3>Ce que ça coûte</h3>
 
-      <p>La question arrive toujours, et la réponse dépend de l'outil choisi.</p>
-
-      <p>Les agents en terminal et les éditeurs augmentés fonctionnent avec un abonnement mensuel, de l'ordre de quelques dizaines d'euros, ou avec une facturation à l'usage. Pour un usage individuel régulier, l'abonnement est presque toujours plus avantageux, et il rend la dépense prévisible, ce qui compte quand on débute et qu'on ne sait pas doser.</p>
+      <p>La dépense en argent est connue d'avance : un abonnement de 8 à 25 dollars par mois suffit pour débuter avec la plupart des outils du tableau, et plusieurs ont une offre gratuite pour essayer. Pour un usage individuel régulier, l'abonnement est presque toujours plus avantageux que la facturation à l'usage, et il rend la dépense prévisible, ce qui compte quand vous ne savez pas encore doser.</p>
 
       <p>Les plateformes tout-en-un facturent souvent à la fois la génération et l'hébergement. C'est confortable au début et cela devient le poste à surveiller si l'application prend de l'ampleur, d'autant que la migration ailleurs n'est pas toujours simple.</p>
 
@@ -534,17 +561,17 @@
 
       <p>Il n'y a pas grand-chose à apprendre au sens scolaire, et beaucoup à pratiquer. La compétence ne porte pas sur une syntaxe, elle porte sur trois choses.</p>
 
-      <p><strong>Savoir spécifier.</strong> Décomposer un besoin flou en comportements précis, envisager les cas limites avant qu'ils ne surviennent, dire ce que le programme doit faire quand les choses se passent mal. C'est le métier d'analyste, et il n'a jamais été aussi utile.</p>
+      <p><strong>Savoir spécifier.</strong> Décomposer un besoin flou en comportements précis, envisager les cas limites avant qu'ils ne surviennent, dire ce que le programme doit faire quand les choses se passent mal. C'est le métier d'analyste, et il n'a jamais été aussi utile. C'est aussi ce que recouvre vraiment le <a href="/blog/contexte-vs-prompt">prompt engineering</a> : donner le bon contexte compte plus que trouver la bonne formule.</p>
 
       <p><strong>Savoir juger.</strong> Reconnaître un résultat faux, un comportement suspect, une réponse trop belle. Cela s'acquiert en testant beaucoup, sur ses propres données, avec l'obsession du cas tordu.</p>
 
-      <p><strong>Comprendre les concepts, pas la syntaxe.</strong> Vous n'avez pas besoin de savoir écrire une boucle. Vous avez besoin de savoir ce qu'est une base de données, pourquoi on ne stocke pas un mot de passe en clair, ce qu'est une clé d'API et pourquoi elle ne se met pas dans une page web. Une dizaine de notions de ce type couvre l'essentiel des erreurs graves.</p>
+      <p><strong>Comprendre les concepts, pas la syntaxe.</strong> Vous n'avez pas besoin de savoir écrire une boucle. Vous avez besoin de savoir ce qu'est une base de données, pourquoi un mot de passe ne se stocke jamais en clair, ce qu'est une clé d'API et pourquoi elle ne se met pas dans une page web. Une dizaine de notions de ce type couvre l'essentiel des erreurs graves.</p>
 
       <p>La meilleure formation reste donc un projet réel dont le résultat vous importe. Les cours théoriques sur la manière de formuler des consignes vieillissent en quelques mois ; la capacité à spécifier et à juger ne vieillit pas.</p>
 
-      <h2>Quels emplois et quelles carrières</h2>
+      <h2>Vibe coding et emplois : ce qui change</h2>
 
-      <p>La question qui inquiète, alors répondons franchement.</p>
+      <p>La question qui inquiète, alors autant y répondre franchement.</p>
 
       <p><strong>Le métier de développeur ne disparaît pas, il se déplace vers le haut.</strong> Écrire la première version d'un programme perd de la valeur ; concevoir une architecture qui tiendra, relire du code produit par une machine, garantir la sécurité et arbitrer les compromis en gagne. Le travail se déplace de la production vers la conception et le contrôle.</p>
 
@@ -552,15 +579,13 @@
 
       <p>Le profil fragilisé est celui du développeur junior cantonné à des tâches simples et répétitives, exactement celles que ces outils font le mieux. Le conseil qui en découle est brutal mais utile : ne construisez pas votre valeur sur la production de code, construisez-la sur la compréhension des systèmes et sur la capacité à décider.</p>
 
-      <p>Un nouveau rôle apparaît, encore mal nommé, qui tient de l'analyste et du chef de produit technique : quelqu'un qui sait traduire un besoin métier en spécification exécutable, faire produire, et vérifier. Ce n'est pas un métier créé de toutes pièces, c'est un métier qui existait à la marge et qui passe au centre.</p>
-
       <h3>À qui appartient le code produit</h3>
 
       <p>La question revient dans toutes mes formations en entreprise, et elle mérite une réponse nette plutôt qu'un haussement d'épaules.</p>
 
-      <p>Le code généré vous revient, dans les conditions prévues par les conditions d'utilisation du service que vous employez. C'est le cas chez les principaux éditeurs, mais cela se vérifie avant de bâtir un produit dessus, pas après. Lisez la clause de propriété du service, une fois, et archivez-la.</p>
+      <p>Le code généré vous revient en principe, dans les limites des conditions d'utilisation du service que vous employez. Cela se vérifie avant de bâtir un produit dessus, pas après : lisez la clause de propriété du service, une fois, et archivez-la.</p>
 
-      <p>Deux points appellent plus d'attention. <strong>Les dépendances</strong> d'abord : un modèle installe volontiers des bibliothèques tierces, qui viennent chacune avec leur licence. Certaines interdisent un usage commercial sans contrepartie. Demandez la liste des dépendances et de leurs licences, c'est une question à laquelle l'outil répond en quelques secondes. <strong>Vos données</strong> ensuite : si vous collez des extraits de fichiers clients dans une conversation, ces contenus quittent votre système. Pour un usage professionnel, cette question se règle au niveau de l'organisation et du contrat, pas au niveau de l'utilisateur.</p>
+      <p>Deux points appellent plus d'attention. <strong>Les dépendances</strong> d'abord : un modèle installe volontiers des bibliothèques tierces, qui viennent chacune avec leur licence. Certaines imposent des conditions à un usage commercial. Demandez la liste des dépendances et de leurs licences, c'est une question à laquelle l'outil répond en quelques secondes. <strong>Vos données</strong> ensuite : si vous collez des extraits de fichiers clients dans une conversation, ces contenus quittent votre système. Pour un usage professionnel, cette question se règle au niveau de l'organisation et du contrat, pas au niveau de l'utilisateur.</p>
 
       <p>Rien de tout cela n'est bloquant. Mais une entreprise qui découvre ces sujets après avoir mis un outil en production les découvre toujours au mauvais moment.</p>
 
@@ -572,13 +597,8 @@
 
       <p>Ce que je ne fais pas : le site d'un client, une application avec des comptes utilisateurs, tout ce qui touche à un paiement. Pas par principe, mais parce que je sais que je ne relirai pas le code assez sérieusement pour engager ma responsabilité dessus.</p>
 
-      <p>La ligne est là, et elle est simple à retenir : <strong>fabriquez tout ce dont l'échec ne coûte qu'à vous.</strong> Pour le reste, servez-vous de ces outils pour aller vite, mais faites relire par quelqu'un dont c'est le métier.</p>
+      <p>La ligne est là, et elle est simple à retenir : <strong>fabriquez tout ce dont l'échec ne coûte qu'à vous.</strong> Pour le reste, servez-vous de ces outils pour aller vite, mais faites relire par quelqu'un dont c'est le métier. Quand un outil doit durer, c'est le cadre de mes missions d'<a href="/automatisation-ia">automatisation IA</a> : tests, relecture et mise en production comprises.</p>
 
-
-      <!-- MAILLAGE À AJOUTER APRÈS PUBLICATION DES CIBLES :
-           - /blog/automatiser-seo-claude-code (28/10/2026)
-           - /blog/mcp-model-context-protocol (21/10/2026)
-      -->
 
       <!-- ================= FAQ ================= -->
       <section class="faq">
@@ -586,7 +606,12 @@
 
         <details>
           <summary>Qu'est-ce que le vibe coding ?</summary>
-          <div class="faq-a"><p>C'est une manière de programmer où l'on décrit en langage naturel ce qu'un programme doit faire, et où un modèle écrit le code correspondant. La différence avec l'autocomplétion classique est que vous ne lisez plus forcément le code produit : vous exécutez, vous constatez le résultat et vous corrigez en reformulant. Le programme est jugé par son comportement plutôt que par sa lecture.</p></div>
+          <div class="faq-a"><p>Le vibe coding est une façon de programmer où vous décrivez en langage naturel ce qu'un logiciel doit faire, et où une IA écrit le code. Vous ne lisez plus forcément le code produit : vous exécutez, vous constatez le résultat et vous corrigez en reformulant. Le programme est jugé par son comportement plutôt que par sa lecture.</p></div>
+        </details>
+
+        <details>
+          <summary>Qui a inventé le terme vibe coding ?</summary>
+          <div class="faq-a"><p>Andrej Karpathy, chercheur en IA et cofondateur d'OpenAI, dans un message publié sur X le 2 février 2025. Il y décrivait une façon de coder où il oubliait jusqu'à l'existence du code. Le dictionnaire Collins a élu vibe coding mot de l'année 2025.</p></div>
         </details>
 
         <details>
@@ -596,32 +621,27 @@
 
         <details>
           <summary>Quels outils de vibe coding utiliser ?</summary>
-          <div class="faq-a"><p>Trois familles existent. Les agents en terminal, comme Claude Code, sont les plus puissants et les plus autonomes mais supposent d'être à l'aise en ligne de commande. Les éditeurs augmentés offrent le bon compromis, avec la visibilité sur les fichiers modifiés. Les plateformes tout-en-un génèrent et hébergent l'application sans que vous voyiez un fichier, au prix d'une dépendance au prestataire.</p></div>
+          <div class="faq-a"><p>Trois familles existent. Les agents de code, comme Claude Code ou Codex, sont les plus autonomes mais supposent d'être à l'aise avec un terminal. Les éditeurs augmentés, comme Cursor ou GitHub Copilot, offrent le bon compromis. Les plateformes tout-en-un, comme Lovable ou Bolt.new, génèrent et hébergent l'application sans que vous voyiez un fichier, au prix d'une dépendance au prestataire.</p></div>
         </details>
 
         <details>
-          <summary>Quels sont les avantages du vibe coding ?</summary>
-          <div class="faq-a"><p>La vitesse d'abord : un outil interne d'une semaine se livre en une soirée. L'accessibilité ensuite, puisque des personnes qui ne programmeront jamais peuvent fabriquer leurs propres outils. Le prototype comme langage commun, qui remplace des pages de spécifications. Et le droit d'essayer : quand un essai coûte deux heures au lieu de deux semaines, on tente des choses qu'on n'aurait jamais budgétées.</p></div>
+          <summary>Est-il possible de faire du vibe coding avec ChatGPT ?</summary>
+          <div class="faq-a"><p>Oui. Le chat de ChatGPT suffit pour un petit script que vous copiez et exécutez vous-même. Pour aller plus loin, Codex, l'agent de code d'OpenAI inclus dans les abonnements ChatGPT, modifie les fichiers, lance le programme et corrige seul ses erreurs.</p></div>
+        </details>
+
+        <details>
+          <summary>Est-il possible de faire du vibe coding sans savoir coder ?</summary>
+          <div class="faq-a"><p>Oui, c'est même ce qui distingue le vibe coding : une plateforme tout-en-un permet de produire un outil fonctionnel sans écrire une ligne. Il faut en revanche savoir décrire précisément le besoin, tester avec des données réelles et comprendre quelques notions de base, comme la raison pour laquelle un mot de passe ne se stocke pas en clair. Dès que l'outil touche des données personnelles ou des utilisateurs extérieurs, une relecture par un développeur s'impose.</p></div>
+        </details>
+
+        <details>
+          <summary>Quelles sont les limites du vibe coding ?</summary>
+          <div class="faq-a"><p>Trois limites sérieuses. La dette invisible, puisqu'un code que vous ne lisez pas est un code dont vous ignorez la qualité. Un mur, que je constate vers un à deux milliers de lignes, au-delà duquel le modèle répare un endroit en cassant un autre. Et la sécurité : un modèle produit du code qui fonctionne, pas nécessairement du code sûr, et les données non validées ou les secrets en clair ne se voient pas à l'usage.</p></div>
         </details>
 
         <details>
           <summary>Vibe coding pour débutants, comment commencer ?</summary>
           <div class="faq-a"><p>Choisissez un projet qui vous sert personnellement, que vous seul utilisez, sans données sensibles et que vous pouvez jeter sans conséquence. Décrivez-le en trois phrases, laissez produire une première version et utilisez-la immédiatement. Puis appliquez cinq règles : décrire le résultat plutôt que la méthode, une demande à la fois, tester avec des données réelles et sales, demander des tests automatisés dès le début, et garder un historique des versions.</p></div>
-        </details>
-
-        <details>
-          <summary>Comment apprendre le vibe coding ?</summary>
-          <div class="faq-a"><p>Par la pratique sur un projet réel, pas par un cours. La compétence porte sur trois choses : savoir spécifier, c'est-à-dire décomposer un besoin flou en comportements précis ; savoir juger, c'est-à-dire reconnaître un résultat faux ; et comprendre une dizaine de concepts fondamentaux comme la raison pour laquelle un mot de passe ne se stocke pas en clair. La syntaxe, elle, n'est plus nécessaire.</p></div>
-        </details>
-
-        <details>
-          <summary>Quelles sont les limites du vibe coding ?</summary>
-          <div class="faq-a"><p>Trois limites sérieuses. La dette invisible, puisqu'un code que vous ne lisez pas est un code dont vous ignorez la qualité. Le mur des un à deux mille lignes, au-delà duquel le modèle répare un endroit en cassant un autre. Et la sécurité, car un modèle produit du code qui fonctionne, pas nécessairement du code sûr : les données non validées et les secrets en clair ne se voient pas à l'usage.</p></div>
-        </details>
-
-        <details>
-          <summary>Quels sont les emplois liés au vibe coding ?</summary>
-          <div class="faq-a"><p>Le métier de développeur ne disparaît pas, il se déplace vers la conception, la relecture et la garantie de sécurité. Les développeurs expérimentés voient leur jugement devenir la ressource rare, et les experts métier peuvent désormais fabriquer leurs propres outils. Le profil fragilisé est celui du développeur junior cantonné aux tâches répétitives, précisément celles que ces outils font le mieux.</p></div>
         </details>
       </section>
 
@@ -711,24 +731,24 @@
   <aside class="rail rail-right">
     <div class="ai-box">
       <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
-      <p class="ai-text">Le vibe coding consiste à décrire en langage naturel ce qu'un programme doit faire et à laisser un modèle écrire le code, en jugeant le résultat à l'usage plutôt qu'à la lecture. La boucle tient en quatre temps : décrire, produire, tester, corriger en reformulant. Trois familles d'outils existent : agents en terminal, éditeurs augmentés et plateformes tout-en-un. La pratique est redoutablement efficace sur les outils internes, jetables et sans données sensibles, mais casse sur trois points : la dette invisible d'un code non lu, un mur situé autour d'un à deux mille lignes, et la sécurité. La règle : fabriquez tout ce dont l'échec ne coûte qu'à vous.</p>
+      <p class="ai-text">Le vibe coding consiste à décrire en langage naturel ce qu'un programme doit faire et à laisser une IA écrire le code, jugé à l'usage. Le terme vient d'Andrej Karpathy, en février 2025. Les outils se répartissent entre agents (Claude Code, Codex), éditeurs augmentés (Cursor, Copilot) et plateformes (Lovable, Bolt.new). La pratique convient aux outils internes sans données sensibles.</p>
       <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
     </div>
 
     <div class="rail-recent">
       <p class="rail-title">Dans la même catégorie</p>
       <div class="mini-list">
-        <a class="mini" href="/blog/claude-code">
-          <span class="mini-thumb"><picture><source srcset="/images/blog/claude-code-cover.avif" type="image/avif"><img src="/images/blog/claude-code-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
-          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Claude Code, le guide</span></span>
+        <a class="mini" href="/blog/claude-code-prix">
+          <span class="mini-thumb"><picture><source srcset="/images/blog/claude-code-prix-cover.avif" type="image/avif"><img src="/images/blog/claude-code-prix-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Claude Code prix : gratuit ou payant ? Coût réel (2026)</span></span>
         </a>
-        <a class="mini" href="/blog/n8n">
-          <span class="mini-thumb"><picture><source srcset="/images/blog/n8n-cover.avif" type="image/avif"><img src="/images/blog/n8n-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
-          <span><span class="mini-cat">Automatisation</span><span class="mini-ttl">n8n, no-code ou code</span></span>
+        <a class="mini" href="/blog/mcp-model-context-protocol">
+          <span class="mini-thumb"><picture><source srcset="/images/blog/mcp-cover.avif" type="image/avif"><img src="/images/blog/mcp-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">MCP IA : c'est quoi un serveur MCP ? Définition et exemples</span></span>
         </a>
-        <a class="mini" href="/blog/agent-ia">
-          <span class="mini-thumb"><picture><source srcset="/images/blog/agent-ia-cover.avif" type="image/avif"><img src="/images/blog/agent-ia-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
-          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Agent IA : la grille</span></span>
+        <a class="mini" href="/blog/contexte-vs-prompt">
+          <span class="mini-thumb"><picture><source srcset="/images/blog/contexte-prompt-cover.avif" type="image/avif"><img src="/images/blog/contexte-prompt-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Prompt engineering : définition, techniques et métier (2026)</span></span>
         </a>
       </div>
     </div>
@@ -743,26 +763,26 @@
     <div class="rel-grid">
       <a class="rel-card" href="/blog/claude-code">
         <picture><source srcset="/images/blog/claude-code-cover.avif" type="image/avif"><img src="/images/blog/claude-code-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
-<div class="rel-body">
+        <div class="rel-body">
           <span class="rel-cat">Utiliser l'IA</span>
-          <h3>Claude Code : le guide complet</h3>
-          <p>L'agent de développement d'Anthropic, sa configuration et ce qu'il change au quotidien.</p>
-        </div>
-      </a>
-      <a class="rel-card" href="/blog/n8n">
-        <picture><source srcset="/images/blog/n8n-cover.avif" type="image/avif"><img src="/images/blog/n8n-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
-<div class="rel-body">
-          <span class="rel-cat">Automatisation</span>
-          <h3>n8n : no-code ou code, le comparateur sur trois ans</h3>
-          <p>Ce que coûte vraiment chaque approche une fois la maintenance comptée.</p>
+          <h3>Installer Claude Code : tuto Mac, Windows et Linux (2026)</h3>
+          <p>L'agent que j'utilise pour mes outils internes, installé et configuré en une séance.</p>
         </div>
       </a>
       <a class="rel-card" href="/blog/agent-ia">
         <picture><source srcset="/images/blog/agent-ia-cover.avif" type="image/avif"><img src="/images/blog/agent-ia-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
-<div class="rel-body">
+        <div class="rel-body">
           <span class="rel-cat">Utiliser l'IA</span>
-          <h3>Agent IA : la grille d'éligibilité d'un process</h3>
-          <p>Quels processus méritent un agent, lesquels n'en ont pas besoin, et comment trancher.</p>
+          <h3>Créer un agent IA gratuit : méthode, outils et exemples</h3>
+          <p>Après l'outil fait main, l'agent qui travaille seul sur un processus répétitif.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="/blog/n8n">
+        <picture><source srcset="/images/blog/n8n-cover.avif" type="image/avif"><img src="/images/blog/n8n-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
+        <div class="rel-body">
+          <span class="rel-cat">Automatisation</span>
+          <h3>n8n gratuit : prix, tuto en français et comparatif (2026)</h3>
+          <p>L'alternative visuelle quand un enchaînement de tâches suffit, sans programme à maintenir.</p>
         </div>
       </a>
     </div>

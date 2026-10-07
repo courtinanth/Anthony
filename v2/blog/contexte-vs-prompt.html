@@ -4,8 +4,8 @@
 <script src="/js/js-flag.js?v=1"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contexte ou prompt : ce qui change vraiment la réponse</title>
-<meta name="description" content="Le prompt est ce que vous demandez, le contexte est ce que le modèle a sous les yeux. Comment il fonctionne et comment bien le composer.">
+<title>Prompt engineering : définition, techniques et métier (2026)</title>
+<meta name="description" content="Prompt engineering : définition simple, techniques qui marchent encore, passage au context engineering et métier de prompt engineer, avec exemples.">
 <link rel="canonical" href="https://anthony-courtin.com/blog/contexte-vs-prompt">
 <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
@@ -14,13 +14,13 @@
 <meta name="robots" content="index, follow, max-image-preview:large">
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="Contexte ou prompt : ce qui change vraiment la réponse">
-<meta property="og:description" content="Pourquoi le contexte pèse plus lourd que la formulation, comment fonctionne la fenêtre de contexte, et comment la composer.">
+<meta property="og:title" content="Prompt engineering : définition, techniques et métier (2026)">
+<meta property="og:description" content="Ce qu'est le prompt engineering, les techniques qui tiennent encore, pourquoi le context engineering prend le relais, et ce que devient le métier de prompt engineer.">
 <meta property="og:url" content="https://anthony-courtin.com/blog/contexte-vs-prompt">
 <meta property="og:image" content="https://anthony-courtin.com/images/blog/contexte-prompt-cover.webp">
 <meta property="og:locale" content="fr_FR">
 <meta property="article:published_time" content="2026-09-30">
-<meta property="article:modified_time" content="2026-09-30">
+<meta property="article:modified_time" content="2026-10-07">
 <meta property="article:author" content="Anthony Courtin">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -37,17 +37,17 @@
     {
       "@type":"BlogPosting",
       "@id":"https://anthony-courtin.com/blog/contexte-vs-prompt#article",
-      "headline":"Le contexte bat le prompt : pourquoi vos demandes échouent",
-      "description":"Le prompt est la demande formulée, le contexte est l'ensemble de ce que le modèle reçoit pour répondre : documents, historique, consignes. Sur les modèles récents, le contexte pèse davantage que la formulation.",
+      "headline":"Prompt engineering : définition, techniques et pourquoi le contexte compte plus",
+      "description":"Prompt engineering : définition simple, techniques qui marchent encore, passage au context engineering et métier de prompt engineer, avec exemples.",
       "inLanguage":"fr-FR",
       "datePublished":"2026-09-30",
-      "dateModified":"2026-09-30",
+      "dateModified":"2026-10-07",
       "image":"https://anthony-courtin.com/images/blog/contexte-prompt-cover.webp",
-      "wordCount":2000,
+      "wordCount":4000,
       "mainEntityOfPage":{"@type":"WebPage","@id":"https://anthony-courtin.com/blog/contexte-vs-prompt"},
       "author":{"@id":"https://anthony-courtin.com/#anthony"},
       "publisher":{"@id":"https://anthony-courtin.com/#anthony"},
-      "about":[{"@type":"Thing","name":"Prompt engineering"},{"@type":"Thing","name":"Intelligence artificielle"},{"@type":"Thing","name":"Productivité"}]
+      "about":[{"@type":"Thing","name":"Prompt engineering"},{"@type":"Thing","name":"Context engineering"},{"@type":"Thing","name":"Prompt engineer"},{"@type":"Thing","name":"Grand modèle de langage"}]
     },
     {
       "@type":"Person",
@@ -63,26 +63,28 @@
       "itemListElement":[
         {"@type":"ListItem","position":1,"name":"Accueil","item":"https://anthony-courtin.com/"},
         {"@type":"ListItem","position":2,"name":"Blog","item":"https://anthony-courtin.com/blog/"},
-        {"@type":"ListItem","position":3,"name":"Contexte et prompt"}
+        {"@type":"ListItem","position":3,"name":"Prompt engineering"}
       ]
     },
     {
       "@type":"FAQPage",
       "mainEntity":[
-        {"@type":"Question","name":"Quelle est la différence entre contexte et prompt ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Le prompt est votre demande, la phrase par laquelle vous formulez ce que vous voulez obtenir. Le contexte est l'ensemble de ce que le modèle reçoit pour répondre : votre demande, mais aussi les documents joints, l'historique de la conversation et les consignes permanentes. Le prompt est donc un élément du contexte, souvent le plus petit."}},
-        {"@type":"Question","name":"Comment fonctionne le contexte dans l'IA ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Un modèle ne traite qu'une quantité limitée de texte à la fois, appelée fenêtre de contexte et mesurée en tokens. En français, comptez environ 750 mots pour 1 000 tokens. À chaque message, tout l'historique de la conversation est renvoyé au modèle, car il n'a aucune mémoire entre deux échanges."}},
-        {"@type":"Question","name":"Pourquoi le contexte est-il plus important que le prompt ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Parce que les modèles récents reformulent sans difficulté une demande maladroite, mais n'ont aucun moyen de connaître votre entreprise, vos clients ou vos contraintes. Le goulot d'étranglement s'est déplacé de la formulation vers l'information : un prompt de trois lignes avec le bon document bat un prompt de deux pages sans document."}},
-        {"@type":"Question","name":"Qu'est-ce que l'ingénierie contextuelle ?",
-         "acceptedAnswer":{"@type":"Answer","text":"C'est l'art de décider ce qui entre dans la fenêtre de contexte, dans quel ordre et sous quelle forme. Elle repose sur quatre décisions : que faut-il inclure, que faut-il exclure, dans quel ordre placer les éléments, et sous quelle forme les structurer. C'est ce qui remplace l'ingénierie de prompt."}},
-        {"@type":"Question","name":"Trop de contexte peut-il nuire ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Oui. Au-delà d'un certain volume, l'information pertinente se dilue dans le bruit. Un modèle à qui vous donnez trois cents pages pour répondre sur un paragraphe précis répondra moins bien que si vous lui aviez donné les trois pages utiles. La qualité du contexte prime sur sa quantité."}},
-        {"@type":"Question","name":"Comment créer un bon contexte ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Quatre briques : la situation (qui vous êtes, à qui s'adresse le résultat), les matériaux (documents et exemples de votre travail), la tâche (un seul verbe d'action) et le format attendu. Testez-le ainsi : un nouveau collaborateur compétent pourrait-il faire le travail avec ces seules informations ?"}},
-        {"@type":"Question","name":"Comment le contexte influence-t-il les réponses ?",
-         "acceptedAnswer":{"@type":"Answer","text":"Il détermine ce que le modèle peut savoir. Sans contexte, il produit la moyenne statistique de ce qu'il a lu, ce qui donne un texte valable pour tout le monde donc utile à personne. Avec les bons documents, il raisonne sur du réel et invente beaucoup moins."}}
+        {"@type":"Question","name":"Qu'est-ce que le prompt engineering ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Le prompt engineering, ou ingénierie de prompt, désigne les méthodes pour rédiger et organiser les instructions données à un modèle d'IA afin d'obtenir le meilleur résultat possible. Il porte sur la clarté de la demande, sa structure, les exemples fournis et le format attendu. Sur les modèles actuels, il se prolonge par le context engineering, qui choisit toutes les informations que le modèle a sous les yeux."}},
+        {"@type":"Question","name":"C'est quoi un prompt en IA ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Un prompt est le message que vous envoyez à une IA pour obtenir une réponse : une question, une consigne, parfois accompagnée d'un document. Le mot anglais désigne une invite ou une instruction. La qualité de la réponse dépend surtout des informations que ce message et ses pièces jointes contiennent."}},
+        {"@type":"Question","name":"Quelles sont les techniques de prompt engineering ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Les plus fiables consistent à être clair et explicite, expliquer le pourquoi des consignes, donner 3 à 5 exemples du résultat attendu, structurer la demande avec des titres ou des balises, et placer les longs documents avant la question. Un rôle aide pour le ton, en une ligne. Les tâches complexes se découpent en plusieurs demandes enchaînées."}},
+        {"@type":"Question","name":"Quelle est la différence entre prompt engineering et context engineering ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Le prompt engineering porte sur la rédaction des instructions. Le context engineering porte sur tout ce que le modèle reçoit pour travailler : documents, historique, consignes permanentes, outils, mémoire. Anthropic le définit comme l'ensemble des stratégies pour choisir et maintenir les bonnes informations dans la fenêtre du modèle. Le prompt n'en est qu'une partie, souvent la plus petite."}},
+        {"@type":"Question","name":"Le prompt engineering est-il encore utile en 2026 ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Oui, mais son centre de gravité a changé. Les modèles récents comprennent une demande maladroite et réfléchissent seuls, donc les formules astucieuses comptent peu. Ce qui reste décisif, c'est la clarté, les exemples et surtout le contexte fourni : un prompt de trois lignes avec le bon document bat un prompt de deux pages sans document."}},
+        {"@type":"Question","name":"Quel est le salaire d'un prompt engineer ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Le chiffre le plus cité vient d'une offre d'Anthropic publiée en 2023 : 175 000 à 335 000 dollars par an pour un poste à San Francisco, selon Fortune. C'était une exception sur le marché américain. En France, le métier existe rarement seul : la compétence s'ajoute à un poste de développeur, d'ingénieur IA ou de rédacteur, et le salaire suit ce poste."}},
+        {"@type":"Question","name":"Comment devenir prompt engineer ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Pratiquez sur des cas réels, apprenez à évaluer un prompt avec une série de cas tests, puis maîtrisez le contexte et les outils : instructions système, documents, serveurs MCP, skills et agents. Les offres dédiées se faisant rares depuis 2025, visez plutôt un métier existant (développement, data, contenu, produit) où cette compétence fait la différence."}},
+        {"@type":"Question","name":"Comment apprendre le prompt engineering ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Commencez par les guides officiels d'Anthropic, d'OpenAI et de Google, gratuits et tenus à jour, et par le tutoriel interactif qu'Anthropic publie sur GitHub. Appliquez-les ensuite à vos propres demandes en comparant deux versions d'un même prompt. Partir d'exemples commentés, puis les remplir avec votre contexte, reste le moyen le plus rapide de progresser."}}
       ]
     }
   ]
@@ -176,12 +178,12 @@
     <nav class="crumb" aria-label="Fil d'Ariane">
       <a href="/">Accueil</a><span aria-hidden="true">/</span>
       <a href="/blog/">Blog</a><span aria-hidden="true">/</span>
-      <span>Contexte et prompt</span>
+      <span>Prompt engineering</span>
     </nav>
 
     <span class="art-cat">Utiliser l'IA</span>
-    <h1 class="art-title">Le contexte bat le prompt : pourquoi vos demandes échouent</h1>
-    <p class="art-lede">Vous cherchez la bonne formule alors que le problème est ailleurs. Voici ce que le modèle voit réellement quand il répond, et pourquoi c'est là que tout se joue.</p>
+    <h1 class="art-title">Prompt engineering : définition, techniques et pourquoi le contexte compte plus</h1>
+    <p class="art-lede">Le prompt engineering, c'est l'art de rédiger et d'organiser les instructions données à une IA pour obtenir un résultat fiable. Ses techniques de base restent utiles, mais sur les modèles actuels, la différence se fait ailleurs : dans le contexte que vous fournissez. Définition, techniques qui marchent encore, context engineering et métier de prompt engineer.</p>
 
     <div class="art-metaline">
       <span class="who">
@@ -191,9 +193,9 @@
       <span class="dot" aria-hidden="true">·</span>
       <time datetime="2026-09-30">30 septembre 2026</time>
       <span class="dot" aria-hidden="true">·</span>
-      <span>9 min de lecture</span>
+      <span>17 min de lecture</span>
       <span class="dot" aria-hidden="true">·</span>
-      <span>Mis à jour le <time datetime="2026-09-30">30 septembre 2026</time></span>
+      <span>Mis à jour le <time datetime="2026-10-07">7 octobre 2026</time></span>
     </div>
 
     <!-- Boutons "Résumer avec" : les href sont construits par blog-article.js -->
@@ -244,7 +246,7 @@
     <!-- Résumé IA version mobile : rendu côté serveur, donc lisible par Google et les LLM -->
     <div class="ai-box ai-box-mobile">
       <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
-      <p class="ai-text">Le prompt est ce que vous demandez ; le contexte est tout ce que le modèle a sous les yeux au moment de répondre : documents joints, historique de la conversation, consignes permanentes. Sur les modèles récents, le contexte pèse bien plus lourd que la formulation de la demande.</p>
+      <p class="ai-text">Le prompt engineering désigne les méthodes pour rédiger et organiser les instructions données à une IA. Ses techniques utiles restent la clarté, l'explication des consignes, les exemples et la structure. Sur les modèles actuels, le context engineering prend le relais : choisir les informations que le modèle a sous les yeux compte plus que la formulation.</p>
       <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
     </div>
 
@@ -257,27 +259,24 @@
         </picture>
       </figure>
 
-      <p><strong>Le prompt est ce que vous demandez ; le contexte est tout ce que le modèle a sous les yeux au moment de répondre.</strong> Sur les modèles récents, le second pèse bien plus lourd que le premier. C'est pourquoi un prompt de trois lignes accompagné du bon document bat un prompt de deux pages sans document.</p>
-
-      <p>Cette distinction explique la quasi-totalité des déceptions que j'entends en formation. Voici comment le contexte fonctionne réellement, ce que change sa taille, et comment le composer.</p>
-
       <div class="verdict">
         <div class="verdict-note">
           <b>2</b>
-          <span>notions</span>
+          <span>notions : prompt et contexte</span>
         </div>
         <div class="verdict-body">
-          <h2>La confusion qui coûte le plus cher</h2>
-          <p>Chercher la formule magique alors que le problème est l'absence d'information. Un modèle ne devine pas ce qu'il ne voit pas : aucune tournure de phrase ne remplace un document manquant.</p>
+          <h2>Le prompt engineering en 30 secondes</h2>
+          <p>Le prompt engineering consiste à formuler les instructions d'une IA pour obtenir un résultat fiable. Ses techniques tiennent en quelques règles, mais le gain principal vient aujourd'hui du contexte : les documents, exemples et contraintes que le modèle a sous les yeux.</p>
           <div class="verdict-lists">
             <ul class="verdict-pros">
-              <li>Le contexte contient tout : documents, historique, consignes</li>
-              <li>Il se compose une fois et se réutilise</li>
-              <li>Il est mesurable, contrairement au talent de formulation</li>
+              <li>Être clair, comme avec un nouveau collaborateur</li>
+              <li>Expliquer le pourquoi de chaque consigne</li>
+              <li>Montrer 3 à 5 exemples du résultat attendu</li>
+              <li>Joindre le document plutôt que le résumer</li>
             </ul>
             <ul class="verdict-cons">
-              <li>Il a une taille limitée, et elle se remplit vite</li>
-              <li>Trop de contexte inutile dégrade la réponse</li>
+              <li>Chercher la formule magique</li>
+              <li>Noyer le modèle sous des pages inutiles</li>
             </ul>
           </div>
         </div>
@@ -290,15 +289,144 @@
       <section class="takeaways">
         <h2>À retenir</h2>
         <ul>
-          <li>Le <strong>prompt est une partie du contexte</strong>, pas l'inverse : c'est la hiérarchie qu'on inverse toujours.</li>
-          <li>La <strong>fenêtre de contexte</strong> se mesure en tokens : environ 750 mots pour 1 000 tokens en français.</li>
-          <li>Tout l'historique d'une conversation <strong>est renvoyé à chaque message</strong>, ce qui explique la consommation.</li>
-          <li><strong>Trop de contexte nuit</strong> : au-delà d'un certain volume, l'information utile se dilue.</li>
-          <li>L'<strong>ingénierie contextuelle</strong> consiste à choisir quoi mettre dans cette fenêtre, et dans quel ordre.</li>
+          <li>Le <strong>prompt engineering</strong> (ingénierie de prompt) désigne les méthodes pour rédiger et organiser les instructions données à un modèle d'IA.</li>
+          <li>Les techniques qui marchent encore : <strong>clarté, explication du pourquoi, exemples, structure</strong>, longs documents placés avant la question.</li>
+          <li>Le <strong>context engineering</strong> prend le relais : choisir tout ce qui entre dans la fenêtre du modèle (documents, historique, outils), pas seulement la phrase de demande.</li>
+          <li>Le prompt est une partie du contexte, souvent la plus petite : un prompt de trois lignes avec le bon document bat deux pages sans document.</li>
+          <li><strong>Prompt engineer</strong> est devenu une compétence plus qu'un métier : peu d'offres dédiées, beaucoup de postes qui l'exigent.</li>
         </ul>
       </section>
 
-      <p>Combien pouvez-vous réellement donner à lire à un modèle ? Estimez ce que représente votre document en tokens, et ce qu'il reste de place.</p>
+      <p>Vous cherchez sans doute la bonne formule. C'est la question que j'entends le plus en formation, et ce n'est presque jamais là que se trouve le problème. Le prompt engineering a été une vraie discipline quand les modèles étaient fragiles. Il en reste quelques techniques solides, et une idée qui les dépasse toutes : un modèle ne devine pas ce qu'il ne voit pas.</p>
+
+      <p>Je commence par la définition et les techniques qui tiennent encore, puis j'explique pourquoi le context engineering prend le relais, avec un outil pour mesurer ce qui tient dans une fenêtre de contexte. Je termine par le métier de prompt engineer : ce qu'il fait, ce qu'il gagne, et s'il existe encore.</p>
+
+      <h2>Prompt engineering : définition</h2>
+
+      <p>Le <strong>prompt engineering</strong>, ou ingénierie de prompt, désigne les méthodes pour rédiger et organiser les instructions données à un modèle de langage afin d'obtenir le meilleur résultat possible. Le terme vient de l'anglais : <em>prompt</em> désigne la consigne, <em>engineering</em> la démarche méthodique pour la mettre au point et la tester.</p>
+
+      <p>Concrètement, faire du prompt engineering, c'est choisir les mots d'une demande, sa structure, les exemples qui l'accompagnent et le format attendu, puis ajuster jusqu'à obtenir une réponse exploitable. Pour un utilisateur, cela se joue dans ChatGPT ou Claude. Pour une entreprise qui intègre l'IA dans un logiciel, cela devient un travail d'ingénierie : des instructions système, des jeux de tests, des versions successives.</p>
+
+      <h3>C'est quoi un prompt en IA ?</h3>
+
+      <p>Un <strong>prompt</strong> est le message que vous envoyez à une IA pour obtenir une réponse : une question, une consigne, parfois accompagnée d'un document. C'est votre seul moyen de dire au modèle ce que vous attendez. Pour des modèles concrets classés par usage, j'ai rassemblé 40 exemples dans mon article <a href="/blog/prompt-chatgpt">prompt ChatGPT</a>.</p>
+
+      <h3>D'où vient le prompt engineering ?</h3>
+
+      <p>Entre 2022 et 2024, la formulation comptait vraiment. Les modèles étaient fragiles : changer « rédige » en « agis comme un rédacteur expérimenté et rédige » modifiait sensiblement la sortie. Des bibliothèques de formules circulaient, et un métier est apparu. Début 2023, une offre d'emploi d'Anthropic pour un poste de prompt engineer a fait le tour de la presse, avec un salaire annoncé entre 175 000 et 335 000 dollars par an.</p>
+
+      <p>Les modèles ont depuis largement absorbé cette fragilité. Ils reformulent sans difficulté une demande maladroite et réfléchissent d'eux-mêmes avant de répondre. Ce qui leur manque n'a pas changé : ils ne connaissent ni votre entreprise, ni vos clients, ni vos contraintes réelles.</p>
+
+      <h2>Les techniques de prompt engineering qui marchent encore</h2>
+
+      <p>Certaines techniques ont survécu à toutes les générations de modèles. Ce sont celles que recommande encore la documentation d'Anthropic pour ses modèles actuels, et celles que j'applique tous les jours. Elles ont un point commun : toutes consistent à donner davantage d'information au modèle.</p>
+
+      <h3>1. Être clair et explicite</h3>
+
+      <p>Imaginez un collaborateur brillant arrivé ce matin, qui ne connaît ni vos habitudes ni vos dossiers. C'est l'image qu'emploie Anthropic pour décrire un modèle, avec une règle d'or : faites lire votre prompt à un collègue qui ignore tout de la tâche. S'il hésite, le modèle hésitera aussi.</p>
+
+      <ul>
+        <li><strong>Flou :</strong> « Fais un résumé de ce rapport. »</li>
+        <li><strong>Explicite :</strong> « Résume ce rapport en 10 lignes pour le comité de direction, qui n'a pas le temps de le lire. Commence par la décision à prendre, puis les trois chiffres qui la justifient. »</li>
+      </ul>
+
+      <h3>2. Expliquer le pourquoi d'une consigne</h3>
+
+      <p>Une consigne nue est appliquée à la lettre. Une consigne expliquée est comprise, puis généralisée aux cas que vous n'aviez pas prévus. La documentation d'Anthropic le recommande explicitement : dire pourquoi un comportement compte aide le modèle à viser juste.</p>
+
+      <ul>
+        <li><strong>Nue :</strong> « N'utilise jamais de jargon. »</li>
+        <li><strong>Expliquée :</strong> « Ce texte s'adresse à des artisans qui découvrent le référencement : évite le jargon, et si un terme technique est indispensable, explique-le en une phrase. »</li>
+      </ul>
+
+      <h3>3. Montrer des exemples</h3>
+
+      <p>Les exemples restent l'un des moyens les plus fiables de fixer le ton, le format et la structure d'une réponse. C'est le <em>few-shot prompting</em> : Anthropic conseille 3 à 5 exemples, proches de votre cas réel et assez variés pour que le modèle n'en copie pas un trait accidentel. Pour retrouver votre style, rien ne remplace deux ou trois textes que vous avez vous-même écrits.</p>
+
+      <h3>4. Structurer la demande</h3>
+
+      <p>Quand un prompt mélange consignes, documents et exemples, séparez-les clairement. Des titres suffisent dans la plupart des outils. La documentation de Claude recommande des balises comme <code>&lt;contexte&gt;</code>, <code>&lt;documents&gt;</code> ou <code>&lt;instructions&gt;</code>, qui l'aident à ne pas confondre un exemple avec une consigne.</p>
+
+      <h3>5. Placer les longs documents avant la question</h3>
+
+      <p>Avec de longs documents, l'ordre compte. Anthropic recommande de placer les documents en haut du prompt et la question à la fin : dans ses tests, cet ordre améliore la qualité des réponses jusqu'à 30 %, surtout avec plusieurs documents. C'est l'inverse du réflexe naturel, qui consiste à poser la question puis à coller le texte.</p>
+
+      <h3>6. Donner un rôle, en une ligne</h3>
+
+      <p>« Tu es juriste en droit du travail » oriente le vocabulaire et le ton, et une phrase suffit. Mais le rôle ne remplace pas l'information : décrire votre vraie situation apporte bien plus qu'un personnage fictif. Gardez-le court, et ne construisez pas la demande autour.</p>
+
+      <h3>7. Découper les tâches complexes</h3>
+
+      <p>Une demande qui enchaîne analyse, rédaction et mise en forme donne trois demi-résultats. Mieux vaut trois demandes successives, chacune nourrie par le résultat de la précédente : c'est le <em>prompt chaining</em>. La vieille astuce « réfléchis étape par étape » compte moins depuis que les modèles récents disposent d'une phase de réflexion qu'ils dosent eux-mêmes.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Technique</th><th scope="col">Ce qu'elle apporte</th><th scope="col">En 2026</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Clarté et précision</td><td>Moins d'interprétation</td><td>Toujours décisive</td></tr>
+            <tr><td>Expliquer le pourquoi</td><td>Des consignes comprises et généralisées</td><td>Toujours décisive</td></tr>
+            <tr><td>Exemples (few-shot)</td><td>Le ton, le format, votre style</td><td>Toujours décisive</td></tr>
+            <tr><td>Structure, titres, balises</td><td>Moins de confusions entre consignes et données</td><td>Utile sur les prompts longs</td></tr>
+            <tr><td>Documents avant la question</td><td>Jusqu'à 30 % de qualité en plus dans les tests d'Anthropic</td><td>Utile avec de longs documents</td></tr>
+            <tr><td>Rôle</td><td>Le vocabulaire et le ton</td><td>Utile, en une ligne</td></tr>
+            <tr><td>« Réfléchis étape par étape »</td><td>Un raisonnement plus posé</td><td>Moins utile, les modèles réfléchissent seuls</td></tr>
+            <tr><td>Formules magiques, majuscules</td><td>Ne compensent pas une information manquante</td><td>À abandonner</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Ce qui ne sert plus vraiment</h3>
+
+      <ul>
+        <li><strong>Les formules magiques</strong> (« tu es le meilleur expert du monde », menaces, promesses de pourboire) : aucune ne compense une information manquante.</li>
+        <li><strong>Les consignes criées en majuscules</strong> : un « NE JAMAIS » sans raison donne une règle appliquée à la lettre, parfois hors de propos. La version expliquée fonctionne mieux.</li>
+        <li><strong>Le pré-remplissage de la réponse</strong>, une astuce d'API qui consistait à écrire le début de la réponse à la place du modèle : les modèles Claude récents ne l'acceptent plus.</li>
+        <li><strong>Les prompts de deux pages sans document</strong> : la longueur ne remplace jamais la matière.</li>
+      </ul>
+
+      <h2>Pourquoi le context engineering prend le relais</h2>
+
+      <p>Relisez la liste précédente : chaque technique qui fonctionne encore consiste à donner plus d'information au modèle. C'est ce constat qui a fait émerger un nouveau terme en 2025, et c'est la thèse de cet article.</p>
+
+      <h3>Prompt et contexte : la différence</h3>
+
+      <p>Le <strong>prompt</strong> est votre demande : la phrase ou le paragraphe par lequel vous formulez ce que vous voulez obtenir.</p>
+
+      <p>Le <strong>contexte</strong> est l'ensemble de ce que le modèle reçoit pour produire sa réponse : votre demande, mais aussi les documents joints, l'historique de la conversation, les consignes permanentes de votre compte, les outils auxquels il a accès, et parfois des résultats de recherche web.</p>
+
+      <p>Le prompt est donc un élément du contexte, généralement le plus petit. Passer une heure à peaufiner la formulation en oubliant de joindre le document revient à polir la poignée d'une porte restée fermée.</p>
+
+      <h3>Context engineering : la définition</h3>
+
+      <p>En juin 2025, Tobi Lütke, le patron de Shopify, a dit préférer l'expression <em>context engineering</em> à <em>prompt engineering</em>, parce qu'elle décrit mieux la compétence réelle : fournir au modèle tout le contexte nécessaire pour que la tâche soit soluble. Andrej Karpathy, cofondateur d'OpenAI, a appuyé l'idée dans la foulée.</p>
+
+      <p>En septembre 2025, Anthropic a formalisé la distinction. Le prompt engineering porte sur la rédaction et l'organisation des instructions. Le <strong>context engineering</strong> désigne les stratégies pour choisir et maintenir le meilleur ensemble d'informations dans la fenêtre du modèle pendant qu'il travaille. Autrement dit : décider ce qui entre dans la fenêtre, dans quel ordre, et sous quelle forme.</p>
+
+      <p>Il repose sur quatre décisions.</p>
+
+      <ul>
+        <li><strong>Que faut-il inclure ?</strong> Les documents strictement utiles, des exemples du résultat attendu, les contraintes réelles.</li>
+        <li><strong>Que faut-il exclure ?</strong> Tout ce qui n'aide pas à répondre. C'est la décision la plus difficile et la plus rentable.</li>
+        <li><strong>Dans quel ordre ?</strong> Les longs documents d'abord, la question et les consignes ensuite.</li>
+        <li><strong>Sous quelle forme ?</strong> Un texte structuré, avec des titres ou des balises explicites, est mieux exploité qu'un bloc indistinct.</li>
+      </ul>
+
+      <h3>La fenêtre de contexte et ses limites</h3>
+
+      <p>Un modèle ne traite qu'une quantité limitée de texte à la fois : sa <strong>fenêtre de contexte</strong>, mesurée en tokens, des fragments de mots. Les modèles Claude actuels vont de 200 000 tokens, soit environ 150 000 mots selon Anthropic, à un million de tokens, soit environ 555 000 mots avec le découpage des modèles récents. Ces équivalences sont des ordres de grandeur, qui varient selon la langue et le texte.</p>
+
+      <p>Deux mécanismes surprennent souvent. D'abord, <strong>l'historique compte dans la fenêtre</strong>. Le modèle n'a aucune mémoire entre deux échanges : l'application lui renvoie toute la conversation à chaque message. Une conversation de cinquante messages fait donc relire cinquante messages à chaque nouvelle question, ce qui explique les quotas atteints étonnamment vite. Quand la fenêtre est pleine, les premiers échanges sont résumés ou écartés, et le modèle « oublie » ce que vous aviez dit au début.</p>
+
+      <p>Ensuite, <strong>trop de contexte nuit</strong>. Anthropic décrit le phénomène : plus la fenêtre se remplit, moins le modèle retrouve précisément une information qu'elle contient. Un modèle à qui vous donnez trois cents pages pour répondre sur un paragraphe précis répondra moins bien qu'avec les trois pages utiles. Le bon contexte est le plus petit ensemble d'informations qui permet de réussir la tâche.</p>
+
+      <div class="callout callout--tip">
+        <p class="callout-t">La règle des trois pages</p>
+        <p>Avant de joindre un document entier, demandez-vous quelles pages contiennent réellement la réponse. Si vous pouvez les isoler, collez-les. Vous obtiendrez une meilleure réponse, plus vite, et pour beaucoup moins de quota. Je ne joins un document complet que lorsque je ne sais pas où se trouve l'information.</p>
+      </div>
+
+      <p>Combien pouvez-vous réellement donner à lire à un modèle ? Estimez ce que représentent vos documents et votre historique, et ce qu'il reste de place.</p>
 
       <div class="tool" id="outil-contexte">
         <div class="tool-head">
@@ -345,97 +473,17 @@
         </div>
         <div class="tool-foot">
           <span>Estimation indicative calculée dans votre navigateur, aucune donnée ne sort.</span>
-          <span>Base : 1 000 tokens pour environ 750 mots en français</span>
+          <span>Repères d'Anthropic : 150 000 mots pour 200 000 tokens, 555 000 mots pour 1 million</span>
         </div>
       </div>
 
-      <h2>Prompt et contexte : la différence</h2>
+      <h3>Le contexte permanent : écrire une fois ce que vous répétez toujours</h3>
 
-      <p>Posons les définitions, parce que le vocabulaire commercial les mélange en permanence.</p>
+      <p>Le vrai gain de temps arrive quand vous cessez de recomposer le contexte à chaque demande. Tous les outils proposent une forme de contexte permanent : des instructions attachées à votre compte, des projets qui regroupent des documents de référence, ou un fichier lu au démarrage, comme le fichier <code>CLAUDE.md</code> de Claude Code. Si vous voulez le mettre en place, mon tutoriel pour <a href="/blog/claude-code">installer Claude Code</a> part de là.</p>
 
-      <p>Le <strong>prompt</strong> est votre demande : la phrase ou le paragraphe par lequel vous formulez ce que vous voulez obtenir.</p>
+      <p>Le context engineering s'étend aussi aux outils. Un <a href="/blog/mcp-model-context-protocol">serveur MCP</a> donne au modèle un accès direct à vos données plutôt qu'un copier-coller, et les <a href="/blog/claude-skills">Claude Skills</a> chargent une méthode complète, instructions et scripts, seulement quand la tâche s'y prête. Dans les deux cas, l'idée est la même : la bonne information, au bon moment, sans encombrer la fenêtre.</p>
 
-      <p>Le <strong>contexte</strong> est l'ensemble de ce que le modèle reçoit pour produire sa réponse : votre demande, mais aussi les documents joints, l'historique de la conversation, les consignes permanentes de votre compte, et parfois des résultats de recherche web.</p>
-
-      <p>Autrement dit, le prompt est un élément du contexte, généralement le plus petit en volume. Passer une heure à peaufiner la formulation pendant qu'on oublie de joindre le document revient à polir la poignée d'une porte qu'on a laissée fermée.</p>
-
-      <h3>Pourquoi cette hiérarchie s'est inversée</h3>
-
-      <p>Entre 2022 et 2024, la formulation comptait vraiment. Les modèles étaient fragiles : changer « rédige » en « agis comme un rédacteur expérimenté et rédige » modifiait sensiblement la sortie. C'est de là que vient le terme d'ingénierie de prompt.</p>
-
-      <p>Les modèles actuels ont largement absorbé cette fragilité. Ils reformulent une demande maladroite sans difficulté. En revanche, ils n'ont toujours aucun moyen de connaître votre entreprise, vos clients, votre façon d'écrire ou vos contraintes réelles. Le goulot d'étranglement s'est déplacé de la formulation vers l'information.</p>
-
-      <h2>Comment fonctionne le contexte</h2>
-
-      <h3>La fenêtre de contexte</h3>
-
-      <p>Un modèle ne peut traiter qu'une quantité limitée de texte à la fois. Cette limite s'appelle la fenêtre de contexte et se mesure en tokens, des fragments de mots. En français, comptez environ 750 mots pour 1 000 tokens, soit à peu près une page et demie.</p>
-
-      <p>Les fenêtres actuelles vont de 200 000 tokens, soit environ 150 000 mots, à un million de tokens, soit environ 555 000 mots. C'est considérable : un million de tokens représente une documentation technique complète ou plusieurs années d'échanges.</p>
-
-      <h3>L'historique compte dans la fenêtre</h3>
-
-      <p>C'est le point que personne ne soupçonne, et il explique beaucoup de comportements surprenants.</p>
-
-      <p>À chaque message que vous envoyez, toute la conversation précédente est renvoyée au modèle. Il n'a aucune mémoire entre deux échanges : on lui redonne l'historique complet pour qu'il garde le fil. Une conversation de cinquante messages fait donc traiter cinquante messages à chaque nouvelle question.</p>
-
-      <p>Deux conséquences pratiques. D'abord, une conversation longue consomme énormément, ce qui explique les quotas atteints étonnamment vite. Ensuite, elle finit par saturer : quand la fenêtre est pleine, les premiers échanges sont écartés, et le modèle « oublie » ce que vous aviez dit au début.</p>
-
-      <h3>Trop de contexte nuit aussi</h3>
-
-      <p>On pourrait croire qu'il suffit de tout donner. C'est faux, et c'est une erreur que je vois de plus en plus depuis que les fenêtres sont grandes.</p>
-
-      <p>Au-delà d'un certain volume, l'information pertinente se dilue dans le bruit. Un modèle à qui vous donnez trois cents pages pour répondre à une question sur un paragraphe précis répondra moins bien que si vous lui aviez donné les trois pages utiles. La qualité du contexte prime sur sa quantité.</p>
-
-      <div class="callout callout--tip">
-        <p class="callout-t">La règle des trois pages</p>
-        <p>Avant de joindre un document entier, demandez-vous quelles pages contiennent réellement la réponse. Si vous pouvez les isoler, collez-les. Vous obtiendrez une meilleure réponse, plus vite, et pour beaucoup moins de quota. Je ne joins un document complet que lorsque je ne sais pas où se trouve l'information.</p>
-      </div>
-
-      <h2>Qu'est-ce que l'ingénierie contextuelle</h2>
-
-      <p>Le terme s'est imposé pour désigner ce qui remplace l'ingénierie de prompt : l'art de décider ce qui entre dans la fenêtre, dans quel ordre, et sous quelle forme.</p>
-
-      <p>Elle repose sur quatre décisions.</p>
-
-      <ul>
-        <li><strong>Que faut-il inclure ?</strong> Les documents strictement utiles, des exemples de ce qu'on attend, les contraintes réelles.</li>
-        <li><strong>Que faut-il exclure ?</strong> Tout ce qui n'aide pas à répondre. C'est la décision la plus difficile et la plus rentable.</li>
-        <li><strong>Dans quel ordre ?</strong> Les consignes importantes en début et en fin de contexte sont mieux prises en compte que celles noyées au milieu.</li>
-        <li><strong>Sous quelle forme ?</strong> Un texte structuré, avec des titres explicites, est mieux exploité qu'un bloc indistinct.</li>
-      </ul>
-
-      <p>Dans mes propres projets, cette discipline prend la forme d'un fichier de contexte permanent que l'outil lit à chaque démarrage. C'est exactement le principe du fichier de configuration que j'utilise avec <a href="/blog/claude-code">Claude Code</a> : écrit une fois, il évite de tout réexpliquer à chaque session.</p>
-
-      <h2>Comment composer un bon contexte</h2>
-
-      <p>La méthode tient en quatre briques, que j'ai détaillées dans mon article sur <a href="/blog/prompt-chatgpt">la méthode S·M·T·F</a>. En résumé.</p>
-
-      <ol>
-        <li><strong>La situation.</strong> Qui vous êtes, à qui s'adresse le résultat, pourquoi maintenant. Deux à quatre phrases suffisent, et c'est ce qui empêche la réponse générique.</li>
-        <li><strong>Les matériaux.</strong> Les documents, les exemples de votre travail, ce qui a déjà été tenté. La brique décisive.</li>
-        <li><strong>La tâche.</strong> Un seul verbe d'action, un seul livrable.</li>
-        <li><strong>Le format.</strong> Longueur, structure, ton, et ce qu'il ne faut surtout pas faire.</li>
-      </ol>
-
-      <p>Un test simple pour vérifier que votre contexte est suffisant : un nouveau collaborateur compétent mais qui vient d'arriver pourrait-il faire le travail avec ces seules informations ? Si la réponse est non, ce n'est pas la formulation qu'il faut retravailler.</p>
-
-      <h2>Les avantages d'un contexte bien construit</h2>
-
-      <ul>
-        <li><strong>Il se réutilise.</strong> Une fois composé, il sert pour toutes les demandes similaires. Le temps investi est amorti dès la troisième utilisation.</li>
-        <li><strong>Il rend le résultat vérifiable.</strong> Quand vous savez ce que le modèle avait sous les yeux, vous savez ce qu'il pouvait ou ne pouvait pas savoir.</li>
-        <li><strong>Il réduit les inventions.</strong> Un modèle qui dispose de la donnée n'a pas besoin de la reconstituer, et c'est cette reconstitution qui produit les erreurs.</li>
-        <li><strong>Il se partage.</strong> Un bon contexte écrit devient un actif d'équipe, contrairement à un tour de main personnel.</li>
-      </ul>
-
-      <h2>Le contexte permanent : le vrai gain de temps</h2>
-
-      <p>Tout ce qui précède décrit un contexte composé pour une demande. Le saut de productivité vient quand vous cessez de le recomposer à chaque fois.</p>
-
-      <p>Les outils actuels proposent tous une forme de contexte permanent : des instructions attachées à votre compte, des espaces de projet qui contiennent des documents de référence, ou un fichier de configuration lu au démarrage. Le nom change, le principe est le même : écrire une fois ce que vous répétez toujours.</p>
-
-      <h3>Ce que je mets dans mon contexte permanent</h3>
+      <p>Voici ce que je mets dans mon propre contexte permanent :</p>
 
       <ul>
         <li><strong>Qui je suis et ce que je fais</strong>, en trois lignes. Cela évite les réponses génériques dès le premier message.</li>
@@ -446,69 +494,117 @@
 
       <p>Le gain est mesurable : sur des demandes répétitives, je passe d'environ quatre allers-retours à un seul. Sur vingt demandes par semaine, cela représente plusieurs heures récupérées, sans rien changer à ma façon de formuler.</p>
 
-      <h3>Le piège du contexte permanent mal réglé</h3>
+      <p>Un piège, tout de même : une consigne permanente s'applique à tout, y compris là où elle n'a pas de sens. J'ai vu des utilisateurs exiger en permanence des réponses très courtes, puis s'étonner d'obtenir des analyses superficielles sur des sujets complexes. Mettez en permanent ce qui est vrai pour tout ce que vous faites, et laissez le reste dans la demande.</p>
 
-      <p>Une consigne permanente s'applique à tout, y compris là où elle n'a pas de sens. J'ai vu des utilisateurs demander en permanence des réponses très courtes, puis s'étonner d'obtenir des analyses superficielles sur des sujets complexes.</p>
+      <h2>Exemple : le même prompt, sans et avec contexte</h2>
 
-      <p>La règle : mettez en permanent ce qui est vrai pour tout ce que vous faites, et laissez le reste dans la demande. En cas de doute, laissez dans la demande, c'est réversible.</p>
+      <p>Voici une demande courante, d'abord telle qu'elle est souvent écrite, puis réécrite avec du contexte.</p>
 
-      <h2>Les erreurs de contexte les plus fréquentes</h2>
+      <h4>Sans contexte</h4>
+      <pre class="prompt" style="white-space:pre-wrap"><code>Écris un article de blog sur l'entretien des chaudières.</code></pre>
+
+      <h4>Avec contexte</h4>
+      <pre class="prompt" style="white-space:pre-wrap"><code>&lt;contexte&gt;
+Je suis chauffagiste indépendant à Nantes. Mes clients sont des particuliers propriétaires, souvent âgés, qui reçoivent mon blog par e-mail.
+&lt;/contexte&gt;
+
+&lt;documents&gt;
+[Colle ici deux articles que tu as déjà écrits, pour le ton]
+[Colle ici les questions que tes clients posent le plus souvent au téléphone]
+&lt;/documents&gt;
+
+&lt;instructions&gt;
+Rédige un article de 600 mots qui répond à la question : « Faut-il vraiment faire entretenir sa chaudière tous les ans ? »
+Commence par la réponse, en deux phrases. Reprends le ton de mes articles. Pas de jargon : si un terme technique est indispensable, explique-le.
+Si une information te manque, pose-moi la question avant d'écrire.
+&lt;/instructions&gt;</code></pre>
+
+      <p>La seconde version n'a rien d'astucieux dans sa formulation. Elle contient simplement ce que le modèle ne pouvait pas deviner : qui écrit, pour qui, dans quel style, à partir de quelles questions réelles. J'ai filmé une démonstration du même principe, une demande envoyée avec et sans contexte : la vidéo est intégrée à mon article qui propose <a href="/blog/prompt-chatgpt">40 exemples de prompts ChatGPT</a> à copier.</p>
+
+      <h2>Prompt engineer : un métier ou une compétence ?</h2>
+
+      <h3>Que fait un prompt engineer ?</h3>
+
+      <p>Un prompt engineer conçoit, teste et améliore les instructions qu'une application d'IA envoie à un modèle : les consignes système d'un assistant client, les prompts d'un outil de rédaction, les instructions d'un agent. L'essentiel de son travail n'est pas l'écriture mais la mesure. La documentation d'Anthropic le pose en préalable : avant toute retouche, définir des critères de réussite et un moyen de les tester.</p>
+
+      <p>Dans les faits, il construit des jeux de cas réels, compare les versions d'un prompt sur ces cas, documente ce qui marche, et gère de plus en plus le contexte : quels documents injecter, quels outils exposer, quoi garder en mémoire.</p>
+
+      <h3>Le métier de prompt engineer existe-t-il encore ?</h3>
+
+      <p>Comme métier à part entière, il a reculé. En avril 2025, le Wall Street Journal titrait que le poste le plus en vogue de 2023 était déjà obsolète, en citant une enquête de Microsoft auprès de 31 000 salariés dans 31 pays : parmi les nouveaux postes que leurs entreprises envisageaient de créer, prompt engineer arrivait avant-dernier.</p>
+
+      <p>La compétence, elle, s'est diffusée. Elle fait désormais partie du travail des développeurs, des équipes data, des rédacteurs et des responsables marketing qui utilisent l'IA chaque jour. C'est ce que je vois en formation : les équipes n'ont pas besoin d'un spécialiste des prompts, elles ont besoin que chacun sache donner le bon contexte.</p>
+
+      <h3>Quel est le salaire d'un prompt engineer ?</h3>
+
+      <p>Le chiffre qui circule vient de l'offre d'Anthropic de 2023 : 175 000 à 335 000 dollars par an pour un poste basé à San Francisco, selon le magazine Fortune. C'était une exception, dans une entreprise d'IA de pointe et sur le marché américain. En France, je n'ai pas trouvé de grille fiable propre à ce métier : les rares annonces rattachent la compétence à un poste existant (développeur, ingénieur IA, chef de projet, rédacteur), et la rémunération suit celle de ce poste.</p>
+
+      <h3>Comment devenir prompt engineer ?</h3>
+
+      <ol>
+        <li><strong>Pratiquer sur de vrais cas</strong>, les vôtres ou ceux de votre équipe, plutôt que sur des exercices génériques.</li>
+        <li><strong>Apprendre à évaluer</strong> : constituer une série de cas tests et comparer deux versions d'un prompt sur les mêmes cas. C'est ce qui distingue un professionnel d'un collectionneur de formules.</li>
+        <li><strong>Maîtriser le contexte et les outils</strong> : instructions système, documents, serveurs MCP, skills, et la méthode pour <a href="/blog/agent-ia">créer un agent IA</a>. C'est là que le métier se déplace.</li>
+        <li><strong>Se former aux sources</strong> : les guides officiels d'Anthropic, d'OpenAI et de Google sont gratuits et tenus à jour, et Anthropic publie un tutoriel interactif sur GitHub.</li>
+        <li><strong>Viser un métier existant</strong> (développement, data, contenu, produit) où cette compétence fait la différence, plutôt qu'un intitulé de poste qui se fait rare.</li>
+      </ol>
+
+      <h2>Les erreurs de prompt les plus fréquentes</h2>
 
       <ol>
         <li><strong>Résumer un document de mémoire</strong> au lieu de le joindre. Le modèle travaille alors sur votre résumé approximatif.</li>
         <li><strong>Tout empiler dans une conversation unique.</strong> Le contexte se remplit de sujets sans rapport qui parasitent la réponse.</li>
         <li><strong>Repartir de zéro à chaque insatisfaction.</strong> Corriger dans la conversation en cours est presque toujours meilleur, parce que le contexte y est déjà.</li>
         <li><strong>Ne jamais donner d'exemples de son propre travail.</strong> C'est le seul moyen fiable de récupérer votre style plutôt qu'un style moyen.</li>
-        <li><strong>Oublier les contraintes.</strong> Budget, délai, ce qui est interdit : ces informations changent complètement la réponse et on les garde souvent pour soi.</li>
+        <li><strong>Garder les contraintes pour soi.</strong> Budget, délai, ce qui est interdit : ces informations changent complètement la réponse, et elles restent souvent dans votre tête.</li>
       </ol>
 
       <p>Une dernière remarque, qui vaut avertissement. Donner du contexte signifie transmettre de l'information à un service tiers. Avant de coller un contrat ou un fichier client, vérifiez le type de compte que vous utilisez et ce que ses conditions autorisent. C'est un contrôle de trente secondes, et il évite des questions désagréables ensuite.</p>
 
-
-      <!-- MAILLAGE À AJOUTER APRÈS PUBLICATION DES CIBLES :
-           - /blog/prompt-systeme (C4-08) : section « L'ingénierie contextuelle »
-           - /blog/prompt-ia (C4-02) : section « Comment composer un bon contexte »
-           - /blog/modeles-claude (C2-09) : section « La fenêtre de contexte »
-           - /blog/claude-projects (C2-18) : section « Il se réutilise »
-      -->
+      <p>Quand les mêmes demandes reviennent chaque semaine avec les mêmes documents, le prompt n'est plus la bonne réponse : c'est un candidat à l'automatisation. C'est le type de chantier que je mène en <a href="/automatisation-ia">mission d'automatisation IA</a>.</p>
 
       <!-- ================= FAQ ================= -->
       <section class="faq">
         <h2>Questions fréquentes</h2>
 
         <details>
-          <summary>Quelle est la différence entre contexte et prompt ?</summary>
-          <div class="faq-a"><p>Le prompt est votre demande, la phrase par laquelle vous formulez ce que vous voulez obtenir. Le contexte est l'ensemble de ce que le modèle reçoit pour répondre : votre demande, mais aussi les documents joints, l'historique de la conversation et les consignes permanentes. Le prompt est donc un élément du contexte, souvent le plus petit.</p></div>
+          <summary>Qu'est-ce que le prompt engineering ?</summary>
+          <div class="faq-a"><p>Le prompt engineering, ou ingénierie de prompt, désigne les méthodes pour rédiger et organiser les instructions données à un modèle d'IA afin d'obtenir le meilleur résultat possible. Il porte sur la clarté de la demande, sa structure, les exemples fournis et le format attendu. Sur les modèles actuels, il se prolonge par le context engineering, qui choisit toutes les informations que le modèle a sous les yeux.</p></div>
         </details>
 
         <details>
-          <summary>Comment fonctionne le contexte dans l'IA ?</summary>
-          <div class="faq-a"><p>Un modèle ne traite qu'une quantité limitée de texte à la fois, appelée fenêtre de contexte et mesurée en tokens. En français, comptez environ 750 mots pour 1 000 tokens. À chaque message, tout l'historique de la conversation est renvoyé au modèle, car il n'a aucune mémoire entre deux échanges.</p></div>
+          <summary>C'est quoi un prompt en IA ?</summary>
+          <div class="faq-a"><p>Un prompt est le message que vous envoyez à une IA pour obtenir une réponse : une question, une consigne, parfois accompagnée d'un document. Le mot anglais désigne une invite ou une instruction. La qualité de la réponse dépend surtout des informations que ce message et ses pièces jointes contiennent.</p></div>
         </details>
 
         <details>
-          <summary>Pourquoi le contexte est-il plus important que le prompt ?</summary>
-          <div class="faq-a"><p>Parce que les modèles récents reformulent sans difficulté une demande maladroite, mais n'ont aucun moyen de connaître votre entreprise, vos clients ou vos contraintes. Le goulot d'étranglement s'est déplacé de la formulation vers l'information : un prompt de trois lignes avec le bon document bat un prompt de deux pages sans document.</p></div>
+          <summary>Quelles sont les techniques de prompt engineering ?</summary>
+          <div class="faq-a"><p>Les plus fiables consistent à être clair et explicite, expliquer le pourquoi des consignes, donner 3 à 5 exemples du résultat attendu, structurer la demande avec des titres ou des balises, et placer les longs documents avant la question. Un rôle aide pour le ton, en une ligne. Les tâches complexes se découpent en plusieurs demandes enchaînées.</p></div>
         </details>
 
         <details>
-          <summary>Qu'est-ce que l'ingénierie contextuelle ?</summary>
-          <div class="faq-a"><p>C'est l'art de décider ce qui entre dans la fenêtre de contexte, dans quel ordre et sous quelle forme. Elle repose sur quatre décisions : que faut-il inclure, que faut-il exclure, dans quel ordre placer les éléments, et sous quelle forme les structurer. C'est ce qui remplace l'ingénierie de prompt.</p></div>
+          <summary>Quelle est la différence entre prompt engineering et context engineering ?</summary>
+          <div class="faq-a"><p>Le prompt engineering porte sur la rédaction des instructions. Le context engineering porte sur tout ce que le modèle reçoit pour travailler : documents, historique, consignes permanentes, outils, mémoire. Anthropic le définit comme l'ensemble des stratégies pour choisir et maintenir les bonnes informations dans la fenêtre du modèle. Le prompt n'en est qu'une partie, souvent la plus petite.</p></div>
         </details>
 
         <details>
-          <summary>Trop de contexte peut-il nuire ?</summary>
-          <div class="faq-a"><p>Oui. Au-delà d'un certain volume, l'information pertinente se dilue dans le bruit. Un modèle à qui vous donnez trois cents pages pour répondre sur un paragraphe précis répondra moins bien que si vous lui aviez donné les trois pages utiles. La qualité du contexte prime sur sa quantité.</p></div>
+          <summary>Le prompt engineering est-il encore utile en 2026 ?</summary>
+          <div class="faq-a"><p>Oui, mais son centre de gravité a changé. Les modèles récents comprennent une demande maladroite et réfléchissent seuls, donc les formules astucieuses comptent peu. Ce qui reste décisif, c'est la clarté, les exemples et surtout le contexte fourni : un prompt de trois lignes avec le bon document bat un prompt de deux pages sans document.</p></div>
         </details>
 
         <details>
-          <summary>Comment créer un bon contexte ?</summary>
-          <div class="faq-a"><p>Quatre briques : la situation (qui vous êtes, à qui s'adresse le résultat), les matériaux (documents et exemples de votre travail), la tâche (un seul verbe d'action) et le format attendu. Testez-le ainsi : un nouveau collaborateur compétent pourrait-il faire le travail avec ces seules informations ?</p></div>
+          <summary>Quel est le salaire d'un prompt engineer ?</summary>
+          <div class="faq-a"><p>Le chiffre le plus cité vient d'une offre d'Anthropic publiée en 2023 : 175 000 à 335 000 dollars par an pour un poste à San Francisco, selon Fortune. C'était une exception sur le marché américain. En France, le métier existe rarement seul : la compétence s'ajoute à un poste de développeur, d'ingénieur IA ou de rédacteur, et le salaire suit ce poste.</p></div>
         </details>
 
         <details>
-          <summary>Comment le contexte influence-t-il les réponses ?</summary>
-          <div class="faq-a"><p>Il détermine ce que le modèle peut savoir. Sans contexte, il produit la moyenne statistique de ce qu'il a lu, ce qui donne un texte valable pour tout le monde donc utile à personne. Avec les bons documents, il raisonne sur du réel et invente beaucoup moins.</p></div>
+          <summary>Comment devenir prompt engineer ?</summary>
+          <div class="faq-a"><p>Pratiquez sur des cas réels, apprenez à évaluer un prompt avec une série de cas tests, puis maîtrisez le contexte et les outils : instructions système, documents, serveurs MCP, skills et agents. Les offres dédiées se faisant rares depuis 2025, visez plutôt un métier existant (développement, data, contenu, produit) où cette compétence fait la différence.</p></div>
+        </details>
+
+        <details>
+          <summary>Comment apprendre le prompt engineering ?</summary>
+          <div class="faq-a"><p>Commencez par les guides officiels d'Anthropic, d'OpenAI et de Google, gratuits et tenus à jour, et par le tutoriel interactif qu'Anthropic publie sur GitHub. Appliquez-les ensuite à vos propres demandes en comparant deux versions d'un même prompt. Partir d'exemples commentés, puis les remplir avec votre contexte, reste le moyen le plus rapide de progresser.</p></div>
         </details>
       </section>
 
@@ -516,7 +612,7 @@
       <div class="cta-band">
         <div>
           <h2>Former votre équipe à ce qui marche vraiment</h2>
-          <p>Une journée, vos vrais dossiers, vos vrais outils. On repart avec des méthodes qui tiennent le lundi matin suivant.</p>
+          <p>Une journée, vos vrais dossiers, vos vrais outils. Vous repartez avec des méthodes qui tiennent le lundi matin suivant.</p>
         </div>
         <a class="btn btn-lime" href="/contact">Discuter d'une formation <span class="ar">→</span></a>
       </div>
@@ -598,7 +694,7 @@
   <aside class="rail rail-right">
     <div class="ai-box">
       <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
-      <p class="ai-text">Le prompt est ce que vous demandez ; le contexte est tout ce que le modèle a sous les yeux au moment de répondre : documents joints, historique de la conversation, consignes permanentes. Sur les modèles récents, le contexte pèse bien plus lourd que la formulation de la demande.</p>
+      <p class="ai-text">Le prompt engineering désigne les méthodes pour rédiger et organiser les instructions données à une IA. Ses techniques utiles restent la clarté, l'explication des consignes, les exemples et la structure. Sur les modèles actuels, le context engineering prend le relais : choisir les informations que le modèle a sous les yeux compte plus que la formulation.</p>
       <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
     </div>
 
@@ -607,15 +703,15 @@
       <div class="mini-list">
         <a class="mini" href="/blog/prompt-chatgpt">
           <span class="mini-thumb"><picture><source srcset="/images/blog/prompt-chatgpt-cover.avif" type="image/avif"><img src="/images/blog/prompt-chatgpt-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
-          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Prompt ChatGPT : arrêtez d'en écrire</span></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Prompt ChatGPT : 40 exemples à copier et la méthode (2026)</span></span>
         </a>
-        <a class="mini" href="/blog/claude-ai">
-          <span class="mini-thumb"><picture><source srcset="/images/blog/claude-ai-cover.avif" type="image/avif"><img src="/images/blog/claude-ai-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
-          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Claude AI : ce que vaut vraiment l'IA d'Anthropic</span></span>
+        <a class="mini" href="/blog/ia-generative">
+          <span class="mini-thumb"><picture><source srcset="/images/blog/ia-generative-cover.avif" type="image/avif"><img src="/images/blog/ia-generative-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">IA générative : définition, exemples et fonctionnement</span></span>
         </a>
-        <a class="mini" href="/blog/claude-code">
-          <span class="mini-thumb"><picture><source srcset="/images/blog/claude-code-cover.avif" type="image/avif"><img src="/images/blog/claude-code-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
-          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Claude Code : démarrer en 30 minutes, même sans coder</span></span>
+        <a class="mini" href="/blog/claude-skills">
+          <span class="mini-thumb"><picture><source srcset="/images/blog/automatiser-seo-claude-code-cover.avif" type="image/avif"><img src="/images/blog/automatiser-seo-claude-code-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Claude Skills : créer, installer et 10 exemples (2026)</span></span>
         </a>
       </div>
     </div>
@@ -626,30 +722,30 @@
 <section class="related">
   <div class="wrap">
     <h2>À lire ensuite</h2>
-    <p class="sub">La suite logique du parcours.</p>
+    <p class="sub">Passer de la théorie à la pratique.</p>
     <div class="rel-grid">
       <a class="rel-card" href="/blog/prompt-chatgpt">
         <picture><source srcset="/images/blog/prompt-chatgpt-cover.avif" type="image/avif"><img src="/images/blog/prompt-chatgpt-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
-<div class="rel-body">
+        <div class="rel-body">
           <span class="rel-cat">Utiliser l'IA</span>
-          <h3>Prompt ChatGPT : arrêtez d'en écrire</h3>
-          <p>La méthode S·M·T·F en quatre briques, avec un générateur pour la mettre en pratique.</p>
+          <h3>Prompt ChatGPT : 40 exemples à copier et la méthode (2026)</h3>
+          <p>Les principes de cette page appliqués à 40 prompts prêts à copier, avec un générateur gratuit.</p>
         </div>
       </a>
-      <a class="rel-card" href="/blog/claude-ai">
-        <picture><source srcset="/images/blog/claude-ai-cover.avif" type="image/avif"><img src="/images/blog/claude-ai-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
-<div class="rel-body">
+      <a class="rel-card" href="/blog/claude-skills">
+        <picture><source srcset="/images/blog/automatiser-seo-claude-code-cover.avif" type="image/avif"><img src="/images/blog/automatiser-seo-claude-code-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
+        <div class="rel-body">
           <span class="rel-cat">Utiliser l'IA</span>
-          <h3>Claude AI : ce que vaut vraiment l'IA d'Anthropic</h3>
-          <p>Le test complet : ce qu'il fait mieux que ChatGPT, ses limites, les prix et la version gratuite.</p>
+          <h3>Claude Skills : créer, installer et 10 exemples (2026)</h3>
+          <p>Le contexte permanent poussé plus loin : une méthode complète que Claude charge au bon moment.</p>
         </div>
       </a>
-      <a class="rel-card" href="/blog/claude-ai-gratuit">
-        <picture><source srcset="/images/blog/claude-ai-gratuit-cover.avif" type="image/avif"><img src="/images/blog/claude-ai-gratuit-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
-<div class="rel-body">
+      <a class="rel-card" href="/blog/mcp-model-context-protocol">
+        <picture><source srcset="/images/blog/mcp-cover.avif" type="image/avif"><img src="/images/blog/mcp-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
+        <div class="rel-body">
           <span class="rel-cat">Utiliser l'IA</span>
-          <h3>Claude AI gratuit : ce que vous pouvez en faire</h3>
-          <p>Les limites réelles du plan gratuit, et les réflexes qui font durer le quota.</p>
+          <h3>MCP IA : c'est quoi un serveur MCP ? Définition et exemples</h3>
+          <p>Donner au modèle un accès direct à vos outils et à vos données, plutôt que de tout recopier.</p>
         </div>
       </a>
     </div>
@@ -691,7 +787,7 @@
 <script src="/js/blog-article.js?v=4" defer></script>
 
 <!-- Outil interactif propre à cet article -->
-<script src="/js/contexte-tool.js?v=1" defer></script>
+<script src="/js/contexte-tool.js?v=2" defer></script>
 
 </body>
 </html>

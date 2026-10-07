@@ -1,4 +1,5 @@
 /* Générateur de panel de questions pour un audit de visibilité IA.
+   Article audit-visibilite-ia-methode.
    Compose les quatre familles de questions (recommandation, comparaison,
    expertise, marque) à partir de l'activité saisie. Aucun appel réseau. */
 (function () {
@@ -20,7 +21,7 @@
       'Quels sont les meilleurs ' + metier + oz + ' ?',
       'Peux-tu me recommander un ' + metier + oz + ' ?',
       'Qui contacter pour ' + metier + oz + ' ?',
-      'Quel ' + metier + ' choisir quand on est une PME' + dz + ' ?',
+      'Quel ' + metier + ' choisir pour une PME' + dz + ' ?',
       'Quelles sont les entreprises les plus reconnues en ' + metier + oz + ' ?'
     ];
 
@@ -86,9 +87,9 @@
     var txt = 'Panel de questions pour un audit de visibilité IA\n'
             + 'Activité : ' + metier + (zone ? ' | Zone : ' + zone : '') + '\n\n'
             + 'Protocole : posez chaque question en navigation privée, sans compte '
-            + 'connecté, à ChatGPT, Perplexity et Gemini. Notez si votre marque est '
-            + 'citée, quels concurrents apparaissent, et quelles sources sont liées. '
-            + 'Répétez la mesure à trois jours d\'intervalle.\n';
+            + 'connecté, à ChatGPT, Perplexity, Gemini et Google (Aperçus IA et Mode IA). '
+            + 'Notez si votre marque est citée, quels concurrents apparaissent, et quelles '
+            + 'sources sont liées. Répétez la mesure à trois jours d\'intervalle.\n';
 
     blocs.forEach(function (b) {
       if (!b[1].length) return;
@@ -100,6 +101,8 @@
       txt += '\nAstuce : renseignez le nom de votre marque pour ajouter les cinq '
            + 'questions qui révèlent ce que les moteurs savent de vous.\n';
     }
+
+    txt += '\nSource : anthony-courtin.com/blog/audit-visibilite-ia-methode';
 
     out.textContent = txt;
     document.getElementById('pi-nb').textContent = n;

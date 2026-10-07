@@ -1,4 +1,6 @@
 /* Générateur de prompts SEO pour l'article claude-pour-seo.
+   Dix tâches, chacune avec un prompt testé en mission : rôle, travail
+   attendu numéroté, règles qui interdisent les dérives, puis vos données.
    100 % navigateur, aucun appel réseau. */
 (function () {
   'use strict';
@@ -11,6 +13,14 @@
     audit: {
       titre: 'Audit technique',
       corps: "Tu es consultant SEO technique. Je te donne l'export d'un crawl.\n\nTravail attendu :\n1. Classe les problèmes trouvés en trois niveaux : bloquant pour l'indexation, pénalisant, cosmétique.\n2. Pour chaque problème bloquant, indique le nombre d'URL touchées et la correction exacte à appliquer.\n3. Termine par les trois chantiers à traiter en premier, classés par impact sur le trafic, pas par facilité.\n\nRègles : ne propose aucune action dont l'effet n'est pas mesurable. Si une donnée te manque pour trancher, dis-le au lieu de supposer."
+    },
+    gsc: {
+      titre: 'Analyse Search Console',
+      corps: "Tu es consultant SEO. Je te donne un export de la Search Console (pages et requêtes, sur trois mois).\n\nLivre :\n1. Les requêtes en position 5 à 15 avec beaucoup d'impressions et peu de clics : ce sont les gains les plus proches.\n2. Les pages dont le taux de clic est nettement sous la moyenne de leur position, avec une hypothèse sur la cause (title, intention, extrait).\n3. Les requêtes pour lesquelles deux pages du site se partagent les impressions.\n\nRègles : appuie chaque ligne sur un chiffre de l'export. N'invente aucune donnée qui n'y figure pas."
+    },
+    motscles: {
+      titre: 'Regroupement de mots-clés',
+      corps: "Tu es consultant SEO. Je te donne un export de mots-clés issu d'un outil SEO, avec volume et difficulté.\n\nLivre :\n1. Les mots-clés regroupés par intention de recherche : s'informer, comparer, acheter, local.\n2. Dans chaque groupe, les requêtes qu'une seule page peut viser ensemble.\n3. Pour chaque groupe, la page existante qui devrait la porter, ou la page à créer.\n\nRègles : reprends les volumes de l'export sans les modifier. N'ajoute aucun mot-clé ni aucun chiffre qui n'y figure pas."
     },
     brief: {
       titre: 'Brief de contenu',
@@ -27,6 +37,10 @@
     maillage: {
       titre: 'Maillage interne',
       corps: "Tu es consultant SEO. Je te donne la liste de mes pages avec leur sujet.\n\nLivre :\n1. Pour chaque page, les trois liens internes entrants les plus pertinents, avec l'ancre exacte à utiliser.\n2. Les pages orphelines, qui ne reçoivent aucun lien.\n3. Les couples de pages qui risquent de se cannibaliser, et laquelle sacrifier.\n\nRègles : les ancres doivent être variées et descriptives. Aucune ancre du type « cliquez ici » ou « en savoir plus »."
+    },
+    schema: {
+      titre: 'Données structurées',
+      corps: "Tu es consultant SEO technique. Je te donne le contenu d'une page.\n\nLivre :\n1. Le type schema.org le plus adapté (Article, Product, LocalBusiness, FAQPage, BreadcrumbList…), avec la raison.\n2. Le bloc JSON-LD complet, prêt à coller dans la page.\n3. La liste des propriétés que tu n'as pas pu remplir faute d'information.\n\nRègles : n'utilise que des informations visibles dans la page. Pas de note, d'avis ou de prix inventés : laisse la propriété vide et signale-la."
     },
     citable: {
       titre: 'Rendre un contenu citable',
@@ -52,7 +66,7 @@
     var t = generer();
     var fini = function (ok) {
       var a = copy.textContent;
-      copy.textContent = ok ? 'Copié' : 'Copie impossible';
+      copy.textContent = ok ? 'Copié ✓' : 'Copie impossible';
       setTimeout(function () { copy.textContent = a; }, 1800);
     };
     if (navigator.clipboard && navigator.clipboard.writeText) {

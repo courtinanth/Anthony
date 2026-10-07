@@ -1,5 +1,5 @@
-/* Audit GEO express : 12 critères pondérés, un score et les trois prochains
-   chantiers. Tout se calcule dans le navigateur, aucun appel réseau. */
+/* Audit GEO SEO express (article generative-engine-optimization) : 12 critères
+   pondérés, un score et les trois prochains chantiers. Tout se calcule dans le navigateur, aucun appel réseau. */
 (function () {
   var list = document.getElementById('geo-check');
   var out = document.getElementById('geo-out');
@@ -36,9 +36,9 @@
     var top = restants.slice(0, 3);
 
     if (!top.length) {
-      out.textContent = 'Les douze critères sont couverts. Le chantier suivant n\'est plus '
-        + 'l\'optimisation mais la mesure : constituez un panel de questions métier et '
-        + 'suivez chaque semaine ce que répondent ChatGPT, Perplexity et Gemini.';
+      out.textContent = 'Score GEO : 100/100. Les douze critères sont couverts. '
+        + 'Gardez le rythme : mettez à jour les pages qui comptent, relevez chaque mois '
+        + 'votre panel de questions et suivez les impressions IA dans la Search Console.';
       return;
     }
 
@@ -47,6 +47,7 @@
     top.forEach(function (r, i) {
       txt += '\n' + (i + 1) + '. ' + r.txt + '\n   (+' + r.p + ' points)\n';
     });
+    txt += '\nMéthode : anthony-courtin.com/blog/generative-engine-optimization';
     out.textContent = txt;
   }
 

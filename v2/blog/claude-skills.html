@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<script src="/js/js-flag.js?v=1"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude Skills : créer, installer et 10 exemples (2026)</title>
+<meta name="description" content="Claude Skills : ce qu'est un skill, la structure du SKILL.md, l'installation et la création pas à pas, 10 exemples dont 6 SEO et un générateur gratuit.">
+<link rel="canonical" href="https://anthony-courtin.com/blog/claude-skills">
+<link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script src="/js/favicon-anim.js?v=2" defer></script>
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="Claude Skills : créer, installer et 10 exemples (2026)">
+<meta property="og:description" content="Ce qu'est un skill Claude, comment l'installer et le créer pas à pas dans l'application, Claude Code ou l'API, 10 exemples dont 6 skills SEO, et un générateur de SKILL.md.">
+<meta property="og:url" content="https://anthony-courtin.com/blog/claude-skills">
+<meta property="og:image" content="https://anthony-courtin.com/images/blog/automatiser-seo-claude-code-cover.webp">
+<meta property="og:locale" content="fr_FR">
+<meta property="article:published_time" content="2026-10-28">
+<meta property="article:modified_time" content="2026-10-28">
+<meta property="article:author" content="Anthony Courtin">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/main.css?v=13">
+<link rel="stylesheet" href="/css/blog-article.css?v=6">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"BlogPosting",
+      "@id":"https://anthony-courtin.com/blog/claude-skills#article",
+      "headline":"Claude Skills : créer, installer et 10 exemples (2026)",
+      "description":"Claude Skills : ce qu'est un skill, la structure du SKILL.md, l'installation et la création pas à pas, 10 exemples dont 6 SEO et un générateur gratuit.",
+      "inLanguage":"fr-FR",
+      "datePublished":"2026-10-28",
+      "dateModified":"2026-10-28",
+      "image":"https://anthony-courtin.com/images/blog/automatiser-seo-claude-code-cover.webp",
+      "wordCount":4750,
+      "mainEntityOfPage":{"@type":"WebPage","@id":"https://anthony-courtin.com/blog/claude-skills"},
+      "author":{"@id":"https://anthony-courtin.com/#anthony"},
+      "publisher":{"@id":"https://anthony-courtin.com/#anthony"},
+      "about":[{"@type":"Thing","name":"Claude Skills"},{"@type":"Thing","name":"Agent Skills"},{"@type":"Thing","name":"Claude (intelligence artificielle)"},{"@type":"Thing","name":"Claude Code"},{"@type":"Thing","name":"Anthropic"}]
+    },
+    {
+      "@type":"Person",
+      "@id":"https://anthony-courtin.com/#anthony",
+      "name":"Anthony Courtin",
+      "jobTitle":"Consultant SEO, GEO et automatisation IA",
+      "url":"https://anthony-courtin.com/a-propos",
+      "image":"https://anthony-courtin.com/images/anthony.avif",
+      "sameAs":["https://www.linkedin.com/in/anthony-courtin/","https://www.youtube.com/@AnthonyCourtin4"]
+    },
+    {
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Accueil","item":"https://anthony-courtin.com/"},
+        {"@type":"ListItem","position":2,"name":"Blog","item":"https://anthony-courtin.com/blog/"},
+        {"@type":"ListItem","position":3,"name":"Claude Skills"}
+      ]
+    },
+    {
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type":"Question","name":"C'est quoi un skill Claude ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Un skill Claude est un dossier qui contient un fichier SKILL.md (un nom, une description et des instructions), parfois accompagné de fichiers de référence et de scripts. Claude lit la description en permanence et charge le reste seulement quand une demande y correspond. Il sert à transmettre une méthode que vous ne voulez plus répéter à chaque conversation."}},
+        {"@type":"Question","name":"Les Claude Skills sont-ils gratuits ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Oui. Selon le centre d'aide d'Anthropic, les skills fonctionnent sur toutes les formules, gratuite comprise, à condition d'activer l'exécution de code et la création de fichiers. Créer un skill ne coûte rien : c'est un fichier texte. Son utilisation consomme simplement le quota de votre formule, comme n'importe quelle demande."}},
+        {"@type":"Question","name":"Comment ajouter un skill à Claude ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Dans l'application, compressez le dossier du skill en ZIP, ouvrez Personnaliser > Compétences, cliquez sur +, Créer une compétence, puis Télécharger une compétence. Dans Claude Code, copiez le dossier dans ~/.claude/skills/ ou dans le dossier .claude/skills/ du projet. Par l'API, envoyez-le par les endpoints /v1/skills."}},
+        {"@type":"Question","name":"Où trouver des skills pour Claude ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Dans le répertoire intégré à Claude, qui regroupe les skills d'Anthropic et de partenaires, et dans le dépôt GitHub officiel anthropics/skills. Des catalogues communautaires en recensent des milliers, de qualité inégale : lisez chaque fichier avant de l'installer. Les skills les plus utiles restent souvent ceux que vous écrivez pour votre propre méthode."}},
+        {"@type":"Question","name":"Quelle différence entre un skill et un MCP ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Un serveur MCP donne à Claude l'accès à un outil ou à des données, par exemple la Search Console. Un skill lui apprend une méthode : quelles données regarder, quelles règles appliquer, quel résultat rendre. Les deux se complètent : le MCP apporte la donnée, le skill dit quoi en faire."}},
+        {"@type":"Question","name":"Quelle différence entre les skills et les projets Claude ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Un projet regroupe des documents et des consignes disponibles dans toutes les conversations de ce projet. Un skill contient une procédure, chargée seulement quand la demande y correspond, dans n'importe quelle conversation. Le projet dit à Claude ce qu'il doit savoir, le skill lui dit comment faire."}},
+        {"@type":"Question","name":"Les skills Claude fonctionnent-ils avec d'autres outils que Claude ?",
+         "acceptedAnswer":{"@type":"Answer","text":"En grande partie, oui. Anthropic a publié le format en standard ouvert, Agent Skills, en décembre 2025, et des outils comme Cursor, GitHub Copilot, Gemini CLI ou Codex d'OpenAI l'ont adopté. Un skill qui s'en tient aux champs standard a donc de bonnes chances de fonctionner ailleurs, mais testez-le dans chaque outil."}},
+        {"@type":"Question","name":"Pourquoi Claude n'utilise-t-il pas mon skill ?",
+         "acceptedAnswer":{"@type":"Answer","text":"Le plus souvent, la description ne contient pas les mots de votre demande ou ne dit pas quand utiliser le skill. Vérifiez aussi que l'exécution de code est activée et que le skill est actif dans Personnaliser > Compétences. Dans Claude Code, la commande /skills liste les skills chargés et /nom-du-skill force son lancement."}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+<div id="read-progress"></div>
+
+<!-- ================= HEADER (identique au reste du site v2) ================= -->
+<header class="site">
+  <div class="nav-shell">
+    <nav class="main" aria-label="Navigation principale">
+      <a class="logo" href="/"><img src="/images/logo-transparent-cream.svg" alt="anthony courtin" width="86" height="42"></a>
+      <div class="nav-links">
+        <div class="nav-item has-mega" data-mega>
+          <button type="button">Services <span class="chev">▼</span></button>
+          <div class="mega">
+            <div class="mega-col">
+              <span class="mega-label">SEO</span>
+              <a class="mega-link" href="/seo"><span class="mega-ico">🔍</span><span><b>Consultant SEO</b><span>Audit, technique, netlinking : le socle.</span></span></a>
+              <a class="mega-link" href="/audit-seo"><span class="mega-ico">📊</span><span><b>Audit SEO</b><span>Analyse complète, plan d'action priorisé.</span></span></a>
+              <a class="mega-link" href="/seo-local"><span class="mega-ico">📍</span><span><b>SEO local</b><span>Recherches locales et Google Maps.</span></span></a>
+            </div>
+            <div class="mega-col">
+              <span class="mega-label">GEO, visibilité IA</span>
+              <a class="mega-link" href="/geo"><span class="mega-ico">✦</span><span><b>Consultant GEO</b><span>Être cité par ChatGPT, Perplexity, AI Overviews.</span></span></a>
+              <a class="mega-link" href="/audit-visibilite-ia"><span class="mega-ico">📝</span><span><b>Audit de visibilité IA</b><span>Mesurer comment les IA parlent de vous.</span></span></a>
+            </div>
+            <div class="mega-col">
+              <span class="mega-label">Automatisation IA</span>
+              <a class="mega-link" href="/automatisation-ia"><span class="mega-ico">🤖</span><span><b>Automatisation IA</b><span>Agents et programmes sur mesure, Claude Code.</span></span></a>
+            </div>
+            <a class="mega-feat" href="/realisations">
+              <img class="feat-bg" src="/images/visuels/card-realisations-800.avif" alt="" width="800" height="447" loading="lazy" decoding="async">
+              <em>Cas clients</em>
+              <b>Des résultats mesurés, pas des promesses</b>
+              <span>Réalisations SEO, GEO &amp; IA</span>
+            </a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="/realisations">Réalisations</a></div>
+        <div class="nav-item has-mega" data-mega>
+          <button type="button">Ressources <span class="chev">▼</span></button>
+          <div class="mega cols-3">
+            <div class="mega-col">
+              <span class="mega-label">Apprendre</span>
+              <a class="mega-link" href="/blog/"><span class="mega-ico">📚</span><span><b>Blog</b><span>Guides et retours d'expérience SEO, GEO, IA.</span></span></a>
+              <a class="mega-link" href="/videos"><span class="mega-ico">🎬</span><span><b>Vidéos</b><span>Mes tutos SEO, GEO et IA, sur YouTube.</span></span></a>
+            </div>
+            <div class="mega-col">
+              <span class="mega-label">Explorer</span>
+              <a class="mega-link" href="/realisations"><span class="mega-ico">🏆</span><span><b>Réalisations</b><span>Cas clients, résultats chiffrés.</span></span></a>
+              <a class="mega-link" href="/tarifs"><span class="mega-ico">💶</span><span><b>Tarifs</b><span>Formules claires, sans surprise.</span></span></a>
+            </div>
+            <a class="mega-feat" href="/blog/">
+              <img class="feat-bg" src="/images/visuels/methode-strategie-800.avif" alt="" width="800" height="447" loading="lazy" decoding="async">
+              <em>Sur le blog</em>
+              <b>Guides SEO, GEO et automatisation IA</b>
+              <span>Retours d'expérience concrets</span>
+            </a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="/tarifs">Tarifs</a></div>
+        <div class="nav-item"><a href="/a-propos">À propos</a></div>
+      </div>
+      <button class="burger" id="burger" type="button" aria-label="Menu">☰</button>
+      <a class="nav-cta" href="/contact">Travailler avec moi</a>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="/seo">SEO</a>
+        <a href="/geo">GEO, visibilité IA</a>
+        <a href="/automatisation-ia">Automatisation IA</a>
+        <a href="/realisations">Réalisations</a>
+        <a href="/blog/">Blog</a>
+        <a href="/videos">Vidéos</a>
+        <a href="/tarifs">Tarifs</a>
+        <a href="/a-propos">À propos</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= EN-TÊTE D'ARTICLE ================= -->
+<section class="art-top">
+  <div class="wrap">
+    <nav class="crumb" aria-label="Fil d'Ariane">
+      <a href="/">Accueil</a><span aria-hidden="true">/</span>
+      <a href="/blog/">Blog</a><span aria-hidden="true">/</span>
+      <span>Claude Skills</span>
+    </nav>
+
+    <span class="art-cat">Utiliser l'IA</span>
+    <h1 class="art-title">Claude Skills : créer, installer et utiliser vos skills</h1>
+    <p class="art-lede">Les Claude Skills sont des dossiers d'instructions, de scripts et de ressources que Claude charge seul quand une tâche en a besoin. Un skill tient dans un fichier SKILL.md et fonctionne dans l'application Claude, dans Claude Code et via l'API. Voici sa structure, comment en installer et en créer un pas à pas, et dix exemples, dont six skills SEO.</p>
+
+    <div class="art-metaline">
+      <span class="who">
+        <img src="/images/anthony.avif" alt="" width="38" height="38" loading="lazy">
+        Anthony Courtin
+      </span>
+      <span class="dot" aria-hidden="true">·</span>
+      <time datetime="2026-10-28">28 octobre 2026</time>
+      <span class="dot" aria-hidden="true">·</span>
+      <span>17 min de lecture</span>
+      <span class="dot" aria-hidden="true">·</span>
+      <span>Mis à jour le <time datetime="2026-10-28">28 octobre 2026</time></span>
+    </div>
+
+    <!-- Boutons "Résumer avec" : les href sont construits par blog-article.js -->
+    <div class="ai-actions">
+      <span class="ai-actions__title">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>
+        Résumer avec
+      </span>
+      <ul class="ai-actions__list">
+        <li><a class="ai-btn" data-ai="chatgpt" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec ChatGPT">ChatGPT</a></li>
+        <li><a class="ai-btn" data-ai="claude" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Claude">Claude</a></li>
+        <li><a class="ai-btn" data-ai="perplexity" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Perplexity">Perplexity</a></li>
+        <li><a class="ai-btn" data-ai="gemini" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Gemini">Gemini</a></li>
+        <li><a class="ai-btn" data-ai="mistral" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Le Chat de Mistral">Le Chat</a></li>
+        <li><a class="ai-btn" data-ai="grok" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Grok">Grok</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GRILLE 3 COLONNES ================= -->
+<div class="art-layout">
+
+  <!-- ---------- COLONNE GAUCHE : sommaire + partage ---------- -->
+  <aside class="rail rail-left">
+    <details class="toc-box" open>
+      <summary><span class="rail-title">Sommaire</span><span class="toc-chevron" aria-hidden="true"></span></summary>
+      <nav class="toc" id="toc" aria-label="Sommaire de l'article">
+        <p class="toc-empty">Chargement…</p>
+      </nav>
+    </details>
+
+    <div class="share-box">
+      <p class="rail-title">Partager</p>
+      <ul class="share">
+        <li><a class="share-btn share-linkedin" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur LinkedIn"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56z"/></svg></a></li>
+        <li><a class="share-btn share-x" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur X"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.96 6.82H1.68l7.73-8.84L1.25 2.25h6.83l4.71 6.23zm-1.16 17.52h1.83L7.08 4.13H5.12z"/></svg></a></li>
+        <li><a class="share-btn share-whatsapp" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur WhatsApp"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m5.8 14.16c-.25.69-1.43 1.31-1.98 1.4-.53.08-1.19.11-1.92-.12-.44-.14-1.01-.33-1.74-.64-3.06-1.32-5.06-4.4-5.21-4.6-.15-.2-1.25-1.66-1.25-3.16s.79-2.25 1.07-2.55c.28-.31.61-.38.81-.38h.58c.19 0 .44-.07.69.53.25.61.86 2.11.94 2.26.08.15.13.33.02.53-.1.2-.16.33-.31.5l-.46.54c-.15.15-.31.32-.13.63.18.31.79 1.3 1.69 2.11 1.16 1.03 2.14 1.35 2.45 1.5.31.15.49.13.67-.08.18-.2.77-.9.98-1.21.2-.31.41-.26.69-.15.28.1 1.78.84 2.09.99.31.15.51.23.59.36.08.13.08.74-.17 1.44"/></svg></a></li>
+        <li><a class="share-btn share-email" href="#" rel="nofollow" aria-label="Partager par e-mail"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m0 4-8 5-8-5V6l8 5 8-5z"/></svg></a></li>
+        <li><button class="share-btn share-copy" type="button" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2m0 16H8V7h11z"/></svg></button></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- ---------- COLONNE CENTRALE : le contenu ---------- -->
+  <div class="art-main">
+
+    <!-- Résumé IA version mobile : rendu côté serveur, donc lisible par Google et les LLM -->
+    <div class="ai-box ai-box-mobile">
+      <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
+      <p class="ai-text">Les Claude Skills sont des dossiers qui contiennent un fichier SKILL.md (nom, description, instructions) et parfois des références et des scripts. Claude lit leur description en permanence et charge le reste quand une demande y correspond. Ils fonctionnent dans l'application Claude, Claude Code et l'API, sur toutes les formules, avec l'exécution de code activée.</p>
+      <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
+    </div>
+
+    <article class="art-body">
+
+      <figure>
+        <picture>
+          <source srcset="/images/blog/automatiser-seo-claude-code-cover.avif" type="image/avif">
+          <img src="/images/blog/automatiser-seo-claude-code-cover.webp" alt="Illustration abstraite d'un mécanisme de verre entraînant un ruban, image d'une méthode que Claude charge et applique à la demande" width="1376" height="768" fetchpriority="high" decoding="async">
+        </picture>
+      </figure>
+
+      <div class="verdict">
+        <div class="verdict-note">
+          <b>1</b>
+          <span>fichier SKILL.md suffit</span>
+        </div>
+        <div class="verdict-body">
+          <h2>Claude Skills en 30 secondes</h2>
+          <p>Un skill est un dossier qui contient au minimum un fichier SKILL.md : un nom, une description qui dit à Claude quand s'en servir, puis vos instructions. Claude lit seulement la description tant que la tâche ne le concerne pas, et charge le reste au moment où il en a besoin.</p>
+          <div class="verdict-lists">
+            <ul class="verdict-pros">
+              <li>Écrire une fois une méthode que vous répétez à chaque conversation</li>
+              <li>Le même dossier sert dans l'application, Claude Code et l'API</li>
+              <li>Joindre des modèles, des références et des scripts</li>
+              <li>Aucun code requis pour un skill simple</li>
+            </ul>
+            <ul class="verdict-cons">
+              <li>Un skill ne branche pas Claude sur vos outils : c'est le rôle du MCP</li>
+              <li>Un skill d'origine inconnue peut faire exécuter du code</li>
+            </ul>
+          </div>
+        </div>
+        <p class="verdict-foot">
+          <span class="verdict-price">Toutes les formules Claude, gratuite comprise</span>
+          <span>À condition d'activer l'exécution de code</span>
+        </p>
+      </div>
+
+      <section class="takeaways">
+        <h2>À retenir</h2>
+        <ul>
+          <li>Un <strong>Claude Skill</strong> (« compétence » dans l'interface française) est un dossier d'instructions, de ressources et de scripts que Claude charge seul quand une demande correspond à sa description.</li>
+          <li>La pièce centrale est le fichier <strong>SKILL.md</strong> : un nom en minuscules, une description qui dit quoi et quand, puis les instructions en Markdown.</li>
+          <li>Les skills fonctionnent dans l'application Claude, dans Claude Code et via l'API, mais <strong>ne se synchronisent pas</strong> entre ces surfaces.</li>
+          <li>Un skill dit à Claude <strong>comment faire</strong> ; un projet lui donne de quoi savoir, un serveur MCP lui donne accès à vos outils.</li>
+          <li>Créer un skill ne demande pas de code : un fichier texte suffit, ou une simple demande à Claude.</li>
+          <li>N'installez que des skills de confiance : un skill peut faire exécuter des scripts.</li>
+        </ul>
+      </section>
+
+      <p>Vous redonnez les mêmes consignes à Claude d'une conversation à l'autre : votre format de compte rendu, votre grille d'audit, votre charte. Un skill règle ce problème. Vous écrivez la méthode une fois, dans un dossier, et Claude la retrouve seul dès que la demande s'y prête.</p>
+
+      <p>Je commence par la définition et la structure d'un skill, puis l'installation et la création pas à pas, avec un <a href="#outil-skill-md">générateur de fichier SKILL.md</a>. Viennent ensuite les différences avec les projets, le MCP et les sous-agents, dix exemples, dont six pour le SEO, et les précautions de sécurité.</p>
+
+      <h2>C'est quoi un skill Claude ?</h2>
+
+      <p>Un <strong>skill</strong> (« compétence » dans l'interface française de Claude) est un dossier qui regroupe des instructions, des scripts et des ressources pour une tâche précise. Le centre d'aide d'Anthropic décrit ces dossiers comme des ressources « que Claude charge dynamiquement » : Claude repère les skills utiles à la demande en cours et ne lit que ce dont il a besoin.</p>
+
+      <p>Anthropic a lancé les skills le 16 octobre 2025, dans l'application Claude, dans Claude Code et dans l'API. Le 18 décembre 2025, l'éditeur a ajouté la gestion des skills à l'échelle d'une organisation, un répertoire de skills conçus par des partenaires, et a publié le format comme standard ouvert sous le nom <strong>Agent Skills</strong>, documenté sur agentskills.io. Vous croiserez donc les deux expressions : « Claude Skills » désigne la fonction dans les produits Claude, « Agent Skills » le format de fichier.</p>
+
+      <p>Concrètement, un skill transmet un savoir-faire : comment vous rédigez un compte rendu, comment vous auditez des balises, comment votre marque écrit un chiffre. Claude sait déjà rédiger, analyser et coder. Le skill lui apprend <em>votre</em> manière de le faire.</p>
+
+      <h3>Comment Claude choisit et charge un skill</h3>
+
+      <p>Le mécanisme s'appelle la divulgation progressive. Claude ne lit pas tous vos skills en entier à chaque message : il procède en trois niveaux, décrits dans la documentation d'Anthropic.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Niveau</th><th scope="col">Quand Claude le lit</th><th scope="col">Poids dans le contexte</th><th scope="col">Contenu</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>1. Métadonnées</strong></td><td>Toujours, au démarrage</td><td>Environ 100 tokens par skill</td><td>Le nom et la description</td></tr>
+            <tr><td><strong>2. Instructions</strong></td><td>Quand la demande correspond à la description</td><td>Moins de 5 000 tokens conseillés</td><td>Le corps du fichier SKILL.md</td></tr>
+            <tr><td><strong>3. Ressources</strong></td><td>Seulement si les instructions y renvoient</td><td>Rien tant qu'elles ne sont pas lues</td><td>Fichiers de référence, modèles, scripts</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Deux conséquences pratiques. Vous pouvez installer beaucoup de skills sans encombrer la conversation, puisque seule leur description reste chargée. Et tout se joue sur cette description : si elle ne dit pas clairement quand utiliser le skill, Claude ne l'ouvrira pas.</p>
+
+      <h2>La structure d'un skill : SKILL.md, métadonnées et fichiers joints</h2>
+
+      <p>Un skill est un dossier. Seul le fichier SKILL.md est obligatoire, le reste dépend de la tâche. La spécification Agent Skills recommande cette organisation :</p>
+
+      <pre><code>controle-balises-seo/
+├── SKILL.md       obligatoire : métadonnées et instructions
+├── references/    facultatif : documentation à consulter
+├── scripts/       facultatif : code à exécuter
+└── assets/        facultatif : modèles, gabarits, données</code></pre>
+
+      <h3>Les métadonnées : name et description</h3>
+
+      <p>Le fichier commence par un bloc YAML encadré par deux lignes de trois tirets. Deux champs sont obligatoires :</p>
+
+      <ul>
+        <li><strong>name</strong> : 64 caractères maximum, uniquement des minuscules, des chiffres et des traits d'union, sans trait d'union au début, à la fin ou en double. Il doit correspondre au nom du dossier. Les mots « claude » et « anthropic » sont réservés.</li>
+        <li><strong>description</strong> : ce que fait le skill <em>et</em> quand l'utiliser, en 1 024 caractères au plus selon la spécification. Pour un import dans l'application Claude, le centre d'aide fixe la limite à 200 caractères : visez court.</li>
+      </ul>
+
+      <p>Anthropic recommande d'écrire la description à la troisième personne (« Contrôle les balises… » plutôt que « Je peux contrôler… ») et d'y glisser les mots que vous employez dans vos demandes. Comparez :</p>
+
+      <ul>
+        <li><strong>Description faible :</strong> « Aide pour le SEO. »</li>
+        <li><strong>Bonne description :</strong> « Contrôle les balises title et meta description d'un site et propose des corrections. À utiliser pour un audit de balises, de titles ou de meta descriptions. »</li>
+      </ul>
+
+      <h3>Les instructions en Markdown</h3>
+
+      <p>Sous les métadonnées, vous écrivez librement en Markdown : les étapes, le format attendu, les règles, un exemple de bon résultat. Trois principes tirés des bonnes pratiques publiées par Anthropic :</p>
+
+      <ul>
+        <li><strong>N'expliquez pas ce que Claude sait déjà.</strong> Il connaît le SEO et le format CSV. Écrivez ce qui vous est propre : vos seuils, vos exceptions, votre format.</li>
+        <li><strong>Restez sous 500 lignes.</strong> Au-delà, déplacez le détail dans des fichiers de référence.</li>
+        <li><strong>Adaptez la liberté au risque.</strong> Une tâche fragile, comme un fichier de redirections, appelle des étapes exactes ; une tâche d'analyse supporte des consignes générales.</li>
+      </ul>
+
+      <h3>Les fichiers joints et les scripts</h3>
+
+      <p>Les fichiers de référence se lisent à la demande : si la tâche n'en a pas besoin, ils ne coûtent rien. Les scripts s'exécutent sans être lus, et seul leur résultat entre dans la conversation, ce qui les rend plus fiables et plus économes qu'un code réécrit à chaque fois. Deux règles : renvoyez vers chaque fichier directement depuis SKILL.md, sans chaîne de renvois, et écrivez les chemins avec des barres obliques, comme <code>references/seuils.md</code>.</p>
+
+      <h3>Les réglages propres à Claude Code</h3>
+
+      <p>Claude Code accepte des champs supplémentaires dans les métadonnées. Les plus utiles :</p>
+
+      <ul>
+        <li><code>disable-model-invocation: true</code> : le skill ne se lance qu'à la main, avec <code>/nom-du-skill</code>. À réserver aux actions sensibles, comme un déploiement.</li>
+        <li><code>user-invocable: false</code> : le skill disparaît du menu et reste une référence que Claude consulte seul.</li>
+        <li><code>allowed-tools</code> : les outils que Claude peut utiliser sans demander d'autorisation pendant le tour où le skill est lancé.</li>
+        <li><code>context: fork</code> : le skill s'exécute dans un sous-agent isolé, qui ne voit pas l'historique de la conversation.</li>
+      </ul>
+
+      <p>Attention : pour un import dans l'application ou par l'API, seuls <code>name</code>, <code>description</code>, <code>license</code>, <code>compatibility</code>, <code>metadata</code> et <code>allowed-tools</code> sont acceptés. Un autre champ fait échouer l'import.</p>
+
+      <h2>Où fonctionnent les Claude Skills : application, Claude Code et API</h2>
+
+      <p>Le même format de dossier sert partout, mais chaque surface a ses règles.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col"></th><th scope="col">Application Claude</th><th scope="col">Claude Code</th><th scope="col">API Claude</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Skills d'Anthropic</strong></td><td>Word, Excel, PowerPoint et PDF, actifs dès que vous demandez un document</td><td>Pas les skills de documents ; le skill dédié à l'API Claude est fourni</td><td>pptx, xlsx, docx et pdf, appelés par leur identifiant</td></tr>
+            <tr><td><strong>Vos propres skills</strong></td><td>Import d'un ZIP dans Personnaliser &gt; Compétences</td><td>Dossiers dans <code>~/.claude/skills/</code> ou <code>.claude/skills/</code>, ou plugins</td><td>Envoi par les endpoints <code>/v1/skills</code></td></tr>
+            <tr><td><strong>Partage</strong></td><td>Individuel ; partage et déploiement par l'administrateur en Team et Enterprise</td><td>Personnel, par projet (versionné avec le code) ou par plugin</td><td>Tout l'espace de travail</td></tr>
+            <tr><td><strong>Accès réseau</strong></td><td>Variable selon les réglages</td><td>Celui de votre ordinateur</td><td>Aucun, ni installation de paquets</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Trois points à retenir. L'<strong>exécution de code</strong> doit être activée, sinon les skills ne fonctionnent pas. D'après le centre d'aide d'Anthropic, les skills fonctionnent sur <strong>toutes les formules</strong>, de la version gratuite à Enterprise. Et ils <strong>ne se synchronisent pas</strong> : un skill importé dans l'application n'existe ni dans l'API ni dans Claude Code, il faut l'installer sur chaque surface.</p>
+
+      <p>Les skills fonctionnent aussi dans <a href="/blog/claude-cowork">Claude Cowork</a>, le mode agent de Claude pour le travail de bureau, où ils arrivent souvent à l'intérieur de plugins, aux côtés de connecteurs et de sous-agents.</p>
+
+      <h2>Comment installer un skill Claude</h2>
+
+      <h3>Dans l'application Claude</h3>
+
+      <ol>
+        <li>Ouvrez <strong>Paramètres &gt; Capacités</strong> et vérifiez que l'exécution de code et la création de fichiers est activée.</li>
+        <li>Allez dans <strong>Personnaliser &gt; Compétences</strong>.</li>
+        <li>Cliquez sur <strong>+</strong>, puis <strong>Créer une compétence</strong>, puis <strong>Télécharger une compétence</strong>.</li>
+        <li>Choisissez le fichier ZIP. Le dossier du skill doit se trouver à la racine du ZIP : <code>mon-skill.zip</code> contient <code>mon-skill/SKILL.md</code>, pas un fichier <code>SKILL.md</code> isolé.</li>
+        <li>Activez le skill, puis testez-le dans une nouvelle conversation.</li>
+      </ol>
+
+      <p>En formule Team ou Enterprise, l'administrateur doit d'abord autoriser l'exécution de code et les compétences dans <strong>Paramètres de l'organisation &gt; Plugins et compétences</strong>. Dans Cowork, le répertoire de skills, ouvert depuis <strong>Personnaliser</strong> puis le bouton <strong>+</strong>, propose aussi des skills prêts à installer, dont ceux de partenaires comme Notion, Figma, Canva ou Atlassian.</p>
+
+      <h3>Dans Claude Code</h3>
+
+      <p>Claude Code lit les skills directement dans des dossiers, sans import. Si l'outil n'est pas encore sur votre machine, commencez par <a href="/blog/claude-code">installer Claude Code</a>.</p>
+
+      <ol>
+        <li>Copiez le dossier du skill dans <code>~/.claude/skills/</code> pour l'avoir dans tous vos projets, ou dans <code>.claude/skills/</code> à la racine d'un projet pour le partager avec votre équipe via Git.</li>
+        <li>Tapez <code>/skills</code> pour vérifier qu'il apparaît.</li>
+        <li>Laissez Claude l'utiliser seul quand la demande correspond, ou lancez-le avec <code>/nom-du-skill</code>.</li>
+      </ol>
+
+      <p>Pour installer les skills publiés par Anthropic, ajoutez leur dépôt comme place de marché de plugins, puis installez le lot qui vous intéresse :</p>
+
+      <pre><code>/plugin marketplace add anthropics/skills
+/plugin install document-skills@anthropic-agent-skills
+/plugin install example-skills@anthropic-agent-skills</code></pre>
+
+      <p>Les anciennes commandes personnalisées, rangées dans <code>.claude/commands/</code>, continuent de fonctionner : Claude Code les traite désormais comme des skills.</p>
+
+      <h3>Via l'API Claude</h3>
+
+      <p>Côté développeurs, les skills passent par l'outil d'exécution de code. Vous déclarez le skill dans le paramètre <code>container</code> de la requête, avec son identifiant : <code>pptx</code>, <code>xlsx</code>, <code>docx</code> ou <code>pdf</code> pour ceux d'Anthropic, ou celui d'un skill que vous avez envoyé par les endpoints <code>/v1/skills</code>. Le skill tourne alors dans un conteneur sans accès à Internet, partagé avec tout l'espace de travail.</p>
+
+      <h3>Où trouver des skills pour Claude</h3>
+
+      <ul>
+        <li><strong>Le dépôt officiel</strong> <code>anthropics/skills</code> sur GitHub : skills de documents, de création, de développement et de communication. Anthropic précise qu'ils sont fournis à titre de démonstration et qu'il faut les tester avant de s'y fier.</li>
+        <li><strong>Le répertoire intégré à Claude</strong>, avec les skills d'Anthropic et ceux de partenaires.</li>
+        <li><strong>Les catalogues communautaires</strong> : il en existe plusieurs, qui recensent des milliers de skills de qualité très inégale. Lisez chaque fichier avant installation, la partie sécurité plus bas explique quoi vérifier.</li>
+        <li><strong>Vos propres skills</strong>, souvent les plus utiles, parce qu'ils contiennent ce qu'aucun catalogue ne connaît : votre méthode.</li>
+      </ul>
+
+      <h2>Créer un skill Claude pas à pas</h2>
+
+      <p>Un skill simple tient dans un fichier texte. La méthode qui suit vaut pour toutes les surfaces, seule la dernière étape change.</p>
+
+      <ol>
+        <li><strong>Choisissez une tâche que vous expliquez souvent.</strong> Le bon candidat est la consigne que vous recopiez d'une conversation à l'autre : un format de rapport, une grille de contrôle, une charte.</li>
+        <li><strong>Faites la tâche une fois avec Claude, sans skill.</strong> Notez ce que vous devez préciser ou corriger : ce sont exactement les informations qui manquent à Claude, donc le contenu du skill.</li>
+        <li><strong>Créez le dossier et le fichier.</strong> Un dossier au nom du skill, en minuscules avec des tirets, et dedans un fichier <code>SKILL.md</code>.</li>
+        <li><strong>Écrivez les métadonnées.</strong> Le nom, puis une description qui dit ce que fait le skill et quand l'utiliser, avec les mots de vos demandes.</li>
+        <li><strong>Écrivez les instructions.</strong> Les étapes dans l'ordre, le format du résultat, les règles à respecter et, si possible, un exemple de résultat réussi.</li>
+        <li><strong>Ajoutez les fichiers utiles.</strong> Un barème dans <code>references/</code>, un modèle dans <code>assets/</code>, un script de vérification dans <code>scripts/</code>. Rien d'obligatoire.</li>
+        <li><strong>Testez sur trois vraies demandes.</strong> Dans une nouvelle conversation, formulez la demande comme d'habitude, sans citer le skill. Le raisonnement affiché de Claude doit indiquer qu'il lit le skill. S'il l'ignore, retravaillez la description.</li>
+        <li><strong>Installez-le</strong> selon la surface : ZIP dans l'application, dossier dans Claude Code, envoi par l'API.</li>
+      </ol>
+
+      <h3>Sans écrire une ligne : demander à Claude de créer le skill</h3>
+
+      <p>Claude connaît le format. Après avoir fait une tâche avec lui, demandez-lui : « Crée un skill qui reprend la méthode que nous venons d'appliquer, avec les règles que je t'ai données. » Anthropic publie aussi un skill dédié, <strong>skill-creator</strong>, qui guide la création, la modification et le test d'un skill. Relisez toujours le résultat : un modèle a tendance à ajouter des explications inutiles, qu'il faut couper.</p>
+
+      <p>Dans Claude Cowork sur Mac, les formules Pro, Max et Team proposent aussi d'<strong>enregistrer un skill</strong> : vous réalisez la tâche à l'écran, pendant une dizaine de minutes au plus, et Claude propose un skill à partir de l'enregistrement. La fonction n'existe ni dans le chat, ni sous Windows, ni dans les formules gratuite et Enterprise.</p>
+
+      <h3>Exemple complet de fichier SKILL.md</h3>
+
+      <p>Voici un skill SEO complet, prêt à adapter. Il reprend la chaîne de contrôle des balises que je fais tourner sur mes missions avec Claude Code.</p>
+
+      <pre><code>---
+name: controle-balises-seo
+description: "Contrôle les balises title et meta description d'un site et propose des corrections. À utiliser pour un audit de balises, de titles ou de meta descriptions."
+---
+
+# Contrôle des balises SEO
+
+## Étapes
+1. Lire l'export de crawl fourni (CSV) ou crawler les URL indiquées.
+2. Repérer les titles absents, en double, de moins de 30 ou de plus de 60 caractères.
+3. Faire de même pour les meta descriptions (absentes, en double, plus de 155 caractères).
+4. Proposer une réécriture pour chaque page fautive, avec le nombre de caractères.
+5. Ne modifier aucun fichier sans validation explicite.
+
+## Format du résultat
+Un tableau : URL, problème, balise actuelle, proposition, nombre de caractères.
+Puis les cinq pages à traiter en premier, classées par trafic si l'export le contient.
+
+## Règles
+- Le title contient la requête visée par la page, au début si possible.
+- Aucune promesse invérifiable (« le meilleur », « n° 1 »).
+- Signaler les cas ambigus dans une liste à arbitrer au lieu de trancher.
+
+## Référence
+Seuils et exceptions propres au site : voir references/seuils.md</code></pre>
+
+      <p>Pour écrire le vôtre, le générateur ci-dessous assemble le fichier à partir de vos réponses, vérifie le nom et la longueur de la description, et vous indique où le déposer selon la surface choisie.</p>
+
+      <!-- ================= OUTIL INTERACTIF ================= -->
+      <div class="tool" id="outil-skill-md">
+        <div class="tool-head">
+          <span class="tool-ico" aria-hidden="true">✦</span>
+          <span>
+            <em>Outil interactif</em>
+            <b>Générateur de fichier SKILL.md</b>
+          </span>
+        </div>
+        <div class="tool-body">
+          <div class="field">
+            <label for="sk-exemple">Partir d'un exemple <span class="hint">: pré-remplit les champs, à adapter ensuite</span></label>
+            <select id="sk-exemple">
+              <option value="">Champs vides</option>
+              <option value="balises">Contrôle des balises SEO</option>
+              <option value="maillage">Audit du maillage interne</option>
+              <option value="redirections">Plan de redirections</option>
+              <option value="cr">Compte rendu de réunion</option>
+              <option value="charte">Charte éditoriale</option>
+            </select>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="sk-nom">Nom du skill <span class="hint">: minuscules, chiffres, tirets</span></label>
+              <input id="sk-nom" type="text" maxlength="80" placeholder="Ex. : controle-balises-seo">
+            </div>
+            <div class="field">
+              <label for="sk-cible">Où l'utiliser</label>
+              <select id="sk-cible">
+                <option value="app">Application Claude (ZIP)</option>
+                <option value="code">Claude Code (dossier)</option>
+                <option value="api">API Claude</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="sk-quoi">Ce que fait le skill <span class="hint">: un verbe à la troisième personne</span></label>
+            <input id="sk-quoi" type="text" placeholder="Ex. : Contrôle les balises title et meta description d'un site et propose des corrections">
+          </div>
+
+          <div class="field">
+            <label for="sk-quand">Quand Claude doit l'utiliser <span class="hint">: avec les mots de vos demandes</span></label>
+            <input id="sk-quand" type="text" placeholder="Ex. : pour un audit de balises, de titles ou de meta descriptions">
+          </div>
+
+          <div class="field">
+            <label for="sk-etapes">Étapes <span class="hint">: une par ligne, dans l'ordre</span></label>
+            <textarea id="sk-etapes" placeholder="Ex. : Lire l'export de crawl fourni&#10;Repérer les titles absents ou en double&#10;Proposer une réécriture pour chaque page fautive"></textarea>
+          </div>
+
+          <div class="field">
+            <label for="sk-format">Format du résultat</label>
+            <textarea id="sk-format" placeholder="Ex. : Un tableau URL, problème, balise actuelle, proposition, puis les cinq pages prioritaires."></textarea>
+          </div>
+
+          <div class="field">
+            <label for="sk-regles">Règles et garde-fous <span class="hint">: une par ligne</span></label>
+            <textarea id="sk-regles" placeholder="Ex. : Ne modifier aucun fichier sans validation explicite&#10;Signaler les cas ambigus au lieu de trancher"></textarea>
+          </div>
+
+          <div class="field">
+            <span class="rail-title" style="margin-bottom:8px">Fichiers joints prévus</span>
+            <div class="chips" id="sk-fichiers" role="group" aria-label="Fichiers joints prévus">
+              <button type="button" class="chip" data-v="references">references/</button>
+              <button type="button" class="chip" data-v="scripts">scripts/</button>
+              <button type="button" class="chip" data-v="assets">assets/</button>
+            </div>
+          </div>
+
+          <div class="field" id="sk-opt-code" style="display:none">
+            <ul class="geo-check">
+              <li><label><input type="checkbox" id="sk-manuel"> Lancement manuel uniquement, avec /nom-du-skill</label></li>
+            </ul>
+          </div>
+
+          <div class="field">
+            <span class="rail-title" style="margin-bottom:8px">Votre fichier SKILL.md</span>
+            <div class="tool-out" id="sk-out" aria-live="polite"></div>
+          </div>
+
+          <div class="score">
+            <b id="sk-score">0</b><span>/ 100 de complétude du skill</span>
+          </div>
+          <div class="meter"><i id="sk-meter" style="width:0%"></i></div>
+
+          <div class="field">
+            <span class="rail-title" style="margin-bottom:8px">Vérifications et installation</span>
+            <ul id="sk-checks"></ul>
+          </div>
+
+          <div class="tool-actions">
+            <button type="button" class="btn-sm primary" id="sk-copy">Copier le SKILL.md</button>
+            <button type="button" class="btn-sm ghost" id="sk-dl">Télécharger SKILL.md</button>
+            <a class="btn-sm ghost" href="/automatisation-ia">Faire créer mes skills</a>
+          </div>
+        </div>
+        <div class="tool-foot">
+          <span>Tout se passe dans votre navigateur : rien n'est envoyé.</span>
+          <span>Format Agent Skills · Anthony Courtin</span>
+        </div>
+      </div>
+
+      <h2>Skills, projets, MCP, sous-agents : quelles différences ?</h2>
+
+      <p>Claude propose plusieurs façons de lui donner du contexte, et elles se confondent facilement. Anthropic résume la distinction ainsi : un projet dit à Claude ce qu'il doit savoir, un skill lui dit comment faire, et le MCP le relie à vos données.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th scope="col">Élément</th><th scope="col">À quoi il sert</th><th scope="col">Quand il agit</th><th scope="col">Exemple</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Prompt</strong></td><td>Une demande ponctuelle</td><td>Le temps d'une conversation</td><td>« Résume ce compte rendu en cinq puces »</td></tr>
+            <tr><td><strong>Instructions personnalisées, CLAUDE.md</strong></td><td>Vos préférences générales</td><td>Dans toutes les conversations, ou tout le projet de code</td><td>« Réponds en français, sans emojis »</td></tr>
+            <tr><td><strong>Projet</strong></td><td>Une base de connaissances sur un sujet</td><td>Dans les conversations du projet</td><td>Les documents d'un client</td></tr>
+            <tr><td><strong>Skill</strong></td><td>Une méthode pour une tâche précise</td><td>Seulement quand la demande correspond</td><td>Votre grille d'audit des balises</td></tr>
+            <tr><td><strong>MCP, connecteur</strong></td><td>L'accès à un outil ou à des données</td><td>Quand Claude appelle l'outil</td><td>La Search Console, un crawler, Notion</td></tr>
+            <tr><td><strong>Sous-agent</strong></td><td>Un assistant spécialisé, avec son propre contexte</td><td>Quand une tâche lui est déléguée</td><td>Un relecteur de code dans Claude Code</td></tr>
+            <tr><td><strong>Plugin</strong></td><td>Un paquet qui regroupe skills, connecteurs et sous-agents</td><td>Une fois installé</td><td>Un lot marketing pour toute une équipe</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>Skill ou projet.</strong> Un projet stocke de la matière (documents, consignes générales) disponible dans toutes ses conversations. Un skill stocke une procédure, chargée seulement quand elle sert, dans n'importe quelle conversation, quel que soit le projet.</p>
+
+      <p><strong>Skill ou MCP.</strong> Le MCP donne des outils à Claude : lire la Search Console, lancer un crawl. Le skill lui dit quoi en faire : quelles pages comparer, quels seuils appliquer, quel tableau rendre. Les deux se combinent, et c'est souvent la meilleure configuration. Je détaille le fonctionnement d'un <a href="/blog/mcp-model-context-protocol">serveur MCP</a> dans un article dédié.</p>
+
+      <p><strong>Skill ou sous-agent.</strong> Un sous-agent est un assistant complet, avec son propre contexte, à qui l'agent principal délègue une partie du travail. Un skill est un savoir-faire que n'importe quelle instance de Claude peut charger. Dans Claude Code, les deux se rejoignent avec <code>context: fork</code>, qui fait tourner un skill dans un sous-agent. Pour la logique d'agent en général, voyez comment <a href="/blog/agent-ia">créer un agent IA</a>.</p>
+
+      <h2>10 exemples de skills Claude, dont 6 pour le SEO</h2>
+
+      <p>Les quatre premiers sont fournis par Anthropic ou ses partenaires, ou s'écrivent en quelques lignes. Les six suivants reprennent les tâches SEO que j'automatise avec Claude Code en mission : chacune a une donnée d'entrée propre, une règle explicite et un résultat vérifiable, ce qui en fait de bons candidats.</p>
+
+      <h3>Les skills prêts à l'emploi et les skills métier</h3>
+
+      <h4>1. Les skills de documents d'Anthropic</h4>
+      <p>Word, Excel, PowerPoint et PDF : Claude les utilise de lui-même quand vous demandez un document, dans l'application comme par l'API. Ce sont eux qui lui permettent de produire un tableur avec des formules ou une présentation mise en page.</p>
+
+      <h4>2. skill-creator, le skill qui crée des skills</h4>
+      <p>Il pose les questions utiles, rédige le SKILL.md, aide à le modifier et à mesurer s'il se déclenche comme prévu. Il figure dans le dépôt officiel d'Anthropic.</p>
+
+      <h4>3. Les skills de partenaires</h4>
+      <p>Notion, Figma, Canva ou Atlassian publient des skills qui apprennent à Claude à travailler avec leurs outils. Ils s'installent depuis le répertoire de skills de Claude, comme ceux d'Anthropic.</p>
+
+      <h4>4. Un skill de charte éditoriale</h4>
+      <p>Votre ton, vos mots interdits, la façon d'écrire les chiffres, deux textes de référence dans <code>references/</code>. C'est un bon premier skill pour une équipe, parce que la charte s'applique à tout ce qui s'écrit.</p>
+      <pre><code>---
+name: charte-editoriale
+description: "Applique la charte éditoriale de l'entreprise à tout texte rédigé ou relu. À utiliser pour un e-mail, un post, une page web ou une relecture."
+---</code></pre>
+
+      <h3>6 skills SEO à créer</h3>
+
+      <p>Pour ces skills, Claude doit accéder aux données : les fichiers du site, un crawler, la Search Console. Ces accès passent par des connecteurs MCP, comme le <a href="/blog/screaming-frog-mcp">MCP Screaming Frog</a> pour les crawls. Le skill, lui, porte la méthode. D'autres usages de Claude en référencement sont détaillés dans <a href="/blog/claude-pour-seo">Claude pour le SEO</a>.</p>
+
+      <h4>5. Contrôle des balises title et meta</h4>
+      <p>Le point de départ évident : la tâche est mécanique, se vérifie en un coup d'œil et devient impossible à tenir à jour à la main sur plusieurs centaines de pages. L'exemple complet est plus haut. Le garde-fou : Claude propose, vous relisez, car une balise est ce que voit le visiteur dans les résultats de recherche.</p>
+
+      <h4>6. Audit du maillage interne</h4>
+      <p>Extraire la structure des liens, repérer les pages orphelines et trop profondes, proposer trois liens entrants par page prioritaire avec leur ancre. La règle que j'impose dans mes consignes : aucune ancre générique, toute ancre doit décrire la page cible.</p>
+      <pre><code>---
+name: audit-maillage-interne
+description: "Analyse le maillage interne à partir d'un crawl, repère les pages orphelines ou trop profondes et propose des liens avec leur ancre. À utiliser pour un audit de liens internes."
+---</code></pre>
+
+      <h4>7. Données structurées JSON-LD</h4>
+      <p>Générer le balisage d'un catalogue ou d'un ensemble d'articles, puis valider la syntaxe. Règle absolue : le balisage reflète ce qui est visible sur la page, sans compléter une information manquante par une valeur plausible.</p>
+      <pre><code>---
+name: donnees-structurees
+description: "Génère le balisage JSON-LD d'une page à partir de son contenu visible, sans inventer de donnée absente. À utiliser pour ajouter ou corriger des données structurées."
+---</code></pre>
+
+      <h4>8. Plan de redirections de migration</h4>
+      <p>Rapprocher chaque ancienne URL de son équivalent, signaler les adresses sans correspondance évidente au lieu de trancher, générer le fichier en évitant chaînes et boucles. Ce skill gagne à rester manuel : dans Claude Code, ajoutez la ligne ci-dessous.</p>
+      <pre><code>---
+name: plan-redirections
+description: "Établit le plan de redirections 301 d'une migration, une ancienne URL vers une destination précise. À utiliser lors d'une refonte ou d'un changement d'URL."
+disable-model-invocation: true
+---</code></pre>
+
+      <h4>9. Rapport mensuel Search Console</h4>
+      <p>Comparer deux périodes, isoler les décrochages, croiser avec les modifications faites entre-temps, conclure par trois actions. Précaution de méthode à inscrire dans le skill : comparer des périodes d'au moins 28 jours, une variation sur une semaine ne veut rien dire.</p>
+      <pre><code>---
+name: rapport-search-console
+description: "Compare deux périodes de données Search Console, isole les pages et requêtes en baisse et propose trois actions. À utiliser pour un rapport de suivi SEO mensuel."
+---</code></pre>
+
+      <h4>10. Contrôle avant publication</h4>
+      <p>Longueur des balises, hiérarchie des titres, liens internes valides, attributs alt, affirmations sans source. Une relecture technique systématique, qui ne remplace pas la relecture éditoriale : un texte peut passer tous les contrôles et rester mauvais.</p>
+      <pre><code>---
+name: controle-avant-publication
+description: "Vérifie une page avant sa mise en ligne : balises, titres, liens internes, attributs alt et affirmations sans source. À utiliser avant de publier un article ou une page."
+---</code></pre>
+
+      <h2>Limites et sécurité des Claude Skills</h2>
+
+      <p>Un skill n'est pas un simple texte : il peut contenir des scripts et orienter les outils que Claude utilise. Anthropic recommande de le traiter comme l'installation d'un logiciel.</p>
+
+      <ul>
+        <li><strong>N'installez que des skills de confiance</strong>, les vôtres ou ceux d'Anthropic. Un skill malveillant peut pousser Claude à exécuter du code ou à transmettre des données vers l'extérieur.</li>
+        <li><strong>Lisez tout avant d'installer</strong> un skill trouvé en ligne : SKILL.md, scripts, ressources. Méfiez-vous des appels réseau inattendus et des skills qui vont chercher des consignes sur une URL externe, dont le contenu peut changer après votre vérification.</li>
+        <li><strong>Pas de synchronisation</strong> entre l'application, Claude Code et l'API : chaque surface a sa copie, à tenir à jour.</li>
+        <li><strong>Le déclenchement dépend de la description.</strong> Trop vague, Claude ignore le skill ; trop large, il le charge à tort. Deux skills aux descriptions proches se gênent.</li>
+        <li><strong>Chaque skill occupe un peu de contexte</strong> en permanence, environ 100 tokens de métadonnées : cinquante skills représentent déjà quelque 5 000 tokens.</li>
+        <li><strong>Côté API</strong>, pas d'accès à Internet ni d'installation de paquets, et les skills ne sont pas couverts par les accords de conservation zéro des données.</li>
+        <li><strong>En entreprise</strong>, les organisations Enterprise peuvent activer une analyse du contenu des skills importés dans Claude et dans Cowork.</li>
+      </ul>
+
+      <div class="callout callout--warn">
+        <p class="callout-t">Les garde-fous à écrire dans vos skills</p>
+        <p>Quatre règles, apprises en cassant des choses avec mes propres chaînes SEO : une modification par page plutôt qu'un traitement de masse ; un projet versionné avant que Claude touche à un fichier ; une relecture humaine avant toute mise en production ; un modèle qui signale les cas ambigus au lieu de trancher. Et aucune de mes chaînes ne supprime quoi que ce soit : ces gestes-là se font à la main.</p>
+      </div>
+
+      <p>Si vous voulez des skills métier conçus, testés sur vos dossiers et livrés avec ces garde-fous, c'est ce que je fais en <a href="/automatisation-ia">mission d'automatisation IA</a>.</p>
+
+      <!-- ================= FAQ ================= -->
+      <section class="faq">
+        <h2>Questions fréquentes</h2>
+
+        <details>
+          <summary>C'est quoi un skill Claude ?</summary>
+          <div class="faq-a"><p>Un skill Claude est un dossier qui contient un fichier SKILL.md (un nom, une description et des instructions), parfois accompagné de fichiers de référence et de scripts. Claude lit la description en permanence et charge le reste seulement quand une demande y correspond. Il sert à transmettre une méthode que vous ne voulez plus répéter à chaque conversation.</p></div>
+        </details>
+
+        <details>
+          <summary>Les Claude Skills sont-ils gratuits ?</summary>
+          <div class="faq-a"><p>Oui. Selon le centre d'aide d'Anthropic, les skills fonctionnent sur toutes les formules, gratuite comprise, à condition d'activer l'exécution de code et la création de fichiers. Créer un skill ne coûte rien : c'est un fichier texte. Son utilisation consomme simplement le quota de votre formule, comme n'importe quelle demande.</p></div>
+        </details>
+
+        <details>
+          <summary>Comment ajouter un skill à Claude ?</summary>
+          <div class="faq-a"><p>Dans l'application, compressez le dossier du skill en ZIP, ouvrez Personnaliser &gt; Compétences, cliquez sur +, Créer une compétence, puis Télécharger une compétence. Dans Claude Code, copiez le dossier dans ~/.claude/skills/ ou dans le dossier .claude/skills/ du projet. Par l'API, envoyez-le par les endpoints /v1/skills.</p></div>
+        </details>
+
+        <details>
+          <summary>Où trouver des skills pour Claude ?</summary>
+          <div class="faq-a"><p>Dans le répertoire intégré à Claude, qui regroupe les skills d'Anthropic et de partenaires, et dans le dépôt GitHub officiel anthropics/skills. Des catalogues communautaires en recensent des milliers, de qualité inégale : lisez chaque fichier avant de l'installer. Les skills les plus utiles restent souvent ceux que vous écrivez pour votre propre méthode.</p></div>
+        </details>
+
+        <details>
+          <summary>Quelle différence entre un skill et un MCP ?</summary>
+          <div class="faq-a"><p>Un serveur MCP donne à Claude l'accès à un outil ou à des données, par exemple la Search Console. Un skill lui apprend une méthode : quelles données regarder, quelles règles appliquer, quel résultat rendre. Les deux se complètent : le MCP apporte la donnée, le skill dit quoi en faire.</p></div>
+        </details>
+
+        <details>
+          <summary>Quelle différence entre les skills et les projets Claude ?</summary>
+          <div class="faq-a"><p>Un projet regroupe des documents et des consignes disponibles dans toutes les conversations de ce projet. Un skill contient une procédure, chargée seulement quand la demande y correspond, dans n'importe quelle conversation. Le projet dit à Claude ce qu'il doit savoir, le skill lui dit comment faire.</p></div>
+        </details>
+
+        <details>
+          <summary>Les skills Claude fonctionnent-ils avec d'autres outils que Claude ?</summary>
+          <div class="faq-a"><p>En grande partie, oui. Anthropic a publié le format en standard ouvert, Agent Skills, en décembre 2025, et des outils comme Cursor, GitHub Copilot, Gemini CLI ou Codex d'OpenAI l'ont adopté. Un skill qui s'en tient aux champs standard a donc de bonnes chances de fonctionner ailleurs, mais testez-le dans chaque outil.</p></div>
+        </details>
+
+        <details>
+          <summary>Pourquoi Claude n'utilise-t-il pas mon skill ?</summary>
+          <div class="faq-a"><p>Le plus souvent, la description ne contient pas les mots de votre demande ou ne dit pas quand utiliser le skill. Vérifiez aussi que l'exécution de code est activée et que le skill est actif dans Personnaliser &gt; Compétences. Dans Claude Code, la commande /skills liste les skills chargés et /nom-du-skill force son lancement.</p></div>
+        </details>
+      </section>
+
+
+      <!-- ================= CTA ================= -->
+      <div class="cta-band">
+        <div>
+          <h2>Faire créer vos skills métier</h2>
+          <p>Je transforme vos méthodes (audit, reporting, production de contenu) en skills testés sur vos vrais dossiers, avec les connecteurs et les garde-fous qui vont avec. Vous repartez avec des skills qui tournent dès le lendemain.</p>
+        </div>
+        <a class="btn btn-lime" href="/automatisation-ia">Voir comment je travaille <span class="ar">→</span></a>
+      </div>
+
+      <!-- ================= AUTEUR ================= -->
+      <div class="author-box">
+        <img src="/images/anthony.avif" alt="Anthony Courtin" width="88" height="88" loading="lazy">
+        <div>
+          <p class="eyebrow">Écrit par</p>
+          <h3>Anthony Courtin</h3>
+          <p class="author-role">Consultant SEO, GEO &amp; automatisation IA</p>
+          <p class="author-bio">J'accompagne des PME et des indépendants sur la visibilité (Google, ChatGPT, Perplexity) et sur l'usage réel de l'IA au travail. J'interviens en entreprise pour former les équipes et repenser les process. Tout ce que j'écris ici, je l'utilise en mission.</p>
+          <div class="author-links">
+            <a class="li" href="https://www.linkedin.com/in/anthony-courtin/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56z"/></svg>
+              Me suivre sur LinkedIn
+            </a>
+            <a class="yt" href="https://www.youtube.com/@AnthonyCourtin4" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></svg>
+              Ma chaîne YouTube
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= AVIS LECTEURS ================= -->
+      <section class="reviews" data-slug="claude-skills" data-reviews="[]">
+        <h2>Avis des lecteurs</h2>
+        <p class="rv-sub">Cet article vous a servi ? Dites-le, ça aide les suivants.</p>
+
+        <form class="rv-form" name="avis" method="POST" data-netlify="true" netlify-honeypot="societe" action="/merci">
+          <input type="hidden" name="form-name" value="avis">
+          <input type="hidden" name="article" value="claude-skills">
+          <p class="rv-hp"><label>Ne remplissez pas ce champ : <input name="societe" tabindex="-1" autocomplete="off"></label></p>
+
+          <h3>Notez cet article</h3>
+
+          <fieldset class="rating-field">
+            <legend>Votre note</legend>
+            <div class="rating">
+              <input type="radio" id="n5" name="note" value="5"><label for="n5" aria-label="5 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n4" name="note" value="4"><label for="n4" aria-label="4 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n3" name="note" value="3"><label for="n3" aria-label="3 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n2" name="note" value="2"><label for="n2" aria-label="2 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n1" name="note" value="1"><label for="n1" aria-label="1 étoile"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="rv-nom">Prénom <span class="hint">(facultatif)</span></label>
+            <input type="text" id="rv-nom" name="nom" maxlength="60" autocomplete="given-name">
+          </div>
+
+          <div class="field">
+            <label for="rv-texte">Votre commentaire <span class="hint">(facultatif)</span></label>
+            <textarea id="rv-texte" name="texte" rows="4" maxlength="2000"></textarea>
+          </div>
+
+          <div class="rv-msg" id="rv-msg" role="status"></div>
+          <div><button type="submit" class="btn-sm primary">Publier mon avis</button></div>
+        </form>
+
+        <div class="rv-published">
+          <h3 class="rv-published-title">Ce qu'en disent les lecteurs</h3>
+          <div class="rv-summary">
+            <span class="rv-avg" id="rv-avg"></span>
+            <span class="stars" id="rv-stars" aria-hidden="true"></span>
+            <span class="rv-count" id="rv-count">Aucun avis pour le moment.</span>
+          </div>
+          <div class="rv-list" id="rv-list"></div>
+          <p class="rv-empty" id="rv-empty">Soyez le premier à donner votre avis.</p>
+        </div>
+      </section>
+
+    </article>
+  </div>
+
+  <!-- ---------- COLONNE DROITE : résumé IA + articles liés ---------- -->
+  <aside class="rail rail-right">
+    <div class="ai-box">
+      <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
+      <p class="ai-text">Les Claude Skills sont des dossiers qui contiennent un fichier SKILL.md (nom, description, instructions) et parfois des références et des scripts. Claude lit leur description en permanence et charge le reste quand une demande y correspond. Ils fonctionnent dans l'application Claude, Claude Code et l'API, sur toutes les formules, avec l'exécution de code activée.</p>
+      <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
+    </div>
+
+    <div class="rail-recent">
+      <p class="rail-title">Dans la même catégorie</p>
+      <div class="mini-list">
+        <a class="mini" href="/blog/claude-code">
+          <span class="mini-thumb"><picture><source srcset="/images/blog/claude-code-cover.avif" type="image/avif"><img src="/images/blog/claude-code-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Installer Claude Code : tuto Mac, Windows et Linux (2026)</span></span>
+        </a>
+        <a class="mini" href="/blog/claude-cowork">
+          <span class="mini-thumb"><picture><source srcset="/images/blog/rediger-avec-ia-cover.avif" type="image/avif"><img src="/images/blog/rediger-avec-ia-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Claude Cowork : c'est quoi, prix, usages et avis (2026)</span></span>
+        </a>
+        <a class="mini" href="/blog/mcp-model-context-protocol">
+          <span class="mini-thumb"><picture><source srcset="/images/blog/mcp-cover.avif" type="image/avif"><img src="/images/blog/mcp-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">MCP IA : c'est quoi un serveur MCP ? Définition et exemples</span></span>
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- ================= ARTICLES LIÉS ================= -->
+<section class="related">
+  <div class="wrap">
+    <h2>À lire ensuite</h2>
+    <p class="sub">La suite logique du parcours.</p>
+    <div class="rel-grid">
+      <a class="rel-card" href="/blog/claude-code">
+        <picture><source srcset="/images/blog/claude-code-cover.avif" type="image/avif"><img src="/images/blog/claude-code-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
+        <div class="rel-body">
+          <span class="rel-cat">Utiliser l'IA</span>
+          <h3>Installer Claude Code : tuto Mac, Windows et Linux (2026)</h3>
+          <p>Le préalable pour ranger vos skills dans des dossiers : l'installation pas à pas, commande par commande.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="/blog/mcp-model-context-protocol">
+        <picture><source srcset="/images/blog/mcp-cover.avif" type="image/avif"><img src="/images/blog/mcp-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
+        <div class="rel-body">
+          <span class="rel-cat">Utiliser l'IA</span>
+          <h3>MCP IA : c'est quoi un serveur MCP ? Définition et exemples</h3>
+          <p>Le complément naturel d'un skill : brancher Claude sur vos outils et vos données.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="/blog/claude-pour-seo">
+        <picture><source srcset="/images/blog/claude-pour-seo-cover.avif" type="image/avif"><img src="/images/blog/claude-pour-seo-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
+        <div class="rel-body">
+          <span class="rel-cat">SEO</span>
+          <h3>Claude pour le SEO : usages, prompts et limites (2026)</h3>
+          <p>Les tâches SEO à confier à Claude, avec les prompts qui deviennent ensuite de bons skills.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="foot-logo" href="/"><img src="/images/logo-transparent-pine.svg" alt="anthony courtin" width="98" height="48"></a>
+        <p style="color:var(--ink-2);font-size:.95rem;margin-top:12px;max-width:280px">Consultant SEO, GEO &amp; automatisation IA. Interventions partout en France.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul><li><a href="/seo">SEO</a></li><li><a href="/geo">GEO, visibilité IA</a></li><li><a href="/automatisation-ia">Automatisation IA</a></li><li><a href="/tarifs">Tarifs</a></li></ul>
+      </div>
+      <div>
+        <h4>Ressources</h4>
+        <ul><li><a href="/blog/">Blog</a></li><li><a href="/videos">Vidéos</a></li><li><a href="/realisations">Réalisations</a></li><li><a href="/a-propos">À propos</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul><li><a href="/contact">Formulaire</a></li><li><a href="mailto:anthony@astrak.agency">anthony@astrak.agency</a></li><li><a href="https://www.linkedin.com/in/anthony-courtin/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://www.youtube.com/@AnthonyCourtin4" target="_blank" rel="noopener">YouTube</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Anthony Courtin</span>
+      <span class="foot-links"><a href="/mentions-legales">Mentions légales</a><span aria-hidden="true">·</span><a href="/confidentialite">Confidentialité</a><span aria-hidden="true">·</span><button type="button" class="foot-cc" data-gerer-cookies>Gérer mes cookies</button></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/site.js?v=7" defer></script>
+<script src="/js/consentement.js?v=1" defer></script>
+<script src="/js/blog-article.js?v=4" defer></script>
+
+<!-- Outil interactif propre à cet article -->
+<script src="/js/automatiser-seo-claude-code-tool.js?v=2" defer></script>
+
+</body>
+</html>

@@ -8,8 +8,9 @@
       total = $('cp-total'), meter = $('cp-meter'), out = $('cp-out'), copy = $('cp-copy');
   if (!nb || !out) return;
 
-  /* Grille publiée sur claude.com/pricing, relevée le 11 août 2026.
-     Montants annuels par personne, en dollars hors taxes. */
+  /* Grille publiée sur claude.com/pricing, revérifiée le 7 octobre 2026.
+     Montants annuels par personne, en dollars hors taxes.
+     Team : 2 sièges minimum, 150 au maximum. */
   var TARIF = {
     pro:            { annuel: 200,  mensuel: 240 },   // 17 $/mois en annuel payé d'avance, 20 $/mois au mois
     max:            { annuel: 1200, mensuel: 1200 },  // à partir de 100 $/mois, mensuel uniquement
@@ -41,17 +42,19 @@
       note: "Chacun paie et gère son compte. Pas de facturation centralisée, pas d'administration commune."
     });
 
-    s.push({
-      nom: 'Formule Team',
-      detail: normaux + ' × siège Standard' + (r.g ? ' et ' + r.g + ' × siège Premium' : ''),
-      cout: normaux * TARIF.teamStandard[r.e] + r.g * TARIF.teamPremium[r.e],
-      note: "Facturation unique, authentification centralisée et contrôles d'administration."
-    });
+    if (r.n >= 2) {
+      s.push({
+        nom: 'Formule Team',
+        detail: normaux + ' × siège Standard' + (r.g ? ' et ' + r.g + ' × siège Premium' : ''),
+        cout: normaux * TARIF.teamStandard[r.e] + r.g * TARIF.teamPremium[r.e],
+        note: "Facturation unique, authentification centralisée, contenus exclus de l'entraînement par défaut."
+      });
+    }
 
     if (normaux > 0) {
       s.push({
         nom: 'Mixte, gratuit pour les usages légers',
-        detail: (r.g ? r.g + ' × Max et ' : '') + 'le reste sur la formule gratuite',
+        detail: r.g ? r.g + ' × Max et le reste sur la formule gratuite' : 'Tout le monde sur la formule gratuite',
         cout: r.g * TARIF.max[r.e],
         conditionnel: true,
         note: "Valable seulement si les usages légers tiennent dans les limites de la formule gratuite, et sans Claude Code."
@@ -98,7 +101,12 @@
     p.appendChild(document.createTextNode(
       r.e === 'annuel'
         ? "L'engagement annuel de la formule Pro se paie d'avance, en une fois. La formule Max n'existe qu'au mois : son montant ne bouge pas selon l'engagement."
-        : "Passer à l'engagement annuel fait baisser la facture de quinze pour cent sur Pro et de vingt pour cent sur les sièges Team. La formule Max n'existe qu'au mois."));
+        : "Passer à l'engagement annuel fait baisser la facture d'environ 17 % sur Pro et de 20 % sur les sièges Team. La formule Max n'existe qu'au mois."));
+    if (r.n < 2) {
+      var t = document.createElement('p');
+      t.textContent = "La formule Team demande au moins deux sièges : elle n'apparaît pas pour une personne seule.";
+      out.appendChild(t);
+    }
     out.appendChild(p);
 
     return { r: r, s: s };
