@@ -7,6 +7,14 @@
   "masquees": [],
   "videos": [
     {
+      "id": "rjvGDE1UqIo",
+      "titre": "MCP WordPress : connecter Claude à ton site en 3 min (gratuit)",
+      "date": "2026-10-10",
+      "publie": "2026-10-10T07:08:06-07:00",
+      "secondes": 202,
+      "accroche": "Le plugin MCP Adapter, un mot de passe d'application et une URL : Claude lit et modifie ton site WordPress, gratuitement."
+    },
+    {
       "id": "S6YO2edZQt8",
       "titre": "ChatGPT recommande tes concurrents. Pas toi.",
       "date": "2026-09-28",

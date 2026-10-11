@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<script src="/js/js-flag.js?v=1"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MCP WordPress : connecter Claude à votre site en 5 min</title>
+<meta name="description" content="MCP WordPress : connectez Claude à votre site gratuitement avec MCP Adapter et un mot de passe d'application. Tuto vidéo pas à pas, URL comprise.">
+<link rel="canonical" href="https://anthony-courtin.com/blog/mcp-wordpress">
+<link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<script src="/js/favicon-anim.js?v=2" defer></script>
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="MCP WordPress : connecter Claude à votre site en 5 min">
+<meta property="og:description" content="Brancher Claude sur WordPress : le plugin MCP Adapter, un mot de passe d'application, un connecteur personnalisé. Gratuit, en vidéo et pas à pas.">
+<meta property="og:url" content="https://anthony-courtin.com/blog/mcp-wordpress">
+<meta property="og:image" content="https://anthony-courtin.com/images/blog/mcp-wordpress-cover.webp">
+<meta property="og:locale" content="fr_FR">
+<meta property="article:published_time" content="2026-10-11">
+<meta property="article:modified_time" content="2026-10-11">
+<meta property="article:author" content="Anthony Courtin">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/main.css?v=13">
+<link rel="stylesheet" href="/css/blog-article.css?v=6">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"BlogPosting",
+      "@id":"https://anthony-courtin.com/blog/mcp-wordpress#article",
+      "headline":"MCP WordPress : connecter Claude à votre site en 5 minutes",
+      "description":"MCP WordPress : connectez Claude à votre site gratuitement avec MCP Adapter et un mot de passe d'application. Tuto vidéo pas à pas, URL comprise.",
+      "inLanguage":"fr-FR",
+      "datePublished":"2026-10-11",
+      "dateModified":"2026-10-11",
+      "image":"https://anthony-courtin.com/images/blog/mcp-wordpress-cover.webp",
+      "wordCount":3917,
+      "mainEntityOfPage":{"@type":"WebPage","@id":"https://anthony-courtin.com/blog/mcp-wordpress"},
+      "author":{"@id":"https://anthony-courtin.com/#anthony"},
+      "publisher":{"@id":"https://anthony-courtin.com/#anthony"},
+      "video":{
+        "@type":"VideoObject",
+        "name":"MCP WordPress : connecter Claude à ton site en 3 min (gratuit)",
+        "description":"L'installation complète du MCP WordPress dans Claude : plugin MCP Adapter, mot de passe d'application, connecteur personnalisé, extension Enable Abilities for MCP, et un test sur un vrai site.",
+        "thumbnailUrl":"https://anthony-courtin.com/images/youtube/rjvGDE1UqIo.jpg",
+        "uploadDate":"2026-10-10",
+        "duration":"PT3M22S",
+        "embedUrl":"https://www.youtube-nocookie.com/embed/rjvGDE1UqIo",
+        "contentUrl":"https://www.youtube.com/watch?v=rjvGDE1UqIo"
+      },
+      "about":[{"@type":"Thing","name":"WordPress"},{"@type":"Thing","name":"Model Context Protocol"},{"@type":"Thing","name":"Claude (assistant IA)"},{"@type":"Thing","name":"MCP Adapter"}]
+    },
+    {
+      "@type":"Person",
+      "@id":"https://anthony-courtin.com/#anthony",
+      "name":"Anthony Courtin",
+      "jobTitle":"Consultant SEO, GEO et automatisation IA",
+      "url":"https://anthony-courtin.com/a-propos",
+      "image":"https://anthony-courtin.com/images/anthony.avif",
+      "sameAs":["https://www.linkedin.com/in/anthony-courtin/","https://www.youtube.com/@AnthonyCourtin4"]
+    },
+    {
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Accueil","item":"https://anthony-courtin.com/"},
+        {"@type":"ListItem","position":2,"name":"Blog","item":"https://anthony-courtin.com/blog/"},
+        {"@type":"ListItem","position":3,"name":"MCP WordPress"}
+      ]
+    },
+    {
+      "@type":"FAQPage",
+      "mainEntity":[
+        {"@type": "Question", "name": "<span class=\"rail-title\">Sommaire</span><span class=\"toc-chevron\" aria-hidden=\"true\"></span></summary>\n      <nav class=\"toc\" id=\"toc\" aria-label=\"Sommaire de l'article\">\n        <p class=\"toc-empty\">Chargement…</p>\n      </nav>\n    </details>\n\n    <div class=\"share-box\">\n      <p class=\"rail-title\">Partager</p>\n      <ul class=\"share\">\n        <li><a class=\"share-btn share-linkedin\" href=\"#\" target=\"_blank\" rel=\"noopener nofollow\" aria-label=\"Partager sur LinkedIn\"><svg viewBox=\"0 0 24 24\" width=\"17\" height=\"17\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56z\"/></svg></a></li>\n        <li><a class=\"share-btn share-x\" href=\"#\" target=\"_blank\" rel=\"noopener nofollow\" aria-label=\"Partager sur X\"><svg viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.96 6.82H1.68l7.73-8.84L1.25 2.25h6.83l4.71 6.23zm-1.16 17.52h1.83L7.08 4.13H5.12z\"/></svg></a></li>\n        <li><a class=\"share-btn share-whatsapp\" href=\"#\" target=\"_blank\" rel=\"noopener nofollow\" aria-label=\"Partager sur WhatsApp\"><svg viewBox=\"0 0 24 24\" width=\"17\" height=\"17\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m5.8 14.16c-.25.69-1.43 1.31-1.98 1.4-.53.08-1.19.11-1.92-.12-.44-.14-1.01-.33-1.74-.64-3.06-1.32-5.06-4.4-5.21-4.6-.15-.2-1.25-1.66-1.25-3.16s.79-2.25 1.07-2.55c.28-.31.61-.38.81-.38h.58c.19 0 .44-.07.69.53.25.61.86 2.11.94 2.26.08.15.13.33.02.53-.1.2-.16.33-.31.5l-.46.54c-.15.15-.31.32-.13.63.18.31.79 1.3 1.69 2.11 1.16 1.03 2.14 1.35 2.45 1.5.31.15.49.13.67-.08.18-.2.77-.9.98-1.21.2-.31.41-.26.69-.15.28.1 1.78.84 2.09.99.31.15.51.23.59.36.08.13.08.74-.17 1.44\"/></svg></a></li>\n        <li><a class=\"share-btn share-email\" href=\"#\" rel=\"nofollow\" aria-label=\"Partager par e-mail\"><svg viewBox=\"0 0 24 24\" width=\"17\" height=\"17\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m0 4-8 5-8-5V6l8 5 8-5z\"/></svg></a></li>\n        <li><button class=\"share-btn share-copy\" type=\"button\" aria-label=\"Copier le lien\"><svg viewBox=\"0 0 24 24\" width=\"17\" height=\"17\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M16 1H4a2 2 0 0 0-2 2v14h2V3h12zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2m0 16H8V7h11z\"/></svg></button></li>\n      </ul>\n    </div>\n  </aside>\n\n  <!-- ---------- COLONNE CENTRALE : le contenu ---------- -->\n  <div class=\"art-main\">\n\n    <!-- Résumé IA version mobile : rendu côté serveur, donc lisible par Google et les LLM -->\n    <div class=\"ai-box ai-box-mobile\">\n      <p class=\"ai-title\"><svg viewBox=\"0 0 24 24\" width=\"14\" height=\"14\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z\"/></svg>Résumé IA</p>\n      <p class=\"ai-text\">Le MCP WordPress relie Claude à un site WordPress grâce au plugin officiel MCP Adapter, à un mot de passe d'application et à un connecteur personnalisé. L'extension Enable Abilities for MCP ouvre la lecture et l'écriture des articles, pages et menus. Il faut WordPress 6.9 ou plus, un compte administrateur et un site en ligne en HTTPS.</p>\n      <p class=\"ai-note\">Synthèse rédigée à partir de l'article.</p>\n    </div>\n\n    <article class=\"art-body\">\n\n      <figure>\n        <picture>\n          <source srcset=\"/images/blog/mcp-wordpress-cover.avif\" type=\"image/avif\">\n          <img src=\"/images/blog/mcp-wordpress-cover.webp\" alt=\"Une maquette de site web en verre reliée par un tube lumineux vert lime marqué MCP à une sphère étincelante, illustration d'un site WordPress branché sur Claude\" width=\"1376\" height=\"768\" fetchpriority=\"high\" decoding=\"async\">\n        </picture>\n      </figure>\n\n      <p>Rédiger dans Claude, copier, coller dans l'éditeur, refaire les intertitres, remettre les liens, remplir la méta-description : c'est le quotidien de beaucoup de gens qui publient avec l'IA. Le MCP WordPress supprime ce copier-coller. Claude lit vos articles, vos pages et vos menus directement sur le site et, si vous l'y autorisez, il crée et modifie lui-même.</p>\n\n      <p>J'ai fait l'installation complète en vidéo, sur le site d'un client, en un peu plus de trois minutes. Cet article reprend chaque étape avec ce qui ne tient pas dans une vidéo courte : l'URL à reconstituer sans erreur, les causes d'échec les plus fréquentes et les réglages de sécurité à ne pas oublier.</p>\n\n      <!-- ================= VIDÉO ================= -->\n      <div class=\"video-embed\">\n        <div class=\"yt-lite\" data-yt=\"rjvGDE1UqIo\" data-title=\"MCP WordPress : connecter Claude à ton site en 3 min (gratuit)\">\n          <img src=\"/images/youtube/rjvGDE1UqIo.jpg\" alt=\"Miniature de la vidéo : WordPress relié à Claude par MCP, gratuit en 5 minutes\" width=\"1280\" height=\"720\" loading=\"lazy\" decoding=\"async\">\n          <span class=\"yt-play\" aria-hidden=\"true\">▶</span>\n          <span class=\"yt-label\">MCP WordPress × Claude : l'installation complète, en 3 min 22</span>\n        </div>\n      </div>\n\n      <p><strong>Les chapitres de la vidéo :</strong> <a href=\"https://youtu.be/rjvGDE1UqIo?t=7\" target=\"_blank\" rel=\"noopener\">0:07 installer MCP Adapter</a> · <a href=\"https://youtu.be/rjvGDE1UqIo?t=40\" target=\"_blank\" rel=\"noopener\">0:40 le mot de passe d'application</a> · <a href=\"https://youtu.be/rjvGDE1UqIo?t=58\" target=\"_blank\" rel=\"noopener\">0:58 le connecteur dans Claude</a> · <a href=\"https://youtu.be/rjvGDE1UqIo?t=74\" target=\"_blank\" rel=\"noopener\">1:14 l'URL, partie par partie</a> · <a href=\"https://youtu.be/rjvGDE1UqIo?t=128\" target=\"_blank\" rel=\"noopener\">2:08 le droit d'écrire</a> · <a href=\"https://youtu.be/rjvGDE1UqIo?t=153\" target=\"_blank\" rel=\"noopener\">2:33 le test</a>.</p>\n\n      <!-- Bloc « à retenir » : c'est ce que les moteurs de réponse citent le plus volontiers -->\n      <section class=\"takeaways\">\n        <h2>À retenir</h2>\n        <ul>\n          <li>Le MCP WordPress repose sur deux briques gratuites : le plugin officiel <strong>MCP Adapter</strong>, publié par WordPress, et l'<strong>Abilities API</strong>, intégrée au cœur depuis WordPress 6.9.</li>\n          <li>Toute la connexion tient dans une URL : <code>https://identifiant:MOT_DE_PASSE_APP@domaine/wp-json/mcp/mcp-adapter-default-server</code>.</li>\n          <li>Il faut un <strong>compte administrateur</strong>, un <strong>mot de passe d'application</strong> (jamais votre mot de passe habituel) et un site <strong>en ligne, en HTTPS</strong> : Claude se connecte depuis les serveurs d'Anthropic, pas depuis votre ordinateur.</li>\n          <li>Sans l'extension <strong>Enable Abilities for MCP</strong>, Claude est branché mais n'a presque rien à faire. C'est elle qui ouvre les articles, les pages et les menus.</li>\n          <li>Le plan gratuit de Claude accepte <strong>un</strong> connecteur personnalisé : assez pour brancher un site sans rien payer.</li>\n          <li>Ce mot de passe ouvre votre site en administrateur : ne le partagez jamais, et <strong>révoquez-le</strong> dès qu'il ne sert plus.</li>\n        </ul>\n      </section>\n\n      <h2>Connecter WordPress à Claude : la réponse courte</h2>\n\n      <ol>\n        <li>Vérifiez que le site tourne sous <strong>WordPress 6.9 ou plus récent</strong>, en HTTPS, et que vous avez un compte administrateur.</li>\n        <li>Téléchargez <code>mcp-adapter.zip</code> dans la dernière release du dépôt GitHub <code>WordPress/mcp-adapter</code>, puis installez-le : <code>Extensions > Ajouter une extension > Téléverser une extension</code>.</li>\n        <li>Dans <code>Comptes > Profil</code>, créez un <strong>mot de passe d'application</strong> nommé « Claude » et copiez-le.</li>\n        <li>Dans Claude, ouvrez <code>Connecteurs</code>, ajoutez un <strong>connecteur personnalisé</strong> et collez l'URL du connecteur complétée avec vos trois valeurs.</li>\n        <li>Installez l'extension <strong>Enable Abilities for MCP</strong> pour donner à Claude le droit de lire et d'écrire.</li>\n        <li>Redémarrez Claude, activez le connecteur dans une conversation et demandez-lui s'il voit votre site.</li>\n      </ol>\n\n      <p>Chaque étape est détaillée plus bas, avec un <a href=\"#outil-mcp-wordpress\">générateur qui assemble l'URL du connecteur</a> à votre place. Si quelque chose bloque, la section <a href=\"#depannage\">dépannage</a> couvre les huit causes que je rencontre le plus souvent.</p>\n\n      <h2>Le MCP WordPress, concrètement</h2>\n\n      <p>MCP, pour <em>Model Context Protocol</em>, est une prise standard entre un modèle d'IA et un logiciel : le logiciel expose ce qu'il sait faire, le modèle s'y branche et appelle ces fonctions lui-même. Si la notion est nouvelle pour vous, j'explique en détail <a href=\"/blog/mcp-model-context-protocol\">ce qu'est un serveur MCP</a> et à quoi il sert.</p>\n\n      <p>Côté WordPress, la prise se monte en deux temps. Depuis la version 6.9, sortie fin 2025, le cœur de WordPress embarque l'<strong>Abilities API</strong> : un registre où le site et ses extensions déclarent ce qu'ils savent faire (lister les articles, créer une page, ajouter un élément de menu), avec les droits exigés pour chaque action. Le plugin <strong>MCP Adapter</strong>, maintenu par l'équipe IA de WordPress, traduit ce registre en outils MCP et les publie à une adresse de l'API REST du site : <code>/wp-json/mcp/mcp-adapter-default-server</code>.</p>\n\n      <p>Claude ne voit pas des dizaines d'outils d'un coup. Le serveur par défaut lui en donne trois : un pour découvrir les capacités disponibles (<code>mcp-adapter-discover-abilities</code>), un pour lire le mode d'emploi de l'une d'elles (<code>mcp-adapter-get-ability-info</code>), un pour l'exécuter (<code>mcp-adapter-execute-ability</code>). Claude commence donc toujours par faire l'inventaire, puis il agit. C'est exactement ce que vous verrez défiler au premier test.</p>\n\n      <div class=\"verdict\">\n        <div class=\"verdict-note\">\n          <b>5</b>\n          <span>minutes</span>\n        </div>\n        <div class=\"verdict-body\">\n          <h2>Ce que l'installation vous donne</h2>\n          <p>Deux extensions, un mot de passe, une URL. Voici ce que ça change au quotidien, et ce que ça demande.</p>\n          <div class=\"verdict-lists\">\n            <ul class=\"verdict-pros\">\n              <li>Articles, pages et menus lus et modifiés sans quitter Claude</li>\n              <li>Un brouillon rédigé dans la conversation posé dans WordPress en une phrase</li>\n              <li>Tout est gratuit : extensions, API et connecteur</li>\n            </ul>\n            <ul class=\"verdict-cons\">\n              <li>Compte administrateur obligatoire</li>\n              <li>Site en ligne uniquement, pas de WordPress local</li>\n            </ul>\n          </div>\n        </div>\n        <p class=\"verdict-foot\">\n          <span class=\"verdict-price\">Temps d'installation : 5 minutes</span>\n          <span>WordPress 6.9+ · MCP Adapter · Claude, plan gratuit ou payant</span>\n        </p>\n      </div>\n\n      <h2>Ce qu'il faut avant de commencer</h2>\n\n      <ul>\n        <li><strong>WordPress 6.9 ou plus récent.</strong> L'Abilities API est dans le cœur depuis cette version et l'adaptateur ne fonctionne pas sans elle. Vérifiez dans <code>Tableau de bord > Mises à jour</code>.</li>\n        <li><strong>Un compte administrateur.</strong> Avec un compte éditeur, auteur ou contributeur, la connexion ne fonctionne pas. C'est le premier point de blocage.</li>\n        <li><strong>Un site en ligne, en HTTPS.</strong> Pour deux raisons. WordPress désactive les mots de passe d'application sur un site sans HTTPS. Et le connecteur personnalisé de Claude se connecte depuis les serveurs d'Anthropic : un WordPress installé sur votre ordinateur, derrière un VPN ou derrière un pare-feu qui filtre les adresses IP reste injoignable.</li>\n        <li><strong>Un compte Claude.</strong> Le plan gratuit est limité à un connecteur personnalisé, ce qui suffit pour un site. Je détaille ce que permet la version gratuite dans <a href=\"/blog/claude-ai-gratuit\">Claude AI gratuit</a>. Le web, l'application de bureau et Cowork acceptent tous les connecteurs personnalisés.</li>\n      </ul>\n\n      <div class=\"callout callout--info\">\n        <p class=\"callout-t\">Les trois liens dont vous aurez besoin</p>\n        <p>Le plugin : <a href=\"https://github.com/WordPress/mcp-adapter/releases\" target=\"_blank\" rel=\"noopener\">les releases de WordPress/mcp-adapter sur GitHub</a>. L'extension d'écriture : <a href=\"https://wordpress.org/plugins/enable-abilities-for-mcp/\" target=\"_blank\" rel=\"noopener\">Enable Abilities for MCP</a> sur le répertoire WordPress. Et la documentation d'Anthropic sur les <a href=\"https://support.claude.com/en/articles/11175166-getting-started-with-custom-connectors-using-remote-mcp\" target=\"_blank\" rel=\"noopener\">connecteurs personnalisés</a>. Le modèle d'URL est aussi dans la description de la vidéo.</p>\n      </div>\n\n      <h2>Étape 1 : installer le plugin MCP Adapter</h2>\n\n      <p>Le plugin se télécharge sur GitHub, dans le dépôt officiel de WordPress.</p>\n\n      <ol>\n        <li>Ouvrez <code>github.com/WordPress/mcp-adapter</code> et cliquez sur <strong>Releases</strong>, dans la colonne de droite.</li>\n        <li>Ouvrez la dernière version (v0.7.0 au moment où j'écris), descendez jusqu'à <strong>Assets</strong> et téléchargez <code>mcp-adapter.zip</code>. Pas les archives « Source code » : c'est le fichier nommé <code>mcp-adapter.zip</code> qui contient l'extension prête à installer.</li>\n        <li>Dans WordPress : <code>Extensions > Ajouter une extension > Téléverser une extension</code>, choisissez le fichier, <strong>Installer maintenant</strong>, puis <strong>Activer</strong>.</li>\n      </ol>\n\n      <p>Si vous avez accès au serveur en ligne de commande, WP-CLI fait la même chose en une ligne :</p>\n\n      <pre><code>wp plugin install https://github.com/WordPress/mcp-adapter/releases/latest/download/mcp-adapter.zip --activate</code></pre>\n\n      <p>Rien à régler ensuite : une fois activé, le plugin crée tout seul le serveur MCP par défaut, celui que Claude va appeler.</p>\n\n      <h2>Étape 2 : créer un mot de passe d'application</h2>\n\n      <p>C'est l'étape où il faut être attentif. Les mots de passe d'application existent dans WordPress depuis la version 5.6 et servent exactement à ça : donner à un outil externe l'accès à l'API du site sans lui confier votre vrai mot de passe, et pouvoir le lui retirer à tout moment sans rien changer d'autre.</p>\n\n      <ol>\n        <li>Allez dans <code>Comptes > Profil</code> (ou survolez votre nom en haut à droite, puis <strong>Modifier le profil</strong>).</li>\n        <li>Descendez tout en bas de la page, jusqu'au bloc <strong>Mots de passe d'application</strong>.</li>\n        <li>Donnez-lui un nom qui dit à quoi il sert, « Claude » par exemple, puis cliquez sur <strong>Ajouter un mot de passe d'application</strong>.</li>\n        <li>Copiez le code affiché et gardez-le de côté le temps de l'installation.</li>\n      </ol>\n\n      <div class=\"callout callout--warn\">\n        <p class=\"callout-t\">Il ne s'affiche qu'une seule fois</p>\n        <p>WordPress montre ce mot de passe une fois, puis plus jamais. Si vous le perdez, aucun problème : révoquez-le et créez-en un autre. Ne le rangez pas dans un document partagé : il donne les mêmes droits que votre compte administrateur.</p>\n      </div>\n\n      <p>Le code se présente en six blocs de quatre caractères séparés par des espaces, du type <code>abcd EFGH 1234 ijkl MNOP 5678</code>. Les espaces ne servent qu'à la lisibilité : il faudra les retirer dans l'URL.</p>\n\n      <p>Pendant que vous êtes sur cette page, remontez tout en haut et notez votre <strong>identifiant</strong> : c'est le champ grisé, impossible à modifier. Ce n'est pas forcément votre adresse e-mail, ni le nom affiché publiquement sur le site.</p>\n\n      <p>Le bloc « Mots de passe d'application » n'apparaît pas ? Le site n'est pas en HTTPS, ou une extension de sécurité a désactivé la fonction. Les solutions sont dans le <a href=\"#depannage\">dépannage</a>.</p>\n\n      <h2>Étape 3 : ajouter le connecteur personnalisé dans Claude</h2>\n\n      <ol>\n        <li>Dans Claude, ouvrez les <strong>Paramètres</strong>, puis <strong>Connecteurs</strong>. Selon votre version, le menu s'appelle aussi <code>Personnaliser > Connecteurs</code>.</li>\n        <li>Cliquez sur <strong>+</strong> ou <strong>Ajouter</strong>, puis sur <strong>Ajouter un connecteur personnalisé</strong>.</li>\n        <li>Donnez-lui un nom explicite. Dans la vidéo, j'ai mis le nom du site suivi de « MCP » : pratique dès que vous branchez plusieurs sites.</li>\n        <li>Dans le champ URL, collez le modèle ci-dessous, remplacez les trois parties (détail juste après), puis cliquez sur <strong>Continuer</strong>.</li>\n        <li>À l'écran d'authentification, ne choisissez aucune connexion (« No sign in ») : l'identification est déjà dans l'URL. Cliquez sur <strong>Ajouter</strong>.</li>\n        <li>Le connecteur passe en cours de connexion, puis s'affiche comme connecté. Sur l'application de bureau, quittez Claude complètement et rouvrez-le.</li>\n      </ol>\n\n      <h2>L'URL du connecteur, morceau par morceau</h2>\n\n      <p>Voici le modèle à coller dans le champ URL :</p>\n\n      <pre><code>https://identifiant:MOT_DE_PASSE_APP@domaine/wp-json/mcp/mcp-adapter-default-server</code></pre>\n\n      <p>Elle a l'air technique, c'est juste un chemin. Ce qui précède le <code>@</code> dit à WordPress qui se connecte, ce qui suit dit où se trouve le serveur MCP.</p>\n\n      <div class=\"table-wrap\">\n        <table>\n          <thead>\n            <tr><th>Partie</th><th>Ce qu'il faut mettre</th><th>L'erreur classique</th></tr>\n          </thead>\n          <tbody>\n            <tr><td><code>identifiant</code></td><td>Votre identifiant WordPress, le champ grisé en haut du profil</td><td>Mettre l'adresse e-mail ou le nom public</td></tr>\n            <tr><td><code>MOT_DE_PASSE_APP</code></td><td>Le mot de passe d'application de l'étape 2, sans les espaces</td><td>Laisser les espaces, ou effacer les deux-points qui le précèdent</td></tr>\n            <tr><td><code>domaine</code></td><td>Le nom de domaine seul : <code>monsite.fr</code> ou <code>www.monsite.fr</code></td><td>Laisser <code>https://</code> ou une barre oblique à la fin</td></tr>\n            <tr><td><code>/wp-json/mcp/…</code></td><td>La fin de l'URL, à ne pas toucher</td><td>La modifier ou la tronquer</td></tr>\n          </tbody>\n        </table>\n      </div>\n\n      <p>Avec l'identifiant <code>marie</code>, le mot de passe <code>abcd EFGH 1234 ijkl MNOP 5678</code> et le site <code>https://www.monsite.fr/</code>, ça donne :</p>\n\n      <pre><code>https://marie:abcdEFGH1234ijklMNOP5678@www.monsite.fr/wp-json/mcp/mcp-adapter-default-server</code></pre>\n\n      <p>Deux cas particuliers. Si WordPress est installé dans un sous-dossier (<code>monsite.fr/blog</code>), gardez le sous-dossier avant <code>/wp-json</code>. Et si votre identifiant contient un espace ou un <code>@</code>, ces caractères doivent être encodés (<code>%20</code> et <code>%40</code>), sinon l'URL est mal lue. Le générateur ci-dessous s'en charge.</p>\n\n      <div class=\"tool\" id=\"outil-mcp-wordpress\">\n        <div class=\"tool-head\">\n          <span class=\"tool-ico\" aria-hidden=\"true\">🔌</span>\n          <span>\n            <em>Outil interactif</em>\n            <b>Générateur d'URL du connecteur WordPress</b>\n          </span>\n        </div>\n        <div class=\"tool-body\">\n          <div class=\"field-row\">\n            <div class=\"field\">\n              <label for=\"wp-user\">Identifiant WordPress <span class=\"hint\">(champ grisé du profil)</span></label>\n              <input id=\"wp-user\" type=\"text\" placeholder=\"marie\" autocomplete=\"off\" autocapitalize=\"off\" spellcheck=\"false\">\n            </div>\n            <div class=\"field\">\n              <label for=\"wp-domain\">Adresse du site <span class=\"hint\">(collez-la telle quelle)</span></label>\n              <input id=\"wp-domain\" type=\"text\" placeholder=\"https://www.monsite.fr/\" autocomplete=\"off\" autocapitalize=\"off\" spellcheck=\"false\">\n            </div>\n          </div>\n\n          <div class=\"field\">\n            <label for=\"wp-pass\">Mot de passe d'application <span class=\"hint\">(avec ou sans espaces)</span></label>\n            <input id=\"wp-pass\" type=\"password\" placeholder=\"abcd EFGH 1234 ijkl MNOP 5678\" autocomplete=\"off\" autocapitalize=\"off\" spellcheck=\"false\">\n          </div>\n\n          <div class=\"field\">\n            <span class=\"rail-title\" style=\"margin-bottom:8px\">Votre URL de connecteur</span>\n            <div class=\"tool-out\" id=\"wp-out\" aria-live=\"polite\"></div>\n          </div>\n\n          <ul class=\"geo-check\" id=\"wp-checks\" aria-live=\"polite\"></ul>\n\n          <div class=\"tool-actions\">\n            <button type=\"button\" class=\"btn-sm primary\" id=\"wp-copy\">Copier l'URL</button>\n            <button type=\"button\" class=\"btn-sm ghost\" id=\"wp-show\" aria-pressed=\"false\">Afficher le mot de passe</button>\n          </div>\n        </div>\n        <div class=\"tool-foot\">\n          <span>Rien n'est envoyé ni enregistré : tout se passe dans votre navigateur, et un rechargement de la page efface les champs.</span>\n          <span>Connecteur MCP · Anthony Courtin</span>\n        </div>\n      </div>\n\n      <h2>Étape 4 : donner à Claude le droit d'écrire</h2>\n\n      <p>À ce stade, Claude voit le site, mais il ne peut presque rien y faire. WordPress garde ses capacités privées par défaut : seules celles qu'une extension déclare publiques passent par le serveur MCP, et le cœur n'en déclare quasiment aucune. L'extension <strong>Enable Abilities for MCP</strong> comble ce vide.</p>\n\n      <ol>\n        <li><code>Extensions > Ajouter une extension</code>, cherchez <strong>Enable Abilities for MCP</strong>.</li>\n        <li>Installez la première, celle de Fabio Montenegro, puis activez-la.</li>\n        <li>Ouvrez <code>Réglages > WP Abilities</code> pour voir et choisir ce que Claude a le droit de faire.</li>\n      </ol>\n\n      <p>L'extension déclare plus d'une centaine de capacités, rangées par familles : lecture, écriture, menus, utilitaires, et des modules pour les extensions courantes (Yoast, Rank Math, SEOPress, WooCommerce, Elementor, entre autres). Chacune se coche ou se décoche. Elle respecte aussi les droits WordPress : une capacité d'écriture vérifie que le compte connecté a bien le droit de publier ou de modifier le contenu visé.</p>\n\n      <div class=\"callout callout--tip\">\n        <p class=\"callout-t\">Mon réglage de départ</p>\n        <p>Je laisse la lecture, la création et la modification d'articles, et les métadonnées SEO. Je décoche les suppressions, la gestion des extensions et le rechercher-remplacer global, et je demande toujours à Claude de créer en brouillon. J'ouvre le reste quand un vrai besoin se présente, pas avant.</p>\n      </div>\n\n      <p>L'extension activée et réglée, quittez puis relancez Claude pour qu'il recharge la liste des outils.</p>\n\n      <h2>Le test : Claude voit-il votre site ?</h2>\n\n      <p>Ouvrez une nouvelle conversation. Vérifiez d'abord que le connecteur est actif : bouton <strong>+</strong> en bas à gauche de la zone de saisie, puis <strong>Connecteurs</strong>, et l'interrupteur de votre site doit être allumé. Puis demandez simplement :</p>\n\n      <blockquote>Dis-moi si tu as accès au site WordPress [nom du site] via le MCP, et liste ce que tu peux y faire.</blockquote>\n\n      <p>Claude charge le connecteur, appelle l'outil de découverte et vous rend l'inventaire : lecture, écriture, pages, menus, extensions. Selon votre configuration, il peut vous demander de terminer la connexion ou d'autoriser l'outil : validez. Si la liste revient vide, c'est presque toujours l'étape 4 ou le redémarrage oublié.</p>\n\n      <div class=\"callout callout--info\">\n        <p class=\"callout-t\">Autoriser une fois ou toujours ?</p>\n        <p>Claude demande la permission avant d'utiliser un outil. « Toujours autoriser » est confortable pour la lecture. Pour tout ce qui écrit sur le site, je garde la validation à chaque appel : c'est elle qui montre exactement ce que Claude s'apprête à modifier.</p>\n      </div>\n\n      <h2>Ce que Claude sait faire une fois branché</h2>\n\n      <p>Avec Enable Abilities for MCP, les capacités se rangent en six familles. Ce qui est disponible dépend de ce que vous avez coché et des extensions installées sur le site.</p>\n\n      <div class=\"table-wrap\">\n        <table>\n          <thead>\n            <tr><th>Famille</th><th>Ce que vous pouvez demander</th></tr>\n          </thead>\n          <tbody>\n            <tr><td>Lire</td><td>Lister les articles par statut, catégorie ou mot-clé, ouvrir un article avec son contenu, ses métadonnées SEO et son image à la une</td></tr>\n            <tr><td>Rédiger et publier</td><td>Créer, modifier ou dupliquer un article ou une page, en brouillon ou publié, avec catégories et étiquettes</td></tr>\n            <tr><td>Menus</td><td>Lister les menus, ajouter une page ou un lien, réordonner les éléments, assigner un emplacement du thème</td></tr>\n            <tr><td>SEO</td><td>Lire et modifier titres SEO et méta-descriptions via Yoast, Rank Math ou SEOPress</td></tr>\n            <tr><td>Médias et commentaires</td><td>Importer une image depuis une URL, modérer les commentaires et y répondre</td></tr>\n            <tr><td>Utilitaires</td><td>Statistiques du site, rechercher-remplacer dans les contenus, modifier un champ personnalisé</td></tr>\n          </tbody>\n        </table>\n      </div>\n\n      <p>L'extension a même un module dédié au fichier <a href=\"/blog/llms-txt\">llms.txt</a>, ce fichier qui présente votre site aux moteurs de réponse.</p>\n\n      <h3>Cinq demandes qui marchent dès le premier jour</h3>\n\n      <ul>\n        <li><strong>L'inventaire :</strong> « Liste les 20 derniers articles publiés avec leur titre SEO et leur méta-description, et signale celles qui manquent ou dépassent 155 caractères. »</li>\n        <li><strong>Le brouillon :</strong> « Crée un brouillon à partir du texte ci-dessous, dans la catégorie Guides, avec un H2 par partie. Ne publie rien. »</li>\n        <li><strong>Le maillage :</strong> « Trouve les articles qui parlent de [sujet] et propose trois liens internes à ajouter dans chacun, sans rien modifier. »</li>\n        <li><strong>Le ménage :</strong> « Liste les brouillons qui n'ont pas été modifiés depuis plus de six mois. »</li>\n        <li><strong>Le menu :</strong> « Ajoute la page Contact à la fin du menu principal. »</li>\n      </ul>\n\n      <p>Le principe est le même que pour n'importe quelle demande à un modèle : ce n'est pas la formule qui compte, c'est le <a href=\"/blog/contexte-vs-prompt\">contexte que vous fournissez</a>. Dites quel contenu, quelle action, et ce qui doit rester intact. « Sans rien modifier » et « en brouillon » sont les deux mots les plus utiles de cette liste.</p>\n\n      <h2 id=\"depannage\">Ça ne marche pas ? Les 8 causes les plus fréquentes</h2>\n\n      <div class=\"table-wrap\">\n        <table>\n          <thead>\n            <tr><th>Symptôme</th><th>Cause probable</th><th>Solution</th></tr>\n          </thead>\n          <tbody>\n            <tr><td>Le connecteur échoue dès l'ajout</td><td>Une faute dans l'URL : espaces dans le mot de passe, <code>https://</code> dans le domaine, deux-points effacés</td><td>Reconstituez l'URL avec le générateur ci-dessus</td></tr>\n            <tr><td>Erreur 401, accès refusé</td><td>Mot de passe habituel au lieu du mot de passe d'application, ou compte non administrateur</td><td>Créez un mot de passe d'application sur un compte administrateur</td></tr>\n            <tr><td>Erreur 401 alors que tout est juste</td><td>Le serveur supprime l'en-tête d'authentification avant qu'il n'arrive à WordPress</td><td>Vérifiez le <code>.htaccess</code> (règle ci-dessous) ou demandez à l'hébergeur de transmettre l'en-tête <code>Authorization</code></td></tr>\n            <tr><td>Pas de bloc « Mots de passe d'application »</td><td>Site sans HTTPS, ou fonction coupée par une extension de sécurité</td><td>Passez le site en HTTPS, réactivez l'option dans l'extension de sécurité</td></tr>\n            <tr><td>Erreur 404 sur l'adresse</td><td>Permaliens réglés sur « Simple », ou plugin MCP Adapter désactivé</td><td><code>Réglages > Permaliens</code> : choisissez « Titre de la publication », vérifiez que le plugin est actif</td></tr>\n            <tr><td>Claude ne joint pas le site</td><td>WordPress local, préproduction protégée par mot de passe, pare-feu ou CDN qui bloque les IP d'Anthropic</td><td>Testez sur un site en ligne, ou autorisez les plages d'IP d'Anthropic</td></tr>\n            <tr><td>Connecté, mais aucune action possible</td><td>Enable Abilities for MCP absente, capacités décochées, ou Claude pas redémarré</td><td>Vérifiez <code>Réglages > WP Abilities</code>, quittez et relancez Claude</td></tr>\n            <tr><td>Impossible d'ajouter le connecteur</td><td>Plan gratuit qui a déjà un connecteur personnalisé</td><td>Supprimez l'ancien, ou passez à un plan payant</td></tr>\n          </tbody>\n        </table>\n      </div>\n\n      <p><strong>Le cas du 401 alors que l'URL est juste.</strong> Sur beaucoup d'hébergements Apache, l'en-tête qui transporte l'identifiant et le mot de passe est retiré avant d'atteindre WordPress. Depuis la version 5.6, WordPress ajoute lui-même la ligne qui corrige ça dans le <code>.htaccess</code>, mais les sites plus anciens ne l'ont souvent pas. Vérifiez que le bloc WordPress de votre fichier contient bien :</p>\n\n      <pre><code>RewriteEngine On\nRewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]</code></pre>\n\n      <p>Le plus simple pour la faire apparaître : <code>Réglages > Permaliens</code>, puis <strong>Enregistrer les modifications</strong> sans rien changer. WordPress réécrit alors son bloc. Si vous éditez le fichier à la main, faites-en une copie avant : une erreur de syntaxe met tout le site hors ligne. Sur un serveur Nginx, c'est à l'hébergeur de régler la transmission de l'en-tête.</p>\n\n      <p>Pour savoir si le problème vient de WordPress ou de Claude, un test en ligne de commande tranche en dix secondes :</p>\n\n      <pre><code>curl -u \"identifiant:motdepasseapplication\" https://www.monsite.fr/wp-json/wp/v2/users/me</code></pre>\n\n      <p>Si la réponse contient votre profil, l'authentification fonctionne et le problème est dans l'URL du connecteur. Si elle renvoie une erreur 401, il est côté site ou hébergement.</p>\n\n      <h2>Sécurité : ce que ce mot de passe ouvre vraiment</h2>\n\n      <p>Le mot de passe d'application donne à qui le détient les droits de votre compte administrateur sur l'API du site. Et l'URL du connecteur le contient en clair. Traitez-la donc comme un mot de passe : ni dans un message, ni dans un ticket, ni dans une capture d'écran.</p>\n\n      <ul>\n        <li><strong>Un compte dédié.</strong> Créez un utilisateur administrateur réservé à Claude, avec son propre mot de passe d'application. Tout ce que Claude fait apparaît sous ce nom dans l'historique des révisions, et couper l'accès revient à supprimer ce compte, sans toucher au vôtre.</li>\n        <li><strong>Révoquer.</strong> Dans <code>Comptes > Profil > Mots de passe d'application</code>, chaque mot de passe affiche sa date de dernière utilisation et un bouton <strong>Révoquer</strong>. Le connecteur ne sert plus ? Révoquez.</li>\n        <li><strong>Le moindre droit.</strong> Ne cochez dans <code>WP Abilities</code> que les capacités dont vous avez besoin. Une capacité désactivée ne peut pas être mal utilisée.</li>\n        <li><strong>Les contenus sont des données, pas des ordres.</strong> Claude lit ce qui se trouve sur votre site, y compris les commentaires laissés par n'importe qui. Un texte piégé peut tenter de détourner le modèle : c'est le principe de l'injection de prompt. D'où la validation manuelle des outils d'écriture.</li>\n        <li><strong>Une sauvegarde avant.</strong> Évident, mais ça mérite d'être écrit : une sauvegarde récente avant la première session d'écriture, et un test sur une copie du site si vous en avez une.</li>\n      </ul>\n\n      <p>Pour une équipe, il existe une variante sans mot de passe dans l'URL. D'après sa documentation, Enable Abilities for MCP embarque désormais un serveur OAuth pensé pour les connecteurs de claude.ai : chaque personne se connecte avec son propre compte WordPress et son propre rôle. La méthode de la vidéo reste la plus rapide quand vous gérez le site seul ; dès que plusieurs personnes s'en servent, c'est cette variante que je regarde en premier.</p>\n\n      <h2>Et avec Claude Code, ou un WordPress en local ?</h2>\n\n      <p>Le connecteur personnalisé passe par les serveurs d'Anthropic, d'où l'obligation d'un site en ligne. Pour un WordPress installé sur votre machine, ou pour travailler depuis <a href=\"/blog/claude-code\">Claude Code</a>, le MCP Adapter prévoit deux autres voies, documentées sur le blog développeurs de WordPress.</p>\n\n      <p><strong>Le relais HTTP.</strong> Le paquet <code>@automattic/mcp-wordpress-remote</code> tourne avec Node.js sur votre ordinateur et reçoit l'adresse du serveur, l'identifiant et le mot de passe d'application. Dans Claude Code, une commande suffit :</p>\n\n      <pre><code>claude mcp add --transport stdio \\\n  --env WP_API_URL=https://www.monsite.fr/wp-json/mcp/mcp-adapter-default-server \\\n  --env WP_API_USERNAME=identifiant \\\n  --env WP_API_PASSWORD=motdepasseapplication \\\n  wordpress -- npx -y @automattic/mcp-wordpress-remote@latest</code></pre>\n\n      <p>La même configuration se déclare dans le fichier <code>claude_desktop_config.json</code> de Claude Desktop, avec les trois mêmes variables.</p>\n\n      <p><strong>WP-CLI en direct.</strong> Si le site tourne sur votre machine avec WP-CLI installé, Claude peut lancer le serveur lui-même, sans passer par le réseau : la commande est <code>wp mcp-adapter serve --server=mcp-adapter-default-server --user=admin</code>, avec <code>--path</code> vers le dossier du site.</p>\n\n      <h2>Ce que ça change dans mon travail</h2>\n\n      <p>Je m'en sers surtout pour les tâches de fond qui ne méritent pas une demi-journée : passer en revue les méta-descriptions d'un blog entier, poser les liens internes d'un nouvel article, préparer des brouillons déjà au bon format. Le MCP fait gagner le temps des clics, pas celui de la réflexion : décider quoi publier, pour qui et pourquoi reste votre travail.</p>\n\n      <p>C'est le même branchement que j'ai montré avec <a href=\"/blog/screaming-frog-mcp\">le MCP de Screaming Frog</a> pour les crawls, appliqué cette fois au CMS. Et si vous voulez aller plus loin que le connecteur, avec des automatisations qui tiennent en production sur vos propres outils, c'est tout le sujet de l'<a href=\"/automatisation-ia\">automatisation IA</a>.</p>\n\n      <section class=\"faq\">\n        <h2>Questions fréquentes</h2>\n\n        <details>\n          <summary>Comment connecter WordPress à Claude ?", "acceptedAnswer": {"@type": "Answer", "text": "Il faut WordPress 6.9 ou plus récent, un compte administrateur et un site en ligne en HTTPS. Installez le plugin MCP Adapter (fichier mcp-adapter.zip de la dernière release GitHub), créez un mot de passe d'application dans votre profil WordPress, puis ajoutez dans Claude un connecteur personnalisé avec l'URL https://identifiant:MOT_DE_PASSE_APP@domaine/wp-json/mcp/mcp-adapter-default-server. Ajoutez l'extension Enable Abilities for MCP pour que Claude puisse lire et modifier le contenu, puis redémarrez Claude."}},
+        {"@type": "Question", "name": "Le MCP WordPress est-il gratuit ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Le plugin MCP Adapter et l'extension Enable Abilities for MCP sont gratuits, et l'Abilities API fait partie de WordPress depuis la version 6.9. Côté Claude, le plan gratuit accepte un connecteur personnalisé, ce qui suffit pour brancher un site. Les plans payants lèvent cette limite et offrent davantage d'usage."}},
+        {"@type": "Question", "name": "Faut-il être administrateur du site WordPress ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. Avec un compte éditeur, auteur ou contributeur, la connexion ne fonctionne pas : le mot de passe d'application doit être créé sur un compte administrateur. Pour garder une trace claire de ce que fait Claude, l'idéal est un compte administrateur qui lui est dédié, que vous pouvez supprimer sans toucher au vôtre."}},
+        {"@type": "Question", "name": "Quelle URL mettre dans le connecteur personnalisé de Claude ?", "acceptedAnswer": {"@type": "Answer", "text": "Le modèle est https://identifiant:MOT_DE_PASSE_APP@domaine/wp-json/mcp/mcp-adapter-default-server. Remplacez identifiant par votre identifiant WordPress (le champ grisé du profil), MOT_DE_PASSE_APP par le mot de passe d'application sans les espaces, en gardant les deux-points qui le précèdent, et domaine par le nom de domaine seul, sans https:// ni barre oblique finale."}},
+        {"@type": "Question", "name": "Pourquoi Claude n'arrive-t-il pas à se connecter à mon site WordPress ?", "acceptedAnswer": {"@type": "Answer", "text": "Dans la plupart des cas, c'est l'URL : espaces laissés dans le mot de passe, https:// conservé dans le domaine ou deux-points effacés. Viennent ensuite le compte non administrateur, le site sans HTTPS, une extension de sécurité qui bloque les mots de passe d'application, un hébergeur qui supprime l'en-tête Authorization, et les sites locaux ou protégés, que les serveurs d'Anthropic ne peuvent pas joindre."}},
+        {"@type": "Question", "name": "Claude peut-il modifier mon site WordPress ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, avec l'extension Enable Abilities for MCP. Sans elle, Claude est connecté mais n'a presque aucune action disponible. Avec elle, il peut lire, créer et modifier articles, pages, menus, catégories et métadonnées SEO, dans la limite des capacités cochées dans Réglages, WP Abilities, et des droits du compte connecté."}},
+        {"@type": "Question", "name": "Est-ce risqué de donner à Claude un accès administrateur ?", "acceptedAnswer": {"@type": "Answer", "text": "Le risque est réel, et il se maîtrise. Le mot de passe d'application donne les droits du compte : ne le partagez jamais, révoquez-le dans votre profil dès qu'il ne sert plus, n'activez que les capacités utiles et gardez la validation manuelle pour les actions d'écriture. Faites une sauvegarde avant la première session, et méfiez-vous des contenus que Claude lit sur le site, comme les commentaires, qui peuvent contenir des instructions piégées."}},
+        {"@type": "Question", "name": "Est-il possible d'utiliser le MCP WordPress avec Claude Code ou un site en local ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, mais pas avec le connecteur personnalisé, qui passe par les serveurs d'Anthropic et exige un site accessible en ligne. Pour Claude Code ou Claude Desktop, le relais @automattic/mcp-wordpress-remote se lance avec Node.js et reçoit l'adresse du serveur, l'identifiant et le mot de passe d'application. Pour un site installé sur votre machine, le MCP Adapter fonctionne aussi en direct avec WP-CLI."}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Aller au contenu</a>
+<div id="read-progress"></div>
+
+<!-- ================= HEADER (identique au reste du site v2) ================= -->
+<header class="site">
+  <div class="nav-shell">
+    <nav class="main" aria-label="Navigation principale">
+      <a class="logo" href="/"><img src="/images/logo-transparent-cream.svg" alt="anthony courtin" width="86" height="42"></a>
+      <div class="nav-links">
+        <div class="nav-item has-mega" data-mega>
+          <button type="button">Services <span class="chev">▼</span></button>
+          <div class="mega">
+            <div class="mega-col">
+              <span class="mega-label">SEO</span>
+              <a class="mega-link" href="/seo"><span class="mega-ico">🔍</span><span><b>Consultant SEO</b><span>Audit, technique, netlinking : le socle.</span></span></a>
+              <a class="mega-link" href="/audit-seo"><span class="mega-ico">📊</span><span><b>Audit SEO</b><span>Analyse complète, plan d'action priorisé.</span></span></a>
+              <a class="mega-link" href="/seo-local"><span class="mega-ico">📍</span><span><b>SEO local</b><span>Recherches locales et Google Maps.</span></span></a>
+            </div>
+            <div class="mega-col">
+              <span class="mega-label">GEO, visibilité IA</span>
+              <a class="mega-link" href="/geo"><span class="mega-ico">✦</span><span><b>Consultant GEO</b><span>Être cité par ChatGPT, Perplexity, AI Overviews.</span></span></a>
+              <a class="mega-link" href="/audit-visibilite-ia"><span class="mega-ico">📝</span><span><b>Audit de visibilité IA</b><span>Mesurer comment les IA parlent de vous.</span></span></a>
+            </div>
+            <div class="mega-col">
+              <span class="mega-label">Automatisation IA</span>
+              <a class="mega-link" href="/automatisation-ia"><span class="mega-ico">🤖</span><span><b>Automatisation IA</b><span>Agents et programmes sur mesure, Claude Code.</span></span></a>
+            </div>
+            <a class="mega-feat" href="/realisations">
+              <img class="feat-bg" src="/images/visuels/card-realisations-800.avif" alt="" width="800" height="447" loading="lazy" decoding="async">
+              <em>Cas clients</em>
+              <b>Des résultats mesurés, pas des promesses</b>
+              <span>Réalisations SEO, GEO &amp; IA</span>
+            </a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="/realisations">Réalisations</a></div>
+        <div class="nav-item has-mega" data-mega>
+          <button type="button">Ressources <span class="chev">▼</span></button>
+          <div class="mega cols-3">
+            <div class="mega-col">
+              <span class="mega-label">Apprendre</span>
+              <a class="mega-link" href="/blog/"><span class="mega-ico">📚</span><span><b>Blog</b><span>Guides et retours d'expérience SEO, GEO, IA.</span></span></a>
+              <a class="mega-link" href="/videos"><span class="mega-ico">🎬</span><span><b>Vidéos</b><span>Mes tutos SEO, GEO et IA, sur YouTube.</span></span></a>
+            </div>
+            <div class="mega-col">
+              <span class="mega-label">Explorer</span>
+              <a class="mega-link" href="/realisations"><span class="mega-ico">🏆</span><span><b>Réalisations</b><span>Cas clients, résultats chiffrés.</span></span></a>
+              <a class="mega-link" href="/tarifs"><span class="mega-ico">💶</span><span><b>Tarifs</b><span>Formules claires, sans surprise.</span></span></a>
+            </div>
+            <a class="mega-feat" href="/blog/">
+              <img class="feat-bg" src="/images/visuels/methode-strategie-800.avif" alt="" width="800" height="447" loading="lazy" decoding="async">
+              <em>Sur le blog</em>
+              <b>Guides SEO, GEO et automatisation IA</b>
+              <span>Retours d'expérience concrets</span>
+            </a>
+          </div>
+        </div>
+        <div class="nav-item"><a href="/tarifs">Tarifs</a></div>
+        <div class="nav-item"><a href="/a-propos">À propos</a></div>
+      </div>
+      <button class="burger" id="burger" type="button" aria-label="Menu">☰</button>
+      <a class="nav-cta" href="/contact">Travailler avec moi</a>
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="/seo">SEO</a>
+        <a href="/geo">GEO, visibilité IA</a>
+        <a href="/automatisation-ia">Automatisation IA</a>
+        <a href="/realisations">Réalisations</a>
+        <a href="/blog/">Blog</a>
+        <a href="/videos">Vidéos</a>
+        <a href="/tarifs">Tarifs</a>
+        <a href="/a-propos">À propos</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+<main id="main">
+
+<!-- ================= EN-TÊTE D'ARTICLE ================= -->
+<section class="art-top">
+  <div class="wrap">
+    <nav class="crumb" aria-label="Fil d'Ariane">
+      <a href="/">Accueil</a><span aria-hidden="true">/</span>
+      <a href="/blog/">Blog</a><span aria-hidden="true">/</span>
+      <span>MCP WordPress</span>
+    </nav>
+
+    <span class="art-cat">Utiliser l'IA</span>
+    <h1 class="art-title">MCP WordPress : connecter Claude à votre site en 5 minutes</h1>
+    <p class="art-lede">Claude sait rédiger un article. Ce qu'il ne savait pas faire, c'est aller le poser lui-même dans votre WordPress. Avec le plugin officiel MCP Adapter, un mot de passe d'application et un connecteur personnalisé, votre site devient un outil que Claude lit et modifie en langage naturel. Cinq minutes de réglages, et rien à payer.</p>
+
+    <div class="art-metaline">
+      <span class="who">
+        <img src="/images/anthony.avif" alt="" width="38" height="38" loading="lazy">
+        Anthony Courtin
+      </span>
+      <span class="dot" aria-hidden="true">·</span>
+      <time datetime="2026-10-11">11 octobre 2026</time>
+      <span class="dot" aria-hidden="true">·</span>
+      <span>17 min de lecture</span>
+    </div>
+
+    <!-- Boutons "Résumer avec" : les href sont construits par blog-article.js -->
+    <div class="ai-actions">
+      <span class="ai-actions__title">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>
+        Résumer avec
+      </span>
+      <ul class="ai-actions__list">
+        <li><a class="ai-btn" data-ai="chatgpt" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec ChatGPT">ChatGPT</a></li>
+        <li><a class="ai-btn" data-ai="claude" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Claude">Claude</a></li>
+        <li><a class="ai-btn" data-ai="perplexity" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Perplexity">Perplexity</a></li>
+        <li><a class="ai-btn" data-ai="gemini" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Gemini">Gemini</a></li>
+        <li><a class="ai-btn" data-ai="mistral" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Le Chat de Mistral">Le Chat</a></li>
+        <li><a class="ai-btn" data-ai="grok" href="#" target="_blank" rel="noopener nofollow" aria-label="Résumer cet article avec Grok">Grok</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GRILLE 3 COLONNES ================= -->
+<div class="art-layout">
+
+  <aside class="rail rail-left">
+    <details class="toc-box" open>
+      <summary><span class="rail-title">Sommaire</span><span class="toc-chevron" aria-hidden="true"></span></summary>
+      <nav class="toc" id="toc" aria-label="Sommaire de l'article">
+        <p class="toc-empty">Chargement…</p>
+      </nav>
+    </details>
+
+    <div class="share-box">
+      <p class="rail-title">Partager</p>
+      <ul class="share">
+        <li><a class="share-btn share-linkedin" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur LinkedIn"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56z"/></svg></a></li>
+        <li><a class="share-btn share-x" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur X"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M18.24 2.25h3.31l-7.23 8.26 8.5 11.24h-6.66l-5.21-6.82-5.96 6.82H1.68l7.73-8.84L1.25 2.25h6.83l4.71 6.23zm-1.16 17.52h1.83L7.08 4.13H5.12z"/></svg></a></li>
+        <li><a class="share-btn share-whatsapp" href="#" target="_blank" rel="noopener nofollow" aria-label="Partager sur WhatsApp"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m5.8 14.16c-.25.69-1.43 1.31-1.98 1.4-.53.08-1.19.11-1.92-.12-.44-.14-1.01-.33-1.74-.64-3.06-1.32-5.06-4.4-5.21-4.6-.15-.2-1.25-1.66-1.25-3.16s.79-2.25 1.07-2.55c.28-.31.61-.38.81-.38h.58c.19 0 .44-.07.69.53.25.61.86 2.11.94 2.26.08.15.13.33.02.53-.1.2-.16.33-.31.5l-.46.54c-.15.15-.31.32-.13.63.18.31.79 1.3 1.69 2.11 1.16 1.03 2.14 1.35 2.45 1.5.31.15.49.13.67-.08.18-.2.77-.9.98-1.21.2-.31.41-.26.69-.15.28.1 1.78.84 2.09.99.31.15.51.23.59.36.08.13.08.74-.17 1.44"/></svg></a></li>
+        <li><a class="share-btn share-email" href="#" rel="nofollow" aria-label="Partager par e-mail"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m0 4-8 5-8-5V6l8 5 8-5z"/></svg></a></li>
+        <li><button class="share-btn share-copy" type="button" aria-label="Copier le lien"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2m0 16H8V7h11z"/></svg></button></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- ---------- COLONNE CENTRALE : le contenu ---------- -->
+  <div class="art-main">
+
+    <!-- Résumé IA version mobile : rendu côté serveur, donc lisible par Google et les LLM -->
+    <div class="ai-box ai-box-mobile">
+      <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
+      <p class="ai-text">Le MCP WordPress relie Claude à un site WordPress grâce au plugin officiel MCP Adapter, à un mot de passe d'application et à un connecteur personnalisé. L'extension Enable Abilities for MCP ouvre la lecture et l'écriture des articles, pages et menus. Il faut WordPress 6.9 ou plus, un compte administrateur et un site en ligne en HTTPS.</p>
+      <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
+    </div>
+
+    <article class="art-body">
+
+      <figure>
+        <picture>
+          <source srcset="/images/blog/mcp-wordpress-cover.avif" type="image/avif">
+          <img src="/images/blog/mcp-wordpress-cover.webp" alt="Une maquette de site web en verre reliée par un tube lumineux vert lime marqué MCP à une sphère étincelante, illustration d'un site WordPress branché sur Claude" width="1376" height="768" fetchpriority="high" decoding="async">
+        </picture>
+      </figure>
+
+      <p>Rédiger dans Claude, copier, coller dans l'éditeur, refaire les intertitres, remettre les liens, remplir la méta-description : c'est le quotidien de beaucoup de gens qui publient avec l'IA. Le MCP WordPress supprime ce copier-coller. Claude lit vos articles, vos pages et vos menus directement sur le site et, si vous l'y autorisez, il crée et modifie lui-même.</p>
+
+      <p>J'ai fait l'installation complète en vidéo, sur le site d'un client, en un peu plus de trois minutes. Cet article reprend chaque étape avec ce qui ne tient pas dans une vidéo courte : l'URL à reconstituer sans erreur, les causes d'échec les plus fréquentes et les réglages de sécurité à ne pas oublier.</p>
+
+      <!-- ================= VIDÉO ================= -->
+      <div class="video-embed">
+        <div class="yt-lite" data-yt="rjvGDE1UqIo" data-title="MCP WordPress : connecter Claude à ton site en 3 min (gratuit)">
+          <img src="/images/youtube/rjvGDE1UqIo.jpg" alt="Miniature de la vidéo : WordPress relié à Claude par MCP, gratuit en 5 minutes" width="1280" height="720" loading="lazy" decoding="async">
+          <span class="yt-play" aria-hidden="true">▶</span>
+          <span class="yt-label">MCP WordPress × Claude : l'installation complète, en 3 min 22</span>
+        </div>
+      </div>
+
+      <p><strong>Les chapitres de la vidéo :</strong> <a href="https://youtu.be/rjvGDE1UqIo?t=7" target="_blank" rel="noopener">0:07 installer MCP Adapter</a> · <a href="https://youtu.be/rjvGDE1UqIo?t=40" target="_blank" rel="noopener">0:40 le mot de passe d'application</a> · <a href="https://youtu.be/rjvGDE1UqIo?t=58" target="_blank" rel="noopener">0:58 le connecteur dans Claude</a> · <a href="https://youtu.be/rjvGDE1UqIo?t=74" target="_blank" rel="noopener">1:14 l'URL, partie par partie</a> · <a href="https://youtu.be/rjvGDE1UqIo?t=128" target="_blank" rel="noopener">2:08 le droit d'écrire</a> · <a href="https://youtu.be/rjvGDE1UqIo?t=153" target="_blank" rel="noopener">2:33 le test</a>.</p>
+
+      <!-- Bloc « à retenir » : c'est ce que les moteurs de réponse citent le plus volontiers -->
+      <section class="takeaways">
+        <h2>À retenir</h2>
+        <ul>
+          <li>Le MCP WordPress repose sur deux briques gratuites : le plugin officiel <strong>MCP Adapter</strong>, publié par WordPress, et l'<strong>Abilities API</strong>, intégrée au cœur depuis WordPress 6.9.</li>
+          <li>Toute la connexion tient dans une URL : <code>https://identifiant:MOT_DE_PASSE_APP@domaine/wp-json/mcp/mcp-adapter-default-server</code>.</li>
+          <li>Il faut un <strong>compte administrateur</strong>, un <strong>mot de passe d'application</strong> (jamais votre mot de passe habituel) et un site <strong>en ligne, en HTTPS</strong> : Claude se connecte depuis les serveurs d'Anthropic, pas depuis votre ordinateur.</li>
+          <li>Sans l'extension <strong>Enable Abilities for MCP</strong>, Claude est branché mais n'a presque rien à faire. C'est elle qui ouvre les articles, les pages et les menus.</li>
+          <li>Le plan gratuit de Claude accepte <strong>un</strong> connecteur personnalisé : assez pour brancher un site sans rien payer.</li>
+          <li>Ce mot de passe ouvre votre site en administrateur : ne le partagez jamais, et <strong>révoquez-le</strong> dès qu'il ne sert plus.</li>
+        </ul>
+      </section>
+
+      <h2>Connecter WordPress à Claude : la réponse courte</h2>
+
+      <ol>
+        <li>Vérifiez que le site tourne sous <strong>WordPress 6.9 ou plus récent</strong>, en HTTPS, et que vous avez un compte administrateur.</li>
+        <li>Téléchargez <code>mcp-adapter.zip</code> dans la dernière release du dépôt GitHub <code>WordPress/mcp-adapter</code>, puis installez-le : <code>Extensions &gt; Ajouter une extension &gt; Téléverser une extension</code>.</li>
+        <li>Dans <code>Comptes &gt; Profil</code>, créez un <strong>mot de passe d'application</strong> nommé « Claude » et copiez-le.</li>
+        <li>Dans Claude, ouvrez <code>Connecteurs</code>, ajoutez un <strong>connecteur personnalisé</strong> et collez l'URL du connecteur complétée avec vos trois valeurs.</li>
+        <li>Installez l'extension <strong>Enable Abilities for MCP</strong> pour donner à Claude le droit de lire et d'écrire.</li>
+        <li>Redémarrez Claude, activez le connecteur dans une conversation et demandez-lui s'il voit votre site.</li>
+      </ol>
+
+      <p>Chaque étape est détaillée plus bas, avec un <a href="#outil-mcp-wordpress">générateur qui assemble l'URL du connecteur</a> à votre place. Si quelque chose bloque, la section <a href="#depannage">dépannage</a> couvre les huit causes que je rencontre le plus souvent.</p>
+
+      <h2>Le MCP WordPress, concrètement</h2>
+
+      <p>MCP, pour <em>Model Context Protocol</em>, est une prise standard entre un modèle d'IA et un logiciel : le logiciel expose ce qu'il sait faire, le modèle s'y branche et appelle ces fonctions lui-même. Si la notion est nouvelle pour vous, j'explique en détail <a href="/blog/mcp-model-context-protocol">ce qu'est un serveur MCP</a> et à quoi il sert.</p>
+
+      <p>Côté WordPress, la prise se monte en deux temps. Depuis la version 6.9, sortie fin 2025, le cœur de WordPress embarque l'<strong>Abilities API</strong> : un registre où le site et ses extensions déclarent ce qu'ils savent faire (lister les articles, créer une page, ajouter un élément de menu), avec les droits exigés pour chaque action. Le plugin <strong>MCP Adapter</strong>, maintenu par l'équipe IA de WordPress, traduit ce registre en outils MCP et les publie à une adresse de l'API REST du site : <code>/wp-json/mcp/mcp-adapter-default-server</code>.</p>
+
+      <p>Claude ne voit pas des dizaines d'outils d'un coup. Le serveur par défaut lui en donne trois : un pour découvrir les capacités disponibles (<code>mcp-adapter-discover-abilities</code>), un pour lire le mode d'emploi de l'une d'elles (<code>mcp-adapter-get-ability-info</code>), un pour l'exécuter (<code>mcp-adapter-execute-ability</code>). Claude commence donc toujours par faire l'inventaire, puis il agit. C'est exactement ce que vous verrez défiler au premier test.</p>
+
+      <div class="verdict">
+        <div class="verdict-note">
+          <b>5</b>
+          <span>minutes</span>
+        </div>
+        <div class="verdict-body">
+          <h2>Ce que l'installation vous donne</h2>
+          <p>Deux extensions, un mot de passe, une URL. Voici ce que ça change au quotidien, et ce que ça demande.</p>
+          <div class="verdict-lists">
+            <ul class="verdict-pros">
+              <li>Articles, pages et menus lus et modifiés sans quitter Claude</li>
+              <li>Un brouillon rédigé dans la conversation posé dans WordPress en une phrase</li>
+              <li>Tout est gratuit : extensions, API et connecteur</li>
+            </ul>
+            <ul class="verdict-cons">
+              <li>Compte administrateur obligatoire</li>
+              <li>Site en ligne uniquement, pas de WordPress local</li>
+            </ul>
+          </div>
+        </div>
+        <p class="verdict-foot">
+          <span class="verdict-price">Temps d'installation : 5 minutes</span>
+          <span>WordPress 6.9+ · MCP Adapter · Claude, plan gratuit ou payant</span>
+        </p>
+      </div>
+
+      <h2>Ce qu'il faut avant de commencer</h2>
+
+      <ul>
+        <li><strong>WordPress 6.9 ou plus récent.</strong> L'Abilities API est dans le cœur depuis cette version et l'adaptateur ne fonctionne pas sans elle. Vérifiez dans <code>Tableau de bord &gt; Mises à jour</code>.</li>
+        <li><strong>Un compte administrateur.</strong> Avec un compte éditeur, auteur ou contributeur, la connexion ne fonctionne pas. C'est le premier point de blocage.</li>
+        <li><strong>Un site en ligne, en HTTPS.</strong> Pour deux raisons. WordPress désactive les mots de passe d'application sur un site sans HTTPS. Et le connecteur personnalisé de Claude se connecte depuis les serveurs d'Anthropic : un WordPress installé sur votre ordinateur, derrière un VPN ou derrière un pare-feu qui filtre les adresses IP reste injoignable.</li>
+        <li><strong>Un compte Claude.</strong> Le plan gratuit est limité à un connecteur personnalisé, ce qui suffit pour un site. Je détaille ce que permet la version gratuite dans <a href="/blog/claude-ai-gratuit">Claude AI gratuit</a>. Le web, l'application de bureau et Cowork acceptent tous les connecteurs personnalisés.</li>
+      </ul>
+
+      <div class="callout callout--info">
+        <p class="callout-t">Les trois liens dont vous aurez besoin</p>
+        <p>Le plugin : <a href="https://github.com/WordPress/mcp-adapter/releases" target="_blank" rel="noopener">les releases de WordPress/mcp-adapter sur GitHub</a>. L'extension d'écriture : <a href="https://wordpress.org/plugins/enable-abilities-for-mcp/" target="_blank" rel="noopener">Enable Abilities for MCP</a> sur le répertoire WordPress. Et la documentation d'Anthropic sur les <a href="https://support.claude.com/en/articles/11175166-getting-started-with-custom-connectors-using-remote-mcp" target="_blank" rel="noopener">connecteurs personnalisés</a>. Le modèle d'URL est aussi dans la description de la vidéo.</p>
+      </div>
+
+      <h2>Étape 1 : installer le plugin MCP Adapter</h2>
+
+      <p>Le plugin se télécharge sur GitHub, dans le dépôt officiel de WordPress.</p>
+
+      <ol>
+        <li>Ouvrez <code>github.com/WordPress/mcp-adapter</code> et cliquez sur <strong>Releases</strong>, dans la colonne de droite.</li>
+        <li>Ouvrez la dernière version (v0.7.0 au moment où j'écris), descendez jusqu'à <strong>Assets</strong> et téléchargez <code>mcp-adapter.zip</code>. Pas les archives « Source code » : c'est le fichier nommé <code>mcp-adapter.zip</code> qui contient l'extension prête à installer.</li>
+        <li>Dans WordPress : <code>Extensions &gt; Ajouter une extension &gt; Téléverser une extension</code>, choisissez le fichier, <strong>Installer maintenant</strong>, puis <strong>Activer</strong>.</li>
+      </ol>
+
+      <p>Si vous avez accès au serveur en ligne de commande, WP-CLI fait la même chose en une ligne :</p>
+
+      <pre><code>wp plugin install https://github.com/WordPress/mcp-adapter/releases/latest/download/mcp-adapter.zip --activate</code></pre>
+
+      <p>Rien à régler ensuite : une fois activé, le plugin crée tout seul le serveur MCP par défaut, celui que Claude va appeler.</p>
+
+      <h2>Étape 2 : créer un mot de passe d'application</h2>
+
+      <p>C'est l'étape où il faut être attentif. Les mots de passe d'application existent dans WordPress depuis la version 5.6 et servent exactement à ça : donner à un outil externe l'accès à l'API du site sans lui confier votre vrai mot de passe, et pouvoir le lui retirer à tout moment sans rien changer d'autre.</p>
+
+      <ol>
+        <li>Allez dans <code>Comptes &gt; Profil</code> (ou survolez votre nom en haut à droite, puis <strong>Modifier le profil</strong>).</li>
+        <li>Descendez tout en bas de la page, jusqu'au bloc <strong>Mots de passe d'application</strong>.</li>
+        <li>Donnez-lui un nom qui dit à quoi il sert, « Claude » par exemple, puis cliquez sur <strong>Ajouter un mot de passe d'application</strong>.</li>
+        <li>Copiez le code affiché et gardez-le de côté le temps de l'installation.</li>
+      </ol>
+
+      <div class="callout callout--warn">
+        <p class="callout-t">Il ne s'affiche qu'une seule fois</p>
+        <p>WordPress montre ce mot de passe une fois, puis plus jamais. Si vous le perdez, aucun problème : révoquez-le et créez-en un autre. Ne le rangez pas dans un document partagé : il donne les mêmes droits que votre compte administrateur.</p>
+      </div>
+
+      <p>Le code se présente en six blocs de quatre caractères séparés par des espaces, du type <code>abcd EFGH 1234 ijkl MNOP 5678</code>. Les espaces ne servent qu'à la lisibilité : il faudra les retirer dans l'URL.</p>
+
+      <p>Pendant que vous êtes sur cette page, remontez tout en haut et notez votre <strong>identifiant</strong> : c'est le champ grisé, impossible à modifier. Ce n'est pas forcément votre adresse e-mail, ni le nom affiché publiquement sur le site.</p>
+
+      <p>Le bloc « Mots de passe d'application » n'apparaît pas ? Le site n'est pas en HTTPS, ou une extension de sécurité a désactivé la fonction. Les solutions sont dans le <a href="#depannage">dépannage</a>.</p>
+
+      <h2>Étape 3 : ajouter le connecteur personnalisé dans Claude</h2>
+
+      <ol>
+        <li>Dans Claude, ouvrez les <strong>Paramètres</strong>, puis <strong>Connecteurs</strong>. Selon votre version, le menu s'appelle aussi <code>Personnaliser &gt; Connecteurs</code>.</li>
+        <li>Cliquez sur <strong>+</strong> ou <strong>Ajouter</strong>, puis sur <strong>Ajouter un connecteur personnalisé</strong>.</li>
+        <li>Donnez-lui un nom explicite. Dans la vidéo, j'ai mis le nom du site suivi de « MCP » : pratique dès que vous branchez plusieurs sites.</li>
+        <li>Dans le champ URL, collez le modèle ci-dessous, remplacez les trois parties (détail juste après), puis cliquez sur <strong>Continuer</strong>.</li>
+        <li>À l'écran d'authentification, ne choisissez aucune connexion (« No sign in ») : l'identification est déjà dans l'URL. Cliquez sur <strong>Ajouter</strong>.</li>
+        <li>Le connecteur passe en cours de connexion, puis s'affiche comme connecté. Sur l'application de bureau, quittez Claude complètement et rouvrez-le.</li>
+      </ol>
+
+      <h2>L'URL du connecteur, morceau par morceau</h2>
+
+      <p>Voici le modèle à coller dans le champ URL :</p>
+
+      <pre><code>https://identifiant:MOT_DE_PASSE_APP@domaine/wp-json/mcp/mcp-adapter-default-server</code></pre>
+
+      <p>Elle a l'air technique, c'est juste un chemin. Ce qui précède le <code>@</code> dit à WordPress qui se connecte, ce qui suit dit où se trouve le serveur MCP.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Partie</th><th>Ce qu'il faut mettre</th><th>L'erreur classique</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><code>identifiant</code></td><td>Votre identifiant WordPress, le champ grisé en haut du profil</td><td>Mettre l'adresse e-mail ou le nom public</td></tr>
+            <tr><td><code>MOT_DE_PASSE_APP</code></td><td>Le mot de passe d'application de l'étape 2, sans les espaces</td><td>Laisser les espaces, ou effacer les deux-points qui le précèdent</td></tr>
+            <tr><td><code>domaine</code></td><td>Le nom de domaine seul : <code>monsite.fr</code> ou <code>www.monsite.fr</code></td><td>Laisser <code>https://</code> ou une barre oblique à la fin</td></tr>
+            <tr><td><code>/wp-json/mcp/…</code></td><td>La fin de l'URL, à ne pas toucher</td><td>La modifier ou la tronquer</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Avec l'identifiant <code>marie</code>, le mot de passe <code>abcd EFGH 1234 ijkl MNOP 5678</code> et le site <code>https://www.monsite.fr/</code>, ça donne :</p>
+
+      <pre><code>https://marie:abcdEFGH1234ijklMNOP5678@www.monsite.fr/wp-json/mcp/mcp-adapter-default-server</code></pre>
+
+      <p>Deux cas particuliers. Si WordPress est installé dans un sous-dossier (<code>monsite.fr/blog</code>), gardez le sous-dossier avant <code>/wp-json</code>. Et si votre identifiant contient un espace ou un <code>@</code>, ces caractères doivent être encodés (<code>%20</code> et <code>%40</code>), sinon l'URL est mal lue. Le générateur ci-dessous s'en charge.</p>
+
+      <div class="tool" id="outil-mcp-wordpress">
+        <div class="tool-head">
+          <span class="tool-ico" aria-hidden="true">🔌</span>
+          <span>
+            <em>Outil interactif</em>
+            <b>Générateur d'URL du connecteur WordPress</b>
+          </span>
+        </div>
+        <div class="tool-body">
+          <div class="field-row">
+            <div class="field">
+              <label for="wp-user">Identifiant WordPress <span class="hint">(champ grisé du profil)</span></label>
+              <input id="wp-user" type="text" placeholder="marie" autocomplete="off" autocapitalize="off" spellcheck="false">
+            </div>
+            <div class="field">
+              <label for="wp-domain">Adresse du site <span class="hint">(collez-la telle quelle)</span></label>
+              <input id="wp-domain" type="text" placeholder="https://www.monsite.fr/" autocomplete="off" autocapitalize="off" spellcheck="false">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="wp-pass">Mot de passe d'application <span class="hint">(avec ou sans espaces)</span></label>
+            <input id="wp-pass" type="password" placeholder="abcd EFGH 1234 ijkl MNOP 5678" autocomplete="off" autocapitalize="off" spellcheck="false">
+          </div>
+
+          <div class="field">
+            <span class="rail-title" style="margin-bottom:8px">Votre URL de connecteur</span>
+            <div class="tool-out" id="wp-out" aria-live="polite"></div>
+          </div>
+
+          <ul class="geo-check" id="wp-checks" aria-live="polite"></ul>
+
+          <div class="tool-actions">
+            <button type="button" class="btn-sm primary" id="wp-copy">Copier l'URL</button>
+            <button type="button" class="btn-sm ghost" id="wp-show" aria-pressed="false">Afficher le mot de passe</button>
+          </div>
+        </div>
+        <div class="tool-foot">
+          <span>Rien n'est envoyé ni enregistré : tout se passe dans votre navigateur, et un rechargement de la page efface les champs.</span>
+          <span>Connecteur MCP · Anthony Courtin</span>
+        </div>
+      </div>
+
+      <h2>Étape 4 : donner à Claude le droit d'écrire</h2>
+
+      <p>À ce stade, Claude voit le site, mais il ne peut presque rien y faire. WordPress garde ses capacités privées par défaut : seules celles qu'une extension déclare publiques passent par le serveur MCP, et le cœur n'en déclare quasiment aucune. L'extension <strong>Enable Abilities for MCP</strong> comble ce vide.</p>
+
+      <ol>
+        <li><code>Extensions &gt; Ajouter une extension</code>, cherchez <strong>Enable Abilities for MCP</strong>.</li>
+        <li>Installez la première, celle de Fabio Montenegro, puis activez-la.</li>
+        <li>Ouvrez <code>Réglages &gt; WP Abilities</code> pour voir et choisir ce que Claude a le droit de faire.</li>
+      </ol>
+
+      <p>L'extension déclare plus d'une centaine de capacités, rangées par familles : lecture, écriture, menus, utilitaires, et des modules pour les extensions courantes (Yoast, Rank Math, SEOPress, WooCommerce, Elementor, entre autres). Chacune se coche ou se décoche. Elle respecte aussi les droits WordPress : une capacité d'écriture vérifie que le compte connecté a bien le droit de publier ou de modifier le contenu visé.</p>
+
+      <div class="callout callout--tip">
+        <p class="callout-t">Mon réglage de départ</p>
+        <p>Je laisse la lecture, la création et la modification d'articles, et les métadonnées SEO. Je décoche les suppressions, la gestion des extensions et le rechercher-remplacer global, et je demande toujours à Claude de créer en brouillon. J'ouvre le reste quand un vrai besoin se présente, pas avant.</p>
+      </div>
+
+      <p>L'extension activée et réglée, quittez puis relancez Claude pour qu'il recharge la liste des outils.</p>
+
+      <h2>Le test : Claude voit-il votre site ?</h2>
+
+      <p>Ouvrez une nouvelle conversation. Vérifiez d'abord que le connecteur est actif : bouton <strong>+</strong> en bas à gauche de la zone de saisie, puis <strong>Connecteurs</strong>, et l'interrupteur de votre site doit être allumé. Puis demandez simplement :</p>
+
+      <blockquote>Dis-moi si tu as accès au site WordPress [nom du site] via le MCP, et liste ce que tu peux y faire.</blockquote>
+
+      <p>Claude charge le connecteur, appelle l'outil de découverte et vous rend l'inventaire : lecture, écriture, pages, menus, extensions. Selon votre configuration, il peut vous demander de terminer la connexion ou d'autoriser l'outil : validez. Si la liste revient vide, c'est presque toujours l'étape 4 ou le redémarrage oublié.</p>
+
+      <div class="callout callout--info">
+        <p class="callout-t">Autoriser une fois ou toujours ?</p>
+        <p>Claude demande la permission avant d'utiliser un outil. « Toujours autoriser » est confortable pour la lecture. Pour tout ce qui écrit sur le site, je garde la validation à chaque appel : c'est elle qui montre exactement ce que Claude s'apprête à modifier.</p>
+      </div>
+
+      <h2>Ce que Claude sait faire une fois branché</h2>
+
+      <p>Avec Enable Abilities for MCP, les capacités se rangent en six familles. Ce qui est disponible dépend de ce que vous avez coché et des extensions installées sur le site.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Famille</th><th>Ce que vous pouvez demander</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Lire</td><td>Lister les articles par statut, catégorie ou mot-clé, ouvrir un article avec son contenu, ses métadonnées SEO et son image à la une</td></tr>
+            <tr><td>Rédiger et publier</td><td>Créer, modifier ou dupliquer un article ou une page, en brouillon ou publié, avec catégories et étiquettes</td></tr>
+            <tr><td>Menus</td><td>Lister les menus, ajouter une page ou un lien, réordonner les éléments, assigner un emplacement du thème</td></tr>
+            <tr><td>SEO</td><td>Lire et modifier titres SEO et méta-descriptions via Yoast, Rank Math ou SEOPress</td></tr>
+            <tr><td>Médias et commentaires</td><td>Importer une image depuis une URL, modérer les commentaires et y répondre</td></tr>
+            <tr><td>Utilitaires</td><td>Statistiques du site, rechercher-remplacer dans les contenus, modifier un champ personnalisé</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>L'extension a même un module dédié au fichier <a href="/blog/llms-txt">llms.txt</a>, ce fichier qui présente votre site aux moteurs de réponse.</p>
+
+      <h3>Cinq demandes qui marchent dès le premier jour</h3>
+
+      <ul>
+        <li><strong>L'inventaire :</strong> « Liste les 20 derniers articles publiés avec leur titre SEO et leur méta-description, et signale celles qui manquent ou dépassent 155 caractères. »</li>
+        <li><strong>Le brouillon :</strong> « Crée un brouillon à partir du texte ci-dessous, dans la catégorie Guides, avec un H2 par partie. Ne publie rien. »</li>
+        <li><strong>Le maillage :</strong> « Trouve les articles qui parlent de [sujet] et propose trois liens internes à ajouter dans chacun, sans rien modifier. »</li>
+        <li><strong>Le ménage :</strong> « Liste les brouillons qui n'ont pas été modifiés depuis plus de six mois. »</li>
+        <li><strong>Le menu :</strong> « Ajoute la page Contact à la fin du menu principal. »</li>
+      </ul>
+
+      <p>Le principe est le même que pour n'importe quelle demande à un modèle : ce n'est pas la formule qui compte, c'est le <a href="/blog/contexte-vs-prompt">contexte que vous fournissez</a>. Dites quel contenu, quelle action, et ce qui doit rester intact. « Sans rien modifier » et « en brouillon » sont les deux mots les plus utiles de cette liste.</p>
+
+      <h2 id="depannage">Ça ne marche pas ? Les 8 causes les plus fréquentes</h2>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Symptôme</th><th>Cause probable</th><th>Solution</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Le connecteur échoue dès l'ajout</td><td>Une faute dans l'URL : espaces dans le mot de passe, <code>https://</code> dans le domaine, deux-points effacés</td><td>Reconstituez l'URL avec le générateur ci-dessus</td></tr>
+            <tr><td>Erreur 401, accès refusé</td><td>Mot de passe habituel au lieu du mot de passe d'application, ou compte non administrateur</td><td>Créez un mot de passe d'application sur un compte administrateur</td></tr>
+            <tr><td>Erreur 401 alors que tout est juste</td><td>Le serveur supprime l'en-tête d'authentification avant qu'il n'arrive à WordPress</td><td>Vérifiez le <code>.htaccess</code> (règle ci-dessous) ou demandez à l'hébergeur de transmettre l'en-tête <code>Authorization</code></td></tr>
+            <tr><td>Pas de bloc « Mots de passe d'application »</td><td>Site sans HTTPS, ou fonction coupée par une extension de sécurité</td><td>Passez le site en HTTPS, réactivez l'option dans l'extension de sécurité</td></tr>
+            <tr><td>Erreur 404 sur l'adresse</td><td>Permaliens réglés sur « Simple », ou plugin MCP Adapter désactivé</td><td><code>Réglages &gt; Permaliens</code> : choisissez « Titre de la publication », vérifiez que le plugin est actif</td></tr>
+            <tr><td>Claude ne joint pas le site</td><td>WordPress local, préproduction protégée par mot de passe, pare-feu ou CDN qui bloque les IP d'Anthropic</td><td>Testez sur un site en ligne, ou autorisez les plages d'IP d'Anthropic</td></tr>
+            <tr><td>Connecté, mais aucune action possible</td><td>Enable Abilities for MCP absente, capacités décochées, ou Claude pas redémarré</td><td>Vérifiez <code>Réglages &gt; WP Abilities</code>, quittez et relancez Claude</td></tr>
+            <tr><td>Impossible d'ajouter le connecteur</td><td>Plan gratuit qui a déjà un connecteur personnalisé</td><td>Supprimez l'ancien, ou passez à un plan payant</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>Le cas du 401 alors que l'URL est juste.</strong> Sur beaucoup d'hébergements Apache, l'en-tête qui transporte l'identifiant et le mot de passe est retiré avant d'atteindre WordPress. Depuis la version 5.6, WordPress ajoute lui-même la ligne qui corrige ça dans le <code>.htaccess</code>, mais les sites plus anciens ne l'ont souvent pas. Vérifiez que le bloc WordPress de votre fichier contient bien :</p>
+
+      <pre><code>RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]</code></pre>
+
+      <p>Le plus simple pour la faire apparaître : <code>Réglages &gt; Permaliens</code>, puis <strong>Enregistrer les modifications</strong> sans rien changer. WordPress réécrit alors son bloc. Si vous éditez le fichier à la main, faites-en une copie avant : une erreur de syntaxe met tout le site hors ligne. Sur un serveur Nginx, c'est à l'hébergeur de régler la transmission de l'en-tête.</p>
+
+      <p>Pour savoir si le problème vient de WordPress ou de Claude, un test en ligne de commande tranche en dix secondes :</p>
+
+      <pre><code>curl -u "identifiant:motdepasseapplication" https://www.monsite.fr/wp-json/wp/v2/users/me</code></pre>
+
+      <p>Si la réponse contient votre profil, l'authentification fonctionne et le problème est dans l'URL du connecteur. Si elle renvoie une erreur 401, il est côté site ou hébergement.</p>
+
+      <h2>Sécurité : ce que ce mot de passe ouvre vraiment</h2>
+
+      <p>Le mot de passe d'application donne à qui le détient les droits de votre compte administrateur sur l'API du site. Et l'URL du connecteur le contient en clair. Traitez-la donc comme un mot de passe : ni dans un message, ni dans un ticket, ni dans une capture d'écran.</p>
+
+      <ul>
+        <li><strong>Un compte dédié.</strong> Créez un utilisateur administrateur réservé à Claude, avec son propre mot de passe d'application. Tout ce que Claude fait apparaît sous ce nom dans l'historique des révisions, et couper l'accès revient à supprimer ce compte, sans toucher au vôtre.</li>
+        <li><strong>Révoquer.</strong> Dans <code>Comptes &gt; Profil &gt; Mots de passe d'application</code>, chaque mot de passe affiche sa date de dernière utilisation et un bouton <strong>Révoquer</strong>. Le connecteur ne sert plus ? Révoquez.</li>
+        <li><strong>Le moindre droit.</strong> Ne cochez dans <code>WP Abilities</code> que les capacités dont vous avez besoin. Une capacité désactivée ne peut pas être mal utilisée.</li>
+        <li><strong>Les contenus sont des données, pas des ordres.</strong> Claude lit ce qui se trouve sur votre site, y compris les commentaires laissés par n'importe qui. Un texte piégé peut tenter de détourner le modèle : c'est le principe de l'injection de prompt. D'où la validation manuelle des outils d'écriture.</li>
+        <li><strong>Une sauvegarde avant.</strong> Évident, mais ça mérite d'être écrit : une sauvegarde récente avant la première session d'écriture, et un test sur une copie du site si vous en avez une.</li>
+      </ul>
+
+      <p>Pour une équipe, il existe une variante sans mot de passe dans l'URL. D'après sa documentation, Enable Abilities for MCP embarque désormais un serveur OAuth pensé pour les connecteurs de claude.ai : chaque personne se connecte avec son propre compte WordPress et son propre rôle. La méthode de la vidéo reste la plus rapide quand vous gérez le site seul ; dès que plusieurs personnes s'en servent, c'est cette variante que je regarde en premier.</p>
+
+      <h2>Et avec Claude Code, ou un WordPress en local ?</h2>
+
+      <p>Le connecteur personnalisé passe par les serveurs d'Anthropic, d'où l'obligation d'un site en ligne. Pour un WordPress installé sur votre machine, ou pour travailler depuis <a href="/blog/claude-code">Claude Code</a>, le MCP Adapter prévoit deux autres voies, documentées sur le blog développeurs de WordPress.</p>
+
+      <p><strong>Le relais HTTP.</strong> Le paquet <code>@automattic/mcp-wordpress-remote</code> tourne avec Node.js sur votre ordinateur et reçoit l'adresse du serveur, l'identifiant et le mot de passe d'application. Dans Claude Code, une commande suffit :</p>
+
+      <pre><code>claude mcp add --transport stdio \
+  --env WP_API_URL=https://www.monsite.fr/wp-json/mcp/mcp-adapter-default-server \
+  --env WP_API_USERNAME=identifiant \
+  --env WP_API_PASSWORD=motdepasseapplication \
+  wordpress -- npx -y @automattic/mcp-wordpress-remote@latest</code></pre>
+
+      <p>La même configuration se déclare dans le fichier <code>claude_desktop_config.json</code> de Claude Desktop, avec les trois mêmes variables.</p>
+
+      <p><strong>WP-CLI en direct.</strong> Si le site tourne sur votre machine avec WP-CLI installé, Claude peut lancer le serveur lui-même, sans passer par le réseau : la commande est <code>wp mcp-adapter serve --server=mcp-adapter-default-server --user=admin</code>, avec <code>--path</code> vers le dossier du site.</p>
+
+      <h2>Ce que ça change dans mon travail</h2>
+
+      <p>Je m'en sers surtout pour les tâches de fond qui ne méritent pas une demi-journée : passer en revue les méta-descriptions d'un blog entier, poser les liens internes d'un nouvel article, préparer des brouillons déjà au bon format. Le MCP fait gagner le temps des clics, pas celui de la réflexion : décider quoi publier, pour qui et pourquoi reste votre travail.</p>
+
+      <p>C'est le même branchement que j'ai montré avec <a href="/blog/screaming-frog-mcp">le MCP de Screaming Frog</a> pour les crawls, appliqué cette fois au CMS. Et si vous voulez aller plus loin que le connecteur, avec des automatisations qui tiennent en production sur vos propres outils, c'est tout le sujet de l'<a href="/automatisation-ia">automatisation IA</a>.</p>
+
+      <section class="faq">
+        <h2>Questions fréquentes</h2>
+
+        <details>
+          <summary>Comment connecter WordPress à Claude ?</summary>
+          <div class="faq-a"><p>Il faut WordPress 6.9 ou plus récent, un compte administrateur et un site en ligne en HTTPS. Installez le plugin MCP Adapter (fichier mcp-adapter.zip de la dernière release GitHub), créez un mot de passe d'application dans votre profil WordPress, puis ajoutez dans Claude un connecteur personnalisé avec l'URL https://identifiant:MOT_DE_PASSE_APP@domaine/wp-json/mcp/mcp-adapter-default-server. Ajoutez l'extension Enable Abilities for MCP pour que Claude puisse lire et modifier le contenu, puis redémarrez Claude.</p></div>
+        </details>
+
+        <details>
+          <summary>Le MCP WordPress est-il gratuit ?</summary>
+          <div class="faq-a"><p>Oui. Le plugin MCP Adapter et l'extension Enable Abilities for MCP sont gratuits, et l'Abilities API fait partie de WordPress depuis la version 6.9. Côté Claude, le plan gratuit accepte un connecteur personnalisé, ce qui suffit pour brancher un site. Les plans payants lèvent cette limite et offrent davantage d'usage.</p></div>
+        </details>
+
+        <details>
+          <summary>Faut-il être administrateur du site WordPress ?</summary>
+          <div class="faq-a"><p>Oui. Avec un compte éditeur, auteur ou contributeur, la connexion ne fonctionne pas : le mot de passe d'application doit être créé sur un compte administrateur. Pour garder une trace claire de ce que fait Claude, l'idéal est un compte administrateur qui lui est dédié, que vous pouvez supprimer sans toucher au vôtre.</p></div>
+        </details>
+
+        <details>
+          <summary>Quelle URL mettre dans le connecteur personnalisé de Claude ?</summary>
+          <div class="faq-a"><p>Le modèle est https://identifiant:MOT_DE_PASSE_APP@domaine/wp-json/mcp/mcp-adapter-default-server. Remplacez identifiant par votre identifiant WordPress (le champ grisé du profil), MOT_DE_PASSE_APP par le mot de passe d'application sans les espaces, en gardant les deux-points qui le précèdent, et domaine par le nom de domaine seul, sans https:// ni barre oblique finale.</p></div>
+        </details>
+
+        <details>
+          <summary>Pourquoi Claude n'arrive-t-il pas à se connecter à mon site WordPress ?</summary>
+          <div class="faq-a"><p>Dans la plupart des cas, c'est l'URL : espaces laissés dans le mot de passe, https:// conservé dans le domaine ou deux-points effacés. Viennent ensuite le compte non administrateur, le site sans HTTPS, une extension de sécurité qui bloque les mots de passe d'application, un hébergeur qui supprime l'en-tête Authorization, et les sites locaux ou protégés, que les serveurs d'Anthropic ne peuvent pas joindre.</p></div>
+        </details>
+
+        <details>
+          <summary>Claude peut-il modifier mon site WordPress ?</summary>
+          <div class="faq-a"><p>Oui, avec l'extension Enable Abilities for MCP. Sans elle, Claude est connecté mais n'a presque aucune action disponible. Avec elle, il peut lire, créer et modifier articles, pages, menus, catégories et métadonnées SEO, dans la limite des capacités cochées dans Réglages, WP Abilities, et des droits du compte connecté.</p></div>
+        </details>
+
+        <details>
+          <summary>Est-ce risqué de donner à Claude un accès administrateur ?</summary>
+          <div class="faq-a"><p>Le risque est réel, et il se maîtrise. Le mot de passe d'application donne les droits du compte : ne le partagez jamais, révoquez-le dans votre profil dès qu'il ne sert plus, n'activez que les capacités utiles et gardez la validation manuelle pour les actions d'écriture. Faites une sauvegarde avant la première session, et méfiez-vous des contenus que Claude lit sur le site, comme les commentaires, qui peuvent contenir des instructions piégées.</p></div>
+        </details>
+
+        <details>
+          <summary>Est-il possible d'utiliser le MCP WordPress avec Claude Code ou un site en local ?</summary>
+          <div class="faq-a"><p>Oui, mais pas avec le connecteur personnalisé, qui passe par les serveurs d'Anthropic et exige un site accessible en ligne. Pour Claude Code ou Claude Desktop, le relais @automattic/mcp-wordpress-remote se lance avec Node.js et reçoit l'adresse du serveur, l'identifiant et le mot de passe d'application. Pour un site installé sur votre machine, le MCP Adapter fonctionne aussi en direct avec WP-CLI.</p></div>
+        </details>
+
+      </section>
+
+      <!-- ================= CTA ================= -->
+      <div class="cta-band">
+        <div>
+          <h2>Brancher l'IA sur votre site, sans casser la prod</h2>
+          <p>WordPress, CRM, exports, outils métier : je conçois les automatisations qui tiennent en production, avec les bons garde-fous, et je forme l'équipe qui s'en servira.</p>
+        </div>
+        <a class="btn btn-lime" href="/automatisation-ia">Voir comment je procède <span class="ar">→</span></a>
+      </div>
+
+      <div class="author-box">
+        <img src="/images/anthony.avif" alt="Anthony Courtin" width="88" height="88" loading="lazy">
+        <div>
+          <p class="eyebrow">Écrit par</p>
+          <h3>Anthony Courtin</h3>
+          <p class="author-role">Consultant SEO, GEO &amp; automatisation IA</p>
+          <p class="author-bio">J'accompagne des PME et des indépendants sur la visibilité (Google, ChatGPT, Perplexity) et sur l'usage réel de l'IA au travail. J'interviens en entreprise pour former les équipes et repenser les process. Tout ce que j'écris ici, je l'utilise en mission.</p>
+          <div class="author-links">
+            <a class="li" href="https://www.linkedin.com/in/anthony-courtin/" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46zM5.34 7.43a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56z"/></svg>
+              Me suivre sur LinkedIn
+            </a>
+            <a class="yt" href="https://www.youtube.com/@AnthonyCourtin4" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.88.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></svg>
+              Ma chaîne YouTube
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <section class="reviews" data-slug="mcp-wordpress" data-reviews="[]">
+        <h2>Avis des lecteurs</h2>
+        <p class="rv-sub">Cet article vous a servi ? Dites-le, ça aide les suivants.</p>
+        <form class="rv-form" name="avis" method="POST" data-netlify="true" netlify-honeypot="societe" action="/merci">
+          <input type="hidden" name="form-name" value="avis">
+          <input type="hidden" name="article" value="mcp-wordpress">
+          <p class="rv-hp"><label>Ne remplissez pas ce champ : <input name="societe" tabindex="-1" autocomplete="off"></label></p>
+
+          <h3>Notez cet article</h3>
+
+          <fieldset class="rating-field">
+            <legend>Votre note</legend>
+            <div class="rating">
+              <input type="radio" id="n5" name="note" value="5"><label for="n5" aria-label="5 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n4" name="note" value="4"><label for="n4" aria-label="4 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n3" name="note" value="3"><label for="n3" aria-label="3 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n2" name="note" value="2"><label for="n2" aria-label="2 étoiles"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+              <input type="radio" id="n1" name="note" value="1"><label for="n1" aria-label="1 étoile"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6.05 6.6.9-4.8 4.6 1.2 6.55L12 17.5l-5.9 3.1 1.2-6.55L2.5 9.45l6.6-.9z"/></svg></label>
+            </div>
+          </fieldset>
+
+          <div class="field">
+            <label for="rv-nom">Prénom <span class="hint">(facultatif)</span></label>
+            <input type="text" id="rv-nom" name="nom" maxlength="60" autocomplete="given-name">
+          </div>
+
+          <div class="field">
+            <label for="rv-texte">Votre commentaire <span class="hint">(facultatif)</span></label>
+            <textarea id="rv-texte" name="texte" rows="4" maxlength="2000"></textarea>
+          </div>
+
+          <div class="rv-msg" id="rv-msg" role="status"></div>
+          <div><button type="submit" class="btn-sm primary">Publier mon avis</button></div>
+        </form>
+
+        <div class="rv-published">
+          <h3 class="rv-published-title">Ce qu'en disent les lecteurs</h3>
+
+          <div class="rv-summary">
+            <span class="rv-avg" id="rv-avg"></span>
+            <span class="stars" id="rv-stars" aria-hidden="true"></span>
+            <span class="rv-count" id="rv-count">Aucun avis pour le moment.</span>
+          </div>
+
+          
+
+          <div class="rv-list" id="rv-list"></div>
+          <p class="rv-empty" id="rv-empty">Soyez le premier à donner votre avis.</p>
+        </div>
+
+      </section>
+
+    </article>
+  </div>
+
+  <!-- ---------- COLONNE DROITE : résumé IA + articles liés ---------- -->
+  <aside class="rail rail-right">
+    <div class="ai-box">
+      <p class="ai-title"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true"><path d="M12 2l1.6 4.6L18 8.2l-4.4 1.6L12 14l-1.6-4.2L6 8.2l4.4-1.6zM5 14l.9 2.5L8 17.4l-2.1.9L5 21l-.9-2.7L2 17.4l2.1-.9zm14 1l.8 2.2 2.2.8-2.2.8L19 22l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Résumé IA</p>
+      <p class="ai-text">Le MCP WordPress relie Claude à un site WordPress grâce au plugin officiel MCP Adapter, à un mot de passe d'application et à un connecteur personnalisé. L'extension Enable Abilities for MCP ouvre la lecture et l'écriture des articles, pages et menus. Il faut WordPress 6.9 ou plus, un compte administrateur et un site en ligne en HTTPS.</p>
+      <p class="ai-note">Synthèse rédigée à partir de l'article.</p>
+    </div>
+
+    <div class="rail-recent">
+      <p class="rail-title">Dans la même catégorie</p>
+      <div class="mini-list">
+        <a class="mini" href="/blog/mcp-model-context-protocol">
+          <span class="mini-thumb"><picture><source srcset="/images/blog/mcp-cover.avif" type="image/avif"><img src="/images/blog/mcp-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">MCP IA : c'est quoi un serveur MCP et comment l'utiliser</span></span>
+        </a>
+        <a class="mini" href="/blog/screaming-frog-mcp">
+          <span class="mini-thumb"><picture><source srcset="/images/blog/screaming-frog-mcp-cover.avif" type="image/avif"><img src="/images/blog/screaming-frog-mcp-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
+          <span><span class="mini-cat">SEO</span><span class="mini-ttl">MCP Screaming Frog : connecter Claude à vos crawls</span></span>
+        </a>
+        <a class="mini" href="/blog/claude-ai-gratuit">
+          <span class="mini-thumb"><picture><source srcset="/images/blog/claude-ai-gratuit-cover.avif" type="image/avif"><img src="/images/blog/claude-ai-gratuit-cover.webp" alt="" width="52" height="52" loading="lazy" decoding="async"></picture></span>
+          <span><span class="mini-cat">Utiliser l'IA</span><span class="mini-ttl">Claude AI gratuit : ce que vous pouvez vraiment en faire</span></span>
+        </a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- ================= ARTICLES LIÉS ================= -->
+<section class="related">
+  <div class="wrap">
+    <h2>À lire ensuite</h2>
+    <p class="sub">La suite logique du parcours.</p>
+    <div class="rel-grid">
+      <a class="rel-card" href="/blog/mcp-model-context-protocol">
+        <picture><source srcset="/images/blog/mcp-cover.avif" type="image/avif"><img src="/images/blog/mcp-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
+        <div class="rel-body">
+          <span class="rel-cat">Utiliser l'IA</span>
+          <h3>MCP IA : c'est quoi un serveur MCP et comment l'utiliser</h3>
+          <p>Le protocole derrière le branchement : client, serveur, outils, et les autres serveurs à ajouter à Claude.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="/blog/screaming-frog-mcp">
+        <picture><source srcset="/images/blog/screaming-frog-mcp-cover.avif" type="image/avif"><img src="/images/blog/screaming-frog-mcp-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
+        <div class="rel-body">
+          <span class="rel-cat">SEO</span>
+          <h3>MCP Screaming Frog : connecter Claude à vos crawls</h3>
+          <p>Le même principe appliqué au crawl : Claude lance l'analyse et sort les exports à votre place.</p>
+        </div>
+      </a>
+      <a class="rel-card" href="/blog/claude-code">
+        <picture><source srcset="/images/blog/claude-code-cover.avif" type="image/avif"><img src="/images/blog/claude-code-cover.webp" alt="" width="1376" height="768" loading="lazy" decoding="async"></picture>
+        <div class="rel-body">
+          <span class="rel-cat">Utiliser l'IA</span>
+          <h3>Installer Claude Code : le tuto pas à pas sur Mac, Windows et Linux</h3>
+          <p>Pour piloter WordPress depuis le terminal, avec le relais MCP décrit plus haut.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="foot-logo" href="/"><img src="/images/logo-transparent-pine.svg" alt="anthony courtin" width="98" height="48"></a>
+        <p style="color:var(--ink-2);font-size:.95rem;margin-top:12px;max-width:280px">Consultant SEO, GEO &amp; automatisation IA. Interventions partout en France.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul><li><a href="/seo">SEO</a></li><li><a href="/geo">GEO, visibilité IA</a></li><li><a href="/automatisation-ia">Automatisation IA</a></li><li><a href="/tarifs">Tarifs</a></li></ul>
+      </div>
+      <div>
+        <h4>Ressources</h4>
+        <ul><li><a href="/blog/">Blog</a></li><li><a href="/videos">Vidéos</a></li><li><a href="/realisations">Réalisations</a></li><li><a href="/a-propos">À propos</a></li></ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul><li><a href="/contact">Formulaire</a></li><li><a href="mailto:anthony@astrak.agency">anthony@astrak.agency</a></li><li><a href="https://www.linkedin.com/in/anthony-courtin/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://www.youtube.com/@AnthonyCourtin4" target="_blank" rel="noopener">YouTube</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Anthony Courtin</span>
+      <span class="foot-links"><a href="/mentions-legales">Mentions légales</a><span aria-hidden="true">·</span><a href="/confidentialite">Confidentialité</a><span aria-hidden="true">·</span><button type="button" class="foot-cc" data-gerer-cookies>Gérer mes cookies</button></span>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/site.js?v=7" defer></script>
+<script src="/js/consentement.js?v=1" defer></script>
+<script src="/js/blog-article.js?v=4" defer></script>
+
+<!-- Outil interactif propre à cet article -->
+<script src="/js/mcp-wordpress-tool.js?v=1" defer></script>
+
+</body>
+</html>
